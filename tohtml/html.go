@@ -252,7 +252,7 @@ func (c *Converter) RenderInline(ts *notionapi.TextSpan) {
 			text = ""
 		case notionapi.AttrUser:
 			userID := notionapi.AttrGetUserID(attr)
-			userName := notionapi.ResolveUser(c.Page, userID)
+			userName := notionapi.GetUserNameByID(c.Page, userID)
 			start += fmt.Sprintf(`<span class="notion-user">@%s</span>`, userName)
 			text = ""
 		case notionapi.AttrDate:
@@ -613,38 +613,14 @@ func (c *Converter) RenderNotImplemented(block *notionapi.Block) {
 	c.Printf("<div>TODO: '%s' NYI!</div>", block.Type)
 }
 
-func getColumns(view *notionapi.Block) []*notionapi.TableProperty {
-	if view.Type == notionapi.BlockTable {
-		format := view.FormatTable()
-		return format.TableProperties
-	} else if view.Type == notionapi.BlockList {
-		format := view.FormatList()
-		return format.ListProperties
-	} else {
-		logf("unexpected block type '%s' in block '%s', wanted 'list' or 'table'\n", view.ID, view.Type)
-		return nil
-	}
-}
-
 // RenderCollectionView renders BlockCollectionView
 func (c *Converter) RenderCollectionView(block *notionapi.Block) {
-	viewInfo := block.CollectionViews[0]
-	//collection := viewInfo.Collection
-	//schema := collection.CollectionSchema
-	/*
-		if view.Format == nil {
-			id := ""
-			if c.Page != nil {
-				id = notionapi.ToNoDashID(c.Page.ID)
-			}
-			logf("missing view.Format for block %s %s in page %s\n", block.ID, block.Type, id)
-			return
-		}
-		columns := view.Format.TableProperties
-	*/
-	columns := getColumns(viewInfo.CollectionView)
-	if len(columns) == 0 {
-		logf("didn't find columns in block '%s'\n", viewInfo.CollectionView.ID)
+	tv := block.TableViews[0]
+
+	nCols := tv.ColumnCount()
+
+	if nCols == 0 {
+		logf("didn't find columns in block '%s'\n", tv.CollectionView.ID)
 		return
 	}
 
@@ -656,15 +632,14 @@ func (c *Converter) RenderCollectionView(block *notionapi.Block) {
 
 	c.Printf("<tr>\n")
 
-	for _, col := range columns {
-		colName := col.Property
-		colInfo := viewInfo.Collection.CollectionSchema[colName]
-		if colInfo != nil {
-			name := colInfo.Name
-			c.Printf(`<th>` + html.EscapeString(name) + "</th>\n")
-		} else {
-			c.Printf(`<th>&nbsp;` + "</th>\n")
+	for col := 0; col < nCols; col++ {
+		name := "&nbsp;"
+		ci := tv.Columns[col]
+		if ci != nil {
+			name = ci.Name()
+			name = html.EscapeString(name)
 		}
+		c.Printf("<th>%s</th>\n", name)
 	}
 	c.Printf("</tr>\n")
 
@@ -672,20 +647,14 @@ func (c *Converter) RenderCollectionView(block *notionapi.Block) {
 
 	c.Printf("<tbody>\n")
 
-	for _, row := range viewInfo.CollectionRows {
+	nRows := tv.RowCount()
+	for row := 0; row < nRows; row++ {
 		c.Printf("<tr>\n")
-
-		props := row.Properties
-		for _, col := range columns {
-			colName := col.Property
-			v := props[colName]
+		for col := 0; col < nCols; col++ {
+			textSpans := tv.CellContent(row, col)
 			//fmt.Printf("inline: '%s'\n", fmt.Sprintf("%v", v))
-			inlineContent, err := notionapi.ParseTextSpans(v)
-			if err != nil {
-				maybePanic("ParseTextSpans of '%v' failed with %s\n", v, err)
-			}
 			//pretty.Print(inlineContent)
-			colVal := c.GetInlineContent(inlineContent)
+			colVal := c.GetInlineContent(textSpans)
 			//fmt.Printf("colVal: '%s'\n", colVal)
 			//colInfo := viewInfo.Collection.CollectionSchema[colName]
 			// TODO: format colVal according to colInfo
