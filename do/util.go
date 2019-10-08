@@ -11,8 +11,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
-
-	"github.com/dustin/go-humanize"
 )
 
 var (
@@ -157,8 +155,7 @@ func writeFile(path string, data []byte) {
 func ls(path string) {
 	fi, err := os.Stat(path)
 	must(err)
-	sizeStr := humanize.Bytes(uint64(fi.Size()))
-	fmt.Printf("%s %s\n", path, sizeStr)
+	fmt.Printf("%s %d\n", path, fi.Size())
 }
 
 func cpFile(dstPath, srcPath string) {
