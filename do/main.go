@@ -4,6 +4,8 @@ import (
 	"flag"
 	"os"
 	"os/exec"
+
+	"github.com/kjk/u"
 )
 
 var (
@@ -49,8 +51,8 @@ func previewStatic() {
 }
 
 func main() {
-	cdUpDir("blog")
-	logf("currDir: '%s'\n", currDirAbs())
+	u.CdUpDir("blog")
+	logf("currDir: '%s'\n", u.CurrDirAbsMust())
 
 	parseFlags()
 

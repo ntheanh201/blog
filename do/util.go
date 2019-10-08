@@ -11,6 +11,8 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	"github.com/kjk/u"
 )
 
 var (
@@ -22,28 +24,6 @@ func must(err error) {
 		fmt.Printf("err: %s\n", err)
 		panic(err)
 	}
-}
-
-func assert(ok bool, format string, args ...interface{}) {
-	if ok {
-		return
-	}
-	s := fmt.Sprintf(format, args...)
-	panic(s)
-}
-
-func panicIf(cond bool, args ...interface{}) {
-	if !cond {
-		return
-	}
-	if len(args) == 0 {
-		panic("condition failed")
-	}
-	format := args[0].(string)
-	if len(args) == 1 {
-		panic(format)
-	}
-	panic(fmt.Sprintf(format, args[1:]...))
 }
 
 // a centralized place allows us to tweak logging, if need be
@@ -61,94 +41,9 @@ func logf(format string, args ...interface{}) {
 	}
 }
 
-// openBrowsers open web browser with a given url
-// (can be http:// or file://)
-func openBrowser(url string) {
-	var err error
-	switch runtime.GOOS {
-	case "linux":
-		err = exec.Command("xdg-open", url).Start()
-	case "windows":
-		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
-	case "darwin":
-		err = exec.Command("open", url).Start()
-	default:
-		err = fmt.Errorf("unsupported platform")
-	}
-	must(err)
-}
-
-func getHomeDir() string {
-	s, err := os.UserHomeDir()
-	must(err)
-	return s
-}
-
-// absolute path of the current directory
-func currDirAbs() string {
-	dir, err := filepath.Abs(".")
-	must(err)
-	return dir
-}
-
-// we are executed for do/ directory so top dir is parent dir
-func cdUpDir(dirName string) {
-	startDir := currDirAbs()
-	dir := startDir
-	for {
-		// we're already in top directory
-		if filepath.Base(dir) == dirName {
-			err := os.Chdir(dir)
-			must(err)
-			return
-		}
-		parentDir := filepath.Dir(dir)
-		panicIf(dir == parentDir, "invalid startDir: '%s', dir: '%s'", startDir, dir)
-		dir = parentDir
-	}
-}
-
-func fileExists(path string) bool {
-	st, err := os.Stat(path)
-	if err != nil {
-		return false
-	}
-	return st.Mode().IsRegular()
-}
-
-func dirExists(path string) bool {
-	st, err := os.Stat(path)
-	if err != nil {
-		return false
-	}
-	return st.Mode().IsDir()
-}
-
 func recreateDir(dir string) {
 	_ = os.RemoveAll(dir)
 	err := os.MkdirAll(dir, 0755)
-	must(err)
-}
-
-func removeFilesInDir(dir string) {
-	err := os.MkdirAll(dir, 0755)
-	must(err)
-	files, err := ioutil.ReadDir(dir)
-	if err != nil {
-		return
-	}
-	for _, fi := range files {
-		if !fi.Mode().IsRegular() {
-			continue
-		}
-		path := filepath.Join(dir, fi.Name())
-		err = os.Remove(path)
-		must(err)
-	}
-}
-
-func writeFile(path string, data []byte) {
-	err := ioutil.WriteFile(path, data, 0644)
 	must(err)
 }
 
@@ -156,13 +51,6 @@ func ls(path string) {
 	fi, err := os.Stat(path)
 	must(err)
 	fmt.Printf("%s %d\n", path, fi.Size())
-}
-
-func cpFile(dstPath, srcPath string) {
-	d, err := ioutil.ReadFile(srcPath)
-	must(err)
-	err = ioutil.WriteFile(dstPath, d, 0666)
-	must(err)
 }
 
 func removeFile(path string) {
@@ -178,19 +66,9 @@ func removeFile(path string) {
 	fmt.Printf("os.Remove('%s') failed with '%s'\n", path, err)
 }
 
-func readFile(path string) []byte {
-	d, err := ioutil.ReadFile(path)
-	must(err)
-	return d
-}
-
-func fileClose(f io.Closer) {
-	_ = f.Close()
-}
-
 func areFilesEuqal(path1, path2 string) bool {
-	d1 := readFile(path1)
-	d2 := readFile(path2)
+	d1 := u.ReadFileMust(path1)
+	d2 := u.ReadFileMust(path2)
 	return bytes.Equal(d1, d2)
 }
 
@@ -269,7 +147,7 @@ func checkGitClean(dir string) {
 func readZipFile(path string) map[string][]byte {
 	r, err := zip.OpenReader(path)
 	must(err)
-	defer fileClose(r)
+	defer u.FileClose(r)
 	res := map[string][]byte{}
 	for _, f := range r.File {
 		rc, err := f.Open()
@@ -319,7 +197,7 @@ func createZipFile(dst string, baseDir string, toZip ...string) {
 	fmt.Printf("Creating zip file %s\n", dst)
 	w, err := os.Create(dst)
 	must(err)
-	defer fileClose(w)
+	defer u.FileClose(w)
 	zw := zip.NewWriter(w)
 	must(err)
 	for _, name := range toZip {
