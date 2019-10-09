@@ -25,34 +25,34 @@ func parseFlags() {
 
 func build() {
 	cmd := exec.Command("go", "build", "-o", "blog_app.exe", ".")
-	runCmd(cmd)
+	u.RunCmdMust(cmd)
 }
 
 func preview() {
 	exeName := "./blog_app.exe"
 	cmd := exec.Command("go", "build", "-o", exeName, ".")
-	runCmd(cmd)
+	u.RunCmdMust(cmd)
 	cmd = exec.Command(exeName, "-preview-on-demand")
 	defer os.Remove(exeName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	runCmd(cmd)
+	u.RunCmdMust(cmd)
 }
 
 func previewStatic() {
 	exeName := "./blog_app.exe"
 	cmd := exec.Command("go", "build", "-o", exeName, ".")
-	runCmd(cmd)
+	u.RunCmdMust(cmd)
 	cmd = exec.Command(exeName, "-preview")
 	defer os.Remove(exeName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	runCmd(cmd)
+	u.RunCmdMust(cmd)
 }
 
 func main() {
 	u.CdUpDir("blog")
-	logf("currDir: '%s'\n", u.CurrDirAbsMust())
+	u.Logf("currDir: '%s'\n", u.CurrDirAbsMust())
 
 	parseFlags()
 
