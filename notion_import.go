@@ -40,8 +40,10 @@ func findImageInDir(imgDir string, sha1 string) string {
 
 func guessExt(fileName string, contentType string) string {
 	ext := strings.ToLower(filepath.Ext(fileName))
+	// TODO: maybe allow every non-empty extension. This
+	// white-listing might not be a good idea
 	switch ext {
-	case ".png", ".jpg", ".jpeg":
+	case ".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".tiff", ".svg":
 		return ext
 	}
 
@@ -51,6 +53,8 @@ func guessExt(fileName string, contentType string) string {
 		return ".png"
 	case "image/jpeg":
 		return ".jpg"
+	case "image/svg+xml":
+		return ".svg"
 	}
 	panic(fmt.Errorf("didn't find ext for file '%s', content type '%s'", fileName, contentType))
 }
