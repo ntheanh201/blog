@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"html"
 	"strconv"
 	"strings"
 
-	"github.com/kjk/blog/tohtml"
 	"github.com/kjk/notionapi"
+	"github.com/kjk/notionapi/tohtml"
 )
 
 // Converter renders article as html
@@ -24,41 +23,6 @@ type Converter struct {
 func (c *Converter) maybeGetID(block *notionapi.Block) string {
 	return notionapi.ToNoDashID(block.ID)
 }
-
-/*
-func (c *Converter) WriteElement(block *notionapi.Block, tag string, attrs []string, content string, entering bool) {
-	if !entering {
-		if !isSelfClosing(tag) {
-			c.r.Printf("</" + tag + ">")
-			c.r.Newline()
-		}
-		return
-	}
-
-	s := "<" + tag
-	nAttrs := len(attrs) / 2
-	for i := 0; i < nAttrs; i++ {
-		a := attrs[i*2]
-		// TODO: quote value if necessary
-		v := attrs[i*2+1]
-		s += fmt.Sprintf(` %s="%s"`, a, v)
-	}
-	id := c.r.maybeGetID(block)
-	if id != "" {
-		s += ` id="` + id + `"`
-	}
-	s += ">"
-	c.r.Printf(s)
-	c.r.Newline()
-	if len(content) > 0 {
-		c.r.Printf(content)
-		c.r.Newline()
-	} else {
-		c.r.RenderInlines(block.InlineContent)
-	}
-	c.r.Newline()
-}
-*/
 
 // change https://www.notion.so/Advanced-web-spidering-with-Puppeteer-ea07db1b9bff415ab180b0525f3898f6
 // =>
@@ -167,18 +131,13 @@ func (c *Converter) RenderImage(block *notionapi.Block) bool {
 	relURL := im.relativeURL
 	imgURL := c.article.getImageBlockURL(block)
 	if imgURL != "" {
-		attrs := []string{"href", imgURL, "target", "_blank"}
-		c.r.WriteElement(block, "a", attrs, "", true)
+		c.r.Printf(`<a href="%s" target="_blank">`, imgURL)
 		{
-			attrs2 := []string{"class", "blog-img", "src", relURL}
-			c.r.WriteElement(block, "img", attrs2, "", true)
-			c.r.WriteElement(block, "img", attrs2, "", false)
+			c.r.Printf(`<img class="blog-img" src="%s">`, relURL)
 		}
-		c.r.WriteElement(block, "a", attrs, "", false)
+		c.r.Printf(`</a>`)
 	} else {
-		attrs := []string{"class", "blog-img", "src", relURL}
-		c.r.WriteElement(block, "img", attrs, "", false)
-		c.r.WriteElement(block, "img", attrs, "", true)
+		c.r.Printf(`<img class="blog-img" src="%s">`, relURL)
 	}
 	return true
 }
@@ -197,13 +156,11 @@ func (c *Converter) RenderPage(block *notionapi.Block) bool {
 		cls = "page"
 	}
 
+	c.r.Printf(`<div class="%s">`, cls)
 	url, title := c.getURLAndTitleForBlock(block)
 	title = html.EscapeString(title)
-	content := fmt.Sprintf(`<a href="%s">%s</a>`, url, title)
-	attrs := []string{"class", cls}
-	// title = html.EscapeString(title)
-	c.r.WriteElement(block, "div", attrs, content, true)
-	c.r.WriteElement(block, "div", attrs, content, false)
+	c.r.Printf(`<a href="%s">%s</a>`, url, title)
+	c.r.Printf(`</div>`)
 	return true
 }
 
@@ -257,7 +214,8 @@ func NewHTMLConverter(c *notionapi.Client, article *Article) *Converter {
 
 // Gen returns generated HTML
 func (c *Converter) GenereateHTML() []byte {
-	inner := string(c.r.ToHTML())
+	inner, err := c.r.ToHTML()
+	must(err)
 	page := c.page.Root()
 	f := page.FormatPage()
 	isMono := f != nil && f.PageFont == "mono"
@@ -266,7 +224,7 @@ func (c *Converter) GenereateHTML() []byte {
 	if isMono {
 		s += `<div style="font-family: monospace">`
 	}
-	s += inner
+	s += string(inner)
 	if isMono {
 		s += `</div>`
 	}

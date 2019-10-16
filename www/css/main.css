@@ -265,13 +265,17 @@ See: https://timkadlec.com/2012/04/media-query-asset-downloading-results/
   text-align: right;
 }
 
-div.notion-wrap {
+div.indented {
   margin-left: 1em;
 }
 
-div.notion-text {
-  margin-block-start: 0em;
+div#post div {
+  margin-block-start: 0;
   margin-block-end: 1em;
+}
+
+div#post div.page {
+  margin-block-end: 0;
 }
 
 .notion-date {
