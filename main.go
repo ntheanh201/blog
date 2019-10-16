@@ -20,25 +20,8 @@ const (
 )
 
 var (
-	flgDeployDraft     bool
-	flgDeployProd      bool
-	flgPreview         bool
-	flgPreviewOnDemand bool
-	flgVerbose         bool
-	flgNoCache         bool
-	flgWc              bool
+	flgVerbose bool
 )
-
-func parseCmdLineFlags() {
-	flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
-	flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
-	flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
-	flag.BoolVar(&flgDeployDraft, "deploy-draft", false, "deploy to netlify as draft")
-	flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to netlify production")
-	flag.BoolVar(&flgPreview, "preview", false, "if true, runs caddy and opens a browser for preview")
-	flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "if true runs the browser for local preview")
-	flag.Parse()
-}
 
 func rebuildAll(d *caching_downloader.Downloader) *Articles {
 	regenMd()
@@ -133,11 +116,30 @@ func recreateDir(dir string) {
 }
 
 func main() {
-	parseCmdLineFlags()
-	recreateDir("netlify_static")
+	var (
+		flgDeployDraft     bool
+		flgDeployProd      bool
+		flgPreview         bool
+		flgPreviewOnDemand bool
+		flgNoCache         bool
+		flgWc              bool
+	)
+
+	{
+		flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
+		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
+		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
+		flag.BoolVar(&flgDeployDraft, "deploy-draft", false, "deploy to netlify as draft")
+		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to netlify production")
+		flag.BoolVar(&flgPreview, "preview", false, "if true, runs caddy and opens a browser for preview")
+		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "if true runs the browser for local preview")
+		flag.Parse()
+	}
 
 	openLog()
 	defer closeLog()
+
+	recreateDir("netlify_static")
 
 	client := newNotionClient()
 	cache, err := caching_downloader.NewDirectoryCache(cacheDir)
