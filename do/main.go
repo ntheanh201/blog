@@ -19,7 +19,7 @@ func build() {
 
 func runWithArgs(args ...string) {
 	build()
-	cmd := exec.Command(exeName, "-redownload-notion")
+	cmd := exec.Command(exeName, args...)
 	defer os.Remove(exeName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

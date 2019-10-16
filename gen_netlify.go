@@ -221,7 +221,7 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 		Tags:          buildTags(articles),
 	}
 
-	return execTemplate(path, tmplArchive, model, w)
+	return execTemplate(path, "archive.tmpl.html", model, w)
 }
 
 func skipTmplFiles(path string) bool {
@@ -255,7 +255,7 @@ func genIndex(store *Articles, w io.Writer) error {
 		Articles:      articles,
 		WebsiteHTML:   websiteIndexPage.HTMLBody,
 	}
-	return execTemplate("/index.html", tmplMainPage, model, w)
+	return execTemplate("/index.html", "mainpage.tmpl.html", model, w)
 }
 
 func genChangelog(store *Articles, w io.Writer) error {
@@ -287,7 +287,7 @@ func genChangelog(store *Articles, w io.Writer) error {
 		Article:       nil, // always nil
 		Articles:      articles,
 	}
-	return execTemplate("/changelog.html", tmplChangelog, model, w)
+	return execTemplate("/changelog.html", "changelog.tmpl.html", model, w)
 }
 
 func genPerTagArchives(store *Articles) {
@@ -370,14 +370,14 @@ func genArticle(article *Article, w io.Writer) error {
 	}
 	path := fmt.Sprintf("/article/%s.html", article.ID)
 	logVerbose("%s => %s, %s, %s\n", article.ID, path, article.URL(), article.Title)
-	return execTemplate(path, tmplArticle, model, w)
+	return execTemplate(path, "article.tmpl.html", model, w)
 }
 
 func genGoCookbook(store *Articles, w io.Writer) error {
 	// url: /book/go-cookbook.html
 	model := struct {
 	}{}
-	return execTemplate("/book/go-cookbook.html", tmplGoCookBook, model, w)
+	return execTemplate("/book/go-cookbook.html", "go-cookbook.tmpl.html", model, w)
 }
 
 /*
@@ -385,7 +385,7 @@ func genWindowsProgramming(store *Articles, w io.Writer) error {
 	// url: /book/windows-programming-in-go.html
 	model := struct {
 	}{}
-	return execTemplate("/book/go-cookbook.html", tmplGoCookBook, model, w)
+	return execTemplate("/book/go-cookbook.html", tmplGoC"go-cookbook.tmpl.html"ookBook, model, w)
 }
 */
 
@@ -430,7 +430,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	// make sure /tools/generate-unique-id is served as html
 	path := "/tools/generate-unique-id.html"
 	netlifyAddRewrite("/tools/generate-unique-id", path)
-	return execTemplate(path, tmplGenerateUniqueID, model, w)
+	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
 }
 
 func netlifyBuild(store *Articles) {

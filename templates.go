@@ -6,57 +6,17 @@ import (
 	"io"
 	"io/ioutil"
 	"path/filepath"
-
-	"github.com/kjk/u"
 )
 
 var (
-	tmplMainPage         = "mainpage.tmpl.html"
-	tmplArticle          = "article.tmpl.html"
-	tmplArchive          = "archive.tmpl.html"
-	tmplGenerateUniqueID = "generate-unique-id.tmpl.html"
-	tmplGoCookBook       = "go-cookbook.tmpl.html"
-	tmplChangelog        = "changelog.tmpl.html"
-	tmpl404              = "404.tmpl.html"
-	templateNames        = []string{
-		tmplMainPage,
-		tmplArticle,
-		tmplArchive,
-		tmplGenerateUniqueID,
-		tmplGoCookBook,
-		tmplChangelog,
-		tmpl404,
-		"analytics.tmpl.html",
-	}
-	templatePaths []string
-	templates     *template.Template
-
-	// dirs to search when looking for templates
-	tmplDirs = []string{
-		"www",
-		filepath.Join("www", "tmpl"),
-		filepath.Join("www", "tools"),
-		filepath.Join("www", "static"),
-	}
+	templates *template.Template
 )
 
-func findTemplate(name string) string {
-	for _, dir := range tmplDirs {
-		path := filepath.Join(dir, name)
-		if u.FileExists(path) {
-			return path
-		}
-	}
-	panicIf(true, "didn't find tamplate %s in dirs %v", name, tmplDirs)
-	return ""
-}
-
 func loadTemplates() {
-	for _, name := range templateNames {
-		path := findTemplate(name)
-		templatePaths = append(templatePaths, path)
-	}
-	templates = template.Must(template.ParseFiles(templatePaths...))
+	pattern := filepath.Join("www", "tmpl", "*.tmpl.html")
+	var err error
+	templates, err = template.ParseGlob(pattern)
+	must(err)
 }
 
 func execTemplateToFile(path string, templateName string, model interface{}) error {

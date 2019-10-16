@@ -76,7 +76,7 @@ func testNotionToHTMLOnePage(d *caching_downloader.Downloader, id string) {
 	}
 
 	var buf bytes.Buffer
-	err := templates.ExecuteTemplate(&buf, tmplArticle, model)
+	err := templates.ExecuteTemplate(&buf, "article.tmpl.html", model)
 	panicIfErr(err)
 	data := buf.Bytes()
 	data = bytes.Replace(data, []byte("/css/main.css"), []byte("/main.css"), -1)
