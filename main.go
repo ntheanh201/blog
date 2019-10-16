@@ -155,11 +155,15 @@ func main() {
 		return
 	}
 
+	doOpen := runtime.GOOS == "darwin"
 	//os.Setenv("PATH", )
 	netlifyExe := filepath.Join("./node_modules", ".bin", "netlify")
 	if flgDeployDraft {
 		rebuildAll(d)
-		cmd := exec.Command(netlifyExe, "deploy", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb", "--open")
+		cmd := exec.Command(netlifyExe, "deploy", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb")
+		if doOpen {
+			cmd.Args = append(cmd.Args, "--open")
+		}
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		u.RunCmdMust(cmd)
@@ -168,7 +172,10 @@ func main() {
 
 	if flgDeployProd {
 		rebuildAll(d)
-		cmd := exec.Command(netlifyExe, "deploy", "--prod", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb", "--open")
+		cmd := exec.Command(netlifyExe, "deploy", "--prod", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb")
+		if doOpen {
+			cmd.Args = append(cmd.Args, "--open")
+		}
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		u.RunCmdMust(cmd)
