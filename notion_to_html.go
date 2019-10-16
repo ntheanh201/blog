@@ -46,6 +46,8 @@ func (c *Converter) getURLAndTitleForBlock(block *notionapi.Block) (string, stri
 	if article == nil {
 		title := block.Title
 		logf("No article for id %s %s\n", id, title)
+		pageURL := "https://notion.so/" + notionapi.ToNoDashID(c.page.ID)
+		logf("Link from page: %s\n", pageURL)
 		url := "/article/" + id + "/" + urlify(title)
 		return url, title
 	}
