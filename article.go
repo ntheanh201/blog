@@ -266,7 +266,7 @@ func (a *Article) SetID(v string) {
 func (a *Article) setStatusMust(val string) {
 	var err error
 	a.Status, err = parseStatus(val)
-	panicIfErr(err)
+	must(err)
 }
 
 func (a *Article) setCollectionMust(val string) {
@@ -432,17 +432,17 @@ func (a *Article) maybeParseMeta(nBlock int, block *notionapi.Block) bool {
 	case "publishedon":
 		// PublishedOn over-writes Date and CreatedAt
 		a.publishedOnOverwrite, err = parseDate(val)
-		panicIfErr(err)
+		must(err)
 		a.inBlog = true
 		logTemp("got publishedon")
 	case "date", "createdat":
 		a.PublishedOn, err = parseDate(val)
-		panicIfErr(err)
+		must(err)
 		a.inBlog = true
 		logTemp("got date or createdat")
 	case "updatedat":
 		a.UpdatedOn, err = parseDate(val)
-		panicIfErr(err)
+		must(err)
 	case "status":
 		a.setStatusMust(val)
 	case "description":
@@ -500,7 +500,7 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 			path, err := downloadAndCacheImage(a.notionClient, link)
 			if err != nil {
 				logf("genImage: downloadAndCacheImage('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
-				panicIfErr(err)
+				must(err)
 			}
 			relURL := "/img/" + filepath.Base(path)
 			im := &ImageMapping{
@@ -580,7 +580,7 @@ func notionPageToArticle(c *notionapi.Client, page *notionapi.Page) *Article {
 	// set image header from cover page
 	if a.HeaderImageURL == "" && format != nil && format.PageCover != "" {
 		path, err := downloadAndCacheImage(c, format.PageCover)
-		panicIfErr(err)
+		must(err)
 		relURL := "/img/" + filepath.Base(path)
 		im := &ImageMapping{
 			link:        a.HeaderImageURL,

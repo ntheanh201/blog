@@ -217,7 +217,7 @@ func startPreviewOnDemand(articles *Articles) {
 		if err == http.ErrServerClosed {
 			err = nil
 		}
-		panicIfErr(err)
+		must(err)
 		fmt.Printf("HTTP server shutdown gracefully\n")
 	}()
 	fmt.Printf("Started listening on %s\n", httpSrv.Addr)

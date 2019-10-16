@@ -18,17 +18,17 @@ func copyCSS() {
 	src := filepath.Join("www", "css", "main.css")
 	dst := filepath.Join(destDir, "main.css")
 	err := copyFile(dst, src)
-	panicIfErr(err)
+	must(err)
 }
 
 func createDestDir() {
 	err := os.MkdirAll(destDir, 0755)
-	panicIfErr(err)
+	must(err)
 }
 
 func createNotionDirs() {
 	err := os.MkdirAll(cacheDir, 0755)
-	panicIfErr(err)
+	must(err)
 }
 
 // downloads and html
@@ -77,17 +77,17 @@ func testNotionToHTMLOnePage(d *caching_downloader.Downloader, id string) {
 
 	var buf bytes.Buffer
 	err := templates.ExecuteTemplate(&buf, "article.tmpl.html", model)
-	panicIfErr(err)
+	must(err)
 	data := buf.Bytes()
 	data = bytes.Replace(data, []byte("/css/main.css"), []byte("/main.css"), -1)
 
 	path := filepath.Join(destDir, "index.html")
 	err = ioutil.WriteFile(path, data, 0644)
-	panicIfErr(err)
+	must(err)
 	copyCSS()
 
 	err = os.Chdir(destDir)
-	panicIfErr(err)
+	must(err)
 
 	go func() {
 		time.Sleep(time.Second * 1)

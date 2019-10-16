@@ -723,14 +723,14 @@ rewrite "^%s$" {
 func writeCaddyConfig() {
 	path := filepath.Join("Caddyfile")
 	f, err := os.Create(path)
-	panicIfErr(err)
+	must(err)
 	defer f.Close()
 
 	_, err = f.Write([]byte(caddyProlog))
-	panicIfErr(err)
+	must(err)
 	for _, r := range netlifyRedirects {
 		s := genCaddyRedir(r)
 		_, err = io.WriteString(f, s)
-		panicIfErr(err)
+		must(err)
 	}
 }

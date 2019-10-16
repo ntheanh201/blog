@@ -2,23 +2,17 @@ package main
 
 import (
 	"fmt"
-	"path/filepath"
-	"strings"
 
 	"github.com/kjk/u"
 )
 
-func notDataDir(name string) bool {
-	name = filepath.ToSlash(name)
-	return !strings.Contains(name, "tmpdata/")
-}
-
 var srcFiles = u.MakeAllowedFileFilterForExts(".go")
-var allFiles = u.MakeFilterAnd(srcFiles, notDataDir)
+var dirsToSkip = u.MakeExcludeDirsFilter("www")
+var allFiles = u.MakeFilterAnd(srcFiles, dirsToSkip)
 
 func doLineCount() int {
 	stats := u.NewLineStats()
-	err := stats.CalcInDir(".", srcFiles, true)
+	err := stats.CalcInDir(".", allFiles, true)
 	if err != nil {
 		fmt.Printf("doWordCount: stats.wcInDir() failed with '%s'\n", err)
 		return 1

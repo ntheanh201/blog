@@ -73,7 +73,7 @@ func downloadAndCacheImage(c *notionapi.Client, uri string) (string, error) {
 
 	imgDir := filepath.Join(cacheDir, "img")
 	err := os.MkdirAll(imgDir, 0755)
-	panicIfErr(err)
+	must(err)
 
 	cachedPath := findImageInDir(imgDir, sha)
 	if cachedPath != "" {
@@ -114,7 +114,7 @@ func rmCached(pageID string) {
 
 func loadPageAsArticle(d *caching_downloader.Downloader, pageID string) *Article {
 	page, err := d.DownloadPage(pageID)
-	panicIfErr(err)
+	must(err)
 	logf("Downloaded %s %s\n", pageID, page.Root().Title)
 	c := &notionapi.Client{}
 	return notionPageToArticle(c, page)

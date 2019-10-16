@@ -79,7 +79,7 @@ const keyTitle = "Title"
 
 func mdToHTML(mdFile, templateFile, htmlFile string) {
 	md, err := ioutil.ReadFile(mdFile)
-	panicIfErr(err)
+	must(err)
 	md, meta := parseMd(md)
 	body := markdownToHTML(md, "")
 
@@ -92,9 +92,9 @@ func mdToHTML(mdFile, templateFile, htmlFile string) {
 	templates = template.Must(template.ParseFiles(templateFile))
 	var buf bytes.Buffer
 	err = templates.ExecuteTemplate(&buf, templateName, model)
-	panicIfErr(err)
+	must(err)
 	err = ioutil.WriteFile(htmlFile, buf.Bytes(), 0644)
-	panicIfErr(err)
+	must(err)
 	verbose("%s => %s\n", mdFile, htmlFile)
 }
 
@@ -111,7 +111,7 @@ func findMdTemplate(mdFile string) string {
 
 func regenMd() {
 	mdFiles, err := getFilesRecur("www", isMarkdownFile)
-	panicIfErr(err)
+	must(err)
 	for _, mdFile := range mdFiles {
 		htmlFile := replaceExt(mdFile, ".html")
 		templateFile := findMdTemplate(mdFile)

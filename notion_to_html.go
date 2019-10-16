@@ -174,7 +174,7 @@ func (c *Converter) RenderCode(block *notionapi.Block) bool {
 	// %s
 	// </pre>`, levelCls, block.CodeLanguage, levelCls, code)
 	err := htmlHighlight(c.r.Buf, string(block.Code), block.CodeLanguage, "")
-	panicIfErr(err)
+	must(err)
 	return true
 }
 

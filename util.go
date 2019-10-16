@@ -13,38 +13,9 @@ import (
 	"syscall"
 )
 
-func must(err error, args ...interface{}) {
-	if err == nil {
-		return
-	}
-	if len(args) == 0 {
-		panic(err)
-	}
-	s := args[0].(string)
-	if len(args) > 1 {
-		args = args[1:]
-		s = fmt.Sprintf(s, args)
-	}
-	panic(s + " err: " + err.Error())
-}
-
-func panicIfErr(err error) {
-	if err != nil {
-		panic(err.Error())
-	}
-}
-
-/*
-func panicMsg(format string, args ...interface{}) {
-	s := fmt.Sprintf(format, args...)
-	fmt.Printf("%s\n", s)
-	panic(s)
-}
-*/
-
-// FmtArgs formats args as a string. First argument should be format string
+// mtArgs formats args as a string. First argument should be format string
 // and the rest are arguments to the format
-func FmtArgs(args ...interface{}) string {
+func fmtArgs(args ...interface{}) string {
 	if len(args) == 0 {
 		return ""
 	}
@@ -55,20 +26,24 @@ func FmtArgs(args ...interface{}) string {
 	return fmt.Sprintf(format, args[1:]...)
 }
 
-func panicWithMsg(defaultMsg string, args ...interface{}) {
-	s := FmtArgs(args...)
-	if s == "" {
-		s = defaultMsg
+func must(err error, args ...interface{}) {
+	if err == nil {
+		return
 	}
-	fmt.Printf("%s\n", s)
-	panic(s)
+	if len(args) == 0 {
+		panic(err)
+	}
+	panic(fmtArgs(args...) + " err: " + err.Error())
 }
 
 func panicIf(cond bool, args ...interface{}) {
 	if !cond {
 		return
 	}
-	panicWithMsg("PanicIf: condition failed", args...)
+	if len(args) == 0 {
+		panic("condition failed")
+	}
+	panic(fmtArgs(args...))
 }
 
 func logIfError(err error) {

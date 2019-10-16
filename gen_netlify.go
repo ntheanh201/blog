@@ -104,7 +104,7 @@ func netlifyPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
 	path := filepath.Join("netlify_static", fileName)
 	err := mkdirForFile(path)
-	panicIfErr(err)
+	must(err)
 	return path
 }
 
@@ -320,21 +320,21 @@ func writeFileOrWriter(path string, data []byte, w io.Writer) error {
 func genSitemap(store *Articles, w io.Writer) error {
 	// /sitemap.xml
 	data, err := genSiteMap(store, "https://blog.kowalczyk.info")
-	panicIfErr(err)
+	must(err)
 	return writeFileOrWriter("/sitemap.xml", data, w)
 }
 
 func genAtom(store *Articles, w io.Writer) error {
 	// /atom.xml
 	d, err := genAtomXML(store, true)
-	panicIfErr(err)
+	must(err)
 	return writeFileOrWriter("/atom.xml", d, w)
 }
 
 func genAtomAll(store *Articles, w io.Writer) error {
 	// /atom-all.xml
 	d, err := genAtomXML(store, false)
-	panicIfErr(err)
+	must(err)
 	return writeFileOrWriter("/atom-all.xml", d, w)
 }
 
@@ -436,14 +436,14 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 func netlifyBuild(store *Articles) {
 	// verify we're in the right directory
 	_, err := os.Stat("netlify_static")
-	panicIfErr(err)
+	must(err)
 	outDir := filepath.Join("netlify_static")
 	err = os.RemoveAll(outDir)
-	panicIfErr(err)
+	must(err)
 	err = os.MkdirAll(outDir, 0755)
-	panicIfErr(err)
+	must(err)
 	nCopied, err := dirCopyRecur(outDir, "www", skipTmplFiles)
-	panicIfErr(err)
+	must(err)
 	logf("Copied %d files\n", nCopied)
 
 	addAllRedirects(store)

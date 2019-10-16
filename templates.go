@@ -22,7 +22,7 @@ func loadTemplates() {
 func execTemplateToFile(path string, templateName string, model interface{}) error {
 	var buf bytes.Buffer
 	err := templates.ExecuteTemplate(&buf, templateName, model)
-	panicIfErr(err)
+	must(err)
 	err = ioutil.WriteFile(path, buf.Bytes(), 0644)
 	return err
 }
@@ -41,6 +41,6 @@ func execTemplate(path string, tmplName string, d interface{}, w io.Writer) erro
 	// this code path is for generating static files
 	netPath := netlifyPath(path)
 	err := execTemplateToFile(netPath, tmplName, d)
-	panicIfErr(err)
+	must(err)
 	return nil
 }
