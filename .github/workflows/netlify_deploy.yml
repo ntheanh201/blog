@@ -14,11 +14,6 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
-      - name: Build
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: go build -o blog
-
       - name: Test
         run: go test -v .
 
@@ -28,4 +23,5 @@ jobs:
       - name: Regenerate HTML and deploy to netlify
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
         run: ./blog -deploy-prod

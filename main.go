@@ -116,6 +116,16 @@ func recreateDir(dir string) {
 	must(err)
 }
 
+func cmdAddNetlifyToken(cmd *exec.Cmd) {
+	token := os.Getenv("NETLIFY_TOKEN")
+	if token == "" {
+		logf("No NETLIFY_TOKEN\n")
+		return
+	}
+	logf("Has NETLIFY_TOKEN\n")
+	cmd.Args = append(cmd.Args, "--auth", token)
+}
+
 func main() {
 	var (
 		flgDeployDraft     bool
@@ -142,6 +152,11 @@ func main() {
 
 	recreateDir("netlify_static")
 
+	if flgWc {
+		doLineCount()
+		return
+	}
+
 	client := newNotionClient()
 	cache, err := caching_downloader.NewDirectoryCache(cacheDir)
 	must(err)
@@ -150,17 +165,13 @@ func main() {
 	d.RedownloadNewerVersions = true
 	d.NoReadCache = flgNoCache
 
-	if flgWc {
-		doLineCount()
-		return
-	}
-
 	doOpen := runtime.GOOS == "darwin"
 	//os.Setenv("PATH", )
 	netlifyExe := filepath.Join("./node_modules", ".bin", "netlify")
 	if flgDeployDraft {
 		rebuildAll(d)
 		cmd := exec.Command(netlifyExe, "deploy", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb")
+		cmdAddNetlifyToken(cmd)
 		if doOpen {
 			cmd.Args = append(cmd.Args, "--open")
 		}
@@ -173,6 +184,7 @@ func main() {
 	if flgDeployProd {
 		rebuildAll(d)
 		cmd := exec.Command(netlifyExe, "deploy", "--prod", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb")
+		cmdAddNetlifyToken(cmd)
 		if doOpen {
 			cmd.Args = append(cmd.Args, "--open")
 		}
