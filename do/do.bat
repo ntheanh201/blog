@@ -1,4 +1,3 @@
-@cd do
 @go run . %*
 
 @rem notable pages:

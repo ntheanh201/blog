@@ -12,28 +12,31 @@ import (
 
 	"github.com/kjk/notionapi"
 	"github.com/kjk/notionapi/caching_downloader"
+	"github.com/kjk/u"
+)
+
+const (
+	analyticsCode = "UA-194516-1"
 )
 
 var (
-	analyticsCode = "UA-194516-1"
-
-	flgRedownloadNotion bool
-	flgRedownloadPage   string
-	flgDeploy           bool
-	flgPreview          bool
-	flgPreviewOnDemand  bool
-	flgVerbose          bool
-	flgNoCache          bool
+	flgDeployDraft     bool
+	flgDeployProd      bool
+	flgPreview         bool
+	flgPreviewOnDemand bool
+	flgVerbose         bool
+	flgNoCache         bool
+	flgWc              bool
 )
 
 func parseCmdLineFlags() {
+	flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 	flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 	flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
-	flag.BoolVar(&flgDeploy, "deploy", false, "if true, build for deployment")
+	flag.BoolVar(&flgDeployDraft, "deploy-draft", false, "deploy to netlify as draft")
+	flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to netlify production")
 	flag.BoolVar(&flgPreview, "preview", false, "if true, runs caddy and opens a browser for preview")
 	flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "if true runs the browser for local preview")
-	flag.BoolVar(&flgRedownloadNotion, "redownload-notion", false, "if true, re-downloads content from notion")
-	flag.StringVar(&flgRedownloadPage, "redownload-page", "", "if given, redownloads content for one page")
 	flag.Parse()
 }
 
@@ -122,9 +125,16 @@ func newNotionClient() *notionapi.Client {
 	return client
 }
 
+func recreateDir(dir string) {
+	err := os.RemoveAll(dir)
+	must(err)
+	err = os.MkdirAll(dir, 0755)
+	must(err)
+}
+
 func main() {
 	parseCmdLineFlags()
-	os.MkdirAll("netlify_static", 0755)
+	recreateDir("netlify_static")
 
 	openLog()
 	defer closeLog()
@@ -137,10 +147,26 @@ func main() {
 	d.RedownloadNewerVersions = true
 	d.NoReadCache = flgNoCache
 
-	// make sure this happens first so that building for deployment is not
-	// disrupted by the temporary testing code we might have below
-	if flgDeploy {
+	if flgWc {
+		doLineCount()
+		return
+	}
+
+	if flgDeployDraft {
 		rebuildAll(d)
+		cmd := exec.Command("netlify", "deploy", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb", "--open")
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		u.RunCmdMust(cmd)
+		return
+	}
+
+	if flgDeployProd {
+		rebuildAll(d)
+		cmd := exec.Command("netlify", "deploy", "--prod", "--dir=netlify_static", "--site=a1bb4018-531d-4de8-934d-8d5602bacbfb", "--open")
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		u.RunCmdMust(cmd)
 		return
 	}
 
