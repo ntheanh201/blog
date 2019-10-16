@@ -24,4 +24,4 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-        run: ./blog -deploy-prod
+        run: go run . -deploy-prod
