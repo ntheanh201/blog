@@ -22,25 +22,15 @@ jobs:
       - name: Test
         run: go test -v .
 
-      - name: Regenerate blog html
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: ./blog -deploy
-
       - name: Install netlifyctl
         run: |
           wget https://github.com/netlify/netlifyctl/releases/download/v0.4.0/netlifyctl-linux-amd64-0.4.0.tar.gz
           tar -xvf netlifyctl-linux-amd64-0.4.0.tar.gz
 
-      # TODO: maybe migrate from netlifyctl to netlify-ctl
-      # ./node_modules/.bin/netlify
-      # (but it installs much longer)
-      # - name: Install netlify-ctl
-      #   run: npm install netlify-cli
+      - name: Install netlify-ctl
+        run: npm install -g netlify-cli
 
-      - name: Netlify deploy
+      - name: Regenerate HTML and deploy to netlify
         env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-        run: |
-          ./netlifyctl -A ${NETLIFY_TOKEN} deploy || true
-          cat netlifyctl-debug.log || true
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: ./blog -deploy-prod
