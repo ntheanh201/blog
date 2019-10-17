@@ -279,7 +279,7 @@ func (a *Article) setCollectionMust(val string) {
 		// ignore
 		return
 	}
-	panicIf(collectionURL == "", "'%s' is not a known collection", val)
+	u.PanicIf(collectionURL == "", "'%s' is not a known collection", val)
 	a.Collection = val
 	a.CollectionURL = collectionURL
 
@@ -290,9 +290,9 @@ func (a *Article) setHeaderImageMust(val string) {
 		val = "/" + val
 	}
 	path := filepath.Join("www", val)
-	panicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
+	u.PanicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
 	uri := netlifyRequestGetFullHost() + val
-	// fmt.Printf("Found HeaderImageURL: %s\n", uri)
+	// logf("Found HeaderImageURL: %s\n", uri)
 	a.HeaderImageURL = uri
 }
 
@@ -533,7 +533,7 @@ func (a *Article) findImageMappingBySource(link string) *ImageMapping {
 }
 
 func notionPageToArticle(c *notionapi.Client, page *notionapi.Page) *Article {
-	//fmt.Printf("extractMetadata: %s-%s, %d blocks\n", title, id, len(blocks))
+	//logf("extractMetadata: %s-%s, %d blocks\n", title, id, len(blocks))
 	// metadata blocks are always at the beginning. They are TypeText blocks and
 	// have only one plain string as content
 	root := page.Root()

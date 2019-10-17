@@ -13,6 +13,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/kjk/u"
+
 	"github.com/chilts/sid"
 	"github.com/kjk/betterguid"
 	"github.com/oklog/ulid"
@@ -103,8 +105,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 func netlifyPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
 	path := filepath.Join("netlify_static", fileName)
-	err := mkdirForFile(path)
-	must(err)
+	u.CreateDirForFileMust(path)
 	return path
 }
 
@@ -231,7 +232,7 @@ func skipTmplFiles(path string) bool {
 func copyImages() {
 	srcDir := filepath.Join("notion_cache", "img")
 	dstDir := filepath.Join("netlify_static", "img")
-	dirCopyRecur(dstDir, srcDir, nil)
+	u.DirCopyRecurMust(dstDir, srcDir, nil)
 }
 
 func genIndex(store *Articles, w io.Writer) error {
@@ -442,8 +443,7 @@ func netlifyBuild(store *Articles) {
 	must(err)
 	err = os.MkdirAll(outDir, 0755)
 	must(err)
-	nCopied, err := dirCopyRecur(outDir, "www", skipTmplFiles)
-	must(err)
+	nCopied := u.DirCopyRecurMust(outDir, "www", skipTmplFiles)
 	logf("Copied %d files\n", nCopied)
 
 	addAllRedirects(store)

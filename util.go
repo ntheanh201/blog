@@ -2,15 +2,8 @@
 package main
 
 import (
-	"bytes"
-	"fmt"
-	"io"
-	"io/ioutil"
-	"os"
-	"os/signal"
 	"path/filepath"
 	"strings"
-	"syscall"
 
 	"github.com/kjk/u"
 )
@@ -19,30 +12,13 @@ func must(err error) {
 	u.Must(err)
 }
 
-func fmtArgs(args ...interface{}) string {
-	if len(args) == 0 {
-		return ""
-	}
-	format := args[0].(string)
-	if len(args) == 1 {
-		return format
-	}
-	return fmt.Sprintf(format, args[1:]...)
-}
-
 func panicIf(cond bool, args ...interface{}) {
-	if !cond {
-		return
-	}
-	if len(args) == 0 {
-		panic("condition failed")
-	}
-	panic(fmtArgs(args...))
+	u.PanicIf(cond, args...)
 }
 
 func logIfError(err error) {
 	if err != nil {
-		fmt.Printf("%s\n", err)
+		logf("%s\n", err)
 	}
 }
 
@@ -175,14 +151,6 @@ func removeHashTags(s string) (string, []string) {
 	}
 }
 
-func normalizeNewlines(d []byte) []byte {
-	// replace CR LF (windows) with LF (unix)
-	d = bytes.Replace(d, []byte{13, 10}, []byte{10}, -1)
-	// replace CF (mac) with LF (unix)
-	d = bytes.Replace(d, []byte{13}, []byte{10}, -1)
-	return d
-}
-
 func replaceExt(fileName, newExt string) string {
 	ext := filepath.Ext(fileName)
 	if ext == "" {
@@ -200,79 +168,4 @@ func capitalize(s string) string {
 	}
 	s = strings.ToLower(s)
 	return strings.ToUpper(s[0:1]) + s[1:]
-}
-
-func mkdirForFile(filePath string) error {
-	dir := filepath.Dir(filePath)
-	return os.MkdirAll(dir, 0755)
-}
-
-func copyFile(dst string, src string) error {
-	err := mkdirForFile(dst)
-	if err != nil {
-		return err
-	}
-	fin, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-	defer fin.Close()
-	fout, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-
-	_, err = io.Copy(fout, fin)
-	err2 := fout.Close()
-	if err != nil || err2 != nil {
-		os.Remove(dst)
-	}
-
-	return err
-}
-
-func dirCopyRecur(dst string, src string, shouldSkipFile func(string) bool) (int, error) {
-	nFilesCopied := 0
-	dirsToVisit := []string{src}
-	for len(dirsToVisit) > 0 {
-		n := len(dirsToVisit)
-		dir := dirsToVisit[n-1]
-		dirsToVisit = dirsToVisit[:n-1]
-		fileInfos, err := ioutil.ReadDir(dir)
-		if err != nil {
-			return nFilesCopied, err
-		}
-		for _, fi := range fileInfos {
-			path := filepath.Join(dir, fi.Name())
-			if fi.IsDir() {
-				dirsToVisit = append(dirsToVisit, path)
-				continue
-			}
-			if shouldSkipFile != nil && shouldSkipFile(path) {
-				continue
-			}
-			dstPath := dst + path[len(src):]
-			err := copyFile(dstPath, path)
-			if err != nil {
-				return nFilesCopied, err
-			}
-			verbose("Copied %s => %s\n", path, dstPath)
-			nFilesCopied++
-		}
-	}
-	return nFilesCopied, nil
-}
-
-func fileExists(path string) bool {
-	st, err := os.Stat(path)
-	if err != nil {
-		return false
-	}
-	return st.Mode().IsRegular()
-}
-
-func waitForCtrlC() {
-	c := make(chan os.Signal, 2)
-	signal.Notify(c, os.Interrupt /* SIGINT */, syscall.SIGTERM)
-	<-c
 }

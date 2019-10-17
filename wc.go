@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/kjk/u"
 )
 
@@ -14,7 +12,7 @@ func doLineCount() int {
 	stats := u.NewLineStats()
 	err := stats.CalcInDir(".", allFiles, true)
 	if err != nil {
-		fmt.Printf("doWordCount: stats.wcInDir() failed with '%s'\n", err)
+		logf("doWordCount: stats.wcInDir() failed with '%s'\n", err)
 		return 1
 	}
 	u.PrintLineStats(stats)

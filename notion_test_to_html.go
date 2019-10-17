@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/kjk/u"
+
 	"github.com/kjk/notionapi/caching_downloader"
 )
 
@@ -17,8 +19,7 @@ var (
 func copyCSS() {
 	src := filepath.Join("www", "css", "main.css")
 	dst := filepath.Join(destDir, "main.css")
-	err := copyFile(dst, src)
-	must(err)
+	u.CopyFileMust(dst, src)
 }
 
 func createDestDir() {
@@ -91,7 +92,7 @@ func testNotionToHTMLOnePage(d *caching_downloader.Downloader, id string) {
 
 	go func() {
 		time.Sleep(time.Second * 1)
-		openBrowser("http://localhost:2015")
+		u.OpenBrowser("http://localhost:2015")
 	}()
 	runCaddy()
 }

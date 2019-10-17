@@ -7,7 +7,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20190802011031-b3dd8ce84a34
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/kjk/notionapi v0.0.0-20191016003629-173f47903391
-	github.com/kjk/u v0.0.0-20191015233953-c544061ecff5
+	github.com/kjk/u v0.0.0-20191017045455-0c699071a9b1
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2
 	github.com/oklog/ulid v1.3.1

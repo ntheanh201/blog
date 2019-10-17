@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/kjk/u"
 )
 
 var (
@@ -22,14 +24,14 @@ func serve404(w http.ResponseWriter, r *http.Request) {
 	if len(parts) > 2 && parts[0] == "essential" {
 		bookName := parts[1]
 		maybePath := filepath.Join("www", "essential", bookName, "404.html")
-		if fileExists(maybePath) {
-			fmt.Printf("'%s' exists\n", maybePath)
+		if u.FileExists(maybePath) {
+			logf("'%s' exists\n", maybePath)
 			path = maybePath
 		} else {
-			fmt.Printf("'%s' doesn't exist\n", maybePath)
+			logf("'%s' doesn't exist\n", maybePath)
 		}
 	}
-	fmt.Printf("Serving 404 from '%s' for '%s'\n", path, uri)
+	logf("Serving 404 from '%s' for '%s'\n", path, uri)
 	d, err := ioutil.ReadFile(path)
 	if err != nil {
 		d = []byte(fmt.Sprintf("URL '%s' not found!", uri))
@@ -59,13 +61,13 @@ func doRedirect(w http.ResponseWriter, r *http.Request, newPath string, code int
 }
 
 func handleIndexOnDemand(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("uri: %s\n", r.URL.Path)
+	logf("uri: %s\n", r.URL.Path)
 	uri := r.URL.Path
 	nAgain := 0
 again:
 	nAgain++
 	if nAgain > 3 {
-		fmt.Printf("Too many 200 redirects for '%s'\n", r.URL.Path)
+		logf("Too many 200 redirects for '%s'\n", r.URL.Path)
 		serve404(w, r)
 		return
 	}
@@ -89,12 +91,12 @@ again:
 		if redir.from == uri {
 			// this is internal rewrite
 			if redir.code == 200 {
-				fmt.Printf("Rewrite %s => %s\n", uri, redir.to)
+				logf("Rewrite %s => %s\n", uri, redir.to)
 				uri = redir.to
 				r.URL.Path = uri
 				goto again
 			}
-			fmt.Printf("Redirect %s => %s, code: %d\n", uri, redir.to, redir.code)
+			logf("Redirect %s => %s, code: %d\n", uri, redir.to, redir.code)
 			doRedirect(w, r, redir.to, redir.code)
 		}
 	}
@@ -105,12 +107,12 @@ again:
 		fileName = filepath.Join(fileName, "index.html")
 	}
 	path := filepath.Join("www", fileName)
-	if !fileExists(path) {
-		fmt.Printf("path '%s' for url '%s' doesn't exist\n", path, uri)
+	if !u.FileExists(path) {
+		logf("path '%s' for url '%s' doesn't exist\n", path, uri)
 		serve404(w, r)
 		return
 	}
-	fmt.Printf("Serving file: %s\n", path)
+	logf("Serving file: %s\n", path)
 	http.ServeFile(w, r, path)
 }
 
@@ -155,7 +157,7 @@ func tryServeArticle(w http.ResponseWriter, r *http.Request) bool {
 	articleID := strings.TrimSuffix(articlePath, ".html")
 	article := findArticleByID(gPreviewArticles, articleID)
 	if article == nil {
-		fmt.Printf("Didn't find article with id '%s' for uri '%s'\n", articleID, uri)
+		logf("Didn't find article with id '%s' for uri '%s'\n", articleID, uri)
 		return false
 	}
 	genArticle(article, w)
@@ -181,7 +183,7 @@ func tryServeNotionCacheImg(w http.ResponseWriter, r *http.Request) bool {
 		return false
 	}
 	path := filepath.Join("notion_cache", "img", imgName)
-	if !fileExists(path) {
+	if !u.FileExists(path) {
 		return false
 	}
 	http.ServeFile(w, r, path)
@@ -218,10 +220,10 @@ func startPreviewOnDemand(articles *Articles) {
 			err = nil
 		}
 		must(err)
-		fmt.Printf("HTTP server shutdown gracefully\n")
+		logf("HTTP server shutdown gracefully\n")
 	}()
-	fmt.Printf("Started listening on %s\n", httpSrv.Addr)
-	openBrowser("http://" + httpSrv.Addr)
+	logf("Started listening on %s\n", httpSrv.Addr)
+	u.OpenBrowser("http://" + httpSrv.Addr)
 
-	waitForCtrlC()
+	u.WaitForCtrlC()
 }

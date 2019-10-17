@@ -6,6 +6,7 @@ import (
 
 	"github.com/kjk/notionapi"
 	"github.com/kjk/notionapi/caching_downloader"
+	"github.com/kjk/u"
 )
 
 var (
@@ -141,7 +142,7 @@ func loadArticles(d *caching_downloader.Downloader) *Articles {
 	c := d.GetClientCopy()
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
-		panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
+		u.PanicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
 		article := notionPageToArticle(c, page)
 		if article.urlOverride != "" {
 			verbose("url override: %s => %s\n", article.urlOverride, article.ID)

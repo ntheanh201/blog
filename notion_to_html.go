@@ -234,7 +234,7 @@ func (c *Converter) GenereateHTML() []byte {
 }
 
 func notionToHTML(client *notionapi.Client, article *Article, articles *Articles) ([]byte, []*ImageMapping) {
-	//fmt.Printf("notionToHTML: %s\n", notionapi.ToNoDashID(article.ID))
+	//logf("notionToHTML: %s\n", notionapi.ToNoDashID(article.ID))
 	c := NewHTMLConverter(client, article)
 	if articles != nil {
 		c.idToArticle = func(id string) *Article {
