@@ -518,15 +518,15 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 	}
 }
 
-func (a *Article) findImageMappingBySource(link string) *ImageMapping {
-	for _, im := range a.Images {
+func findImageMapping(images []*ImageMapping, link string) *ImageMapping {
+	for _, im := range images {
 		if im.link == link {
 			return im
 		}
 	}
 	logf("Didn't find image with link '%s'\n", link)
 	logf("Available images:\n")
-	for _, im := range a.Images {
+	for _, im := range images {
 		logf("  link: %s, relativeURL: %s, path: %s\n", im.link, im.relativeURL, im.path)
 	}
 	return nil

@@ -77,6 +77,7 @@ func newNotionClient() *notionapi.Client {
 	token := os.Getenv("NOTION_TOKEN")
 	if token == "" {
 		logf("must set NOTION_TOKEN env variable\n")
+		flag.Usage()
 		os.Exit(1)
 	}
 	// TODO: verify token still valid, somehow

@@ -109,7 +109,7 @@ func (c *Converter) renderGallery(block *notionapi.Block) bool {
 	c.galleries = append(c.galleries, imageURLS)
 	var images []*ImageMapping
 	for _, link := range imageURLS {
-		im := c.article.findImageMappingBySource(link)
+		im := findImageMapping(c.article.Images, link)
 		panicIf(im == nil, "didn't find ImageMapping for %s", link)
 		images = append(images, im)
 	}
@@ -129,7 +129,7 @@ func (c *Converter) renderGallery(block *notionapi.Block) bool {
 // RenderImage renders BlockImage
 func (c *Converter) RenderImage(block *notionapi.Block) bool {
 	link := block.Source
-	im := c.article.findImageMappingBySource(link)
+	im := findImageMapping(c.article.Images, link)
 	relURL := im.relativeURL
 	imgURL := c.article.getImageBlockURL(block)
 	if imgURL != "" {
