@@ -11,10 +11,14 @@ import (
 	"path/filepath"
 	"strings"
 	"syscall"
+
+	"github.com/kjk/u"
 )
 
-// mtArgs formats args as a string. First argument should be format string
-// and the rest are arguments to the format
+func must(err error) {
+	u.Must(err)
+}
+
 func fmtArgs(args ...interface{}) string {
 	if len(args) == 0 {
 		return ""
@@ -24,16 +28,6 @@ func fmtArgs(args ...interface{}) string {
 		return format
 	}
 	return fmt.Sprintf(format, args[1:]...)
-}
-
-func must(err error, args ...interface{}) {
-	if err == nil {
-		return
-	}
-	if len(args) == 0 {
-		panic(err)
-	}
-	panic(fmtArgs(args...) + " err: " + err.Error())
 }
 
 func panicIf(cond bool, args ...interface{}) {
