@@ -114,6 +114,7 @@ func main() {
 		flgPreviewOnDemand bool
 		flgNoCache         bool
 		flgWc              bool
+		flgRedownload      bool
 	)
 
 	{
@@ -122,8 +123,9 @@ func main() {
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
 		flag.BoolVar(&flgDeployDraft, "deploy-draft", false, "deploy to netlify as draft")
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to netlify production")
-		flag.BoolVar(&flgPreview, "preview", false, "if true, runs caddy and opens a browser for preview")
-		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "if true runs the browser for local preview")
+		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
+		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
+		flag.BoolVar(&flgRedownload, "redownload-notion", false, "download the content from Notion")
 		flag.Parse()
 	}
 
@@ -144,6 +146,11 @@ func main() {
 	d.EventObserver = eventObserver
 	d.RedownloadNewerVersions = true
 	d.NoReadCache = flgNoCache
+
+	if flgRedownload {
+		rebuildAll(d)
+		return
+	}
 
 	doOpen := runtime.GOOS == "darwin"
 	//os.Setenv("PATH", )
