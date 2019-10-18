@@ -15,8 +15,6 @@ git checkout master
 ./blog -redownload-notion
 
 git status
-git checkout netlify.toml
-git status
 git add notion_cache/*
 git status
 now=`date "+%Y-%m-%d %a"`
