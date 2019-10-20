@@ -225,10 +225,6 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 	return execTemplate(path, "archive.tmpl.html", model, w)
 }
 
-func skipTmplFiles(path string) bool {
-	return strings.Contains(path, ".tmpl.")
-}
-
 func copyImages() {
 	srcDir := filepath.Join("notion_cache", "img")
 	dstDir := filepath.Join("netlify_static", "img")
@@ -443,8 +439,13 @@ func netlifyBuild(store *Articles) {
 	must(err)
 	err = os.MkdirAll(outDir, 0755)
 	must(err)
-	nCopied := u.DirCopyRecurMust(outDir, "www", skipTmplFiles)
-	logf("Copied %d files\n", nCopied)
+
+	skipTmplFiles := func(path string) bool {
+		return !strings.Contains(path, ".tmpl.")
+	}
+
+	copied := u.DirCopyRecurMust(outDir, "www", skipTmplFiles)
+	logf("Copied %d files\n", len(copied))
 
 	addAllRedirects(store)
 
