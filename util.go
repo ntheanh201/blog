@@ -8,13 +8,10 @@ import (
 	"github.com/kjk/u"
 )
 
-func must(err error) {
-	u.Must(err)
-}
-
-func panicIf(cond bool, args ...interface{}) {
-	u.PanicIf(cond, args...)
-}
+var (
+	must    = u.Must
+	panicIf = u.PanicIf
+)
 
 func logIfError(err error) {
 	if err != nil {
