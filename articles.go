@@ -135,7 +135,7 @@ func buildArticlesNavigation(articles *Articles) {
 
 func loadArticles(d *caching_downloader.Downloader) *Articles {
 	res := &Articles{}
-	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage)
+	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, nil)
 	must(err)
 	res.idToPage = d.IdToPage
 
