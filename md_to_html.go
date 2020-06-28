@@ -20,7 +20,7 @@ var (
 )
 
 func init() {
-	htmlFormatter = html.New(html.WithClasses(), html.TabWidth(2))
+	htmlFormatter = html.New(html.WithClasses(true), html.TabWidth(2))
 	panicIf(htmlFormatter == nil, "couldn't create html formatter")
 	styleName := "monokailight"
 	highlightStyle = styles.Get(styleName)
