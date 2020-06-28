@@ -49,11 +49,14 @@
                 window.navigator.platform.indexOf('Win') >= 0
         }
         function maybeShowAd() {
+            // not showing the ad at all for now
+            /*
             if (!isWindows()) {
                 return;
             }
             var el = document.getElementById("ad-software-2");
             el.style.display = "flex";
+            */
         }
         function onLoaded() {
             maybeShowAd();
