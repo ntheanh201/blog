@@ -1,16 +1,16 @@
-1250 1593324439926 httpcache-v1
+1257 1593324445750 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
+      "id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
       "table": "block"
     }
   ]
 }
-Response:+1050
+Response:+1057
 {
   "results": [
     {
@@ -18,37 +18,36 @@ Response:+1050
       "value": {
         "alive": true,
         "content": [
-          "5d3c495e-0ed3-41cb-ace1-a895be7f597a"
+          "7215f468-1e98-4c66-8825-7dbecc1d7de1",
+          "3828dd77-aeaf-4803-83ee-dab941c6eff1",
+          "6251ebea-82f4-4e17-9e0c-42a5aa002be2",
+          "674779e6-5ca8-437b-8f52-06dbd5a598f4",
+          "ad0ba2c7-1317-41df-9d44-13da7a91b8df",
+          "06aaa2e3-485a-48ee-a1f5-21770a33c857"
         ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
-        "created_time": 1529736649048,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_time": 1590395484763,
+        "id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1592871300000,
-        "parent_id": "006b446b-9ce9-4055-977b-7f3179146254",
+        "last_edited_time": 1590400140000,
+        "parent_id": "8c99860b-327c-4571-8ff6-e6eb76fab8d0",
         "parent_table": "block",
         "properties": {
           "title": [
             [
-              "File transfer / upload"
+              "Timelog"
             ]
           ]
         },
         "type": "page",
-        "version": 96
+        "version": 34
       }
     }
   ]
 }
-25486 1593324439926 httpcache-v1
+31785 1593324445751 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
@@ -58,10 +57,10 @@ Body:+152
     "stack": []
   },
   "limit": 50,
-  "pageId": "be23f1ed-3146-4701-a5d5-ad9a85066864",
+  "pageId": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
   "verticalColumns": false
 }
-Response:+25245
+Response:+31544
 {
   "cursor": {
     "stack": []
@@ -98,6 +97,60 @@ Response:+25245
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "column",
           "version": 41
+        }
+      },
+      "06aaa2e3-485a-48ee-a1f5-21770a33c857": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590395580000,
+          "id": "06aaa2e3-485a-48ee-a1f5-21770a33c857",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590395580000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "parent_table": "block",
+          "type": "text",
+          "version": 9
+        }
+      },
+      "3828dd77-aeaf-4803-83ee-dab941c6eff1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590395536195,
+          "id": "3828dd77-aeaf-4803-83ee-dab941c6eff1",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590395580000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "‣",
+                [
+                  [
+                    "d",
+                    {
+                      "date_format": "relative",
+                      "start_date": "2020-05-25",
+                      "type": "date"
+                    }
+                  ]
+                ]
+              ],
+              [
+                " Mon"
+              ]
+            ]
+          },
+          "type": "text",
+          "version": 20
         }
       },
       "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
@@ -154,62 +207,119 @@ Response:+25245
           "version": 372
         }
       },
-      "5d3c495e-0ed3-41cb-ace1-a895be7f597a": {
+      "6251ebea-82f4-4e17-9e0c-42a5aa002be2": {
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "32c1c44f-15ea-41a9-ba7c-f8e47a8d5cd8",
-            "fa41fc05-4017-4064-8483-220796f7666b",
-            "2d7ab15d-c7bd-4f86-8f9d-fea74629148e",
-            "a2772da2-9e41-45ea-8718-eafbdfd5ed4e",
-            "d4c395a3-4b34-41cc-adb9-2e5e0be630cb",
-            "1a810179-6237-4725-b0fd-4feba633c64c",
-            "ccd6064b-3f10-4136-9866-c76e03745f46",
-            "61f17058-bf87-41f5-ba9b-2c46451e1364",
-            "dbad9838-352f-4f81-877c-383a4a39fbf8",
-            "d33ab188-9c78-494c-ad04-6b22e8e77675",
-            "da67beb0-e269-4889-8441-aea75e61c119"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1529736658044,
-          "id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_time": 1590395580000,
+          "id": "6251ebea-82f4-4e17-9e0c-42a5aa002be2",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1529901752994,
-          "parent_id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
+          "last_edited_time": 1590400080000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
           "parent_table": "block",
           "properties": {
             "title": [
               [
-                "Idea"
+                "1:30 - 2:30 : 1 hr"
               ]
             ]
           },
-          "type": "toggle",
-          "version": 51
+          "type": "text",
+          "version": 40
         }
       },
-      "be23f1ed-3146-4701-a5d5-ad9a85066864": {
+      "674779e6-5ca8-437b-8f52-06dbd5a598f4": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590397680000,
+          "id": "674779e6-5ca8-437b-8f52-06dbd5a598f4",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590397680000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "wrote "
+              ],
+              [
+                "https://www.notion.so/How-to-create-a-ZIP-file-in-Go-2d4eb6c238f24c0ba286355fc1727edd",
+                [
+                  [
+                    "a",
+                    "https://www.notion.so/How-to-create-a-ZIP-file-in-Go-2d4eb6c238f24c0ba286355fc1727edd"
+                  ]
+                ]
+              ]
+            ]
+          },
+          "type": "bulleted_list",
+          "version": 20
+        }
+      },
+      "7215f468-1e98-4c66-8825-7dbecc1d7de1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590395520000,
+          "id": "7215f468-1e98-4c66-8825-7dbecc1d7de1",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590395520000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "parent_table": "block",
+          "type": "divider",
+          "version": 16
+        }
+      },
+      "8c99860b-327c-4571-8ff6-e6eb76fab8d0": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
-            "5d3c495e-0ed3-41cb-ace1-a895be7f597a"
+            "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+            "15e3464b-1201-4d96-b79c-9e5107b7ee6a",
+            "55bf1202-583b-4c35-ad1d-49f0b88fef4c",
+            "e14765a0-3b70-4477-bc24-9e344b46c6c4",
+            "68e9333e-031b-4c86-9c26-d8f7e1a0a1d1",
+            "4589e5a8-f5dc-4615-bae5-9ba966988283",
+            "576d2b44-82d8-413f-bc27-eae3c9a4bf51",
+            "519f37b1-02f6-4017-ba53-ae2ab9b0b9bb",
+            "7bffc793-716b-42bd-ae8b-bc8abf860250",
+            "f7dca98a-0700-46e1-8931-0c094e2b185a",
+            "064196c5-120f-4438-aa74-46e7305bd9eb",
+            "43b8a5d7-1010-42a6-800f-44dfc98bf03f",
+            "f25e3937-7097-4646-b812-cb3f8332360c",
+            "c5bccfd4-10a9-4c72-9418-b4a3d33cea6e",
+            "3a826731-f9ce-4058-b3da-710e91e49f4f",
+            "ad422e67-9691-4be2-8b22-2a237ed43622",
+            "802793ee-7218-49ac-91e2-d8411dd83e1e",
+            "6afdf993-48c5-4172-a9d8-1547712904f5",
+            "41f1ef10-00db-4314-83ef-1dcd4169bc57",
+            "5283e549-7f7d-4e35-8da5-7395e9a62960",
+            "c92a49c2-d82d-4a6a-bf2c-5f8b6b5e5988",
+            "60ebf6cb-12a8-42e2-90c7-26832ee7196a",
+            "7aa8f345-7c77-49de-b501-42ae687704e6",
+            "710a0afa-08d6-41c6-9e98-b70810090d4e",
+            "3a99a47b-957c-413d-995b-09ff0f4bbdcc"
           ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1529736649048,
+          "created_time": 1590387504203,
           "format": {
             "page_full_width": true,
             "page_small_text": true
           },
-          "id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "id": "8c99860b-327c-4571-8ff6-e6eb76fab8d0",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1592871300000,
@@ -218,14 +328,79 @@ Response:+25245
           "properties": {
             "title": [
               [
-                "File transfer / upload"
+                "gotipdaily"
               ]
             ]
           },
           "shard_id": 913143,
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 96
+          "version": 108
+        }
+      },
+      "ad0ba2c7-1317-41df-9d44-13da7a91b8df": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590400140000,
+          "id": "ad0ba2c7-1317-41df-9d44-13da7a91b8df",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590400140000,
+          "parent_id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "wrote "
+              ],
+              [
+                "https://www.notion.so/How-to-disable-go-proxy-when-downloading-a-module-0bcd3731781c4c36a7c5f5d1c174b326",
+                [
+                  [
+                    "a",
+                    "https://www.notion.so/How-to-disable-go-proxy-when-downloading-a-module-0bcd3731781c4c36a7c5f5d1c174b326"
+                  ]
+                ]
+              ]
+            ]
+          },
+          "type": "bulleted_list",
+          "version": 16
+        }
+      },
+      "d904cc0d-97a9-41de-9d5f-15fc9e51db5d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "7215f468-1e98-4c66-8825-7dbecc1d7de1",
+            "3828dd77-aeaf-4803-83ee-dab941c6eff1",
+            "6251ebea-82f4-4e17-9e0c-42a5aa002be2",
+            "674779e6-5ca8-437b-8f52-06dbd5a598f4",
+            "ad0ba2c7-1317-41df-9d44-13da7a91b8df",
+            "06aaa2e3-485a-48ee-a1f5-21770a33c857"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1590395484763,
+          "id": "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1590400140000,
+          "parent_id": "8c99860b-327c-4571-8ff6-e6eb76fab8d0",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Timelog"
+              ]
+            ]
+          },
+          "type": "page",
+          "version": 34
         }
       },
       "e4132d5a-4401-4b2a-ad81-d8158c803ad1": {
@@ -629,10 +804,10 @@ Response:+25245
     }
   }
 }
-22668 1593324439927 httpcache-v1
+10807 1593324445751 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+1694
+Body:+726
 {
   "requests": [
     {
@@ -644,31 +819,11 @@ Body:+1694
       "table": "block"
     },
     {
-      "id": "1a810179-6237-4725-b0fd-4feba633c64c",
-      "table": "block"
-    },
-    {
-      "id": "2d7ab15d-c7bd-4f86-8f9d-fea74629148e",
-      "table": "block"
-    },
-    {
-      "id": "32c1c44f-15ea-41a9-ba7c-f8e47a8d5cd8",
-      "table": "block"
-    },
-    {
       "id": "4a15357f-c05d-4200-b11d-bef0b9609327",
       "table": "block"
     },
     {
-      "id": "61f17058-bf87-41f5-ba9b-2c46451e1364",
-      "table": "block"
-    },
-    {
-      "id": "8c99860b-327c-4571-8ff6-e6eb76fab8d0",
-      "table": "block"
-    },
-    {
-      "id": "a2772da2-9e41-45ea-8718-eafbdfd5ed4e",
+      "id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
       "table": "block"
     },
     {
@@ -680,40 +835,16 @@ Body:+1694
       "table": "block"
     },
     {
-      "id": "ccd6064b-3f10-4136-9866-c76e03745f46",
-      "table": "block"
-    },
-    {
-      "id": "d33ab188-9c78-494c-ad04-6b22e8e77675",
-      "table": "block"
-    },
-    {
-      "id": "d4c395a3-4b34-41cc-adb9-2e5e0be630cb",
-      "table": "block"
-    },
-    {
-      "id": "da67beb0-e269-4889-8441-aea75e61c119",
-      "table": "block"
-    },
-    {
-      "id": "dbad9838-352f-4f81-877c-383a4a39fbf8",
-      "table": "block"
-    },
-    {
       "id": "dd297ee6-37f2-414a-b6da-fdb487275767",
       "table": "block"
     },
     {
       "id": "e1cea37a-0533-4bf3-b148-badc4c486d32",
       "table": "block"
-    },
-    {
-      "id": "fa41fc05-4017-4064-8483-220796f7666b",
-      "table": "block"
     }
   ]
 }
-Response:+20882
+Response:+9991
 {
   "results": [
     {
@@ -796,108 +927,6 @@ Response:+20882
       "role": "editor",
       "value": {
         "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737483351,
-        "id": "1a810179-6237-4725-b0fd-4feba633c64c",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737508011,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "hook up cloudflare for downloads"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 70
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737330297,
-        "id": "2d7ab15d-c7bd-4f86-8f9d-fea74629148e",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737370150,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "Rundown of features:"
-            ]
-          ]
-        },
-        "type": "text",
-        "version": 116
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529736668516,
-        "id": "32c1c44f-15ea-41a9-ba7c-f8e47a8d5cd8",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737714484,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "Like "
-            ],
-            [
-              "https://transfer.sh/",
-              [
-                [
-                  "a",
-                  "https://transfer.sh/"
-                ]
-              ]
-            ],
-            [
-              " ("
-            ],
-            [
-              "https://github.com/dutchcoders/transfer.sh",
-              [
-                [
-                  "a",
-                  "https://github.com/dutchcoders/transfer.sh"
-                ]
-              ]
-            ],
-            [
-              ") but with additional paid features:"
-            ]
-          ]
-        },
-        "type": "text",
-        "version": 155
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
         "content": [
           "34eee913-7991-4082-a6a8-f92a6890b45d",
           "00cd16a9-5db4-42a8-b3e1-0e42e9373e34"
@@ -933,67 +962,19 @@ Response:+20882
       "role": "editor",
       "value": {
         "alive": true,
+        "content": [
+          "5d3c495e-0ed3-41cb-ace1-a895be7f597a"
+        ],
         "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
-        "created_time": 1529737435023,
-        "id": "61f17058-bf87-41f5-ba9b-2c46451e1364",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737691529,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "file management for signed-in users"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 158
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "d904cc0d-97a9-41de-9d5f-15fc9e51db5d",
-          "15e3464b-1201-4d96-b79c-9e5107b7ee6a",
-          "55bf1202-583b-4c35-ad1d-49f0b88fef4c",
-          "e14765a0-3b70-4477-bc24-9e344b46c6c4",
-          "68e9333e-031b-4c86-9c26-d8f7e1a0a1d1",
-          "4589e5a8-f5dc-4615-bae5-9ba966988283",
-          "576d2b44-82d8-413f-bc27-eae3c9a4bf51",
-          "519f37b1-02f6-4017-ba53-ae2ab9b0b9bb",
-          "7bffc793-716b-42bd-ae8b-bc8abf860250",
-          "f7dca98a-0700-46e1-8931-0c094e2b185a",
-          "064196c5-120f-4438-aa74-46e7305bd9eb",
-          "43b8a5d7-1010-42a6-800f-44dfc98bf03f",
-          "f25e3937-7097-4646-b812-cb3f8332360c",
-          "c5bccfd4-10a9-4c72-9418-b4a3d33cea6e",
-          "3a826731-f9ce-4058-b3da-710e91e49f4f",
-          "ad422e67-9691-4be2-8b22-2a237ed43622",
-          "802793ee-7218-49ac-91e2-d8411dd83e1e",
-          "6afdf993-48c5-4172-a9d8-1547712904f5",
-          "41f1ef10-00db-4314-83ef-1dcd4169bc57",
-          "5283e549-7f7d-4e35-8da5-7395e9a62960",
-          "c92a49c2-d82d-4a6a-bf2c-5f8b6b5e5988",
-          "60ebf6cb-12a8-42e2-90c7-26832ee7196a",
-          "7aa8f345-7c77-49de-b501-42ae687704e6",
-          "710a0afa-08d6-41c6-9e98-b70810090d4e",
-          "3a99a47b-957c-413d-995b-09ff0f4bbdcc"
-        ],
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1590387504203,
+        "created_time": 1529736649048,
         "format": {
           "page_full_width": true,
           "page_small_text": true
         },
-        "id": "8c99860b-327c-4571-8ff6-e6eb76fab8d0",
+        "id": "be23f1ed-3146-4701-a5d5-ad9a85066864",
+        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
         "last_edited_time": 1592871300000,
@@ -1002,38 +983,12 @@ Response:+20882
         "properties": {
           "title": [
             [
-              "gotipdaily"
+              "File transfer / upload"
             ]
           ]
         },
         "type": "page",
-        "version": 108
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737370413,
-        "id": "a2772da2-9e41-45ea-8718-eafbdfd5ed4e",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737383837,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "use Firebase for accounts"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 67
+        "version": 96
       }
     },
     {
@@ -1128,122 +1083,6 @@ Response:+20882
       "role": "editor",
       "value": {
         "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737384052,
-        "id": "ccd6064b-3f10-4136-9866-c76e03745f46",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737434777,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "signed-in users can request upload tokens"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 92
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737692199,
-        "id": "d33ab188-9c78-494c-ad04-6b22e8e77675",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737692822,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "type": "text",
-        "version": 8
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737630877,
-        "id": "d4c395a3-4b34-41cc-adb9-2e5e0be630cb",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737682361,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "do downloads on a separate domain to allow for load balancing / better caching setup"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 182
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737469808,
-        "id": "da67beb0-e269-4889-8441-aea75e61c119",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737651455,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "type": "text",
-        "version": 28
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529901752994,
-        "id": "dbad9838-352f-4f81-877c-383a4a39fbf8",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529901764025,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "track downloads / bandwidth used per file"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 88
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
         "content": [
           "df6b1528-dcf0-4014-873a-424e0f325553",
           "dc68ed75-ada8-4ee1-8e28-09874f6fe638",
@@ -1310,36 +1149,10 @@ Response:+20882
         "type": "toggle",
         "version": 62
       }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1529737315042,
-        "id": "fa41fc05-4017-4064-8483-220796f7666b",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1529737327349,
-        "parent_id": "5d3c495e-0ed3-41cb-ace1-a895be7f597a",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "allow paid accounts that retain files for longer"
-            ]
-          ]
-        },
-        "type": "bulleted_list",
-        "version": 121
-      }
     }
   ]
 }
-64456 1593324439929 httpcache-v1
+64456 1593324445753 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+4422
@@ -3375,7 +3188,7 @@ Response:+59942
     }
   ]
 }
-165932 1593324439935 httpcache-v1
+165932 1593324445758 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+12606
@@ -8628,7 +8441,7 @@ Response:+153232
     }
   ]
 }
-187742 1593324439941 httpcache-v1
+187742 1593324445763 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+15070
@@ -14572,7 +14385,7 @@ Response:+172578
     }
   ]
 }
-9707 1593324439941 httpcache-v1
+9707 1593324445764 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+814
