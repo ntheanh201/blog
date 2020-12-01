@@ -149,6 +149,12 @@ func main() {
 		}
 	}
 
+	hasCmd := flgDeployDraft || flgDeployProd || flgPreview || flgPreviewOnDemand || flgRedownload
+	if !hasCmd {
+		flag.Usage()
+		return
+	}
+
 	client := newNotionClient()
 	cache, err := caching_downloader.NewDirectoryCache(cacheDir)
 	must(err)
