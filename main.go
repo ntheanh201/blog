@@ -77,7 +77,7 @@ func newNotionClient() *notionapi.Client {
 	token := os.Getenv("NOTION_TOKEN")
 	if token == "" {
 		logf("must set NOTION_TOKEN env variable\n")
-		flag.Usage()
+		//flag.Usage()
 		os.Exit(1)
 	}
 	// TODO: verify token still valid, somehow
@@ -116,6 +116,7 @@ func main() {
 		flgNoCache         bool
 		flgWc              bool
 		flgRedownload      bool
+		flgRebuild         bool
 	)
 
 	{
@@ -127,6 +128,7 @@ func main() {
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgRedownload, "redownload-notion", false, "download the content from Notion")
+		flag.BoolVar(&flgRebuild, "rebuild", false, "rebuild site in netlify_static/ directory")
 		flag.Parse()
 	}
 
@@ -149,9 +151,20 @@ func main() {
 		}
 	}
 
-	hasCmd := flgDeployDraft || flgDeployProd || flgPreview || flgPreviewOnDemand || flgRedownload
+	hasCmd := flgDeployDraft || flgDeployProd || flgPreview || flgPreviewOnDemand || flgRedownload || flgRebuild
 	if !hasCmd {
 		flag.Usage()
+		return
+	}
+
+	if flgRebuild {
+		cache, err := caching_downloader.NewDirectoryCache(cacheDir)
+		must(err)
+		d := caching_downloader.New(cache, nil)
+		d.EventObserver = eventObserver
+		d.RedownloadNewerVersions = false
+		d.NoReadCache = false
+		rebuildAll(d)
 		return
 	}
 
