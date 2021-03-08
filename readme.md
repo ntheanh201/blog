@@ -29,3 +29,4 @@ Then you can see `s\preview.ps1` script to see what the build process is, which 
 3. Now you can start a local webserver in the `netlify_static` directory (e.g. `npx live-server netlify_static`)
 
 HTML files are generated in `netlify_static` directory because I deploy to Netlify but since it's mostly a static website, you can deploy it pretty much anywhere.
+
