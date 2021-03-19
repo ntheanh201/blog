@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/kjk/blog.svg?branch=master)](https://travis-ci.org/kjk/blog)
-
 This is a Go program that generates my website/blog https://blog.kowalczyk.info.
 
 I use [Notion](https://notion.so) to write most of the content.

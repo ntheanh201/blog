@@ -93,9 +93,7 @@ func buildArticleNavigation(article *Article, isRootPage func(string) bool, idTo
 	}
 }
 
-func normalizeID(id string) string {
-	return notionapi.ToNoDashID(id)
-}
+var normalizeID = notionapi.ToNoDashID
 
 func addIDToBlock(block *notionapi.Block, idToBlock map[string]*notionapi.Block) {
 	id := normalizeID(block.ID)
