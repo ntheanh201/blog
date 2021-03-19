@@ -1,4 +1,5 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+import redirects from './redirects.js';
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -24,8 +25,45 @@ addEventListener('fetch', event => {
   }
 })
 
+async function maybeRedirect(event) {
+  const url = new URL(event.request.url);
+  const a = redirects[url.pathname];
+  if (!a) {
+    return null;
+  }
+  const newURL = a[0];
+  const code = a[1];
+  if (code === 302) {
+    const response = new Response("", { status: 302 });
+    response.headers.set("Location", newURL);
+    return response;
+  }
+  // assuming this is 200
+  try {
+    let options = {};
+    const page = await getAssetFromKV(event, options);
+    // allow headers to be altered
+    const response = new Response(page.body, page);
+    response.headers.set("X-XSS-Protection", "1; mode=block");
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    response.headers.set("X-Frame-Options", "DENY");
+    response.headers.set("Referrer-Policy", "unsafe-url");
+    response.headers.set("Feature-Policy", "none");
+    return response;
+  } catch (e) {
+    // do nothing
+  }
+  return null;
+}
+
 async function handleEvent(event) {
+  const redirectRsp = await maybeRedirect(event);
+  if (redirectRsp != null) {
+    return redirectRsp;
+  }
+
   const url = new URL(event.request.url)
+
   let options = {}
 
   /**
@@ -42,18 +80,14 @@ async function handleEvent(event) {
       };
     }
     const page = await getAssetFromKV(event, options);
-
     // allow headers to be altered
     const response = new Response(page.body, page);
-
     response.headers.set("X-XSS-Protection", "1; mode=block");
     response.headers.set("X-Content-Type-Options", "nosniff");
     response.headers.set("X-Frame-Options", "DENY");
     response.headers.set("Referrer-Policy", "unsafe-url");
     response.headers.set("Feature-Policy", "none");
-
     return response;
-
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
