@@ -25,14 +25,45 @@ addEventListener('fetch', event => {
   }
 })
 
+function setHeaders(response) {
+  response.headers.set("X-XSS-Protection", "1; mode=block");
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("X-Frame-Options", "DENY");
+  response.headers.set("Referrer-Policy", "unsafe-url");
+  response.headers.set("Feature-Policy", "none");
+}
+
+function getRedirectInfo(path) {
+  const a = redirects[path];
+  if (a) {
+    return a;
+  }
+  // /article/:id/* => /article/:id.html
+
+  if (!path.startsWith("/article/")) {
+    return null;
+  }
+  const parts = path.split("/");
+  // console.log("getRedirectInfo: path:", parts);
+  if (parts.length !== 4) {
+    return null;
+  }
+  const id = parts[2];
+  const newURL =  "/article/" + id + ".html";
+  //console.log("getRedirectInfo: newURL:", newURL);
+  return [newURL, 200];
+}
+
 async function maybeRedirect(event) {
   const url = new URL(event.request.url);
-  const a = redirects[url.pathname];
+  //console.log(`maybeRedirect: url.pathname: ${url.pathname}`);
+  const a = getRedirectInfo(url.pathname);
   if (!a) {
     return null;
   }
   const newURL = a[0];
   const code = a[1];
+  //console.log(`maybeRedirect, newURL: ${newURL}, code: ${code}`);
   if (code === 302) {
     const response = new Response("", { status: 302 });
     response.headers.set("Location", newURL);
@@ -40,15 +71,19 @@ async function maybeRedirect(event) {
   }
   // assuming this is 200
   try {
-    let options = {};
-    const page = await getAssetFromKV(event, options);
+    function mapReqToAssetFunc(req) {
+      const reqURL = `${new URL(req.url).origin}${newURL}`;
+      //console.log(`maybeRedirect: reqURL: ${reqURL}`);
+      const ret = new Request(reqURL, req);
+      return ret;
+    }
+    let opts = {
+      mapRequestToAsset: mapReqToAssetFunc,
+    };
+    const page = await getAssetFromKV(event, opts);
     // allow headers to be altered
     const response = new Response(page.body, page);
-    response.headers.set("X-XSS-Protection", "1; mode=block");
-    response.headers.set("X-Content-Type-Options", "nosniff");
-    response.headers.set("X-Frame-Options", "DENY");
-    response.headers.set("Referrer-Policy", "unsafe-url");
-    response.headers.set("Feature-Policy", "none");
+    setHeaders(response);
     return response;
   } catch (e) {
     // do nothing
@@ -57,6 +92,8 @@ async function maybeRedirect(event) {
 }
 
 async function handleEvent(event) {
+  //console.log(`handleEvent: ${event.request.url}`);
+
   const redirectRsp = await maybeRedirect(event);
   if (redirectRsp != null) {
     return redirectRsp;
@@ -82,11 +119,7 @@ async function handleEvent(event) {
     const page = await getAssetFromKV(event, options);
     // allow headers to be altered
     const response = new Response(page.body, page);
-    response.headers.set("X-XSS-Protection", "1; mode=block");
-    response.headers.set("X-Content-Type-Options", "nosniff");
-    response.headers.set("X-Frame-Options", "DENY");
-    response.headers.set("Referrer-Policy", "unsafe-url");
-    response.headers.set("Feature-Policy", "none");
+    setHeaders(response);
     return response;
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
