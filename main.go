@@ -109,14 +109,16 @@ func cmdAddNetlifyToken(cmd *exec.Cmd) {
 
 func main() {
 	var (
-		flgDeployDraft     bool
-		flgDeployProd      bool
-		flgPreview         bool
-		flgPreviewOnDemand bool
-		flgNoCache         bool
-		flgWc              bool
-		flgRedownload      bool
-		flgRebuild         bool
+		flgDeployDraft         bool
+		flgDeployProd          bool
+		flgDeployCloudflare    bool
+		flgDeployCloudflareDev bool
+		flgPreview             bool
+		flgPreviewOnDemand     bool
+		flgNoCache             bool
+		flgWc                  bool
+		flgRedownload          bool
+		flgRebuild             bool
 	)
 
 	{
@@ -125,6 +127,8 @@ func main() {
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
 		flag.BoolVar(&flgDeployDraft, "deploy-draft", false, "deploy to netlify as draft")
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to netlify production")
+		flag.BoolVar(&flgDeployCloudflare, "deploy-cf", false, "deploy to Cloudflare")
+		flag.BoolVar(&flgDeployCloudflareDev, "deploy-cf-dev", false, "deploy to Cloudflare dev")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgRedownload, "redownload-notion", false, "download the content from Notion")
@@ -151,7 +155,7 @@ func main() {
 		}
 	}
 
-	hasCmd := flgDeployDraft || flgDeployProd || flgPreview || flgPreviewOnDemand || flgRedownload || flgRebuild
+	hasCmd := flgDeployDraft || flgDeployProd || flgPreview || flgPreviewOnDemand || flgRedownload || flgRebuild || flgDeployCloudflare || flgDeployCloudflareDev
 	if !hasCmd {
 		flag.Usage()
 		return
@@ -191,9 +195,7 @@ func main() {
 		if doOpen {
 			cmd.Args = append(cmd.Args, "--open")
 		}
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		u.RunCmdMust(cmd)
+		u.RunCmdLoggedMust(cmd)
 		return
 	}
 
@@ -204,10 +206,20 @@ func main() {
 		if doOpen {
 			cmd.Args = append(cmd.Args, "--open")
 		}
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		u.RunCmdMust(cmd)
+		u.RunCmdLoggedMust(cmd)
 		return
+	}
+
+	if flgDeployCloudflare {
+		rebuildAll(d)
+		cmd := exec.Command("wrangler", "publish", "--env", "production")
+		u.RunCmdLoggedMust(cmd)
+	}
+
+	if flgDeployCloudflareDev {
+		rebuildAll(d)
+		cmd := exec.Command("wrangler", "publish")
+		u.RunCmdLoggedMust(cmd)
 	}
 
 	if false {
