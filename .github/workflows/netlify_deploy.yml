@@ -1,7 +1,8 @@
 name: Deploy to netlify
-on: [push]
-  branches:
-    - not_exist
+on:
+  push:
+    branches:
+      - not_exist
 jobs:
   build:
     name: Build
