@@ -3,9 +3,6 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"io"
-	"os"
-	"path/filepath"
 	"strconv"
 	"strings"
 
@@ -671,66 +668,4 @@ func netlifyWriteRedirects() {
 		buf.WriteString(s)
 	}
 	netlifyWriteFile("_redirects", buf.Bytes())
-}
-
-// https://caddyserver.com/tutorial/caddyfile
-// redirect /article/:id/* => /article/:id/pretty-title
-var caddyProlog = `localhost:8080
-root netlify_static
-errors stdout
-log stdout
-
-rewrite / {
-	r  ^/article/(.*)/.*$
-	to /article/{1}.html
-}
-
-`
-
-func isRewrite(r *netlifyRedirect) bool {
-	return (r.code == 200) || strings.HasSuffix(r.from, "*")
-}
-
-func genCaddyRedir(r *netlifyRedirect) string {
-	if r.from == "/" {
-		return fmt.Sprintf("rewrite / %s\n", r.to)
-	}
-	if isRewrite(r) {
-		// hack: caddy doesn't like `++` in from
-		if strings.Contains(r.from, "++") {
-			return ""
-		}
-		if strings.HasSuffix(r.from, "*") {
-			base := strings.TrimSuffix(r.from, "*")
-			to := strings.Replace(r.to, ":splat", "{1}", -1)
-			return fmt.Sprintf(`
-rewrite "%s" {
-    regexp (.*)
-    to %s
-}
-`, base, to)
-		}
-		return fmt.Sprintf(`
-rewrite "^%s$" {
-    to %s
-}
-`, r.from, r.to)
-	}
-
-	return fmt.Sprintf("redir \"%s\" \"%s\" %d\n", r.from, r.to, r.code)
-}
-
-func writeCaddyConfig() {
-	path := filepath.Join("Caddyfile")
-	f, err := os.Create(path)
-	must(err)
-	defer f.Close()
-
-	_, err = f.Write([]byte(caddyProlog))
-	must(err)
-	for _, r := range netlifyRedirects {
-		s := genCaddyRedir(r)
-		_, err = io.WriteString(f, s)
-		must(err)
-	}
 }

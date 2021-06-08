@@ -104,7 +104,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 
 func netlifyPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
-	path := filepath.Join("netlify_static", fileName)
+	path := filepath.Join(htmlDir, fileName)
 	u.CreateDirForFileMust(path)
 	return path
 }
@@ -227,7 +227,7 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 
 func copyImages() {
 	srcDir := filepath.Join("notion_cache", "img")
-	dstDir := filepath.Join("netlify_static", "img")
+	dstDir := filepath.Join(htmlDir, "img")
 	u.DirCopyRecurMust(dstDir, srcDir, nil)
 }
 
@@ -430,11 +430,11 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
 }
 
-func netlifyBuild(store *Articles) {
+func generateHTML(store *Articles) {
 	// verify we're in the right directory
-	_, err := os.Stat("netlify_static")
+	_, err := os.Stat(htmlDir)
 	must(err)
-	outDir := filepath.Join("netlify_static")
+	outDir := filepath.Join(htmlDir)
 	err = os.RemoveAll(outDir)
 	must(err)
 	err = os.MkdirAll(outDir, 0755)
@@ -482,5 +482,4 @@ func netlifyBuild(store *Articles) {
 	// no longer care about /worklog
 
 	netlifyWriteRedirects()
-	writeCaddyConfig()
 }
