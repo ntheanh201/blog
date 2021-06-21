@@ -13,9 +13,14 @@ import (
 	"github.com/kjk/u"
 )
 
+var (
+	panicIfErr = u.PanicIfErr
+	fatalIf    = u.PanicIf
+)
+
 const (
 	analyticsCode = "UA-194516-1"
-	htmlDir       = "netflify_static" // directory where we generate html files
+	htmlDir       = "netlify_static" // directory where we generate html files
 )
 
 var (
@@ -114,6 +119,7 @@ func main() {
 		flgWc              bool
 		flgRedownload      bool
 		flgRebuild         bool
+		flgDiff            bool
 	)
 
 	{
@@ -125,6 +131,7 @@ func main() {
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgRedownload, "redownload-notion", false, "download the content from Notion")
 		flag.BoolVar(&flgRebuild, "rebuild", false, fmt.Sprintf("rebuild site in %s/ directory", htmlDir))
+		flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.Parse()
 	}
 
@@ -135,6 +142,11 @@ func main() {
 
 	if flgWc {
 		doLineCount()
+		return
+	}
+
+	if flgDiff {
+		winmergeDiffPreview()
 		return
 	}
 

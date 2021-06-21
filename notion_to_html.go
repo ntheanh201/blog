@@ -128,7 +128,7 @@ func (c *Converter) renderGallery(block *notionapi.Block) bool {
 
 // RenderImage renders BlockImage
 func (c *Converter) RenderImage(block *notionapi.Block) bool {
-	link := block.Source
+	link := block.ImageURL
 	im := findImageMapping(c.article.Images, link)
 	relURL := im.relativeURL
 	imgURL := c.article.getImageBlockURL(block)

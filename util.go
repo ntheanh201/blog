@@ -166,3 +166,17 @@ func capitalize(s string) string {
 	s = strings.ToLower(s)
 	return strings.ToUpper(s[0:1]) + s[1:]
 }
+
+func toTrimmedLines(d []byte) []string {
+	lines := strings.Split(string(d), "\n")
+	i := 0
+	for _, l := range lines {
+		l = strings.TrimSpace(l)
+		// remove empty lines
+		if len(l) > 0 {
+			lines[i] = l
+			i++
+		}
+	}
+	return lines[:i]
+}
