@@ -1,7 +1,7 @@
-14244 1624300315144 httpcache-v1
+13892 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+14043
+Response:+13692
 {
   "recordMapWithRoles": {
     "block": {
@@ -36,11 +36,7 @@ Response:+14043
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -78,11 +74,7 @@ Response:+14043
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -137,11 +129,7 @@ Response:+14043
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -194,11 +182,7 @@ Response:+14043
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Extracting files from .7z archives in Go"
-              ]
-            ]
+            "title": [["Extracting files from .7z archives in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -254,11 +238,7 @@ Response:+14043
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -359,11 +339,7 @@ Response:+14043
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Extracting files from .7z archives in Go"
-            ]
-          ]
+          "title": [["Extracting files from .7z archives in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -372,10 +348,10 @@ Response:+14043
     }
   ]
 }
-43538 1624300315145 httpcache-v1
+40129 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -385,7 +361,7 @@ Body:+152
   "pageId": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
   "verticalColumns": false
 }
-Response:+43297
+Response:+39889
 {
   "cursor": {
     "stack": []
@@ -428,11 +404,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Pre-requisites:"
-              ]
-            ]
+            "title": [["Pre-requisites:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -456,9 +428,7 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To see a more complete example: "
-              ],
+              ["To see a more complete example: "],
               [
                 "https://github.com/kjk/lzmadec/blob/master/cmd/test/main.go",
                 [
@@ -492,20 +462,9 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "get "
-              ],
-              [
-                "io.ReadCloser",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for a given file"
-              ]
+              ["get "],
+              ["io.ReadCloser", [["c"]]],
+              [" for a given file"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -529,14 +488,10 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "var archive *lzmadec.Archive\narchive, _ := lzmadec.NewArchive(\"foo.7z\")\n\n// list all files inside archive\nfor _, e := range archive.Entries {\n    fmt.Printf(\"name: %s, size: %d\\n\", e.Path, e.Size)\n}\nfirstFile := archive.Entries[0].Path\n\n// extract to a file\narchive.ExtractToFile(firstFile + \".extracted\", firstFile)\n\n// decompress to in-memory buffer\nr, _ := archive.GetFileReader(firstFile)\nvar buf bytes.Buffer\n_, _ = io.Copy(\u0026buf, r)\n// if not fully read, calling Close() ensures that sub-launched 7z executable\n// is terminated\nr.Close()\nfmt.Printf(\"size of file %s after decompression: %d\\n\", firstFile, len(buf.Bytes()))"
+                "var archive *lzmadec.Archive\narchive, _ := lzmadec.NewArchive(\"foo.7z\")\n\n// list all files inside archive\nfor _, e := range archive.Entries {\n    fmt.Printf(\"name: %s, size: %d\\n\", e.Path, e.Size)\n}\nfirstFile := archive.Entries[0].Path\n\n// extract to a file\narchive.ExtractToFile(firstFile + \".extracted\", firstFile)\n\n// decompress to in-memory buffer\nr, _ := archive.GetFileReader(firstFile)\nvar buf bytes.Buffer\n_, _ = io.Copy(&buf, r)\n// if not fully read, calling Close() ensures that sub-launched 7z executable\n// is terminated\nr.Close()\nfmt.Printf(\"size of file %s after decompression: %d\\n\", firstFile, len(buf.Bytes()))"
               ]
             ]
           },
@@ -567,11 +522,7 @@ Response:+43297
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -609,11 +560,7 @@ Response:+43297
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -636,11 +583,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go, programming"
-              ]
-            ]
+            "title": [["Tags: go, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -664,17 +607,8 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "It still uses "
-              ],
-              [
-                "7z",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["It still uses "],
+              ["7z", [["c"]]],
               [
                 " executable for the functionality but it doesn’t create temporary file. Instead it streams decompressed data so it’s more efficient."
               ]
@@ -760,11 +694,7 @@ Response:+43297
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -793,16 +723,9 @@ Response:+43297
               ],
               [
                 "https://github.com/uli-go/xz",
-                [
-                  [
-                    "a",
-                    "https://github.com/uli-go/xz"
-                  ]
-                ]
+                [["a", "https://github.com/uli-go/xz"]]
               ],
-              [
-                " is quite advanced but not there yet."
-              ]
+              [" is quite advanced but not there yet."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -827,20 +750,9 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I spent a little more effort and created a way to get an "
-              ],
-              [
-                "io.ReadCloser",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " stream for a file inside .7z archive."
-              ]
+              ["I spent a little more effort and created a way to get an "],
+              ["io.ReadCloser", [["c"]]],
+              [" stream for a file inside .7z archive."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -864,11 +776,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -891,11 +799,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The library offers essentially 2 functions:"
-              ]
-            ]
+            "title": [["The library offers essentially 2 functions:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -948,11 +852,7 @@ Response:+43297
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Extracting files from .7z archives in Go"
-              ]
-            ]
+            "title": [["Extracting files from .7z archives in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -980,22 +880,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "install "
-              ],
-              [
-                "7z",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " binary:"
-              ]
-            ]
+            "title": [["install "], ["7z", [["c"]]], [" binary:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1051,11 +936,7 @@ Response:+43297
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1079,17 +960,8 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "install the library: "
-              ],
-              [
-                "go get -u github.com/kjk/lzmadec",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["install the library: "],
+              ["go get -u github.com/kjk/lzmadec", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1117,50 +989,16 @@ Response:+43297
               [
                 "If you’re a Go programmer, you can use it as an example of using "
               ],
-              [
-                "os.Cmd",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to capture stdout of a program for progressive reading. "
-              ],
-              [
-                "7z",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " has "
-              ],
-              [
-                "-so",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["os.Cmd", [["c"]]],
+              [" to capture stdout of a program for progressive reading. "],
+              ["7z", [["c"]]],
+              [" has "],
+              ["-so", [["c"]]],
               [
                 " options which tells it to send decompressed data to stdout. This is how to capture that as an "
               ],
-              [
-                "io.Reader",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ": "
-              ],
+              ["io.Reader", [["c"]]],
+              [": "],
               [
                 "https://github.com/kjk/lzmadec/blob/master/lzmadec.go#L225",
                 [
@@ -1193,19 +1031,7 @@ Response:+43297
           "parent_id": "521a716d-b4e5-4add-b4d9-1a40ea3bf5d7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "on mac: "
-              ],
-              [
-                "brew install p7zip",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["on mac: "], ["brew install p7zip", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1228,11 +1054,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 16"
-              ]
-            ]
+            "title": [["Id: 16"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1310,17 +1132,8 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "An easy way to achieve this is to sub-launch "
-              ],
-              [
-                "7z",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["An easy way to achieve this is to sub-launch "],
+              ["7z", [["c"]]],
               [
                 " executable to extract the file to disk and then proceed as usual."
               ]
@@ -1347,19 +1160,7 @@ Response:+43297
           "parent_id": "521a716d-b4e5-4add-b4d9-1a40ea3bf5d7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "on ubuntu: "
-              ],
-              [
-                "apt-get install p7zip",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["on ubuntu: "], ["apt-get install p7zip", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1382,11 +1183,7 @@ Response:+43297
           "parent_id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2015-06-03T17:45:57-07:00"
-              ]
-            ]
+            "title": [["Date: 2015-06-03T17:45:57-07:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1410,21 +1207,9 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I’ve packaged this as "
-              ],
-              [
-                "lzmadec",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/lzmadec"
-                  ]
-                ]
-              ],
-              [
-                " library and this article describes how to use it."
-              ]
+              ["I’ve packaged this as "],
+              ["lzmadec", [["a", "https://github.com/kjk/lzmadec"]]],
+              [" library and this article describes how to use it."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1449,18 +1234,8 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "on windows: "
-              ],
-              [
-                "http://www.7-zip.org/",
-                [
-                  [
-                    "a",
-                    "http://www.7-zip.org/"
-                  ]
-                ]
-              ]
+              ["on windows: "],
+              ["http://www.7-zip.org/", [["a", "http://www.7-zip.org/"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1485,9 +1260,7 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "and as a convenience a function to extract a file to disk"
-              ]
+              ["and as a convenience a function to extract a file to disk"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1512,9 +1285,7 @@ Response:+43297
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "get a list of all files and their metadata inside .7z archive"
-              ]
+              ["get a list of all files and their metadata inside .7z archive"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1570,10 +1341,10 @@ Response:+43297
     }
   }
 }
-24012 1624300315146 httpcache-v1
+23392 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+286
+Body:+287
 {
   "requests": [
     {
@@ -1590,7 +1361,7 @@ Body:+286
     }
   ]
 }
-Response:+23635
+Response:+23016
 {
   "recordMapWithRoles": {
     "block": {
@@ -1633,11 +1404,7 @@ Response:+23635
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go package for better guid generation"
-              ]
-            ]
+            "title": [["Go package for better guid generation"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1666,11 +1433,7 @@ Response:+23635
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1708,11 +1471,7 @@ Response:+23635
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1767,11 +1526,7 @@ Response:+23635
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1827,11 +1582,7 @@ Response:+23635
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1874,11 +1625,7 @@ Response:+23635
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "First release of dbHero - a GUI database client"
-              ]
-            ]
+            "title": [["First release of dbHero - a GUI database client"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1933,9 +1680,7 @@ Response:+23635
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531736780543,
-          "file_ids": [
-            "86bd3ca0-53f5-4048-997a-78a19bd9ce21"
-          ],
+          "file_ids": ["86bd3ca0-53f5-4048-997a-78a19bd9ce21"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86bd3ca0-53f5-4048-997a-78a19bd9ce21/header-06.jpg",
             "page_cover_position": 0.5,
@@ -1950,11 +1695,7 @@ Response:+23635
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Accessing GitHub API from Go"
-              ]
-            ]
+            "title": [["Accessing GitHub API from Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2048,11 +1789,7 @@ Response:+23635
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Go package for better guid generation"
-            ]
-          ]
+          "title": [["Go package for better guid generation"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2095,11 +1832,7 @@ Response:+23635
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "First release of dbHero - a GUI database client"
-            ]
-          ]
+          "title": [["First release of dbHero - a GUI database client"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2154,9 +1887,7 @@ Response:+23635
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531736780543,
-        "file_ids": [
-          "86bd3ca0-53f5-4048-997a-78a19bd9ce21"
-        ],
+        "file_ids": ["86bd3ca0-53f5-4048-997a-78a19bd9ce21"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86bd3ca0-53f5-4048-997a-78a19bd9ce21/header-06.jpg",
           "page_cover_position": 0.5,
@@ -2171,11 +1902,7 @@ Response:+23635
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Accessing GitHub API from Go"
-            ]
-          ]
+          "title": [["Accessing GitHub API from Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

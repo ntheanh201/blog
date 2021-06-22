@@ -1,7 +1,7 @@
-12975 1624300130741 httpcache-v1
+12683 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+12774
+Response:+12483
 {
   "recordMapWithRoles": {
     "block": {
@@ -52,11 +52,7 @@ Response:+12774
           "parent_id": "ed055f63-753e-42ef-9025-e11ac9062c35",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++ casts"
-              ]
-            ]
+            "title": [["C++ casts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -112,11 +108,7 @@ Response:+12774
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -143,11 +135,7 @@ Response:+12774
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -225,11 +213,7 @@ Response:+12774
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++"
-              ]
-            ]
+            "title": [["C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -322,11 +306,7 @@ Response:+12774
         "parent_id": "ed055f63-753e-42ef-9025-e11ac9062c35",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "C++ casts"
-            ]
-          ]
+          "title": [["C++ casts"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -335,10 +315,10 @@ Response:+12774
     }
   ]
 }
-32070 1624300130742 httpcache-v1
+29599 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -348,7 +328,7 @@ Body:+152
   "pageId": "37c6f481-9b67-492d-ab22-bde3ee34d74f",
   "verticalColumns": false
 }
-Response:+31829
+Response:+29359
 {
   "cursor": {
     "stack": []
@@ -371,19 +351,7 @@ Response:+31829
           "parent_id": "37c6f481-9b67-492d-ab22-bde3ee34d74f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "reinterpret_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " : \"trust me\" cast"
-              ]
-            ]
+            "title": [["reinterpret_cast", [["c"]]], [" : \"trust me\" cast"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -428,11 +396,7 @@ Response:+31829
           "parent_id": "ed055f63-753e-42ef-9025-e11ac9062c35",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++ casts"
-              ]
-            ]
+            "title": [["C++ casts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -489,17 +453,8 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Use "
-              ],
-              [
-                "static_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Use "],
+              ["static_cast", [["c"]]],
               [
                 " as the equivalent of a C-style cast that does value conversion, when you need to explicitly up-cast a pointer from a class to its superclass, or when you need to explicitly cast a pointer from a superclass to a subclass. In this last case, you must be sure your object is actually an instance of the subclass."
               ]
@@ -527,28 +482,13 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
+              ["const_cast", [["c"]]],
+              [" : removes const ("],
               [
-                "const_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
+                "const char* s = \"foo\"; char* s2 = const_cast<char*>(s);",
+                [["c"]]
               ],
-              [
-                " : removes const ("
-              ],
-              [
-                "const char* s = \"foo\"; char* s2 = const_cast\u003cchar*\u003e(s);",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " )"
-              ]
+              [" )"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -605,11 +545,7 @@ Response:+31829
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -665,11 +601,7 @@ Response:+31829
           "parent_id": "37c6f481-9b67-492d-ab22-bde3ee34d74f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Links:"
-              ]
-            ]
+            "title": [["Links:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -713,42 +645,13 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Unclear: when casting "
-              ],
-              [
-                "Foo* \u003c-\u003e void*",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " should I use "
-              ],
-              [
-                "static_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "  or "
-              ],
-              [
-                "reinterpret_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ?"
-              ]
+              ["Unclear: when casting "],
+              ["Foo* <-> void*", [["c"]]],
+              [" should I use "],
+              ["static_cast", [["c"]]],
+              ["  or "],
+              ["reinterpret_cast", [["c"]]],
+              [" ?"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -772,11 +675,7 @@ Response:+31829
           "parent_id": "37c6f481-9b67-492d-ab22-bde3ee34d74f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google rules"
-              ]
-            ]
+            "title": [["Google rules"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -800,17 +699,8 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "static_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " : int → double, pointer → void* etc."
-              ]
+              ["static_cast", [["c"]]],
+              [" : int → double, pointer → void* etc."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -835,17 +725,8 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Use "
-              ],
-              [
-                "reinterpret_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Use "],
+              ["reinterpret_cast", [["c"]]],
               [
                 " to do unsafe conversions of pointer types to and from integer and other pointer types. Use this only if you know what you are doing and you understand the aliasing issues."
               ]
@@ -873,16 +754,9 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
+              ["dynamic_cast", [["c"]]],
               [
-                "dynamic_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " : only for polymorphic types (those that have virtual functions) and when rtti is enabled. Used to cast up\u0026down inheritance hierarchy. Returns null if cast can't be done on a pointer. Throws exception if cast fails on reference type."
+                " : only for polymorphic types (those that have virtual functions) and when rtti is enabled. Used to cast up&down inheritance hierarchy. Returns null if cast can't be done on a pointer. Throws exception if cast fails on reference type."
               ]
             ]
           },
@@ -911,11 +785,7 @@ Response:+31829
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -939,17 +809,8 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Use brace initialization to convert arithmetic types (e.g. "
-              ],
-              [
-                "int64{x}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Use brace initialization to convert arithmetic types (e.g. "],
+              ["int64{x}", [["c"]]],
               [
                 "). This is the safest approach because code will not compile if conversion can result in information loss. The syntax is also concise."
               ]
@@ -1064,11 +925,7 @@ Response:+31829
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++"
-              ]
-            ]
+            "title": [["C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1119,31 +976,11 @@ Response:+31829
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Use "
-              ],
-              [
-                "const_cast",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to remove the "
-              ],
-              [
-                "const",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " qualifier (see "
-              ],
+              ["Use "],
+              ["const_cast", [["c"]]],
+              [" to remove the "],
+              ["const", [["c"]]],
+              [" qualifier (see "],
               [
                 "const",
                 [
@@ -1153,9 +990,7 @@ Response:+31829
                   ]
                 ]
               ],
-              [
-                ")."
-              ]
+              [")."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1211,10 +1046,10 @@ Response:+31829
     }
   }
 }
-9694 1624300130742 httpcache-v1
+9462 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -1223,7 +1058,7 @@ Body:+110
     }
   ]
 }
-Response:+9494
+Response:+9263
 {
   "recordMapWithRoles": {
     "block": {
@@ -1276,11 +1111,7 @@ Response:+9494
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1329,11 +1160,7 @@ Response:+9494
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go"
-              ]
-            ]
+            "title": [["Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1360,11 +1187,7 @@ Response:+9494
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1461,11 +1284,7 @@ Response:+9494
         "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Go"
-            ]
-          ]
+          "title": [["Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

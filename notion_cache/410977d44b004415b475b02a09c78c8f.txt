@@ -1,7 +1,7 @@
-12183 1624299877077 httpcache-v1
+12063 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+11982
+Response:+11863
 {
   "recordMapWithRoles": {
     "block": {
@@ -55,11 +55,7 @@ Response:+11982
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This developer's life"
-              ]
-            ]
+            "title": [["This developer's life"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -181,11 +177,7 @@ Response:+11982
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -308,10 +300,10 @@ Response:+11982
     }
   ]
 }
-46170 1624299877078 httpcache-v1
+45278 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -321,7 +313,7 @@ Body:+152
   "pageId": "410977d4-4b00-4415-b475-b02a09c78c8f",
   "verticalColumns": false
 }
-Response:+45929
+Response:+45038
 {
   "cursor": {
     "stack": []
@@ -369,11 +361,7 @@ Response:+45929
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This developer's life"
-              ]
-            ]
+            "title": [["This developer's life"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -478,9 +466,7 @@ Response:+45929
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I had to rewrite the scan and search code but it wasn't hard."
-              ]
+              ["I had to rewrite the scan and search code but it wasn't hard."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -504,11 +490,7 @@ Response:+45929
           "parent_id": "410977d4-4b00-4415-b475-b02a09c78c8f",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "var index []byte\nvar indexChunk []byte\nfor {\n\tindexChunk = scanNextDriveChunk()\n  index = append(index, indexChunk...)\n}"
@@ -629,11 +611,7 @@ Response:+45929
           "parent_id": "410977d4-4b00-4415-b475-b02a09c78c8f",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "var index [][]byte\nvar indexChunk []byte\nfor {\n\tindexChunk = scanNextDriveChunk()\n  index = append(index, indexChunk)\n}"
@@ -721,11 +699,7 @@ Response:+45929
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -880,14 +854,7 @@ Response:+45929
               [
                 "I then ran the program under WinDBG debugger hoping to catch the crash. WinDBG is not a good debugger for Go programs because it only understands .pdb symbols, while Go only produces DWARF symbols, but Go's native debugger "
               ],
-              [
-                "delve",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["delve", [["c"]]],
               [
                 " only supports 64 bit programs, and 64-bit version didn't crash."
               ]
@@ -1049,11 +1016,7 @@ Response:+45929
           "parent_id": "410977d4-4b00-4415-b475-b02a09c78c8f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It's useful functionality but it wasn't the problem."
-              ]
-            ]
+            "title": [["It's useful functionality but it wasn't the problem."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1157,11 +1120,7 @@ Response:+45929
           "parent_id": "410977d4-4b00-4415-b475-b02a09c78c8f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "There are 2 lessons here."
-              ]
-            ]
+            "title": [["There are 2 lessons here."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1188,14 +1147,7 @@ Response:+45929
               [
                 "Here lies the issue: when we append to index, Go runtime has to expand "
               ],
-              [
-                "index",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["index", [["c"]]],
               [
                 " slice which means we need to allocate memory for new, bigger slice, copy data from existing slice, append new data, free the old slice. This memory copying is expensive."
               ]
@@ -1250,17 +1202,8 @@ Response:+45929
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The index was stored as a single "
-              ],
-              [
-                "[]byte",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["The index was stored as a single "],
+              ["[]byte", [["c"]]],
               [
                 " slice. It's a more compact and GC-friendly way of storing a list of directories and files than a naive way of using a string for each directory and file. For example, a string overhead is at a minimum 2 machine words (one for a pointer to string data and one for string length). That's 2 x 8 = 16 bytes per string on 64-bit machine. Add overhead of allocating each string separately and overhead of scanning those strings during GC cycles."
               ]
@@ -1288,9 +1231,7 @@ Response:+45929
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "After the change even the 32 bit version could scan my drive."
-              ]
+              ["After the change even the 32 bit version could scan my drive."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1369,9 +1310,7 @@ Response:+45929
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I released version 1.2.4 of "
-              ],
+              ["I released version 1.2.4 of "],
               [
                 "Fast File Finder",
                 [
@@ -1381,9 +1320,7 @@ Response:+45929
                   ]
                 ]
               ],
-              [
-                ", a program to quickly find files by name on Windows."
-              ]
+              [", a program to quickly find files by name on Windows."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",

@@ -1,7 +1,7 @@
-10648 1624299931801 httpcache-v1
+10416 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+10447
+Response:+10216
 {
   "recordMapWithRoles": {
     "block": {
@@ -48,11 +48,7 @@ Response:+10447
           "parent_id": "623523b6-7e15-48a0-b525-749d6921465c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The Silver Searcher windows port"
-              ]
-            ]
+            "title": [["The Silver Searcher windows port"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -108,11 +104,7 @@ Response:+10447
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -173,11 +165,7 @@ Response:+10447
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Software written by me"
-              ]
-            ]
+            "title": [["Software written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -266,11 +254,7 @@ Response:+10447
         "parent_id": "623523b6-7e15-48a0-b525-749d6921465c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "The Silver Searcher windows port"
-            ]
-          ]
+          "title": [["The Silver Searcher windows port"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -279,10 +263,10 @@ Response:+10447
     }
   ]
 }
-27601 1624299931801 httpcache-v1
+26380 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -292,7 +276,7 @@ Body:+152
   "pageId": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
   "verticalColumns": false
 }
-Response:+27360
+Response:+26140
 {
   "cursor": {
     "stack": []
@@ -333,11 +317,7 @@ Response:+27360
           "parent_id": "623523b6-7e15-48a0-b525-749d6921465c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The Silver Searcher windows port"
-              ]
-            ]
+            "title": [["The Silver Searcher windows port"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -360,14 +340,10 @@ Response:+27360
           "parent_id": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "ag [OPTIONS] PATTERN [PATH]\n\nRecursively search for PATTERN in PATH.\nLike grep or ack, but faster.\n\nExample: ag -i foo /bar/\n\nSearch options:\n\n--ackmate               Print results in AckMate-parseable format\n-a --all-types          Search all files (doesn't include hidden files\n                        or patterns from ignore files)\n-A --after [LINES]      Print lines before match (Default: 2)\n-B --before [LINES]     Print lines after match (Default: 2)\n--[no]break             Print newlines between matches in different files\n                        (Enabled by default)\n--[no]color             Print color codes in results (Enabled by default)\n--color-line-number     Color codes for line numbers (Default: 1;33)\n--color-match           Color codes for result match numbers (Default: 30;43)\n--color-path            Color codes for path names (Default: 1;32)\n--column                Print column numbers in results\n--line-numbers          Print line numbers even for streams\n-C --context [LINES]    Print lines before and after matches (Default: 2)\n-D --debug              Ridiculous debugging (probably not useful)\n--depth NUM             Search up to NUM directories deep (Default: 25)\n-f --follow             Follow symlinks\n--[no]group             Same as --[no]break --[no]heading\n-g PATTERN              Print filenames matching PATTERN\n-G, --file-search-regex PATTERN Limit search to filenames matching PATTERN\n--[no]heading\n--hidden                Search hidden files (obeys .*ignore files)\n-i, --ignore-case       Match case insensitively\n--ignore PATTERN        Ignore files/directories matching PATTERN\n                        (literal file/directory names also allowed)\n--ignore-dir NAME       Alias for --ignore for compatibility with ack.\n-l --files-with-matches Only print filenames that contain matches\n                        (don't print the matching lines)\n-L --files-without-matches\n                        Only print filenames that don't contain matches\n-m --max-count NUM      Skip the rest of a file after NUM matches (Default: 10,000)\n--no-numbers            Don't show line numbers\n-p --path-to-agignore STRING\n                        Use .agignore file at STRING\n--print-long-lines      Print matches on very long lines (Default: \u003e2k characters)\n-Q --literal            Don't parse PATTERN as a regular expression\n-s --case-sensitive     Match case sensitively (Enabled by default)\n-S --smart-case         Match case insensitively unless PATTERN contains\n                        uppercase characters\n--search-binary         Search binary files for matches\n--stats                 Print stats (files scanned, time taken, etc.)\n-t --all-text           Search all text files (doesn't include hidden files)\n-u --unrestricted       Search all files (ignore .agignore, .gitignore, etc.;\n                        searches binary and hidden files as well)\n-U --skip-vcs-ignores   Ignore VCS ignore files\n                        (.gitigore, .hgignore, .svnignore; still obey .agignore)\n-v --invert-match\n-w --word-regexp        Only match whole words\n-z --search-zip         Search contents of compressed (e.g., gzip) files"
+                "ag [OPTIONS] PATTERN [PATH]\n\nRecursively search for PATTERN in PATH.\nLike grep or ack, but faster.\n\nExample: ag -i foo /bar/\n\nSearch options:\n\n--ackmate               Print results in AckMate-parseable format\n-a --all-types          Search all files (doesn't include hidden files\n                        or patterns from ignore files)\n-A --after [LINES]      Print lines before match (Default: 2)\n-B --before [LINES]     Print lines after match (Default: 2)\n--[no]break             Print newlines between matches in different files\n                        (Enabled by default)\n--[no]color             Print color codes in results (Enabled by default)\n--color-line-number     Color codes for line numbers (Default: 1;33)\n--color-match           Color codes for result match numbers (Default: 30;43)\n--color-path            Color codes for path names (Default: 1;32)\n--column                Print column numbers in results\n--line-numbers          Print line numbers even for streams\n-C --context [LINES]    Print lines before and after matches (Default: 2)\n-D --debug              Ridiculous debugging (probably not useful)\n--depth NUM             Search up to NUM directories deep (Default: 25)\n-f --follow             Follow symlinks\n--[no]group             Same as --[no]break --[no]heading\n-g PATTERN              Print filenames matching PATTERN\n-G, --file-search-regex PATTERN Limit search to filenames matching PATTERN\n--[no]heading\n--hidden                Search hidden files (obeys .*ignore files)\n-i, --ignore-case       Match case insensitively\n--ignore PATTERN        Ignore files/directories matching PATTERN\n                        (literal file/directory names also allowed)\n--ignore-dir NAME       Alias for --ignore for compatibility with ack.\n-l --files-with-matches Only print filenames that contain matches\n                        (don't print the matching lines)\n-L --files-without-matches\n                        Only print filenames that don't contain matches\n-m --max-count NUM      Skip the rest of a file after NUM matches (Default: 10,000)\n--no-numbers            Don't show line numbers\n-p --path-to-agignore STRING\n                        Use .agignore file at STRING\n--print-long-lines      Print matches on very long lines (Default: >2k characters)\n-Q --literal            Don't parse PATTERN as a regular expression\n-s --case-sensitive     Match case sensitively (Enabled by default)\n-S --smart-case         Match case insensitively unless PATTERN contains\n                        uppercase characters\n--search-binary         Search binary files for matches\n--stats                 Print stats (files scanned, time taken, etc.)\n-t --all-text           Search all text files (doesn't include hidden files)\n-u --unrestricted       Search all files (ignore .agignore, .gitignore, etc.;\n                        searches binary and hidden files as well)\n-U --skip-vcs-ignores   Ignore VCS ignore files\n                        (.gitigore, .hgignore, .svnignore; still obey .agignore)\n-v --invert-match\n-w --word-regexp        Only match whole words\n-z --search-zip         Search contents of compressed (e.g., gzip) files"
               ]
             ]
           },
@@ -393,18 +369,8 @@ Response:+27360
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This project is obsolete.",
-                [
-                  [
-                    "h",
-                    "red"
-                  ]
-                ]
-              ],
-              [
-                " Get up-to-date Windows binaries from "
-              ],
+              ["This project is obsolete.", [["h", "red"]]],
+              [" Get up-to-date Windows binaries from "],
               [
                 "here",
                 [
@@ -414,9 +380,7 @@ Response:+27360
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -440,11 +404,7 @@ Response:+27360
           "parent_id": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "URL: /software/the-silver-searcher-for-windows.html"
-              ]
-            ]
+            "title": [["URL: /software/the-silver-searcher-for-windows.html"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -468,9 +428,7 @@ Response:+27360
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Download latest version 0.29.1-1641 (built on 2015-07-04):"
-              ]
+              ["Download latest version 0.29.1-1641 (built on 2015-07-04):"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -495,21 +453,9 @@ Response:+27360
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This is a Windows port made by "
-              ],
-              [
-                "Krzysztof Kowalczyk",
-                [
-                  [
-                    "a",
-                    "https://blog.kowalczyk.info/"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["This is a Windows port made by "],
+              ["Krzysztof Kowalczyk", [["a", "https://blog.kowalczyk.info/"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -599,11 +545,7 @@ Response:+27360
           "parent_id": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Download"
-              ]
-            ]
+            "title": [["Download"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -659,11 +601,7 @@ Response:+27360
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -687,17 +625,10 @@ Response:+27360
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Sources are at "
-              ],
+              ["Sources are at "],
               [
                 "https://github.com/kjk/the_silver_searcher",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/the_silver_searcher"
-                  ]
-                ]
+                [["a", "https://github.com/kjk/the_silver_searcher"]]
               ]
             ]
           },
@@ -760,11 +691,7 @@ Response:+27360
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Software written by me"
-              ]
-            ]
+            "title": [["Software written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -787,11 +714,7 @@ Response:+27360
           "parent_id": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Usage"
-              ]
-            ]
+            "title": [["Usage"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -850,11 +773,7 @@ Response:+27360
           "parent_id": "08197c5c-2c02-4391-bb1f-2fb331ce3a7f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The Silver Searcher windows port"
-              ]
-            ]
+            "title": [["The Silver Searcher windows port"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "header",
@@ -878,21 +797,12 @@ Response:+27360
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Have comments or questions about this software? "
-              ],
+              ["Have comments or questions about this software? "],
               [
                 "Get in touch",
-                [
-                  [
-                    "a",
-                    "https://blog.kowalczyk.info/contactme.html"
-                  ]
-                ]
+                [["a", "https://blog.kowalczyk.info/contactme.html"]]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",

@@ -1,7 +1,7 @@
-10041 1624299933748 httpcache-v1
+9749 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+9841
+Response:+9550
 {
   "recordMapWithRoles": {
     "block": {
@@ -38,11 +38,7 @@ Response:+9841
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "slice tricks"
-              ]
-            ]
+            "title": [["slice tricks"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -98,11 +94,7 @@ Response:+9841
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -151,11 +143,7 @@ Response:+9841
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go"
-              ]
-            ]
+            "title": [["Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -182,11 +170,7 @@ Response:+9841
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -265,11 +249,7 @@ Response:+9841
         "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "slice tricks"
-            ]
-          ]
+          "title": [["slice tricks"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -278,10 +258,10 @@ Response:+9841
     }
   ]
 }
-11645 1624299933748 httpcache-v1
+11217 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -291,7 +271,7 @@ Body:+152
   "pageId": "08e41706-8555-46c3-a074-dae41cf910d8",
   "verticalColumns": false
 }
-Response:+11404
+Response:+10977
 {
   "cursor": {
     "stack": []
@@ -322,11 +302,7 @@ Response:+11404
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "slice tricks"
-              ]
-            ]
+            "title": [["slice tricks"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -350,17 +326,10 @@ Response:+11404
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "From "
-              ],
+              ["From "],
               [
                 "https://code.google.com/p/go-wiki/wiki/SliceTricks",
-                [
-                  [
-                    "a",
-                    "https://code.google.com/p/go-wiki/wiki/SliceTricks"
-                  ]
-                ]
+                [["a", "https://code.google.com/p/go-wiki/wiki/SliceTricks"]]
               ]
             ]
           },
@@ -418,11 +387,7 @@ Response:+11404
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -471,11 +436,7 @@ Response:+11404
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go"
-              ]
-            ]
+            "title": [["Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -498,11 +459,7 @@ Response:+11404
           "parent_id": "08e41706-8555-46c3-a074-dae41cf910d8",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "AppendVector: a = append(a, b...)\n\nCopy: b = make([]T, len(a))\ncopy(b, a)\n\nCut: a = append(a[:i], a[j:]...)\n\nDelete: a = append(a[:i], a[i+1:]...)\n// or\na = a[:i+copy(a[i:], a[i+1:])]\n\nDelete without preserving order: a[i], a = a[len(a)-1], a[:len(a)-1]\n\ngithub.com/bradfitz/slice\nfunc Sort(slice interface{}, less func(i, j int) bool)"
@@ -534,11 +491,7 @@ Response:+11404
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -593,10 +546,10 @@ Response:+11404
     }
   }
 }
-12655 1624299933748 httpcache-v1
+12423 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -605,7 +558,7 @@ Body:+110
     }
   ]
 }
-Response:+12454
+Response:+12223
 {
   "recordMapWithRoles": {
     "block": {
@@ -658,11 +611,7 @@ Response:+12454
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -689,11 +638,7 @@ Response:+12454
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -771,11 +716,7 @@ Response:+12454
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++"
-              ]
-            ]
+            "title": [["C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -901,11 +842,7 @@ Response:+12454
         "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "C++"
-            ]
-          ]
+          "title": [["C++"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

@@ -1,7 +1,7 @@
-14587 1624300351108 httpcache-v1
+14235 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+14386
+Response:+14035
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+14386
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+14386
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+14386
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -214,11 +202,7 @@ Response:+14386
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "High-resolution timer for timing code fragments"
-              ]
-            ]
+            "title": [["High-resolution timer for timing code fragments"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -267,11 +251,7 @@ Response:+14386
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -365,11 +345,7 @@ Response:+14386
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "High-resolution timer for timing code fragments"
-            ]
-          ]
+          "title": [["High-resolution timer for timing code fragments"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -378,10 +354,10 @@ Response:+14386
     }
   ]
 }
-30876 1624300351109 httpcache-v1
+29374 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -391,7 +367,7 @@ Body:+152
   "pageId": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
   "verticalColumns": false
 }
-Response:+30635
+Response:+29134
 {
   "cursor": {
     "stack": []
@@ -414,11 +390,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "calucate the difference between end and start"
-              ]
-            ]
+            "title": [["calucate the difference between end and start"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -441,14 +413,10 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Java/C/C++/C#"
-              ]
-            ],
+            "language": [["Java/C/C++/C#"]],
             "title": [
               [
-                "// very simple, high-precision (at least in theory) timer for timing API calls\nstruct ProfTimer {\n    void Start(void) {\n        QueryPerformanceCounter(\u0026mTimeStart);\n    };\n    void Stop(void) {\n        QueryPerformanceCounter(\u0026mTimeStop);\n    };\n    double GetDurationInSecs(void)\n    {\n        LARGE_INTEGER freq;\n        QueryPerformanceFrequency(\u0026freq);\n        double duration = (double)(mTimeStop.QuadPart-mTimeStart.QuadPart)/(double)freq.QuadPart;\n        return duration;\n    }\n\n    LARGE_INTEGER mTimeStart;\n    LARGE_INTEGER mTimeStop;\n};"
+                "// very simple, high-precision (at least in theory) timer for timing API calls\nstruct ProfTimer {\n    void Start(void) {\n        QueryPerformanceCounter(&mTimeStart);\n    };\n    void Stop(void) {\n        QueryPerformanceCounter(&mTimeStop);\n    };\n    double GetDurationInSecs(void)\n    {\n        LARGE_INTEGER freq;\n        QueryPerformanceFrequency(&freq);\n        double duration = (double)(mTimeStop.QuadPart-mTimeStart.QuadPart)/(double)freq.QuadPart;\n        return duration;\n    }\n\n    LARGE_INTEGER mTimeStart;\n    LARGE_INTEGER mTimeStop;\n};"
               ]
             ]
           },
@@ -473,11 +441,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 306"
-              ]
-            ]
+            "title": [["Id: 306"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -515,11 +479,7 @@ Response:+30635
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -574,11 +534,7 @@ Response:+30635
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -601,11 +557,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "execute the code"
-              ]
-            ]
+            "title": [["execute the code"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -628,11 +580,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "record the end time"
-              ]
-            ]
+            "title": [["record the end time"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -655,11 +603,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: win32, c, programming"
-              ]
-            ]
+            "title": [["Tags: win32, c, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -715,11 +659,7 @@ Response:+30635
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -742,11 +682,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "record the start time"
-              ]
-            ]
+            "title": [["record the start time"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -769,11 +705,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "And in C++:"
-              ]
-            ]
+            "title": [["And in C++:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -819,11 +751,7 @@ Response:+30635
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "High-resolution timer for timing code fragments"
-              ]
-            ]
+            "title": [["High-resolution timer for timing code fragments"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -846,14 +774,10 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Java/C/C++/C#"
-              ]
-            ],
+            "language": [["Java/C/C++/C#"]],
             "title": [
               [
-                "typedef struct prof_timer_t {\n    LARGE_INTEGER time_start;\n    LARGE_INTEGER time_stop;\n} prof_timer_t;\n\nvoid prof_timer_start(prof_timer_t *timer) {\n    QueryPerformanceCounter(\u0026timer-\u003etime_start);\n}\n\nvoid prof_timer_stop(prof_timer_t *timer) {\n    QueryPerformanceCounter(\u0026timer-\u003etime_stop);\n}\n\ndouble prof_timer_get_duration_in_secs(prof_timer_t *timer) {\n    LARGE_INTEGER freq;\n    double duration;\n    QueryPerformanceFrequency(\u0026freq);\n    duration = (double)(timer-\u003etime_stop.QuadPart-timer-\u003etime_start.QuadPart)/(double)freq.QuadPart;\n    return duration;\n}"
+                "typedef struct prof_timer_t {\n    LARGE_INTEGER time_start;\n    LARGE_INTEGER time_stop;\n} prof_timer_t;\n\nvoid prof_timer_start(prof_timer_t *timer) {\n    QueryPerformanceCounter(&timer->time_start);\n}\n\nvoid prof_timer_stop(prof_timer_t *timer) {\n    QueryPerformanceCounter(&timer->time_stop);\n}\n\ndouble prof_timer_get_duration_in_secs(prof_timer_t *timer) {\n    LARGE_INTEGER freq;\n    double duration;\n    QueryPerformanceFrequency(&freq);\n    duration = (double)(timer->time_stop.QuadPart-timer->time_start.QuadPart)/(double)freq.QuadPart;\n    return duration;\n}"
               ]
             ]
           },
@@ -904,11 +828,7 @@ Response:+30635
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -931,11 +851,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2005-12-31T16:00:00-08:00"
-              ]
-            ]
+            "title": [["Date: 2005-12-31T16:00:00-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -958,11 +874,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Java/C/C++/C#"
-              ]
-            ],
+            "language": [["Java/C/C++/C#"]],
             "title": [
               [
                 "ProfTimer t;\nt.Start();\nfoo();\nt.Stop();\ndouble dur = t.GetDurationInSecs();\nprintf(“executing foo() took %f seconds” , dur);"
@@ -990,11 +902,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Timing of code fragments is simple:"
-              ]
-            ]
+            "title": [["Timing of code fragments is simple:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1017,11 +925,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "And here’s an example of using the C++ version:"
-              ]
-            ]
+            "title": [["And here’s an example of using the C++ version:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1044,11 +948,7 @@ Response:+30635
           "parent_id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Here’s a simple implementation in C:"
-              ]
-            ]
+            "title": [["Here’s a simple implementation in C:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1095,28 +995,10 @@ Response:+30635
               [
                 "For timing exuction time of pieces of code you need a high-resolution timer. On Windows, Windows CE and Pocket PC/Smartphone (which are Windows CE variations) you can use "
               ],
-              [
-                "QueryPerformanceCounter",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "QueryPerformanceFrequence",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " API calls."
-              ]
+              ["QueryPerformanceCounter", [["c"]]],
+              [" and "],
+              ["QueryPerformanceFrequence", [["c"]]],
+              [" API calls."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1172,10 +1054,10 @@ Response:+30635
     }
   }
 }
-94788 1624300351111 httpcache-v1
+92356 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+2046
+Body:+2047
 {
   "requests": [
     {
@@ -1272,7 +1154,7 @@ Body:+2046
     }
   ]
 }
-Response:+92650
+Response:+90219
 {
   "recordMapWithRoles": {
     "block": {
@@ -1311,9 +1193,7 @@ Response:+92650
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Local DNS modifications on Windows (/etc/hosts equivalent)"
-              ]
+              ["Local DNS modifications on Windows (/etc/hosts equivalent)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1350,11 +1230,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A book to read, talks to listen to"
-              ]
-            ]
+            "title": [["A book to read, talks to listen to"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1392,11 +1268,7 @@ Response:+92650
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1443,9 +1315,7 @@ Response:+92650
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "VirtualEarth vs. Google Maps - not hitting the high note"
-              ]
+              ["VirtualEarth vs. Google Maps - not hitting the high note"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1501,11 +1371,7 @@ Response:+92650
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1563,9 +1429,7 @@ Response:+92650
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code-name Monad and the value of different perspective"
-              ]
+              ["Code-name Monad and the value of different perspective"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1607,11 +1471,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Accurate timers on Windows"
-              ]
-            ]
+            "title": [["Accurate timers on Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1667,11 +1527,7 @@ Response:+92650
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1766,11 +1622,7 @@ Response:+92650
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1806,11 +1658,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Petzold on Visual Studio and mind corruption"
-              ]
-            ]
+            "title": [["Petzold on Visual Studio and mind corruption"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1860,11 +1708,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google saga - episode 205"
-              ]
-            ]
+            "title": [["Google saga - episode 205"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1931,11 +1775,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google - what kind of a giant they are?"
-              ]
-            ]
+            "title": [["Google - what kind of a giant they are?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1972,11 +1812,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Another lesson in entrepreneurship"
-              ]
-            ]
+            "title": [["Another lesson in entrepreneurship"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2012,11 +1848,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Longhorn/Vista fonts"
-              ]
-            ]
+            "title": [["Longhorn/Vista fonts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2055,11 +1887,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Deep indentation vs. flat"
-              ]
-            ]
+            "title": [["Deep indentation vs. flat"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2110,11 +1938,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Open-source and windows"
-              ]
-            ]
+            "title": [["Open-source and windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2182,11 +2006,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Unsolved source control problems"
-              ]
-            ]
+            "title": [["Unsolved source control problems"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2224,11 +2044,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Rich client is here"
-              ]
-            ]
+            "title": [["Rich client is here"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2268,9 +2084,7 @@ Response:+92650
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "How to delete a file you get from urllib.urlretrieve()"
-              ]
+              ["How to delete a file you get from urllib.urlretrieve()"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2307,11 +2121,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Subversion with SSH on Windows tip"
-              ]
-            ]
+            "title": [["Subversion with SSH on Windows tip"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2355,11 +2165,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Backpack observations"
-              ]
-            ]
+            "title": [["Backpack observations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2394,11 +2200,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Interesting Dave Winer interview"
-              ]
-            ]
+            "title": [["Interesting Dave Winer interview"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2437,11 +2239,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "musikCube - nice mp3 player"
-              ]
-            ]
+            "title": [["musikCube - nice mp3 player"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2487,11 +2285,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Serialization in C#"
-              ]
-            ]
+            "title": [["Serialization in C#"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2533,11 +2327,7 @@ Response:+92650
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Pickling (serialization) in Python"
-              ]
-            ]
+            "title": [["Pickling (serialization) in Python"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2627,9 +2417,7 @@ Response:+92650
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Local DNS modifications on Windows (/etc/hosts equivalent)"
-            ]
+            ["Local DNS modifications on Windows (/etc/hosts equivalent)"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2666,11 +2454,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A book to read, talks to listen to"
-            ]
-          ]
+          "title": [["A book to read, talks to listen to"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2717,9 +2501,7 @@ Response:+92650
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "VirtualEarth vs. Google Maps - not hitting the high note"
-            ]
+            ["VirtualEarth vs. Google Maps - not hitting the high note"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2777,11 +2559,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Code-name Monad and the value of different perspective"
-            ]
-          ]
+          "title": [["Code-name Monad and the value of different perspective"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2822,11 +2600,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Accurate timers on Windows"
-            ]
-          ]
+          "title": [["Accurate timers on Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2908,11 +2682,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Petzold on Visual Studio and mind corruption"
-            ]
-          ]
+          "title": [["Petzold on Visual Studio and mind corruption"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2962,11 +2732,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google saga - episode 205"
-            ]
-          ]
+          "title": [["Google saga - episode 205"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3033,11 +2799,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google - what kind of a giant they are?"
-            ]
-          ]
+          "title": [["Google - what kind of a giant they are?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3074,11 +2836,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Another lesson in entrepreneurship"
-            ]
-          ]
+          "title": [["Another lesson in entrepreneurship"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3114,11 +2872,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Longhorn/Vista fonts"
-            ]
-          ]
+          "title": [["Longhorn/Vista fonts"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3157,11 +2911,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Deep indentation vs. flat"
-            ]
-          ]
+          "title": [["Deep indentation vs. flat"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3212,11 +2962,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Open-source and windows"
-            ]
-          ]
+          "title": [["Open-source and windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3284,11 +3030,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Unsolved source control problems"
-            ]
-          ]
+          "title": [["Unsolved source control problems"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3326,11 +3068,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Rich client is here"
-            ]
-          ]
+          "title": [["Rich client is here"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3369,11 +3107,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How to delete a file you get from urllib.urlretrieve()"
-            ]
-          ]
+          "title": [["How to delete a file you get from urllib.urlretrieve()"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3409,11 +3143,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Subversion with SSH on Windows tip"
-            ]
-          ]
+          "title": [["Subversion with SSH on Windows tip"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3457,11 +3187,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Backpack observations"
-            ]
-          ]
+          "title": [["Backpack observations"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3496,11 +3222,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Interesting Dave Winer interview"
-            ]
-          ]
+          "title": [["Interesting Dave Winer interview"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3539,11 +3261,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "musikCube - nice mp3 player"
-            ]
-          ]
+          "title": [["musikCube - nice mp3 player"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3589,11 +3307,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Serialization in C#"
-            ]
-          ]
+          "title": [["Serialization in C#"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3635,11 +3349,7 @@ Response:+92650
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Pickling (serialization) in Python"
-            ]
-          ]
+          "title": [["Pickling (serialization) in Python"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

@@ -1,7 +1,7 @@
-17058 1624300340358 httpcache-v1
+16818 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+16857
+Response:+16618
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+16857
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+16857
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -141,11 +133,7 @@ Response:+16857
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -201,11 +189,7 @@ Response:+16857
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -426,10 +410,10 @@ Response:+16857
     }
   ]
 }
-72824 1624300340360 httpcache-v1
+66923 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -439,7 +423,7 @@ Body:+152
   "pageId": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
   "verticalColumns": false
 }
-Response:+72583
+Response:+66683
 {
   "cursor": {
     "stack": [
@@ -477,11 +461,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Checking for OS (platform)"
-              ]
-            ]
+            "title": [["Checking for OS (platform)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -504,11 +484,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Checking compiler version"
-              ]
-            ]
+            "title": [["Checking compiler version"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -531,16 +507,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__aarch64__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__aarch64__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -624,28 +591,10 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinGW-w64 64bit: "
-              ],
-              [
-                "__MINGW64_VERSION_MAJOR",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "__MINGW64_VERSION_MINOR",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["MinGW-w64 64bit: "],
+              ["__MINGW64_VERSION_MAJOR", [["c"]]],
+              [" and "],
+              ["__MINGW64_VERSION_MINOR", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -669,11 +618,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "To check for which OS the code is compiled:"
-              ]
-            ]
+            "title": [["To check for which OS the code is compiled:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -697,20 +642,9 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "to list gcc’s pre-defined macros: "
-              ],
-              [
-                "gcc -x c /dev/null -dM -E",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " (not that on mac gcc is actually clang that ships with XCode)"
-              ]
+              ["to list gcc’s pre-defined macros: "],
+              ["gcc -x c /dev/null -dM -E", [["c"]]],
+              [" (not that on mac gcc is actually clang that ships with XCode)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -749,11 +683,7 @@ Response:+72583
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -777,20 +707,9 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "the "
-              ],
-              [
-                "-x c /dev/null -dM -E",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " also works for mingw (which is based on gcc)"
-              ]
+              ["the "],
+              ["-x c /dev/null -dM -E", [["c"]]],
+              [" also works for mingw (which is based on gcc)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -814,11 +733,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Visual Studio"
-              ]
-            ]
+            "title": [["Visual Studio"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -841,11 +756,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "gcc"
-              ]
-            ]
+            "title": [["gcc"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -868,11 +779,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: programming, c++"
-              ]
-            ]
+            "title": [["Tags: programming, c++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -927,11 +834,7 @@ Response:+72583
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -988,28 +891,10 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "_MSC_VER",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "_MSC_FULL_VER",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["_MSC_VER", [["c"]]],
+              [" and "],
+              ["_MSC_FULL_VER", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1033,16 +918,7 @@ Response:+72583
           "parent_id": "f65425ad-4a6c-4a32-9317-c1892dcb30f1",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__ARM_ARCH_7A__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__ARM_ARCH_7A__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1065,11 +941,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Here’s a typical case:"
-              ]
-            ]
+            "title": [["Here’s a typical case:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1093,17 +965,8 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "to list clang’s pre-defined macros: "
-              ],
-              [
-                "clang -x c /dev/null -dM -E",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["to list clang’s pre-defined macros: "],
+              ["clang -x c /dev/null -dM -E", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1127,11 +990,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The meaning of those should be self-evident:"
-              ]
-            ]
+            "title": [["The meaning of those should be self-evident:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1164,11 +1023,7 @@ Response:+72583
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1224,11 +1079,7 @@ Response:+72583
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1333,11 +1184,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Checking the compiler:"
-              ]
-            ]
+            "title": [["Checking the compiler:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1360,11 +1207,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 19"
-              ]
-            ]
+            "title": [["Id: 19"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1387,16 +1230,7 @@ Response:+72583
           "parent_id": "f65425ad-4a6c-4a32-9317-c1892dcb30f1",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__ARM_ARCH_5T__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__ARM_ARCH_5T__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1419,16 +1253,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__powerpc64__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__powerpc64__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1452,28 +1277,10 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinGW (aka MinGW32) and MinGW-w64 32bit: "
-              ],
-              [
-                "__MINGW32_MAJOR_VERSION",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "__MINGW32_MINOR_VERSION",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["MinGW (aka MinGW32) and MinGW-w64 32bit: "],
+              ["__MINGW32_MAJOR_VERSION", [["c"]]],
+              [" and "],
+              ["__MINGW32_MINOR_VERSION", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1497,14 +1304,10 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "Linux and Linux-derived           __linux__\nAndroid                           __ANDROID__ (implies __linux__)\nLinux (non-Android)               __linux__ \u0026\u0026 !__ANDROID__\nDarwin (Mac OS X and iOS)         __APPLE__\nAkaros (http://akaros.org)        __ros__\nWindows                           _WIN32\nWindows 64 bit                    _WIN64 (implies _WIN32)\nNaCL                              __native_client__\nAsmJS                             __asmjs__\nFuschia                           __Fuchsia__"
+                "Linux and Linux-derived           __linux__\nAndroid                           __ANDROID__ (implies __linux__)\nLinux (non-Android)               __linux__ && !__ANDROID__\nDarwin (Mac OS X and iOS)         __APPLE__\nAkaros (http://akaros.org)        __ros__\nWindows                           _WIN32\nWindows 64 bit                    _WIN64 (implies _WIN32)\nNaCL                              __native_client__\nAsmJS                             __asmjs__\nFuschia                           __Fuchsia__"
               ]
             ]
           },
@@ -1529,11 +1332,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Java/C/C++/C#"
-              ]
-            ],
+            "language": [["Java/C/C++/C#"]],
             "title": [
               [
                 "#if defined (_MSC_VER)\n// code specific to Visual Studio compiler\n#endif"
@@ -1562,31 +1361,11 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Notice the chack has to be: "
-              ],
-              [
-                "major \u003e 5 || (major == 5 \u0026\u0026 minor \u003e= 1)",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". If you only do "
-              ],
-              [
-                "major == 5 \u0026\u0026 minor \u003e= 1",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", it won’t work for version 6.0."
-              ]
+              ["Notice the chack has to be: "],
+              ["major > 5 || (major == 5 && minor >= 1)", [["c"]]],
+              [". If you only do "],
+              ["major == 5 && minor >= 1", [["c"]]],
+              [", it won’t work for version 6.0."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1610,14 +1389,10 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "VS                        _MSC_VER   _MSC_FULL_VER\n1                         800\n3                         900\n4                         1000\n4                         1020\n5                         1100\n6                         1200\n6 SP6                     1200    12008804\n7                         1300    13009466\n7.1 (2003)                1310    13103077\n8 (2005)                  1400    140050727\n9 (2008)                  1500    150021022\n9 SP1                     1500    150030729\n10 (2010)                 1600    160030319\n10 (2010) SP1             1600    160040219\n11 (2012)                 1700    170050727\n12 (2013)                 1800    180021005\n14 (2015)                 1900    190023026\n14 (2015 Update 1)        1900    190023506\n14 (2015 Update 2)        1900    190023918\n14 (2015 Update 3)        1900    190024210\n15 (2017 Update 1 \u0026 2)    1910    191025017\n15 (2017 Update 3 \u0026 4)    1911\n15 (2017 Update 5)        1912"
+                "VS                        _MSC_VER   _MSC_FULL_VER\n1                         800\n3                         900\n4                         1000\n4                         1020\n5                         1100\n6                         1200\n6 SP6                     1200    12008804\n7                         1300    13009466\n7.1 (2003)                1310    13103077\n8 (2005)                  1400    140050727\n9 (2008)                  1500    150021022\n9 SP1                     1500    150030729\n10 (2010)                 1600    160030319\n10 (2010) SP1             1600    160040219\n11 (2012)                 1700    170050727\n12 (2013)                 1800    180021005\n14 (2015)                 1900    190023026\n14 (2015 Update 1)        1900    190023506\n14 (2015 Update 2)        1900    190023918\n14 (2015 Update 3)        1900    190024210\n15 (2017 Update 1 & 2)    1910    191025017\n15 (2017 Update 3 & 4)    1911\n15 (2017 Update 5)        1912"
               ]
             ]
           },
@@ -1646,28 +1421,10 @@ Response:+72583
               [
                 "It can either be binary is defined vs. is not defined check (e.g. "
               ],
-              [
-                "__APPLE__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ") or checking a value of the macro (e.g. "
-              ],
-              [
-                "_MSC_VER",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " defines version of Visual Studio compiler)."
-              ]
+              ["__APPLE__", [["c"]]],
+              [") or checking a value of the macro (e.g. "],
+              ["_MSC_VER", [["c"]]],
+              [" defines version of Visual Studio compiler)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1694,12 +1451,7 @@ Response:+72583
             "title": [
               [
                 "https://sourceforge.net/p/predef/wiki/Compilers/",
-                [
-                  [
-                    "a",
-                    "https://sourceforge.net/p/predef/wiki/Compilers/"
-                  ]
-                ]
+                [["a", "https://sourceforge.net/p/predef/wiki/Compilers/"]]
               ]
             ]
           },
@@ -1724,11 +1476,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2017-11-07T17:07:45-08:00"
-              ]
-            ]
+            "title": [["Date: 2017-11-07T17:07:45-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1752,9 +1500,7 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "predefined macros in "
-              ],
+              ["predefined macros in "],
               [
                 "Visual Studio",
                 [
@@ -1764,9 +1510,7 @@ Response:+72583
                   ]
                 ]
               ],
-              [
-                " "
-              ]
+              [" "]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1790,11 +1534,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "clang"
-              ]
-            ]
+            "title": [["clang"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1817,11 +1557,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "MinGW"
-              ]
-            ]
+            "title": [["MinGW"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1844,11 +1580,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "More information:"
-              ]
-            ]
+            "title": [["More information:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1871,11 +1603,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "To check which compiler is used:"
-              ]
-            ]
+            "title": [["To check which compiler is used:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1899,36 +1627,11 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "__clang_major__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "__clang_minor__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "__clang_patchlevel__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["__clang_major__", [["c"]]],
+              [", "],
+              ["__clang_minor__", [["c"]]],
+              [", "],
+              ["__clang_patchlevel__", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1952,16 +1655,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__x86_64__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__x86_64__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1984,11 +1678,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "gcc"
-              ]
-            ]
+            "title": [["gcc"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2011,11 +1701,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Checking processor architecture"
-              ]
-            ]
+            "title": [["Checking processor architecture"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2038,14 +1724,10 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Java/C/C++/C#"
-              ]
-            ],
+            "language": [["Java/C/C++/C#"]],
             "title": [
               [
-                "#if defined(__GNUC__) \u0026\u0026 (__GNUC___ \u003e 5 || (__GNUC__ == 5 \u0026\u0026 __GNUC_MINOR__ \u003e= 1))\n// this is gcc 5.1 or greater\n#endif"
+                "#if defined(__GNUC__) && (__GNUC___ > 5 || (__GNUC__ == 5 && __GNUC_MINOR__ >= 1))\n// this is gcc 5.1 or greater\n#endif"
               ]
             ]
           },
@@ -2070,11 +1752,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "Visual Studio       _MSC_VER\ngcc                 __GNUC__\nclang               __clang__\nemscripten          __EMSCRIPTEN__ (for asm.js and webassembly)\nMinGW 32            __MINGW32__\nMinGW-w64 32bit     __MINGW32__\nMinGW-w64 64bit     __MINGW64__"
@@ -2103,28 +1781,10 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "__GNUC__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " (e.g. 5) and "
-              ],
-              [
-                "__GNUC_MINOR__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " (e.g. 1)."
-              ]
+              ["__GNUC__", [["c"]]],
+              [" (e.g. 5) and "],
+              ["__GNUC_MINOR__", [["c"]]],
+              [" (e.g. 1)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2148,11 +1808,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Other documentations: "
-              ]
-            ]
+            "title": [["Other documentations: "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2176,9 +1832,7 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This document describes macros set by various compilers."
-              ]
+              ["This document describes macros set by various compilers."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2230,9 +1884,7 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To check that this is gcc compiler version 5.1 or greater:"
-              ]
+              ["To check that this is gcc compiler version 5.1 or greater:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2256,16 +1908,7 @@ Response:+72583
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__i386__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__i386__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2293,17 +1936,8 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "__arm__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". If defined, you can further check:"
-              ]
+              ["__arm__", [["c"]]],
+              [". If defined, you can further check:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2328,9 +1962,7 @@ Response:+72583
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "listing predefined macros "
-              ],
+              ["listing predefined macros "],
               [
                 "for other compilers",
                 [
@@ -2415,10 +2047,10 @@ Response:+72583
     }
   }
 }
-14948 1624300340361 httpcache-v1
+14556 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+441
+Body:+442
 {
   "chunkNumber": 1,
   "cursor": {
@@ -2443,7 +2075,7 @@ Body:+441
   "pageId": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
   "verticalColumns": false
 }
-Response:+14418
+Response:+14027
 {
   "cursor": {
     "stack": []
@@ -2466,16 +2098,7 @@ Response:+14418
           "parent_id": "578cb0cc-6552-48ce-85a1-74ab9eda7ef3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "__aarch64__",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["__aarch64__", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2513,11 +2136,7 @@ Response:+14418
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2572,11 +2191,7 @@ Response:+14418
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2609,11 +2224,7 @@ Response:+14418
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2669,11 +2280,7 @@ Response:+14418
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2810,10 +2417,10 @@ Response:+14418
     }
   }
 }
-127661 1624300340364 httpcache-v1
+126961 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+638
+Body:+639
 {
   "requests": [
     {
@@ -2846,7 +2453,7 @@ Body:+638
     }
   ]
 }
-Response:+126931
+Response:+126232
 {
   "recordMapWithRoles": {
     "block": {
@@ -3061,9 +2668,7 @@ Response:+126931
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "57 MicroConf videos for self-funded software businesses"
-              ]
+              ["57 MicroConf videos for self-funded software businesses"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3400,11 +3005,7 @@ Response:+126931
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Business of Software talks"
-              ]
-            ]
+            "title": [["Business of Software talks"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3442,11 +3043,7 @@ Response:+126931
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3501,11 +3098,7 @@ Response:+126931
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3825,9 +3418,7 @@ Response:+126931
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204097318,
-          "file_ids": [
-            "7a621cf9-85f5-4787-88bb-ed9b19a093c4"
-          ],
+          "file_ids": ["7a621cf9-85f5-4787-88bb-ed9b19a093c4"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a621cf9-85f5-4787-88bb-ed9b19a093c4/header-03.jpg",
             "page_cover_position": 0.5,
@@ -3843,9 +3434,7 @@ Response:+126931
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Solo founders with profitable businesses, collected stories"
-              ]
+              ["Solo founders with profitable businesses, collected stories"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3971,11 +3560,7 @@ Response:+126931
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -4031,11 +3616,7 @@ Response:+126931
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4245,9 +3826,7 @@ Response:+126931
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204099818,
-          "file_ids": [
-            "bea09464-9216-4198-ac8b-b4909027c558"
-          ],
+          "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
             "page_cover_position": 0.5,
@@ -4262,11 +3841,7 @@ Response:+126931
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Blueprint for deploying web apps on CoreOS"
-              ]
-            ]
+            "title": [["Blueprint for deploying web apps on CoreOS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4532,9 +4107,7 @@ Response:+126931
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "57 MicroConf videos for self-funded software businesses"
-            ]
+            ["57 MicroConf videos for self-funded software businesses"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4871,11 +4444,7 @@ Response:+126931
         "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Business of Software talks"
-            ]
-          ]
+          "title": [["Business of Software talks"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5195,9 +4764,7 @@ Response:+126931
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531204097318,
-        "file_ids": [
-          "7a621cf9-85f5-4787-88bb-ed9b19a093c4"
-        ],
+        "file_ids": ["7a621cf9-85f5-4787-88bb-ed9b19a093c4"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a621cf9-85f5-4787-88bb-ed9b19a093c4/header-03.jpg",
           "page_cover_position": 0.5,
@@ -5213,9 +4780,7 @@ Response:+126931
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Solo founders with profitable businesses, collected stories"
-            ]
+            ["Solo founders with profitable businesses, collected stories"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5305,9 +4870,7 @@ Response:+126931
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Analyzing browserify bundles to minimize JavaScript bundle size"
-            ]
+            ["Analyzing browserify bundles to minimize JavaScript bundle size"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5518,9 +5081,7 @@ Response:+126931
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531204099818,
-        "file_ids": [
-          "bea09464-9216-4198-ac8b-b4909027c558"
-        ],
+        "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
           "page_cover_position": 0.5,
@@ -5535,11 +5096,7 @@ Response:+126931
         "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Blueprint for deploying web apps on CoreOS"
-            ]
-          ]
+          "title": [["Blueprint for deploying web apps on CoreOS"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

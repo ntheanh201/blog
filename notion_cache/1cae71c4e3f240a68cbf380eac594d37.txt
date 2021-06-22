@@ -1,7 +1,7 @@
-11460 1624299934501 httpcache-v1
+11168 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+11259
+Response:+10968
 {
   "recordMapWithRoles": {
     "block": {
@@ -52,11 +52,7 @@ Response:+11259
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Context"
-              ]
-            ]
+            "title": [["Context"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -112,11 +108,7 @@ Response:+11259
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -165,11 +157,7 @@ Response:+11259
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go"
-              ]
-            ]
+            "title": [["Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -196,11 +184,7 @@ Response:+11259
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -293,11 +277,7 @@ Response:+11259
         "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Context"
-            ]
-          ]
+          "title": [["Context"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -306,10 +286,10 @@ Response:+11259
     }
   ]
 }
-31442 1624299934502 httpcache-v1
+30323 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -319,7 +299,7 @@ Body:+152
   "pageId": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
   "verticalColumns": false
 }
-Response:+31201
+Response:+30083
 {
   "cursor": {
     "stack": []
@@ -342,11 +322,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "// pattern for setting/getting value in a context\ntype contextKey string\n\n// making it un-exported package variable avoid naming conflics between\n// packages\nvar userContextKey contextKey = \"user\"\n\nfunc NewUserContext(ctx context.Context, user *User) context.Context {\n    return context.WithValue(ctx, userContextKey, user)\n}\n\nfunc UserFromContext(ctx context.Context) (*User, bool) {\n    u, ok := ctx.Value(userContextKey).(*User)\n    return u, ok\n}\n\nfunc UserMustFromContext(ctx context.Context) *User {\n    u, ok := ctx.Value(userContextKey).(*User)\n    if !ok {\n        panic(\"user not found in context\")\n    }\n    return u\n}"
@@ -394,14 +370,10 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "select {\ncase \u003c-ctx.Done():\n    log.Print(ctx.Err())\n    return\ncase result := \u003c-longRunningCalculation():\n    io.WriteString(w, result)\n}"
+                "select {\ncase <-ctx.Done():\n    log.Print(ctx.Err())\n    return\ncase result := <-longRunningCalculation():\n    io.WriteString(w, result)\n}"
               ]
             ]
           },
@@ -448,11 +420,7 @@ Response:+31201
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Context"
-              ]
-            ]
+            "title": [["Context"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -502,14 +470,10 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func handlerSearchTimeout(w http.ResponseWriter, r *http.Request) {\n    var ctx context.Context\n    var cancel context.CancelFunc\n\n    ctx, cancel = context.WithTimeout(r.Context(), time.Duration(2*time.Second))\n    defer cancel()\n\n    request, err := http.NewRequest(http.MethodGet, \"http://localhost:8181/timeout\", nil)\n    if err != nil {\n        log.Println(err.Error())\n        return\n    }\n    // You can context separately for each request\n    request = request.WithContext(ctx)\n\n    client := \u0026http.Client{}\n    response, err := client.Do(request)\n    // You will get an error \"net/http: request canceled\" when request timeout exceeds limits\n    if err != nil {\n        log.Println(err.Error())\n        return\n    }\n    // ......"
+                "func handlerSearchTimeout(w http.ResponseWriter, r *http.Request) {\n    var ctx context.Context\n    var cancel context.CancelFunc\n\n    ctx, cancel = context.WithTimeout(r.Context(), time.Duration(2*time.Second))\n    defer cancel()\n\n    request, err := http.NewRequest(http.MethodGet, \"http://localhost:8181/timeout\", nil)\n    if err != nil {\n        log.Println(err.Error())\n        return\n    }\n    // You can context separately for each request\n    request = request.WithContext(ctx)\n\n    client := &http.Client{}\n    response, err := client.Do(request)\n    // You will get an error \"net/http: request canceled\" when request timeout exceeds limits\n    if err != nil {\n        log.Println(err.Error())\n        return\n    }\n    // ......"
               ]
             ]
           },
@@ -534,14 +498,10 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Javascript"
-              ]
-            ],
+            "language": [["Javascript"]],
             "title": [
               [
-                "func handlerRequestWithCancelation(w http.ResponseWriter, r *http.Request) {\n    longRunningCalculation := func(ctx context.Context) {\n        for i := 0; ; i++ {\n            select {\n            case \u003c-ctx.Done():\n                return\n            default:\n                time.Sleep(1 * time.Second)\n                fmt.Printf(\"Worker %d \\n\", i)\n            }\n        }\n    }\n\n    // the context is canceled when the ServeHTTP method returns\n    go longRunningCalculation(r.Context())\n\n    // give some time for longRunningCalculation to do some work\n    time.Sleep(5 * time.Second)\n\n    io.WriteString(w, \"bazinga!\")\n    return\n}"
+                "func handlerRequestWithCancelation(w http.ResponseWriter, r *http.Request) {\n    longRunningCalculation := func(ctx context.Context) {\n        for i := 0; ; i++ {\n            select {\n            case <-ctx.Done():\n                return\n            default:\n                time.Sleep(1 * time.Second)\n                fmt.Printf(\"Worker %d \\n\", i)\n            }\n        }\n    }\n\n    // the context is canceled when the ServeHTTP method returns\n    go longRunningCalculation(r.Context())\n\n    // give some time for longRunningCalculation to do some work\n    time.Sleep(5 * time.Second)\n\n    io.WriteString(w, \"bazinga!\")\n    return\n}"
               ]
             ]
           },
@@ -599,11 +559,7 @@ Response:+31201
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -626,11 +582,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "func Background() Context\nfunc TODO() Context\nfunc WithCancel(parent Context) (ctx Context, cancel CancelFunc)\nfunc WithDeadline(parent Context, deadline time.Time) (Context, CancelFunc)\nfunc WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)\nfunc WithValue(parent Context, key, val interface{}) Context"
@@ -658,11 +610,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Context with timeout"
-              ]
-            ]
+            "title": [["Context with timeout"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -711,11 +659,7 @@ Response:+31201
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go"
-              ]
-            ]
+            "title": [["Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -738,14 +682,10 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "type Context interface {\n    // Deadline returns the time when work done\n    // on behalf of this context should be canceled.\n    Deadline() (deadline time.Time, ok bool)\n    // Done returns a channel that's closed when work done \n    // on behalf of this context should be canceled.\n    Done() \u003c-chan struct{}\n    // Err returns a non-nil error value after Done is closed.\n    Err() error\n    // Value returns the value associated with this context for key\n    Value(key interface{}) interface{}\n}"
+                "type Context interface {\n    // Deadline returns the time when work done\n    // on behalf of this context should be canceled.\n    Deadline() (deadline time.Time, ok bool)\n    // Done returns a channel that's closed when work done \n    // on behalf of this context should be canceled.\n    Done() <-chan struct{}\n    // Err returns a non-nil error value after Done is closed.\n    Err() error\n    // Value returns the value associated with this context for key\n    Value(key interface{}) interface{}\n}"
               ]
             ]
           },
@@ -774,11 +714,7 @@ Response:+31201
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -801,11 +737,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "deadline := time.Now().Add(time.Duration(30 * time.Second))\ndctx, cancel := context.WithDeadline(ctx, deadline)\ndefer cancel()"
@@ -867,14 +799,7 @@ Response:+31201
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "How can I use WithTimeout and WithDeadline ?",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
+              ["How can I use WithTimeout and WithDeadline ?", [["b"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -898,11 +823,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Javascript"
-              ]
-            ],
+            "language": [["Javascript"]],
             "title": [
               [
                 "// modify context of http.Request\nfunc middleware(h http.HandlerFunc) http.HandlerFunc {\n    return func(w http.ResponseWriter, r *http.Request) {\n        // Use request method context, which returns context, if ctx is nil\n        // then creates new background context - context.Background()\n        ctx = r.Context()\n        // Build context variations on top of background context\n        ctx = context.WithValue(ctx, \"some_key\", \"some_value\")\n        // tctx, cancelFunc := context.WithTimeout(ctx, time.Duration(5 * time.Second))\n        // deadline := time.Now().Add(time.Duration(30 * time.Second))\n        // dctx, cancelFunc := context.WithDeadline(ctx, deadline)\n        // WithContext returns a shallow copy of r with its context changed to ctx.\n        r = r.WithContext(ctx)\n        h(w, r)\n    }\n}"
@@ -930,11 +851,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Context with deadline"
-              ]
-            ]
+            "title": [["Context with deadline"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -957,14 +874,10 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "// explicitly cancelling context\nfunc handlerSearchCancel(w http.ResponseWriter, r *http.Request) {\n    var ctx context.Context\n    var cancel context.CancelFunc\n\n    ctx, cancel = context.WithCancel(r.Context())\n    defer cancel()\n\n    // Close context.Done channel in 4 seconds\n    go func() {\n        time.Sleep(4 * time.Second)\n        cancel()\n    }()\n\n    select {\n    case \u003c-ctx.Done():\n        log.Print(ctx.Err())\n        return\n    case result := \u003c-longRunningCalculation():\n        io.WriteString(w, result)\n    }\n\n    return\n}"
+                "// explicitly cancelling context\nfunc handlerSearchCancel(w http.ResponseWriter, r *http.Request) {\n    var ctx context.Context\n    var cancel context.CancelFunc\n\n    ctx, cancel = context.WithCancel(r.Context())\n    defer cancel()\n\n    // Close context.Done channel in 4 seconds\n    go func() {\n        time.Sleep(4 * time.Second)\n        cancel()\n    }()\n\n    select {\n    case <-ctx.Done():\n        log.Print(ctx.Err())\n        return\n    case result := <-longRunningCalculation():\n        io.WriteString(w, result)\n    }\n\n    return\n}"
               ]
             ]
           },
@@ -989,11 +902,7 @@ Response:+31201
           "parent_id": "1cae71c4-e3f2-40a6-8cbf-380eac594d37",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "ctx, cancel = context.WithTimeout(ctx, time.Duration(7 * time.Second))\ndefer cancel()"
@@ -1053,10 +962,10 @@ Response:+31201
     }
   }
 }
-12655 1624299934503 httpcache-v1
+12423 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -1065,7 +974,7 @@ Body:+110
     }
   ]
 }
-Response:+12454
+Response:+12223
 {
   "recordMapWithRoles": {
     "block": {
@@ -1118,11 +1027,7 @@ Response:+12454
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1149,11 +1054,7 @@ Response:+12454
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programming:"
-              ]
-            ]
+            "title": [["Programming:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1231,11 +1132,7 @@ Response:+12454
           "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C++"
-              ]
-            ]
+            "title": [["C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1361,11 +1258,7 @@ Response:+12454
         "parent_id": "aea20e01-890c-4874-ae08-4557d7789195",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "C++"
-            ]
-          ]
+          "title": [["C++"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

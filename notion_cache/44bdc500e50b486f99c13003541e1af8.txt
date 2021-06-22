@@ -1,7 +1,7 @@
-9644 1624299877484 httpcache-v1
+9524 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+9444
+Response:+9325
 {
   "recordMapWithRoles": {
     "block": {
@@ -55,11 +55,7 @@ Response:+9444
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This developer's life"
-              ]
-            ]
+            "title": [["This developer's life"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -156,11 +152,7 @@ Response:+9444
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -258,10 +250,10 @@ Response:+9444
     }
   ]
 }
-17639 1624299877485 httpcache-v1
+16401 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -271,7 +263,7 @@ Body:+152
   "pageId": "44bdc500-e50b-486f-99c1-3003541e1af8",
   "verticalColumns": false
 }
-Response:+17398
+Response:+16161
 {
   "cursor": {
     "stack": []
@@ -319,11 +311,7 @@ Response:+17398
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This developer's life"
-              ]
-            ]
+            "title": [["This developer's life"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -352,19 +340,9 @@ Response:+17398
               ],
               [
                 "http://updatecheck.io",
-                [
-                  [
-                    "a",
-                    "http://updatecheck.io/"
-                  ],
-                  [
-                    "c"
-                  ]
-                ]
+                [["a", "http://updatecheck.io/"], ["c"]]
               ],
-              [
-                " in Caddy config file"
-              ]
+              [" in Caddy config file"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -429,11 +407,7 @@ Response:+17398
           "parent_id": "44bdc500-e50b-486f-99c1-3003541e1af8",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The solution to this is two-fold:"
-              ]
-            ]
+            "title": [["The solution to this is two-fold:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -489,11 +463,7 @@ Response:+17398
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -520,25 +490,9 @@ Response:+17398
               [
                 "Changed my server deployments scripts for fofou and updatecheck from shell scripts to Go program. I wanted to be able to deploy from Windows (in addition to from Mac) and I started porting shell scripts to batch files (thank god Windows now ships OpenSSh with "
               ],
-              [
-                "ssh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "scp",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["ssh", [["c"]]],
+              [" and "],
+              ["scp", [["c"]]],
               [
                 ") but it's better to have one cross-platform implementation and Go is good for that."
               ]
@@ -566,50 +520,16 @@ Response:+17398
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "use "
-              ],
-              [
-                "pkill -SIGUSR1 caddy",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " instead of "
-              ],
-              [
-                "systemctl restart caddy",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to restart Caddy. "
-              ],
-              [
-                "pkill",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["use "],
+              ["pkill -SIGUSR1 caddy", [["c"]]],
+              [" instead of "],
+              ["systemctl restart caddy", [["c"]]],
+              [" to restart Caddy. "],
+              ["pkill", [["c"]]],
               [
                 " tells caddy to re-read config files and if there are errors, it'll revert to previous config. "
               ],
-              [
-                "systemctl restart",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["systemctl restart", [["c"]]],
               [
                 " is like starting from scratch and will stop caddy if there's a problem in config file (invalid syntax or failure to provision certificate)"
               ]
