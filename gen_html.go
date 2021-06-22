@@ -431,6 +431,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 }
 
 func generateHTML(store *Articles) {
+	logf("generateHTML: %d articles\n", len(store.articles))
 	// verify we're in the right directory
 	_, err := os.Stat(htmlDir)
 	must(err)
