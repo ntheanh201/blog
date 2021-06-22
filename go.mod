@@ -9,6 +9,7 @@ require (
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/kjk/notionapi v0.0.0-20210622030254-5d17675156a7
+	github.com/kjk/siser v0.0.0-20210621233355-17e67ed4384f
 	github.com/kjk/u v0.0.0-20191229080709-d1ac8976d53f
 	github.com/microcosm-cc/bluemonday v1.0.3
 	github.com/oklog/ulid v1.3.1
@@ -16,7 +17,6 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/segmentio/ksuid v1.0.2
 	github.com/sony/sonyflake v1.0.0
-	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/stretchr/testify v1.3.0
 	github.com/thomas11/atomgenerator v0.0.0-20140514140532-0b3b01da14a4
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect

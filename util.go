@@ -4,13 +4,6 @@ package main
 import (
 	"path/filepath"
 	"strings"
-
-	"github.com/kjk/u"
-)
-
-var (
-	must    = u.Must
-	panicIf = u.PanicIf
 )
 
 func logIfError(err error) {
