@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"net/url"
-	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -431,15 +430,9 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 }
 
 func generateHTML(store *Articles) {
-	logf("generateHTML: %d articles\n", len(store.articles))
-	// verify we're in the right directory
-	_, err := os.Stat(htmlDir)
-	must(err)
-	outDir := filepath.Join(htmlDir)
-	err = os.RemoveAll(outDir)
-	must(err)
-	err = os.MkdirAll(outDir, 0755)
-	must(err)
+	outDir := htmlDir
+	logf("generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
+	recreateDir(outDir)
 
 	skipTmplFiles := func(path string) bool {
 		return !strings.Contains(path, ".tmpl.")

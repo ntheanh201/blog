@@ -138,8 +138,6 @@ func main() {
 	openLog()
 	defer closeLog()
 
-	recreateDir(htmlDir)
-
 	if flgWc {
 		doLineCount()
 		return
@@ -185,6 +183,7 @@ func main() {
 		cmd := exec.Command("wrangler", "publish")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kowalczyk.info")
+		return
 	}
 
 	if false {
