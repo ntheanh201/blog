@@ -1,7 +1,7 @@
-16101 1624300461781 httpcache-v1
+15749 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+15900
+Response:+15549
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+15900
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+15900
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+15900
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -224,11 +212,7 @@ Response:+15900
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2006 (31)"
-              ]
-            ]
+            "title": [["2006 (31)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -286,11 +270,7 @@ Response:+15900
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Gdb basics"
-              ]
-            ]
+            "title": [["Gdb basics"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -396,11 +376,7 @@ Response:+15900
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Gdb basics"
-            ]
-          ]
+          "title": [["Gdb basics"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -409,10 +385,10 @@ Response:+15900
     }
   ]
 }
-50402 1624300461782 httpcache-v1
+44115 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -422,7 +398,7 @@ Body:+152
   "pageId": "a6d438b1-00d7-458e-b82d-2303aedb1487",
   "verticalColumns": false
 }
-Response:+50161
+Response:+43875
 {
   "cursor": {
     "stack": []
@@ -446,39 +422,12 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "delete \u003cn\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "disable \u003cn\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "enable \u003cn\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - delete/disable/enable breakpoint"
-              ]
+              ["delete <n>", [["c"]]],
+              [", "],
+              ["disable <n>", [["c"]]],
+              [", "],
+              ["enable <n>", [["c"]]],
+              [" - delete/disable/enable breakpoint"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -502,11 +451,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "define dpc\n  if $argc ==1\n    disass $pc $pc + $arg0\n  end\n  if $argc == 0\n    disass $pc $pc+24\n  end\nend"
@@ -535,25 +480,9 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "pu \u003caddr\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " print Unicode string under address "
-              ],
-              [
-                "addr",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["pu <addr>", [["c"]]],
+              [" print Unicode string under address "],
+              ["addr", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -577,11 +506,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Debugging at assembly level:"
-              ]
-            ]
+            "title": [["Debugging at assembly level:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -604,19 +529,7 @@ Response:+50161
           "parent_id": "4ebbb411-4530-4219-b744-a0eb2741bda3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "in current file e.g. "
-              ],
-              [
-                "break 24",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["in current file e.g. "], ["break 24", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -654,11 +567,7 @@ Response:+50161
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -713,11 +622,7 @@ Response:+50161
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -741,36 +646,13 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Customization",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ": File "
-              ],
-              [
-                ".gdbinit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Customization", [["b"]]],
+              [": File "],
+              [".gdbinit", [["c"]]],
               [
                 " contains instructions that gdb will execute at startup. Helpful for adding commonly used commands. Gdb first reads "
               ],
-              [
-                ".gdbinit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              [".gdbinit", [["c"]]],
               [
                 " in $HOME directory, then in current directory (if different than $HOME)."
               ]
@@ -798,17 +680,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "run [\u003cargs\u003e]",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - run the program with (optional) arguments"
-              ]
+              ["run [<args>]", [["c"]]],
+              [" - run the program with (optional) arguments"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -833,75 +706,23 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Gdb looks for source files in "
-              ],
-              [
-                "$cdir",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Gdb looks for source files in "],
+              ["$cdir", [["c"]]],
               [
                 " (directory embedded in executable recorded during compilation) and "
               ],
-              [
-                "$cwd",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " (current working directory). You can add to this list via "
-              ],
-              [
-                "dir",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " e.g. "
-              ],
-              [
-                "dir ..\\..\\WebCore\\platform",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". See current list via "
-              ],
-              [
-                "show dir",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["$cwd", [["c"]]],
+              [" (current working directory). You can add to this list via "],
+              ["dir", [["c"]]],
+              [" e.g. "],
+              ["dir ..\\..\\WebCore\\platform", [["c"]]],
+              [". See current list via "],
+              ["show dir", [["c"]]],
               [
                 ". If you need this, it’s a perfect candidate for putting inside "
               ],
-              [
-                ".gdbinit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " file."
-              ]
+              [".gdbinit", [["c"]]],
+              [" file."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -933,9 +754,7 @@ Response:+50161
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "17ace902-7725-46b0-9c90-5999306ecf98"
-          ],
+          "content": ["17ace902-7725-46b0-9c90-5999306ecf98"],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -949,17 +768,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "break \u003cline-no\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - set breakpoint at a line number"
-              ]
+              ["break <line-no>", [["c"]]],
+              [" - set breakpoint at a line number"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -984,28 +794,10 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "nexti",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "stepi",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for stepping by one instruction"
-              ]
+              ["nexti", [["c"]]],
+              [" and "],
+              ["stepi", [["c"]]],
+              [" for stepping by one instruction"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1062,11 +854,7 @@ Response:+50161
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1089,19 +877,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "info regs",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - show content of registers"
-              ]
-            ]
+            "title": [["info regs", [["c"]]], [" - show content of registers"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1124,19 +900,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "bt",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - print a stack trace"
-              ]
-            ]
+            "title": [["bt", [["c"]]], [" - print a stack trace"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1160,17 +924,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "p \u003cfoo\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - print the value of a variable"
-              ]
+              ["p <foo>", [["c"]]],
+              [" - print the value of a variable"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1195,20 +950,9 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "dpc [\u003ccount\u003e]",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " disassembles next "
-              ],
-              [
-                " (or 24 if not given) bytes starting from current location."
-              ]
+              ["dpc [<count>]", [["c"]]],
+              [" disassembles next "],
+              [" (or 24 if not given) bytes starting from current location."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1265,11 +1009,7 @@ Response:+50161
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2006 (31)"
-              ]
-            ]
+            "title": [["2006 (31)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1292,11 +1032,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Basics:"
-              ]
-            ]
+            "title": [["Basics:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1319,11 +1055,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 1289"
-              ]
-            ]
+            "title": [["Id: 1289"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1347,17 +1079,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "display /i $eip",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " so that gdb prints the next assembly instruction"
-              ]
+              ["display /i $eip", [["c"]]],
+              [" so that gdb prints the next assembly instruction"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1381,19 +1104,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "frame \u003cn\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - switch to frame"
-              ]
-            ]
+            "title": [["frame <n>", [["c"]]], [" - switch to frame"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1451,11 +1162,7 @@ Response:+50161
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Gdb basics"
-              ]
-            ]
+            "title": [["Gdb basics"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1479,17 +1186,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "info breaks",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - display current breakpoints"
-              ]
+              ["info breaks", [["c"]]],
+              [" - display current breakpoints"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1513,11 +1211,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: gdb, unix, programming"
-              ]
-            ]
+            "title": [["Tags: gdb, unix, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1541,17 +1235,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "x /fmt addr",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - show data under a given addr using a given format"
-              ]
+              ["x /fmt addr", [["c"]]],
+              [" - show data under a given addr using a given format"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1575,14 +1260,10 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "def pu\n  set $uni = $arg0\n  set $i = 0\n  while (*$uni \u0026\u0026 $i++\u003c100)\n    if (*$uni \u003c 0x80)\n      print *(char*)$uni++\n    else\n      print /x *(short*)$uni++\n    end\n  end\nend"
+                "def pu\n  set $uni = $arg0\n  set $i = 0\n  while (*$uni && $i++<100)\n    if (*$uni < 0x80)\n      print *(char*)$uni++\n    else\n      print /x *(short*)$uni++\n    end\n  end\nend"
               ]
             ]
           },
@@ -1608,20 +1289,9 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Useful macros to define in "
-              ],
-              [
-                ".gdbinit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["Useful macros to define in "],
+              [".gdbinit", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1646,25 +1316,9 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "break *\u003caddr\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - set a breakpoint at a given addr e.g. "
-              ],
-              [
-                "break *foo + 24",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["break *<addr>", [["c"]]],
+              [" - set a breakpoint at a given addr e.g. "],
+              ["break *foo + 24", [["c"]]],
               [
                 " (set a breakpoint 24 bytes after the beginning of function foo"
               ]
@@ -1692,28 +1346,10 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "c",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ("
-              ],
-              [
-                "continue",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ") - continue execution"
-              ]
+              ["c", [["c"]]],
+              [" ("],
+              ["continue", [["c"]]],
+              [") - continue execution"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1738,17 +1374,8 @@ Response:+50161
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "set disassembly-flavor intel",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " changes assembly syntax from awful AT\u0026T to less awful intel"
-              ]
+              ["set disassembly-flavor intel", [["c"]]],
+              [" changes assembly syntax from awful AT&T to less awful intel"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1772,11 +1399,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2006-09-06T17:00:00-07:00"
-              ]
-            ]
+            "title": [["Date: 2006-09-06T17:00:00-07:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1799,19 +1422,7 @@ Response:+50161
           "parent_id": "a6d438b1-00d7-458e-b82d-2303aedb1487",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "info locals",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " - show local variables"
-              ]
-            ]
+            "title": [["info locals", [["c"]]], [" - show local variables"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1866,10 +1477,10 @@ Response:+50161
     }
   }
 }
-124843 1624300461786 httpcache-v1
+121323 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+2662
+Body:+2663
 {
   "requests": [
     {
@@ -1994,7 +1605,7 @@ Body:+2662
     }
   ]
 }
-Response:+122088
+Response:+118569
 {
   "recordMapWithRoles": {
     "block": {
@@ -2027,11 +1638,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "What I love about Google open-source project hosting"
-              ]
-            ]
+            "title": [["What I love about Google open-source project hosting"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2078,11 +1685,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Basics of writing DOS .bat batch files"
-              ]
-            ]
+            "title": [["Basics of writing DOS .bat batch files"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2120,11 +1723,7 @@ Response:+122088
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2159,11 +1758,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Talk on designing good APIs"
-              ]
-            ]
+            "title": [["Talk on designing good APIs"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2210,11 +1805,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Order of #include headers in C/C++"
-              ]
-            ]
+            "title": [["Order of #include headers in C/C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2251,11 +1842,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Check if file exists on Windows"
-              ]
-            ]
+            "title": [["Check if file exists on Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2310,11 +1897,7 @@ Response:+122088
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2370,11 +1953,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Debugging adventure"
-              ]
-            ]
+            "title": [["Debugging adventure"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2408,11 +1987,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Navigating source code in large programs"
-              ]
-            ]
+            "title": [["Navigating source code in large programs"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2455,11 +2030,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Make C code safe for C++"
-              ]
-            ]
+            "title": [["Make C code safe for C++"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2505,11 +2076,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Document your software"
-              ]
-            ]
+            "title": [["Document your software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2573,11 +2140,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Performance optimization story"
-              ]
-            ]
+            "title": [["Performance optimization story"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2627,11 +2190,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Subversion basics"
-              ]
-            ]
+            "title": [["Subversion basics"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2677,11 +2236,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "C portability notes"
-              ]
-            ]
+            "title": [["C portability notes"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2737,11 +2292,7 @@ Response:+122088
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2778,11 +2329,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Compile-time asserts in C"
-              ]
-            ]
+            "title": [["Compile-time asserts in C"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2829,11 +2376,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The missing msvcr80.dll story"
-              ]
-            ]
+            "title": [["The missing msvcr80.dll story"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2879,11 +2422,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Sumatra PDF 0.2 released"
-              ]
-            ]
+            "title": [["Sumatra PDF 0.2 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2925,11 +2464,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Embedding binary resources on Windows"
-              ]
-            ]
+            "title": [["Embedding binary resources on Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2985,11 +2520,7 @@ Response:+122088
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2006 (31)"
-              ]
-            ]
+            "title": [["2006 (31)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3049,11 +2580,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "On how I improved Sumatra performance by ~60%"
-              ]
-            ]
+            "title": [["On how I improved Sumatra performance by ~60%"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3091,11 +2618,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Sumatra PDF 0.3 released"
-              ]
-            ]
+            "title": [["Sumatra PDF 0.3 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3135,11 +2658,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Get file size under windows"
-              ]
-            ]
+            "title": [["Get file size under windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3175,9 +2694,7 @@ Response:+122088
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "php_mysql.dll not loading in PHP 5.1.4 and Apache 2.2"
-              ]
+              ["php_mysql.dll not loading in PHP 5.1.4 and Apache 2.2"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3226,11 +2743,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Basics of mysql"
-              ]
-            ]
+            "title": [["Basics of mysql"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3271,11 +2784,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Deeply nested if statements"
-              ]
-            ]
+            "title": [["Deeply nested if statements"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3320,11 +2829,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Paradox of bad comments"
-              ]
-            ]
+            "title": [["Paradox of bad comments"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3369,11 +2874,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A simple captcha scheme"
-              ]
-            ]
+            "title": [["A simple captcha scheme"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3411,11 +2912,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "What makes a CD bootable"
-              ]
-            ]
+            "title": [["What makes a CD bootable"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3452,11 +2949,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Digg and the craft of catchy headlines"
-              ]
-            ]
+            "title": [["Digg and the craft of catchy headlines"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3495,11 +2988,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Designing web forums software"
-              ]
-            ]
+            "title": [["Designing web forums software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3549,9 +3038,7 @@ Response:+122088
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Short tutorial on svn propset for svn:externals property"
-              ]
+              ["Short tutorial on svn propset for svn:externals property"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3591,11 +3078,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Sumatra PDF is born"
-              ]
-            ]
+            "title": [["Sumatra PDF is born"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3635,11 +3118,7 @@ Response:+122088
           "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Python id3 library"
-              ]
-            ]
+            "title": [["Python id3 library"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3723,11 +3202,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "What I love about Google open-source project hosting"
-            ]
-          ]
+          "title": [["What I love about Google open-source project hosting"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3774,11 +3249,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Basics of writing DOS .bat batch files"
-            ]
-          ]
+          "title": [["Basics of writing DOS .bat batch files"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3813,11 +3284,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Talk on designing good APIs"
-            ]
-          ]
+          "title": [["Talk on designing good APIs"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3864,11 +3331,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Order of #include headers in C/C++"
-            ]
-          ]
+          "title": [["Order of #include headers in C/C++"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3905,11 +3368,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Check if file exists on Windows"
-            ]
-          ]
+          "title": [["Check if file exists on Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3965,11 +3424,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Debugging adventure"
-            ]
-          ]
+          "title": [["Debugging adventure"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4003,11 +3458,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Navigating source code in large programs"
-            ]
-          ]
+          "title": [["Navigating source code in large programs"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4050,11 +3501,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Make C code safe for C++"
-            ]
-          ]
+          "title": [["Make C code safe for C++"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4100,11 +3547,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Document your software"
-            ]
-          ]
+          "title": [["Document your software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4168,11 +3611,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Performance optimization story"
-            ]
-          ]
+          "title": [["Performance optimization story"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4222,11 +3661,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Subversion basics"
-            ]
-          ]
+          "title": [["Subversion basics"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4272,11 +3707,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "C portability notes"
-            ]
-          ]
+          "title": [["C portability notes"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4313,11 +3744,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Compile-time asserts in C"
-            ]
-          ]
+          "title": [["Compile-time asserts in C"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4364,11 +3791,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "The missing msvcr80.dll story"
-            ]
-          ]
+          "title": [["The missing msvcr80.dll story"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4414,11 +3837,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Sumatra PDF 0.2 released"
-            ]
-          ]
+          "title": [["Sumatra PDF 0.2 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4460,11 +3879,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Embedding binary resources on Windows"
-            ]
-          ]
+          "title": [["Embedding binary resources on Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4524,11 +3939,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "On how I improved Sumatra performance by ~60%"
-            ]
-          ]
+          "title": [["On how I improved Sumatra performance by ~60%"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4566,11 +3977,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Sumatra PDF 0.3 released"
-            ]
-          ]
+          "title": [["Sumatra PDF 0.3 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4610,11 +4017,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Get file size under windows"
-            ]
-          ]
+          "title": [["Get file size under windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4649,11 +4052,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "php_mysql.dll not loading in PHP 5.1.4 and Apache 2.2"
-            ]
-          ]
+          "title": [["php_mysql.dll not loading in PHP 5.1.4 and Apache 2.2"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4701,11 +4100,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Basics of mysql"
-            ]
-          ]
+          "title": [["Basics of mysql"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4746,11 +4141,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Deeply nested if statements"
-            ]
-          ]
+          "title": [["Deeply nested if statements"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4795,11 +4186,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Paradox of bad comments"
-            ]
-          ]
+          "title": [["Paradox of bad comments"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4844,11 +4231,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A simple captcha scheme"
-            ]
-          ]
+          "title": [["A simple captcha scheme"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4886,11 +4269,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "What makes a CD bootable"
-            ]
-          ]
+          "title": [["What makes a CD bootable"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4927,11 +4306,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Digg and the craft of catchy headlines"
-            ]
-          ]
+          "title": [["Digg and the craft of catchy headlines"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4970,11 +4345,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Designing web forums software"
-            ]
-          ]
+          "title": [["Designing web forums software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5024,9 +4395,7 @@ Response:+122088
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Short tutorial on svn propset for svn:externals property"
-            ]
+            ["Short tutorial on svn propset for svn:externals property"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5066,11 +4435,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Sumatra PDF is born"
-            ]
-          ]
+          "title": [["Sumatra PDF is born"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5110,11 +4475,7 @@ Response:+122088
         "parent_id": "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Python id3 library"
-            ]
-          ]
+          "title": [["Python id3 library"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

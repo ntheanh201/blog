@@ -1,7 +1,7 @@
-15636 1624300471437 httpcache-v1
+15284 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+15435
+Response:+15084
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+15435
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+15435
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -138,11 +130,7 @@ Response:+15435
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -198,11 +186,7 @@ Response:+15435
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -268,11 +252,7 @@ Response:+15435
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Improving speed of SMAZ compressor by 2.6x/1.5x"
-              ]
-            ]
+            "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -386,11 +366,7 @@ Response:+15435
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Improving speed of SMAZ compressor by 2.6x/1.5x"
-            ]
-          ]
+          "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -399,10 +375,10 @@ Response:+15435
     }
   ]
 }
-56575 1624300471438 httpcache-v1
+52107 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -412,7 +388,7 @@ Body:+152
   "pageId": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
   "verticalColumns": false
 }
-Response:+56334
+Response:+51867
 {
   "cursor": {
     "stack": []
@@ -462,11 +438,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "HeaderImage: gfx/headers/header-08.jpg"
-              ]
-            ]
+            "title": [["HeaderImage: gfx/headers/header-08.jpg"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -493,28 +465,10 @@ Response:+56334
               [
                 "benchmarking functions are automatically recognized by convention: a function that starts with "
               ],
-              [
-                "Benchmark",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " in "
-              ],
-              [
-                "*_test.go",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " file is a benchmark function"
-              ]
+              ["Benchmark", [["c"]]],
+              [" in "],
+              ["*_test.go", [["c"]]],
+              [" file is a benchmark function"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -538,14 +492,10 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func BenchmarkCompression(b *testing.B) {\n    b.StopTimer()\n    inputs, n := loadTestData(b)\n    b.SetBytes(n)\n    b.StartTimer()\n    var dst []byte\n    for i := 0; i \u003c b.N; i++ {\n        for _, input := range inputs {\n            dst = Encode(dst, input)\n        }\n    }\n}"
+                "func BenchmarkCompression(b *testing.B) {\n    b.StopTimer()\n    inputs, n := loadTestData(b)\n    b.SetBytes(n)\n    b.StartTimer()\n    var dst []byte\n    for i := 0; i < b.N; i++ {\n        for _, input := range inputs {\n            dst = Encode(dst, input)\n        }\n    }\n}"
               ]
             ]
           },
@@ -570,11 +520,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Benchmarking tools in Go"
-              ]
-            ]
+            "title": [["Benchmarking tools in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -612,11 +558,7 @@ Response:+56334
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -671,11 +613,7 @@ Response:+56334
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -726,21 +664,12 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Memory access is expensive. You can execute "
-              ],
+              ["Memory access is expensive. You can execute "],
               [
                 "7 CPU instructions",
-                [
-                  [
-                    "a",
-                    "https://gist.github.com/kjk/0cd9e13e8b5f1046b697"
-                  ]
-                ]
+                [["a", "https://gist.github.com/kjk/0cd9e13e8b5f1046b697"]]
               ],
-              [
-                " for one memory operation in L2 cache."
-              ]
+              [" for one memory operation in L2 cache."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -791,11 +720,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go, programming"
-              ]
-            ]
+            "title": [["Tags: go, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -852,11 +777,7 @@ Response:+56334
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -892,9 +813,7 @@ Response:+56334
                   ]
                 ]
               ],
-              [
-                " but also 1.14x faster."
-              ]
+              [" but also 1.14x faster."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -918,11 +837,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2014-12-11T00:19:49-08:00"
-              ]
-            ]
+            "title": [["Date: 2014-12-11T00:19:49-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -978,11 +893,7 @@ Response:+56334
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1006,9 +917,7 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The biggest decompression speed-up came from "
-              ],
+              ["The biggest decompression speed-up came from "],
               [
                 "this change",
                 [
@@ -1018,31 +927,11 @@ Response:+56334
                   ]
                 ]
               ],
-              [
-                " where I replaced the use of "
-              ],
-              [
-                "bytes.Buffer",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " with "
-              ],
-              [
-                "[]byte",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " slice."
-              ]
+              [" where I replaced the use of "],
+              ["bytes.Buffer", [["c"]]],
+              [" with "],
+              ["[]byte", [["c"]]],
+              [" slice."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1066,11 +955,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "compressed := make([]byte, 1024)\ncompressed = smaz.Encode(compressed, source)"
@@ -1099,31 +984,11 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "1. Don’t use "
-              ],
-              [
-                "bytes.Buffer",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " if "
-              ],
-              [
-                "[]byte",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " will do."
-              ]
+              ["1. Don’t use "],
+              ["bytes.Buffer", [["c"]]],
+              [" if "],
+              ["[]byte", [["c"]]],
+              [" will do."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1174,11 +1039,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 13"
-              ]
-            ]
+            "title": [["Id: 13"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1228,11 +1089,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "3. Avoid un-necessary copies"
-              ]
-            ]
+            "title": [["3. Avoid un-necessary copies"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1256,30 +1113,10 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I was testing fast compressors in pure Go. One of them was "
-              ],
-              [
-                "Go implementation",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/smaz"
-                  ]
-                ]
-              ],
-              [
-                " of "
-              ],
-              [
-                "SMAZ algorithm",
-                [
-                  [
-                    "a",
-                    "https://github.com/antirez/smaz"
-                  ]
-                ]
-              ],
+              ["I was testing fast compressors in pure Go. One of them was "],
+              ["Go implementation", [["a", "https://github.com/kjk/smaz"]]],
+              [" of "],
+              ["SMAZ algorithm", [["a", "https://github.com/antirez/smaz"]]],
               [
                 " for compressing small strings. It’s simple, fast and works well for English text."
               ]
@@ -1306,14 +1143,10 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "\u003e go get -u golang.org/x/tools/cmd/benchcmp\n\u003e go test -bench=. \u003ebefore.txt\n\u003e ... make the changes\n\u003e go test -bench=. \u003eafter.txt\n\u003e benchcmp before.txt after.txt"
+                "> go get -u golang.org/x/tools/cmd/benchcmp\n> go test -bench=. >before.txt\n> ... make the changes\n> go test -bench=. >after.txt\n> benchcmp before.txt after.txt"
               ]
             ]
           },
@@ -1338,11 +1171,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go includes tools for writing benchmarks and tests."
-              ]
-            ]
+            "title": [["Go includes tools for writing benchmarks and tests."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1392,11 +1221,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The original API was:"
-              ]
-            ]
+            "title": [["The original API was:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1462,11 +1287,7 @@ Response:+56334
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Improving speed of SMAZ compressor by 2.6x/1.5x"
-              ]
-            ]
+            "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1489,11 +1310,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The speed increase came from 3 micro-optimizations."
-              ]
-            ]
+            "title": [["The speed increase came from 3 micro-optimizations."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1516,11 +1333,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "kjkmacpro:smaz kjk$ benchcmp before.txt after.txt\nbenchmark                  old ns/op     new ns/op     delta\nBenchmarkCompression       3387936       2195304       -35.20%\nBenchmarkDecompression     2667583       1022908       -61.65%\n\nbenchmark                  old MB/s     new MB/s     speedup\nBenchmarkCompression       40.35        62.26        1.54x\nBenchmarkDecompression     28.34        73.90        2.61x"
@@ -1548,11 +1361,7 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1603,14 +1412,7 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Compress",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Compress", [["c"]]],
               [
                 " function has no option but to allocate a new buffer for the compressed data. Allocations are not free and they slow down the program by making garbage collector do more work."
               ]
@@ -1637,16 +1439,8 @@ Response:+56334
           "parent_id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
-            "title": [
-              [
-                "compressed := smaz.Compress(source)"
-              ]
-            ]
+            "language": [["Go"]],
+            "title": [["compressed := smaz.Compress(source)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -1690,9 +1484,7 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "the results are in a standardized, human-readable form"
-              ]
+              ["the results are in a standardized, human-readable form"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1720,17 +1512,8 @@ Response:+56334
               [
                 "benchmarking tool not only measures time but you can also get MB/s metric by using "
               ],
-              [
-                "b.SetBytes()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". It’s a good metric for compression algorithms."
-              ]
+              ["b.SetBytes()", [["c"]]],
+              [". It’s a good metric for compression algorithms."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1755,42 +1538,13 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You run benchmarks with "
-              ],
-              [
-                "go test -bench=.",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". To benchmark a single function only use "
-              ],
-              [
-                "-bench",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " argument (or pass "
-              ],
-              [
-                ".",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to run all of them)."
-              ]
+              ["You run benchmarks with "],
+              ["go test -bench=.", [["c"]]],
+              [". To benchmark a single function only use "],
+              ["-bench", [["c"]]],
+              [" argument (or pass "],
+              [".", [["c"]]],
+              [" to run all of them)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1815,50 +1569,14 @@ Response:+56334
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "bytes.Buffer",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " is a wrapper around "
-              ],
-              [
-                "[]byte",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". It adds convenience by implementing popular interfaces like "
-              ],
-              [
-                "io.Reader",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "io.Writer",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " etc. Decreased speed is the price of that."
-              ]
+              ["bytes.Buffer", [["c"]]],
+              [" is a wrapper around "],
+              ["[]byte", [["c"]]],
+              [". It adds convenience by implementing popular interfaces like "],
+              ["io.Reader", [["c"]]],
+              [", "],
+              ["io.Writer", [["c"]]],
+              [" etc. Decreased speed is the price of that."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1886,17 +1604,8 @@ Response:+56334
               [
                 "If the buffer is not big enough, it’ll be enlarged. If the caller doesn’t want manage the buffer, it can pass "
               ],
-              [
-                "nil",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["nil", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1952,10 +1661,10 @@ Response:+56334
     }
   }
 }
-27606 1624300471439 httpcache-v1
+26918 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+374
+Body:+375
 {
   "requests": [
     {
@@ -1976,7 +1685,7 @@ Body:+374
     }
   ]
 }
-Response:+27141
+Response:+26454
 {
   "recordMapWithRoles": {
     "block": {
@@ -2020,11 +1729,7 @@ Response:+27141
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 2.5.2 released"
-              ]
-            ]
+            "title": [["SumatraPDF 2.5.2 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2062,11 +1767,7 @@ Response:+27141
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2121,11 +1822,7 @@ Response:+27141
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2155,11 +1852,7 @@ Response:+27141
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2215,11 +1908,7 @@ Response:+27141
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2270,11 +1959,7 @@ Response:+27141
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 3.0 released"
-              ]
-            ]
+            "title": [["SumatraPDF 3.0 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2313,11 +1998,7 @@ Response:+27141
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tip for per-test verbose logging in Go"
-              ]
-            ]
+            "title": [["Tip for per-test verbose logging in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2383,11 +2064,7 @@ Response:+27141
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on Ansible"
-              ]
-            ]
+            "title": [["Notes on Ansible"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2482,11 +2159,7 @@ Response:+27141
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 2.5.2 released"
-            ]
-          ]
+          "title": [["SumatraPDF 2.5.2 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2537,11 +2210,7 @@ Response:+27141
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 3.0 released"
-            ]
-          ]
+          "title": [["SumatraPDF 3.0 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2580,11 +2249,7 @@ Response:+27141
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Tip for per-test verbose logging in Go"
-            ]
-          ]
+          "title": [["Tip for per-test verbose logging in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2650,11 +2315,7 @@ Response:+27141
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Notes on Ansible"
-            ]
-          ]
+          "title": [["Notes on Ansible"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

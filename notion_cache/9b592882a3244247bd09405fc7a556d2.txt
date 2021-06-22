@@ -1,7 +1,7 @@
-18350 1624300450634 httpcache-v1
+17954 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+Body:+111
 {
   "requests": [
     {
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+18149
+Response:+17754
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+18149
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+18149
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -141,11 +133,7 @@ Response:+18149
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -201,11 +189,7 @@ Response:+18149
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -279,9 +263,7 @@ Response:+18149
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204099818,
-          "file_ids": [
-            "bea09464-9216-4198-ac8b-b4909027c558"
-          ],
+          "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
             "page_cover_position": 0.5,
@@ -296,11 +278,7 @@ Response:+18149
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Blueprint for deploying web apps on CoreOS"
-              ]
-            ]
+            "title": [["Blueprint for deploying web apps on CoreOS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -422,9 +400,7 @@ Response:+18149
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531204099818,
-        "file_ids": [
-          "bea09464-9216-4198-ac8b-b4909027c558"
-        ],
+        "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
           "page_cover_position": 0.5,
@@ -439,11 +415,7 @@ Response:+18149
         "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Blueprint for deploying web apps on CoreOS"
-            ]
-          ]
+          "title": [["Blueprint for deploying web apps on CoreOS"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -452,10 +424,10 @@ Response:+18149
     }
   ]
 }
-77560 1624300450636 httpcache-v1
+70494 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+Body:+153
 {
   "chunkNumber": 0,
   "cursor": {
@@ -465,7 +437,7 @@ Body:+152
   "pageId": "9b592882-a324-4247-bd09-405fc7a556d2",
   "verticalColumns": false
 }
-Response:+77319
+Response:+70254
 {
   "cursor": {
     "stack": [
@@ -530,11 +502,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "[Unit]\nDescription=blog\n# this unit will only start after docker.service\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nTimeoutStartSec=0\n# per https://www.digitalocean.com/community/tutorials/how-to-create-and-run-a-service-on-a-coreos-cluster\nEnvironmentFile=/etc/environment\n# before starting make sure it doesn't exist\n# '=-' means it can fail\nExecStartPre=-/usr/bin/docker rm blog\nExecStart=/usr/bin/docker run --rm -p 80:80 -v /data-blog:/data --name blog blog:latest\nExecStop=/usr/bin/docker stop blog\n# restart if it crashes or is killed e.g. by oom\nRestart=on-failure\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target"
@@ -590,20 +558,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "For convenience I also write "
-              ],
-              [
-                "login.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["For convenience I also write "],
+              ["login.sh", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -628,31 +585,13 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I have "
-              ],
-              [
-                "initial-server-setup.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["I have "],
+              ["initial-server-setup.sh", [["c"]]],
               [
                 " script to automate putting those files on the server and configure "
               ],
-              [
-                "systemd",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to notice it."
-              ]
+              ["systemd", [["c"]]],
+              [" to notice it."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -677,20 +616,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Run "
-              ],
-              [
-                "initial-server-setup.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and test that the changes are applied:"
-              ]
+              ["Run "],
+              ["initial-server-setup.sh", [["c"]]],
+              [" and test that the changes are applied:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -738,18 +666,8 @@ Response:+77319
               [
                 "I used to deploy my web apps on Ubuntu running on Digital Ocean but recently I switched to using "
               ],
-              [
-                "CoreOS",
-                [
-                  [
-                    "a",
-                    "https://coreos.com/"
-                  ]
-                ]
-              ],
-              [
-                " instead of Ubuntu."
-              ]
+              ["CoreOS", [["a", "https://coreos.com/"]]],
+              [" instead of Ubuntu."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -801,28 +719,10 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "startup.conf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ("
-              ],
-              [
-                "/etc/sysctl.d/startup.conf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " on the server):"
-              ]
+              ["startup.conf", [["c"]]],
+              [" ("],
+              ["/etc/sysctl.d/startup.conf", [["c"]]],
+              [" on the server):"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -847,28 +747,10 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "startup_script.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ("
-              ],
-              [
-                "/etc/systemd/system/startup_script.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " on the server):"
-              ]
+              ["startup_script.sh", [["c"]]],
+              [" ("],
+              ["/etc/systemd/system/startup_script.sh", [["c"]]],
+              [" on the server):"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -907,11 +789,7 @@ Response:+77319
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -941,13 +819,8 @@ Response:+77319
               [
                 "systemd",
                 [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://www.freedesktop.org/wiki/Software/systemd/"
-                  ]
+                  ["c"],
+                  ["a", "https://www.freedesktop.org/wiki/Software/systemd/"]
                 ]
               ],
               [
@@ -977,20 +850,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "After server is created, verify you can login: "
-              ],
-              [
-                "ssh -i ./id_rsa core@\u003cip_address\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["After server is created, verify you can login: "],
+              ["ssh -i ./id_rsa core@<ip_address>", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1046,11 +908,7 @@ Response:+77319
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1074,53 +932,15 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Create "
-              ],
-              [
-                "blog.service",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ("
-              ],
-              [
-                "/etc/systemd/system/blog.service",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " on the server) file which instructs "
-              ],
-              [
-                "systemd",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " how to run a docker container named "
-              ],
-              [
-                "blog",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["Create "],
+              ["blog.service", [["c"]]],
+              [" ("],
+              ["/etc/systemd/system/blog.service", [["c"]]],
+              [" on the server) file which instructs "],
+              ["systemd", [["c"]]],
+              [" how to run a docker container named "],
+              ["blog", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1145,25 +965,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "ssh-keygen -t rsa -b 4096 -C \"a comment\"",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " : creates a new ssh key, save it as "
-              ],
-              [
-                "id_rsa",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["ssh-keygen -t rsa -b 4096 -C \"a comment\"", [["c"]]],
+              [" : creates a new ssh key, save it as "],
+              ["id_rsa", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1188,20 +992,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We’ll use "
-              ],
-              [
-                "systemd",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " again as it comes with CoreOS."
-              ]
+              ["We’ll use "],
+              ["systemd", [["c"]]],
+              [" again as it comes with CoreOS."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1225,11 +1018,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: devops, go"
-              ]
-            ]
+            "title": [["Tags: devops, go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1253,17 +1042,8 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "content of "
-              ],
-              [
-                "id_rsa.pub",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["content of "],
+              ["id_rsa.pub", [["c"]]],
               [
                 " is what you give DigitalOcean as ssh key when creating a server"
               ]
@@ -1293,11 +1073,7 @@ Response:+77319
             "title": [
               [
                 "4. Package the app as a Docker image and upload to the server",
-                [
-                  [
-                    "b"
-                  ]
-                ]
+                [["b"]]
               ]
             ]
           },
@@ -1322,11 +1098,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 5"
-              ]
-            ]
+            "title": [["Id: 5"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1350,14 +1122,7 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "startup.conf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["startup.conf", [["c"]]],
               [
                 " contains the settings. Default values for connection tracking are so low that it’s easy for a malicious person to DoS your server just by opening a small number of connections to your http server."
               ]
@@ -1411,19 +1176,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "reboot with "
-              ],
-              [
-                "sudo shutdown -r now",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["reboot with "], ["sudo shutdown -r now", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1456,11 +1209,7 @@ Response:+77319
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1516,11 +1265,7 @@ Response:+77319
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1544,20 +1289,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Here’s a "
-              ],
-              [
-                "build_and_upload.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " script:"
-              ]
+              ["Here’s a "],
+              ["build_and_upload.sh", [["c"]]],
+              [" script:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1585,39 +1319,12 @@ Response:+77319
               [
                 "The most common advice for uploading/downloading docker images is to use docker registry. For simplicity I just use "
               ],
-              [
-                "docker save",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "/"
-              ],
-              [
-                "docker load",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "scp",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["docker save", [["c"]]],
+              ["/"],
+              ["docker load", [["c"]]],
+              [" and "],
+              ["scp", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1642,28 +1349,10 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "startup.service",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " ("
-              ],
-              [
-                "/etc/systemd/system/startup.service",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " on the server):"
-              ]
+              ["startup.service", [["c"]]],
+              [" ("],
+              ["/etc/systemd/system/startup.service", [["c"]]],
+              [" on the server):"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1714,19 +1403,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "login to the server with "
-              ],
-              [
-                "./login.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["login to the server with "], ["./login.sh", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1777,14 +1454,7 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "3. Use systemctld to automatically restart the app",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
+              ["3. Use systemctld to automatically restart the app", [["b"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1836,20 +1506,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To make the scripts more re-usable, create "
-              ],
-              [
-                "ipaddr.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["To make the scripts more re-usable, create "],
+              ["ipaddr.sh", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1874,20 +1533,9 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You need to re-run it after updating "
-              ],
-              [
-                "blog.service",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " file."
-              ]
+              ["You need to re-run it after updating "],
+              ["blog.service", [["c"]]],
+              [" file."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1962,9 +1610,7 @@ Response:+77319
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204099818,
-          "file_ids": [
-            "bea09464-9216-4198-ac8b-b4909027c558"
-          ],
+          "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
             "page_cover_position": 0.5,
@@ -1979,11 +1625,7 @@ Response:+77319
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Blueprint for deploying web apps on CoreOS"
-              ]
-            ]
+            "title": [["Blueprint for deploying web apps on CoreOS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2006,14 +1648,10 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "#!/bin/bash\n\n# reload values from /etc/sysctl.d/startup.conf\nsysctl --system\n# make hashsize match net.netfilter.nf_conntrack_max (should be nf_conntrack_max / 4)\n# https://security.stackexchange.com/questions/43205/nf-conntrack-table-full-dropping-packet\necho 32768 \u003e /sys/module/nf_conntrack/parameters/hashsize"
+                "#!/bin/bash\n\n# reload values from /etc/sysctl.d/startup.conf\nsysctl --system\n# make hashsize match net.netfilter.nf_conntrack_max (should be nf_conntrack_max / 4)\n# https://security.stackexchange.com/questions/43205/nf-conntrack-table-full-dropping-packet\necho 32768 > /sys/module/nf_conntrack/parameters/hashsize"
               ]
             ]
           },
@@ -2038,14 +1676,10 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "#!/bin/bash\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\nscp -i ./id_rsa ./blog.service core@${IPADDR}:/home/core/blog.service\n\nssh -i ./id_rsa core@${IPADDR} \u003c\u003c'ENDSSH'\ncd /home/core\nsudo cp blog.service /etc/systemd/system\nsudo systemctl enable /etc/systemd/system/blog.service\nrm blog.service\nENDSSH"
+                "#!/bin/bash\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\nscp -i ./id_rsa ./blog.service core@${IPADDR}:/home/core/blog.service\n\nssh -i ./id_rsa core@${IPADDR} <<'ENDSSH'\ncd /home/core\nsudo cp blog.service /etc/systemd/system\nsudo systemctl enable /etc/systemd/system/blog.service\nrm blog.service\nENDSSH"
               ]
             ]
           },
@@ -2071,9 +1705,7 @@ Response:+77319
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We also want the app to automatically restart if it crashes."
-              ]
+              ["We also want the app to automatically restart if it crashes."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2097,15 +1729,9 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
-              [
-                "#!/bin/bash\n. ./ipaddr.sh\nssh -i ./id_rsa core@${IPADDR}"
-              ]
+              ["#!/bin/bash\n. ./ipaddr.sh\nssh -i ./id_rsa core@${IPADDR}"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2129,11 +1755,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2017-02-11T19:18:21-08:00"
-              ]
-            ]
+            "title": [["Date: 2017-02-11T19:18:21-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2156,14 +1778,10 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "#!/bin/bash\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\nscp -i ./id_rsa ./startup.conf ./startup.service ./startup_script.sh core@${IPADDR}:/home/core/\n\nssh -i ./id_rsa core@${IPADDR} \u003c\u003c'ENDSSH'\nsudo cp startup.conf /etc/sysctl.d/startup.conf\nsudo chmod 0644 /etc/sysctl.d/startup.conf\nsudo cp startup.service /etc/systemd/system\nsudo cp startup_script.sh /etc/systemd/system\nsudo chmod 0750 /etc/systemd/system/startup_script.sh\nsudo systemctl daemon-reload\nsudo systemctl enable /etc/systemd/system/startup.service\n\nsudo bash -c \"echo 32768 \u003e /sys/module/nf_conntrack/parameters/hashsize\"\nsudo sysctl --system\nrm startup.conf startup.service startup_script.sh\nENDSSH"
+                "#!/bin/bash\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\nscp -i ./id_rsa ./startup.conf ./startup.service ./startup_script.sh core@${IPADDR}:/home/core/\n\nssh -i ./id_rsa core@${IPADDR} <<'ENDSSH'\nsudo cp startup.conf /etc/sysctl.d/startup.conf\nsudo chmod 0644 /etc/sysctl.d/startup.conf\nsudo cp startup.service /etc/systemd/system\nsudo cp startup_script.sh /etc/systemd/system\nsudo chmod 0750 /etc/systemd/system/startup_script.sh\nsudo systemctl daemon-reload\nsudo systemctl enable /etc/systemd/system/startup.service\n\nsudo bash -c \"echo 32768 > /sys/module/nf_conntrack/parameters/hashsize\"\nsudo sysctl --system\nrm startup.conf startup.service startup_script.sh\nENDSSH"
               ]
             ]
           },
@@ -2188,11 +1806,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "# http://security.stackexchange.com/questions/43205/nf-conntrack-table-full-dropping-packet\n# https://coreos.com/os/docs/latest/other-settings.html\nnet.netfilter.nf_conntrack_max=131072\n# in seconds, default value was 600 == 5 mins\nnet.netfilter.nf_conntrack_generic_timeout = 60\n# in seconds, default value was 432000 i.e. 5 days\nnet.netfilter.nf_conntrack_tcp_timeout_established = 54000\n# was 46992\nfs.file-max = 131072"
@@ -2220,16 +1834,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2. Initial server setup",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["2. Initial server setup", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2256,17 +1861,8 @@ Response:+77319
               [
                 "It’s a one-time operation but I still like to have it as a script named "
               ],
-              [
-                "install-service.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["install-service.sh", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2290,14 +1886,10 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "# e.g. IPADDR=137.63.26.193\nIPADDR=\u003cip address of the server\u003e\n# git likes to loose non-standard permissions. This is always called from\n# scripts so a good place to ensure right permissions on id_rsa\nchmod 0600 id_rsa"
+                "# e.g. IPADDR=137.63.26.193\nIPADDR=<ip address of the server>\n# git likes to loose non-standard permissions. This is always called from\n# scripts so a good place to ensure right permissions on id_rsa\nchmod 0600 id_rsa"
               ]
             ]
           },
@@ -2322,11 +1914,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "# http://unix.stackexchange.com/questions/47695/how-to-write-startup-script-for-systemd\n[Unit]\nDescription=things to do after each reboot\n# just to be safe, run it after docker started\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nType=oneshot\n# per https://www.digitalocean.com/community/tutorials/how-to-create-and-run-a-service-on-a-coreos-cluster\nEnvironmentFile=/etc/environment\n# '=-' means it can fail\nExecStart=-/etc/systemd/system/startup_script.sh\n\n[Install]\nWantedBy=multi-user.target"
@@ -2412,18 +2000,8 @@ Response:+77319
               [
                 "Here’s my playbook for deploying an app on CoreOS. This example is how I deploy my "
               ],
-              [
-                "blog",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/blog"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["blog", [["a", "https://github.com/kjk/blog"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2447,11 +2025,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "login again"
-              ]
-            ]
+            "title": [["login again"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2474,16 +2048,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "sudo sysctl -a | grep nf_conntrack_max",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["sudo sysctl -a | grep nf_conntrack_max", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2506,16 +2071,7 @@ Response:+77319
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "1. Create a unique ssh key for the machine",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["1. Create a unique ssh key for the machine", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2570,10 +2126,10 @@ Response:+77319
     }
   }
 }
-24261 1624300450636 httpcache-v1
+22932 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+441
+Body:+442
 {
   "chunkNumber": 1,
   "cursor": {
@@ -2598,7 +2154,7 @@ Body:+441
   "pageId": "9b592882-a324-4247-bd09-405fc7a556d2",
   "verticalColumns": false
 }
-Response:+23731
+Response:+22403
 {
   "cursor": {
     "stack": []
@@ -2636,11 +2192,7 @@ Response:+23731
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2664,30 +2216,19 @@ Response:+23731
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You can see a sample "
-              ],
+              ["You can see a sample "],
               [
                 "Dockerfile",
                 [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://github.com/kjk/blog/blob/master/Dockerfile"
-                  ]
+                  ["c"],
+                  ["a", "https://github.com/kjk/blog/blob/master/Dockerfile"]
                 ]
               ],
-              [
-                " and a sample "
-              ],
+              [" and a sample "],
               [
                 "docker_build.sh",
                 [
-                  [
-                    "c"
-                  ],
+                  ["c"],
                   [
                     "a",
                     "https://github.com/kjk/blog/blob/master/s/docker_build.sh"
@@ -2749,11 +2290,7 @@ Response:+23731
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2776,14 +2313,10 @@ Response:+23731
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "#!/bin/bash\n\n# build latest version of the app, upload to the server packaged as\n# blog:latest docker image\n\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\ndir=`pwd`\nblog_dir=${GOPATH}/src/github.com/kjk/blog\n\necho \"building\"\ncp config.json \"${blog_dir}\"\ncd \"${blog_dir}\"\nGOOS=linux GOARCH=amd64 go build -o blog_linux\ndocker build --no-cache --tag blog:latest .\nrm blog_linux\ncd \"${dir}\"\n\necho \"docker save\"\ndocker save blog:latest | bzip2 \u003e blog-latest.tar.bz2\nls -lah blog-latest.tar.bz2\n\necho \"uploading to the server\"\nscp -i ./id_rsa blog-latest.tar.bz2 core@${IPADDR}:/home/core/blog-latest.tar.bz2\n\necho \"extracting on the server\"\nssh -i ./id_rsa core@${IPADDR} \u003c\u003c'ENDSSH'\ncd /home/core\nbunzip2 --stdout blog-latest.tar.bz2 | docker load\nrm blog-latest.tar.bz2\nsudo systemctl restart blog\nENDSSH\n\nrm -rf blog-latest.tar.bz2"
+                "#!/bin/bash\n\n# build latest version of the app, upload to the server packaged as\n# blog:latest docker image\n\nset -u -e -o pipefail\n\n. ./ipaddr.sh\n\ndir=`pwd`\nblog_dir=${GOPATH}/src/github.com/kjk/blog\n\necho \"building\"\ncp config.json \"${blog_dir}\"\ncd \"${blog_dir}\"\nGOOS=linux GOARCH=amd64 go build -o blog_linux\ndocker build --no-cache --tag blog:latest .\nrm blog_linux\ncd \"${dir}\"\n\necho \"docker save\"\ndocker save blog:latest | bzip2 > blog-latest.tar.bz2\nls -lah blog-latest.tar.bz2\n\necho \"uploading to the server\"\nscp -i ./id_rsa blog-latest.tar.bz2 core@${IPADDR}:/home/core/blog-latest.tar.bz2\n\necho \"extracting on the server\"\nssh -i ./id_rsa core@${IPADDR} <<'ENDSSH'\ncd /home/core\nbunzip2 --stdout blog-latest.tar.bz2 | docker load\nrm blog-latest.tar.bz2\nsudo systemctl restart blog\nENDSSH\n\nrm -rf blog-latest.tar.bz2"
               ]
             ]
           },
@@ -2818,11 +2351,7 @@ Response:+23731
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2878,11 +2407,7 @@ Response:+23731
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2906,20 +2431,9 @@ Response:+23731
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Here’s a "
-              ],
-              [
-                "build_and_upload.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " script:"
-              ]
+              ["Here’s a "],
+              ["build_and_upload.sh", [["c"]]],
+              [" script:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2947,17 +2461,8 @@ Response:+23731
               [
                 "After deploying the app for the first time you should restart the server ("
               ],
-              [
-                "shutdown -r",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ") to verify that the app will start up after reboot."
-              ]
+              ["shutdown -r", [["c"]]],
+              [") to verify that the app will start up after reboot."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3032,9 +2537,7 @@ Response:+23731
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204099818,
-          "file_ids": [
-            "bea09464-9216-4198-ac8b-b4909027c558"
-          ],
+          "file_ids": ["bea09464-9216-4198-ac8b-b4909027c558"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bea09464-9216-4198-ac8b-b4909027c558/header-00.jpg",
             "page_cover_position": 0.5,
@@ -3049,11 +2552,7 @@ Response:+23731
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Blueprint for deploying web apps on CoreOS"
-              ]
-            ]
+            "title": [["Blueprint for deploying web apps on CoreOS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3077,31 +2576,13 @@ Response:+23731
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I also have a sceript "
-              ],
-              [
-                "logs.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["I also have a sceript "],
+              ["logs.sh", [["c"]]],
               [
                 " that logs in to the server and shows logs for the docker service in follow mode (like "
               ],
-              [
-                "tail -f",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "):"
-              ]
+              ["tail -f", [["c"]]],
+              ["):"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3145,14 +2626,10 @@ Response:+23731
           "parent_id": "9b592882-a324-4247-bd09-405fc7a556d2",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
-                "#!/bin/bash\n\n. ./ipaddr.sh\n\nssh -i ./id_rsa core@${IPADDR} \u003c\u003c'ENDSSH'\ncd /home/core\ndocker logs -f blog\nENDSSH"
+                "#!/bin/bash\n\n. ./ipaddr.sh\n\nssh -i ./id_rsa core@${IPADDR} <<'ENDSSH'\ncd /home/core\ndocker logs -f blog\nENDSSH"
               ]
             ]
           },
@@ -3209,10 +2686,10 @@ Response:+23731
     }
   }
 }
-126369 1624300450639 httpcache-v1
+125825 httpcache-v1
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+638
+Body:+639
 {
   "requests": [
     {
@@ -3245,7 +2722,7 @@ Body:+638
     }
   ]
 }
-Response:+125639
+Response:+125096
 {
   "recordMapWithRoles": {
     "block": {
@@ -3460,9 +2937,7 @@ Response:+125639
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "57 MicroConf videos for self-funded software businesses"
-              ]
+              ["57 MicroConf videos for self-funded software businesses"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3799,11 +3274,7 @@ Response:+125639
           "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Business of Software talks"
-              ]
-            ]
+            "title": [["Business of Software talks"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3841,11 +3312,7 @@ Response:+125639
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3900,11 +3367,7 @@ Response:+125639
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4224,9 +3687,7 @@ Response:+125639
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531204097318,
-          "file_ids": [
-            "7a621cf9-85f5-4787-88bb-ed9b19a093c4"
-          ],
+          "file_ids": ["7a621cf9-85f5-4787-88bb-ed9b19a093c4"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a621cf9-85f5-4787-88bb-ed9b19a093c4/header-03.jpg",
             "page_cover_position": 0.5,
@@ -4242,9 +3703,7 @@ Response:+125639
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Solo founders with profitable businesses, collected stories"
-              ]
+              ["Solo founders with profitable businesses, collected stories"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4370,11 +3829,7 @@ Response:+125639
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2017 (8)"
-              ]
-            ]
+            "title": [["2017 (8)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -4430,11 +3885,7 @@ Response:+125639
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4918,9 +4369,7 @@ Response:+125639
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "57 MicroConf videos for self-funded software businesses"
-            ]
+            ["57 MicroConf videos for self-funded software businesses"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5257,11 +4706,7 @@ Response:+125639
         "parent_id": "56757391-fba8-45bc-8551-262f3c9f81f2",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Business of Software talks"
-            ]
-          ]
+          "title": [["Business of Software talks"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5581,9 +5026,7 @@ Response:+125639
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531204097318,
-        "file_ids": [
-          "7a621cf9-85f5-4787-88bb-ed9b19a093c4"
-        ],
+        "file_ids": ["7a621cf9-85f5-4787-88bb-ed9b19a093c4"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a621cf9-85f5-4787-88bb-ed9b19a093c4/header-03.jpg",
           "page_cover_position": 0.5,
@@ -5599,9 +5042,7 @@ Response:+125639
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Solo founders with profitable businesses, collected stories"
-            ]
+            ["Solo founders with profitable businesses, collected stories"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5691,9 +5132,7 @@ Response:+125639
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Analyzing browserify bundles to minimize JavaScript bundle size"
-            ]
+            ["Analyzing browserify bundles to minimize JavaScript bundle size"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
