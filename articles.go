@@ -139,14 +139,7 @@ func shortenString(s string, n int) string {
 
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
-	nDownloaded := 0
-	afterDownload := func(page *notionapi.Page) error {
-		nDownloaded++
-		title := notionapi.TextSpansToString(page.Root().GetTitle())
-		logf("%d %s %s\n", nDownloaded, page.ID, shortenString(title, 32))
-		return nil
-	}
-	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, afterDownload)
+	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, nil)
 	must(err)
 	res.idToPage = d.IdToPage
 

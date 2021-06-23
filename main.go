@@ -163,11 +163,19 @@ func eventObserver(ev interface{}) {
 		logf(v.Error)
 	case *notionapi.EventDidDownload:
 		nDownloadedPage++
-		logf("%03d '%s' : downloaded in %s\n", nDownloadedPage, v.PageID, v.Duration)
+		title := ""
+		if v.Page != nil {
+			title = shortenString(notionapi.TextSpansToString(v.Page.Root().GetTitle()), 32)
+		}
+		logf("%03d %s '%s' : downloaded in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
 	case *notionapi.EventDidReadFromCache:
 		// TODO: only verbose
 		nDownloadedPage++
-		logf("%03d '%s' : read from cache in %s\n", nDownloadedPage, v.PageID, v.Duration)
+		title := ""
+		if v.Page != nil {
+			title = shortenString(notionapi.TextSpansToString(v.Page.Root().GetTitle()), 32)
+		}
+		logf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
 	case *notionapi.EventGotVersions:
 		logf("downloaded info about %d versions in %s\n", v.Count, v.Duration)
 	}
@@ -221,6 +229,11 @@ func main() {
 		flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.Parse()
 	}
+
+	timeStart := time.Now()
+	defer func() {
+		logf("finished in %s\n", time.Since(timeStart))
+	}()
 
 	if false {
 		testLoadCache("notion_cache")
