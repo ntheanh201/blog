@@ -130,9 +130,23 @@ func buildArticlesNavigation(articles *Articles) {
 	}
 }
 
+func shortenString(s string, n int) string {
+	if len(s) < n {
+		return s
+	}
+	return s[:n-3] + "..."
+}
+
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
-	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, nil)
+	nDownloaded := 0
+	afterDownload := func(page *notionapi.Page) error {
+		nDownloaded++
+		title := notionapi.TextSpansToString(page.Root().GetTitle())
+		logf("%d %s %s\n", nDownloaded, page.ID, shortenString(title, 32))
+		return nil
+	}
+	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, afterDownload)
 	must(err)
 	res.idToPage = d.IdToPage
 
