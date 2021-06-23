@@ -1,16 +1,16 @@
-16621 1624300532206 httpcache-v1
+16269 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
-      "table": "block"
+      "table": "block",
+      "id": "d3c4a006-1407-4f16-a096-fa084233dfdd"
     }
   ]
 }
-Response:+16420
+Response:+16069
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+16420
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+16420
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+16420
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -237,11 +225,7 @@ Response:+16420
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Writing a custom installer for Windows software"
-              ]
-            ]
+            "title": [["Writing a custom installer for Windows software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -284,11 +268,7 @@ Response:+16420
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2011 (17)"
-              ]
-            ]
+            "title": [["2011 (17)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -405,11 +385,7 @@ Response:+16420
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Writing a custom installer for Windows software"
-            ]
-          ]
+          "title": [["Writing a custom installer for Windows software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -418,20 +394,20 @@ Response:+16420
     }
   ]
 }
-60833 1624300532208 httpcache-v1
+58036 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "d3c4a006-1407-4f16-a096-fa084233dfdd",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "d3c4a006-1407-4f16-a096-fa084233dfdd",
   "verticalColumns": false
 }
-Response:+60592
+Response:+57796
 {
   "cursor": {
     "stack": []
@@ -455,21 +431,12 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "For version 1.3 of "
-              ],
+              ["For version 1.3 of "],
               [
                 "SumatraPDF",
-                [
-                  [
-                    "a",
-                    "https://www.sumatrapdfreader.org/free-pdf-reader.html"
-                  ]
-                ]
+                [["a", "https://www.sumatrapdfreader.org/free-pdf-reader.html"]]
               ],
-              [
-                " I’ve created a new installer."
-              ]
+              [" I’ve created a new installer."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -494,9 +461,7 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Will it be "
-              ],
+              ["Will it be "],
               [
                 "boring",
                 [
@@ -506,9 +471,7 @@ Response:+60592
                   ]
                 ]
               ],
-              [
-                ", just like most other installers?"
-              ]
+              [", just like most other installers?"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -533,9 +496,7 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Or will it be "
-              ],
+              ["Or will it be "],
               [
                 "remarkable",
                 [
@@ -572,29 +533,15 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I used it in "
-              ],
+              ["I used it in "],
               [
                 "SumatraPDF",
-                [
-                  [
-                    "a",
-                    "https://www.sumatrapdfreader.org/free-pdf-reader.html"
-                  ]
-                ]
+                [["a", "https://www.sumatrapdfreader.org/free-pdf-reader.html"]]
               ],
-              [
-                ", "
-              ],
+              [", "],
               [
                 "OpenDNS client",
-                [
-                  [
-                    "a",
-                    "https://github.com/opendns/dynamicipupdate"
-                  ]
-                ]
+                [["a", "https://github.com/opendns/dynamicipupdate"]]
               ],
               [
                 " and was reasonably happy with it. However, it wasn’t all roses."
@@ -691,11 +638,7 @@ Response:+60592
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -750,11 +693,7 @@ Response:+60592
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -778,9 +717,7 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "If you want to learn how a custom installer is done, the "
-              ],
+              ["If you want to learn how a custom installer is done, the "],
               [
                 "source is out there…",
                 [
@@ -840,11 +777,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Two issues I ran into were:"
-              ]
-            ]
+            "title": [["Two issues I ran into were:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -887,11 +820,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The old installer:"
-              ]
-            ]
+            "title": [["The old installer:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -974,11 +903,7 @@ Response:+60592
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1001,11 +926,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "New installer"
-              ]
-            ]
+            "title": [["New installer"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1028,11 +949,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "New installer:"
-              ]
-            ]
+            "title": [["New installer:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1056,15 +973,13 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I was right: it took me "
-              ],
+              ["I was right: it took me "],
               [
                 "9 days",
                 [
                   [
                     "a",
-                    "http://code.google.com/p/sumatrapdf/source/list?path=/trunk/src/installer/Installer.cpp\u0026start=2535"
+                    "http://code.google.com/p/sumatrapdf/source/list?path=/trunk/src/installer/Installer.cpp&start=2535"
                   ]
                 ]
               ],
@@ -1148,11 +1063,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "no frustration due to NSIS limitations"
-              ]
-            ]
+            "title": [["no frustration due to NSIS limitations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1175,11 +1086,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Why write custom installer?"
-              ]
-            ]
+            "title": [["Why write custom installer?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1203,9 +1110,7 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Writer Joe Konrath "
-              ],
+              ["Writer Joe Konrath "],
               [
                 "stress the importance",
                 [
@@ -1245,42 +1150,12 @@ Response:+60592
               [
                 "If you write Windows software, you need to provide an installer. Almost all installers are created by a tool (e.g. "
               ],
-              [
-                "WiX",
-                [
-                  [
-                    "a",
-                    "http://wix.sourceforge.net/"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "Nsis",
-                [
-                  [
-                    "a",
-                    "http://nsis.sourceforge.net/"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "Inno Setup",
-                [
-                  [
-                    "a",
-                    "http://www.jrsoftware.org/isinfo.php"
-                  ]
-                ]
-              ],
-              [
-                " and many others)."
-              ]
+              ["WiX", [["a", "http://wix.sourceforge.net/"]]],
+              [", "],
+              ["Nsis", [["a", "http://nsis.sourceforge.net/"]]],
+              [", "],
+              ["Inno Setup", [["a", "http://www.jrsoftware.org/isinfo.php"]]],
+              [" and many others)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1296,9 +1171,7 @@ Response:+60592
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1542860844821,
-          "file_ids": [
-            "9836def0-87ae-4561-baf8-6f5f5fda18e7"
-          ],
+          "file_ids": ["9836def0-87ae-4561-baf8-6f5f5fda18e7"],
           "format": {
             "block_aspect_ratio": 0.7674418604651163,
             "block_full_width": false,
@@ -1344,18 +1217,8 @@ Response:+60592
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "As everyone else, I did my installers with a tool. "
-              ],
-              [
-                "NSIS",
-                [
-                  [
-                    "a",
-                    "http://nsis.sourceforge.net/"
-                  ]
-                ]
-              ],
+              ["As everyone else, I did my installers with a tool. "],
+              ["NSIS", [["a", "http://nsis.sourceforge.net/"]]],
               [
                 " was my weapon of choice: it’s free, (relatively) easy to learn, (relatively well) documented and since other people used it, there are examples to learn from."
               ]
@@ -1409,11 +1272,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It’s not that hard."
-              ]
-            ]
+            "title": [["It’s not that hard."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1455,9 +1314,7 @@ Response:+60592
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1542860820140,
-          "file_ids": [
-            "743c70d2-a2e8-4bae-9940-c94e7337b3a1"
-          ],
+          "file_ids": ["743c70d2-a2e8-4bae-9940-c94e7337b3a1"],
           "format": {
             "block_aspect_ratio": 0.7777777777777778,
             "block_full_width": false,
@@ -1506,30 +1363,10 @@ Response:+60592
               [
                 "On the whimsicality front, I’ve added a small startup animation, which shows the program letters one by one. It’s only a small thing, I haven’t spent much time on it, but the possibilities for interesting animations are endless: scrolling text, 3d objects rotating, fireworks, star fields etc. Old school "
               ],
-              [
-                "demos",
-                [
-                  [
-                    "a",
-                    "http://www.pouet.net/"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "processing",
-                [
-                  [
-                    "a",
-                    "http://processing.org/"
-                  ]
-                ]
-              ],
-              [
-                " are a rich source of inspiration for possible effects."
-              ]
+              ["demos", [["a", "http://www.pouet.net/"]]],
+              [" and "],
+              ["processing", [["a", "http://processing.org/"]]],
+              [" are a rich source of inspiration for possible effects."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1580,11 +1417,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 404003"
-              ]
-            ]
+            "title": [["Id: 404003"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1634,11 +1467,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: sumatra, programming"
-              ]
-            ]
+            "title": [["Tags: sumatra, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1661,11 +1490,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2011-02-06T14:43:27-08:00"
-              ]
-            ]
+            "title": [["Date: 2011-02-06T14:43:27-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1688,11 +1513,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A tale of 2 installers"
-              ]
-            ]
+            "title": [["A tale of 2 installers"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1781,11 +1602,7 @@ Response:+60592
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Writing a custom installer for Windows software"
-              ]
-            ]
+            "title": [["Writing a custom installer for Windows software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1808,11 +1625,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How people write installers"
-              ]
-            ]
+            "title": [["How people write installers"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1855,11 +1668,7 @@ Response:+60592
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2011 (17)"
-              ]
-            ]
+            "title": [["2011 (17)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1909,11 +1718,7 @@ Response:+60592
           "parent_id": "d3c4a006-1407-4f16-a096-fa084233dfdd",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "provide a better user experience"
-              ]
-            ]
+            "title": [["provide a better user experience"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1995,83 +1800,83 @@ Response:+60592
     }
   }
 }
-85110 1624300532211 httpcache-v1
+83158 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+1518
 {
   "requests": [
     {
-      "id": "07cab082-7c10-4439-b356-31396c3c99ed",
-      "table": "block"
+      "table": "block",
+      "id": "07cab082-7c10-4439-b356-31396c3c99ed"
     },
     {
-      "id": "0aaab80b-35fb-473e-af08-3c5c3f13b829",
-      "table": "block"
+      "table": "block",
+      "id": "0aaab80b-35fb-473e-af08-3c5c3f13b829"
     },
     {
-      "id": "1287e403-5c29-436b-9f4a-249a433ceff5",
-      "table": "block"
+      "table": "block",
+      "id": "1287e403-5c29-436b-9f4a-249a433ceff5"
     },
     {
-      "id": "171e0029-5b7c-4f69-aedc-8dfbb1082f63",
-      "table": "block"
+      "table": "block",
+      "id": "171e0029-5b7c-4f69-aedc-8dfbb1082f63"
     },
     {
-      "id": "1e14f055-b2ea-4ec9-b451-ed64f38732ac",
-      "table": "block"
+      "table": "block",
+      "id": "1e14f055-b2ea-4ec9-b451-ed64f38732ac"
     },
     {
-      "id": "465ee96a-4544-410f-9c87-9338e179890b",
-      "table": "block"
+      "table": "block",
+      "id": "465ee96a-4544-410f-9c87-9338e179890b"
     },
     {
-      "id": "4b52129c-080e-4159-aebe-3e510d4b81d2",
-      "table": "block"
+      "table": "block",
+      "id": "4b52129c-080e-4159-aebe-3e510d4b81d2"
     },
     {
-      "id": "5f344abe-a822-4590-b6bc-5a59d6c6b8df",
-      "table": "block"
+      "table": "block",
+      "id": "5f344abe-a822-4590-b6bc-5a59d6c6b8df"
     },
     {
-      "id": "86f1e3f8-c08c-4554-98f2-8cfb464398a4",
-      "table": "block"
+      "table": "block",
+      "id": "86f1e3f8-c08c-4554-98f2-8cfb464398a4"
     },
     {
-      "id": "99d0b424-dc31-47da-86f3-4388e6b933e1",
-      "table": "block"
+      "table": "block",
+      "id": "99d0b424-dc31-47da-86f3-4388e6b933e1"
     },
     {
-      "id": "a8d20cf4-69be-48fd-b305-44e34a281704",
-      "table": "block"
+      "table": "block",
+      "id": "a8d20cf4-69be-48fd-b305-44e34a281704"
     },
     {
-      "id": "be153e27-1136-4bf0-a5d3-c65c2085db09",
-      "table": "block"
+      "table": "block",
+      "id": "be153e27-1136-4bf0-a5d3-c65c2085db09"
     },
     {
-      "id": "c1ce4215-5b65-4edd-afa0-63e314119f75",
-      "table": "block"
+      "table": "block",
+      "id": "c1ce4215-5b65-4edd-afa0-63e314119f75"
     },
     {
-      "id": "d0c12a9a-f1c5-4726-bfa4-502c41161763",
-      "table": "block"
+      "table": "block",
+      "id": "d0c12a9a-f1c5-4726-bfa4-502c41161763"
     },
     {
-      "id": "f1fcdd01-b2dd-4794-a7af-3b00eebda21e",
-      "table": "block"
+      "table": "block",
+      "id": "f1fcdd01-b2dd-4794-a7af-3b00eebda21e"
     },
     {
-      "id": "f5652f25-3b4d-4dc0-bb99-c673ca61b977",
-      "table": "block"
+      "table": "block",
+      "id": "f5652f25-3b4d-4dc0-bb99-c673ca61b977"
     },
     {
-      "id": "faff1f91-88e2-4351-8839-7fb0edb524b6",
-      "table": "block"
+      "table": "block",
+      "id": "faff1f91-88e2-4351-8839-7fb0edb524b6"
     }
   ]
 }
-Response:+83500
+Response:+81549
 {
   "recordMapWithRoles": {
     "block": {
@@ -2125,11 +1930,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "My social marketing failure"
-              ]
-            ]
+            "title": [["My social marketing failure"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2182,11 +1983,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Introducing Volante - a database for C# (.NET)"
-              ]
-            ]
+            "title": [["Introducing Volante - a database for C# (.NET)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2233,11 +2030,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.4 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.4 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2289,11 +2082,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.3 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.3 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2332,11 +2121,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "90% of success is showing up - a proof"
-              ]
-            ]
+            "title": [["90% of success is showing up - a proof"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2374,11 +2159,7 @@ Response:+83500
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2433,11 +2214,7 @@ Response:+83500
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2544,11 +2321,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How to make software crash less"
-              ]
-            ]
+            "title": [["How to make software crash less"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2604,11 +2377,7 @@ Response:+83500
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2654,11 +2423,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.6 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.6 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2694,11 +2459,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A list of chm readers/viewers for Windows"
-              ]
-            ]
+            "title": [["A list of chm readers/viewers for Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2750,11 +2511,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Experience porting 4k lines of C code to go"
-              ]
-            ]
+            "title": [["Experience porting 4k lines of C code to go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2793,11 +2550,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.8 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.8 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2850,9 +2603,7 @@ Response:+83500
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Showing html from memory in embedded web control on windows"
-              ]
+              ["Showing html from memory in embedded web control on windows"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2897,11 +2648,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.5 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.5 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2975,9 +2722,7 @@ Response:+83500
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Easy vs. probable or how to make money with software"
-              ]
+              ["Easy vs. probable or how to make money with software"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3021,11 +2766,7 @@ Response:+83500
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2011 (17)"
-              ]
-            ]
+            "title": [["2011 (17)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3064,11 +2805,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.9 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.9 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3112,11 +2849,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.7 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.7 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3174,11 +2907,7 @@ Response:+83500
           "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "XML is really, really slow"
-              ]
-            ]
+            "title": [["XML is really, really slow"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3283,11 +3012,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "My social marketing failure"
-            ]
-          ]
+          "title": [["My social marketing failure"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3340,11 +3065,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Introducing Volante - a database for C# (.NET)"
-            ]
-          ]
+          "title": [["Introducing Volante - a database for C# (.NET)"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3391,11 +3112,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.4 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.4 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3447,11 +3164,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.3 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.3 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3490,11 +3203,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "90% of success is showing up - a proof"
-            ]
-          ]
+          "title": [["90% of success is showing up - a proof"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3601,11 +3310,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How to make software crash less"
-            ]
-          ]
+          "title": [["How to make software crash less"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3651,11 +3356,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.6 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.6 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3691,11 +3392,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A list of chm readers/viewers for Windows"
-            ]
-          ]
+          "title": [["A list of chm readers/viewers for Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3747,11 +3444,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Experience porting 4k lines of C code to go"
-            ]
-          ]
+          "title": [["Experience porting 4k lines of C code to go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3790,11 +3483,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.8 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.8 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3847,9 +3536,7 @@ Response:+83500
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Showing html from memory in embedded web control on windows"
-            ]
+            ["Showing html from memory in embedded web control on windows"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3894,11 +3581,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.5 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.5 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3971,11 +3654,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Easy vs. probable or how to make money with software"
-            ]
-          ]
+          "title": [["Easy vs. probable or how to make money with software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4014,11 +3693,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.9 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.9 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4062,11 +3737,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.7 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.7 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4124,11 +3795,7 @@ Response:+83500
         "parent_id": "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "XML is really, really slow"
-            ]
-          ]
+          "title": [["XML is really, really slow"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

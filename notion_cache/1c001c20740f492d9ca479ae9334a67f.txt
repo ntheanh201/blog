@@ -1,16 +1,16 @@
-14506 1624300589350 httpcache-v1
+14170 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
-      "table": "block"
+      "table": "block",
+      "id": "1c001c20-740f-492d-9ca4-79ae9334a67f"
     }
   ]
 }
-Response:+14305
+Response:+13970
 {
   "recordMapWithRoles": {
     "block": {
@@ -61,9 +61,7 @@ Response:+14305
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792668,
-          "file_ids": [
-            "93736f85-fcb4-4042-8f62-898557db7db2"
-          ],
+          "file_ids": ["93736f85-fcb4-4042-8f62-898557db7db2"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93736f85-fcb4-4042-8f62-898557db7db2/header-11.jpg",
             "page_cover_position": 0.5,
@@ -79,11 +77,7 @@ Response:+14305
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using MySQL in Docker for local testing In Go"
-              ]
-            ]
+            "title": [["Using MySQL in Docker for local testing In Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -121,11 +115,7 @@ Response:+14305
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -181,11 +171,7 @@ Response:+14305
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -232,11 +218,7 @@ Response:+14305
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -338,9 +320,7 @@ Response:+14305
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888792668,
-        "file_ids": [
-          "93736f85-fcb4-4042-8f62-898557db7db2"
-        ],
+        "file_ids": ["93736f85-fcb4-4042-8f62-898557db7db2"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93736f85-fcb4-4042-8f62-898557db7db2/header-11.jpg",
           "page_cover_position": 0.5,
@@ -356,11 +336,7 @@ Response:+14305
         "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Using MySQL in Docker for local testing In Go"
-            ]
-          ]
+          "title": [["Using MySQL in Docker for local testing In Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -369,20 +345,20 @@ Response:+14305
     }
   ]
 }
-59175 1624300589352 httpcache-v1
+56333 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "1c001c20-740f-492d-9ca4-79ae9334a67f",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "1c001c20-740f-492d-9ca4-79ae9334a67f",
   "verticalColumns": false
 }
-Response:+58934
+Response:+56093
 {
   "cursor": {
     "stack": []
@@ -405,11 +381,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "CreatedAt: 2017-06-12T06:16:54Z"
-              ]
-            ]
+            "title": [["CreatedAt: 2017-06-12T06:16:54Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -434,33 +406,14 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You can install MySQL on Mac using "
-              ],
+              ["You can install MySQL on Mac using "],
               [
                 "official MySQL installer",
-                [
-                  [
-                    "a",
-                    "https://dev.mysql.com/downloads/mysql/"
-                  ]
-                ]
+                [["a", "https://dev.mysql.com/downloads/mysql/"]]
               ],
-              [
-                " or via "
-              ],
-              [
-                "Homebrew",
-                [
-                  [
-                    "a",
-                    "https://brew.sh/"
-                  ]
-                ]
-              ],
-              [
-                " but my favorite way is to use "
-              ],
+              [" or via "],
+              ["Homebrew", [["a", "https://brew.sh/"]]],
+              [" but my favorite way is to use "],
               [
                 "docker",
                 [
@@ -470,9 +423,7 @@ Response:+58934
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -498,21 +449,8 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "the base MySQL container. In my case it’s "
-              ],
-              [
-                "mysql:5.6",
-                [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://hub.docker.com/_/mysql/"
-                  ]
-                ]
-              ]
+              ["the base MySQL container. In my case it’s "],
+              ["mysql:5.6", [["c"], ["a", "https://hub.docker.com/_/mysql/"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -538,9 +476,7 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "you have to make sure that the database container is running"
-              ]
+              ["you have to make sure that the database container is running"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -595,9 +531,7 @@ Response:+58934
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792668,
-          "file_ids": [
-            "93736f85-fcb4-4042-8f62-898557db7db2"
-          ],
+          "file_ids": ["93736f85-fcb4-4042-8f62-898557db7db2"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93736f85-fcb4-4042-8f62-898557db7db2/header-11.jpg",
             "page_cover_position": 0.5,
@@ -613,11 +547,7 @@ Response:+58934
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using MySQL in Docker for local testing In Go"
-              ]
-            ]
+            "title": [["Using MySQL in Docker for local testing In Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -645,17 +575,8 @@ Response:+58934
               [
                 "In production I would use the hard-coded host/ip of MySQL server. Locally I would call "
               ],
-              [
-                "startLocalDockerDbMust()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " go get them."
-              ]
+              ["startLocalDockerDbMust()", [["c"]]],
+              [" go get them."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -681,20 +602,9 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "run "
-              ],
-              [
-                "docker ps -a",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and parse the output"
-              ]
+              ["run "],
+              ["docker ps -a", [["c"]]],
+              [" and parse the output"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -733,11 +643,7 @@ Response:+58934
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -762,9 +668,7 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "It can be adapted for other databases, like PostgreSQL."
-              ]
+              ["It can be adapted for other databases, like PostgreSQL."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -817,31 +721,13 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "you don’t have to worry that "
-              ],
-              [
-                "brew upgrade",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["you don’t have to worry that "],
+              ["brew upgrade", [["c"]]],
               [
                 " will upgrade MySQL. Auto-upgrade is desired for most software but not a database. You need to remember to use "
               ],
-              [
-                "brew pin",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to disable that"
-              ]
+              ["brew pin", [["c"]]],
+              [" to disable that"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -893,11 +779,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: w4re"
-              ]
-            ]
+            "title": [["Id: w4re"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -920,11 +802,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go"
-              ]
-            ]
+            "title": [["Tags: go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -977,9 +855,7 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The code is re-usable. You can customize it by changing:"
-              ]
+              ["The code is re-usable. You can customize it by changing:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1003,11 +879,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PublishedOn: 2017-07-23"
-              ]
-            ]
+            "title": [["PublishedOn: 2017-07-23"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1035,17 +907,8 @@ Response:+58934
               [
                 "We should only start docker when running locally. In my software I use cmd-line flag "
               ],
-              [
-                "-production",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to distinguish between running in production and locally."
-              ]
+              ["-production", [["c"]]],
+              [" to distinguish between running in production and locally."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1130,11 +993,7 @@ Response:+58934
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1159,17 +1018,8 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "if the container is not running at all, start it with "
-              ],
-              [
-                "docker run",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["if the container is not running at all, start it with "],
+              ["docker run", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1249,9 +1099,7 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code for this chapter: "
-              ],
+              ["Code for this chapter: "],
               [
                 "https://github.com/kjk/go-cookbook/blob/master/start-mysql-in-docker-go",
                 [
@@ -1308,11 +1156,7 @@ Response:+58934
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1365,9 +1209,7 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "name of the container, which should by unique to the project"
-              ]
+              ["name of the container, which should by unique to the project"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1393,17 +1235,8 @@ Response:+58934
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "if the container is stopped, re-start it with "
-              ],
-              [
-                "docker start",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["if the container is stopped, re-start it with "],
+              ["docker start", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1504,14 +1337,10 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "const (\n    dockerStatusExited  = \"exited\"\n    dockerStatusRunning = \"running\"\n)\n\nvar (\n    // using https://hub.docker.com/_/mysql/\n    // to use the latest mysql, use mysql:8\n    dockerImageName = \"mysql:5.6\"\n    // name must be unique across containers runing on this computer\n    dockerContainerName = \"mysql-db-multi\"\n    // where mysql stores databases. Must be on local disk so that\n    // database outlives the container\n    dockerDbDir = \"~/data/db-multi\"\n    // 3306 is standard MySQL port, I use a unique port to be able\n    // to run multiple mysql instances for different projects\n    dockerDbLocalPort = \"7200\"\n)\n\ntype containerInfo struct {\n    id       string\n    name     string\n    mappings string\n    status   string\n}\n\nfunc quoteIfNeeded(s string) string {\n    if strings.Contains(s, \" \") || strings.Contains(s, \"\\\"\") {\n        s = strings.Replace(s, `\"`, `\\\"`, -1)\n        return `\"` + s + `\"`\n    }\n    return s\n}\n\nfunc cmdString(cmd *exec.Cmd) string {\n    n := len(cmd.Args)\n    a := make([]string, n, n)\n    for i := 0; i \u003c n; i++ {\n        a[i] = quoteIfNeeded(cmd.Args[i])\n    }\n    return strings.Join(a, \" \")\n}\n\nfunc runCmdWithLogging(cmd *exec.Cmd) error {\n    cmd.Stdout = os.Stdout\n    cmd.Stderr = os.Stderr\n    return cmd.Run()\n}\n\nfunc decodeContainerStaus(status string) string {\n    // convert \"Exited (0) 2 days ago\" into statusExited\n    if strings.HasPrefix(status, \"Exited\") {\n        return dockerStatusExited\n    }\n    // convert \"Up \u003ctime\u003e\" into statusRunning\n    if strings.HasPrefix(status, \"Up \") {\n        return dockerStatusRunning\n    }\n    return strings.ToLower(status)\n}\n\n// given:\n// 0.0.0.0:7200-\u003e3306/tcp\n// return (0.0.0.0, 7200) or None if doesn't match\nfunc decodeIPPortMust(mappings string) (string, string) {\n    parts := strings.Split(mappings, \"-\u003e\")\n    panicIf(len(parts) != 2, \"invalid mappings string: '%s'\", mappings)\n    parts = strings.Split(parts[0], \":\")\n    panicIf(len(parts) != 2, \"invalid mappints string: '%s'\", mappings)\n    return parts[0], parts[1]\n}\n\nfunc dockerContainerInfoMust(containerName string) *containerInfo {\n    cmd := exec.Command(\"docker\", \"ps\", \"-a\", \"--format\", \"{{.ID}}|{{.Status}}|{{.Ports}}|{{.Names}}\")\n    outBytes, err := cmd.CombinedOutput()\n    panicIfErr(err, \"cmd.CombinedOutput() for '%s' failed with %s\", cmdString(cmd), err)\n    s := string(outBytes)\n    // this returns a line like:\n    // 6c5a934e00fb|Exited (0) 3 months ago|0.0.0.0:7200-\u003e3306/tcp|mysql-db-multi\n    s = strings.TrimSpace(s)\n    lines := strings.Split(s, \"\\n\")\n    for _, line := range lines {\n        parts := strings.Split(line, \"|\")\n        panicIf(len(parts) != 4, \"Unexpected output from docker ps:\\n%s\\n. Expected 4 parts, got %d (%v)\\n\", line, len(parts), parts)\n        id, status, mappings, name := parts[0], parts[1], parts[2], parts[3]\n        if containerName == name {\n            return \u0026containerInfo{\n                id:       id,\n                status:   decodeContainerStaus(status),\n                mappings: mappings,\n                name:     name,\n            }\n        }\n    }\n    return nil\n}\n\n// returns host and port on which database accepts connection\nfunc startLocalDockerDbMust() (string, string) {\n    // docker must be running\n    cmd := exec.Command(\"docker\", \"ps\")\n    err := cmd.Run()\n    panicIfErr(err, \"docker must be running! Error: %s\", err)\n    // ensure directory for database files exists\n    dbDir := expandTildeInPath(dockerDbDir)\n    err = os.MkdirAll(dbDir, 0755)\n    panicIfErr(err, \"failed to create dir '%s'. Error: %s\", err)\n    info := dockerContainerInfoMust(dockerContainerName)\n    if info != nil \u0026\u0026 info.status == dockerStatusRunning {\n        return decodeIPPortMust(info.mappings)\n    }\n    // start or resume container\n    if info == nil {\n        // start new container\n        volumeMapping := dockerDbDir + \"s:/var/lib/mysql\"\n        dockerPortMapping := dockerDbLocalPort + \":3306\"\n        cmd = exec.Command(\"docker\", \"run\", \"-d\", \"--name\"+dockerContainerName, \"-p\", dockerPortMapping, \"-v\", volumeMapping, \"-e\", \"MYSQL_ALLOW_EMPTY_PASSWORD=yes\", \"-e\", \"MYSQL_INITDB_SKIP_TZINFO=yes\", dockerImageName)\n    } else {\n        // start stopped container\n        cmd = exec.Command(\"docker\", \"start\", info.id)\n    }\n    runCmdWithLogging(cmd)\n\n    // wait max 8 seconds for the container to start\n    for i := 0; i \u003c 8; i++ {\n        info := dockerContainerInfoMust(dockerContainerName)\n        if info != nil \u0026\u0026 info.status == dockerStatusRunning {\n            return decodeIPPortMust(info.mappings)\n        }\n        time.Sleep(time.Second)\n    }\n\n    panicIf(true, \"docker container '%s' didn't start in time\", dockerContainerName)\n    return \"\", \"\"\n}"
+                "const (\n    dockerStatusExited  = \"exited\"\n    dockerStatusRunning = \"running\"\n)\n\nvar (\n    // using https://hub.docker.com/_/mysql/\n    // to use the latest mysql, use mysql:8\n    dockerImageName = \"mysql:5.6\"\n    // name must be unique across containers runing on this computer\n    dockerContainerName = \"mysql-db-multi\"\n    // where mysql stores databases. Must be on local disk so that\n    // database outlives the container\n    dockerDbDir = \"~/data/db-multi\"\n    // 3306 is standard MySQL port, I use a unique port to be able\n    // to run multiple mysql instances for different projects\n    dockerDbLocalPort = \"7200\"\n)\n\ntype containerInfo struct {\n    id       string\n    name     string\n    mappings string\n    status   string\n}\n\nfunc quoteIfNeeded(s string) string {\n    if strings.Contains(s, \" \") || strings.Contains(s, \"\\\"\") {\n        s = strings.Replace(s, `\"`, `\\\"`, -1)\n        return `\"` + s + `\"`\n    }\n    return s\n}\n\nfunc cmdString(cmd *exec.Cmd) string {\n    n := len(cmd.Args)\n    a := make([]string, n, n)\n    for i := 0; i < n; i++ {\n        a[i] = quoteIfNeeded(cmd.Args[i])\n    }\n    return strings.Join(a, \" \")\n}\n\nfunc runCmdWithLogging(cmd *exec.Cmd) error {\n    cmd.Stdout = os.Stdout\n    cmd.Stderr = os.Stderr\n    return cmd.Run()\n}\n\nfunc decodeContainerStaus(status string) string {\n    // convert \"Exited (0) 2 days ago\" into statusExited\n    if strings.HasPrefix(status, \"Exited\") {\n        return dockerStatusExited\n    }\n    // convert \"Up <time>\" into statusRunning\n    if strings.HasPrefix(status, \"Up \") {\n        return dockerStatusRunning\n    }\n    return strings.ToLower(status)\n}\n\n// given:\n// 0.0.0.0:7200->3306/tcp\n// return (0.0.0.0, 7200) or None if doesn't match\nfunc decodeIPPortMust(mappings string) (string, string) {\n    parts := strings.Split(mappings, \"->\")\n    panicIf(len(parts) != 2, \"invalid mappings string: '%s'\", mappings)\n    parts = strings.Split(parts[0], \":\")\n    panicIf(len(parts) != 2, \"invalid mappints string: '%s'\", mappings)\n    return parts[0], parts[1]\n}\n\nfunc dockerContainerInfoMust(containerName string) *containerInfo {\n    cmd := exec.Command(\"docker\", \"ps\", \"-a\", \"--format\", \"{{.ID}}|{{.Status}}|{{.Ports}}|{{.Names}}\")\n    outBytes, err := cmd.CombinedOutput()\n    panicIfErr(err, \"cmd.CombinedOutput() for '%s' failed with %s\", cmdString(cmd), err)\n    s := string(outBytes)\n    // this returns a line like:\n    // 6c5a934e00fb|Exited (0) 3 months ago|0.0.0.0:7200->3306/tcp|mysql-db-multi\n    s = strings.TrimSpace(s)\n    lines := strings.Split(s, \"\\n\")\n    for _, line := range lines {\n        parts := strings.Split(line, \"|\")\n        panicIf(len(parts) != 4, \"Unexpected output from docker ps:\\n%s\\n. Expected 4 parts, got %d (%v)\\n\", line, len(parts), parts)\n        id, status, mappings, name := parts[0], parts[1], parts[2], parts[3]\n        if containerName == name {\n            return &containerInfo{\n                id:       id,\n                status:   decodeContainerStaus(status),\n                mappings: mappings,\n                name:     name,\n            }\n        }\n    }\n    return nil\n}\n\n// returns host and port on which database accepts connection\nfunc startLocalDockerDbMust() (string, string) {\n    // docker must be running\n    cmd := exec.Command(\"docker\", \"ps\")\n    err := cmd.Run()\n    panicIfErr(err, \"docker must be running! Error: %s\", err)\n    // ensure directory for database files exists\n    dbDir := expandTildeInPath(dockerDbDir)\n    err = os.MkdirAll(dbDir, 0755)\n    panicIfErr(err, \"failed to create dir '%s'. Error: %s\", err)\n    info := dockerContainerInfoMust(dockerContainerName)\n    if info != nil && info.status == dockerStatusRunning {\n        return decodeIPPortMust(info.mappings)\n    }\n    // start or resume container\n    if info == nil {\n        // start new container\n        volumeMapping := dockerDbDir + \"s:/var/lib/mysql\"\n        dockerPortMapping := dockerDbLocalPort + \":3306\"\n        cmd = exec.Command(\"docker\", \"run\", \"-d\", \"--name\"+dockerContainerName, \"-p\", dockerPortMapping, \"-v\", volumeMapping, \"-e\", \"MYSQL_ALLOW_EMPTY_PASSWORD=yes\", \"-e\", \"MYSQL_INITDB_SKIP_TZINFO=yes\", dockerImageName)\n    } else {\n        // start stopped container\n        cmd = exec.Command(\"docker\", \"start\", info.id)\n    }\n    runCmdWithLogging(cmd)\n\n    // wait max 8 seconds for the container to start\n    for i := 0; i < 8; i++ {\n        info := dockerContainerInfoMust(dockerContainerName)\n        if info != nil && info.status == dockerStatusRunning {\n            return decodeIPPortMust(info.mappings)\n        }\n        time.Sleep(time.Second)\n    }\n\n    panicIf(true, \"docker container '%s' didn't start in time\", dockerContainerName)\n    return \"\", \"\"\n}"
               ]
             ]
           },
@@ -1537,11 +1366,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "where MySQL data is stored"
-              ]
-            ]
+            "title": [["where MySQL data is stored"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1593,11 +1418,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Conceptually, what we do is:"
-              ]
-            ]
+            "title": [["Conceptually, what we do is:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1634,9 +1455,7 @@ Response:+58934
                   ]
                 ]
               ],
-              [
-                " but code and test on Mac."
-              ]
+              [" but code and test on Mac."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1687,11 +1506,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1715,11 +1530,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "There is a downside to using Docker:"
-              ]
-            ]
+            "title": [["There is a downside to using Docker:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1742,11 +1553,7 @@ Response:+58934
           "parent_id": "1c001c20-740f-492d-9ca4-79ae9334a67f",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "UpdatedAt: 2017-07-09T01:50:59Z"
-              ]
-            ]
+            "title": [["UpdatedAt: 2017-07-09T01:50:59Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",

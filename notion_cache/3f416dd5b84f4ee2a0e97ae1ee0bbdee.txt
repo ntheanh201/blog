@@ -1,16 +1,16 @@
-13964 1624300616713 httpcache-v1
+13672 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
-      "table": "block"
+      "table": "block",
+      "id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee"
     }
   ]
 }
-Response:+13763
+Response:+13472
 {
   "recordMapWithRoles": {
     "block": {
@@ -51,11 +51,7 @@ Response:+13763
           "parent_id": "e69efbed-9eb2-488b-9471-8d0ae76ed728",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css flexbox"
-              ]
-            ]
+            "title": [["css flexbox"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -87,11 +83,7 @@ Response:+13763
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Web programming, webdev"
-              ]
-            ]
+            "title": [["Web programming, webdev"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -147,11 +139,7 @@ Response:+13763
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -214,11 +202,7 @@ Response:+13763
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css"
-              ]
-            ]
+            "title": [["css"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -354,11 +338,7 @@ Response:+13763
         "parent_id": "e69efbed-9eb2-488b-9471-8d0ae76ed728",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "css flexbox"
-            ]
-          ]
+          "title": [["css flexbox"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -367,20 +347,20 @@ Response:+13763
     }
   ]
 }
-31106 1624300616713 httpcache-v1
+29906 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
   "verticalColumns": false
 }
-Response:+30865
+Response:+29666
 {
   "cursor": {
     "stack": []
@@ -403,14 +383,10 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "CSS"
-              ]
-            ],
+            "language": [["CSS"]],
             "title": [
               [
-                ".container {\n  display: flex;\n  flex-direction: row | row-reverse | column | column-reverse;\n  flex-wrap: nowrap | wrap | wrap-reverse;\n  flex-flow: \u003c'flex-direction'\u003e || \u003c'flex-wrap'\u003e;\n  align-items: flex-start | flex-end | center | stretch | baseline;\n  justify-content: flex-start | flex-end | center | space-between | space-around;\n  align-content: flex-start | flex-end | center | stretch | space-between | space-around;\n}"
+                ".container {\n  display: flex;\n  flex-direction: row | row-reverse | column | column-reverse;\n  flex-wrap: nowrap | wrap | wrap-reverse;\n  flex-flow: <'flex-direction'> || <'flex-wrap'>;\n  align-items: flex-start | flex-end | center | stretch | baseline;\n  justify-content: flex-start | flex-end | center | space-between | space-around;\n  align-content: flex-start | flex-end | center | stretch | space-between | space-around;\n}"
               ]
             ]
           },
@@ -487,11 +463,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Links"
-              ]
-            ]
+            "title": [["Links"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -514,11 +486,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Properties of flex containers:"
-              ]
-            ]
+            "title": [["Properties of flex containers:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -561,11 +529,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Properties of flex items:"
-              ]
-            ]
+            "title": [["Properties of flex items:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -630,11 +594,7 @@ Response:+30865
           "parent_id": "e69efbed-9eb2-488b-9471-8d0ae76ed728",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css flexbox"
-              ]
-            ]
+            "title": [["css flexbox"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -686,11 +646,7 @@ Response:+30865
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Web programming, webdev"
-              ]
-            ]
+            "title": [["Web programming, webdev"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -713,11 +669,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "div display:flex \n\tdiv \n\t\tleft \n\tdiv margin-left: auto  # this pushes right all the way to the right\n\t\tright"
@@ -778,11 +730,7 @@ Response:+30865
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -805,11 +753,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "CSS"
-              ]
-            ],
+            "language": [["CSS"]],
             "title": [
               [
                 ".items {\n  align-self: flex-start | flex-end | center | baseline | stretch;\n  flex-grow: 1;\n  flex-shrink: 2;\n  flex-basis: 100px | 3em | 50%; // like min-width but for flex items only\n  order: 3;\n}"
@@ -857,16 +801,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "[ [left]          [right] ]",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["[ [left]          [right] ]", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -889,16 +824,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Example layouts",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Example layouts", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -922,11 +848,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "div display:flex \n\tdiv \n\t\tleft \n\tdiv margin-left: auto\n\t\tright"
@@ -982,11 +904,7 @@ Response:+30865
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Implementations"
-              ]
-            ]
+            "title": [["Implementations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1010,17 +928,8 @@ Response:+30865
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "A different version that uses "
-              ],
-              [
-                "justify-content: space-between",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["A different version that uses "],
+              ["justify-content: space-between", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1060,11 +969,7 @@ Response:+30865
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css"
-              ]
-            ]
+            "title": [["css"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1163,299 +1068,299 @@ Response:+30865
     }
   }
 }
-210269 1624300616719 httpcache-v1
+200853 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+6270
 {
   "requests": [
     {
-      "id": "00d91491-80e8-429e-9579-436281717fa7",
-      "table": "block"
+      "table": "block",
+      "id": "00d91491-80e8-429e-9579-436281717fa7"
     },
     {
-      "id": "017290df-5ab2-4466-822c-fa7066cf2449",
-      "table": "block"
+      "table": "block",
+      "id": "017290df-5ab2-4466-822c-fa7066cf2449"
     },
     {
-      "id": "0371a72f-caf0-4e51-b89d-5f15e9d47b81",
-      "table": "block"
+      "table": "block",
+      "id": "0371a72f-caf0-4e51-b89d-5f15e9d47b81"
     },
     {
-      "id": "08758c1a-198b-4a85-8fd0-83a7e218d314",
-      "table": "block"
+      "table": "block",
+      "id": "08758c1a-198b-4a85-8fd0-83a7e218d314"
     },
     {
-      "id": "09fcd255-8bc4-45aa-8dc4-80b402e08468",
-      "table": "block"
+      "table": "block",
+      "id": "09fcd255-8bc4-45aa-8dc4-80b402e08468"
     },
     {
-      "id": "0bda604b-d8d8-4a89-9825-7df965904a02",
-      "table": "block"
+      "table": "block",
+      "id": "0bda604b-d8d8-4a89-9825-7df965904a02"
     },
     {
-      "id": "0dea51a1-3cd3-4394-a7c6-7731e2e5ade6",
-      "table": "block"
+      "table": "block",
+      "id": "0dea51a1-3cd3-4394-a7c6-7731e2e5ade6"
     },
     {
-      "id": "0e53211b-84da-49c2-880f-fcea30915a3c",
-      "table": "block"
+      "table": "block",
+      "id": "0e53211b-84da-49c2-880f-fcea30915a3c"
     },
     {
-      "id": "109fb638-7ade-455d-a4ec-2af279204f20",
-      "table": "block"
+      "table": "block",
+      "id": "109fb638-7ade-455d-a4ec-2af279204f20"
     },
     {
-      "id": "12a93c9f-f9c2-455a-a120-8c0670f42060",
-      "table": "block"
+      "table": "block",
+      "id": "12a93c9f-f9c2-455a-a120-8c0670f42060"
     },
     {
-      "id": "1d65ea87-e11e-4339-aa30-f2f6774b52d7",
-      "table": "block"
+      "table": "block",
+      "id": "1d65ea87-e11e-4339-aa30-f2f6774b52d7"
     },
     {
-      "id": "1f81fd1a-c434-44a4-a722-6858a0c4d05c",
-      "table": "block"
+      "table": "block",
+      "id": "1f81fd1a-c434-44a4-a722-6858a0c4d05c"
     },
     {
-      "id": "26c135f6-77cc-4486-bcae-68f7eb3190d5",
-      "table": "block"
+      "table": "block",
+      "id": "26c135f6-77cc-4486-bcae-68f7eb3190d5"
     },
     {
-      "id": "2936935d-12b5-4415-a023-27e218f45cd2",
-      "table": "block"
+      "table": "block",
+      "id": "2936935d-12b5-4415-a023-27e218f45cd2"
     },
     {
-      "id": "2f318861-97f0-40dc-945e-7984f3d9d79e",
-      "table": "block"
+      "table": "block",
+      "id": "2f318861-97f0-40dc-945e-7984f3d9d79e"
     },
     {
-      "id": "3587c892-20e3-4d53-9551-c9595fdb3e02",
-      "table": "block"
+      "table": "block",
+      "id": "3587c892-20e3-4d53-9551-c9595fdb3e02"
     },
     {
-      "id": "3aad82e6-8855-4a18-98b6-dad8176cfbbb",
-      "table": "block"
+      "table": "block",
+      "id": "3aad82e6-8855-4a18-98b6-dad8176cfbbb"
     },
     {
-      "id": "3f8c7d9f-4e7a-4c93-9ff6-ec51b60ed090",
-      "table": "block"
+      "table": "block",
+      "id": "3f8c7d9f-4e7a-4c93-9ff6-ec51b60ed090"
     },
     {
-      "id": "42562139-2780-4cbe-97af-45bca6a402df",
-      "table": "block"
+      "table": "block",
+      "id": "42562139-2780-4cbe-97af-45bca6a402df"
     },
     {
-      "id": "4ff077ea-55d4-4db2-bea7-ad70751133f9",
-      "table": "block"
+      "table": "block",
+      "id": "4ff077ea-55d4-4db2-bea7-ad70751133f9"
     },
     {
-      "id": "5240c46d-f052-47a1-8c88-5a6808bc1c5d",
-      "table": "block"
+      "table": "block",
+      "id": "5240c46d-f052-47a1-8c88-5a6808bc1c5d"
     },
     {
-      "id": "542096ab-9bae-4c47-97b1-8efc3e403db8",
-      "table": "block"
+      "table": "block",
+      "id": "542096ab-9bae-4c47-97b1-8efc3e403db8"
     },
     {
-      "id": "59087ba7-747e-4b5a-8aa0-c219034c7bd4",
-      "table": "block"
+      "table": "block",
+      "id": "59087ba7-747e-4b5a-8aa0-c219034c7bd4"
     },
     {
-      "id": "5e39bbbb-acf4-48e0-9392-e87182070a00",
-      "table": "block"
+      "table": "block",
+      "id": "5e39bbbb-acf4-48e0-9392-e87182070a00"
     },
     {
-      "id": "5f580518-c197-428d-89a0-57ae7e4ef922",
-      "table": "block"
+      "table": "block",
+      "id": "5f580518-c197-428d-89a0-57ae7e4ef922"
     },
     {
-      "id": "619f8e78-d7af-42d2-9bc0-0a4a2e0c2cde",
-      "table": "block"
+      "table": "block",
+      "id": "619f8e78-d7af-42d2-9bc0-0a4a2e0c2cde"
     },
     {
-      "id": "65b4680c-2eea-419a-ad07-57d655c20ba7",
-      "table": "block"
+      "table": "block",
+      "id": "65b4680c-2eea-419a-ad07-57d655c20ba7"
     },
     {
-      "id": "6edf1864-c4d9-4046-9aaf-587be2de9105",
-      "table": "block"
+      "table": "block",
+      "id": "6edf1864-c4d9-4046-9aaf-587be2de9105"
     },
     {
-      "id": "6f367a1c-4fe5-492e-9943-d9c80e1bf490",
-      "table": "block"
+      "table": "block",
+      "id": "6f367a1c-4fe5-492e-9943-d9c80e1bf490"
     },
     {
-      "id": "718310a4-8e68-4778-8511-cf4d70a46772",
-      "table": "block"
+      "table": "block",
+      "id": "718310a4-8e68-4778-8511-cf4d70a46772"
     },
     {
-      "id": "8eb1e477-636b-4bde-b4ce-f0d63804bbd6",
-      "table": "block"
+      "table": "block",
+      "id": "8eb1e477-636b-4bde-b4ce-f0d63804bbd6"
     },
     {
-      "id": "8ec968d2-9e23-40e6-b4c0-499aa7347e37",
-      "table": "block"
+      "table": "block",
+      "id": "8ec968d2-9e23-40e6-b4c0-499aa7347e37"
     },
     {
-      "id": "90b32ed5-e082-4cfd-8add-b045b12cec93",
-      "table": "block"
+      "table": "block",
+      "id": "90b32ed5-e082-4cfd-8add-b045b12cec93"
     },
     {
-      "id": "9162baf1-3a42-4a49-91c3-944dba9b0e1f",
-      "table": "block"
+      "table": "block",
+      "id": "9162baf1-3a42-4a49-91c3-944dba9b0e1f"
     },
     {
-      "id": "9306404c-3140-4d44-aeab-65227a335d0d",
-      "table": "block"
+      "table": "block",
+      "id": "9306404c-3140-4d44-aeab-65227a335d0d"
     },
     {
-      "id": "946045de-c221-4a90-978b-7732167fab9c",
-      "table": "block"
+      "table": "block",
+      "id": "946045de-c221-4a90-978b-7732167fab9c"
     },
     {
-      "id": "956e8e7b-ef54-4c23-9199-811c087ec1ae",
-      "table": "block"
+      "table": "block",
+      "id": "956e8e7b-ef54-4c23-9199-811c087ec1ae"
     },
     {
-      "id": "956f85ba-5fb7-4dcb-b382-1af1d6f43126",
-      "table": "block"
+      "table": "block",
+      "id": "956f85ba-5fb7-4dcb-b382-1af1d6f43126"
     },
     {
-      "id": "99074a86-31df-4401-b42c-90eed46c48b1",
-      "table": "block"
+      "table": "block",
+      "id": "99074a86-31df-4401-b42c-90eed46c48b1"
     },
     {
-      "id": "9a738391-5f77-4fe0-ae54-21a2e21d0fcd",
-      "table": "block"
+      "table": "block",
+      "id": "9a738391-5f77-4fe0-ae54-21a2e21d0fcd"
     },
     {
-      "id": "9c58945a-0699-41ad-95d6-8bd6f217a3c5",
-      "table": "block"
+      "table": "block",
+      "id": "9c58945a-0699-41ad-95d6-8bd6f217a3c5"
     },
     {
-      "id": "a2b0cda3-f76c-484b-a405-d80c412265d6",
-      "table": "block"
+      "table": "block",
+      "id": "a2b0cda3-f76c-484b-a405-d80c412265d6"
     },
     {
-      "id": "a8d6449e-2600-44b5-94fb-96dab227b51d",
-      "table": "block"
+      "table": "block",
+      "id": "a8d6449e-2600-44b5-94fb-96dab227b51d"
     },
     {
-      "id": "aea77509-2bd0-40c4-bd9d-91da65730f50",
-      "table": "block"
+      "table": "block",
+      "id": "aea77509-2bd0-40c4-bd9d-91da65730f50"
     },
     {
-      "id": "af22591f-eb80-4b65-87cd-6ab6e3019aae",
-      "table": "block"
+      "table": "block",
+      "id": "af22591f-eb80-4b65-87cd-6ab6e3019aae"
     },
     {
-      "id": "b53be1fd-c061-4de7-89af-81a7366764f9",
-      "table": "block"
+      "table": "block",
+      "id": "b53be1fd-c061-4de7-89af-81a7366764f9"
     },
     {
-      "id": "b7fa2fa5-7a40-4426-9c66-2ead0e5f62ec",
-      "table": "block"
+      "table": "block",
+      "id": "b7fa2fa5-7a40-4426-9c66-2ead0e5f62ec"
     },
     {
-      "id": "b9c98669-3520-433a-8e08-99a3e67e6b02",
-      "table": "block"
+      "table": "block",
+      "id": "b9c98669-3520-433a-8e08-99a3e67e6b02"
     },
     {
-      "id": "bc918242-b802-49a3-a82a-0ca8b690387b",
-      "table": "block"
+      "table": "block",
+      "id": "bc918242-b802-49a3-a82a-0ca8b690387b"
     },
     {
-      "id": "c0caf482-f3b7-4edb-8a95-dcca35ea8928",
-      "table": "block"
+      "table": "block",
+      "id": "c0caf482-f3b7-4edb-8a95-dcca35ea8928"
     },
     {
-      "id": "c26a0659-bc1e-436b-9c9c-3dd266a14a86",
-      "table": "block"
+      "table": "block",
+      "id": "c26a0659-bc1e-436b-9c9c-3dd266a14a86"
     },
     {
-      "id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
-      "table": "block"
+      "table": "block",
+      "id": "c47b7a17-6b4e-440c-a17d-a97af441c43a"
     },
     {
-      "id": "c5c6e68e-caf8-4d4d-a971-d7728cdd534c",
-      "table": "block"
+      "table": "block",
+      "id": "c5c6e68e-caf8-4d4d-a971-d7728cdd534c"
     },
     {
-      "id": "c878e6fd-4a28-4f1d-985e-57fbc77075c7",
-      "table": "block"
+      "table": "block",
+      "id": "c878e6fd-4a28-4f1d-985e-57fbc77075c7"
     },
     {
-      "id": "ca91dc08-8066-4240-a75b-ba010250e6e3",
-      "table": "block"
+      "table": "block",
+      "id": "ca91dc08-8066-4240-a75b-ba010250e6e3"
     },
     {
-      "id": "d0bc26b3-b9eb-4997-b62f-bcef70f5ba2b",
-      "table": "block"
+      "table": "block",
+      "id": "d0bc26b3-b9eb-4997-b62f-bcef70f5ba2b"
     },
     {
-      "id": "d2b3038f-400e-4baa-a234-84416dc71b91",
-      "table": "block"
+      "table": "block",
+      "id": "d2b3038f-400e-4baa-a234-84416dc71b91"
     },
     {
-      "id": "d3935805-7603-4673-95a6-565d6a27b702",
-      "table": "block"
+      "table": "block",
+      "id": "d3935805-7603-4673-95a6-565d6a27b702"
     },
     {
-      "id": "d86f8bf5-f361-4169-81ae-45a1d31dc722",
-      "table": "block"
+      "table": "block",
+      "id": "d86f8bf5-f361-4169-81ae-45a1d31dc722"
     },
     {
-      "id": "d8f255ad-bbdd-4000-9956-8f8f22a385ce",
-      "table": "block"
+      "table": "block",
+      "id": "d8f255ad-bbdd-4000-9956-8f8f22a385ce"
     },
     {
-      "id": "dac61386-f90e-4196-89bd-0f2dc36906d0",
-      "table": "block"
+      "table": "block",
+      "id": "dac61386-f90e-4196-89bd-0f2dc36906d0"
     },
     {
-      "id": "de7b0351-9915-4807-bff3-ad5db52b59ee",
-      "table": "block"
+      "table": "block",
+      "id": "de7b0351-9915-4807-bff3-ad5db52b59ee"
     },
     {
-      "id": "e5012c2e-2a98-4082-9243-4de9d482f3ea",
-      "table": "block"
+      "table": "block",
+      "id": "e5012c2e-2a98-4082-9243-4de9d482f3ea"
     },
     {
-      "id": "e817889f-6074-4993-afe8-d8d70d38fd1e",
-      "table": "block"
+      "table": "block",
+      "id": "e817889f-6074-4993-afe8-d8d70d38fd1e"
     },
     {
-      "id": "ec334ccd-b692-4358-b742-6276541b30f9",
-      "table": "block"
+      "table": "block",
+      "id": "ec334ccd-b692-4358-b742-6276541b30f9"
     },
     {
-      "id": "ecb656be-38a8-442e-9dde-9b8f18f79060",
-      "table": "block"
+      "table": "block",
+      "id": "ecb656be-38a8-442e-9dde-9b8f18f79060"
     },
     {
-      "id": "f1aa88db-6eeb-4e9f-8653-98a6b81a61d0",
-      "table": "block"
+      "table": "block",
+      "id": "f1aa88db-6eeb-4e9f-8653-98a6b81a61d0"
     },
     {
-      "id": "f207b286-1123-493d-9b1e-2e03bef5a7e0",
-      "table": "block"
+      "table": "block",
+      "id": "f207b286-1123-493d-9b1e-2e03bef5a7e0"
     },
     {
-      "id": "f5895d7f-c2fc-45e0-9ea1-bb4b11721af7",
-      "table": "block"
+      "table": "block",
+      "id": "f5895d7f-c2fc-45e0-9ea1-bb4b11721af7"
     },
     {
-      "id": "f6da7963-0533-49b7-b95f-37bb1130a515",
-      "table": "block"
+      "table": "block",
+      "id": "f6da7963-0533-49b7-b95f-37bb1130a515"
     },
     {
-      "id": "ffd95832-7f33-4466-9248-947d5fb3092a",
-      "table": "block"
+      "table": "block",
+      "id": "ffd95832-7f33-4466-9248-947d5fb3092a"
     }
   ]
 }
-Response:+203906
+Response:+194491
 {
   "recordMapWithRoles": {
     "block": {
@@ -1486,11 +1391,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "file upload"
-              ]
-            ]
+            "title": [["file upload"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1516,16 +1417,9 @@ Response:+203906
             "title": [
               [
                 "https://codepen.io/enxaneta/full/adLPwv/",
-                [
-                  [
-                    "a",
-                    "https://codepen.io/enxaneta/full/adLPwv/"
-                  ]
-                ]
+                [["a", "https://codepen.io/enxaneta/full/adLPwv/"]]
               ],
-              [
-                " : visual showcase of flexbox properties"
-              ]
+              [" : visual showcase of flexbox properties"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1591,11 +1485,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "grid layouts"
-              ]
-            ]
+            "title": [["grid layouts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1630,11 +1520,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "monaco"
-              ]
-            ]
+            "title": [["monaco"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1741,11 +1627,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Authentication methods"
-              ]
-            ]
+            "title": [["Authentication methods"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1844,9 +1726,7 @@ Response:+203906
                   ]
                 ]
               ],
-              [
-                " : Google's for Android"
-              ]
+              [" : Google's for Android"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1873,12 +1753,7 @@ Response:+203906
             "title": [
               [
                 "http://dundalek.com/css3-flexbox-reference/",
-                [
-                  [
-                    "a",
-                    "http://dundalek.com/css3-flexbox-reference/"
-                  ]
-                ]
+                [["a", "http://dundalek.com/css3-flexbox-reference/"]]
               ]
             ]
           },
@@ -1911,11 +1786,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Image optimization"
-              ]
-            ]
+            "title": [["Image optimization"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1990,11 +1861,7 @@ Response:+203906
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Links"
-              ]
-            ]
+            "title": [["Links"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2059,11 +1926,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "babel"
-              ]
-            ]
+            "title": [["babel"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2089,16 +1952,9 @@ Response:+203906
             "title": [
               [
                 "https://codepen.io/enxaneta/full/adLPwv/",
-                [
-                  [
-                    "a",
-                    "https://codepen.io/enxaneta/full/adLPwv/"
-                  ]
-                ]
+                [["a", "https://codepen.io/enxaneta/full/adLPwv/"]]
               ],
-              [
-                " : visual showcase of flexbox properties"
-              ]
+              [" : visual showcase of flexbox properties"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2125,12 +1981,7 @@ Response:+203906
             "title": [
               [
                 "http://gridlex.devlint.fr",
-                [
-                  [
-                    "a",
-                    "http://gridlex.devlint.fr/"
-                  ]
-                ]
+                [["a", "http://gridlex.devlint.fr/"]]
               ]
             ]
           },
@@ -2176,11 +2027,7 @@ Response:+203906
           "parent_id": "e69efbed-9eb2-488b-9471-8d0ae76ed728",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css flexbox"
-              ]
-            ]
+            "title": [["css flexbox"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2241,12 +2088,7 @@ Response:+203906
             "title": [
               [
                 "https://philipwalton.github.io/solved-by-flexbox/",
-                [
-                  [
-                    "a",
-                    "https://philipwalton.github.io/solved-by-flexbox/"
-                  ]
-                ]
+                [["a", "https://philipwalton.github.io/solved-by-flexbox/"]]
               ]
             ]
           },
@@ -2280,11 +2122,7 @@ Response:+203906
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Web programming, webdev"
-              ]
-            ]
+            "title": [["Web programming, webdev"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2321,11 +2159,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "html table"
-              ]
-            ]
+            "title": [["html table"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2351,12 +2185,7 @@ Response:+203906
             "title": [
               [
                 "https://github.com/corysimmons/lost",
-                [
-                  [
-                    "a",
-                    "https://github.com/corysimmons/lost"
-                  ]
-                ]
+                [["a", "https://github.com/corysimmons/lost"]]
               ]
             ]
           },
@@ -2384,16 +2213,9 @@ Response:+203906
             "title": [
               [
                 "http://codepen.io/vasansr/pen/PZOJXr?editors=1100",
-                [
-                  [
-                    "a",
-                    "http://codepen.io/vasansr/pen/PZOJXr?editors=1100"
-                  ]
-                ]
+                [["a", "http://codepen.io/vasansr/pen/PZOJXr?editors=1100"]]
               ],
-              [
-                " : a responsive table using flexbox"
-              ]
+              [" : a responsive table using flexbox"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2450,11 +2272,7 @@ Response:+203906
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2513,12 +2331,7 @@ Response:+203906
             "title": [
               [
                 "http://www.sketchingwithcss.com/samplechapter/",
-                [
-                  [
-                    "a",
-                    "http://www.sketchingwithcss.com/samplechapter/"
-                  ]
-                ]
+                [["a", "http://www.sketchingwithcss.com/samplechapter/"]]
               ]
             ]
           },
@@ -2547,12 +2360,7 @@ Response:+203906
             "title": [
               [
                 "https://css-tricks.com/flex-grow-is-weird/",
-                [
-                  [
-                    "a",
-                    "https://css-tricks.com/flex-grow-is-weird/"
-                  ]
-                ]
+                [["a", "https://css-tricks.com/flex-grow-is-weird/"]]
               ]
             ]
           },
@@ -2678,11 +2486,11 @@ Response:+203906
           "properties": {
             "title": [
               [
-                "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus\u0026utm_medium=email",
+                "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus&utm_medium=email",
                 [
                   [
                     "a",
-                    "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus\u0026utm_medium=email"
+                    "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus&utm_medium=email"
                   ]
                 ]
               ]
@@ -2713,12 +2521,7 @@ Response:+203906
             "title": [
               [
                 "http://www.flexboxpatterns.com/home",
-                [
-                  [
-                    "a",
-                    "http://www.flexboxpatterns.com/home"
-                  ]
-                ]
+                [["a", "http://www.flexboxpatterns.com/home"]]
               ]
             ]
           },
@@ -2779,12 +2582,7 @@ Response:+203906
             "title": [
               [
                 "https://github.com/philipwalton/flexbugs",
-                [
-                  [
-                    "a",
-                    "https://github.com/philipwalton/flexbugs"
-                  ]
-                ]
+                [["a", "https://github.com/philipwalton/flexbugs"]]
               ]
             ]
           },
@@ -2817,11 +2615,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "charts and plots"
-              ]
-            ]
+            "title": [["charts and plots"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2847,12 +2641,7 @@ Response:+203906
             "title": [
               [
                 "https://github.com/afonsopacifer/awesome-flexbox",
-                [
-                  [
-                    "a",
-                    "https://github.com/afonsopacifer/awesome-flexbox"
-                  ]
-                ]
+                [["a", "https://github.com/afonsopacifer/awesome-flexbox"]]
               ]
             ]
           },
@@ -2914,12 +2703,7 @@ Response:+203906
             "title": [
               [
                 "http://jonibologna.com/flexbox-cheatsheet/",
-                [
-                  [
-                    "a",
-                    "http://jonibologna.com/flexbox-cheatsheet/"
-                  ]
-                ]
+                [["a", "http://jonibologna.com/flexbox-cheatsheet/"]]
               ]
             ]
           },
@@ -2989,11 +2773,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "social media image sizes"
-              ]
-            ]
+            "title": [["social media image sizes"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3019,24 +2799,12 @@ Response:+203906
             "title": [
               [
                 "http://yoksel.github.io/flex-cheatsheet",
-                [
-                  [
-                    "a",
-                    "http://yoksel.github.io/flex-cheatsheet/#display"
-                  ]
-                ]
+                [["a", "http://yoksel.github.io/flex-cheatsheet/#display"]]
               ],
-              [
-                "/, "
-              ],
+              ["/, "],
               [
                 "https://news.ycombinator.com/item?id=13877926",
-                [
-                  [
-                    "a",
-                    "https://news.ycombinator.com/item?id=13877926"
-                  ]
-                ]
+                [["a", "https://news.ycombinator.com/item?id=13877926"]]
               ]
             ]
           },
@@ -3071,11 +2839,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "http protocol"
-              ]
-            ]
+            "title": [["http protocol"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3106,11 +2870,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "\u003chead\u003e info"
-              ]
-            ]
+            "title": [["<head> info"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3148,11 +2908,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Chrome dev tools, cdp, chrome debugger protocol"
-              ]
-            ]
+            "title": [["Chrome dev tools, cdp, chrome debugger protocol"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3185,11 +2941,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "files, blobs, FileReader"
-              ]
-            ]
+            "title": [["files, blobs, FileReader"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3215,12 +2967,7 @@ Response:+203906
             "title": [
               [
                 "http://philipwalton.github.io/solved-by-flexbox/",
-                [
-                  [
-                    "a",
-                    "http://philipwalton.github.io/solved-by-flexbox/"
-                  ]
-                ]
+                [["a", "http://philipwalton.github.io/solved-by-flexbox/"]]
               ]
             ]
           },
@@ -3248,12 +2995,7 @@ Response:+203906
             "title": [
               [
                 "http://flexbox.malven.co/",
-                [
-                  [
-                    "a",
-                    "http://flexbox.malven.co/"
-                  ]
-                ]
+                [["a", "http://flexbox.malven.co/"]]
               ]
             ]
           },
@@ -3279,15 +3021,7 @@ Response:+203906
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "http://flexbox.io/#/",
-                [
-                  [
-                    "a",
-                    "http://flexbox.io/#/"
-                  ]
-                ]
-              ]
+              ["http://flexbox.io/#/", [["a", "http://flexbox.io/#/"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3314,12 +3048,7 @@ Response:+203906
             "title": [
               [
                 "http://codepen.io/enxaneta/full/adLPwv/",
-                [
-                  [
-                    "a",
-                    "http://codepen.io/enxaneta/full/adLPwv/"
-                  ]
-                ]
+                [["a", "http://codepen.io/enxaneta/full/adLPwv/"]]
               ]
             ]
           },
@@ -3380,12 +3109,7 @@ Response:+203906
             "title": [
               [
                 "http://www.flexboxpatterns.com/home",
-                [
-                  [
-                    "a",
-                    "http://www.flexboxpatterns.com/home"
-                  ]
-                ]
+                [["a", "http://www.flexboxpatterns.com/home"]]
               ]
             ]
           },
@@ -3470,12 +3194,7 @@ Response:+203906
             "title": [
               [
                 "http://book.mixu.net/css/",
-                [
-                  [
-                    "a",
-                    "http://book.mixu.net/css/"
-                  ]
-                ]
+                [["a", "http://book.mixu.net/css/"]]
               ]
             ]
           },
@@ -3579,12 +3298,7 @@ Response:+203906
             "title": [
               [
                 "http://www.flexboxpatterns.com/",
-                [
-                  [
-                    "a",
-                    "http://www.flexboxpatterns.com/"
-                  ]
-                ]
+                [["a", "http://www.flexboxpatterns.com/"]]
               ]
             ]
           },
@@ -3612,12 +3326,7 @@ Response:+203906
             "title": [
               [
                 "http://jonibologna.com/flexbox-cheatsheet/",
-                [
-                  [
-                    "a",
-                    "http://jonibologna.com/flexbox-cheatsheet/"
-                  ]
-                ]
+                [["a", "http://jonibologna.com/flexbox-cheatsheet/"]]
               ]
             ]
           },
@@ -3654,11 +3363,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "drag \u0026 drop"
-              ]
-            ]
+            "title": [["drag & drop"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3718,11 +3423,7 @@ Response:+203906
           "parent_id": "3f416dd5-b84f-4ee2-a0e9-7ae1ee0bbdee",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Implementations"
-              ]
-            ]
+            "title": [["Implementations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3748,12 +3449,7 @@ Response:+203906
             "title": [
               [
                 "https://github.com/afonsopacifer/awesome-flexbox",
-                [
-                  [
-                    "a",
-                    "https://github.com/afonsopacifer/awesome-flexbox"
-                  ]
-                ]
+                [["a", "https://github.com/afonsopacifer/awesome-flexbox"]]
               ]
             ]
           },
@@ -3828,11 +3524,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "linklog"
-              ]
-            ]
+            "title": [["linklog"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3865,9 +3557,7 @@ Response:+203906
                   ]
                 ]
               ],
-              [
-                " : simple, in Java"
-              ]
+              [" : simple, in Java"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3905,11 +3595,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "ajax, fetch"
-              ]
-            ]
+            "title": [["ajax, fetch"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3942,17 +3628,10 @@ Response:+203906
                   ]
                 ]
               ],
-              [
-                ", "
-              ],
+              [", "],
               [
                 "https://news.ycombinator.com/item?id=8782752",
-                [
-                  [
-                    "a",
-                    "https://news.ycombinator.com/item?id=8782752"
-                  ]
-                ]
+                [["a", "https://news.ycombinator.com/item?id=8782752"]]
               ]
             ]
           },
@@ -4041,11 +3720,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "canvas"
-              ]
-            ]
+            "title": [["canvas"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4084,11 +3759,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "css"
-              ]
-            ]
+            "title": [["css"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4112,26 +3783,11 @@ Response:+203906
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "http://flexboxin5.com/",
-                [
-                  [
-                    "a",
-                    "http://flexboxin5.com/"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
+              ["http://flexboxin5.com/", [["a", "http://flexboxin5.com/"]]],
+              [", "],
               [
                 "https://news.ycombinator.com/item?id=9137515",
-                [
-                  [
-                    "a",
-                    "https://news.ycombinator.com/item?id=9137515"
-                  ]
-                ]
+                [["a", "https://news.ycombinator.com/item?id=9137515"]]
               ]
             ]
           },
@@ -4159,12 +3815,7 @@ Response:+203906
             "title": [
               [
                 "https://davidwalsh.name/flexbox-layouts",
-                [
-                  [
-                    "a",
-                    "https://davidwalsh.name/flexbox-layouts"
-                  ]
-                ]
+                [["a", "https://davidwalsh.name/flexbox-layouts"]]
               ]
             ]
           },
@@ -4190,18 +3841,8 @@ Response:+203906
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "https://flexbox.io/",
-                [
-                  [
-                    "a",
-                    "https://flexbox.io/"
-                  ]
-                ]
-              ],
-              [
-                " : 20 video tutorials, from beginning to some advanced layouts"
-              ]
+              ["https://flexbox.io/", [["a", "https://flexbox.io/"]]],
+              [" : 20 video tutorials, from beginning to some advanced layouts"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4228,12 +3869,7 @@ Response:+203906
             "title": [
               [
                 "http://bocoup.com/weblog/dive-into-flexbox/",
-                [
-                  [
-                    "a",
-                    "http://bocoup.com/weblog/dive-into-flexbox/"
-                  ]
-                ]
+                [["a", "http://bocoup.com/weblog/dive-into-flexbox/"]]
               ]
             ]
           },
@@ -4261,12 +3897,7 @@ Response:+203906
             "title": [
               [
                 "https://css-tricks.com/flex-grow-is-weird/",
-                [
-                  [
-                    "a",
-                    "https://css-tricks.com/flex-grow-is-weird/"
-                  ]
-                ]
+                [["a", "https://css-tricks.com/flex-grow-is-weird/"]]
               ]
             ]
           },
@@ -4301,11 +3932,7 @@ Response:+203906
           "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "d3.js"
-              ]
-            ]
+            "title": [["d3.js"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4498,11 +4125,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "file upload"
-            ]
-          ]
+          "title": [["file upload"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4528,16 +4151,9 @@ Response:+203906
           "title": [
             [
               "https://codepen.io/enxaneta/full/adLPwv/",
-              [
-                [
-                  "a",
-                  "https://codepen.io/enxaneta/full/adLPwv/"
-                ]
-              ]
+              [["a", "https://codepen.io/enxaneta/full/adLPwv/"]]
             ],
-            [
-              " : visual showcase of flexbox properties"
-            ]
+            [" : visual showcase of flexbox properties"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4603,11 +4219,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "grid layouts"
-            ]
-          ]
+          "title": [["grid layouts"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4642,11 +4254,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "monaco"
-            ]
-          ]
+          "title": [["monaco"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4672,12 +4280,7 @@ Response:+203906
           "title": [
             [
               "http://codepen.io/team/lincolnloop/blog/flexboxfridays",
-              [
-                [
-                  "a",
-                  "http://codepen.io/team/lincolnloop/blog/flexboxfridays"
-                ]
-              ]
+              [["a", "http://codepen.io/team/lincolnloop/blog/flexboxfridays"]]
             ]
           ]
         },
@@ -4753,11 +4356,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Authentication methods"
-            ]
-          ]
+          "title": [["Authentication methods"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4856,9 +4455,7 @@ Response:+203906
                 ]
               ]
             ],
-            [
-              " : Google's for Android"
-            ]
+            [" : Google's for Android"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4885,12 +4482,7 @@ Response:+203906
           "title": [
             [
               "http://dundalek.com/css3-flexbox-reference/",
-              [
-                [
-                  "a",
-                  "http://dundalek.com/css3-flexbox-reference/"
-                ]
-              ]
+              [["a", "http://dundalek.com/css3-flexbox-reference/"]]
             ]
           ]
         },
@@ -4923,11 +4515,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Image optimization"
-            ]
-          ]
+          "title": [["Image optimization"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4954,12 +4542,7 @@ Response:+203906
           "title": [
             [
               "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-              [
-                [
-                  "a",
-                  "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-                ]
-              ]
+              [["a", "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"]]
             ]
           ]
         },
@@ -4992,11 +4575,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "babel"
-            ]
-          ]
+          "title": [["babel"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5022,16 +4601,9 @@ Response:+203906
           "title": [
             [
               "https://codepen.io/enxaneta/full/adLPwv/",
-              [
-                [
-                  "a",
-                  "https://codepen.io/enxaneta/full/adLPwv/"
-                ]
-              ]
+              [["a", "https://codepen.io/enxaneta/full/adLPwv/"]]
             ],
-            [
-              " : visual showcase of flexbox properties"
-            ]
+            [" : visual showcase of flexbox properties"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5058,12 +4630,7 @@ Response:+203906
           "title": [
             [
               "http://gridlex.devlint.fr",
-              [
-                [
-                  "a",
-                  "http://gridlex.devlint.fr/"
-                ]
-              ]
+              [["a", "http://gridlex.devlint.fr/"]]
             ]
           ]
         },
@@ -5126,12 +4693,7 @@ Response:+203906
           "title": [
             [
               "https://philipwalton.github.io/solved-by-flexbox/",
-              [
-                [
-                  "a",
-                  "https://philipwalton.github.io/solved-by-flexbox/"
-                ]
-              ]
+              [["a", "https://philipwalton.github.io/solved-by-flexbox/"]]
             ]
           ]
         },
@@ -5170,11 +4732,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "html table"
-            ]
-          ]
+          "title": [["html table"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5200,12 +4758,7 @@ Response:+203906
           "title": [
             [
               "https://github.com/corysimmons/lost",
-              [
-                [
-                  "a",
-                  "https://github.com/corysimmons/lost"
-                ]
-              ]
+              [["a", "https://github.com/corysimmons/lost"]]
             ]
           ]
         },
@@ -5233,16 +4786,9 @@ Response:+203906
           "title": [
             [
               "http://codepen.io/vasansr/pen/PZOJXr?editors=1100",
-              [
-                [
-                  "a",
-                  "http://codepen.io/vasansr/pen/PZOJXr?editors=1100"
-                ]
-              ]
+              [["a", "http://codepen.io/vasansr/pen/PZOJXr?editors=1100"]]
             ],
-            [
-              " : a responsive table using flexbox"
-            ]
+            [" : a responsive table using flexbox"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5302,12 +4848,7 @@ Response:+203906
           "title": [
             [
               "http://www.sketchingwithcss.com/samplechapter/",
-              [
-                [
-                  "a",
-                  "http://www.sketchingwithcss.com/samplechapter/"
-                ]
-              ]
+              [["a", "http://www.sketchingwithcss.com/samplechapter/"]]
             ]
           ]
         },
@@ -5336,12 +4877,7 @@ Response:+203906
           "title": [
             [
               "https://css-tricks.com/flex-grow-is-weird/",
-              [
-                [
-                  "a",
-                  "https://css-tricks.com/flex-grow-is-weird/"
-                ]
-              ]
+              [["a", "https://css-tricks.com/flex-grow-is-weird/"]]
             ]
           ]
         },
@@ -5467,11 +5003,11 @@ Response:+203906
         "properties": {
           "title": [
             [
-              "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus\u0026utm_medium=email",
+              "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus&utm_medium=email",
               [
                 [
                   "a",
-                  "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus\u0026utm_medium=email"
+                  "https://hacks.mozilla.org/2018/01/new-flexbox-guides-on-mdn/?utm_source=frontendfocus&utm_medium=email"
                 ]
               ]
             ]
@@ -5502,12 +5038,7 @@ Response:+203906
           "title": [
             [
               "http://www.flexboxpatterns.com/home",
-              [
-                [
-                  "a",
-                  "http://www.flexboxpatterns.com/home"
-                ]
-              ]
+              [["a", "http://www.flexboxpatterns.com/home"]]
             ]
           ]
         },
@@ -5568,12 +5099,7 @@ Response:+203906
           "title": [
             [
               "https://github.com/philipwalton/flexbugs",
-              [
-                [
-                  "a",
-                  "https://github.com/philipwalton/flexbugs"
-                ]
-              ]
+              [["a", "https://github.com/philipwalton/flexbugs"]]
             ]
           ]
         },
@@ -5606,11 +5132,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "charts and plots"
-            ]
-          ]
+          "title": [["charts and plots"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5636,12 +5158,7 @@ Response:+203906
           "title": [
             [
               "https://github.com/afonsopacifer/awesome-flexbox",
-              [
-                [
-                  "a",
-                  "https://github.com/afonsopacifer/awesome-flexbox"
-                ]
-              ]
+              [["a", "https://github.com/afonsopacifer/awesome-flexbox"]]
             ]
           ]
         },
@@ -5703,12 +5220,7 @@ Response:+203906
           "title": [
             [
               "http://jonibologna.com/flexbox-cheatsheet/",
-              [
-                [
-                  "a",
-                  "http://jonibologna.com/flexbox-cheatsheet/"
-                ]
-              ]
+              [["a", "http://jonibologna.com/flexbox-cheatsheet/"]]
             ]
           ]
         },
@@ -5778,11 +5290,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "social media image sizes"
-            ]
-          ]
+          "title": [["social media image sizes"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5808,24 +5316,12 @@ Response:+203906
           "title": [
             [
               "http://yoksel.github.io/flex-cheatsheet",
-              [
-                [
-                  "a",
-                  "http://yoksel.github.io/flex-cheatsheet/#display"
-                ]
-              ]
+              [["a", "http://yoksel.github.io/flex-cheatsheet/#display"]]
             ],
-            [
-              "/, "
-            ],
+            ["/, "],
             [
               "https://news.ycombinator.com/item?id=13877926",
-              [
-                [
-                  "a",
-                  "https://news.ycombinator.com/item?id=13877926"
-                ]
-              ]
+              [["a", "https://news.ycombinator.com/item?id=13877926"]]
             ]
           ]
         },
@@ -5860,11 +5356,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "http protocol"
-            ]
-          ]
+          "title": [["http protocol"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5895,11 +5387,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "\u003chead\u003e info"
-            ]
-          ]
+          "title": [["<head> info"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5937,11 +5425,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Chrome dev tools, cdp, chrome debugger protocol"
-            ]
-          ]
+          "title": [["Chrome dev tools, cdp, chrome debugger protocol"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5974,11 +5458,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "files, blobs, FileReader"
-            ]
-          ]
+          "title": [["files, blobs, FileReader"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -6004,12 +5484,7 @@ Response:+203906
           "title": [
             [
               "http://philipwalton.github.io/solved-by-flexbox/",
-              [
-                [
-                  "a",
-                  "http://philipwalton.github.io/solved-by-flexbox/"
-                ]
-              ]
+              [["a", "http://philipwalton.github.io/solved-by-flexbox/"]]
             ]
           ]
         },
@@ -6035,15 +5510,7 @@ Response:+203906
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "http://flexbox.malven.co/",
-              [
-                [
-                  "a",
-                  "http://flexbox.malven.co/"
-                ]
-              ]
-            ]
+            ["http://flexbox.malven.co/", [["a", "http://flexbox.malven.co/"]]]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6067,17 +5534,7 @@ Response:+203906
         "parent_id": "279844cc-2cbc-440c-9bf4-53cfd075c7e4",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "http://flexbox.io/#/",
-              [
-                [
-                  "a",
-                  "http://flexbox.io/#/"
-                ]
-              ]
-            ]
-          ]
+          "title": [["http://flexbox.io/#/", [["a", "http://flexbox.io/#/"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -6103,12 +5560,7 @@ Response:+203906
           "title": [
             [
               "http://codepen.io/enxaneta/full/adLPwv/",
-              [
-                [
-                  "a",
-                  "http://codepen.io/enxaneta/full/adLPwv/"
-                ]
-              ]
+              [["a", "http://codepen.io/enxaneta/full/adLPwv/"]]
             ]
           ]
         },
@@ -6136,12 +5588,7 @@ Response:+203906
           "title": [
             [
               "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-              [
-                [
-                  "a",
-                  "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-                ]
-              ]
+              [["a", "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"]]
             ]
           ]
         },
@@ -6169,12 +5616,7 @@ Response:+203906
           "title": [
             [
               "http://www.flexboxpatterns.com/home",
-              [
-                [
-                  "a",
-                  "http://www.flexboxpatterns.com/home"
-                ]
-              ]
+              [["a", "http://www.flexboxpatterns.com/home"]]
             ]
           ]
         },
@@ -6202,12 +5644,7 @@ Response:+203906
           "title": [
             [
               "http://css-tricks.com/snippets/css/complete-guide-grid/",
-              [
-                [
-                  "a",
-                  "http://css-tricks.com/snippets/css/complete-guide-grid/"
-                ]
-              ]
+              [["a", "http://css-tricks.com/snippets/css/complete-guide-grid/"]]
             ]
           ]
         },
@@ -6233,15 +5670,7 @@ Response:+203906
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "http://book.mixu.net/css/",
-              [
-                [
-                  "a",
-                  "http://book.mixu.net/css/"
-                ]
-              ]
-            ]
+            ["http://book.mixu.net/css/", [["a", "http://book.mixu.net/css/"]]]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6344,12 +5773,7 @@ Response:+203906
           "title": [
             [
               "http://www.flexboxpatterns.com/",
-              [
-                [
-                  "a",
-                  "http://www.flexboxpatterns.com/"
-                ]
-              ]
+              [["a", "http://www.flexboxpatterns.com/"]]
             ]
           ]
         },
@@ -6377,12 +5801,7 @@ Response:+203906
           "title": [
             [
               "http://jonibologna.com/flexbox-cheatsheet/",
-              [
-                [
-                  "a",
-                  "http://jonibologna.com/flexbox-cheatsheet/"
-                ]
-              ]
+              [["a", "http://jonibologna.com/flexbox-cheatsheet/"]]
             ]
           ]
         },
@@ -6419,11 +5838,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "drag \u0026 drop"
-            ]
-          ]
+          "title": [["drag & drop"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -6482,12 +5897,7 @@ Response:+203906
           "title": [
             [
               "https://github.com/afonsopacifer/awesome-flexbox",
-              [
-                [
-                  "a",
-                  "https://github.com/afonsopacifer/awesome-flexbox"
-                ]
-              ]
+              [["a", "https://github.com/afonsopacifer/awesome-flexbox"]]
             ]
           ]
         },
@@ -6562,11 +5972,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "linklog"
-            ]
-          ]
+          "title": [["linklog"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -6599,9 +6005,7 @@ Response:+203906
                 ]
               ]
             ],
-            [
-              " : simple, in Java"
-            ]
+            [" : simple, in Java"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6639,11 +6043,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "ajax, fetch"
-            ]
-          ]
+          "title": [["ajax, fetch"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -6676,17 +6076,10 @@ Response:+203906
                 ]
               ]
             ],
-            [
-              ", "
-            ],
+            [", "],
             [
               "https://news.ycombinator.com/item?id=8782752",
-              [
-                [
-                  "a",
-                  "https://news.ycombinator.com/item?id=8782752"
-                ]
-              ]
+              [["a", "https://news.ycombinator.com/item?id=8782752"]]
             ]
           ]
         },
@@ -6775,11 +6168,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "canvas"
-            ]
-          ]
+          "title": [["canvas"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -6803,26 +6192,11 @@ Response:+203906
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "http://flexboxin5.com/",
-              [
-                [
-                  "a",
-                  "http://flexboxin5.com/"
-                ]
-              ]
-            ],
-            [
-              ", "
-            ],
+            ["http://flexboxin5.com/", [["a", "http://flexboxin5.com/"]]],
+            [", "],
             [
               "https://news.ycombinator.com/item?id=9137515",
-              [
-                [
-                  "a",
-                  "https://news.ycombinator.com/item?id=9137515"
-                ]
-              ]
+              [["a", "https://news.ycombinator.com/item?id=9137515"]]
             ]
           ]
         },
@@ -6850,12 +6224,7 @@ Response:+203906
           "title": [
             [
               "https://davidwalsh.name/flexbox-layouts",
-              [
-                [
-                  "a",
-                  "https://davidwalsh.name/flexbox-layouts"
-                ]
-              ]
+              [["a", "https://davidwalsh.name/flexbox-layouts"]]
             ]
           ]
         },
@@ -6881,18 +6250,8 @@ Response:+203906
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "https://flexbox.io/",
-              [
-                [
-                  "a",
-                  "https://flexbox.io/"
-                ]
-              ]
-            ],
-            [
-              " : 20 video tutorials, from beginning to some advanced layouts"
-            ]
+            ["https://flexbox.io/", [["a", "https://flexbox.io/"]]],
+            [" : 20 video tutorials, from beginning to some advanced layouts"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6919,12 +6278,7 @@ Response:+203906
           "title": [
             [
               "http://bocoup.com/weblog/dive-into-flexbox/",
-              [
-                [
-                  "a",
-                  "http://bocoup.com/weblog/dive-into-flexbox/"
-                ]
-              ]
+              [["a", "http://bocoup.com/weblog/dive-into-flexbox/"]]
             ]
           ]
         },
@@ -6952,12 +6306,7 @@ Response:+203906
           "title": [
             [
               "https://css-tricks.com/flex-grow-is-weird/",
-              [
-                [
-                  "a",
-                  "https://css-tricks.com/flex-grow-is-weird/"
-                ]
-              ]
+              [["a", "https://css-tricks.com/flex-grow-is-weird/"]]
             ]
           ]
         },
@@ -6992,11 +6341,7 @@ Response:+203906
         "parent_id": "fa41cc44-c715-40f3-aafe-fdaff617ef7a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "d3.js"
-            ]
-          ]
+          "title": [["d3.js"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -7056,12 +6401,7 @@ Response:+203906
           "title": [
             [
               "http://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-              [
-                [
-                  "a",
-                  "http://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-                ]
-              ]
+              [["a", "http://css-tricks.com/snippets/css/a-guide-to-flexbox/"]]
             ]
           ]
         },
@@ -7072,87 +6412,87 @@ Response:+203906
     }
   ]
 }
-82223 1624300616721 httpcache-v1
+79999 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+1606
 {
   "requests": [
     {
-      "id": "0bf7d482-d612-4b90-b02c-a82e410d017b",
-      "table": "block"
+      "table": "block",
+      "id": "0bf7d482-d612-4b90-b02c-a82e410d017b"
     },
     {
-      "id": "0c6cd619-f3f4-448f-940e-b85317aa34d0",
-      "table": "block"
+      "table": "block",
+      "id": "0c6cd619-f3f4-448f-940e-b85317aa34d0"
     },
     {
-      "id": "29416d8f-74a1-4b94-a128-fbb638277ae5",
-      "table": "block"
+      "table": "block",
+      "id": "29416d8f-74a1-4b94-a128-fbb638277ae5"
     },
     {
-      "id": "2a75c15d-68f7-4745-ace3-d4b52319affd",
-      "table": "block"
+      "table": "block",
+      "id": "2a75c15d-68f7-4745-ace3-d4b52319affd"
     },
     {
-      "id": "356c4e0e-9595-47b0-8f22-5e9672f3301a",
-      "table": "block"
+      "table": "block",
+      "id": "356c4e0e-9595-47b0-8f22-5e9672f3301a"
     },
     {
-      "id": "51e263b9-e569-4456-8b0f-881b050a1f07",
-      "table": "block"
+      "table": "block",
+      "id": "51e263b9-e569-4456-8b0f-881b050a1f07"
     },
     {
-      "id": "549b8840-1eb1-4bf8-a0fc-5adad64960cc",
-      "table": "block"
+      "table": "block",
+      "id": "549b8840-1eb1-4bf8-a0fc-5adad64960cc"
     },
     {
-      "id": "65830ea1-3638-41fe-9f7f-a14f75a8056b",
-      "table": "block"
+      "table": "block",
+      "id": "65830ea1-3638-41fe-9f7f-a14f75a8056b"
     },
     {
-      "id": "737fa2b5-07b6-4215-a893-e3451a275d43",
-      "table": "block"
+      "table": "block",
+      "id": "737fa2b5-07b6-4215-a893-e3451a275d43"
     },
     {
-      "id": "78416031-074a-4ffd-aea0-5cb899b68b20",
-      "table": "block"
+      "table": "block",
+      "id": "78416031-074a-4ffd-aea0-5cb899b68b20"
     },
     {
-      "id": "7b96a8df-df45-418a-b397-1c0a1a467314",
-      "table": "block"
+      "table": "block",
+      "id": "7b96a8df-df45-418a-b397-1c0a1a467314"
     },
     {
-      "id": "90eb791a-9db9-4934-b823-3cda5b1adcfa",
-      "table": "block"
+      "table": "block",
+      "id": "90eb791a-9db9-4934-b823-3cda5b1adcfa"
     },
     {
-      "id": "96f13c56-22d9-4629-b828-11bd27c57bad",
-      "table": "block"
+      "table": "block",
+      "id": "96f13c56-22d9-4629-b828-11bd27c57bad"
     },
     {
-      "id": "b3be4adb-1ace-49dd-a3a0-57cf3888ff86",
-      "table": "block"
+      "table": "block",
+      "id": "b3be4adb-1ace-49dd-a3a0-57cf3888ff86"
     },
     {
-      "id": "bf0571fb-b139-4519-80b3-642fc7ca90f4",
-      "table": "block"
+      "table": "block",
+      "id": "bf0571fb-b139-4519-80b3-642fc7ca90f4"
     },
     {
-      "id": "d5ef6e3d-e215-45d7-9c25-418f1ba2a51d",
-      "table": "block"
+      "table": "block",
+      "id": "d5ef6e3d-e215-45d7-9c25-418f1ba2a51d"
     },
     {
-      "id": "e2baf309-cea7-4284-9627-4547085bd681",
-      "table": "block"
+      "table": "block",
+      "id": "e2baf309-cea7-4284-9627-4547085bd681"
     },
     {
-      "id": "f6a44c22-0fbe-47ed-83a9-6299d32d6617",
-      "table": "block"
+      "table": "block",
+      "id": "f6a44c22-0fbe-47ed-83a9-6299d32d6617"
     }
   ]
 }
-Response:+80525
+Response:+78302
 {
   "recordMapWithRoles": {
     "block": {
@@ -7208,11 +6548,7 @@ Response:+80525
             }
           ],
           "properties": {
-            "title": [
-              [
-                "TypeScript"
-              ]
-            ]
+            "title": [["TypeScript"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7223,9 +6559,7 @@ Response:+80525
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "9bdc2c29-9397-4be7-a1c1-1ff166bb2fd4"
-          ],
+          "content": ["9bdc2c29-9397-4be7-a1c1-1ff166bb2fd4"],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -7242,11 +6576,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "scrolling"
-              ]
-            ]
+            "title": [["scrolling"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7280,11 +6610,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "svelte"
-              ]
-            ]
+            "title": [["svelte"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7333,11 +6659,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "webpack"
-              ]
-            ]
+            "title": [["webpack"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7372,11 +6694,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "IndexedDB"
-              ]
-            ]
+            "title": [["IndexedDB"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7408,11 +6726,7 @@ Response:+80525
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Web programming, webdev"
-              ]
-            ]
+            "title": [["Web programming, webdev"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7444,11 +6758,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "web ui templates"
-              ]
-            ]
+            "title": [["web ui templates"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7480,11 +6790,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "webrtc"
-              ]
-            ]
+            "title": [["webrtc"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7540,11 +6846,7 @@ Response:+80525
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7578,11 +6880,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "webgl"
-              ]
-            ]
+            "title": [["webgl"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7613,11 +6911,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "split, splitter"
-              ]
-            ]
+            "title": [["split, splitter"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7653,11 +6947,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "webasssembly, wasm, web assembly"
-              ]
-            ]
+            "title": [["webasssembly, wasm, web assembly"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7692,11 +6982,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "vue.js"
-              ]
-            ]
+            "title": [["vue.js"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7730,11 +7016,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Let's encrypt"
-              ]
-            ]
+            "title": [["Let's encrypt"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7768,11 +7050,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "layout libraries"
-              ]
-            ]
+            "title": [["layout libraries"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7806,11 +7084,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "preact"
-              ]
-            ]
+            "title": [["preact"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7880,11 +7154,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "JavaScript"
-              ]
-            ]
+            "title": [["JavaScript"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7970,11 +7240,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "web workers, service workers"
-              ]
-            ]
+            "title": [["web workers, service workers"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7985,9 +7251,7 @@ Response:+80525
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "7fc177cd-f9a1-47af-bd0d-eb416b7ac932"
-          ],
+          "content": ["7fc177cd-f9a1-47af-bd0d-eb416b7ac932"],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -8004,11 +7268,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "websockets"
-              ]
-            ]
+            "title": [["websockets"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -8231,11 +7491,7 @@ Response:+80525
           "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "react"
-              ]
-            ]
+            "title": [["react"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -8342,11 +7598,7 @@ Response:+80525
           }
         ],
         "properties": {
-          "title": [
-            [
-              "TypeScript"
-            ]
-          ]
+          "title": [["TypeScript"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8357,9 +7609,7 @@ Response:+80525
       "role": "editor",
       "value": {
         "alive": true,
-        "content": [
-          "9bdc2c29-9397-4be7-a1c1-1ff166bb2fd4"
-        ],
+        "content": ["9bdc2c29-9397-4be7-a1c1-1ff166bb2fd4"],
         "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
@@ -8376,11 +7626,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "scrolling"
-            ]
-          ]
+          "title": [["scrolling"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8414,11 +7660,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "svelte"
-            ]
-          ]
+          "title": [["svelte"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8467,11 +7709,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "webpack"
-            ]
-          ]
+          "title": [["webpack"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8506,11 +7744,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "IndexedDB"
-            ]
-          ]
+          "title": [["IndexedDB"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8542,11 +7776,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "web ui templates"
-            ]
-          ]
+          "title": [["web ui templates"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8578,11 +7808,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "webrtc"
-            ]
-          ]
+          "title": [["webrtc"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8616,11 +7842,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "webgl"
-            ]
-          ]
+          "title": [["webgl"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8651,11 +7873,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "split, splitter"
-            ]
-          ]
+          "title": [["split, splitter"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8691,11 +7909,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "webasssembly, wasm, web assembly"
-            ]
-          ]
+          "title": [["webasssembly, wasm, web assembly"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8730,11 +7944,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "vue.js"
-            ]
-          ]
+          "title": [["vue.js"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8768,11 +7978,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Let's encrypt"
-            ]
-          ]
+          "title": [["Let's encrypt"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8806,11 +8012,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "layout libraries"
-            ]
-          ]
+          "title": [["layout libraries"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8844,11 +8046,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "preact"
-            ]
-          ]
+          "title": [["preact"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8894,11 +8092,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "JavaScript"
-            ]
-          ]
+          "title": [["JavaScript"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8941,11 +8135,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "web workers, service workers"
-            ]
-          ]
+          "title": [["web workers, service workers"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -8956,9 +8146,7 @@ Response:+80525
       "role": "editor",
       "value": {
         "alive": true,
-        "content": [
-          "7fc177cd-f9a1-47af-bd0d-eb416b7ac932"
-        ],
+        "content": ["7fc177cd-f9a1-47af-bd0d-eb416b7ac932"],
         "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
@@ -8975,11 +8163,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "websockets"
-            ]
-          ]
+          "title": [["websockets"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -9202,11 +8386,7 @@ Response:+80525
         "parent_id": "c47b7a17-6b4e-440c-a17d-a97af441c43a",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "react"
-            ]
-          ]
+          "title": [["react"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

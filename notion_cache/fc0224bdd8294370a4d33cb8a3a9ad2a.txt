@@ -1,16 +1,16 @@
-13749 1624300582045 httpcache-v1
+13449 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
-      "table": "block"
+      "table": "block",
+      "id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a"
     }
   ]
 }
-Response:+13548
+Response:+13249
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+13548
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+13548
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -158,11 +150,7 @@ Response:+13548
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2004 (34)"
-              ]
-            ]
+            "title": [["2004 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -218,11 +206,7 @@ Response:+13548
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -260,9 +244,7 @@ Response:+13548
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "DocSynch - multi-editor plugin for collaborative text editing"
-              ]
+              ["DocSynch - multi-editor plugin for collaborative text editing"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -349,9 +331,7 @@ Response:+13548
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "DocSynch - multi-editor plugin for collaborative text editing"
-            ]
+            ["DocSynch - multi-editor plugin for collaborative text editing"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -361,20 +341,20 @@ Response:+13548
     }
   ]
 }
-20326 1624300582045 httpcache-v1
+19318 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
   "verticalColumns": false
 }
-Response:+20085
+Response:+19078
 {
   "cursor": {
     "stack": []
@@ -397,11 +377,7 @@ Response:+20085
           "parent_id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Another day, another text editor to check out."
-              ]
-            ]
+            "title": [["Another day, another text editor to check out."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -439,11 +415,7 @@ Response:+20085
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -498,11 +470,7 @@ Response:+20085
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -529,30 +497,10 @@ Response:+20085
               [
                 "Looks like someone is reading this blog after all. Yesterday I wrote about new collaborative text editor for Windows called "
               ],
-              [
-                "multi-editoro",
-                [
-                  [
-                    "a",
-                    "http://me.sphere.pl/"
-                  ]
-                ]
-              ],
-              [
-                " and a reader pointed me to "
-              ],
-              [
-                "DocSynch",
-                [
-                  [
-                    "a",
-                    "http://docsynch.sourceforge.net/"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["multi-editoro", [["a", "http://me.sphere.pl/"]]],
+              [" and a reader pointed me to "],
+              ["DocSynch", [["a", "http://docsynch.sourceforge.net/"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -603,11 +551,7 @@ Response:+20085
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2004 (34)"
-              ]
-            ]
+            "title": [["2004 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -663,11 +607,7 @@ Response:+20085
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -690,11 +630,7 @@ Response:+20085
           "parent_id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 1860"
-              ]
-            ]
+            "title": [["Id: 1860"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -721,15 +657,7 @@ Response:+20085
               [
                 "DocSynch is an interesting approach to building collaborative editor: it only implements a protocol layer based on IRC and plugs into existing editors. Currently they have a plugin for "
               ],
-              [
-                "jEdit",
-                [
-                  [
-                    "a",
-                    "http://www.jedit.org/"
-                  ]
-                ]
-              ],
+              ["jEdit", [["a", "http://www.jedit.org/"]]],
               [
                 " and are planning additional plugins for Eclipse, vim and Visual Studio."
               ]
@@ -756,11 +684,7 @@ Response:+20085
           "parent_id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2004-08-31T11:46:49-07:00"
-              ]
-            ]
+            "title": [["Date: 2004-08-31T11:46:49-07:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -783,11 +707,7 @@ Response:+20085
           "parent_id": "fc0224bd-d829-4370-a4d3-3cb8a3a9ad2a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Status: hidden"
-              ]
-            ]
+            "title": [["Status: hidden"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -845,9 +765,7 @@ Response:+20085
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "DocSynch - multi-editor plugin for collaborative text editing"
-              ]
+              ["DocSynch - multi-editor plugin for collaborative text editing"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -903,111 +821,111 @@ Response:+20085
     }
   }
 }
-96660 1624300582047 httpcache-v1
+94060 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+2134
 {
   "requests": [
     {
-      "id": "02ced467-7fdf-424d-bde8-126b9286f95a",
-      "table": "block"
+      "table": "block",
+      "id": "02ced467-7fdf-424d-bde8-126b9286f95a"
     },
     {
-      "id": "041b71ab-8b97-49fe-aa17-c71924ea151c",
-      "table": "block"
+      "table": "block",
+      "id": "041b71ab-8b97-49fe-aa17-c71924ea151c"
     },
     {
-      "id": "0515327c-194d-4a6d-bea6-626b9d3cb1c1",
-      "table": "block"
+      "table": "block",
+      "id": "0515327c-194d-4a6d-bea6-626b9d3cb1c1"
     },
     {
-      "id": "1ae9f376-89ca-47d4-8867-9bd0722c5f5c",
-      "table": "block"
+      "table": "block",
+      "id": "1ae9f376-89ca-47d4-8867-9bd0722c5f5c"
     },
     {
-      "id": "1cc14ab2-0ed4-495f-8356-fccc7a6c320b",
-      "table": "block"
+      "table": "block",
+      "id": "1cc14ab2-0ed4-495f-8356-fccc7a6c320b"
     },
     {
-      "id": "21e0bbc9-6b85-4c6a-b7ef-585d931dc836",
-      "table": "block"
+      "table": "block",
+      "id": "21e0bbc9-6b85-4c6a-b7ef-585d931dc836"
     },
     {
-      "id": "2fd722b4-64f0-43eb-b5c6-a9f1a4068f88",
-      "table": "block"
+      "table": "block",
+      "id": "2fd722b4-64f0-43eb-b5c6-a9f1a4068f88"
     },
     {
-      "id": "314fe5a4-05c6-492d-94de-5b969a3441a9",
-      "table": "block"
+      "table": "block",
+      "id": "314fe5a4-05c6-492d-94de-5b969a3441a9"
     },
     {
-      "id": "32ba72b5-6022-4a7b-89cf-6faa12efe705",
-      "table": "block"
+      "table": "block",
+      "id": "32ba72b5-6022-4a7b-89cf-6faa12efe705"
     },
     {
-      "id": "3c77c2c1-b94e-4538-95cd-a5600fd71e3f",
-      "table": "block"
+      "table": "block",
+      "id": "3c77c2c1-b94e-4538-95cd-a5600fd71e3f"
     },
     {
-      "id": "4a9858fb-8862-45f8-b606-bc838c93bbd4",
-      "table": "block"
+      "table": "block",
+      "id": "4a9858fb-8862-45f8-b606-bc838c93bbd4"
     },
     {
-      "id": "4df53139-66b3-4e8a-83b4-c7de136319f2",
-      "table": "block"
+      "table": "block",
+      "id": "4df53139-66b3-4e8a-83b4-c7de136319f2"
     },
     {
-      "id": "5555362e-f3b9-4ca6-b8c9-22b3456e2fd4",
-      "table": "block"
+      "table": "block",
+      "id": "5555362e-f3b9-4ca6-b8c9-22b3456e2fd4"
     },
     {
-      "id": "56ceed2f-4a94-446a-bf4b-704c9af606fa",
-      "table": "block"
+      "table": "block",
+      "id": "56ceed2f-4a94-446a-bf4b-704c9af606fa"
     },
     {
-      "id": "5d805466-eb1c-4ffb-b80a-f81bb8a1c191",
-      "table": "block"
+      "table": "block",
+      "id": "5d805466-eb1c-4ffb-b80a-f81bb8a1c191"
     },
     {
-      "id": "82b941b1-3779-49f8-806a-8ac688b943de",
-      "table": "block"
+      "table": "block",
+      "id": "82b941b1-3779-49f8-806a-8ac688b943de"
     },
     {
-      "id": "858a0f78-b7b4-4713-8b19-8bf9eb21df44",
-      "table": "block"
+      "table": "block",
+      "id": "858a0f78-b7b4-4713-8b19-8bf9eb21df44"
     },
     {
-      "id": "8ba180aa-daa2-462a-946c-72934be3eec2",
-      "table": "block"
+      "table": "block",
+      "id": "8ba180aa-daa2-462a-946c-72934be3eec2"
     },
     {
-      "id": "b1fd78f9-752c-47e7-84cf-7d4d2b2f1dd3",
-      "table": "block"
+      "table": "block",
+      "id": "b1fd78f9-752c-47e7-84cf-7d4d2b2f1dd3"
     },
     {
-      "id": "b8b3343f-39d5-4441-a0e9-61ae9bb35da6",
-      "table": "block"
+      "table": "block",
+      "id": "b8b3343f-39d5-4441-a0e9-61ae9bb35da6"
     },
     {
-      "id": "cef88f41-6f52-430e-9ded-10c12857d23d",
-      "table": "block"
+      "table": "block",
+      "id": "cef88f41-6f52-430e-9ded-10c12857d23d"
     },
     {
-      "id": "d56d6fa6-06f1-4f79-9869-bd4f935bf392",
-      "table": "block"
+      "table": "block",
+      "id": "d56d6fa6-06f1-4f79-9869-bd4f935bf392"
     },
     {
-      "id": "db591f51-b42f-43d7-bceb-18e14ed11a19",
-      "table": "block"
+      "table": "block",
+      "id": "db591f51-b42f-43d7-bceb-18e14ed11a19"
     },
     {
-      "id": "debc505a-1938-4161-a808-3385b063eb35",
-      "table": "block"
+      "table": "block",
+      "id": "debc505a-1938-4161-a808-3385b063eb35"
     }
   ]
 }
-Response:+94434
+Response:+91835
 {
   "recordMapWithRoles": {
     "block": {
@@ -1064,11 +982,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Review of “Hot text - web writing that works”"
-              ]
-            ]
+            "title": [["Review of “Hot text - web writing that works”"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1110,11 +1024,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Bad Google - the fallout"
-              ]
-            ]
+            "title": [["Bad Google - the fallout"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1151,11 +1061,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Alan Cox on writing better software"
-              ]
-            ]
+            "title": [["Alan Cox on writing better software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1211,11 +1117,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "wTail release"
-              ]
-            ]
+            "title": [["wTail release"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1259,11 +1161,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 prediction - the rise of anonymous p2p"
-              ]
-            ]
+            "title": [["2005 prediction - the rise of anonymous p2p"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1301,11 +1199,7 @@ Response:+94434
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1341,11 +1235,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "University of Washington on-line videos"
-              ]
-            ]
+            "title": [["University of Washington on-line videos"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1400,11 +1290,7 @@ Response:+94434
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1449,11 +1335,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Recovering data from formatted drives"
-              ]
-            ]
+            "title": [["Recovering data from formatted drives"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1496,11 +1378,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Productivity tips"
-              ]
-            ]
+            "title": [["Productivity tips"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1537,11 +1415,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                ".NET Framework bootstrapper"
-              ]
-            ]
+            "title": [[".NET Framework bootstrapper"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1591,11 +1465,7 @@ Response:+94434
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2004 (34)"
-              ]
-            ]
+            "title": [["2004 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1633,11 +1503,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "GPL 3 - anti-patent virus?"
-              ]
-            ]
+            "title": [["GPL 3 - anti-patent virus?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1719,11 +1585,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A collaborative text editor for Windows"
-              ]
-            ]
+            "title": [["A collaborative text editor for Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1779,11 +1641,7 @@ Response:+94434
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1822,11 +1680,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A tip from “Getting things done”"
-              ]
-            ]
+            "title": [["A tip from “Getting things done”"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1865,11 +1719,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google - comments on comments"
-              ]
-            ]
+            "title": [["Google - comments on comments"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1943,11 +1793,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google - we take it all, give nothing back"
-              ]
-            ]
+            "title": [["Google - we take it all, give nothing back"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1986,9 +1832,7 @@ Response:+94434
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Blogs should always provide “previous posts” button"
-              ]
+              ["Blogs should always provide “previous posts” button"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2027,11 +1871,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Don’t use 0 instead of NULL"
-              ]
-            ]
+            "title": [["Don’t use 0 instead of NULL"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2070,11 +1910,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google - ultimate hypocrite"
-              ]
-            ]
+            "title": [["Google - ultimate hypocrite"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2121,9 +1957,7 @@ Response:+94434
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Patterns in interaction design (web and gui design pattern)"
-              ]
+              ["Patterns in interaction design (web and gui design pattern)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2163,11 +1997,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Microsoft leading the way with open bug database"
-              ]
-            ]
+            "title": [["Microsoft leading the way with open bug database"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2212,11 +2042,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Counterpost to a counterpost"
-              ]
-            ]
+            "title": [["Counterpost to a counterpost"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2256,11 +2082,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "scdiff 0.3 released"
-              ]
-            ]
+            "title": [["scdiff 0.3 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2297,11 +2119,7 @@ Response:+94434
           "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Web writing that works"
-              ]
-            ]
+            "title": [["Web writing that works"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2409,11 +2227,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Review of “Hot text - web writing that works”"
-            ]
-          ]
+          "title": [["Review of “Hot text - web writing that works”"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2455,11 +2269,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Bad Google - the fallout"
-            ]
-          ]
+          "title": [["Bad Google - the fallout"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2496,11 +2306,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Alan Cox on writing better software"
-            ]
-          ]
+          "title": [["Alan Cox on writing better software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2556,11 +2362,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "wTail release"
-            ]
-          ]
+          "title": [["wTail release"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2604,11 +2406,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "2005 prediction - the rise of anonymous p2p"
-            ]
-          ]
+          "title": [["2005 prediction - the rise of anonymous p2p"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2644,11 +2442,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "University of Washington on-line videos"
-            ]
-          ]
+          "title": [["University of Washington on-line videos"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2693,11 +2487,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Recovering data from formatted drives"
-            ]
-          ]
+          "title": [["Recovering data from formatted drives"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2740,11 +2530,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Productivity tips"
-            ]
-          ]
+          "title": [["Productivity tips"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2781,11 +2567,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              ".NET Framework bootstrapper"
-            ]
-          ]
+          "title": [[".NET Framework bootstrapper"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2823,11 +2605,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "GPL 3 - anti-patent virus?"
-            ]
-          ]
+          "title": [["GPL 3 - anti-patent virus?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2909,11 +2687,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A collaborative text editor for Windows"
-            ]
-          ]
+          "title": [["A collaborative text editor for Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2952,11 +2726,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A tip from “Getting things done”"
-            ]
-          ]
+          "title": [["A tip from “Getting things done”"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2995,11 +2765,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google - comments on comments"
-            ]
-          ]
+          "title": [["Google - comments on comments"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3073,11 +2839,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google - we take it all, give nothing back"
-            ]
-          ]
+          "title": [["Google - we take it all, give nothing back"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3116,9 +2878,7 @@ Response:+94434
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Blogs should always provide “previous posts” button"
-            ]
+            ["Blogs should always provide “previous posts” button"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3157,11 +2917,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Don’t use 0 instead of NULL"
-            ]
-          ]
+          "title": [["Don’t use 0 instead of NULL"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3200,11 +2956,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google - ultimate hypocrite"
-            ]
-          ]
+          "title": [["Google - ultimate hypocrite"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3251,9 +3003,7 @@ Response:+94434
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Patterns in interaction design (web and gui design pattern)"
-            ]
+            ["Patterns in interaction design (web and gui design pattern)"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3293,11 +3043,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Microsoft leading the way with open bug database"
-            ]
-          ]
+          "title": [["Microsoft leading the way with open bug database"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3342,11 +3088,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Counterpost to a counterpost"
-            ]
-          ]
+          "title": [["Counterpost to a counterpost"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3386,11 +3128,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "scdiff 0.3 released"
-            ]
-          ]
+          "title": [["scdiff 0.3 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3427,11 +3165,7 @@ Response:+94434
         "parent_id": "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Web writing that works"
-            ]
-          ]
+          "title": [["Web writing that works"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

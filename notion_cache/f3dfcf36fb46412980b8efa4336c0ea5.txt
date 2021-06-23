@@ -1,12 +1,12 @@
-10029 httpcache-v1
+10029 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+111
+Body:+110
 {
   "requests": [
     {
-      "id": "f3dfcf36-fb46-4129-80b8-efa4336c0ea5",
-      "table": "block"
+      "table": "block",
+      "id": "f3dfcf36-fb46-4129-80b8-efa4336c0ea5"
     }
   ]
 }
@@ -257,17 +257,17 @@ Response:+9830
     }
   ]
 }
-32189 httpcache-v1
+32189 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+153
+Body:+152
 {
+  "pageId": "f3dfcf36-fb46-4129-80b8-efa4336c0ea5",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "f3dfcf36-fb46-4129-80b8-efa4336c0ea5",
   "verticalColumns": false
 }
 Response:+31949
@@ -1082,20 +1082,20 @@ Response:+31949
     }
   }
 }
-38170 httpcache-v1
+38170 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/queryCollection
-Body:+270
+Body:+269
 {
   "collectionId": "01ea4c51-ecf3-400a-b53b-f3d62a62af57",
   "collectionViewId": "3d41dca8-5aaa-4d21-ba57-b2a6d63a1530",
+  "query": null,
   "loader": {
-    "limit": 256,
-    "loadContentCover": true,
     "type": "table",
-    "userTimeZone": "America/Los_Angeles"
-  },
-  "query": null
+    "limit": 256,
+    "userTimeZone": "America/Los_Angeles",
+    "loadContentCover": true
+  }
 }
 Response:+37811
 {

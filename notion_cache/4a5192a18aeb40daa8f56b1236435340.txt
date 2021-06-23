@@ -1,16 +1,16 @@
-20396 1624300592938 httpcache-v1
+20172 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
-      "table": "block"
+      "table": "block",
+      "id": "4a5192a1-8aeb-40da-a8f5-6b1236435340"
     }
   ]
 }
-Response:+20195
+Response:+19972
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+20195
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -160,9 +156,7 @@ Response:+20195
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792511,
-          "file_ids": [
-            "32f18692-56e5-4c85-a2dd-ccabb5c3d537"
-          ],
+          "file_ids": ["32f18692-56e5-4c85-a2dd-ccabb5c3d537"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32f18692-56e5-4c85-a2dd-ccabb5c3d537/header-18.jpg",
             "page_cover_position": 0.5,
@@ -238,11 +232,7 @@ Response:+20195
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -289,11 +279,7 @@ Response:+20195
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -452,9 +438,7 @@ Response:+20195
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888792511,
-        "file_ids": [
-          "32f18692-56e5-4c85-a2dd-ccabb5c3d537"
-        ],
+        "file_ids": ["32f18692-56e5-4c85-a2dd-ccabb5c3d537"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32f18692-56e5-4c85-a2dd-ccabb5c3d537/header-18.jpg",
           "page_cover_position": 0.5,
@@ -483,20 +467,20 @@ Response:+20195
     }
   ]
 }
-75060 1624300592940 httpcache-v1
+69208 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "verticalColumns": false
 }
-Response:+74819
+Response:+68968
 {
   "cursor": {
     "stack": [
@@ -535,11 +519,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "My rules for a good name for a Go library are:"
-              ]
-            ]
+            "title": [["My rules for a good name for a Go library are:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -591,11 +571,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Phase zero - picking a name for the package"
-              ]
-            ]
+            "title": [["Phase zero - picking a name for the package"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -632,9 +608,7 @@ Response:+74819
                   ]
                 ]
               ],
-              [
-                " project, but it’s simplified implementation."
-              ]
+              [" project, but it’s simplified implementation."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -686,11 +660,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "UpdatedAt: 2017-08-02T18:02:19Z"
-              ]
-            ]
+            "title": [["UpdatedAt: 2017-08-02T18:02:19Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -742,9 +712,7 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "It’s important to get an early boost so I started with "
-              ],
+              ["It’s important to get an early boost so I started with "],
               [
                 "the simplest parts",
                 [
@@ -754,9 +722,7 @@ Response:+74819
                   ]
                 ]
               ],
-              [
-                ": structures, enums."
-              ]
+              [": structures, enums."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -780,11 +746,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "CreatedAt: 2017-07-23T05:35:08Z"
-              ]
-            ]
+            "title": [["CreatedAt: 2017-07-23T05:35:08Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -807,11 +769,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go"
-              ]
-            ]
+            "title": [["Tags: go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -849,11 +807,7 @@ Response:+74819
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -877,11 +831,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I could look into copying Android layout logic."
-              ]
-            ]
+            "title": [["I could look into copying Android layout logic."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -964,25 +914,9 @@ Response:+74819
               [
                 "Go and C have reversed order of declarations. Reversing it manually is boring and error prone. There were many repeated declarations that I could do with a simple search-and-replace, e.g "
               ],
-              [
-                "YGNodeRef node",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " =\u003e "
-              ],
-              [
-                "node *YGNode",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["YGNodeRef node", [["c"]]],
+              [" => "],
+              ["node *YGNode", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1008,17 +942,8 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I could use "
-              ],
-              [
-                "yoga",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["I could use "],
+              ["yoga", [["c"]]],
               [
                 ", to better higlight connection with original project, but it’s not descriptive."
               ]
@@ -1133,9 +1058,7 @@ Response:+74819
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792511,
-          "file_ids": [
-            "32f18692-56e5-4c85-a2dd-ccabb5c3d537"
-          ],
+          "file_ids": ["32f18692-56e5-4c85-a2dd-ccabb5c3d537"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32f18692-56e5-4c85-a2dd-ccabb5c3d537/header-18.jpg",
             "page_cover_position": 0.5,
@@ -1180,9 +1103,7 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Porting process was boring but relatively uneventful."
-              ]
+              ["Porting process was boring but relatively uneventful."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1207,11 +1128,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Some porting comments:"
-              ]
-            ]
+            "title": [["Some porting comments:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1235,11 +1152,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Here’s how porting happened."
-              ]
-            ]
+            "title": [["Here’s how porting happened."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1263,11 +1176,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I was in a pickle."
-              ]
-            ]
+            "title": [["I was in a pickle."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1323,11 +1232,7 @@ Response:+74819
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1352,21 +1257,9 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The result is "
-              ],
-              [
-                "flex",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/flex"
-                  ]
-                ]
-              ],
-              [
-                " package."
-              ]
+              ["The result is "],
+              ["flex", [["a", "https://github.com/kjk/flex"]]],
+              [" package."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1392,32 +1285,11 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I could use "
-              ],
-              [
-                "flexbox",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to better higlight connection with "
-              ],
-              [
-                "CSS flexbox",
-                [
-                  [
-                    "a",
-                    "https://www.w3.org/TR/css-flexbox-1/"
-                  ]
-                ]
-              ],
-              [
-                ", but it’s a bit long."
-              ]
+              ["I could use "],
+              ["flexbox", [["c"]]],
+              [" to better higlight connection with "],
+              ["CSS flexbox", [["a", "https://www.w3.org/TR/css-flexbox-1/"]]],
+              [", but it’s a bit long."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1443,21 +1315,9 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Therefore "
-              ],
-              [
-                "github.com/kjk/flex",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/flex"
-                  ]
-                ]
-              ],
-              [
-                " was born."
-              ]
+              ["Therefore "],
+              ["github.com/kjk/flex", [["a", "https://github.com/kjk/flex"]]],
+              [" was born."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1538,11 +1398,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Phase two - fixing bugs"
-              ]
-            ]
+            "title": [["Phase two - fixing bugs"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1589,11 +1445,7 @@ Response:+74819
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1671,11 +1523,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: wN9R"
-              ]
-            ]
+            "title": [["Id: wN9R"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1699,11 +1547,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Phase one - getting Go port to compile"
-              ]
-            ]
+            "title": [["Phase one - getting Go port to compile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1728,17 +1572,8 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "That would be a bad idea. Including "
-              ],
-              [
-                "go",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["That would be a bad idea. Including "],
+              ["go", [["c"]]],
               [
                 " in package or repository name is bad (but unfortunately happens too often)."
               ]
@@ -1767,9 +1602,7 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I did some work in Winforms so I could copy their ideas."
-              ]
+              ["I did some work in Winforms so I could copy their ideas."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1822,11 +1655,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it’s descriptive"
-              ]
-            ]
+            "title": [["it’s descriptive"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1878,11 +1707,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I’m working on desktop GUI apps for Windows in Go."
-              ]
-            ]
+            "title": [["I’m working on desktop GUI apps for Windows in Go."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1954,11 +1779,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it’s short"
-              ]
-            ]
+            "title": [["it’s short"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1981,11 +1802,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PublishedOn: 2017-08-02"
-              ]
-            ]
+            "title": [["PublishedOn: 2017-08-02"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2013,50 +1830,14 @@ Response:+74819
               [
                 "It was tempting to pick a name that would be some combination of "
               ],
-              [
-                "yoga",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "go",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " e.g. "
-              ],
-              [
-                "goyoga",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " or "
-              ],
-              [
-                "yoga-go",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["yoga", [["c"]]],
+              [" and "],
+              ["go", [["c"]]],
+              [" e.g. "],
+              ["goyoga", [["c"]]],
+              [" or "],
+              ["yoga-go", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2080,11 +1861,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2108,42 +1885,13 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "search-and-replace "
-              ],
-              [
-                "-\u003e",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to "
-              ],
-              [
-                ".",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " as Go uses "
-              ],
-              [
-                ".",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for both cases (something that C++-28 should adopt)"
-              ]
+              ["search-and-replace "],
+              ["->", [["c"]]],
+              [" to "],
+              [".", [["c"]]],
+              [" as Go uses "],
+              [".", [["c"]]],
+              [" for both cases (something that C++-28 should adopt)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2168,28 +1916,10 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "switch",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " statement needs attention as in C "
-              ],
-              [
-                "case",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " falls-through by default"
-              ]
+              ["switch", [["c"]]],
+              [" statement needs attention as in C "],
+              ["case", [["c"]]],
+              [" falls-through by default"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2214,72 +1944,20 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Go doesn’t support "
-              ],
-              [
-                "xor",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " (^) and "
-              ],
-              [
-                "or",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Go doesn’t support "],
+              ["xor", [["c"]]],
+              [" (^) and "],
+              ["or", [["c"]]],
               [
                 " (|) operator on bool. As it turns out, they are not neccessary. "
               ],
-              [
-                "x ^ y",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " is the same as "
-              ],
-              [
-                "x != y",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". "
-              ],
-              [
-                "a = a | b",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " can be written as: "
-              ],
-              [
-                "if !a \u0026\u0026 b { a = true }",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["x ^ y", [["c"]]],
+              [" is the same as "],
+              ["x != y", [["c"]]],
+              [". "],
+              ["a = a | b", [["c"]]],
+              [" can be written as: "],
+              ["if !a && b { a = true }", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2332,39 +2010,12 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Yoga uses "
-              ],
-              [
-                "float",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for coordinates and uses a few functions like "
-              ],
-              [
-                "fmaxf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " etc. Go only implements "
-              ],
-              [
-                "float64",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Yoga uses "],
+              ["float", [["c"]]],
+              [" for coordinates and uses a few functions like "],
+              ["fmaxf", [["c"]]],
+              [" etc. Go only implements "],
+              ["float64", [["c"]]],
               [
                 " versions of math functions. Missing functions were easy to write."
               ]
@@ -2392,11 +2043,7 @@ Response:+74819
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "package name matches repository name"
-              ]
-            ]
+            "title": [["package name matches repository name"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2421,21 +2068,9 @@ Response:+74819
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The most complete implementation is Facebook’s "
-              ],
-              [
-                "Yoga",
-                [
-                  [
-                    "a",
-                    "https://github.com/facebook/yoga"
-                  ]
-                ]
-              ],
-              [
-                ", but it’s written in C (with bindings to many languages)."
-              ]
+              ["The most complete implementation is Facebook’s "],
+              ["Yoga", [["a", "https://github.com/facebook/yoga"]]],
+              [", but it’s written in C (with bindings to many languages)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2546,12 +2181,14 @@ Response:+74819
     }
   }
 }
-51355 1624300592941 httpcache-v1
+48752 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "chunkNumber": 1,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -2570,11 +2207,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "verticalColumns": false
 }
-Response:+50825
+Response:+48223
 {
   "cursor": {
     "stack": [
@@ -2613,11 +2248,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The status"
-              ]
-            ]
+            "title": [["The status"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2795,11 +2426,7 @@ Response:+50825
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2853,7 +2480,7 @@ Response:+50825
           "properties": {
             "title": [
               [
-                "Some transformations could be done with regex search \u0026 replace. The rest with manual labor."
+                "Some transformations could be done with regex search & replace. The rest with manual labor."
               ]
             ]
           },
@@ -2907,11 +2534,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Phase three - Go-ifying the API"
-              ]
-            ]
+            "title": [["Phase three - Go-ifying the API"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2964,28 +2587,10 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "renaming accessor functions to methods (from "
-              ],
-              [
-                "func NodeFoo(node *Node)",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " =\u003e "
-              ],
-              [
-                "func (node *Node) Foo()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["renaming accessor functions to methods (from "],
+              ["func NodeFoo(node *Node)", [["c"]]],
+              [" => "],
+              ["func (node *Node) Foo()", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3097,9 +2702,7 @@ Response:+50825
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792511,
-          "file_ids": [
-            "32f18692-56e5-4c85-a2dd-ccabb5c3d537"
-          ],
+          "file_ids": ["32f18692-56e5-4c85-a2dd-ccabb5c3d537"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32f18692-56e5-4c85-a2dd-ccabb5c3d537/header-18.jpg",
             "page_cover_position": 0.5,
@@ -3144,64 +2747,17 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Yoga uses "
-              ],
-              [
-                "NaN",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " value as "
-              ],
-              [
-                "undefined",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". I noticed that "
-              ],
-              [
-                "fmaxf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " function that I wrote returned "
-              ],
-              [
-                "NaN",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " when any argument was "
-              ],
-              [
-                "NaN",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["Yoga uses "],
+              ["NaN", [["c"]]],
+              [" value as "],
+              ["undefined", [["c"]]],
+              [". I noticed that "],
+              ["fmaxf", [["c"]]],
+              [" function that I wrote returned "],
+              ["NaN", [["c"]]],
+              [" when any argument was "],
+              ["NaN", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3258,11 +2814,7 @@ Response:+50825
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3337,11 +2889,7 @@ Response:+50825
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3365,11 +2913,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I decided to re-check every line of code."
-              ]
-            ]
+            "title": [["I decided to re-check every line of code."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3394,9 +2938,7 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The port is finished. It works and passes all Yoga tests."
-              ]
+              ["The port is finished. It works and passes all Yoga tests."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3421,11 +2963,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "making struct fields public"
-              ]
-            ]
+            "title": [["making struct fields public"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -3477,11 +3015,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The majority of changes were:"
-              ]
-            ]
+            "title": [["The majority of changes were:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3562,9 +3096,7 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The code was working but it was far from idiomatic Go code."
-              ]
+              ["The code was working but it was far from idiomatic Go code."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3617,11 +3149,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The tests were still failing and I was a bit stuck."
-              ]
-            ]
+            "title": [["The tests were still failing and I was a bit stuck."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3645,11 +3173,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It’s mechanical, boring process."
-              ]
-            ]
+            "title": [["It’s mechanical, boring process."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3677,17 +3201,8 @@ Response:+50825
               [
                 "How to represent that in Go? Ideally, the zero value of the type would represent default value so that a style definition can be constructed as "
               ],
-              [
-                "\u0026Style{}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and then we can set the properties that are non-default."
-              ]
+              ["&Style{}", [["c"]]],
+              [" and then we can set the properties that are non-default."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3713,20 +3228,9 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "removing "
-              ],
-              [
-                "YG",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " prefix as packages obviate the need for that"
-              ]
+              ["removing "],
+              ["YG", [["c"]]],
+              [" prefix as packages obviate the need for that"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3779,11 +3283,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It was easy to fix and that fixed all the tests."
-              ]
-            ]
+            "title": [["It was easy to fix and that fixed all the tests."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3808,31 +3308,13 @@ Response:+50825
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I compared my "
-              ],
-              [
-                "fmaxf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["I compared my "],
+              ["fmaxf", [["c"]]],
               [
                 " implementation with C implmentation and it turns out that if one of the arguments is "
               ],
-              [
-                "NaN",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " but the other one isn’t, it should return non-NaN value."
-              ]
+              ["NaN", [["c"]]],
+              [" but the other one isn’t, it should return non-NaN value."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3857,11 +3339,7 @@ Response:+50825
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Next phase was tweaking the API to be more Go-like."
-              ]
-            ]
+            "title": [["Next phase was tweaking the API to be more Go-like."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3916,12 +3394,14 @@ Response:+50825
     }
   }
 }
-32591 1624300592942 httpcache-v1
+30971 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "chunkNumber": 2,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -3940,11 +3420,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
   "verticalColumns": false
 }
-Response:+32061
+Response:+30442
 {
   "cursor": {
     "stack": []
@@ -3971,16 +3449,9 @@ Response:+32061
             "title": [
               [
                 "elliotchance/c2go",
-                [
-                  [
-                    "a",
-                    "https://github.com/elliotchance/c2go"
-                  ]
-                ]
+                [["a", "https://github.com/elliotchance/c2go"]]
               ],
-              [
-                " seems to be the most promising."
-              ]
+              [" seems to be the most promising."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4103,11 +3574,7 @@ Response:+32061
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4160,9 +3627,7 @@ Response:+32061
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I didn’t try any of them as neither seems to be usable yet."
-              ]
+              ["I didn’t try any of them as neither seems to be usable yet."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4302,9 +3767,7 @@ Response:+32061
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792511,
-          "file_ids": [
-            "32f18692-56e5-4c85-a2dd-ccabb5c3d537"
-          ],
+          "file_ids": ["32f18692-56e5-4c85-a2dd-ccabb5c3d537"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32f18692-56e5-4c85-a2dd-ccabb5c3d537/header-18.jpg",
             "page_cover_position": 0.5,
@@ -4380,11 +3843,7 @@ Response:+32061
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4407,11 +3866,7 @@ Response:+32061
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "https://github.com/elliotchance/c2go"
-              ]
-            ]
+            "title": [["https://github.com/elliotchance/c2go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -4436,31 +3891,11 @@ Response:+32061
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Yoga uses "
-              ],
-              [
-                "float32",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for numbers and "
-              ],
-              [
-                "NaN",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for undefined value of a CSS property."
-              ]
+              ["Yoga uses "],
+              ["float32", [["c"]]],
+              [" for numbers and "],
+              ["NaN", [["c"]]],
+              [" for undefined value of a CSS property."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4508,11 +3943,7 @@ Response:+32061
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4537,39 +3968,14 @@ Response:+32061
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Another option is used in "
-              ],
-              [
-                "sql",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " package for types like "
-              ],
-              [
-                "sql.NullString",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Another option is used in "],
+              ["sql", [["c"]]],
+              [" package for types like "],
+              ["sql.NullString", [["c"]]],
               [
                 " that need to indicate null-abilibility. They are represented as a struct that combines a value and bool field "
               ],
-              [
-                "Valid",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Valid", [["c"]]],
               [
                 ". Zero value of bool is false, so by default values start as invalid (undefined)."
               ]
@@ -4596,11 +4002,7 @@ Response:+32061
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "https://github.com/rsc/c2go"
-              ]
-            ]
+            "title": [["https://github.com/rsc/c2go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -4628,18 +4030,8 @@ Response:+32061
               [
                 "Unless someone writes a pure Go implementation designed from scratch with Go idioms in mind, "
               ],
-              [
-                "flex",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/flex"
-                  ]
-                ]
-              ],
-              [
-                " is the best option."
-              ]
+              ["flex", [["a", "https://github.com/kjk/flex"]]],
+              [" is the best option."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4664,11 +4056,7 @@ Response:+32061
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on automatic translation"
-              ]
-            ]
+            "title": [["Notes on automatic translation"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -4692,11 +4080,7 @@ Response:+32061
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "There are few attempts to do that:"
-              ]
-            ]
+            "title": [["There are few attempts to do that:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -4719,11 +4103,7 @@ Response:+32061
           "parent_id": "4a5192a1-8aeb-40da-a8f5-6b1236435340",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "https://github.com/cznic/ccgo"
-              ]
-            ]
+            "title": [["https://github.com/cznic/ccgo"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",

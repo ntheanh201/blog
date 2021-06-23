@@ -1,16 +1,16 @@
-14898 1624300561320 httpcache-v1
+14546 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
-      "table": "block"
+      "table": "block",
+      "id": "e87a3fdb-32c1-4d46-83d7-693a654485f3"
     }
   ]
 }
-Response:+14697
+Response:+14346
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+14697
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+14697
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+14697
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -244,11 +232,7 @@ Response:+14697
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2003"
-              ]
-            ]
+            "title": [["2003"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -284,11 +268,7 @@ Response:+14697
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Python idioms"
-              ]
-            ]
+            "title": [["Python idioms"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -372,11 +352,7 @@ Response:+14697
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Python idioms"
-            ]
-          ]
+          "title": [["Python idioms"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -385,20 +361,20 @@ Response:+14697
     }
   ]
 }
-19951 1624300561321 httpcache-v1
+19354 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
   "verticalColumns": false
 }
-Response:+19710
+Response:+19114
 {
   "cursor": {
     "stack": []
@@ -421,11 +397,7 @@ Response:+19710
           "parent_id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: python"
-              ]
-            ]
+            "title": [["Tags: python"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -463,11 +435,7 @@ Response:+19710
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -522,11 +490,7 @@ Response:+19710
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -582,11 +546,7 @@ Response:+19710
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -609,11 +569,7 @@ Response:+19710
           "parent_id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Status: hidden"
-              ]
-            ]
+            "title": [["Status: hidden"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -637,15 +593,13 @@ Response:+19710
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "A few Python idioms are discussed in "
-              ],
+              ["A few Python idioms are discussed in "],
               [
                 "this thread",
                 [
                   [
                     "a",
-                    "http://groups.google.com/groups?hl=en\u0026lr=\u0026ie=UTF-8\u0026threadm=c42e062e.0301291531.6a656e4%40posting.google.com\u0026rnum=1\u0026prev=/groups%3Fselm%3Dc42e062e.0301291531.6a656e4%40posting.google.com"
+                    "http://groups.google.com/groups?hl=en&lr=&ie=UTF-8&threadm=c42e062e.0301291531.6a656e4%40posting.google.com&rnum=1&prev=/groups%3Fselm%3Dc42e062e.0301291531.6a656e4%40posting.google.com"
                   ]
                 ]
               ],
@@ -675,11 +629,7 @@ Response:+19710
           "parent_id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2003-02-09T16:55:24-08:00"
-              ]
-            ]
+            "title": [["Date: 2003-02-09T16:55:24-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -722,11 +672,7 @@ Response:+19710
           "parent_id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 538"
-              ]
-            ]
+            "title": [["Id: 538"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -802,11 +748,7 @@ Response:+19710
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2003"
-              ]
-            ]
+            "title": [["2003"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -842,11 +784,7 @@ Response:+19710
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Python idioms"
-              ]
-            ]
+            "title": [["Python idioms"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -901,215 +839,215 @@ Response:+19710
     }
   }
 }
-175588 1624300561326 httpcache-v1
+169956 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+4422
 {
   "requests": [
     {
-      "id": "03c5dea0-1e8e-4ef4-a041-904d6a5de46a",
-      "table": "block"
+      "table": "block",
+      "id": "03c5dea0-1e8e-4ef4-a041-904d6a5de46a"
     },
     {
-      "id": "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8",
-      "table": "block"
+      "table": "block",
+      "id": "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8"
     },
     {
-      "id": "0e6cf17c-3de1-4806-922f-8d0402843b8f",
-      "table": "block"
+      "table": "block",
+      "id": "0e6cf17c-3de1-4806-922f-8d0402843b8f"
     },
     {
-      "id": "1363796b-7441-4e15-9470-ed2efd2bc585",
-      "table": "block"
+      "table": "block",
+      "id": "1363796b-7441-4e15-9470-ed2efd2bc585"
     },
     {
-      "id": "20b34bf6-02e0-49f0-8aed-2309a097873c",
-      "table": "block"
+      "table": "block",
+      "id": "20b34bf6-02e0-49f0-8aed-2309a097873c"
     },
     {
-      "id": "22ee7837-6409-4e15-86de-7d7be59ce2ef",
-      "table": "block"
+      "table": "block",
+      "id": "22ee7837-6409-4e15-86de-7d7be59ce2ef"
     },
     {
-      "id": "2557e059-05d9-45d3-b89e-d2a6000eda11",
-      "table": "block"
+      "table": "block",
+      "id": "2557e059-05d9-45d3-b89e-d2a6000eda11"
     },
     {
-      "id": "2c8def1e-b066-4453-b0b1-f163840ca646",
-      "table": "block"
+      "table": "block",
+      "id": "2c8def1e-b066-4453-b0b1-f163840ca646"
     },
     {
-      "id": "31a8bf9c-23fa-49e6-8061-22c4913048d3",
-      "table": "block"
+      "table": "block",
+      "id": "31a8bf9c-23fa-49e6-8061-22c4913048d3"
     },
     {
-      "id": "36181bcd-8399-42c4-a1a3-1caad933721b",
-      "table": "block"
+      "table": "block",
+      "id": "36181bcd-8399-42c4-a1a3-1caad933721b"
     },
     {
-      "id": "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c",
-      "table": "block"
+      "table": "block",
+      "id": "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c"
     },
     {
-      "id": "4194c048-3ff5-46d2-88c4-51818da3725e",
-      "table": "block"
+      "table": "block",
+      "id": "4194c048-3ff5-46d2-88c4-51818da3725e"
     },
     {
-      "id": "464c291c-d660-4f8c-9fbc-3f26069438ca",
-      "table": "block"
+      "table": "block",
+      "id": "464c291c-d660-4f8c-9fbc-3f26069438ca"
     },
     {
-      "id": "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5",
-      "table": "block"
+      "table": "block",
+      "id": "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5"
     },
     {
-      "id": "52979d4b-5163-4a03-9077-7890670a9753",
-      "table": "block"
+      "table": "block",
+      "id": "52979d4b-5163-4a03-9077-7890670a9753"
     },
     {
-      "id": "529d5b82-5b8c-4e3a-89b6-2f5c044bf473",
-      "table": "block"
+      "table": "block",
+      "id": "529d5b82-5b8c-4e3a-89b6-2f5c044bf473"
     },
     {
-      "id": "5d488681-25c1-4fbc-bde7-cbb1ce917077",
-      "table": "block"
+      "table": "block",
+      "id": "5d488681-25c1-4fbc-bde7-cbb1ce917077"
     },
     {
-      "id": "5db03935-3cbb-4606-b8ab-614471617263",
-      "table": "block"
+      "table": "block",
+      "id": "5db03935-3cbb-4606-b8ab-614471617263"
     },
     {
-      "id": "6058622a-cf4c-41d6-977b-347f07e14fa1",
-      "table": "block"
+      "table": "block",
+      "id": "6058622a-cf4c-41d6-977b-347f07e14fa1"
     },
     {
-      "id": "63dd2935-607b-465e-a707-111d981d8710",
-      "table": "block"
+      "table": "block",
+      "id": "63dd2935-607b-465e-a707-111d981d8710"
     },
     {
-      "id": "678979c4-7969-4122-b9ed-65528647e01e",
-      "table": "block"
+      "table": "block",
+      "id": "678979c4-7969-4122-b9ed-65528647e01e"
     },
     {
-      "id": "68a7a4e3-7168-4e57-8b43-df4480fc2db8",
-      "table": "block"
+      "table": "block",
+      "id": "68a7a4e3-7168-4e57-8b43-df4480fc2db8"
     },
     {
-      "id": "76e0c432-f234-4045-8ec2-495ab17b4597",
-      "table": "block"
+      "table": "block",
+      "id": "76e0c432-f234-4045-8ec2-495ab17b4597"
     },
     {
-      "id": "7edf7239-89d6-41c7-870f-7ee40b01c19e",
-      "table": "block"
+      "table": "block",
+      "id": "7edf7239-89d6-41c7-870f-7ee40b01c19e"
     },
     {
-      "id": "84366008-dcc2-42d6-9949-03817c8eaab8",
-      "table": "block"
+      "table": "block",
+      "id": "84366008-dcc2-42d6-9949-03817c8eaab8"
     },
     {
-      "id": "8478a4c2-8702-4837-8997-18a1d8137f96",
-      "table": "block"
+      "table": "block",
+      "id": "8478a4c2-8702-4837-8997-18a1d8137f96"
     },
     {
-      "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab",
-      "table": "block"
+      "table": "block",
+      "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab"
     },
     {
-      "id": "8aada009-b073-4777-9ce3-decfc633756d",
-      "table": "block"
+      "table": "block",
+      "id": "8aada009-b073-4777-9ce3-decfc633756d"
     },
     {
-      "id": "900168f6-c3eb-4b13-bd39-bb0148d9d421",
-      "table": "block"
+      "table": "block",
+      "id": "900168f6-c3eb-4b13-bd39-bb0148d9d421"
     },
     {
-      "id": "9215e7c9-6695-40eb-9ab0-dabe4afe2672",
-      "table": "block"
+      "table": "block",
+      "id": "9215e7c9-6695-40eb-9ab0-dabe4afe2672"
     },
     {
-      "id": "941a1f2c-5c20-4f27-aa51-b38f116c74f4",
-      "table": "block"
+      "table": "block",
+      "id": "941a1f2c-5c20-4f27-aa51-b38f116c74f4"
     },
     {
-      "id": "958402a6-8fe9-41f4-9626-2e7f83486a47",
-      "table": "block"
+      "table": "block",
+      "id": "958402a6-8fe9-41f4-9626-2e7f83486a47"
     },
     {
-      "id": "967972ad-be0b-494b-b772-e9f6489eb84b",
-      "table": "block"
+      "table": "block",
+      "id": "967972ad-be0b-494b-b772-e9f6489eb84b"
     },
     {
-      "id": "97cc2daf-fe57-444c-b1e4-7b436b022fe4",
-      "table": "block"
+      "table": "block",
+      "id": "97cc2daf-fe57-444c-b1e4-7b436b022fe4"
     },
     {
-      "id": "98494e10-661d-4bfb-a379-0aec1ac313dd",
-      "table": "block"
+      "table": "block",
+      "id": "98494e10-661d-4bfb-a379-0aec1ac313dd"
     },
     {
-      "id": "a726fefe-0c1b-4829-b53c-361bdb347359",
-      "table": "block"
+      "table": "block",
+      "id": "a726fefe-0c1b-4829-b53c-361bdb347359"
     },
     {
-      "id": "a80c396b-b324-41bb-990a-980ea3ddc25a",
-      "table": "block"
+      "table": "block",
+      "id": "a80c396b-b324-41bb-990a-980ea3ddc25a"
     },
     {
-      "id": "ac3fc93e-21a7-474e-8a9a-9267f63d2893",
-      "table": "block"
+      "table": "block",
+      "id": "ac3fc93e-21a7-474e-8a9a-9267f63d2893"
     },
     {
-      "id": "adcd152c-ba2a-48dd-ba7e-2de4d07d448b",
-      "table": "block"
+      "table": "block",
+      "id": "adcd152c-ba2a-48dd-ba7e-2de4d07d448b"
     },
     {
-      "id": "b13f1d68-28e2-4b8b-b1d1-47519b728b29",
-      "table": "block"
+      "table": "block",
+      "id": "b13f1d68-28e2-4b8b-b1d1-47519b728b29"
     },
     {
-      "id": "bc81e70c-d754-4700-baf4-56e41199ec72",
-      "table": "block"
+      "table": "block",
+      "id": "bc81e70c-d754-4700-baf4-56e41199ec72"
     },
     {
-      "id": "c122ae48-097f-40b4-95bd-99005270369c",
-      "table": "block"
+      "table": "block",
+      "id": "c122ae48-097f-40b4-95bd-99005270369c"
     },
     {
-      "id": "c1a2e879-d8db-4810-ab18-db144948f668",
-      "table": "block"
+      "table": "block",
+      "id": "c1a2e879-d8db-4810-ab18-db144948f668"
     },
     {
-      "id": "c5e8489d-ebb9-4ece-95ff-97b19ede3e49",
-      "table": "block"
+      "table": "block",
+      "id": "c5e8489d-ebb9-4ece-95ff-97b19ede3e49"
     },
     {
-      "id": "cbbdbe2d-3848-415f-9f8f-63017e7ec398",
-      "table": "block"
+      "table": "block",
+      "id": "cbbdbe2d-3848-415f-9f8f-63017e7ec398"
     },
     {
-      "id": "d08ad186-b982-4fd4-a3c3-42088422bc68",
-      "table": "block"
+      "table": "block",
+      "id": "d08ad186-b982-4fd4-a3c3-42088422bc68"
     },
     {
-      "id": "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9",
-      "table": "block"
+      "table": "block",
+      "id": "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9"
     },
     {
-      "id": "dfa0ad7d-312f-45f7-8f3c-92561f748ac7",
-      "table": "block"
+      "table": "block",
+      "id": "dfa0ad7d-312f-45f7-8f3c-92561f748ac7"
     },
     {
-      "id": "f79ab418-940d-4ebb-9f68-3900252f75ed",
-      "table": "block"
+      "table": "block",
+      "id": "f79ab418-940d-4ebb-9f68-3900252f75ed"
     },
     {
-      "id": "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba",
-      "table": "block"
+      "table": "block",
+      "id": "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba"
     }
   ]
 }
-Response:+171073
+Response:+165442
 {
   "recordMapWithRoles": {
     "block": {
@@ -1142,11 +1080,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Outsourcing"
-              ]
-            ]
+            "title": [["Outsourcing"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1185,11 +1119,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Abut Face - second edition"
-              ]
-            ]
+            "title": [["Abut Face - second edition"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1224,11 +1154,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Successful telecommuting"
-              ]
-            ]
+            "title": [["Successful telecommuting"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1264,11 +1190,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SICP lectures available on-line"
-              ]
-            ]
+            "title": [["SICP lectures available on-line"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1315,11 +1237,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Catch me if you can"
-              ]
-            ]
+            "title": [["Catch me if you can"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1354,11 +1272,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Popular fallacies"
-              ]
-            ]
+            "title": [["Popular fallacies"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1393,11 +1307,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Not as happy as you thought you will be"
-              ]
-            ]
+            "title": [["Not as happy as you thought you will be"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1435,11 +1345,7 @@ Response:+171073
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1475,11 +1381,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Your life"
-              ]
-            ]
+            "title": [["Your life"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1534,11 +1436,7 @@ Response:+171073
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1575,11 +1473,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Seth Godin on Purple Cows"
-              ]
-            ]
+            "title": [["Seth Godin on Purple Cows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1630,11 +1524,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Programmers don’t steal enough"
-              ]
-            ]
+            "title": [["Programmers don’t steal enough"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1671,9 +1561,7 @@ Response:+171073
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Skype as an example of changing nature of social interactions"
-              ]
+              ["Skype as an example of changing nature of social interactions"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1709,11 +1597,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Disabling WFP (Windows File Protection)"
-              ]
-            ]
+            "title": [["Disabling WFP (Windows File Protection)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1751,11 +1635,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Writing to sell"
-              ]
-            ]
+            "title": [["Writing to sell"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1797,11 +1677,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Good software, bad buying experience"
-              ]
-            ]
+            "title": [["Good software, bad buying experience"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1836,11 +1712,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Source Insight 3.5"
-              ]
-            ]
+            "title": [["Source Insight 3.5"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1875,11 +1747,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Myths Open Source Developers Tell Ourselves"
-              ]
-            ]
+            "title": [["Myths Open Source Developers Tell Ourselves"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1935,11 +1803,7 @@ Response:+171073
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1975,11 +1839,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Royalties in game business"
-              ]
-            ]
+            "title": [["Royalties in game business"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2016,11 +1876,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Shirky on Wikis"
-              ]
-            ]
+            "title": [["Shirky on Wikis"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2057,11 +1913,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Making money with shareware software"
-              ]
-            ]
+            "title": [["Making money with shareware software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2097,9 +1949,7 @@ Response:+171073
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "On difference between amateur and professional shareware"
-              ]
+              ["On difference between amateur and professional shareware"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2134,11 +1984,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "O’Reilly on software"
-              ]
-            ]
+            "title": [["O’Reilly on software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2173,11 +2019,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Usability Heuristics for Rich Internet Applications"
-              ]
-            ]
+            "title": [["Usability Heuristics for Rich Internet Applications"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2216,11 +2058,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Marketing and shareware articles"
-              ]
-            ]
+            "title": [["Marketing and shareware articles"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2256,11 +2094,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Better selling through a web-site"
-              ]
-            ]
+            "title": [["Better selling through a web-site"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2305,11 +2139,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Why consistency is important in software design"
-              ]
-            ]
+            "title": [["Why consistency is important in software design"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2348,11 +2178,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "An old ad for a job at Microsoft"
-              ]
-            ]
+            "title": [["An old ad for a job at Microsoft"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2387,11 +2213,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Old ArsDigita content"
-              ]
-            ]
+            "title": [["Old ArsDigita content"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2433,11 +2255,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Do you read the old papers?"
-              ]
-            ]
+            "title": [["Do you read the old papers?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2472,11 +2290,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Watch TV on the internet"
-              ]
-            ]
+            "title": [["Watch TV on the internet"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2511,11 +2325,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Don’t change URIs"
-              ]
-            ]
+            "title": [["Don’t change URIs"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2558,11 +2368,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Given enough eyeballs make all bugs shallow"
-              ]
-            ]
+            "title": [["Given enough eyeballs make all bugs shallow"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2608,11 +2414,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Software can always be better"
-              ]
-            ]
+            "title": [["Software can always be better"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2649,9 +2451,7 @@ Response:+171073
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Is software industry a place to be - Greenspun perspective"
-              ]
+              ["Is software industry a place to be - Greenspun perspective"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2689,11 +2489,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Carmack on creativity"
-              ]
-            ]
+            "title": [["Carmack on creativity"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2728,11 +2524,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Lying with a straight face"
-              ]
-            ]
+            "title": [["Lying with a straight face"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2767,11 +2559,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Lucene for searching source code"
-              ]
-            ]
+            "title": [["Lucene for searching source code"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2806,11 +2594,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Creative commons presentation"
-              ]
-            ]
+            "title": [["Creative commons presentation"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2849,11 +2633,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A shameless rip-off, or what did you expect?"
-              ]
-            ]
+            "title": [["A shameless rip-off, or what did you expect?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2888,11 +2668,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Asking the right question about language design"
-              ]
-            ]
+            "title": [["Asking the right question about language design"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2928,11 +2704,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Perl to Python compiler"
-              ]
-            ]
+            "title": [["Perl to Python compiler"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2968,11 +2740,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "As we may think"
-              ]
-            ]
+            "title": [["As we may think"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3040,9 +2808,7 @@ Response:+171073
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "My future is so bright that I’ll need to wear sunglasses"
-              ]
+              ["My future is so bright that I’ll need to wear sunglasses"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3091,11 +2857,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How much can you make writing computer books"
-              ]
-            ]
+            "title": [["How much can you make writing computer books"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3133,11 +2895,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Critical reading skills"
-              ]
-            ]
+            "title": [["Critical reading skills"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3172,11 +2930,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The story of Photoshop"
-              ]
-            ]
+            "title": [["The story of Photoshop"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3212,11 +2966,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How to make money developing Mac apps"
-              ]
-            ]
+            "title": [["How to make money developing Mac apps"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3251,11 +3001,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Publicity 101"
-              ]
-            ]
+            "title": [["Publicity 101"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3293,11 +3039,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Memex - “sue me please” device"
-              ]
-            ]
+            "title": [["Memex - “sue me please” device"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3373,11 +3115,7 @@ Response:+171073
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2003"
-              ]
-            ]
+            "title": [["2003"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3423,11 +3161,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Remote desktop - from Windows to Mac OS X"
-              ]
-            ]
+            "title": [["Remote desktop - from Windows to Mac OS X"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3462,11 +3196,7 @@ Response:+171073
           "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Are Microsoft products any good?"
-              ]
-            ]
+            "title": [["Are Microsoft products any good?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3550,11 +3280,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Outsourcing"
-            ]
-          ]
+          "title": [["Outsourcing"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3593,11 +3319,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Abut Face - second edition"
-            ]
-          ]
+          "title": [["Abut Face - second edition"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3632,11 +3354,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Successful telecommuting"
-            ]
-          ]
+          "title": [["Successful telecommuting"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3672,11 +3390,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SICP lectures available on-line"
-            ]
-          ]
+          "title": [["SICP lectures available on-line"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3723,11 +3437,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Catch me if you can"
-            ]
-          ]
+          "title": [["Catch me if you can"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3762,11 +3472,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Popular fallacies"
-            ]
-          ]
+          "title": [["Popular fallacies"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3801,11 +3507,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Not as happy as you thought you will be"
-            ]
-          ]
+          "title": [["Not as happy as you thought you will be"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3841,11 +3543,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Your life"
-            ]
-          ]
+          "title": [["Your life"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3882,11 +3580,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Seth Godin on Purple Cows"
-            ]
-          ]
+          "title": [["Seth Godin on Purple Cows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3937,11 +3631,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Programmers don’t steal enough"
-            ]
-          ]
+          "title": [["Programmers don’t steal enough"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3978,9 +3668,7 @@ Response:+171073
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Skype as an example of changing nature of social interactions"
-            ]
+            ["Skype as an example of changing nature of social interactions"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4016,11 +3704,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Disabling WFP (Windows File Protection)"
-            ]
-          ]
+          "title": [["Disabling WFP (Windows File Protection)"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4058,11 +3742,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Writing to sell"
-            ]
-          ]
+          "title": [["Writing to sell"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4104,11 +3784,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Good software, bad buying experience"
-            ]
-          ]
+          "title": [["Good software, bad buying experience"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4143,11 +3819,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Source Insight 3.5"
-            ]
-          ]
+          "title": [["Source Insight 3.5"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4182,11 +3854,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Myths Open Source Developers Tell Ourselves"
-            ]
-          ]
+          "title": [["Myths Open Source Developers Tell Ourselves"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4222,11 +3890,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Royalties in game business"
-            ]
-          ]
+          "title": [["Royalties in game business"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4263,11 +3927,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Shirky on Wikis"
-            ]
-          ]
+          "title": [["Shirky on Wikis"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4304,11 +3964,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Making money with shareware software"
-            ]
-          ]
+          "title": [["Making money with shareware software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4344,9 +4000,7 @@ Response:+171073
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "On difference between amateur and professional shareware"
-            ]
+            ["On difference between amateur and professional shareware"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4381,11 +4035,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "O’Reilly on software"
-            ]
-          ]
+          "title": [["O’Reilly on software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4420,11 +4070,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Usability Heuristics for Rich Internet Applications"
-            ]
-          ]
+          "title": [["Usability Heuristics for Rich Internet Applications"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4463,11 +4109,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Marketing and shareware articles"
-            ]
-          ]
+          "title": [["Marketing and shareware articles"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4503,11 +4145,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Better selling through a web-site"
-            ]
-          ]
+          "title": [["Better selling through a web-site"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4552,11 +4190,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Why consistency is important in software design"
-            ]
-          ]
+          "title": [["Why consistency is important in software design"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4595,11 +4229,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "An old ad for a job at Microsoft"
-            ]
-          ]
+          "title": [["An old ad for a job at Microsoft"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4634,11 +4264,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Old ArsDigita content"
-            ]
-          ]
+          "title": [["Old ArsDigita content"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4680,11 +4306,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Do you read the old papers?"
-            ]
-          ]
+          "title": [["Do you read the old papers?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4719,11 +4341,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Watch TV on the internet"
-            ]
-          ]
+          "title": [["Watch TV on the internet"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4758,11 +4376,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Don’t change URIs"
-            ]
-          ]
+          "title": [["Don’t change URIs"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4805,11 +4419,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Given enough eyeballs make all bugs shallow"
-            ]
-          ]
+          "title": [["Given enough eyeballs make all bugs shallow"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4855,11 +4465,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Software can always be better"
-            ]
-          ]
+          "title": [["Software can always be better"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4896,9 +4502,7 @@ Response:+171073
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Is software industry a place to be - Greenspun perspective"
-            ]
+            ["Is software industry a place to be - Greenspun perspective"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4936,11 +4540,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Carmack on creativity"
-            ]
-          ]
+          "title": [["Carmack on creativity"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4975,11 +4575,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Lying with a straight face"
-            ]
-          ]
+          "title": [["Lying with a straight face"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5014,11 +4610,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Lucene for searching source code"
-            ]
-          ]
+          "title": [["Lucene for searching source code"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5053,11 +4645,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Creative commons presentation"
-            ]
-          ]
+          "title": [["Creative commons presentation"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5096,11 +4684,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A shameless rip-off, or what did you expect?"
-            ]
-          ]
+          "title": [["A shameless rip-off, or what did you expect?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5135,11 +4719,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Asking the right question about language design"
-            ]
-          ]
+          "title": [["Asking the right question about language design"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5175,11 +4755,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Perl to Python compiler"
-            ]
-          ]
+          "title": [["Perl to Python compiler"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5215,11 +4791,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "As we may think"
-            ]
-          ]
+          "title": [["As we may think"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5287,9 +4859,7 @@ Response:+171073
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "My future is so bright that I’ll need to wear sunglasses"
-            ]
+            ["My future is so bright that I’ll need to wear sunglasses"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5338,11 +4908,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How much can you make writing computer books"
-            ]
-          ]
+          "title": [["How much can you make writing computer books"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5380,11 +4946,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Critical reading skills"
-            ]
-          ]
+          "title": [["Critical reading skills"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5419,11 +4981,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "The story of Photoshop"
-            ]
-          ]
+          "title": [["The story of Photoshop"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5459,11 +5017,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How to make money developing Mac apps"
-            ]
-          ]
+          "title": [["How to make money developing Mac apps"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5498,11 +5052,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Publicity 101"
-            ]
-          ]
+          "title": [["Publicity 101"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5540,11 +5090,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Memex - “sue me please” device"
-            ]
-          ]
+          "title": [["Memex - “sue me please” device"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5590,11 +5136,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Remote desktop - from Windows to Mac OS X"
-            ]
-          ]
+          "title": [["Remote desktop - from Windows to Mac OS X"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5629,11 +5171,7 @@ Response:+171073
         "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Are Microsoft products any good?"
-            ]
-          ]
+          "title": [["Are Microsoft products any good?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

@@ -1,16 +1,16 @@
-18198 1624300606299 httpcache-v1
+17914 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
-      "table": "block"
+      "table": "block",
+      "id": "e1f2db06-a96a-413a-a10e-e0723f6802ab"
     }
   ]
 }
-Response:+17997
+Response:+17714
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+17997
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -105,11 +101,7 @@ Response:+17997
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -156,11 +148,7 @@ Response:+17997
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -250,9 +238,7 @@ Response:+17997
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792750,
-          "file_ids": [
-            "63013876-3b00-45d3-b813-3f94f25ca919"
-          ],
+          "file_ids": ["63013876-3b00-45d3-b813-3f94f25ca919"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63013876-3b00-45d3-b813-3f94f25ca919/header-04.jpg",
             "page_cover_position": 0.5,
@@ -269,9 +255,7 @@ Response:+17997
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "HTTPS for free in Go, with little help of Let's Encrypt"
-              ]
+              ["HTTPS for free in Go, with little help of Let's Encrypt"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -410,9 +394,7 @@ Response:+17997
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888792750,
-        "file_ids": [
-          "63013876-3b00-45d3-b813-3f94f25ca919"
-        ],
+        "file_ids": ["63013876-3b00-45d3-b813-3f94f25ca919"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63013876-3b00-45d3-b813-3f94f25ca919/header-04.jpg",
           "page_cover_position": 0.5,
@@ -429,9 +411,7 @@ Response:+17997
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "HTTPS for free in Go, with little help of Let's Encrypt"
-            ]
+            ["HTTPS for free in Go, with little help of Let's Encrypt"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -441,20 +421,20 @@ Response:+17997
     }
   ]
 }
-74519 1624300606303 httpcache-v1
+71515 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
   "verticalColumns": false
 }
-Response:+74278
+Response:+71275
 {
   "cursor": {
     "stack": [
@@ -522,17 +502,10 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I’ve been using "
-              ],
+              ["I’ve been using "],
               [
                 "golang.org/x/crypto/acme/autocert",
-                [
-                  [
-                    "a",
-                    "https://godoc.org/golang.org/x/crypto/acme/autocert"
-                  ]
-                ]
+                [["a", "https://godoc.org/golang.org/x/crypto/acme/autocert"]]
               ],
               [
                 ", which is developed by Go core developers. It’s been several months now and it works flawlessly."
@@ -561,19 +534,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "1.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " The standard port for HTTPS is 443"
-              ]
-            ]
+            "title": [["1.", [["b"]]], [" The standard port for HTTPS is 443"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -646,17 +607,8 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "6.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " We’re not running HTTPS when testing locally."
-              ]
+              ["6.", [["b"]]],
+              [" We’re not running HTTPS when testing locally."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -681,14 +633,10 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "const (\n    htmlIndex    = `\u003chtml\u003e\u003cbody\u003eWelcome!\u003c/body\u003e\u003c/html\u003e`\n    inProduction = true\n)\n\nfunc handleIndex(w http.ResponseWriter, r *http.Request) {\n    io.WriteString(w, htmlIndex)\n}\n\nfunc makeHTTPServer() *http.Server {\n    mux := \u0026http.ServeMux{}\n    mux.HandleFunc(\"/\", handleIndex)\n\n    // set timeouts so that a slow or malicious client doesn't\n    // hold resources forever\n    return \u0026http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      handler,\n    }\n}\n\nfunc main() {\n    var httpsSrv *http.Server\n    var m *autocert.Handler\n\n    // when testing locally it doesn't make sense to start\n    // HTTPS server, so only do it in production.\n    // In real code, I control this with -production cmd-line flag\n    if inProduction {\n        // Note: use a sensible value for data directory\n        // this is where cached certificates are stored\n        dataDir := \".\"\n        hostPolicy := func(ctx context.Context, host string) error {\n            // Note: change to your real domain\n            allowedHost := \"www.mydomain.com\"\n            if host == allowedHost {\n                return nil\n            }\n            return fmt.Errorf(\"acme/autocert: only %s host is allowed\", allowedHost)\n        }\n\n        httpsSrv = makeHTTPServer()\n        m := \u0026autocert.Manager{\n            Prompt:     autocert.AcceptTOS,\n            HostPolicy: hostPolicy,\n            Cache:      autocert.DirCache(dataDir),\n        }\n        httpsSrv.Addr = \":443\"\n        httpsSrv.TLSConfig = \u0026tls.Config{GetCertificate: m.GetCertificate}\n\n        go func() {\n            err := httpsSrv.ListenAndServeTLS(\"\", \"\")\n            if err != nil {\n                log.Fatalf(\"httpsSrv.ListendAndServeTLS() failed with %s\", err)\n            }\n        }()\n    }\n\n    httpSrv := makeHTTPServer()\n    if m != nil {\n        // allow autocert handle Let's Encrypt auth callbacks over HTTP.\n        // it'll pass all other urls to our hanlder\n        httpSrv.Handler = m.HTTPHandler(httpServ.Handler)\n    }\n    httpSrv.Addr = \":80\"\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListenAndServe() failed with %s\", err)\n    }\n}"
+                "const (\n    htmlIndex    = `<html><body>Welcome!</body></html>`\n    inProduction = true\n)\n\nfunc handleIndex(w http.ResponseWriter, r *http.Request) {\n    io.WriteString(w, htmlIndex)\n}\n\nfunc makeHTTPServer() *http.Server {\n    mux := &http.ServeMux{}\n    mux.HandleFunc(\"/\", handleIndex)\n\n    // set timeouts so that a slow or malicious client doesn't\n    // hold resources forever\n    return &http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      handler,\n    }\n}\n\nfunc main() {\n    var httpsSrv *http.Server\n    var m *autocert.Handler\n\n    // when testing locally it doesn't make sense to start\n    // HTTPS server, so only do it in production.\n    // In real code, I control this with -production cmd-line flag\n    if inProduction {\n        // Note: use a sensible value for data directory\n        // this is where cached certificates are stored\n        dataDir := \".\"\n        hostPolicy := func(ctx context.Context, host string) error {\n            // Note: change to your real domain\n            allowedHost := \"www.mydomain.com\"\n            if host == allowedHost {\n                return nil\n            }\n            return fmt.Errorf(\"acme/autocert: only %s host is allowed\", allowedHost)\n        }\n\n        httpsSrv = makeHTTPServer()\n        m := &autocert.Manager{\n            Prompt:     autocert.AcceptTOS,\n            HostPolicy: hostPolicy,\n            Cache:      autocert.DirCache(dataDir),\n        }\n        httpsSrv.Addr = \":443\"\n        httpsSrv.TLSConfig = &tls.Config{GetCertificate: m.GetCertificate}\n\n        go func() {\n            err := httpsSrv.ListenAndServeTLS(\"\", \"\")\n            if err != nil {\n                log.Fatalf(\"httpsSrv.ListendAndServeTLS() failed with %s\", err)\n            }\n        }()\n    }\n\n    httpSrv := makeHTTPServer()\n    if m != nil {\n        // allow autocert handle Let's Encrypt auth callbacks over HTTP.\n        // it'll pass all other urls to our hanlder\n        httpSrv.Handler = m.HTTPHandler(httpServ.Handler)\n    }\n    httpSrv.Addr = \":80\"\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListenAndServe() failed with %s\", err)\n    }\n}"
               ]
             ]
           },
@@ -799,15 +747,7 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Let’s Encrypt",
-                [
-                  [
-                    "a",
-                    "https://letsencrypt.org/"
-                  ]
-                ]
-              ],
+              ["Let’s Encrypt", [["a", "https://letsencrypt.org/"]]],
               [
                 " changed that. It’s a non-profit organization that provides certificates for free and offers HTTP API for obtaining certificates. API allows automating the process."
               ]
@@ -933,11 +873,7 @@ Response:+74278
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -961,11 +897,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using someone else to provide HTTPS"
-              ]
-            ]
+            "title": [["Using someone else to provide HTTPS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -988,11 +920,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go"
-              ]
-            ]
+            "title": [["Tags: go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1016,11 +944,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Directly supporting HTTPS"
-              ]
-            ]
+            "title": [["Directly supporting HTTPS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1100,9 +1024,7 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "browser vendors will increasingly "
-              ],
+              ["browser vendors will increasingly "],
               [
                 "scare users of HTTP websites",
                 [
@@ -1135,11 +1057,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: Jl3G"
-              ]
-            ]
+            "title": [["Id: Jl3G"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1195,11 +1113,7 @@ Response:+74278
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1252,17 +1166,8 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "5.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " You might be wondering: what is this HostPolicy business?"
-              ]
+              ["5.", [["b"]]],
+              [" You might be wondering: what is this HostPolicy business?"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1286,11 +1191,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "CreatedAt: 2017-06-23T09:56:26Z"
-              ]
-            ]
+            "title": [["CreatedAt: 2017-06-23T09:56:26Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1314,19 +1215,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "4.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " You must set up DNS correctly."
-              ]
-            ]
+            "title": [["4.", [["b"]]], [" You must set up DNS correctly."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1373,11 +1262,7 @@ Response:+74278
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1458,14 +1343,7 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "3.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["3.", [["b"]]],
               [
                 " If the server doesn’t have a certificate, it’ll use HTTP API to ask Let’s Encrypt servers for it."
               ]
@@ -1578,9 +1456,7 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "free-ssl-certificates/main.go",
                 [
@@ -1590,9 +1466,7 @@ Response:+74278
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1645,11 +1519,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Having HTTPS for your website is important:"
-              ]
-            ]
+            "title": [["Having HTTPS for your website is important:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1728,11 +1598,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PublishedOn: 2017-07-02"
-              ]
-            ]
+            "title": [["PublishedOn: 2017-07-02"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1757,18 +1623,8 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "If you really want to, you can use "
-              ],
-              [
-                "ngrok",
-                [
-                  [
-                    "a",
-                    "https://ngrok.com/"
-                  ]
-                ]
-              ],
+              ["If you really want to, you can use "],
+              ["ngrok", [["a", "https://ngrok.com/"]]],
               [
                 " to expose your local port to the internet, set DNS to resolve your domain to public DNS name that ngrok creates, wait a bit to make sure that DNS information propagates to Let’s Encrypt computers."
               ]
@@ -1795,11 +1651,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "UpdatedAt: 2017-07-09T21:00:18Z"
-              ]
-            ]
+            "title": [["UpdatedAt: 2017-07-09T21:00:18Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1859,11 +1711,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1888,17 +1736,8 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "2.",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " You can run only HTTP, only HTTPS or both."
-              ]
+              ["2.", [["b"]]],
+              [" You can run only HTTP, only HTTPS or both."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1923,11 +1762,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Why HTTPS?"
-              ]
-            ]
+            "title": [["Why HTTPS?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2017,9 +1852,7 @@ Response:+74278
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792750,
-          "file_ids": [
-            "63013876-3b00-45d3-b813-3f94f25ca919"
-          ],
+          "file_ids": ["63013876-3b00-45d3-b813-3f94f25ca919"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63013876-3b00-45d3-b813-3f94f25ca919/header-04.jpg",
             "page_cover_position": 0.5,
@@ -2036,9 +1869,7 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "HTTPS for free in Go, with little help of Let's Encrypt"
-              ]
+              ["HTTPS for free in Go, with little help of Let's Encrypt"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2070,18 +1901,14 @@ Response:+74278
               [
                 "autocert.DirCache",
                 [
-                  [
-                    "c"
-                  ],
+                  ["c"],
                   [
                     "a",
                     "https://godoc.org/golang.org/x/crypto/acme/autocert#DirCache"
                   ]
                 ]
               ],
-              [
-                " cache."
-              ]
+              [" cache."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2191,21 +2018,9 @@ Response:+74278
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You can use a third-party service like "
-              ],
-              [
-                "Cloudflare",
-                [
-                  [
-                    "a",
-                    "https://www.cloudflare.com/"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["You can use a third-party service like "],
+              ["Cloudflare", [["a", "https://www.cloudflare.com/"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2234,18 +2049,8 @@ Response:+74278
               [
                 "Another option is to run your server behind reverse proxy supporting HTTPS, like "
               ],
-              [
-                "Caddy",
-                [
-                  [
-                    "a",
-                    "https://caddyserver.com/"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["Caddy", [["a", "https://caddyserver.com/"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2270,11 +2075,7 @@ Response:+74278
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "There are some important things to note."
-              ]
-            ]
+            "title": [["There are some important things to note."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2329,12 +2130,14 @@ Response:+74278
     }
   }
 }
-42836 1624300606305 httpcache-v1
+41910 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
   "chunkNumber": 1,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -2353,11 +2156,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
   "verticalColumns": false
 }
-Response:+42306
+Response:+41381
 {
   "cursor": {
     "stack": []
@@ -2437,14 +2238,10 @@ Response:+42306
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func makeServerFromMux(mux *http.ServeMux) *http.Server {\n    // set timeouts so that a slow or malicious client doesn't\n    // hold resources forever\n    return \u0026http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      mux,\n    }\n}\n\nfunc makeHTTPToHTTPSRedirectServer() *http.Server {\n    handleRedirect := func(w http.ResponseWriter, r *http.Request) {\n        newURI := \"https://\" + r.Host + r.URL.String()\n        http.Redirect(w, r, newURI, http.StatusFound)\n    }\n    mux := \u0026http.ServeMux{}\n    mux.HandleFunc(\"/\", handleRedirect)\n    return makeServerFromMux(mux)\n}\n\nfunc main() {\n    httpSrv := makeHTTPToHTTPSRedirectServer()\n    httpSrv.Handler = m.HTTPHandler(httpServ.Handler)\n    httpSrv.Addr = \":80\"\n    fmt.Printf(\"Starting HTTP server on %s\\n\", httpSrv.Addr)\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListenAndServe() failed with %s\", err)\n    }\n}"
+                "func makeServerFromMux(mux *http.ServeMux) *http.Server {\n    // set timeouts so that a slow or malicious client doesn't\n    // hold resources forever\n    return &http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      mux,\n    }\n}\n\nfunc makeHTTPToHTTPSRedirectServer() *http.Server {\n    handleRedirect := func(w http.ResponseWriter, r *http.Request) {\n        newURI := \"https://\" + r.Host + r.URL.String()\n        http.Redirect(w, r, newURI, http.StatusFound)\n    }\n    mux := &http.ServeMux{}\n    mux.HandleFunc(\"/\", handleRedirect)\n    return makeServerFromMux(mux)\n}\n\nfunc main() {\n    httpSrv := makeHTTPToHTTPSRedirectServer()\n    httpSrv.Handler = m.HTTPHandler(httpServ.Handler)\n    httpSrv.Addr = \":80\"\n    fmt.Printf(\"Starting HTTP server on %s\\n\", httpSrv.Addr)\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListenAndServe() failed with %s\", err)\n    }\n}"
               ]
             ]
           },
@@ -2471,9 +2268,7 @@ Response:+42306
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code for this chapter: "
-              ],
+              ["Code for this chapter: "],
               [
                 "https://github.com/kjk/go-cookbook/tree/master/free-ssl-certificates",
                 [
@@ -2521,11 +2316,7 @@ Response:+42306
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2609,11 +2400,7 @@ Response:+42306
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2666,20 +2453,9 @@ Response:+42306
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "In the example I use "
-              ],
-              [
-                "inProduction",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " flag to decide if I should start HTTPS server."
-              ]
+              ["In the example I use "],
+              ["inProduction", [["c"]]],
+              [" flag to decide if I should start HTTPS server."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2727,11 +2503,7 @@ Response:+42306
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2768,9 +2540,7 @@ Response:+42306
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2907,11 +2677,7 @@ Response:+42306
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How certificates came to be free"
-              ]
-            ]
+            "title": [["How certificates came to be free"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2964,20 +2730,9 @@ Response:+42306
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "In real code I add code that checks for "
-              ],
-              [
-                "-production",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " cmd-line flag and use that."
-              ]
+              ["In real code I add code that checks for "],
+              ["-production", [["c"]]],
+              [" cmd-line flag and use that."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3030,11 +2785,7 @@ Response:+42306
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "And that’s how free certificates came to be."
-              ]
-            ]
+            "title": [["And that’s how free certificates came to be."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3086,11 +2837,7 @@ Response:+42306
           "parent_id": "e1f2db06-a96a-413a-a10e-e0723f6802ab",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Redirecting from HTTP to HTTPS"
-              ]
-            ]
+            "title": [["Redirecting from HTTP to HTTPS"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3264,9 +3011,7 @@ Response:+42306
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888792750,
-          "file_ids": [
-            "63013876-3b00-45d3-b813-3f94f25ca919"
-          ],
+          "file_ids": ["63013876-3b00-45d3-b813-3f94f25ca919"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63013876-3b00-45d3-b813-3f94f25ca919/header-04.jpg",
             "page_cover_position": 0.5,
@@ -3283,9 +3028,7 @@ Response:+42306
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "HTTPS for free in Go, with little help of Let's Encrypt"
-              ]
+              ["HTTPS for free in Go, with little help of Let's Encrypt"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",

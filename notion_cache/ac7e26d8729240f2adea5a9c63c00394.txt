@@ -1,16 +1,16 @@
-15102 1624300599892 httpcache-v1
+14766 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
-      "table": "block"
+      "table": "block",
+      "id": "ac7e26d8-7292-40f2-adea-5a9c63c00394"
     }
   ]
 }
-Response:+14901
+Response:+14566
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+14901
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -105,11 +101,7 @@ Response:+14901
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -156,11 +148,7 @@ Response:+14901
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -220,9 +208,7 @@ Response:+14901
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786627,
-          "file_ids": [
-            "629ba763-27bc-462f-9a07-639c0b0bad58"
-          ],
+          "file_ids": ["629ba763-27bc-462f-9a07-639c0b0bad58"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/629ba763-27bc-462f-9a07-639c0b0bad58/header-21.jpg",
             "page_cover_position": 0.5,
@@ -238,11 +224,7 @@ Response:+14901
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Fuzzing Markdown parser written in Go"
-              ]
-            ]
+            "title": [["Fuzzing Markdown parser written in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -350,9 +332,7 @@ Response:+14901
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888786627,
-        "file_ids": [
-          "629ba763-27bc-462f-9a07-639c0b0bad58"
-        ],
+        "file_ids": ["629ba763-27bc-462f-9a07-639c0b0bad58"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/629ba763-27bc-462f-9a07-639c0b0bad58/header-21.jpg",
           "page_cover_position": 0.5,
@@ -368,11 +348,7 @@ Response:+14901
         "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Fuzzing Markdown parser written in Go"
-            ]
-          ]
+          "title": [["Fuzzing Markdown parser written in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -381,20 +357,20 @@ Response:+14901
     }
   ]
 }
-62395 1624300599894 httpcache-v1
+58787 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
   "verticalColumns": false
 }
-Response:+62154
+Response:+58547
 {
   "cursor": {
     "stack": []
@@ -438,11 +414,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Writing a fuzzer for C or C++ code is hard."
-              ]
-            ]
+            "title": [["Writing a fuzzer for C or C++ code is hard."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -508,11 +480,7 @@ Response:+62154
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -537,20 +505,9 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The last "
-              ],
-              [
-                "go-fuzz-build",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " step can take a while."
-              ]
+              ["The last "],
+              ["go-fuzz-build", [["c"]]],
+              [" step can take a while."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -575,11 +532,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The idea is simple:"
-              ]
-            ]
+            "title": [["The idea is simple:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -603,11 +556,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "What is fuzzing?"
-              ]
-            ]
+            "title": [["What is fuzzing?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -663,17 +612,8 @@ Response:+62154
               [
                 "As long as you don’t delete working directory, you can stop and re-start "
               ],
-              [
-                "go-fuzz",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and it’ll pick up where it left off."
-              ]
+              ["go-fuzz", [["c"]]],
+              [" and it’ll pick up where it left off."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -698,11 +638,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Finally we start fuzzing process:"
-              ]
-            ]
+            "title": [["Finally we start fuzzing process:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -726,11 +662,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The results"
-              ]
-            ]
+            "title": [["The results"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -813,11 +745,7 @@ Response:+62154
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -841,15 +769,9 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
-              [
-                "$ go-fuzz -bin=./markdown-fuzz.zip -workdir=fuzz-workdir"
-              ]
+              ["$ go-fuzz -bin=./markdown-fuzz.zip -workdir=fuzz-workdir"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -878,17 +800,8 @@ Response:+62154
               [
                 "As it happens, I already had markdown files used for tests in "
               ],
-              [
-                "testdata",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " directory."
-              ]
+              ["testdata", [["c"]]],
+              [" directory."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -914,9 +827,7 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "They "
-              ],
+              ["They "],
               [
                 "are",
                 [
@@ -926,9 +837,7 @@ Response:+62154
                   ]
                 ]
               ],
-              [
-                " "
-              ],
+              [" "],
               [
                 "now",
                 [
@@ -938,9 +847,7 @@ Response:+62154
                   ]
                 ]
               ],
-              [
-                " "
-              ],
+              [" "],
               [
                 "fixed",
                 [
@@ -950,9 +857,7 @@ Response:+62154
                   ]
                 ]
               ],
-              [
-                " and covered by unit tests."
-              ]
+              [" and covered by unit tests."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -977,22 +882,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I wrote "
-              ],
-              [
-                "fuzz.go",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
-            ]
+            "title": [["I wrote "], ["fuzz.go", [["c"]]], [":"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1015,11 +905,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2018-01-31T15:32:55-08:00"
-              ]
-            ]
+            "title": [["Date: 2018-01-31T15:32:55-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1053,9 +939,7 @@ Response:+62154
                   ]
                 ]
               ],
-              [
-                " helps to combat this."
-              ]
+              [" helps to combat this."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1079,11 +963,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1130,11 +1010,7 @@ Response:+62154
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1186,11 +1062,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "// +build gofuzz\n\npackage markdown\n\n// Fuzz function to be used by https://github.com/dvyukov/go-fuzz\nfunc Fuzz(data []byte) int {\n    Parse(data, nil)\n    return 0\n}"
@@ -1218,11 +1090,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "we feed this data to parsing code"
-              ]
-            ]
+            "title": [["we feed this data to parsing code"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1246,11 +1114,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
                 "# create a working directory for the fuzzer\n$ mkdir -p fuzz-workdir\n\n# copy the files that seed fuzzing to corpus sub-directory of working directory\n$ mkdir -p fuzz-workdir/corpus\n$ cp testdata/*.text fuzz-workdir/corpus\n\n# generate the fuzzing program. This compiles fuzz.go we wrote earlier\n# generates fuzzer executable and markdown-fuzz.zip that packages\n# data to drive fuzzing process\n$ go-fuzz-build github.com/gomarkdown/markdown"
@@ -1279,11 +1143,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I used those to initialize the fuzzer:"
-              ]
-            ]
+            "title": [["I used those to initialize the fuzzer:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1308,24 +1168,18 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I’m a fan of automation so I wrote "
-              ],
+              ["I’m a fan of automation so I wrote "],
               [
                 "fuzz.sh",
                 [
-                  [
-                    "c"
-                  ],
+                  ["c"],
                   [
                     "a",
                     "https://github.com/gomarkdown/markdown/blob/master/s/fuzz.sh"
                   ]
                 ]
               ],
-              [
-                " script."
-              ]
+              [" script."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1386,9 +1240,7 @@ Response:+62154
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786627,
-          "file_ids": [
-            "629ba763-27bc-462f-9a07-639c0b0bad58"
-          ],
+          "file_ids": ["629ba763-27bc-462f-9a07-639c0b0bad58"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/629ba763-27bc-462f-9a07-639c0b0bad58/header-21.jpg",
             "page_cover_position": 0.5,
@@ -1404,11 +1256,7 @@ Response:+62154
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Fuzzing Markdown parser written in Go"
-              ]
-            ]
+            "title": [["Fuzzing Markdown parser written in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1432,11 +1280,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Fuzzing step-by-step"
-              ]
-            ]
+            "title": [["Fuzzing step-by-step"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1459,11 +1303,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go, programming"
-              ]
-            ]
+            "title": [["Tags: go, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1486,11 +1326,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 23"
-              ]
-            ]
+            "title": [["Id: 23"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1515,20 +1351,9 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This implements "
-              ],
-              [
-                "Fuzz(data []byte)",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " function, which is an API expected by go-fuzz."
-              ]
+              ["This implements "],
+              ["Fuzz(data []byte)", [["c"]]],
+              [" function, which is an API expected by go-fuzz."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1554,16 +1379,10 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "My library has "
-              ],
+              ["My library has "],
               [
                 "ast := markdown.Parse(markdown []byte, p *parser.Parser)",
-                [
-                  [
-                    "c"
-                  ]
-                ]
+                [["c"]]
               ],
               [
                 " function which takes markdown text as input and parses it into an abstract syntax tree."
@@ -1593,20 +1412,9 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Found crashes will be logged in "
-              ],
-              [
-                "fuzz-workdir/crashers",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " directory."
-              ]
+              ["Found crashes will be logged in "],
+              ["fuzz-workdir/crashers", [["c"]]],
+              [" directory."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1658,11 +1466,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "magic algorithm generates randomized input data"
-              ]
-            ]
+            "title": [["magic algorithm generates randomized input data"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1742,21 +1546,12 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "I finished working on "
-              ],
+              ["I finished working on "],
               [
                 "Markdown parser",
-                [
-                  [
-                    "a",
-                    "https://github.com/gomarkdown/markdown"
-                  ]
-                ]
+                [["a", "https://github.com/gomarkdown/markdown"]]
               ],
-              [
-                " for Go."
-              ]
+              [" for Go."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1781,11 +1576,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Fuzzing in Go is simple"
-              ]
-            ]
+            "title": [["Fuzzing in Go is simple"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1809,11 +1600,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
+            "language": [["Shell"]],
             "title": [
               [
                 "$ go get github.com/dvyukov/go-fuzz/go-fuzz\n$ go get github.com/dvyukov/go-fuzz/go-fuzz-build"
@@ -1871,31 +1658,13 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Notice "
-              ],
-              [
-                "// +build gofuzz",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Notice "],
+              ["// +build gofuzz", [["c"]]],
               [
                 " line. It means that this code will not be compiled by default but only with "
               ],
-              [
-                "gofuzz",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " build tag."
-              ]
+              ["gofuzz", [["c"]]],
+              [" build tag."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1921,21 +1690,9 @@ Response:+62154
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "It’s trivial for Go thanks to "
-              ],
-              [
-                "go-fuzz",
-                [
-                  [
-                    "a",
-                    "https://github.com/dvyukov/go-fuzz"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["It’s trivial for Go thanks to "],
+              ["go-fuzz", [["a", "https://github.com/dvyukov/go-fuzz"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2016,11 +1773,7 @@ Response:+62154
           "parent_id": "ac7e26d8-7292-40f2-adea-5a9c63c00394",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "First we need to get the tools:"
-              ]
-            ]
+            "title": [["First we need to get the tools:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",

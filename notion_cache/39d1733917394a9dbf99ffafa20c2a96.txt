@@ -1,16 +1,16 @@
-13780 1624300590252 httpcache-v1
+13444 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
-      "table": "block"
+      "table": "block",
+      "id": "39d17339-1739-4a9d-bf99-ffafa20c2a96"
     }
   ]
 }
-Response:+13579
+Response:+13244
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+13579
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -96,9 +92,7 @@ Response:+13579
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786897,
-          "file_ids": [
-            "f4649414-a80a-475f-92bf-dfda91b0689a"
-          ],
+          "file_ids": ["f4649414-a80a-475f-92bf-dfda91b0689a"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4649414-a80a-475f-92bf-dfda91b0689a/header-10.jpg",
             "page_cover_position": 0.5,
@@ -114,11 +108,7 @@ Response:+13579
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Embedding build number in Go executable"
-              ]
-            ]
+            "title": [["Embedding build number in Go executable"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -174,11 +164,7 @@ Response:+13579
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -225,11 +211,7 @@ Response:+13579
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -324,9 +306,7 @@ Response:+13579
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888786897,
-        "file_ids": [
-          "f4649414-a80a-475f-92bf-dfda91b0689a"
-        ],
+        "file_ids": ["f4649414-a80a-475f-92bf-dfda91b0689a"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4649414-a80a-475f-92bf-dfda91b0689a/header-10.jpg",
           "page_cover_position": 0.5,
@@ -342,11 +322,7 @@ Response:+13579
         "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Embedding build number in Go executable"
-            ]
-          ]
+          "title": [["Embedding build number in Go executable"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -355,20 +331,20 @@ Response:+13579
     }
   ]
 }
-49115 1624300590253 httpcache-v1
+45992 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
   "verticalColumns": false
 }
-Response:+48874
+Response:+45752
 {
   "cursor": {
     "stack": []
@@ -421,9 +397,7 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code for this chapter: "
-              ],
+              ["Code for this chapter: "],
               [
                 "https://github.com/kjk/go-cookbook/tree/master/embed-build-number",
                 [
@@ -457,28 +431,10 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "-ldflags \"${flags}\"",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " tells Go build tool to pass "
-              ],
-              [
-                "${flags}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to go linker"
-              ]
+              ["-ldflags \"${flags}\"", [["c"]]],
+              [" tells Go build tool to pass "],
+              ["${flags}", [["c"]]],
+              [" to go linker"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -503,25 +459,9 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "git rev-parse HEAD",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " returns sha1 of the current revision, e.g. "
-              ],
-              [
-                "e5ce06c1f604efb1de91d515d5de865e7e164d59",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["git rev-parse HEAD", [["c"]]],
+              [" returns sha1 of the current revision, e.g. "],
+              ["e5ce06c1f604efb1de91d515d5de865e7e164d59", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -559,9 +499,7 @@ Response:+48874
                   ]
                 ]
               ],
-              [
-                ":"
-              ]
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -590,17 +528,8 @@ Response:+48874
               [
                 "We can embed that version in the executable during build thanks Go linker’s "
               ],
-              [
-                "-X",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " option which allows to change any variable in the program."
-              ]
+              ["-X", [["c"]]],
+              [" option which allows to change any variable in the program."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -639,11 +568,7 @@ Response:+48874
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -666,11 +591,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "UpdatedAt: 2017-07-09T01:50:32Z"
-              ]
-            ]
+            "title": [["UpdatedAt: 2017-07-09T01:50:32Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -695,9 +616,7 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "embed-build-number/build.sh",
                 [
@@ -754,9 +673,7 @@ Response:+48874
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786897,
-          "file_ids": [
-            "f4649414-a80a-475f-92bf-dfda91b0689a"
-          ],
+          "file_ids": ["f4649414-a80a-475f-92bf-dfda91b0689a"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4649414-a80a-475f-92bf-dfda91b0689a/header-10.jpg",
             "page_cover_position": 0.5,
@@ -772,11 +689,7 @@ Response:+48874
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Embedding build number in Go executable"
-              ]
-            ]
+            "title": [["Embedding build number in Go executable"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -801,9 +714,7 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "embed-build-number/build.ps1",
                 [
@@ -838,20 +749,9 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "On Windows we would write powershell script "
-              ],
-              [
-                "build.ps1",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["On Windows we would write powershell script "],
+              ["build.ps1", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -908,11 +808,7 @@ Response:+48874
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -936,11 +832,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "#!/bin/bash\n\n# notice how we avoid spaces in $now to avoid quotation hell in go build command\nnow=$(date +'%Y-%m-%d_%T')\ngo build -ldflags \"-X main.sha1ver=`git rev-parse HEAD` -X main.buildTime=$now\""
@@ -969,14 +861,10 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "var (\n    flgVersion bool\n)\n\nfunc parseCmdLineFlags() {\n    flag.BoolVar(\u0026flgVersion, \"version\", false, \"if true, print version and exit\")\n    flag.Parse()\n    if flgVersion {\n        fmt.Printf(\"Build on %s from sha1 %s\\n\", buildTime, sha1ver)\n        os.Exit(0)\n    }\n}"
+                "var (\n    flgVersion bool\n)\n\nfunc parseCmdLineFlags() {\n    flag.BoolVar(&flgVersion, \"version\", false, \"if true, print version and exit\")\n    flag.Parse()\n    if flgVersion {\n        fmt.Printf(\"Build on %s from sha1 %s\\n\", buildTime, sha1ver)\n        os.Exit(0)\n    }\n}"
               ]
             ]
           },
@@ -1001,11 +889,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1052,11 +936,7 @@ Response:+48874
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1080,47 +960,13 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "-X main.sha1ver=${foo}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " tells Go linker to set variable "
-              ],
-              [
-                "sha1ver",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " in package "
-              ],
-              [
-                "main",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " to "
-              ],
-              [
-                "${foo}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["-X main.sha1ver=${foo}", [["c"]]],
+              [" tells Go linker to set variable "],
+              ["sha1ver", [["c"]]],
+              [" in package "],
+              ["main", [["c"]]],
+              [" to "],
+              ["${foo}", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1145,11 +991,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "package main\n\nvar (\n    sha1ver   string // sha1 revision used to build the program\n    buildTime string // when the executable was built\n)"
@@ -1178,11 +1020,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Let’s deconstruct:"
-              ]
-            ]
+            "title": [["Let’s deconstruct:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1206,14 +1044,10 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func servePlainText(w http.ResponseWriter, s string) {\n    w.Header().Set(\"Content-Type\", \"text/plain\")\n    w.Header().Set(\"Content-Length\", strconv.Itoa(len(s)))\n    w.WriteHeader(http.StatusOK)\n    w.Write([]byte(s))\n}\n\n// /app/debug\nfunc handleDebug(w http.ResponseWriter, r *http.Request) {\n    s := fmt.Sprintf(\"url: %s %s\", r.Method, r.RequestURI)\n    a := []string{s}\n\n    a = append(a, \"Headers:\")\n    for k, v := range r.Header {\n        if len(v) == 0 {\n            a = append(a, k)\n        } else if len(v) == 1 {\n            s = fmt.Sprintf(\"  %s: %v\", k, v[0])\n            a = append(a, s)\n        } else {\n            a = append(a, \"  \"+k+\":\")\n            for _, v2 := range v {\n                a = append(a, \"    \"+v2)\n            }\n        }\n    }\n\n    a = append(a, \"\")\n    a = append(a, fmt.Sprintf(\"ver: https://github.com/kjk/go-cookbook/commit/%s\", sha1ver))\n    a = append(a, fmt.Sprintf(\"built on: %s\", buildTime))\n\n    s = strings.Join(a, \"\\n\")\n    servePlainText(w, s)\n}\n\nfunc makeHTTPServer() *http.Server {\n    mux := \u0026http.ServeMux{}\n\n    mux.HandleFunc(\"/app/debug\", handleDebug)\n\n    return \u0026http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      mux,\n    }\n}\n\nfunc startHTTPServer() {\n    httpAddr := \"127.0.0.1:4040\"\n    httpSrv := makeHTTPServer()\n    httpSrv.Addr = httpAddr\n    fmt.Printf(\"Visit http://%s/app/debug\\n\", httpAddr)\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListendAndServe() failed with %s\\n\", err)\n    }\n}"
+                "func servePlainText(w http.ResponseWriter, s string) {\n    w.Header().Set(\"Content-Type\", \"text/plain\")\n    w.Header().Set(\"Content-Length\", strconv.Itoa(len(s)))\n    w.WriteHeader(http.StatusOK)\n    w.Write([]byte(s))\n}\n\n// /app/debug\nfunc handleDebug(w http.ResponseWriter, r *http.Request) {\n    s := fmt.Sprintf(\"url: %s %s\", r.Method, r.RequestURI)\n    a := []string{s}\n\n    a = append(a, \"Headers:\")\n    for k, v := range r.Header {\n        if len(v) == 0 {\n            a = append(a, k)\n        } else if len(v) == 1 {\n            s = fmt.Sprintf(\"  %s: %v\", k, v[0])\n            a = append(a, s)\n        } else {\n            a = append(a, \"  \"+k+\":\")\n            for _, v2 := range v {\n                a = append(a, \"    \"+v2)\n            }\n        }\n    }\n\n    a = append(a, \"\")\n    a = append(a, fmt.Sprintf(\"ver: https://github.com/kjk/go-cookbook/commit/%s\", sha1ver))\n    a = append(a, fmt.Sprintf(\"built on: %s\", buildTime))\n\n    s = strings.Join(a, \"\\n\")\n    servePlainText(w, s)\n}\n\nfunc makeHTTPServer() *http.Server {\n    mux := &http.ServeMux{}\n\n    mux.HandleFunc(\"/app/debug\", handleDebug)\n\n    return &http.Server{\n        ReadTimeout:  5 * time.Second,\n        WriteTimeout: 5 * time.Second,\n        IdleTimeout:  120 * time.Second,\n        Handler:      mux,\n    }\n}\n\nfunc startHTTPServer() {\n    httpAddr := \"127.0.0.1:4040\"\n    httpSrv := makeHTTPServer()\n    httpSrv.Addr = httpAddr\n    fmt.Printf(\"Visit http://%s/app/debug\\n\", httpAddr)\n    err := httpSrv.ListenAndServe()\n    if err != nil {\n        log.Fatalf(\"httpSrv.ListendAndServe() failed with %s\\n\", err)\n    }\n}"
               ]
             ]
           },
@@ -1239,9 +1073,7 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Description: How to embed build number in Go executable."
-              ]
+              ["Description: How to embed build number in Go executable."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1313,11 +1145,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go"
-              ]
-            ]
+            "title": [["Tags: go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1368,11 +1196,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: vEja"
-              ]
-            ]
+            "title": [["Id: vEja"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1397,20 +1221,9 @@ Response:+48874
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We also need an easy way to see that version. We can add "
-              ],
-              [
-                "-version",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " cmd-line flag to "
-              ],
+              ["We also need an easy way to see that version. We can add "],
+              ["-version", [["c"]]],
+              [" cmd-line flag to "],
               [
                 "print it out",
                 [
@@ -1420,9 +1233,7 @@ Response:+48874
                   ]
                 ]
               ],
-              [
-                ":"
-              ]
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1446,11 +1257,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "CreatedAt: 2017-07-07T09:01:20Z"
-              ]
-            ]
+            "title": [["CreatedAt: 2017-07-07T09:01:20Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1474,11 +1281,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "In our Go program we would have:"
-              ]
-            ]
+            "title": [["In our Go program we would have:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1502,11 +1305,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "# notice how we avoid spaces in $now to avoid quotation hell in go build command\n$now = Get-Date -UFormat \"%Y-%m-%d_%T\"\n$sha1 = (git rev-parse HEAD).Trim()\n\ngo build -ldflags \"-X main.sha1ver=$sha1 -X main.buildTime=$now\""
@@ -1534,11 +1333,7 @@ Response:+48874
           "parent_id": "39d17339-1739-4a9d-bf99-ffafa20c2a96",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PublishedOn: 2017-07-13"
-              ]
-            ]
+            "title": [["PublishedOn: 2017-07-13"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1566,17 +1361,8 @@ Response:+48874
               [
                 "We can set that variable to sha1 of the git revision in our build script "
               ],
-              [
-                "build.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["build.sh", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",

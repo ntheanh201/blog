@@ -1,16 +1,16 @@
-15574 1624300538338 httpcache-v1
+15222 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
-      "table": "block"
+      "table": "block",
+      "id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7"
     }
   ]
 }
-Response:+15373
+Response:+15022
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+15373
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+15373
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -138,11 +130,7 @@ Response:+15373
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -198,11 +186,7 @@ Response:+15373
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -268,11 +252,7 @@ Response:+15373
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on Ansible"
-              ]
-            ]
+            "title": [["Notes on Ansible"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -386,11 +366,7 @@ Response:+15373
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Notes on Ansible"
-            ]
-          ]
+          "title": [["Notes on Ansible"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -399,20 +375,20 @@ Response:+15373
     }
   ]
 }
-53546 1624300538340 httpcache-v1
+50832 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
   "verticalColumns": false
 }
-Response:+53305
+Response:+50592
 {
   "cursor": {
     "stack": []
@@ -462,16 +438,8 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
-            "title": [
-              [
-                "[defaults]\nhostfile = inventory\nremote_user = root"
-              ]
-            ]
+            "language": [["Plain Text"]],
+            "title": [["[defaults]\nhostfile = inventory\nremote_user = root"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -495,14 +463,7 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "sumatrawebsite",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["sumatrawebsite", [["c"]]],
               [
                 " is a user that owns the server project, so it’s easiest to use that user for deployment steps"
               ]
@@ -598,11 +559,7 @@ Response:+53305
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -657,11 +614,7 @@ Response:+53305
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -684,11 +637,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "unpacking new version"
-              ]
-            ]
+            "title": [["unpacking new version"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -738,11 +687,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: programming"
-              ]
-            ]
+            "title": [["Tags: programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -772,11 +717,7 @@ Response:+53305
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -799,14 +740,10 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "---\n- name: initial server setup\n  hosts: sumatrawebsite-initial\n  sudo: True\n  tasks:\n    - name: create a user\n      user: name=sumatrawebsite group=sumatrawebsite groups=\"sudo\" shell=/bin/bash\n    - name: make user a sudoer\n      lineinfile: dest=/etc/sudoers state=present regexp='^%sumatrawebsite' line='%sumatrawebsite ALL=(ALL) NOPASSWD:ALL'\n    - name: create user's .ssh directory\n      file: path=/home/sumatrawebsite/.ssh state=directory owner=sumatrawebsite group=sumatrawebsite mode=0755\n    - name: copy existing ssh key\n      command: cp /root/.ssh/authorized_keys /home/sumatrawebsite/.ssh/authorized_keys\n    - name: configure authorized_keys\n      file: path=/home/sumatrawebsite/.ssh/authorized_keys mode=0644 owner=sumatrawebsite group=sumatrawebsite\n    - name: create directory for nginx logs\n      file: \u003e\n        path=/var/log/nginx/sumatrawebsite/ state=directory mode=0755\n    - name: copy nginx config file\n      copy: src=nginx.conf dest=/etc/nginx/sites-available/sumatrawebsite\n    - name: enable website\n      file: \u003e\n        dest=/etc/nginx/sites-enabled/sumatrawebsite\n        src=/etc/nginx/sites-available/sumatrawebsite\n        state=link\n    - name: restart nginx\n      service: name=nginx state=restarted"
+                "---\n- name: initial server setup\n  hosts: sumatrawebsite-initial\n  sudo: True\n  tasks:\n    - name: create a user\n      user: name=sumatrawebsite group=sumatrawebsite groups=\"sudo\" shell=/bin/bash\n    - name: make user a sudoer\n      lineinfile: dest=/etc/sudoers state=present regexp='^%sumatrawebsite' line='%sumatrawebsite ALL=(ALL) NOPASSWD:ALL'\n    - name: create user's .ssh directory\n      file: path=/home/sumatrawebsite/.ssh state=directory owner=sumatrawebsite group=sumatrawebsite mode=0755\n    - name: copy existing ssh key\n      command: cp /root/.ssh/authorized_keys /home/sumatrawebsite/.ssh/authorized_keys\n    - name: configure authorized_keys\n      file: path=/home/sumatrawebsite/.ssh/authorized_keys mode=0644 owner=sumatrawebsite group=sumatrawebsite\n    - name: create directory for nginx logs\n      file: >\n        path=/var/log/nginx/sumatrawebsite/ state=directory mode=0755\n    - name: copy nginx config file\n      copy: src=nginx.conf dest=/etc/nginx/sites-available/sumatrawebsite\n    - name: enable website\n      file: >\n        dest=/etc/nginx/sites-enabled/sumatrawebsite\n        src=/etc/nginx/sites-available/sumatrawebsite\n        state=link\n    - name: restart nginx\n      service: name=nginx state=restarted"
               ]
             ]
           },
@@ -831,11 +768,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Status: hidden"
-              ]
-            ]
+            "title": [["Status: hidden"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -858,11 +791,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "starting up new version"
-              ]
-            ]
+            "title": [["starting up new version"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -918,11 +847,7 @@ Response:+53305
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -946,20 +871,9 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This is how we run Ansible playbook. Playbook "
-              ],
-              [
-                "provisioning.yml",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " is:"
-              ]
+              ["This is how we run Ansible playbook. Playbook "],
+              ["provisioning.yml", [["c"]]],
+              [" is:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -983,11 +897,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Deployment involves:"
-              ]
-            ]
+            "title": [["Deployment involves:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1010,11 +920,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "setup initd to watch and restart web server process"
-              ]
-            ]
+            "title": [["setup initd to watch and restart web server process"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1064,11 +970,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "cross-compiling the server"
-              ]
-            ]
+            "title": [["cross-compiling the server"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1118,16 +1020,8 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
-            "title": [
-              [
-                "#!/bin/bash\nansible-playbook provisioning.yml"
-              ]
-            ]
+            "language": [["Plain Text"]],
+            "title": [["#!/bin/bash\nansible-playbook provisioning.yml"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -1150,11 +1044,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "copy the .zip file to the server"
-              ]
-            ]
+            "title": [["copy the .zip file to the server"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1177,11 +1067,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "making sure nginx is installed"
-              ]
-            ]
+            "title": [["making sure nginx is installed"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1205,25 +1091,9 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "sumatrawebsite-provision",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", among other things, creates "
-              ],
-              [
-                "sumatrawebsite",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["sumatrawebsite-provision", [["c"]]],
+              [", among other things, creates "],
+              ["sumatrawebsite", [["c"]]],
               [
                 " user. Provisioning actions must be executed by a user with root priviledges."
               ]
@@ -1277,11 +1147,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 10000"
-              ]
-            ]
+            "title": [["Id: 10000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1305,20 +1171,9 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Things are simpler if you you create "
-              ],
-              [
-                "ansible.cfg",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". For this project, mine was:"
-              ]
+              ["Things are simpler if you you create "],
+              ["ansible.cfg", [["c"]]],
+              [". For this project, mine was:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1370,20 +1225,9 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The file "
-              ],
-              [
-                "inventory",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " contains list of servers we’ll operate on:"
-              ]
+              ["The file "],
+              ["inventory", [["c"]]],
+              [" contains list of servers we’ll operate on:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1407,11 +1251,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "sumatrawebsite-provision ansible_ssh_host=sumatrapdfreader.org ansible_ssh_user=root\nsumatrawebsite ansible_ssh_host=sumatrapdfreader.org ansible_ssh_user=sumatrawebsite"
@@ -1472,15 +1312,9 @@ Response:+53305
               ],
               [
                 "user: name=sumatrawebsite group=sumatrawebsite groups=\"sudo\" shell=/bin/bash",
-                [
-                  [
-                    "c"
-                  ]
-                ]
+                [["c"]]
               ],
-              [
-                " creates a new user with certain properties."
-              ]
+              [" creates a new user with certain properties."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1531,11 +1365,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "shutting down currently running web server instance"
-              ]
-            ]
+            "title": [["shutting down currently running web server instance"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1601,11 +1431,7 @@ Response:+53305
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on Ansible"
-              ]
-            ]
+            "title": [["Notes on Ansible"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1628,11 +1454,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2014-11-27T22:59:50-08:00"
-              ]
-            ]
+            "title": [["Date: 2014-11-27T22:59:50-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1656,20 +1478,9 @@ Response:+53305
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Let’s create "
-              ],
-              [
-                "provisioning.sh",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " helper script:"
-              ]
+              ["Let’s create "],
+              ["provisioning.sh", [["c"]]],
+              [" helper script:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1693,11 +1504,7 @@ Response:+53305
           "parent_id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Ansible process"
-              ]
-            ]
+            "title": [["Ansible process"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1799,31 +1606,31 @@ Response:+53305
     }
   }
 }
-27668 1624300538341 httpcache-v1
+26980 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+374
 {
   "requests": [
     {
-      "id": "0da2fc25-817d-44b1-bd3d-79308d32c7f6",
-      "table": "block"
+      "table": "block",
+      "id": "0da2fc25-817d-44b1-bd3d-79308d32c7f6"
     },
     {
-      "id": "6678b848-0d05-42be-9ec8-6c0af09aad54",
-      "table": "block"
+      "table": "block",
+      "id": "6678b848-0d05-42be-9ec8-6c0af09aad54"
     },
     {
-      "id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
-      "table": "block"
+      "table": "block",
+      "id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9"
     },
     {
-      "id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
-      "table": "block"
+      "table": "block",
+      "id": "ca323dad-4452-4d7b-8b6b-642e7e862b41"
     }
   ]
 }
-Response:+27203
+Response:+26516
 {
   "recordMapWithRoles": {
     "block": {
@@ -1867,11 +1674,7 @@ Response:+27203
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 2.5.2 released"
-              ]
-            ]
+            "title": [["SumatraPDF 2.5.2 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1909,11 +1712,7 @@ Response:+27203
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1968,11 +1767,7 @@ Response:+27203
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2002,11 +1797,7 @@ Response:+27203
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2062,11 +1853,7 @@ Response:+27203
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2117,11 +1904,7 @@ Response:+27203
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 3.0 released"
-              ]
-            ]
+            "title": [["SumatraPDF 3.0 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2187,11 +1970,7 @@ Response:+27203
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Improving speed of SMAZ compressor by 2.6x/1.5x"
-              ]
-            ]
+            "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2230,11 +2009,7 @@ Response:+27203
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tip for per-test verbose logging in Go"
-              ]
-            ]
+            "title": [["Tip for per-test verbose logging in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2329,11 +2104,7 @@ Response:+27203
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 2.5.2 released"
-            ]
-          ]
+          "title": [["SumatraPDF 2.5.2 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2384,11 +2155,7 @@ Response:+27203
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 3.0 released"
-            ]
-          ]
+          "title": [["SumatraPDF 3.0 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2454,11 +2221,7 @@ Response:+27203
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Improving speed of SMAZ compressor by 2.6x/1.5x"
-            ]
-          ]
+          "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2497,11 +2260,7 @@ Response:+27203
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Tip for per-test verbose logging in Go"
-            ]
-          ]
+          "title": [["Tip for per-test verbose logging in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

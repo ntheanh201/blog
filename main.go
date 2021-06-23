@@ -14,7 +14,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/notionapi/caching_downloader"
 	"github.com/kjk/siser"
 	"github.com/kjk/u"
 )
@@ -115,7 +114,7 @@ func testLoadCache(dir string) {
 	fmt.Printf("testLoadCache() loaded %d files in %s, %d caches\n", nFiles, time.Since(timeStart), len(caches))
 }
 
-func rebuildAll(d *caching_downloader.Downloader) *Articles {
+func rebuildAll(d *notionapi.CachingClient) *Articles {
 	regenMd()
 	loadTemplates()
 	articles := loadArticles(d)
@@ -160,16 +159,16 @@ var (
 
 func eventObserver(ev interface{}) {
 	switch v := ev.(type) {
-	case *caching_downloader.EventError:
+	case *notionapi.EventError:
 		logf(v.Error)
-	case *caching_downloader.EventDidDownload:
+	case *notionapi.EventDidDownload:
 		nDownloadedPage++
 		logf("%03d '%s' : downloaded in %s\n", nDownloadedPage, v.PageID, v.Duration)
-	case *caching_downloader.EventDidReadFromCache:
+	case *notionapi.EventDidReadFromCache:
 		// TODO: only verbose
 		nDownloadedPage++
 		logf("%03d '%s' : read from cache in %s\n", nDownloadedPage, v.PageID, v.Duration)
-	case *caching_downloader.EventGotVersions:
+	case *notionapi.EventGotVersions:
 		logf("downloaded info about %d versions in %s\n", v.Count, v.Duration)
 	}
 }
@@ -247,10 +246,10 @@ func main() {
 		return
 	}
 
+	client := newNotionClient()
 	if flgRebuild {
-		cache, err := caching_downloader.NewDirectoryCache(cacheDir)
+		d, err := notionapi.NewCachingClient(cacheDir, client)
 		must(err)
-		d := caching_downloader.New(cache, nil)
 		d.EventObserver = eventObserver
 		d.RedownloadNewerVersions = false
 		d.NoReadCache = false
@@ -258,10 +257,8 @@ func main() {
 		return
 	}
 
-	client := newNotionClient()
-	cache, err := caching_downloader.NewDirectoryCache(cacheDir)
+	d, err := notionapi.NewCachingClient(cacheDir, client)
 	must(err)
-	d := caching_downloader.New(cache, client)
 	d.EventObserver = eventObserver
 	d.RedownloadNewerVersions = true
 	d.NoReadCache = flgNoCache

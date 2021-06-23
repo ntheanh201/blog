@@ -1,16 +1,16 @@
-12866 1624300515756 httpcache-v1
+12514 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
-      "table": "block"
+      "table": "block",
+      "id": "ca323dad-4452-4d7b-8b6b-642e7e862b41"
     }
   ]
 }
-Response:+12665
+Response:+12314
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+12665
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+12665
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -138,11 +130,7 @@ Response:+12665
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -198,11 +186,7 @@ Response:+12665
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -241,11 +225,7 @@ Response:+12665
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tip for per-test verbose logging in Go"
-              ]
-            ]
+            "title": [["Tip for per-test verbose logging in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -332,11 +312,7 @@ Response:+12665
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Tip for per-test verbose logging in Go"
-            ]
-          ]
+          "title": [["Tip for per-test verbose logging in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -345,20 +321,20 @@ Response:+12665
     }
   ]
 }
-21506 1624300515756 httpcache-v1
+20562 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
   "verticalColumns": false
 }
-Response:+21265
+Response:+20322
 {
   "cursor": {
     "stack": []
@@ -416,11 +392,7 @@ Response:+21265
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -475,11 +447,7 @@ Response:+21265
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -502,11 +470,7 @@ Response:+21265
           "parent_id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Something like this:"
-              ]
-            ]
+            "title": [["Something like this:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -533,17 +497,8 @@ Response:+21265
               [
                 "One way to narrow down a problem when debugging a test is to add logging with e.g. "
               ],
-              [
-                "fmt.Printf()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["fmt.Printf()", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -574,11 +529,7 @@ Response:+21265
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -601,11 +552,7 @@ Response:+21265
           "parent_id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 12"
-              ]
-            ]
+            "title": [["Id: 12"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -661,11 +608,7 @@ Response:+21265
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -715,11 +658,7 @@ Response:+21265
           "parent_id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "var (\n    verboseLog = false\n)\n\nfunc myCodeWithBugs(s string) {\n    if verboseLog {\n        fmt.Printf(\"s: %s\\n\", s)\n    }\n    ...\n}\n\nfunc TestMyCode(t *testing.T) {\n    var tests = []struct {\n        ... test fields\n        debug bool\n    }{\n        { ..., false }, // without verbose logging\n        { ..., true },  // with verbose logging\n    }\n    for _, test := range tests {\n        verboseLog = test.debug\n        ...\n    }\n}"
@@ -748,20 +687,9 @@ Response:+21265
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "My solution: control logging state with global variable "
-              ],
-              [
-                "verboseLog",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and allow toggling this flag per test."
-              ]
+              ["My solution: control logging state with global variable "],
+              ["verboseLog", [["c"]]],
+              [" and allow toggling this flag per test."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -801,11 +729,7 @@ Response:+21265
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tip for per-test verbose logging in Go"
-              ]
-            ]
+            "title": [["Tip for per-test verbose logging in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -828,11 +752,7 @@ Response:+21265
           "parent_id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: programming, go"
-              ]
-            ]
+            "title": [["Tags: programming, go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -855,11 +775,7 @@ Response:+21265
           "parent_id": "ca323dad-4452-4d7b-8b6b-642e7e862b41",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2014-12-03T18:21:29-08:00"
-              ]
-            ]
+            "title": [["Date: 2014-12-03T18:21:29-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -914,31 +830,31 @@ Response:+21265
     }
   }
 }
-30376 1624300515758 httpcache-v1
+29688 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+374
 {
   "requests": [
     {
-      "id": "0da2fc25-817d-44b1-bd3d-79308d32c7f6",
-      "table": "block"
+      "table": "block",
+      "id": "0da2fc25-817d-44b1-bd3d-79308d32c7f6"
     },
     {
-      "id": "6678b848-0d05-42be-9ec8-6c0af09aad54",
-      "table": "block"
+      "table": "block",
+      "id": "6678b848-0d05-42be-9ec8-6c0af09aad54"
     },
     {
-      "id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9",
-      "table": "block"
+      "table": "block",
+      "id": "acd27c24-15d6-412f-bfc5-ebebb8ced3b9"
     },
     {
-      "id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7",
-      "table": "block"
+      "table": "block",
+      "id": "d7277fb9-ef4c-4ad4-9858-d30c8c901fa7"
     }
   ]
 }
-Response:+29911
+Response:+29224
 {
   "recordMapWithRoles": {
     "block": {
@@ -982,11 +898,7 @@ Response:+29911
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 2.5.2 released"
-              ]
-            ]
+            "title": [["SumatraPDF 2.5.2 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1024,11 +936,7 @@ Response:+29911
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1083,11 +991,7 @@ Response:+29911
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1117,11 +1021,7 @@ Response:+29911
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2014 (5)"
-              ]
-            ]
+            "title": [["2014 (5)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1177,11 +1077,7 @@ Response:+29911
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1232,11 +1128,7 @@ Response:+29911
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 3.0 released"
-              ]
-            ]
+            "title": [["SumatraPDF 3.0 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1302,11 +1194,7 @@ Response:+29911
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Improving speed of SMAZ compressor by 2.6x/1.5x"
-              ]
-            ]
+            "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1372,11 +1260,7 @@ Response:+29911
           "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on Ansible"
-              ]
-            ]
+            "title": [["Notes on Ansible"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1471,11 +1355,7 @@ Response:+29911
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 2.5.2 released"
-            ]
-          ]
+          "title": [["SumatraPDF 2.5.2 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -1526,11 +1406,7 @@ Response:+29911
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 3.0 released"
-            ]
-          ]
+          "title": [["SumatraPDF 3.0 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -1596,11 +1472,7 @@ Response:+29911
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Improving speed of SMAZ compressor by 2.6x/1.5x"
-            ]
-          ]
+          "title": [["Improving speed of SMAZ compressor by 2.6x/1.5x"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -1666,11 +1538,7 @@ Response:+29911
         "parent_id": "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Notes on Ansible"
-            ]
-          ]
+          "title": [["Notes on Ansible"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

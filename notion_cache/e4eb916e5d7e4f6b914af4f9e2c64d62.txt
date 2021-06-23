@@ -1,16 +1,16 @@
-13833 1624300554816 httpcache-v1
+13481 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
-      "table": "block"
+      "table": "block",
+      "id": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62"
     }
   ]
 }
-Response:+13632
+Response:+13281
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+13632
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+13632
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+13632
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -217,11 +205,7 @@ Response:+13632
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -260,11 +244,7 @@ Response:+13632
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "musikCube - nice mp3 player"
-              ]
-            ]
+            "title": [["musikCube - nice mp3 player"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -351,11 +331,7 @@ Response:+13632
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "musikCube - nice mp3 player"
-            ]
-          ]
+          "title": [["musikCube - nice mp3 player"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -364,20 +340,20 @@ Response:+13632
     }
   ]
 }
-23016 1624300554816 httpcache-v1
+22200 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
   "verticalColumns": false
 }
-Response:+22775
+Response:+21960
 {
   "cursor": {
     "stack": []
@@ -401,18 +377,8 @@ Response:+22775
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "In the past I used "
-              ],
-              [
-                "foobar",
-                [
-                  [
-                    "a",
-                    "http://www.foobar2000.com/"
-                  ]
-                ]
-              ],
+              ["In the past I used "],
+              ["foobar", [["a", "http://www.foobar2000.com/"]]],
               [
                 " as my low-resource player, but it has ugly UI and recently I found some file that simply crashed it when I was trying to add it to a playlist. Which is a bummer, because there’s no way to figure out which file exactly (out of hundreds in the folder) is crashing."
               ]
@@ -454,11 +420,7 @@ Response:+22775
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -513,11 +475,7 @@ Response:+22775
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -627,11 +585,7 @@ Response:+22775
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -655,21 +609,12 @@ Response:+22775
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "My latest software find: "
-              ],
+              ["My latest software find: "],
               [
                 "musicKube",
-                [
-                  [
-                    "a",
-                    "http://www.musikcube.com/page/main/screenshot"
-                  ]
-                ]
+                [["a", "http://www.musikcube.com/page/main/screenshot"]]
               ],
-              [
-                " is your basic music (mp3, ogg and flac) player."
-              ]
+              [" is your basic music (mp3, ogg and flac) player."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -719,11 +664,7 @@ Response:+22775
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -746,11 +687,7 @@ Response:+22775
           "parent_id": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Status: hidden"
-              ]
-            ]
+            "title": [["Status: hidden"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -773,11 +710,7 @@ Response:+22775
           "parent_id": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2005-05-09T20:32:18-07:00"
-              ]
-            ]
+            "title": [["Date: 2005-05-09T20:32:18-07:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -827,11 +760,7 @@ Response:+22775
           "parent_id": "e4eb916e-5d7e-4f6b-914a-f4f9e2c64d62",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 900"
-              ]
-            ]
+            "title": [["Id: 900"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -890,11 +819,7 @@ Response:+22775
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "musikCube - nice mp3 player"
-              ]
-            ]
+            "title": [["musikCube - nice mp3 player"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -949,107 +874,107 @@ Response:+22775
     }
   }
 }
-95542 1624300554818 httpcache-v1
+93110 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+2046
 {
   "requests": [
     {
-      "id": "0853348f-7ec4-464e-8714-524e64b03941",
-      "table": "block"
+      "table": "block",
+      "id": "0853348f-7ec4-464e-8714-524e64b03941"
     },
     {
-      "id": "0cdeaed5-c65c-4cde-9fb0-2c9cf7ca3dcb",
-      "table": "block"
+      "table": "block",
+      "id": "0cdeaed5-c65c-4cde-9fb0-2c9cf7ca3dcb"
     },
     {
-      "id": "2a6c078b-942b-4e35-bfee-0624d42111b9",
-      "table": "block"
+      "table": "block",
+      "id": "2a6c078b-942b-4e35-bfee-0624d42111b9"
     },
     {
-      "id": "35174550-144b-4737-9d9c-db328c8e5168",
-      "table": "block"
+      "table": "block",
+      "id": "35174550-144b-4737-9d9c-db328c8e5168"
     },
     {
-      "id": "3d8ad07a-556e-4c13-9904-2ab6c525b9ac",
-      "table": "block"
+      "table": "block",
+      "id": "3d8ad07a-556e-4c13-9904-2ab6c525b9ac"
     },
     {
-      "id": "4aee32dc-dba0-4947-82e1-07ccd79f66d5",
-      "table": "block"
+      "table": "block",
+      "id": "4aee32dc-dba0-4947-82e1-07ccd79f66d5"
     },
     {
-      "id": "57c57c00-99f1-43c5-8a89-4847a3dda035",
-      "table": "block"
+      "table": "block",
+      "id": "57c57c00-99f1-43c5-8a89-4847a3dda035"
     },
     {
-      "id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb",
-      "table": "block"
+      "table": "block",
+      "id": "5e0ec67b-3384-4be7-81d7-48f452abd9eb"
     },
     {
-      "id": "77cbaed2-5b39-47af-8764-011f2f857057",
-      "table": "block"
+      "table": "block",
+      "id": "77cbaed2-5b39-47af-8764-011f2f857057"
     },
     {
-      "id": "83e7721a-6fec-4b4d-8b4a-1d5b97e3a66f",
-      "table": "block"
+      "table": "block",
+      "id": "83e7721a-6fec-4b4d-8b4a-1d5b97e3a66f"
     },
     {
-      "id": "8c4caa43-46bc-4673-8b1d-aeb4f56800d5",
-      "table": "block"
+      "table": "block",
+      "id": "8c4caa43-46bc-4673-8b1d-aeb4f56800d5"
     },
     {
-      "id": "a36e72db-150d-4046-8c02-25c5ff1f91e8",
-      "table": "block"
+      "table": "block",
+      "id": "a36e72db-150d-4046-8c02-25c5ff1f91e8"
     },
     {
-      "id": "a8b9b554-3f3d-4b90-a260-e1606422f6ee",
-      "table": "block"
+      "table": "block",
+      "id": "a8b9b554-3f3d-4b90-a260-e1606422f6ee"
     },
     {
-      "id": "a983b448-8216-4d7a-97d2-ca2e25c4f7f7",
-      "table": "block"
+      "table": "block",
+      "id": "a983b448-8216-4d7a-97d2-ca2e25c4f7f7"
     },
     {
-      "id": "b61ddabd-4ebb-48bf-b285-b5715c9f2340",
-      "table": "block"
+      "table": "block",
+      "id": "b61ddabd-4ebb-48bf-b285-b5715c9f2340"
     },
     {
-      "id": "c48cbf57-0187-475c-968a-1312a0249062",
-      "table": "block"
+      "table": "block",
+      "id": "c48cbf57-0187-475c-968a-1312a0249062"
     },
     {
-      "id": "c5ad483a-6df7-4204-8112-2df422a95139",
-      "table": "block"
+      "table": "block",
+      "id": "c5ad483a-6df7-4204-8112-2df422a95139"
     },
     {
-      "id": "cdbbb09e-2886-428d-99f6-8bbc85aa5caf",
-      "table": "block"
+      "table": "block",
+      "id": "cdbbb09e-2886-428d-99f6-8bbc85aa5caf"
     },
     {
-      "id": "df3662f7-9d54-4d16-ad18-862e80b26f46",
-      "table": "block"
+      "table": "block",
+      "id": "df3662f7-9d54-4d16-ad18-862e80b26f46"
     },
     {
-      "id": "df3be3b9-26b9-4c19-a57e-0eb0bac61dab",
-      "table": "block"
+      "table": "block",
+      "id": "df3be3b9-26b9-4c19-a57e-0eb0bac61dab"
     },
     {
-      "id": "e0c43c12-edf2-4549-9588-89c2151abee9",
-      "table": "block"
+      "table": "block",
+      "id": "e0c43c12-edf2-4549-9588-89c2151abee9"
     },
     {
-      "id": "e6a984e7-1ec9-4753-bae7-b3482b3dab07",
-      "table": "block"
+      "table": "block",
+      "id": "e6a984e7-1ec9-4753-bae7-b3482b3dab07"
     },
     {
-      "id": "f0c76acc-7558-42c4-a6b2-a08e6cffa067",
-      "table": "block"
+      "table": "block",
+      "id": "f0c76acc-7558-42c4-a6b2-a08e6cffa067"
     }
   ]
 }
-Response:+93404
+Response:+90973
 {
   "recordMapWithRoles": {
     "block": {
@@ -1088,9 +1013,7 @@ Response:+93404
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Local DNS modifications on Windows (/etc/hosts equivalent)"
-              ]
+              ["Local DNS modifications on Windows (/etc/hosts equivalent)"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1127,11 +1050,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "A book to read, talks to listen to"
-              ]
-            ]
+            "title": [["A book to read, talks to listen to"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1169,11 +1088,7 @@ Response:+93404
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1220,9 +1135,7 @@ Response:+93404
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "VirtualEarth vs. Google Maps - not hitting the high note"
-              ]
+              ["VirtualEarth vs. Google Maps - not hitting the high note"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1278,11 +1191,7 @@ Response:+93404
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1340,9 +1249,7 @@ Response:+93404
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code-name Monad and the value of different perspective"
-              ]
+              ["Code-name Monad and the value of different perspective"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1384,11 +1291,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Accurate timers on Windows"
-              ]
-            ]
+            "title": [["Accurate timers on Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1444,11 +1347,7 @@ Response:+93404
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1540,11 +1439,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "High-resolution timer for timing code fragments"
-              ]
-            ]
+            "title": [["High-resolution timer for timing code fragments"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1593,11 +1488,7 @@ Response:+93404
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2005 (33)"
-              ]
-            ]
+            "title": [["2005 (33)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1633,11 +1524,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Petzold on Visual Studio and mind corruption"
-              ]
-            ]
+            "title": [["Petzold on Visual Studio and mind corruption"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1687,11 +1574,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google saga - episode 205"
-              ]
-            ]
+            "title": [["Google saga - episode 205"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1758,11 +1641,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Google - what kind of a giant they are?"
-              ]
-            ]
+            "title": [["Google - what kind of a giant they are?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1799,11 +1678,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Another lesson in entrepreneurship"
-              ]
-            ]
+            "title": [["Another lesson in entrepreneurship"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1839,11 +1714,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Longhorn/Vista fonts"
-              ]
-            ]
+            "title": [["Longhorn/Vista fonts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1882,11 +1753,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Deep indentation vs. flat"
-              ]
-            ]
+            "title": [["Deep indentation vs. flat"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1937,11 +1804,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Open-source and windows"
-              ]
-            ]
+            "title": [["Open-source and windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2009,11 +1872,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Unsolved source control problems"
-              ]
-            ]
+            "title": [["Unsolved source control problems"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2051,11 +1910,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Rich client is here"
-              ]
-            ]
+            "title": [["Rich client is here"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2095,9 +1950,7 @@ Response:+93404
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "How to delete a file you get from urllib.urlretrieve()"
-              ]
+              ["How to delete a file you get from urllib.urlretrieve()"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2134,11 +1987,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Subversion with SSH on Windows tip"
-              ]
-            ]
+            "title": [["Subversion with SSH on Windows tip"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2182,11 +2031,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Backpack observations"
-              ]
-            ]
+            "title": [["Backpack observations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2221,11 +2066,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Interesting Dave Winer interview"
-              ]
-            ]
+            "title": [["Interesting Dave Winer interview"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2271,11 +2112,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Serialization in C#"
-              ]
-            ]
+            "title": [["Serialization in C#"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2317,11 +2154,7 @@ Response:+93404
           "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Pickling (serialization) in Python"
-              ]
-            ]
+            "title": [["Pickling (serialization) in Python"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2411,9 +2244,7 @@ Response:+93404
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Local DNS modifications on Windows (/etc/hosts equivalent)"
-            ]
+            ["Local DNS modifications on Windows (/etc/hosts equivalent)"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2450,11 +2281,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "A book to read, talks to listen to"
-            ]
-          ]
+          "title": [["A book to read, talks to listen to"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2501,9 +2328,7 @@ Response:+93404
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "VirtualEarth vs. Google Maps - not hitting the high note"
-            ]
+            ["VirtualEarth vs. Google Maps - not hitting the high note"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2561,11 +2386,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Code-name Monad and the value of different perspective"
-            ]
-          ]
+          "title": [["Code-name Monad and the value of different perspective"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2606,11 +2427,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Accurate timers on Windows"
-            ]
-          ]
+          "title": [["Accurate timers on Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2702,11 +2519,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "High-resolution timer for timing code fragments"
-            ]
-          ]
+          "title": [["High-resolution timer for timing code fragments"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2742,11 +2555,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Petzold on Visual Studio and mind corruption"
-            ]
-          ]
+          "title": [["Petzold on Visual Studio and mind corruption"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2796,11 +2605,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google saga - episode 205"
-            ]
-          ]
+          "title": [["Google saga - episode 205"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2867,11 +2672,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Google - what kind of a giant they are?"
-            ]
-          ]
+          "title": [["Google - what kind of a giant they are?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2908,11 +2709,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Another lesson in entrepreneurship"
-            ]
-          ]
+          "title": [["Another lesson in entrepreneurship"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2948,11 +2745,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Longhorn/Vista fonts"
-            ]
-          ]
+          "title": [["Longhorn/Vista fonts"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2991,11 +2784,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Deep indentation vs. flat"
-            ]
-          ]
+          "title": [["Deep indentation vs. flat"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3046,11 +2835,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Open-source and windows"
-            ]
-          ]
+          "title": [["Open-source and windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3118,11 +2903,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Unsolved source control problems"
-            ]
-          ]
+          "title": [["Unsolved source control problems"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3160,11 +2941,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Rich client is here"
-            ]
-          ]
+          "title": [["Rich client is here"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3203,11 +2980,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How to delete a file you get from urllib.urlretrieve()"
-            ]
-          ]
+          "title": [["How to delete a file you get from urllib.urlretrieve()"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3243,11 +3016,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Subversion with SSH on Windows tip"
-            ]
-          ]
+          "title": [["Subversion with SSH on Windows tip"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3291,11 +3060,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Backpack observations"
-            ]
-          ]
+          "title": [["Backpack observations"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3330,11 +3095,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Interesting Dave Winer interview"
-            ]
-          ]
+          "title": [["Interesting Dave Winer interview"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3380,11 +3141,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Serialization in C#"
-            ]
-          ]
+          "title": [["Serialization in C#"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3426,11 +3183,7 @@ Response:+93404
         "parent_id": "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Pickling (serialization) in Python"
-            ]
-          ]
+          "title": [["Pickling (serialization) in Python"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

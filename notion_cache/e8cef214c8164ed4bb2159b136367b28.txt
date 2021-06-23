@@ -1,16 +1,16 @@
-16140 1624300562963 httpcache-v1
+15788 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "e8cef214-c816-4ed4-bb21-59b136367b28",
-      "table": "block"
+      "table": "block",
+      "id": "e8cef214-c816-4ed4-bb21-59b136367b28"
     }
   ]
 }
-Response:+15939
+Response:+15588
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+15939
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+15939
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+15939
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -200,11 +188,7 @@ Response:+15939
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2013 (7)"
-              ]
-            ]
+            "title": [["2013 (7)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -274,11 +258,7 @@ Response:+15939
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using Fabric for deploying server software"
-              ]
-            ]
+            "title": [["Using Fabric for deploying server software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -396,11 +376,7 @@ Response:+15939
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Using Fabric for deploying server software"
-            ]
-          ]
+          "title": [["Using Fabric for deploying server software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -409,20 +385,20 @@ Response:+15939
     }
   ]
 }
-57804 1624300562964 httpcache-v1
+54620 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "e8cef214-c816-4ed4-bb21-59b136367b28",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "e8cef214-c816-4ed4-bb21-59b136367b28",
   "verticalColumns": false
 }
-Response:+57563
+Response:+54380
 {
   "cursor": {
     "stack": []
@@ -472,11 +448,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Usage basics"
-              ]
-            ]
+            "title": [["Usage basics"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -503,15 +475,7 @@ Response:+57563
               [
                 "Deploying a new version of server-side software is not trivial. Here are a few things that I need to do while deploying a new version of "
               ],
-              [
-                "App Translator",
-                [
-                  [
-                    "a",
-                    "http://www.apptranslator.org/"
-                  ]
-                ]
-              ],
+              ["App Translator", [["a", "http://www.apptranslator.org/"]]],
               [
                 " (written in Go) from my Mac dev computer to a production server:"
               ]
@@ -539,28 +503,10 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "to execute a given action in "
-              ],
-              [
-                "fabfile.py",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " do: "
-              ],
-              [
-                "fab action",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["to execute a given action in "],
+              ["fabfile.py", [["c"]]],
+              [" do: "],
+              ["fab action", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -584,11 +530,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2013-10-30T18:34:49-07:00"
-              ]
-            ]
+            "title": [["Date: 2013-10-30T18:34:49-07:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -612,20 +554,9 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "each function in "
-              ],
-              [
-                "fabfile.py",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " can be thought of as an action"
-              ]
+              ["each function in "],
+              ["fabfile.py", [["c"]]],
+              [" can be thought of as an action"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -664,11 +595,7 @@ Response:+57563
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -750,11 +677,7 @@ Response:+57563
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -777,11 +700,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Possibilites"
-              ]
-            ]
+            "title": [["Possibilites"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -805,9 +724,7 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "You need to specify which account on the server to use."
-              ]
+              ["You need to specify which account on the server to use."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -864,11 +781,7 @@ Response:+57563
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -892,17 +805,8 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "write the deploy script called "
-              ],
-              [
-                "fabfile.py",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["write the deploy script called "],
+              ["fabfile.py", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -953,11 +857,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 1416002"
-              ]
-            ]
+            "title": [["Id: 1416002"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1034,11 +934,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The basics of Fabric are:"
-              ]
-            ]
+            "title": [["The basics of Fabric are:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1088,11 +984,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The code running locally runs under your account."
-              ]
-            ]
+            "title": [["The code running locally runs under your account."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1169,11 +1061,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "shut-down the currently running version"
-              ]
-            ]
+            "title": [["shut-down the currently running version"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1227,18 +1115,8 @@ Response:+57563
               [
                 "Luckily, I’m not the first person to encounter this problem which is why "
               ],
-              [
-                "Fabric",
-                [
-                  [
-                    "a",
-                    "http://docs.fabfile.org/"
-                  ]
-                ]
-              ],
-              [
-                " exists."
-              ]
+              ["Fabric", [["a", "http://docs.fabfile.org/"]]],
+              [" exists."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1298,11 +1176,7 @@ Response:+57563
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2013 (7)"
-              ]
-            ]
+            "title": [["2013 (7)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1345,11 +1219,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "What you can learn from it:"
-              ]
-            ]
+            "title": [["What you can learn from it:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1372,11 +1242,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "how to run tests both locally and remotely"
-              ]
-            ]
+            "title": [["how to run tests both locally and remotely"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1400,9 +1266,7 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "compile the source .go files to an executable, on the server"
-              ]
+              ["compile the source .go files to an executable, on the server"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1427,28 +1291,10 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "how to specify server and user account for deployment ("
-              ],
-              [
-                "env.user",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "env.hosts",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["how to specify server and user account for deployment ("],
+              ["env.user", [["c"]]],
+              [", "],
+              ["env.hosts", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1472,11 +1318,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "start the new version"
-              ]
-            ]
+            "title": [["start the new version"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1553,11 +1395,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Installation"
-              ]
-            ]
+            "title": [["Installation"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1581,17 +1419,8 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "On my Mac I’ve installed Fabric with "
-              ],
-              [
-                "sudo easy_install pip; sudo pip install fabric",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
+              ["On my Mac I’ve installed Fabric with "],
+              ["sudo easy_install pip; sudo pip install fabric", [["c"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1616,31 +1445,11 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "As an example, I only have one action named "
-              ],
-              [
-                "deploy",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " so to deploy a new version, I run "
-              ],
-              [
-                "fab deploy",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["As an example, I only have one action named "],
+              ["deploy", [["c"]]],
+              [" so to deploy a new version, I run "],
+              ["fab deploy", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1664,11 +1473,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Remote execution is via ssh"
-              ]
-            ]
+            "title": [["Remote execution is via ssh"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1718,11 +1523,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Fabric - a tool for writing deployment scripts"
-              ]
-            ]
+            "title": [["Fabric - a tool for writing deployment scripts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1745,11 +1546,7 @@ Response:+57563
           "parent_id": "e8cef214-c816-4ed4-bb21-59b136367b28",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: programming"
-              ]
-            ]
+            "title": [["Tags: programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1819,11 +1616,7 @@ Response:+57563
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using Fabric for deploying server software"
-              ]
-            ]
+            "title": [["Using Fabric for deploying server software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1847,9 +1640,7 @@ Response:+57563
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "My "
-              ],
+              ["My "],
               [
                 "App Translator deploy script",
                 [
@@ -1859,9 +1650,7 @@ Response:+57563
                   ]
                 ]
               ],
-              [
-                " is an example of a fairly complex script."
-              ]
+              [" is an example of a fairly complex script."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1891,16 +1680,9 @@ Response:+57563
               ],
               [
                 "matters",
-                [
-                  [
-                    "a",
-                    "http://www.azarask.in/blog/post/the-wrong-problem/"
-                  ]
-                ]
+                [["a", "http://www.azarask.in/blog/post/the-wrong-problem/"]]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1956,39 +1738,39 @@ Response:+57563
     }
   }
 }
-31484 1624300562965 httpcache-v1
+30624 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+550
 {
   "requests": [
     {
-      "id": "051b003e-36f1-4834-99d8-f90c7fd629fe",
-      "table": "block"
+      "table": "block",
+      "id": "051b003e-36f1-4834-99d8-f90c7fd629fe"
     },
     {
-      "id": "12fa45de-b700-417a-960f-8a0c70529267",
-      "table": "block"
+      "table": "block",
+      "id": "12fa45de-b700-417a-960f-8a0c70529267"
     },
     {
-      "id": "467a8ebf-4449-40da-a27a-3696fe44fa0e",
-      "table": "block"
+      "table": "block",
+      "id": "467a8ebf-4449-40da-a27a-3696fe44fa0e"
     },
     {
-      "id": "4ef21f46-006b-4691-b0b5-00b9981766df",
-      "table": "block"
+      "table": "block",
+      "id": "4ef21f46-006b-4691-b0b5-00b9981766df"
     },
     {
-      "id": "ab277f85-805c-42cb-aa17-e7a491368d52",
-      "table": "block"
+      "table": "block",
+      "id": "ab277f85-805c-42cb-aa17-e7a491368d52"
     },
     {
-      "id": "d6c135fa-1272-4303-86bd-496c40e54467",
-      "table": "block"
+      "table": "block",
+      "id": "d6c135fa-1272-4303-86bd-496c40e54467"
     }
   ]
 }
-Response:+30843
+Response:+29984
 {
   "recordMapWithRoles": {
     "block": {
@@ -2028,11 +1810,7 @@ Response:+30843
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 2.4 released"
-              ]
-            ]
+            "title": [["SumatraPDF 2.4 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2075,9 +1853,7 @@ Response:+30843
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Inspiration for programmers that want a passive business"
-              ]
+              ["Inspiration for programmers that want a passive business"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2116,11 +1892,7 @@ Response:+30843
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2175,11 +1947,7 @@ Response:+30843
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2217,11 +1985,7 @@ Response:+30843
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Pigz windows port"
-              ]
-            ]
+            "title": [["Pigz windows port"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2258,11 +2022,7 @@ Response:+30843
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Pigz windows port 2.3.1 released"
-              ]
-            ]
+            "title": [["Pigz windows port 2.3.1 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2318,11 +2078,7 @@ Response:+30843
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2354,11 +2110,7 @@ Response:+30843
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2013 (7)"
-              ]
-            ]
+            "title": [["2013 (7)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2413,11 +2165,7 @@ Response:+30843
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How I ported pigz from Unix to Windows"
-              ]
-            ]
+            "title": [["How I ported pigz from Unix to Windows"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2454,11 +2202,7 @@ Response:+30843
           "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The Silver Searcher windows port"
-              ]
-            ]
+            "title": [["The Silver Searcher windows port"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2549,11 +2293,7 @@ Response:+30843
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 2.4 released"
-            ]
-          ]
+          "title": [["SumatraPDF 2.4 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2596,9 +2336,7 @@ Response:+30843
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Inspiration for programmers that want a passive business"
-            ]
+            ["Inspiration for programmers that want a passive business"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2637,11 +2375,7 @@ Response:+30843
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Pigz windows port"
-            ]
-          ]
+          "title": [["Pigz windows port"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2678,11 +2412,7 @@ Response:+30843
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Pigz windows port 2.3.1 released"
-            ]
-          ]
+          "title": [["Pigz windows port 2.3.1 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2737,11 +2467,7 @@ Response:+30843
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How I ported pigz from Unix to Windows"
-            ]
-          ]
+          "title": [["How I ported pigz from Unix to Windows"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2778,11 +2504,7 @@ Response:+30843
         "parent_id": "981d650d-2df1-4162-a739-d788c628cdcf",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "The Silver Searcher windows port"
-            ]
-          ]
+          "title": [["The Silver Searcher windows port"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

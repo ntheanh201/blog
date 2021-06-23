@@ -5,7 +5,6 @@ import (
 	"sort"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/notionapi/caching_downloader"
 	"github.com/kjk/u"
 )
 
@@ -131,13 +130,13 @@ func buildArticlesNavigation(articles *Articles) {
 	}
 }
 
-func loadArticles(d *caching_downloader.Downloader) *Articles {
+func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
 	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, nil)
 	must(err)
 	res.idToPage = d.IdToPage
 
-	c := d.GetClientCopy()
+	c := newNotionClient()
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
 		u.PanicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)

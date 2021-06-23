@@ -1,16 +1,16 @@
-20416 1624300586430 httpcache-v1
+20020 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
-      "table": "block"
+      "table": "block",
+      "id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3"
     }
   ]
 }
-Response:+20215
+Response:+19820
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+20215
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+20215
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+20215
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -196,11 +184,7 @@ Response:+20215
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2019 (3)"
-              ]
-            ]
+            "title": [["2019 (3)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -297,9 +281,7 @@ Response:+20215
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1553563863050,
-          "file_ids": [
-            "82e56464-fd40-4347-9936-5146f49dc304"
-          ],
+          "file_ids": ["82e56464-fd40-4347-9936-5146f49dc304"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82e56464-fd40-4347-9936-5146f49dc304/header-28.jpg",
             "page_cover_position": 0.5,
@@ -314,11 +296,7 @@ Response:+20215
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Trade offs in designing versatile log format"
-              ]
-            ]
+            "title": [["Trade offs in designing versatile log format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -463,9 +441,7 @@ Response:+20215
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1553563863050,
-        "file_ids": [
-          "82e56464-fd40-4347-9936-5146f49dc304"
-        ],
+        "file_ids": ["82e56464-fd40-4347-9936-5146f49dc304"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82e56464-fd40-4347-9936-5146f49dc304/header-28.jpg",
           "page_cover_position": 0.5,
@@ -480,11 +456,7 @@ Response:+20215
         "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Trade offs in designing versatile log format"
-            ]
-          ]
+          "title": [["Trade offs in designing versatile log format"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -493,20 +465,20 @@ Response:+20215
     }
   ]
 }
-69619 1624300586433 httpcache-v1
+66779 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "verticalColumns": false
 }
-Response:+69378
+Response:+66539
 {
   "cursor": {
     "stack": [
@@ -544,11 +516,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "ip: 127.0.0.1\nrequest: GET /apache_pb.gif HTTP/1.0\nstatus code: 200"
@@ -576,11 +544,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "We could escape the value:"
-              ]
-            ]
+            "title": [["We could escape the value:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -677,11 +641,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It's not a hard problem. "
-              ]
-            ]
+            "title": [["It's not a hard problem. "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -704,11 +664,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "We've arrived at a layered design:"
-              ]
-            ]
+            "title": [["We've arrived at a layered design:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -732,9 +688,7 @@ Response:+69378
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To formalize, key / value pair can be encoded in 2 ways:"
-              ]
+              ["To formalize, key / value pair can be encoded in 2 ways:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -758,16 +712,8 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
-            "title": [
-              [
-                "body: hello fred\nI'm writing to you..."
-              ]
-            ]
+            "language": [["Plain Text"]],
+            "title": [["body: hello fred\nI'm writing to you..."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -790,16 +736,8 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
-            "title": [
-              [
-                "body: hello fred\\nI'm writing to you..."
-              ]
-            ]
+            "language": [["Plain Text"]],
+            "title": [["body: hello fred\\nI'm writing to you..."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -826,17 +764,8 @@ Response:+69378
               [
                 "One thing: it's not particularly human friendly. I wouldn't enjoy looking at "
               ],
-              [
-                "tail -f",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " of a JSON log."
-              ]
+              ["tail -f", [["c"]]],
+              [" of a JSON log."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -902,11 +831,7 @@ Response:+69378
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -929,16 +854,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "${key}: ${value}\\n",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["${key}: ${value}\\n", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -988,11 +904,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How about something like Apache server logs:"
-              ]
-            ]
+            "title": [["How about something like Apache server logs:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1047,11 +959,7 @@ Response:+69378
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1074,11 +982,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "It's not quite right yet. "
-              ]
-            ]
+            "title": [["It's not quite right yet. "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1101,16 +1005,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "${key}:+${sizeOfValue}\\n${value}",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["${key}:+${sizeOfValue}\\n${value}", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1134,20 +1029,9 @@ Response:+69378
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We must amend our format add add a record separator, like "
-              ],
-              [
-                "---",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ":"
-              ]
+              ["We must amend our format add add a record separator, like "],
+              ["---", [["c"]]],
+              [":"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1171,11 +1055,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This is slow and error prone."
-              ]
-            ]
+            "title": [["This is slow and error prone."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1198,11 +1078,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: programming, go"
-              ]
-            ]
+            "title": [["Tags: programming, go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1339,11 +1215,7 @@ Response:+69378
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1420,11 +1292,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it should be human-readable"
-              ]
-            ]
+            "title": [["it should be human-readable"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1475,11 +1343,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "second layer is key / value format inside the data"
-              ]
-            ]
+            "title": [["second layer is key / value format inside the data"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1507,11 +1371,7 @@ Response:+69378
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2019 (3)"
-              ]
-            ]
+            "title": [["2019 (3)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1562,14 +1422,7 @@ Response:+69378
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "33",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["33", [["c"]]],
               [
                 " is the size of the value. Knowing the size we don't need escaping. It's faster, simpler to implement, more readable and supports binary data (like images)."
               ]
@@ -1623,11 +1476,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How about something more structured:"
-              ]
-            ]
+            "title": [["How about something more structured:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1650,11 +1499,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Let's revisit the idea of using a separator:"
-              ]
-            ]
+            "title": [["Let's revisit the idea of using a separator:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1677,11 +1522,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] \"GET /apache_pb.gif HTTP/1.0\" 200 2326 \"http://www.example.com/start.html\" \"Mozilla/4.08 [en] (Win98; I ;Nav)\""
@@ -1709,11 +1550,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "ip: 127.0.0.1\nrequest: GET /apache_pb.gif HTTP/1.0\nstatus code: 200\n---"
@@ -1741,11 +1578,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "36\nip: 10.0.0.1\nrequest: GET / HTTP/1.0\n43\ncar: Toyota Corolla\nyear: 2018\nprice: 21000"
@@ -1800,11 +1633,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Same goes for un-escaping."
-              ]
-            ]
+            "title": [["Same goes for un-escaping."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1854,11 +1683,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it should be simple and therefore easy to implement"
-              ]
-            ]
+            "title": [["it should be simple and therefore easy to implement"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1908,11 +1733,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "ip: 10.0.0.1\nrequest: GET / HTTP/1.0\n---\nip: 10.0.0.2\nrequest: GET /index.html HTTP/1.0\n---"
@@ -1940,11 +1761,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it should allow various types of events"
-              ]
-            ]
+            "title": [["it should allow various types of events"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1967,11 +1784,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Escaping is not a good solution."
-              ]
-            ]
+            "title": [["Escaping is not a good solution."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2048,16 +1861,8 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
-            "title": [
-              [
-                "body:+33\nhello fred\nI'm writing to you..."
-              ]
-            ]
+            "language": [["Plain Text"]],
+            "title": [["body:+33\nhello fred\nI'm writing to you..."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -2081,9 +1886,7 @@ Response:+69378
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Without escaping, we can just write out the data as-is."
-              ]
+              ["Without escaping, we can just write out the data as-is."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2107,11 +1910,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Let's amend our format to accommodate large values:"
-              ]
-            ]
+            "title": [["Let's amend our format to accommodate large values:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2135,11 +1934,7 @@ Response:+69378
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2019-03-25"
-              ]
-            ]
+            "title": [["Date: 2019-03-25"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2236,9 +2031,7 @@ Response:+69378
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1553563863050,
-          "file_ids": [
-            "82e56464-fd40-4347-9936-5146f49dc304"
-          ],
+          "file_ids": ["82e56464-fd40-4347-9936-5146f49dc304"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82e56464-fd40-4347-9936-5146f49dc304/header-28.jpg",
             "page_cover_position": 0.5,
@@ -2253,11 +2046,7 @@ Response:+69378
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Trade offs in designing versatile log format"
-              ]
-            ]
+            "title": [["Trade offs in designing versatile log format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2312,12 +2101,14 @@ Response:+69378
     }
   }
 }
-51288 1624300586435 httpcache-v1
+49448 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "chunkNumber": 1,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -2336,11 +2127,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "verticalColumns": false
 }
-Response:+50758
+Response:+48919
 {
   "cursor": {
     "stack": [
@@ -2459,11 +2248,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Let's amend our framing with optional name:"
-              ]
-            ]
+            "title": [["Let's amend our framing with optional name:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2501,11 +2286,7 @@ Response:+50758
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2587,11 +2368,7 @@ Response:+50758
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2618,18 +2395,8 @@ Response:+50758
               [
                 "This is not just theoretical exploration. I've implemented this format as a "
               ],
-              [
-                "Go package siser",
-                [
-                  [
-                    "a",
-                    "https://github.com/kjk/siser"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["Go package siser", [["a", "https://github.com/kjk/siser"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2654,28 +2421,10 @@ Response:+50758
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Adding optional name ("
-              ],
-              [
-                "httplog",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "carinfo",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Adding optional name ("],
+              ["httplog", [["c"]]],
+              [" and "],
+              ["carinfo", [["c"]]],
               [
                 ") allows us to know what kind of data is encoded in a given chunk of data."
               ]
@@ -2703,21 +2452,9 @@ Response:+50758
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Finally let's add non-optional timestamp in "
-              ],
-              [
-                "Unix Epoch",
-                [
-                  [
-                    "a",
-                    "https://en.wikipedia.org/wiki/Unix_time"
-                  ]
-                ]
-              ],
-              [
-                " format in milliseconds:"
-              ]
+              ["Finally let's add non-optional timestamp in "],
+              ["Unix Epoch", [["a", "https://en.wikipedia.org/wiki/Unix_time"]]],
+              [" format in milliseconds:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2882,11 +2619,7 @@ Response:+50758
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2909,11 +2642,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "I'm moving all my logging needs to this format."
-              ]
-            ]
+            "title": [["I'm moving all my logging needs to this format."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2990,11 +2719,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Obvious things are often only obvious in hindsight."
-              ]
-            ]
+            "title": [["Obvious things are often only obvious in hindsight."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3022,11 +2747,7 @@ Response:+50758
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2019 (3)"
-              ]
-            ]
+            "title": [["2019 (3)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3049,11 +2770,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "$ wc -l reader.go record.go util.go writer.go\n     167 reader.go\n     196 record.go\n      79 util.go\n      57 writer.go\n     499 total"
@@ -3129,9 +2846,7 @@ Response:+50758
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "What if you need more structure than key / value pairs? "
-              ]
+              ["What if you need more structure than key / value pairs? "]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3159,17 +2874,8 @@ Response:+50758
               [
                 "Simplicity is insidiously non-trivial. The design described here is a v2 of siser library. First design used "
               ],
-              [
-                "---",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " for record separator, didn't have name and timestamp."
-              ]
+              ["---", [["c"]]],
+              [" for record separator, didn't have name and timestamp."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3220,11 +2926,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How do we know what type of record did we read?"
-              ]
-            ]
+            "title": [["How do we know what type of record did we read?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3247,11 +2949,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Implementing the thing"
-              ]
-            ]
+            "title": [["Implementing the thing"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3302,9 +3000,7 @@ Response:+50758
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "How fast is it? I benchmarked it against JSON encoding:"
-              ]
+              ["How fast is it? I benchmarked it against JSON encoding:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3328,11 +3024,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "36 httplog\nip: 10.0.0.1\nrequest: GET / HTTP/1.0\n43 carinfo\ncar: Toyota Corolla\nyear: 2018\nprice: 21000"
@@ -3360,11 +3052,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "BenchmarkSiserMarshal-12      \t 1000000\t      1136 ns/op\nBenchmarkJSONMarshal-12       \t 1000000\t      1407 ns/op\nBenchmarkSiserUnmarshal-12    \t 5000000\t       374 ns/op\nBenchmarkJSONUnmarshal-12     \t  500000\t      3353 ns/op"
@@ -3419,11 +3107,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "36 1553564864010 httplog\nip: 10.0.0.1\nrequest: GET / HTTP/1.0\n43 1553564864115 carinfo\ncar: Toyota Corolla\nyear: 2018\nprice: 21000"
@@ -3525,9 +3209,7 @@ Response:+50758
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1553563863050,
-          "file_ids": [
-            "82e56464-fd40-4347-9936-5146f49dc304"
-          ],
+          "file_ids": ["82e56464-fd40-4347-9936-5146f49dc304"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82e56464-fd40-4347-9936-5146f49dc304/header-28.jpg",
             "page_cover_position": 0.5,
@@ -3542,11 +3224,7 @@ Response:+50758
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Trade offs in designing versatile log format"
-              ]
-            ]
+            "title": [["Trade offs in designing versatile log format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3569,11 +3247,7 @@ Response:+50758
           "parent_id": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The roads not taken"
-              ]
-            ]
+            "title": [["The roads not taken"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3628,12 +3302,14 @@ Response:+50758
     }
   }
 }
-16285 1624300586435 httpcache-v1
+15961 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "chunkNumber": 2,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -3652,11 +3328,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "fc9203f7-c72a-4532-b1ae-51d018fef7b3",
   "verticalColumns": false
 }
-Response:+15755
+Response:+15432
 {
   "cursor": {
     "stack": []
@@ -3694,11 +3368,7 @@ Response:+15755
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3753,11 +3423,7 @@ Response:+15755
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3813,11 +3479,7 @@ Response:+15755
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3845,11 +3507,7 @@ Response:+15755
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2019 (3)"
-              ]
-            ]
+            "title": [["2019 (3)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -3966,9 +3624,7 @@ Response:+15755
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1553563863050,
-          "file_ids": [
-            "82e56464-fd40-4347-9936-5146f49dc304"
-          ],
+          "file_ids": ["82e56464-fd40-4347-9936-5146f49dc304"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/82e56464-fd40-4347-9936-5146f49dc304/header-28.jpg",
             "page_cover_position": 0.5,
@@ -3983,11 +3639,7 @@ Response:+15755
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Trade offs in designing versatile log format"
-              ]
-            ]
+            "title": [["Trade offs in designing versatile log format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4042,23 +3694,23 @@ Response:+15755
     }
   }
 }
-34378 1624300586436 httpcache-v1
+33826 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+198
 {
   "requests": [
     {
-      "id": "19f2fe97-f06a-47c3-b1f1-18fd06851fad",
-      "table": "block"
+      "table": "block",
+      "id": "19f2fe97-f06a-47c3-b1f1-18fd06851fad"
     },
     {
-      "id": "39a15945-1174-40d9-9a9e-f0f7de1b618a",
-      "table": "block"
+      "table": "block",
+      "id": "39a15945-1174-40d9-9a9e-f0f7de1b618a"
     }
   ]
 }
-Response:+34089
+Response:+33538
 {
   "recordMapWithRoles": {
     "block": {
@@ -4220,9 +3872,7 @@ Response:+34089
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1554247250950,
-          "file_ids": [
-            "ad76228b-5fd7-4b69-8452-25c9a64e3841"
-          ],
+          "file_ids": ["ad76228b-5fd7-4b69-8452-25c9a64e3841"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad76228b-5fd7-4b69-8452-25c9a64e3841/header-31.jpg",
             "page_cover_position": 0.5,
@@ -4237,11 +3887,7 @@ Response:+34089
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Lessons learned porting 50k loc from Java to Go"
-              ]
-            ]
+            "title": [["Lessons learned porting 50k loc from Java to Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4279,11 +3925,7 @@ Response:+34089
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4338,11 +3980,7 @@ Response:+34089
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4400,9 +4038,7 @@ Response:+34089
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1556567641008,
-          "file_ids": [
-            "5223b07e-0302-4cc9-8da4-e9678651fab9"
-          ],
+          "file_ids": ["5223b07e-0302-4cc9-8da4-e9678651fab9"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5223b07e-0302-4cc9-8da4-e9678651fab9/header-43.jpg",
             "page_cover_position": 0.5,
@@ -4417,11 +4053,7 @@ Response:+34089
           "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The things we do to ship desktop software"
-              ]
-            ]
+            "title": [["The things we do to ship desktop software"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4477,11 +4109,7 @@ Response:+34089
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4509,11 +4137,7 @@ Response:+34089
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2019 (3)"
-              ]
-            ]
+            "title": [["2019 (3)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -4726,9 +4350,7 @@ Response:+34089
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1554247250950,
-        "file_ids": [
-          "ad76228b-5fd7-4b69-8452-25c9a64e3841"
-        ],
+        "file_ids": ["ad76228b-5fd7-4b69-8452-25c9a64e3841"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad76228b-5fd7-4b69-8452-25c9a64e3841/header-31.jpg",
           "page_cover_position": 0.5,
@@ -4743,11 +4365,7 @@ Response:+34089
         "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Lessons learned porting 50k loc from Java to Go"
-            ]
-          ]
+          "title": [["Lessons learned porting 50k loc from Java to Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4805,9 +4423,7 @@ Response:+34089
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1556567641008,
-        "file_ids": [
-          "5223b07e-0302-4cc9-8da4-e9678651fab9"
-        ],
+        "file_ids": ["5223b07e-0302-4cc9-8da4-e9678651fab9"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5223b07e-0302-4cc9-8da4-e9678651fab9/header-43.jpg",
           "page_cover_position": 0.5,
@@ -4822,11 +4438,7 @@ Response:+34089
         "parent_id": "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "The things we do to ship desktop software"
-            ]
-          ]
+          "title": [["The things we do to ship desktop software"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

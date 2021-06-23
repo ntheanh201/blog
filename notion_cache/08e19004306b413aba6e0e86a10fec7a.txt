@@ -1,12 +1,12 @@
-9553 httpcache-v1
+9553 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+111
+Body:+110
 {
   "requests": [
     {
-      "id": "08e19004-306b-413a-ba6e-0e86a10fec7a",
-      "table": "block"
+      "table": "block",
+      "id": "08e19004-306b-413a-ba6e-0e86a10fec7a"
     }
   ]
 }
@@ -240,17 +240,17 @@ Response:+9354
     }
   ]
 }
-68056 httpcache-v1
+68056 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+153
+Body:+152
 {
+  "pageId": "08e19004-306b-413a-ba6e-0e86a10fec7a",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "08e19004-306b-413a-ba6e-0e86a10fec7a",
   "verticalColumns": false
 }
 Response:+67816
@@ -1895,31 +1895,31 @@ Response:+67816
     }
   }
 }
-75659 httpcache-v1
+75659 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+463
+Body:+462
 {
   "requests": [
     {
-      "id": "19f2fe97-f06a-47c3-b1f1-18fd06851fad",
-      "table": "block"
+      "table": "block",
+      "id": "19f2fe97-f06a-47c3-b1f1-18fd06851fad"
     },
     {
-      "id": "39a15945-1174-40d9-9a9e-f0f7de1b618a",
-      "table": "block"
+      "table": "block",
+      "id": "39a15945-1174-40d9-9a9e-f0f7de1b618a"
     },
     {
-      "id": "88aee8f4-3620-471a-a9db-cad28368174c",
-      "table": "block"
+      "table": "block",
+      "id": "88aee8f4-3620-471a-a9db-cad28368174c"
     },
     {
-      "id": "a8cf04d7-56ec-4963-9059-60822b004440",
-      "table": "block"
+      "table": "block",
+      "id": "a8cf04d7-56ec-4963-9059-60822b004440"
     },
     {
-      "id": "ea07db1b-9bff-415a-b180-b0525f3898f6",
-      "table": "block"
+      "table": "block",
+      "id": "ea07db1b-9bff-415a-b180-b0525f3898f6"
     }
   ]
 }

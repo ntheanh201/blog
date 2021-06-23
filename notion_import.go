@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/notionapi/caching_downloader"
 )
 
 var (
@@ -117,7 +116,7 @@ func rmCached(pageID string) {
 }
 */
 
-func loadPageAsArticle(d *caching_downloader.Downloader, pageID string) *Article {
+func loadPageAsArticle(d *notionapi.CachingClient, pageID string) *Article {
 	page, err := d.DownloadPage(pageID)
 	must(err)
 	logf("Downloaded %s %s\n", pageID, page.Root().Title)

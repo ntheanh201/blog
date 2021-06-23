@@ -1,16 +1,16 @@
-19460 1624300603884 httpcache-v1
+19124 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "da74af7a-3096-4880-8249-be7a79fc8156",
-      "table": "block"
+      "table": "block",
+      "id": "da74af7a-3096-4880-8249-be7a79fc8156"
     }
   ]
 }
-Response:+19259
+Response:+18924
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+19259
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -105,11 +101,7 @@ Response:+19259
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -156,11 +148,7 @@ Response:+19259
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -263,9 +251,7 @@ Response:+19259
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786810,
-          "file_ids": [
-            "c4bfc136-2fdb-4e47-bc21-51698592fd00"
-          ],
+          "file_ids": ["c4bfc136-2fdb-4e47-bc21-51698592fd00"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bfc136-2fdb-4e47-bc21-51698592fd00/header-09.jpg",
             "page_cover_position": 0.5,
@@ -281,11 +267,7 @@ Response:+19259
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "3 ways to iterate in Go"
-              ]
-            ]
+            "title": [["3 ways to iterate in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -436,9 +418,7 @@ Response:+19259
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531888786810,
-        "file_ids": [
-          "c4bfc136-2fdb-4e47-bc21-51698592fd00"
-        ],
+        "file_ids": ["c4bfc136-2fdb-4e47-bc21-51698592fd00"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bfc136-2fdb-4e47-bc21-51698592fd00/header-09.jpg",
           "page_cover_position": 0.5,
@@ -454,11 +434,7 @@ Response:+19259
         "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "3 ways to iterate in Go"
-            ]
-          ]
+          "title": [["3 ways to iterate in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -467,20 +443,20 @@ Response:+19259
     }
   ]
 }
-76248 1624300603886 httpcache-v1
+70502 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "verticalColumns": false
 }
-Response:+76007
+Response:+70262
 {
   "cursor": {
     "stack": [
@@ -522,17 +498,8 @@ Response:+76007
               [
                 "Iteration is a frequent need, be it iterating over lines of a file, results or of "
               ],
-              [
-                "SELECT",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " SQL query or files in a directory."
-              ]
+              ["SELECT", [["c"]]],
+              [" SQL query or files in a directory."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -557,11 +524,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Iterating via callback"
-              ]
-            ]
+            "title": [["Iterating via callback"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -589,17 +552,8 @@ Response:+76007
               [
                 "Our example is iterating over even numbers, starting with 2 up to a given "
               ],
-              [
-                "max",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " number (inclusive)."
-              ]
+              ["max", [["c"]]],
+              [" number (inclusive)."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -653,31 +607,11 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Some of those iterators combine "
-              ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "Value()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " into a single function returning multiple values."
-              ]
+              ["Some of those iterators combine "],
+              ["Next()", [["c"]]],
+              [" and "],
+              ["Value()", [["c"]]],
+              [" into a single function returning multiple values."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -702,11 +636,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Client code:"
-              ]
-            ]
+            "title": [["Client code:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -731,9 +661,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "3-ways-to-iterate/next.go",
                 [
@@ -743,9 +671,7 @@ Response:+76007
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -784,11 +710,7 @@ Response:+76007
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -843,18 +765,11 @@ Response:+76007
               [
                 "Scanner.Scan",
                 [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://golang.org/pkg/go/scanner/#Scanner.Scan"
-                  ]
+                  ["c"],
+                  ["a", "https://golang.org/pkg/go/scanner/#Scanner.Scan"]
                 ]
               ],
-              [
-                " to iterate over text"
-              ]
+              [" to iterate over text"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -879,11 +794,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "func printEvenNumbers(max int) {\n    iter := NewEvenNumberIterator(max)\n    for iter.Next() {\n        fmt.Printf(\"n: %d\\n\", iter.Value())\n    }\n    if iter.Err() != nil {\n        log.Fatalf(\"error: %s\\n\", iter.Err())\n    }\n}"
@@ -912,19 +823,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Iterating with "
-              ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Iterating with "], ["Next()", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -950,30 +849,11 @@ Response:+76007
             "title": [
               [
                 "Rows.Next",
-                [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://golang.org/pkg/database/sql/#Rows.Next"
-                  ]
-                ]
+                [["c"], ["a", "https://golang.org/pkg/database/sql/#Rows.Next"]]
               ],
-              [
-                " to iterate over results of SQL "
-              ],
-              [
-                "SELECT",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " statement"
-              ]
+              [" to iterate over results of SQL "],
+              ["SELECT", [["c"]]],
+              [" statement"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -997,11 +877,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "CreatedAt: 2017-06-19T06:56:45Z"
-              ]
-            ]
+            "title": [["CreatedAt: 2017-06-19T06:56:45Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1025,11 +901,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "func printEvenNumbers(max int) {\n    err := iterateEvenNumbers(max, func(n int) error {\n        fmt.Printf(\"%d\\n\", n)\n        return nil\n    })\n    if err != nil {\n        log.Fatalf(\"error: %s\\n\", err)\n    }\n}"
@@ -1090,11 +962,7 @@ Response:+76007
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1118,11 +986,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This pattern is used in standard library:"
-              ]
-            ]
+            "title": [["This pattern is used in standard library:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1146,11 +1010,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Iterating with a channel"
-              ]
-            ]
+            "title": [["Iterating with a channel"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1174,11 +1034,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Client side of iteration:"
-              ]
-            ]
+            "title": [["Client side of iteration:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1201,11 +1057,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "UpdatedAt: 2017-07-10T22:52:13Z"
-              ]
-            ]
+            "title": [["UpdatedAt: 2017-07-10T22:52:13Z"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1276,9 +1128,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "this method requires the largest amount of boilerplate"
-              ]
+              ["this method requires the largest amount of boilerplate"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1304,24 +1154,12 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This pattern is used in "
-              ],
+              ["This pattern is used in "],
               [
                 "filepath.Walk",
-                [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://golang.org/pkg/path/filepath/#Walk"
-                  ]
-                ]
+                [["c"], ["a", "https://golang.org/pkg/path/filepath/#Walk"]]
               ],
-              [
-                " API in standard library."
-              ]
+              [" API in standard library."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1346,14 +1184,10 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "// EvenNumberIterator generates even numbers\ntype EvenNumberIterator struct {\n    max       int\n    currValue int\n    err       error\n}\n\n// NewEvenNumberIterator creates new number iterator\nfunc NewEvenNumberIterator(max int) *EvenNumberIterator {\n    var err error\n    if max \u003c 0 {\n        err = fmt.Errorf(\"'max' is %d, should be \u003e= 0\", max)\n    }\n    return \u0026EvenNumberIterator{\n        max:       max,\n        currValue: 0,\n        err:       err,\n    }\n}\n\n// Next advances to next even number. Returns false on end of iteration.\nfunc (i *EvenNumberIterator) Next() bool {\n    if i.err != nil {\n        return false\n    }\n    i.currValue += 2\n    return i.currValue \u003c= i.max\n}\n\n// Value returns current even number\nfunc (i *EvenNumberIterator) Value() int {\n    if i.err != nil || i.currValue \u003e i.max {\n        panic(\"Value is not valid after iterator finished\")\n    }\n    return i.currValue\n}\n\n// Err returns iteration error.\nfunc (i *EvenNumberIterator) Err() error {\n    return i.err\n}"
+                "// EvenNumberIterator generates even numbers\ntype EvenNumberIterator struct {\n    max       int\n    currValue int\n    err       error\n}\n\n// NewEvenNumberIterator creates new number iterator\nfunc NewEvenNumberIterator(max int) *EvenNumberIterator {\n    var err error\n    if max < 0 {\n        err = fmt.Errorf(\"'max' is %d, should be >= 0\", max)\n    }\n    return &EvenNumberIterator{\n        max:       max,\n        currValue: 0,\n        err:       err,\n    }\n}\n\n// Next advances to next even number. Returns false on end of iteration.\nfunc (i *EvenNumberIterator) Next() bool {\n    if i.err != nil {\n        return false\n    }\n    i.currValue += 2\n    return i.currValue <= i.max\n}\n\n// Value returns current even number\nfunc (i *EvenNumberIterator) Value() int {\n    if i.err != nil || i.currValue > i.max {\n        panic(\"Value is not valid after iterator finished\")\n    }\n    return i.currValue\n}\n\n// Err returns iteration error.\nfunc (i *EvenNumberIterator) Err() error {\n    return i.err\n}"
               ]
             ]
           },
@@ -1402,11 +1236,7 @@ Response:+76007
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1429,11 +1259,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PublishedOn: 2017-07-09"
-              ]
-            ]
+            "title": [["PublishedOn: 2017-07-09"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1459,7 +1285,7 @@ Response:+76007
           "properties": {
             "title": [
               [
-                "This is fine if iteration logic is simple. If our iteration was complex, like iterating over lines in a file, every time we needed to do different processing of the lines, we would end up copy \u0026 pasteing a lot of code."
+                "This is fine if iteration logic is simple. If our iteration was complex, like iterating over lines in a file, every time we needed to do different processing of the lines, we would end up copy & pasteing a lot of code."
               ]
             ]
           },
@@ -1484,11 +1310,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1513,20 +1335,9 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We need to carry state across "
-              ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " calls and remember iteration errors:"
-              ]
+              ["We need to carry state across "],
+              ["Next()", [["c"]]],
+              [" calls and remember iteration errors:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1579,11 +1390,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Implementation of iterator:"
-              ]
-            ]
+            "title": [["Implementation of iterator:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1608,9 +1415,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Here’s an example of iteration intertwined with processing."
-              ]
+              ["Here’s an example of iteration intertwined with processing."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1636,9 +1441,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "3-ways-to-iterate/inlined.go",
                 [
@@ -1648,9 +1451,7 @@ Response:+76007
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1676,42 +1477,15 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Notice how "
-              ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " fits nicely with "
-              ],
-              [
-                "for",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Notice how "],
+              ["Next()", [["c"]]],
+              [" fits nicely with "],
+              ["for", [["c"]]],
               [
                 " loop thanks to returning bool and indicating end of iteration with "
               ],
-              [
-                "false",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["false", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1736,14 +1510,10 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func iterateEvenNumbers(max int, cb func(n int) error) error {\n    if max \u003c 0 {\n        return fmt.Errorf(\"'max' is %d, must be \u003e= 0\", max)\n    }\n    for i := 2; i \u003c= max; i += 2 {\n        err := cb(i)\n        if err != nil {\n            return err\n        }\n    }\n    return nil\n}"
+                "func iterateEvenNumbers(max int, cb func(n int) error) error {\n    if max < 0 {\n        return fmt.Errorf(\"'max' is %d, must be >= 0\", max)\n    }\n    for i := 2; i <= max; i += 2 {\n        err := cb(i)\n        if err != nil {\n            return err\n        }\n    }\n    return nil\n}"
               ]
             ]
           },
@@ -1769,11 +1539,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes:"
-              ]
-            ]
+            "title": [["Notes:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1796,11 +1562,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 1Bkr"
-              ]
-            ]
+            "title": [["Id: 1Bkr"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1828,28 +1590,10 @@ Response:+76007
               [
                 "We need a way to stop iteration from within the callback which is why the callback returns an "
               ],
-              [
-                "error",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Returning non-nil "
-              ],
-              [
-                "error",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " from callback stops iteration."
-              ]
+              ["error", [["c"]]],
+              [". Returning non-nil "],
+              ["error", [["c"]]],
+              [" from callback stops iteration."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1874,17 +1618,8 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Value()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " panics if accessed after iteration has finished"
-              ]
+              ["Value()", [["c"]]],
+              [" panics if accessed after iteration has finished"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1938,20 +1673,9 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To show handling of errors we’ll consider "
-              ],
-              [
-                "max",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " less than 0 to be invalid."
-              ]
+              ["To show handling of errors we’ll consider "],
+              ["max", [["c"]]],
+              [" less than 0 to be invalid."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2007,18 +1731,11 @@ Response:+76007
               [
                 "Decoder.Token",
                 [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://golang.org/pkg/encoding/xml/#Decoder.Token"
-                  ]
+                  ["c"],
+                  ["a", "https://golang.org/pkg/encoding/xml/#Decoder.Token"]
                 ]
               ],
-              [
-                " for XML parsing"
-              ]
+              [" for XML parsing"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2043,28 +1760,10 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " should return "
-              ],
-              [
-                "false",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " if there was an error"
-              ]
+              ["Next()", [["c"]]],
+              [" should return "],
+              ["false", [["c"]]],
+              [" if there was an error"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2168,9 +1867,7 @@ Response:+76007
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786810,
-          "file_ids": [
-            "c4bfc136-2fdb-4e47-bc21-51698592fd00"
-          ],
+          "file_ids": ["c4bfc136-2fdb-4e47-bc21-51698592fd00"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bfc136-2fdb-4e47-bc21-51698592fd00/header-09.jpg",
             "page_cover_position": 0.5,
@@ -2186,11 +1883,7 @@ Response:+76007
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "3 ways to iterate in Go"
-              ]
-            ]
+            "title": [["3 ways to iterate in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2215,9 +1908,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Our processing is simple as well: we print the number."
-              ]
+              ["Our processing is simple as well: we print the number."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2243,9 +1934,7 @@ Response:+76007
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "3-ways-to-iterate/callback.go",
                 [
@@ -2255,9 +1944,7 @@ Response:+76007
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2286,17 +1973,8 @@ Response:+76007
               [
                 "There are 3 common iteration patterns in Go programs: * callbacks * an iterator object with "
               ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " method * channels"
-              ]
+              ["Next()", [["c"]]],
+              [" method * channels"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2325,39 +2003,16 @@ Response:+76007
               [
                 "Another pattern is to implement iterator struct with 3 functions: * "
               ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Next()", [["c"]]],
               [
                 " advances iterator to next value. It returns false to indicate end of iteration (which can be due to error) * "
               ],
-              [
-                "Value()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Value()", [["c"]]],
               [
                 " to get the current value of the iterator. The name depends on the kind of value we retrieve * optional "
               ],
-              [
-                "Err()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " function which returns iteration error"
-              ]
+              ["Err()", [["c"]]],
+              [" function which returns iteration error"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2385,18 +2040,11 @@ Response:+76007
               [
                 "Reader.Read",
                 [
-                  [
-                    "c"
-                  ],
-                  [
-                    "a",
-                    "https://golang.org/pkg/encoding/csv/#Reader.Read"
-                  ]
+                  ["c"],
+                  ["a", "https://golang.org/pkg/encoding/csv/#Reader.Read"]
                 ]
               ],
-              [
-                " in CSV reader"
-              ]
+              [" in CSV reader"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2420,11 +2068,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go"
-              ]
-            ]
+            "title": [["Tags: go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2448,11 +2092,7 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Iteration mixed with processing"
-              ]
-            ]
+            "title": [["Iteration mixed with processing"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2476,14 +2116,10 @@ Response:+76007
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func printEvenNumbers(max int) {\n    if max \u003c 0 {\n        log.Fatalf(\"'max' is %d, should be \u003e= 0\", max)\n    }\n    for i := 2; i \u003c= max; i += 2 {\n        fmt.Printf(\"%d\\n\", i)\n    }\n}"
+                "func printEvenNumbers(max int) {\n    if max < 0 {\n        log.Fatalf(\"'max' is %d, should be >= 0\", max)\n    }\n    for i := 2; i <= max; i += 2 {\n        fmt.Printf(\"%d\\n\", i)\n    }\n}"
               ]
             ]
           },
@@ -2540,12 +2176,14 @@ Response:+76007
     }
   }
 }
-53010 1624300603887 httpcache-v1
+50190 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "chunkNumber": 1,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -2564,11 +2202,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "verticalColumns": false
 }
-Response:+52480
+Response:+49661
 {
   "cursor": {
     "stack": [
@@ -2608,20 +2244,9 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "it’s safe to call "
-              ],
-              [
-                "cancel()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " multiple times"
-              ]
+              ["it’s safe to call "],
+              ["cancel()", [["c"]]],
+              [" multiple times"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2646,14 +2271,10 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "func generateEvenNumbers(max int) chan IntWithError {\n    ch := make(chan IntWithError)\n    go func() {\n        defer close(ch)\n        if max \u003c 0 {\n            ch \u003c- IntWithError{\n                Err: fmt.Errorf(\"'max' is %d and should be \u003e= 0\", max),\n            }\n            return\n        }\n\n        for i := 2; i \u003c= max; i += 2 {\n            ch \u003c- IntWithError{\n                Int: i,\n            }\n        }\n    }()\n    return ch\n}"
+                "func generateEvenNumbers(max int) chan IntWithError {\n    ch := make(chan IntWithError)\n    go func() {\n        defer close(ch)\n        if max < 0 {\n            ch <- IntWithError{\n                Err: fmt.Errorf(\"'max' is %d and should be >= 0\", max),\n            }\n            return\n        }\n\n        for i := 2; i <= max; i += 2 {\n            ch <- IntWithError{\n                Int: i,\n            }\n        }\n    }()\n    return ch\n}"
               ]
             ]
           },
@@ -2680,9 +2301,7 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "3-ways-to-iterate/channel.go",
                 [
@@ -2692,9 +2311,7 @@ Response:+52480
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2719,16 +2336,8 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
-            "title": [
-              [
-                "for _ = range ch {\n}"
-              ]
-            ]
+            "language": [["Go"]],
+            "title": [["for _ = range ch {\n}"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -2766,11 +2375,7 @@ Response:+52480
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2795,17 +2400,8 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We could use buffered channel, e.g.: "
-              ],
-              [
-                "ch := make(chan IntWithError, 128)",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["We could use buffered channel, e.g.: "],
+              ["ch := make(chan IntWithError, 128)", [["c"]]],
               [
                 ". That would speed up things if both generation and processing are time consuming by parallelizing those 2 processes."
               ]
@@ -2833,11 +2429,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "func printEvenNumbers(max int) {\n    for val := range generateEvenNumbers(max) {\n        if val.Err != nil {\n            log.Fatalf(\"Error: %s\\n\", val.Err)\n        }\n        fmt.Printf(\"%d\\n\", val.Int)\n    }\n}"
@@ -2866,11 +2458,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Generator side:"
-              ]
-            ]
+            "title": [["Generator side:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2954,11 +2542,7 @@ Response:+52480
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2982,11 +2566,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Iterating with a channel"
-              ]
-            ]
+            "title": [["Iterating with a channel"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3011,9 +2591,7 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Full example: "
-              ],
+              ["Full example: "],
               [
                 "3-ways-to-iterate/channel-cancellable.go",
                 [
@@ -3023,9 +2601,7 @@ Response:+52480
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3101,11 +2677,7 @@ Response:+52480
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3158,31 +2730,11 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "We can add ability to stop a channel iterator by using "
-              ],
-              [
-                "context",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " created with "
-              ],
-              [
-                "context.WithCancel",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["We can add ability to stop a channel iterator by using "],
+              ["context", [["c"]]],
+              [" created with "],
+              ["context.WithCancel", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3207,11 +2759,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The one that best fits your scenario."
-              ]
-            ]
+            "title": [["The one that best fits your scenario."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3263,11 +2811,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Here’s slightly modified generator function:"
-              ]
-            ]
+            "title": [["Here’s slightly modified generator function:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3292,31 +2836,11 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "we must call "
-              ],
-              [
-                "cancel()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " on the context we get from "
-              ],
-              [
-                "context.WithCancel()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " or else it’ll leak"
-              ]
+              ["we must call "],
+              ["cancel()", [["c"]]],
+              [" on the context we get from "],
+              ["context.WithCancel()", [["c"]]],
+              [" or else it’ll leak"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3341,11 +2865,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Adding cancellation to channel-based iterator"
-              ]
-            ]
+            "title": [["Adding cancellation to channel-based iterator"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3369,11 +2889,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Which way is the best?"
-              ]
-            ]
+            "title": [["Which way is the best?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3454,14 +2970,7 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "cancel()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["cancel()", [["c"]]],
               [
                 " asks for the generator to stop but cannot guarantee it. After cancelling we’ll get more values queued on the channel"
               ]
@@ -3624,9 +3133,7 @@ Response:+52480
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786810,
-          "file_ids": [
-            "c4bfc136-2fdb-4e47-bc21-51698592fd00"
-          ],
+          "file_ids": ["c4bfc136-2fdb-4e47-bc21-51698592fd00"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bfc136-2fdb-4e47-bc21-51698592fd00/header-09.jpg",
             "page_cover_position": 0.5,
@@ -3642,11 +3149,7 @@ Response:+52480
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "3 ways to iterate in Go"
-              ]
-            ]
+            "title": [["3 ways to iterate in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3670,15 +3173,9 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
-              [
-                "type IntWithError struct {\n    Int int\n    Err error\n}"
-              ]
+              ["type IntWithError struct {\n    Int int\n    Err error\n}"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3703,14 +3200,10 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func generateEvenNumbers(ctx context.Context, max int) chan IntWithError {\n    ch := make(chan IntWithError)\n    go func() {\n        defer close(ch)\n        if max \u003c 0 {\n            ch \u003c- IntWithError{\n                Err: fmt.Errorf(\"'max' is %d and should be \u003e= 0\", max),\n            }\n            return\n        }\n\n        for i := 2; i \u003c= max; i += 2 {\n            if ctx != nil {\n                // if context was cancelled, we stop early\n                select {\n                case \u003c-ctx.Done():\n                    return\n                default:\n                }\n            }\n            ch \u003c- IntWithError{\n                Int: i,\n            }\n        }\n    }()\n    return ch\n}"
+                "func generateEvenNumbers(ctx context.Context, max int) chan IntWithError {\n    ch := make(chan IntWithError)\n    go func() {\n        defer close(ch)\n        if max < 0 {\n            ch <- IntWithError{\n                Err: fmt.Errorf(\"'max' is %d and should be >= 0\", max),\n            }\n            return\n        }\n\n        for i := 2; i <= max; i += 2 {\n            if ctx != nil {\n                // if context was cancelled, we stop early\n                select {\n                case <-ctx.Done():\n                    return\n                default:\n                }\n            }\n            ch <- IntWithError{\n                Int: i,\n            }\n        }\n    }()\n    return ch\n}"
               ]
             ]
           },
@@ -3736,14 +3229,10 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func printEvenNumbersCancellable(max int, stopAt int) {\n    ctx, cancel := context.WithCancel(context.Background())\n    defer cancel()\n    ch := generateEvenNumbers(ctx, max)\n    for val := range ch {\n        if val.Err != nil {\n            log.Fatalf(\"Error: %s\\n\", val.Err)\n        }\n        if val.Int \u003e stopAt {\n            cancel()\n            // notice we keep going in order to drain the channel\n            continue\n        }\n        // process the value\n        fmt.Printf(\"%d\\n\", val.Int)\n    }\n}"
+                "func printEvenNumbersCancellable(max int, stopAt int) {\n    ctx, cancel := context.WithCancel(context.Background())\n    defer cancel()\n    ch := generateEvenNumbers(ctx, max)\n    for val := range ch {\n        if val.Err != nil {\n            log.Fatalf(\"Error: %s\\n\", val.Err)\n        }\n        if val.Int > stopAt {\n            cancel()\n            // notice we keep going in order to drain the channel\n            continue\n        }\n        // process the value\n        fmt.Printf(\"%d\\n\", val.Int)\n    }\n}"
               ]
             ]
           },
@@ -3769,11 +3258,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Important to note:"
-              ]
-            ]
+            "title": [["Important to note:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3825,11 +3310,7 @@ Response:+52480
           "parent_id": "da74af7a-3096-4880-8249-be7a79fc8156",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Caller side:"
-              ]
-            ]
+            "title": [["Caller side:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3854,28 +3335,12 @@ Response:+52480
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "generateEvenNumbers()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["generateEvenNumbers()", [["c"]]],
               [
                 " returns a channel which will be closed to indicate end of iteration. Closing the channel ends "
               ],
-              [
-                "for",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " loop."
-              ]
+              ["for", [["c"]]],
+              [" loop."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3931,12 +3396,14 @@ Response:+52480
     }
   }
 }
-22581 1624300603888 httpcache-v1
+22097 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "chunkNumber": 2,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -3955,11 +3422,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "da74af7a-3096-4880-8249-be7a79fc8156",
   "verticalColumns": false
 }
-Response:+22051
+Response:+21568
 {
   "cursor": {
     "stack": []
@@ -3984,9 +3449,7 @@ Response:+22051
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Code for this chapter: "
-              ],
+              ["Code for this chapter: "],
               [
                 "https://github.com/kjk/go-cookbook/tree/master/3-ways-to-iterate",
                 [
@@ -4034,11 +3497,7 @@ Response:+22051
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4122,11 +3581,7 @@ Response:+22051
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4201,11 +3656,7 @@ Response:+22051
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Go Cookbook"
-              ]
-            ]
+            "title": [["Go Cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4230,9 +3681,7 @@ Response:+22051
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "It’s also the only one that is concurrent by nature."
-              ]
+              ["It’s also the only one that is concurrent by nature."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4258,17 +3707,8 @@ Response:+22051
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Using "
-              ],
-              [
-                "Next()",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Using "],
+              ["Next()", [["c"]]],
               [
                 " is the hardest to implement but presents nice interface to the caller. It’s most commonly used in Go standard library for complex iterators."
               ]
@@ -4375,9 +3815,7 @@ Response:+22051
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531888786810,
-          "file_ids": [
-            "c4bfc136-2fdb-4e47-bc21-51698592fd00"
-          ],
+          "file_ids": ["c4bfc136-2fdb-4e47-bc21-51698592fd00"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bfc136-2fdb-4e47-bc21-51698592fd00/header-09.jpg",
             "page_cover_position": 0.5,
@@ -4393,11 +3831,7 @@ Response:+22051
           "parent_id": "7495260a-1daa-4611-8858-ad2e049e77e6",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "3 ways to iterate in Go"
-              ]
-            ]
+            "title": [["3 ways to iterate in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",

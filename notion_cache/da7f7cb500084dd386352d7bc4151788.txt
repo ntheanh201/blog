@@ -1,12 +1,12 @@
-11023 httpcache-v1
+11023 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+111
+Body:+110
 {
   "requests": [
     {
-      "id": "da7f7cb5-0008-4dd3-8635-2d7bc4151788",
-      "table": "block"
+      "table": "block",
+      "id": "da7f7cb5-0008-4dd3-8635-2d7bc4151788"
     }
   ]
 }
@@ -280,17 +280,17 @@ Response:+10823
     }
   ]
 }
-36550 httpcache-v1
+36550 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+153
+Body:+152
 {
+  "pageId": "da7f7cb5-0008-4dd3-8635-2d7bc4151788",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "da7f7cb5-0008-4dd3-8635-2d7bc4151788",
   "verticalColumns": false
 }
 Response:+36310

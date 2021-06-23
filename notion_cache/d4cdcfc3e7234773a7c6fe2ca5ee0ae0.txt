@@ -1,16 +1,16 @@
-33799 1624300680498 httpcache-v1
+33333 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
-      "table": "block"
+      "table": "block",
+      "id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0"
     }
   ]
 }
-Response:+33598
+Response:+33133
 {
   "recordMapWithRoles": {
     "block": {
@@ -63,11 +63,7 @@ Response:+33598
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -144,11 +140,7 @@ Response:+33598
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -387,16 +379,7 @@ Response:+33598
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -441,11 +424,7 @@ Response:+33598
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -732,16 +711,7 @@ Response:+33598
         "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Portable Executable File Format",
-              [
-                [
-                  "b"
-                ]
-              ]
-            ]
-          ]
+          "title": [["Portable Executable File Format", [["b"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -750,20 +720,20 @@ Response:+33598
     }
   ]
 }
-89261 1624300680500 httpcache-v1
+85862 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+89020
+Response:+85622
 {
   "cursor": {
     "stack": [
@@ -805,17 +775,8 @@ Response:+89020
               [
                 "WINNT.H defines several other flags that indicate file header information much the way the example described above does. I'll leave it as an exercise for the reader t o look up the flags to see if any of them are interesting or not. They are located in WINNT.H immediately after the "
               ],
-              [
-                "IMAGE_FILE_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure described above."
-              ]
+              ["IMAGE_FILE_HEADER", [["b"]]],
+              [" structure described above."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -893,16 +854,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -926,17 +878,8 @@ Response:+89020
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The code listed above quickly shows how useful the "
-              ],
-              [
-                "NTSIGNATURE",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["The code listed above quickly shows how useful the "],
+              ["NTSIGNATURE", [["b"]]],
               [
                 " macro becomes. The macro makes it easy to compare the different file types and return the appropriate one for a given type of file. The four different file types defined in WINNT.H are:"
               ]
@@ -1021,9 +964,7 @@ Response:+89020
               [
                 "One other useful entry in the PE file header structure is the "
               ],
-              [
-                "NumberOfSections"
-              ],
+              ["NumberOfSections"],
               [
                 " field. It turns out that you need to know how many sections--more specifically, how many section headers and section bodies--are in the file in order to extract the information easily. Each section header and section body is laid out sequentially in the file, so the number of sections is necessary to determine where the section headers and bodies end. The following function extracts the number of sections from the PE file header:"
               ]
@@ -1050,14 +991,10 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int   WINAPI NumOfSections (\n    LPVOID    lpFile)\n{\n    /* Number of sections is indicated in file header. */\n    return (int)((PIMAGE_FILE_HEADER)\n                  PEFHDROFFSET (lpFile))-\u003eNumberOfSections);\n}"
+                "int   WINAPI NumOfSections (\n    LPVOID    lpFile)\n{\n    /* Number of sections is indicated in file header. */\n    return (int)((PIMAGE_FILE_HEADER)\n                  PEFHDROFFSET (lpFile))->NumberOfSections);\n}"
               ]
             ]
           },
@@ -1083,18 +1020,12 @@ Response:+89020
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "In this example, "
-              ],
-              [
-                "lpFile"
-              ],
+              ["In this example, "],
+              ["lpFile"],
               [
                 " represents a pointer to the base of the memory-mapped executable file, and therein lies the convenience of memory-mapped files. No file I/O needs to be performed; simply dereference the pointer "
               ],
-              [
-                "pfh"
-              ],
+              ["pfh"],
               [
                 " to access information in the file. The PE file header structure is defined as:"
               ]
@@ -1229,11 +1160,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PE File Header and Signature"
-              ]
-            ]
+            "title": [["PE File Header and Signature"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1286,11 +1213,7 @@ Response:+89020
             "title": [
               [
                 "Figure 1. Structure of a Portable Executable file image",
-                [
-                  [
-                    "b"
-                  ]
-                ]
+                [["b"]]
               ]
             ]
           },
@@ -1375,11 +1298,7 @@ Response:+89020
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1421,9 +1340,7 @@ Response:+89020
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1532670056757,
-          "file_ids": [
-            "ed955d68-2e57-4f8f-be99-7cfc477a7e71"
-          ],
+          "file_ids": ["ed955d68-2e57-4f8f-be99-7cfc477a7e71"],
           "format": {
             "block_aspect_ratio": 3.184313725490196,
             "block_full_width": false,
@@ -1468,16 +1385,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1554,11 +1462,7 @@ Response:+89020
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1585,28 +1489,12 @@ Response:+89020
               [
                 "When building an application for Windows version 3.1, the linker links a default stub program called WINSTUB.EXE into your executable. You can override the default linker behavior by substituting your own valid MS-DOS-based program in place of WINSTUB and indicating this to the linker with the "
               ],
-              [
-                "STUB",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["STUB", [["b"]]],
               [
                 " module definition statement. Applications developed for Windows NT can do the same thing by using the "
               ],
-              [
-                "-STUB: linker",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " option when linking the executable file."
-              ]
+              ["-STUB: linker", [["b"]]],
+              [" option when linking the executable file."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1630,16 +1518,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1662,11 +1541,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "#define IMAGE_DOS_SIGNATURE             0x5A4D      // MZ\n#define IMAGE_OS2_SIGNATURE             0x454E      // NE\n#define IMAGE_OS2_SIGNATURE_LE          0x454C      // LE\n#define IMAGE_NT_SIGNATURE              0x00004550  // PE00"
@@ -1748,14 +1623,10 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "#define NTSIGNATURE(a) ((LPVOID)((BYTE *)a +    \\\n                        ((PIMAGE_DOS_HEADER)a)-\u003ee_lfanew))"
+                "#define NTSIGNATURE(a) ((LPVOID)((BYTE *)a +    \\\n                        ((PIMAGE_DOS_HEADER)a)->e_lfanew))"
               ]
             ]
           },
@@ -1811,28 +1682,12 @@ Response:+89020
               [
                 "Much of the definition of individual file components comes from "
               ],
-              [
-                "WINNT.H",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["WINNT.H", [["c"]]],
               [
                 " file included in the Windows SDK. In it you will find structure type definitions for each of the file headers and data directories used to represent various components in the file. In other places in the file, "
               ],
-              [
-                "WINNT.H",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " lacks sufficient definition of the file structure."
-              ]
+              ["WINNT.H", [["c"]]],
+              [" lacks sufficient definition of the file structure."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1857,12 +1712,8 @@ Response:+89020
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The "
-              ],
-              [
-                "Characteristics"
-              ],
+              ["The "],
+              ["Characteristics"],
               [
                 " field identifies specific characteristics about the file. For example, consider how separate debug files are managed for an executable. It is possible to strip debug information from a PE file and store it in a debug file (.DBG) for use by debuggers. To do this, a debugger needs to know whether to find the debug information in a separate file or not and whether the information has been stripped from the file or not. A debugger could find out by drilling down into the executable file looking for debug information. To save the debugger from having to search the file, a file characteristic that indicates that the file has been stripped (IMAGE_FILE_DEBUG_STRIPPED) was invented. Debuggers can look in the PE file header to quickly determine whether the debug information is present in the file or not."
               ]
@@ -1889,11 +1740,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_FILE_HEADER {\n    USHORT  Machine;\n    USHORT  NumberOfSections;\n    ULONG   TimeDateStamp;\n    ULONG   PointerToSymbolTable;\n    ULONG   NumberOfSymbols;\n    USHORT  SizeOfOptionalHeader;\n    USHORT  Characteristics;\n} IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;\n\n#define IMAGE_SIZEOF_FILE_HEADER             20"
@@ -1921,11 +1768,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "URL: /articles/pefileformat.html"
-              ]
-            ]
+            "title": [["URL: /articles/pefileformat.html"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2191,16 +2034,7 @@ Response:+89020
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2223,11 +2057,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "DWORD  WINAPI ImageFileType (\n    LPVOID    lpFile)\n{\n    /* DOS file signature comes first. */\n    if (*(USHORT *)lpFile == IMAGE_DOS_SIGNATURE)\n        {\n        /* Determine location of PE File header from\n           DOS header. */\n        if (LOWORD (*(DWORD *)NTSIGNATURE (lpFile)) ==\n                                IMAGE_OS2_SIGNATURE ||\n            LOWORD (*(DWORD *)NTSIGNATURE (lpFile)) ==\n                             IMAGE_OS2_SIGNATURE_LE)\n            return (DWORD)LOWORD(*(DWORD *)NTSIGNATURE (lpFile));\n\n        else if (*(DWORD *)NTSIGNATURE (lpFile) ==\n                            IMAGE_NT_SIGNATURE)\n            return IMAGE_NT_SIGNATURE;\n\n        else\n            return IMAGE_DOS_SIGNATURE;\n        }\n\n    else\n        /* unknown file type */\n        return 0;\n}"
@@ -2282,11 +2112,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Real-Mode Stub Program"
-              ]
-            ]
+            "title": [["Real-Mode Stub Program"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2330,28 +2156,10 @@ Response:+89020
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The PE file header is lo cated by indexing the "
-              ],
-              [
-                "e_lfanew",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " field of the MS-DOS header. The "
-              ],
-              [
-                "e_lfanew",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["The PE file header is lo cated by indexing the "],
+              ["e_lfanew", [["b"]]],
+              [" field of the MS-DOS header. The "],
+              ["e_lfanew", [["b"]]],
               [
                 " field simply gives the offset in the file, so add the file's memory-mapped base address to determine the actual memory-mapped address"
               ]
@@ -2378,11 +2186,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "PIMAGE_FILE_HEADER   pfh;\n\npfh = (PIMAGE_FILE_HEADER)PEFHDROFFSET (lpFile);"
@@ -2464,14 +2268,10 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "#define PEFHDROFFSET(a) ((LPVOID)((BYTE *)a +  \\\n    ((PIMAGE_DOS_HEADER)a)-\u003ee_lfanew + SIZE_OF_NT_SIGNATURE))"
+                "#define PEFHDROFFSET(a) ((LPVOID)((BYTE *)a +  \\\n    ((PIMAGE_DOS_HEADER)a)->e_lfanew + SIZE_OF_NT_SIGNATURE))"
               ]
             ]
           },
@@ -2496,11 +2296,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_DOS_HEADER {  // DOS .EXE header\n    USHORT e_magic;         // Magic number\n    USHORT e_cblp;          // Bytes on last page of file\n    USHORT e_cp;            // Pages in file\n    USHORT e_crlc;          // Relocations\n    USHORT e_cparhdr;       // Size of header in paragraphs\n    USHORT e_minalloc;      // Minimum extra paragraphs needed\n    USHORT e_maxalloc;      // Maximum extra paragraphs needed\n    USHORT e_ss;            // Initial (relative) SS value\n    USHORT e_sp;            // Initial SP value\n    USHORT e_csum;          // Checksum\n    USHORT e_ip;            // Initial IP value\n    USHORT e_cs;            // Initial (relative) CS value\n    USHORT e_lfarlc;        // File address of relocation table\n    USHORT e_ovno;          // Overlay number\n    USHORT e_res[4];        // Reserved words\n    USHORT e_oemid;         // OEM identifier (for e_oeminfo)\n    USHORT e_oeminfo;       // OEM information; e_oemid specific\n    USHORT e_res2[10];      // Reserved words\n    LONG   e_lfanew;        // File address of new exe header\n  } IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;"
@@ -2529,28 +2325,12 @@ Response:+89020
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The first field, "
-              ],
-              [
-                "e_magic",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["The first field, "],
+              ["e_magic", [["b"]]],
               [
                 ", is the so-called magic number. This field is used to identify an MS-DOS-compatible file type. All MS-DOS-compatible executable files set this value to 0x5A4D, which represents the ASCII characters MZ. MS-DOS headers are sometimes referred to as MZ headers for this reason. Many other fields are important to MS-DOS operating systems, but for Windows NT, there is really one more important field in this structure. The final field, "
               ],
-              [
-                "e_lfanew",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["e_lfanew", [["b"]]],
               [
                 ", is a 4-byte offset into the file where the PE file header is located. It is necessary to use this offset to locate the PE header in the file. For PE files in Windows NT, the PE file header occurs soon after the MS-DOS header with only the real-mode stub program between them."
               ]
@@ -2577,11 +2357,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "MS-DOS/Real-Mode Header"
-              ]
-            ]
+            "title": [["MS-DOS/Real-Mode Header"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2626,11 +2402,7 @@ Response:+89020
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2734,11 +2506,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Structure of PE Files"
-              ]
-            ]
+            "title": [["Structure of PE Files"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2761,11 +2529,7 @@ Response:+89020
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Introduction"
-              ]
-            ]
+            "title": [["Introduction"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -2820,12 +2584,14 @@ Response:+89020
     }
   }
 }
-63557 1624300680502 httpcache-v1
+59240 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 1,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -2844,11 +2610,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+63027
+Response:+58711
 {
   "cursor": {
     "stack": [
@@ -2887,28 +2651,12 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "ImageBase",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["ImageBase", [["c"]]],
               [
                 ". Preferred base address in the address space of a process to map the executable image to. The linker defaults to 0x00400000, but you can override the default with the "
               ],
-              [
-                "-BASE: linker",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " switch."
-              ]
+              ["-BASE: linker", [["b"]]],
+              [" switch."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2933,14 +2681,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "FileAlignment",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["FileAlignment", [["c"]]],
               [
                 ". Minimum granularity of chunks of information within the image file prior to loading. For example, the linker zero-pads a section body (raw data for a section) up to the nearestFileAlignment boundary in the file. This value is constrained to be a power of 2 between 512 and 65,535."
               ]
@@ -2968,14 +2709,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MajorImageVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MajorImageVersion", [["c"]]],
               [
                 ". Used to indicate the major version number of the application."
               ]
@@ -3003,14 +2737,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinorImageVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MinorImageVersion", [["c"]]],
               [
                 ". Used to indicate the minor version number of the application."
               ]
@@ -3037,14 +2764,10 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int   WINAPI NumOfSections (\n    LPVOID    lpFile)\n{\n    /* Number of sections is indicated in file header. */\n    return (int)((PIMAGE_FILE_HEADER)\n                  PEFHDROFFSET (lpFile))-\u003eNumberOfSections);\n}"
+                "int   WINAPI NumOfSections (\n    LPVOID    lpFile)\n{\n    /* Number of sections is indicated in file header. */\n    return (int)((PIMAGE_FILE_HEADER)\n                  PEFHDROFFSET (lpFile))->NumberOfSections);\n}"
               ]
             ]
           },
@@ -3097,14 +2820,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "BaseOfData",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["BaseOfData", [["c"]]],
               [
                 ". Relative offset of uninitialized data (\".bss\" section) in loaded image."
               ]
@@ -3131,14 +2847,10 @@ Response:+63027
           "parent_id": "690a7cb7-811c-42f7-94f6-8ebc20a8ce6d",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "void* WINAPI GetModuleEntryPoint (void* lpFile) {\n\tPIMAGE_OPTIONAL_HEADER poh;\n\tpoh = (PIMAGE_OPTIONAL_HEADER)OPTHDROFFSET (lpFile);\n\tif (poh != NULL) \n\t\treturn (void*)poh-\u003eAddressOfEntryPoint;\n\telse\n\t\treturn NULL;\n}"
+                "void* WINAPI GetModuleEntryPoint (void* lpFile) {\n\tPIMAGE_OPTIONAL_HEADER poh;\n\tpoh = (PIMAGE_OPTIONAL_HEADER)OPTHDROFFSET (lpFile);\n\tif (poh != NULL) \n\t\treturn (void*)poh->AddressOfEntryPoint;\n\telse\n\t\treturn NULL;\n}"
               ]
             ]
           },
@@ -3164,17 +2876,8 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Magic",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". I was unable to track down what this field is used for."
-              ]
+              ["Magic", [["c"]]],
+              [". I was unable to track down what this field is used for."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3199,20 +2902,9 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "As you can see, the "
-              ],
-              [
-                "PEFHDROFFSET",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " and the other macros are pretty handy to have around."
-              ]
+              ["As you can see, the "],
+              ["PEFHDROFFSET", [["b"]]],
+              [" and the other macros are pretty handy to have around."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3240,29 +2932,14 @@ Response:+63027
               [
                 "Section alignment can be no less than the page size (currently 4096 bytes on the "
               ],
-              [
-                "x"
-              ],
+              ["x"],
               [
                 "86 platform) and must be a multiple of the page size as dictated by the behavior of Windows NT's virtual memory manager. 4096 bytes is the "
               ],
-              [
-                "x"
-              ],
-              [
-                "86 linker default, but this can be set using the "
-              ],
-              [
-                "-ALIGN: linker",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " switch."
-              ]
+              ["x"],
+              ["86 linker default, but this can be set using the "],
+              ["-ALIGN: linker", [["b"]]],
+              [" switch."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3319,11 +2996,7 @@ Response:+63027
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3347,17 +3020,8 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfInitializedData",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Size of initialized data."
-              ]
+              ["SizeOfInitializedData", [["c"]]],
+              [". Size of initialized data."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3369,9 +3033,7 @@ Response:+63027
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "53e4bb12-f2f8-4e6b-9171-6f16c31f52a0"
-          ],
+          "content": ["53e4bb12-f2f8-4e6b-9171-6f16c31f52a0"],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -3385,14 +3047,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SectionAlignment",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["SectionAlignment", [["c"]]],
               [
                 ". Each section is loaded into the address space of a process sequentially, beginning at ImageBase. SectionAlignment dictates the minimum amount of space a section can occupy when loaded--that is, sections are aligned on SectionAlignment boundaries."
               ]
@@ -3420,17 +3075,8 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "BaseOfCode",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Relative offset of code (\".text\" section) in loaded image."
-              ]
+              ["BaseOfCode", [["c"]]],
+              [". Relative offset of code (\".text\" section) in loaded image."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3508,11 +3154,7 @@ Response:+63027
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3540,25 +3182,9 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "AddressOfEntryPoint",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Of the standard fields, the "
-              ],
-              [
-                "AddressOfEntryPoint",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["AddressOfEntryPoint", [["c"]]],
+              [". Of the standard fields, the "],
+              ["AddressOfEntryPoint", [["c"]]],
               [
                 " field is the most interesting for the PE file format. This field indicates the location of the entry point for the application and, perhaps more importantly to system hackers, the location of the end of the Import Address Table (IAT). The following function demonstrates how to retrieve the entry point of a Windows NT executable image from the optional header."
               ]
@@ -3585,11 +3211,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PE Optional Header"
-              ]
-            ]
+            "title": [["PE Optional Header"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3639,11 +3261,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_OPTIONAL_HEADER {\n    //\n    // Standard fields.\n    //\n    USHORT  Magic;\n    UCHAR   MajorLinkerVersion;\n    UCHAR   MinorLinkerVersion;\n    ULONG   SizeOfCode;\n    ULONG   SizeOfInitializedData;\n    ULONG   SizeOfUninitializedData;\n    ULONG   AddressOfEntryPoint;\n    ULONG   BaseOfCode;\n    ULONG   BaseOfData;\n    //\n    // NT additional fields.\n    //\n    ULONG   ImageBase;\n    ULONG   SectionAlignment;\n    ULONG   FileAlignment;\n    USHORT  MajorOperatingSystemVersion;\n    USHORT  MinorOperatingSystemVersion;\n    USHORT  MajorImageVersion;\n    USHORT  MinorImageVersion;\n    USHORT  MajorSubsystemVersion;\n    USHORT  MinorSubsystemVersion;\n    ULONG   Reserved1;\n    ULONG   SizeOfImage;\n    ULONG   SizeOfHeaders;\n    ULONG   CheckSum;\n    USHORT  Subsystem;\n    USHORT  DllCharacteristics;\n    ULONG   SizeOfStackReserve;\n    ULONG   SizeOfStackCommit;\n    ULONG   SizeOfHeapReserve;\n    ULONG   SizeOfHeapCommit;\n    ULONG   LoaderFlags;\n    ULONG   NumberOfRvaAndSizes;\n    IMAGE_DATA_DIRECTORY DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTRIES];\n} IMAGE_OPTIONAL_HEADER, *PIMAGE_OPTIONAL_HEADER;"
@@ -3671,11 +3289,7 @@ Response:+63027
           "parent_id": "690a7cb7-811c-42f7-94f6-8ebc20a8ce6d",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                ""
-              ]
-            ]
+            "title": [[""]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3698,16 +3312,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -3730,11 +3335,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Standard Fields"
-              ]
-            ]
+            "title": [["Standard Fields"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -3757,14 +3358,10 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "#define OPTHDROFFSET(a) ((LPVOID)((BYTE *)a                 + \\\n    ((PIMAGE_DOS_HEADER)a)-\u003ee_lfanew + SIZE_OF_NT_SIGNATURE + \\\n    sizeof (IMAGE_FILE_HEADER)))"
+                "#define OPTHDROFFSET(a) ((LPVOID)((BYTE *)a                 + \\\n    ((PIMAGE_DOS_HEADER)a)->e_lfanew + SIZE_OF_NT_SIGNATURE + \\\n    sizeof (IMAGE_FILE_HEADER)))"
               ]
             ]
           },
@@ -3793,17 +3390,8 @@ Response:+63027
               [
                 "The next 224 bytes in the executable file make up the PE optional header. Though its name is \"optional header,\" rest assured that this is not an optional entry in PE executable files. A pointer to the optional header is obtained with the "
               ],
-              [
-                "OPTHDROFFSET",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " macro:"
-              ]
+              ["OPTHDROFFSET", [["b"]]],
+              [" macro:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -3855,14 +3443,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinorOperatingSystemVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MinorOperatingSystemVersion", [["c"]]],
               [
                 ". Indicates the minor version of the Windows NT operating system."
               ]
@@ -3890,14 +3471,7 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MajorOperatingSystemVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MajorOperatingSystemVersion", [["c"]]],
               [
                 ". Indicates the major version of the Windows NT operating system."
               ]
@@ -4140,16 +3714,7 @@ Response:+63027
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4176,17 +3741,8 @@ Response:+63027
               [
                 "The optional header contains most of the meaningful information about the executable image, such as initial stack size, program entry point location, preferred base address, operating system version, section alignment information, and so forth. The "
               ],
-              [
-                "IMAGE_OPTIONAL_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure represents the optional header as follows:"
-              ]
+              ["IMAGE_OPTIONAL_HEADER", [["b"]]],
+              [" structure represents the optional header as follows:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4211,28 +3767,10 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MajorLinkerVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "MinorLinkerVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Indicates version of the linker that linked this image."
-              ]
+              ["MajorLinkerVersion", [["c"]]],
+              [", "],
+              ["MinorLinkerVersion", [["c"]]],
+              [". Indicates version of the linker that linked this image."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4278,11 +3816,7 @@ Response:+63027
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4306,17 +3840,8 @@ Response:+63027
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfUninitializedData",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Size of uninitialized data."
-              ]
+              ["SizeOfUninitializedData", [["c"]]],
+              [". Size of uninitialized data."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4340,11 +3865,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Windows NT Additional Fields"
-              ]
-            ]
+            "title": [["Windows NT Additional Fields"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -4367,19 +3888,7 @@ Response:+63027
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SizeOfCode",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". Size of executable code."
-              ]
-            ]
+            "title": [["SizeOfCode", [["c"]]], [". Size of executable code."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -4434,12 +3943,14 @@ Response:+63027
     }
   }
 }
-66397 1624300680504 httpcache-v1
+61823 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+441
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 2,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -4458,11 +3969,9 @@ Body:+441
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+65867
+Response:+61294
 {
   "cursor": {
     "stack": [
@@ -4500,16 +4009,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -4532,11 +4032,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_DATA_DIRECTORY {\n    ULONG   VirtualAddress;\n    ULONG   Size;\n} IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;"
@@ -4564,16 +4060,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -4624,14 +4111,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinorImageVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MinorImageVersion", [["c"]]],
               [
                 ". Used to indicate the minor version number of the application."
               ]
@@ -4685,11 +4165,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "PE File Sections"
-              ]
-            ]
+            "title": [["PE File Sections"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -4712,11 +4188,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "As defined in WINNT.H, the data directories are:"
-              ]
-            ]
+            "title": [["As defined in WINNT.H, the data directories are:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -4740,14 +4212,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MinorSubsystemVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MinorSubsystemVersion", [["c"]]],
               [
                 ". Indicates the Windows NT Win32 subsystem minor version number."
               ]
@@ -4774,11 +4239,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Data Directories"
-              ]
-            ]
+            "title": [["Data Directories"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -4834,11 +4295,7 @@ Response:+65867
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4862,14 +4319,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfHeaders",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["SizeOfHeaders", [["c"]]],
               [
                 ". This field indicates how much space in the file is used for representing all the file headers, including the MS-DOS header, PE file header, PE optional header, and PE section headers. The section bodies begin at this location in the file."
               ]
@@ -4950,11 +4400,7 @@ Response:+65867
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -4978,14 +4424,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfImage",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["SizeOfImage", [["c"]]],
               [
                 ". Indicates the amount of address space to reserve in the address space for the loaded executable image. This number is influenced greatly by SectionAlignment. For example, consider a system having a fixed page size of 4096 bytes. If you have an executable with 11 sections, each less than 4096 bytes, aligned on a 65,536-byte boundary, the SizeOfImage field would be set to 11 * 65,536 = 720,896 (176 pages). The same file linked with 4096-byte alignment would result in 11 * 4096 = 45,056 (11 pages) for the SizeOfImage field. This is a simple example in which each section requires less than a page of memory. In reality, the linker determines the exact SizeOfImage by figuring each section individually. It first determines how many bytes the section requires, then it rounds up to the nearest page boundary, and finally it rounds page count to the nearest SectionAlignment boundary. The total is then the sum of each section's individual requirement."
               ]
@@ -5012,16 +4451,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -5072,14 +4502,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "CheckSum",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["CheckSum", [["c"]]],
               [
                 ". A checksum value is used to validate the executable file at load time. The value is set and verified by the linker. The algorithm used for creating these checksum values is proprietary information and will not be published."
               ]
@@ -5110,28 +4533,12 @@ Response:+65867
               [
                 "The function simply locates the first section header via the "
               ],
-              [
-                "SECHDROFFSET",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["SECHDROFFSET", [["b"]]],
               [
                 " macro. Then the function loops through each section, comparing each section's name with the name of the section it's looking for, until it finds the right one. When the section is found, the function copies the data from the memory-mapped file to the structure passed in to the function. The fields of the"
               ],
-              [
-                "IMAGE_SECTION_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure can then be accessed directly from the structure."
-              ]
+              ["IMAGE_SECTION_HEADER", [["b"]]],
+              [" structure can then be accessed directly from the structure."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5156,17 +4563,8 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Each data directory is basically a structure defined as an "
-              ],
-              [
-                "IMAGE_DATA_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["Each data directory is basically a structure defined as an "],
+              ["IMAGE_DATA_DIRECTORY", [["b"]]],
               [
                 ". And although data directory entries themselves are the same, each specific directory type is entirely unique. The definition of each defined data directory is described in \"Predefined Sections\" later in this article."
               ]
@@ -5194,14 +4592,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Reserved1",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Reserved1", [["c"]]],
               [
                 ". Unknown purpose, currently not used by the system and set to zero by the linker."
               ]
@@ -5228,11 +4619,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "#define IMAGE_SIZEOF_SHORT_NAME              8\n\ntypedef struct _IMAGE_SECTION_HEADER {\n    UCHAR   Name[IMAGE_SIZEOF_SHORT_NAME];\n    union {\n            ULONG   PhysicalAddress;\n            ULONG   VirtualSize;\n    } Misc;\n    ULONG   VirtualAddress;\n    ULONG   SizeOfRawData;\n    ULONG   PointerToRawData;\n    ULONG   PointerToRelocations;\n    ULONG   PointerToLinenumbers;\n    USHORT  NumberOfRelocations;\n    USHORT  NumberOfLinenumbers;\n    ULONG   Characteristics;\n} IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;"
@@ -5261,14 +4648,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "DllCharacteristics",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["DllCharacteristics", [["c"]]],
               [
                 ". Flags used to indicate if a DLL image includes entry points for process and thread initialization and termination."
               ]
@@ -5295,11 +4675,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "// Directory Entries\n\n// Export Directory\n#define IMAGE_DIRECTORY_ENTRY_EXPORT         0\n// Import Directory\n#define IMAGE_DIRECTORY_ENTRY_IMPORT         1\n// Resource Directory\n#define IMAGE_DIRECTORY_ENTRY_RESOURCE       2\n// Exception Directory\n#define IMAGE_DIRECTORY_ENTRY_EXCEPTION      3\n// Security Directory\n#define IMAGE_DIRECTORY_ENTRY_SECURITY       4\n// Base Relocation Table\n#define IMAGE_DIRECTORY_ENTRY_BASERELOC      5\n// Debug Directory\n#define IMAGE_DIRECTORY_ENTRY_DEBUG          6\n// Description String\n#define IMAGE_DIRECTORY_ENTRY_COPYRIGHT      7\n// Machine Value (MIPS GP)\n#define IMAGE_DIRECTORY_ENTRY_GLOBALPTR      8\n// TLS Directory\n#define IMAGE_DIRECTORY_ENTRY_TLS            9\n// Load Configuration Directory\n#define IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG    10"
@@ -5328,25 +4704,11 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "DataDirectory",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["DataDirectory", [["c"]]],
               [
                 ". The data directory indicates where to find other important components of executable information in the file. It is really nothing more than an array of "
               ],
-              [
-                "IMAGE_DATA_DIRECTORY ",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_DATA_DIRECTORY ", [["b"]]],
               [
                 "structures that are located at the end of the optional header structure. The current PE file format defines 16 possible data directories, 11 of which are now being used."
               ]
@@ -5377,9 +4739,7 @@ Response:+65867
               [
                 "The PE file specification consists of the headers defined so far and a generic object called a "
               ],
-              [
-                "section"
-              ],
+              ["section"],
               [
                 ". Sections contain the content of the file, including code, data, resources, and other executable information. Each section has a header and a body (the raw data). Section headers are described below, but section bodies lack a rigid file structure. They can be organized in almost any way a linker wishes to organize them, as long as the header is filled with enough information to be able to decipher the data."
               ]
@@ -5406,11 +4766,7 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Section Headers"
-              ]
-            ]
+            "title": [["Section Headers"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -5434,25 +4790,9 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "NumberOfRvaAndSizes",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ". This field identifies the length of the "
-              ],
-              [
-                "DataDirectory",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["NumberOfRvaAndSizes", [["c"]]],
+              [". This field identifies the length of the "],
+              ["DataDirectory", [["c"]]],
               [
                 " array that follows. It is important to note that this field is used to identify the size of the array, not the number of valid entries in the array."
               ]
@@ -5479,14 +4819,10 @@ Response:+65867
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "BOOL    WINAPI GetSectionHdrByName (\n    LPVOID                   lpFile,\n    IMAGE_SECTION_HEADER     *sh,\n    char                     *szSection)\n{\n    PIMAGE_SECTION_HEADER    psh;\n    int                      nSections = NumOfSections (lpFile);\n    int                      i;\n\n\n    if ((psh = (PIMAGE_SECTION_HEADER)SECHDROFFSET (lpFile)) !=\n         NULL)\n        {\n        /* find the section by name */\n        for (i=0; i\u003cnSections; i++)\n            {\n            if (!strcmp (psh-\u003eName, szSection))\n                {\n                /* copy data to header */\n                CopyMemory ((LPVOID)sh,\n                            (LPVOID)psh,\n                            sizeof (IMAGE_SECTION_HEADER));\n                return TRUE;\n                }\n            else\n                psh++;\n            }\n        }\n\n    return FALSE;\n}"
+                "BOOL    WINAPI GetSectionHdrByName (\n    LPVOID                   lpFile,\n    IMAGE_SECTION_HEADER     *sh,\n    char                     *szSection)\n{\n    PIMAGE_SECTION_HEADER    psh;\n    int                      nSections = NumOfSections (lpFile);\n    int                      i;\n\n\n    if ((psh = (PIMAGE_SECTION_HEADER)SECHDROFFSET (lpFile)) !=\n         NULL)\n        {\n        /* find the section by name */\n        for (i=0; i<nSections; i++)\n            {\n            if (!strcmp (psh->Name, szSection))\n                {\n                /* copy data to header */\n                CopyMemory ((LPVOID)sh,\n                            (LPVOID)psh,\n                            sizeof (IMAGE_SECTION_HEADER));\n                return TRUE;\n                }\n            else\n                psh++;\n            }\n        }\n\n    return FALSE;\n}"
               ]
             ]
           },
@@ -5512,14 +4848,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "LoaderFlags",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["LoaderFlags", [["c"]]],
               [
                 ". Tells the loader whether to break on load, debug on load, or the default, which is to let things run normally."
               ]
@@ -5547,14 +4876,7 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "MajorSubsystemVersion",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["MajorSubsystemVersion", [["c"]]],
               [
                 ". Indicates the Windows NT Win32 subsystem major version number."
               ]
@@ -5797,16 +5119,7 @@ Response:+65867
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -5857,72 +5170,20 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfStackReserve",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "SizeOfStackCommit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "SizeOfHeapReserve",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "SizeOfHeapCommit",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["SizeOfStackReserve", [["c"]]],
+              [", "],
+              ["SizeOfStackCommit", [["c"]]],
+              [", "],
+              ["SizeOfHeapReserve", [["c"]]],
+              [", "],
+              ["SizeOfHeapCommit", [["c"]]],
               [
                 ". These fields control the amount of address space to reserve and commit for the stack and default heap. Both the stack and heap have default values of 1 page committed and 16 pages reserved. These values are set with the linker switches "
               ],
-              [
-                "-STACKSIZE:",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " and "
-              ],
-              [
-                "-HEAPSIZE:",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["-STACKSIZE:", [["b"]]],
+              [" and "],
+              ["-HEAPSIZE:", [["b"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -5968,11 +5229,7 @@ Response:+65867
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -5996,28 +5253,12 @@ Response:+65867
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Subsystem",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
+              ["Subsystem", [["c"]]],
               [
                 ". Field used to identify the target subsystem for this executable. Each of the possible subsystem values are listed in the WINNT.H file immediately after the"
               ],
-              [
-                "IMAGE_OPTIONAL_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure."
-              ]
+              ["IMAGE_OPTIONAL_HEADER", [["b"]]],
+              [" structure."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6073,12 +5314,14 @@ Response:+65867
     }
   }
 }
-66645 1624300680506 httpcache-v1
+63879 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+442
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 3,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -6097,11 +5340,9 @@ Body:+442
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+66114
+Response:+63349
 {
   "cursor": {
     "stack": [
@@ -6139,11 +5380,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Predefined Sections"
-              ]
-            ]
+            "title": [["Predefined Sections"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -6166,11 +5403,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Executable code section, .text"
-              ]
-            ]
+            "title": [["Executable code section, .text"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -6217,21 +5450,13 @@ Response:+66114
               [
                 "Looking at the directory structure, you won't find any pointer to the next nodes. Instead, there are two fields, "
               ],
-              [
-                "NumberOfNamedEntries"
-              ],
-              [
-                " and "
-              ],
-              [
-                "NumberOfIdEntries"
-              ],
+              ["NumberOfNamedEntries"],
+              [" and "],
+              ["NumberOfIdEntries"],
               [
                 ", used to indicate how many entries are attached to the directory. By "
               ],
-              [
-                "attached"
-              ],
+              ["attached"],
               [
                 ", I mean the directory entries follow immediately after the directory in the section data. The named entries appear first in ascending alphabetical order, followed by the ID entries in ascending numerical order."
               ]
@@ -6259,15 +5484,9 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Name"
-              ],
-              [
-                ". Each section header has a "
-              ],
-              [
-                "name"
-              ],
+              ["Name"],
+              [". Each section header has a "],
+              ["name"],
               [
                 " field up to eight characters long, for which the first character must be a period."
               ]
@@ -6295,30 +5514,14 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "PointerToRelocations"
-              ],
-              [
-                ", "
-              ],
-              [
-                "PointerToLinenumbers"
-              ],
-              [
-                ", "
-              ],
-              [
-                "NumberOfRelocations"
-              ],
-              [
-                ", "
-              ],
-              [
-                "NumberOfLinenumbers"
-              ],
-              [
-                ". None of these fi elds are used in the PE file format."
-              ]
+              ["PointerToRelocations"],
+              [", "],
+              ["PointerToLinenumbers"],
+              [", "],
+              ["NumberOfRelocations"],
+              [", "],
+              ["NumberOfLinenumbers"],
+              [". None of these fi elds are used in the PE file format."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6342,11 +5545,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Resources section, .rsrc"
-              ]
-            ]
+            "title": [["Resources section, .rsrc"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -6400,14 +5599,7 @@ Response:+66114
               [
                 "An application for Windows NT typically has the nine predefined sections named .text, .bss, .rdata, .data, .rsrc, .edata, .idata, .pdata, and .debug. Some applications do not need all of these sections, while others may define still more sections to suit their specific needs. This behavior is similar to code and data segments in MS-DOS and Windows version 3.1. In fact, the way an application defines a unique section is by using the standard compiler directives for naming code and data segments or by using the name segment compiler option "
               ],
-              [
-                "-NT",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["-NT", [["b"]]],
               [
                 "--exactly the same way in which applications defined unique code and data segments in Windows version 3.1."
               ]
@@ -6435,41 +5627,22 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "VirtualAddress"
-              ],
+              ["VirtualAddress"],
               [
                 ". This field identifies the virtual address in the process's address space to which to load the section. The actual address is created by taking the value of this field and adding it to the "
               ],
-              [
-                "ImageBase"
-              ],
+              ["ImageBase"],
               [
                 " virtual address in the optional header structure. Keep in mind, though, that if this image file represents a DLL, there is no guarantee that the DLL will be loaded to the"
               ],
-              [
-                "ImageBase"
-              ],
+              ["ImageBase"],
               [
                 " location requested. So once the file is loaded into a process, the actual "
               ],
-              [
-                "ImageBase"
-              ],
-              [
-                " value should be verified programmatically using "
-              ],
-              [
-                "GetModuleHandle",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["ImageBase"],
+              [" value should be verified programmatically using "],
+              ["GetModuleHandle", [["b"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6494,30 +5667,18 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "SizeOfRawData"
-              ],
-              [
-                ". This field indicates the "
-              ],
-              [
-                "FileAlignment"
-              ],
+              ["SizeOfRawData"],
+              [". This field indicates the "],
+              ["FileAlignment"],
               [
                 "-relative size of the section body. The actual size of the section body will be less than or equal to a multiple of "
               ],
-              [
-                "FileAlignment"
-              ],
+              ["FileAlignment"],
               [
                 " in the file. Once the image is loaded into a process's address space, the size of the section body becomes less than or equal to a multiple of "
               ],
-              [
-                "SectionAlignment"
-              ],
-              [
-                "."
-              ]
+              ["SectionAlignment"],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6601,11 +5762,7 @@ Response:+66114
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -6628,16 +5785,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -6660,14 +5808,10 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "LPVOID  WINAPI ImageDirectoryOffset (\n        LPVOID    lpFile,\n        DWORD     dwIMAGE_DIRECTORY)\n{\n    PIMAGE_OPTIONAL_HEADER   poh;\n    PIMAGE_SECTION_HEADER    psh;\n    int                      nSections = NumOfSections (lpFile);\n    int                      i = 0;\n    LPVOID                   VAImageDir;\n\n    /* Must be 0 thru (NumberOfRvaAndSizes-1). */\n    if (dwIMAGE_DIRECTORY \u003e= poh-\u003eNumberOfRvaAndSizes)\n        return NULL;\n\n    /* Retrieve offsets to optional and section headers. */\n    poh = (PIMAGE_OPTIONAL_HEADER)OPTHDROFFSET (lpFile);\n    psh = (PIMAGE_SECTION_HEADER)SECHDROFFSET (lpFile);\n\n    /* Locate image directory's relative virtual address. */\n    VAImageDir = (LPVOID)poh-\u003eDataDirectory\n                       [dwIMAGE_DIRECTORY].VirtualAddress;\n\n    /* Locate section containing image directory. */\n    while (i++\u003cnSections)\n        {\n        if (psh-\u003eVirtualAddress \u003c= (DWORD)VAImageDir \u0026\u0026\n            psh-\u003eVirtualAddress +\n                 psh-\u003eSizeOfRawData \u003e (DWORD)VAImageDir)\n            break;\n        psh++;\n        }\n\n    if (i \u003e nSections)\n        return NULL;\n\n    /* Return image import directory offset. */\n    return (LPVOID)(((int)lpFile +\n                     (int)VAImageDir. psh-\u003eVirtualAddress) +\n                    (int)psh-\u003ePointerToRawData);\n}"
+                "LPVOID  WINAPI ImageDirectoryOffset (\n        LPVOID    lpFile,\n        DWORD     dwIMAGE_DIRECTORY)\n{\n    PIMAGE_OPTIONAL_HEADER   poh;\n    PIMAGE_SECTION_HEADER    psh;\n    int                      nSections = NumOfSections (lpFile);\n    int                      i = 0;\n    LPVOID                   VAImageDir;\n\n    /* Must be 0 thru (NumberOfRvaAndSizes-1). */\n    if (dwIMAGE_DIRECTORY >= poh->NumberOfRvaAndSizes)\n        return NULL;\n\n    /* Retrieve offsets to optional and section headers. */\n    poh = (PIMAGE_OPTIONAL_HEADER)OPTHDROFFSET (lpFile);\n    psh = (PIMAGE_SECTION_HEADER)SECHDROFFSET (lpFile);\n\n    /* Locate image directory's relative virtual address. */\n    VAImageDir = (LPVOID)poh->DataDirectory\n                       [dwIMAGE_DIRECTORY].VirtualAddress;\n\n    /* Locate section containing image directory. */\n    while (i++<nSections)\n        {\n        if (psh->VirtualAddress <= (DWORD)VAImageDir &&\n            psh->VirtualAddress +\n                 psh->SizeOfRawData > (DWORD)VAImageDir)\n            break;\n        psh++;\n        }\n\n    if (i > nSections)\n        return NULL;\n\n    /* Return image import directory offset. */\n    return (LPVOID)(((int)lpFile +\n                     (int)VAImageDir. psh->VirtualAddress) +\n                    (int)psh->PointerToRawData);\n}"
               ]
             ]
           },
@@ -6746,11 +5890,7 @@ Response:+66114
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -6800,11 +5940,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_RESOURCE_DIRECTORY {\n    ULONG   Characteristics;\n    ULONG   TimeDateStamp;\n    USHORT  MajorVersion;\n    USHORT  MinorVersion;\n    USHORT  NumberOfNamedEntries;\n    USHORT  NumberOfIdEntries;\n} IMAGE_RESOURCE_DIRECTORY, *PIMAGE_RESOURCE_DIRECTORY;"
@@ -6863,28 +5999,12 @@ Response:+66114
               [
                 "The function simply locates the first section header via the "
               ],
-              [
-                "SECHDROFFSET",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["SECHDROFFSET", [["b"]]],
               [
                 " macro. Then the function loops through each section, comparing each section's name with the name of the section it's looking for, until it finds the right one. When the section is found, the function copies the data from the memory-mapped file to the structure passed in to the function. The fields of the"
               ],
-              [
-                "IMAGE_SECTION_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure can then be accessed directly from the structure."
-              ]
+              ["IMAGE_SECTION_HEADER", [["b"]]],
+              [" structure can then be accessed directly from the structure."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -6962,11 +6082,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Data sections, .bss, .rdata, .data"
-              ]
-            ]
+            "title": [["Data sections, .bss, .rdata, .data"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -7019,9 +6135,7 @@ Response:+66114
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "collection_view",
           "version": 5,
-          "view_ids": [
-            "31fbe56d-30b6-471e-9aab-91cf4a7b517e"
-          ]
+          "view_ids": ["31fbe56d-30b6-471e-9aab-91cf4a7b517e"]
         }
       },
       "ae6c8c6c-adb6-4f9e-8c38-7b1d52da1e61": {
@@ -7040,11 +6154,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Section Header Fields"
-              ]
-            ]
+            "title": [["Section Header Fields"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -7068,9 +6178,7 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Characteristics"
-              ],
+              ["Characteristics"],
               [
                 ". Defines the section characteristics. These values are found both in WINNT.H and in the Portable Executable Format specification located on this CD."
               ]
@@ -7340,16 +6448,7 @@ Response:+66114
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7373,15 +6472,9 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "PhysicalAddress "
-              ],
-              [
-                "or"
-              ],
-              [
-                " VirtualSize"
-              ],
+              ["PhysicalAddress "],
+              ["or"],
+              [" VirtualSize"],
               [
                 ". The second field is a union field that is not currently used."
               ]
@@ -7408,11 +6501,7 @@ Response:+66114
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Locating Data Directories"
-              ]
-            ]
+            "title": [["Locating Data Directories"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -7463,9 +6552,7 @@ Response:+66114
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "PointerToRawData"
-              ],
+              ["PointerToRawData"],
               [
                 ". This is an offset to the location of the section body in the file."
               ]
@@ -7514,11 +6601,7 @@ Response:+66114
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -7545,17 +6628,8 @@ Response:+66114
               [
                 "The .rsrc section contains resource information for a module. It begins with a resource directory structure like most other sections, but this section's data is further structured into a resource tree. The"
               ],
-              [
-                "IMAGE_RESOURCE_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", shown below, forms the root and nodes of the tree."
-              ]
+              ["IMAGE_RESOURCE_DIRECTORY", [["b"]]],
+              [", shown below, forms the root and nodes of the tree."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -7689,12 +6763,14 @@ Response:+66114
     }
   }
 }
-65433 1624300680507 httpcache-v1
+62509 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+442
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 4,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -7713,11 +6789,9 @@ Body:+442
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+64902
+Response:+61979
 {
   "cursor": {
     "stack": [
@@ -7755,16 +6829,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINUSER.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINUSER.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -7787,16 +6852,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -7823,9 +6879,7 @@ Response:+64902
               [
                 "At the top level of the tree, the MAKEINTRESOURCE values listed above are placed in the "
               ],
-              [
-                "Name"
-              ],
+              ["Name"],
               [
                 " field of each type entry, identifying the different resources by type."
               ]
@@ -7883,21 +6937,13 @@ Response:+64902
               [
                 "Looking at the directory structure, you won't find any pointer to the next nodes. Instead, there are two fields, "
               ],
-              [
-                "NumberOfNamedEntries"
-              ],
-              [
-                " and "
-              ],
-              [
-                "NumberOfIdEntries"
-              ],
+              ["NumberOfNamedEntries"],
+              [" and "],
+              ["NumberOfIdEntries"],
               [
                 ", used to indicate how many entries are attached to the directory. By "
               ],
-              [
-                "attached"
-              ],
+              ["attached"],
               [
                 ", I mean the directory entries follow immediately after the directory in the section data. The named entries appear first in ascending alphabetical order, followed by the ID entries in ascending numerical order."
               ]
@@ -7924,11 +6970,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {\n    ULONG   Name;\n    ULONG   OffsetToData;\n} IMAGE_RESOURCE_DIRECTORY_ENTRY, *PIMAGE_RESOURCE_DIRECTORY_ENTRY;"
@@ -7957,24 +6999,14 @@ Response:+64902
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The two fields "
-              ],
-              [
-                "OffsetToData"
-              ],
-              [
-                " and "
-              ],
-              [
-                "Size"
-              ],
+              ["The two fields "],
+              ["OffsetToData"],
+              [" and "],
+              ["Size"],
               [
                 " indicate the location and size of the actual resource data. Since this information is used primarily by functions once the application has been loaded, it makes more sense to make the "
               ],
-              [
-                "OffsetToData"
-              ],
+              ["OffsetToData"],
               [
                 " field a relative virtual address. This is precisely the case. Interestingly enough, all other offsets, such as pointers from directory entries to other directories, are offsets relative to the location of the root node."
               ]
@@ -8005,9 +7037,7 @@ Response:+64902
               [
                 "Below level two, the resource tree does not branch out any further. Level one branches into directories representing each type of resource, and level two branches into directories representing each resource by identifier. Level three maps a one-to-one correspondence between the individually identified resources and their respective language IDs. To indicate the language ID of a resource, the"
               ],
-              [
-                "Name"
-              ],
+              ["Name"],
               [
                 " field of the directory entry structure is used to indicate both the primary language and sublanguage ID for the resource. For the value 0x0409, 0x09 represents the primary language as LANG_ENGLISH, and 0x04 is defined as SUBLANG_ENGLISH_CAN for the sublanguage. The entire set of language IDs is defined in the file WINNT.H."
               ]
@@ -8034,16 +7064,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -8058,9 +7079,7 @@ Response:+64902
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1532670295388,
-          "file_ids": [
-            "2e30c768-38ef-431a-a75d-bedcee7f12d6"
-          ],
+          "file_ids": ["2e30c768-38ef-431a-a75d-bedcee7f12d6"],
           "format": {
             "block_aspect_ratio": 0.7449238578680203,
             "block_full_width": false,
@@ -8109,17 +7128,8 @@ Response:+64902
               [
                 "Leaf nodes are the lowest node in the resource tree. They define the size and location of the actual resource data. Each leaf node is represented using the following"
               ],
-              [
-                "IMAGE_RESOURCE_DATA_ENTRY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure:"
-              ]
+              ["IMAGE_RESOURCE_DATA_ENTRY", [["b"]]],
+              [" structure:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -8144,21 +7154,11 @@ Response:+64902
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "This structure is simply a 2-byte "
-              ],
-              [
-                "Length"
-              ],
-              [
-                " field followed by "
-              ],
-              [
-                "Length"
-              ],
-              [
-                " UNICODE characters."
-              ]
+              ["This structure is simply a 2-byte "],
+              ["Length"],
+              [" field followed by "],
+              ["Length"],
+              [" UNICODE characters."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -8182,16 +7182,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Figure 2. A simple resource tree structure",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Figure 2. A simple resource tree structure", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -8301,11 +7292,7 @@ Response:+64902
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -8329,9 +7316,7 @@ Response:+64902
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To make all of this a little clearer, consider Figure 2."
-              ]
+              ["To make all of this a little clearer, consider Figure 2."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -8409,11 +7394,7 @@ Response:+64902
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -8436,11 +7417,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_RESOURCE_DATA_ENTRY {\n    ULONG   OffsetToData;\n    ULONG   Size;\n    ULONG   CodePage;\n    ULONG   Reserved;\n} IMAGE_RESOURCE_DATA_ENTRY, *PIMAGE_RESOURCE_DATA_ENTRY;"
@@ -8468,11 +7445,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_RESOURCE_DIR_STRING_U {\n    USHORT  Length;\n    WCHAR   NameString[ 1 ];\n} IMAGE_RESOURCE_DIR_STRING_U, *PIMAGE_RESOURCE_DIR_STRING_U;"
@@ -8531,15 +7504,9 @@ Response:+64902
               [
                 "If there were two menu resources, one identified by name and one by resource, they would both have entries immediately after the menu resource directory. The named resource entry would appear first, followed by the integer-identified resource. The directory fields "
               ],
-              [
-                "NumberOfNamedEntries"
-              ],
-              [
-                " and "
-              ],
-              [
-                "NumberOfIdEntries"
-              ],
+              ["NumberOfNamedEntries"],
+              [" and "],
+              ["NumberOfIdEntries"],
               [
                 " would each contain the value 1, indicating the presence of one entry."
               ]
@@ -8570,29 +7537,16 @@ Response:+64902
               [
                 "As you are probably already aware, resources can be identified by name or by integer. They are distinguished in this level of the tree via the "
               ],
-              [
-                "Name"
-              ],
+              ["Name"],
               [
                 " field in the directory structure. If the most significant bit of the "
               ],
-              [
-                "Name"
-              ],
+              ["Name"],
               [
                 " field is set, the other 31 bits are used as an offset to an "
               ],
-              [
-                "IMAGE_RESOURCE_DIR_STRING_U",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure."
-              ]
+              ["IMAGE_RESOURCE_DIR_STRING_U", [["b"]]],
+              [" structure."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -8616,16 +7570,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -8652,23 +7597,12 @@ Response:+64902
               [
                 "Since the language ID node is the last directory node in the tree, the "
               ],
-              [
-                "OffsetToData"
-              ],
+              ["OffsetToData"],
               [
                 " field in the entry structure is an offset to a leaf node--the "
               ],
-              [
-                "IMAGE_RESOURCE_DATA_ENTRY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure mentioned earlier."
-              ]
+              ["IMAGE_RESOURCE_DATA_ENTRY", [["b"]]],
+              [" structure mentioned earlier."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -8696,15 +7630,11 @@ Response:+64902
               [
                 "The two fields are used for different things depending on the level of the tree. The "
               ],
-              [
-                "Name"
-              ],
+              ["Name"],
               [
                 " field is used to identify either a type of resource, a resource name, or a resource's language ID. The"
               ],
-              [
-                "OffsetToData"
-              ],
+              ["OffsetToData"],
               [
                 " field is always used to point to a sibling in the tree, either a directory node or a leaf node."
               ]
@@ -8731,11 +7661,7 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "/*\n * Predefined Resource Types\n */\n#define RT_CURSOR           MAKEINTRESOURCE(1)\n#define RT_BITMAP           MAKEINTRESOURCE(2)\n#define RT_ICON             MAKEINTRESOURCE(3)\n#define RT_MENU             MAKEINTRESOURCE(4)\n#define RT_DIALOG           MAKEINTRESOURCE(5)\n#define RT_STRING           MAKEINTRESOURCE(6)\n#define RT_FONTDIR          MAKEINTRESOURCE(7)\n#define RT_FONT             MAKEINTRESOURCE(8)\n#define RT_ACCELERATOR      MAKEINTRESOURCE(9)\n#define RT_RCDATA           MAKEINTRESOURCE(10)\n#define RT_MESSAGETABLE     MAKEINTRESOURCE(11)"
@@ -8767,17 +7693,8 @@ Response:+64902
               [
                 "A directory entry consists of two fields, as described in the following "
               ],
-              [
-                "IMAGE_RESOURCE_DIRECTORY_ENTRY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure:"
-              ]
+              ["IMAGE_RESOURCE_DIRECTORY_ENTRY", [["b"]]],
+              [" structure:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -9071,16 +7988,7 @@ Response:+64902
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -9145,11 +8053,7 @@ Response:+64902
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -9172,14 +8076,10 @@ Response:+64902
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int     WINAPI GetListOfResourceTypes (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszResTypes)\n{\n    PIMAGE_RESOURCE_DIRECTORY          prdRoot;\n    PIMAGE_RESOURCE_DIRECTORY_ENTRY    prde;\n    char                               *pMem;\n    int                                nCnt, i;\n\n\n    /* Get root directory of resource tree. */\n    if ((prdRoot = PIMAGE_RESOURCE_DIRECTORY)ImageDirectoryOffset\n           (lpFile, IMAGE_DIRECTORY_ENTRY_RESOURCE)) == NULL)\n        return 0;\n\n    /* Allocate enough space from heap to cover all types. */\n    nCnt = prdRoot-\u003eNumberOfIdEntries * (MAXRESOURCENAME + 1);\n    *pszResTypes = (char *)HeapAlloc (hHeap,\n                                      HEAP_ZERO_MEMORY,\n                                      nCnt);\n    if ((pMem = *pszResTypes) == NULL)\n        return 0;\n\n    /* Set pointer to first resource type entry. */\n    prde = (PIMAGE_RESOURCE_DIRECTORY_ENTRY)((DWORD)prdRoot +\n               sizeof (IMAGE_RESOURCE_DIRECTORY));\n\n    /* Loop through all resource directory entry types. */\n    for (i=0; i\u003cprdRoot-\u003eNumberOfIdEntries; i++)\n        {\n        if (LoadString (hDll, prde-\u003eName, pMem, MAXRESOURCENAME))\n            pMem += strlen (pMem) + 1;\n\n        prde++;\n        }\n\n    return nCnt;\n}"
+                "int     WINAPI GetListOfResourceTypes (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszResTypes)\n{\n    PIMAGE_RESOURCE_DIRECTORY          prdRoot;\n    PIMAGE_RESOURCE_DIRECTORY_ENTRY    prde;\n    char                               *pMem;\n    int                                nCnt, i;\n\n\n    /* Get root directory of resource tree. */\n    if ((prdRoot = PIMAGE_RESOURCE_DIRECTORY)ImageDirectoryOffset\n           (lpFile, IMAGE_DIRECTORY_ENTRY_RESOURCE)) == NULL)\n        return 0;\n\n    /* Allocate enough space from heap to cover all types. */\n    nCnt = prdRoot->NumberOfIdEntries * (MAXRESOURCENAME + 1);\n    *pszResTypes = (char *)HeapAlloc (hHeap,\n                                      HEAP_ZERO_MEMORY,\n                                      nCnt);\n    if ((pMem = *pszResTypes) == NULL)\n        return 0;\n\n    /* Set pointer to first resource type entry. */\n    prde = (PIMAGE_RESOURCE_DIRECTORY_ENTRY)((DWORD)prdRoot +\n               sizeof (IMAGE_RESOURCE_DIRECTORY));\n\n    /* Loop through all resource directory entry types. */\n    for (i=0; i<prdRoot->NumberOfIdEntries; i++)\n        {\n        if (LoadString (hDll, prde->Name, pMem, MAXRESOURCENAME))\n            pMem += strlen (pMem) + 1;\n\n        prde++;\n        }\n\n    return nCnt;\n}"
               ]
             ]
           },
@@ -9205,12 +8105,8 @@ Response:+64902
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "On the other hand, if the most significant bit of the "
-              ],
-              [
-                "Name"
-              ],
+              ["On the other hand, if the most significant bit of the "],
+              ["Name"],
               [
                 " field is clear, the lower 31 bits are used to represent the integer ID of the resource. Figure 2 shows the menu resource as a named resource and the string table as an ID resource."
               ]
@@ -9269,12 +8165,14 @@ Response:+64902
     }
   }
 }
-73425 1624300680509 httpcache-v1
+69431 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+442
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 5,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -9293,11 +8191,9 @@ Body:+442
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+72894
+Response:+68901
 {
   "cursor": {
     "stack": [
@@ -9362,16 +8258,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -9394,11 +8281,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_EXPORT_DIRECTORY {\n    ULONG   Characteristics;\n    ULONG   TimeDateStamp;\n    USHORT  MajorVersion;\n    USHORT  MinorVersion;\n    ULONG   Name;\n    ULONG   Base;\n    ULONG   NumberOfFunctions;\n    ULONG   NumberOfNames;\n    PULONG  *AddressOfFunctions;\n    PULONG  *AddressOfNames;\n    PUSHORT *AddressOfNameOrdinals;\n} IMAGE_EXPORT_DIRECTORY, *PIMAGE_EXPORT_DIRECTORY;"
@@ -9427,24 +8310,14 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The "
-              ],
-              [
-                "Name"
-              ],
+              ["The "],
+              ["Name"],
               [
                 " field in the export directory identifies the name of the executable module. "
               ],
-              [
-                "NumberOfFunctions"
-              ],
-              [
-                " and "
-              ],
-              [
-                "NumberOfNames"
-              ],
+              ["NumberOfFunctions"],
+              [" and "],
+              ["NumberOfNames"],
               [
                 " fields indicate how many functions and function names are being exported from the module."
               ]
@@ -9472,17 +8345,8 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Like the "
-              ],
-              [
-                "GetImportModuleNames",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["Like the "],
+              ["GetImportModuleNames", [["b"]]],
               [
                 " function, this function relies on the end of each list of information to have a zeroed entry. In this case, the list of function names ends with one that is zero."
               ]
@@ -9537,12 +8401,8 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The first field in the structure, "
-              ],
-              [
-                "dwRVAFunctionNameList"
-              ],
+              ["The first field in the structure, "],
+              ["dwRVAFunctionNameList"],
               [
                 ", is a relative virtual address to a list of relative virtual addresses that each point to the function names within the file. As shown in the following data, the module and function names of all imported modules are listed in the .idata section data:"
               ]
@@ -9573,26 +8433,13 @@ Response:+72894
               [
                 "The function is pretty straightforward. However, one thing is worth pointing out--notice the while loop. This loop is terminated when "
               ],
-              [
-                "pid-\u003edwRVAModuleName"
-              ],
-              [
-                " is 0. Implied here is that at the end of the list of "
-              ],
-              [
-                "IMAGE_IMPORT_MODULE_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["pid->dwRVAModuleName"],
+              [" is 0. Implied here is that at the end of the list of "],
+              ["IMAGE_IMPORT_MODULE_DIRECTORY", [["b"]]],
               [
                 " structures is a null structure that has a value of 0 for at least the "
               ],
-              [
-                "dwRVAModuleName"
-              ],
+              ["dwRVAModuleName"],
               [
                 " field. This is the behavior I observed in my experimentation with the file and later confirmed in the PE file format specification."
               ]
@@ -9620,24 +8467,16 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The three "
-              ],
-              [
-                "AddressOf..."
-              ],
+              ["The three "],
+              ["AddressOf..."],
               [
                 " fields are relative virtual addresses into the address space of a process once the module has been loaded. Once the module is loaded, the relative virtual address should be added to the module base address to get the exact location in the address space of the process. Before the file is loaded, however, the address can be determined by subtracting the section header virtual address ("
               ],
-              [
-                "VirtualAddress"
-              ],
+              ["VirtualAddress"],
               [
                 ") from the given field address, adding the section body offset ("
               ],
-              [
-                "PointerToRawData"
-              ],
+              ["PointerToRawData"],
               [
                 ") to the result, and then using this value as an offset into the image file. The following example illustrates this technique:"
               ]
@@ -9664,11 +8503,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct tagImportDirectory\n    {\n    DWORD    dwRVAFunctionNameList;\n    DWORD    dwUseless1;\n    DWORD    dwUseless2;\n    DWORD    dwRVAModuleName;\n    DWORD    dwRVAFunctionAddressList;\n    }IMAGE_IMPORT_MODULE_DIRECTORY,\n     * PIMAGE_IMPORT_MODULE_DIRECTORY;"
@@ -9729,11 +8564,7 @@ Response:+72894
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -9756,14 +8587,10 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
-                "E6A7 0000 F6A7 0000  08A8 0000 1AA8 0000  ................\n28A8 0000 3CA8 0000  4CA8 0000 0000 0000  (...\u003c...L.......\n0000 4765 744F 7065  6E46 696C 654E 616D  ..GetOpenFileNam\n6541 0000 636F 6D64  6C67 3332 2E64 6C6C  eA..comdlg32.dll\n0000 2500 4372 6561  7465 466F 6E74 496E  ..%.CreateFontIn\n6469 7265 6374 4100  4744 4933 322E 646C  directA.GDI32.dl\n6C00 A000 4765 7444  6576 6963 6543 6170  l...GetDeviceCap\n7300 C600 4765 7453  746F 636B 4F62 6A65  s...GetStockObje\n6374 0000 D500 4765  7454 6578 744D 6574  ct....GetTextMet\n7269 6373 4100 1001  5365 6C65 6374 4F62  ricsA...SelectOb\n6A65 6374 0000 1601  5365 7442 6B43 6F6C  ject....SetBkCol\n6F72 0000 3501 5365  7454 6578 7443 6F6C  or..5.SetTextCol\n6F72 0000 4501 5465  7874 4F75 7441 0000  or..E.TextOutA.."
+                "E6A7 0000 F6A7 0000  08A8 0000 1AA8 0000  ................\n28A8 0000 3CA8 0000  4CA8 0000 0000 0000  (...<...L.......\n0000 4765 744F 7065  6E46 696C 654E 616D  ..GetOpenFileNam\n6541 0000 636F 6D64  6C67 3332 2E64 6C6C  eA..comdlg32.dll\n0000 2500 4372 6561  7465 466F 6E74 496E  ..%.CreateFontIn\n6469 7265 6374 4100  4744 4933 322E 646C  directA.GDI32.dl\n6C00 A000 4765 7444  6576 6963 6543 6170  l...GetDeviceCap\n7300 C600 4765 7453  746F 636B 4F62 6A65  s...GetStockObje\n6374 0000 D500 4765  7454 6578 744D 6574  ct....GetTextMet\n7269 6373 4100 1001  5365 6C65 6374 4F62  ricsA...SelectOb\n6A65 6374 0000 1601  5365 7442 6B43 6F6C  ject....SetBkCol\n6F72 0000 3501 5365  7454 6578 7443 6F6C  or..5.SetTextCol\n6F72 0000 4501 5465  7874 4F75 7441 0000  or..E.TextOutA.."
               ]
             ]
           },
@@ -9788,11 +8615,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Export data section, .edata"
-              ]
-            ]
+            "title": [["Export data section, .edata"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -9869,11 +8692,7 @@ Response:+72894
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -9897,24 +8716,16 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The "
-              ],
-              [
-                "AddressOfFunctions"
-              ],
+              ["The "],
+              ["AddressOfFunctions"],
               [
                 " field is an offset to a list of exported function entry points. The "
               ],
-              [
-                "AddressOfNames"
-              ],
+              ["AddressOfNames"],
               [
                 " field is the address of an offset to the beginning of a null-separated list of exported function names. "
               ],
-              [
-                "AddressOfNameOrdinals"
-              ],
+              ["AddressOfNameOrdinals"],
               [
                 " is an offset to a list of ordinal values (each 2 bytes long) for the same exported functions."
               ]
@@ -9945,17 +8756,8 @@ Response:+72894
               [
                 "Debug information is initially placed in the .debug section. The PE file format also supports separate debug files (normally identified with a .DBG extension) as a means of collecting debug information in a central location. The debug section contains the debug information, but the debug directories live in the .rdata section mentioned earlier. Each of those directories references debug information in the .debug section. The debug directory structure is defined as an "
               ],
-              [
-                "IMAGE_DEBUG_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", as follows:"
-              ]
+              ["IMAGE_DEBUG_DIRECTORY", [["b"]]],
+              [", as follows:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -10007,12 +8809,8 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The final field, "
-              ],
-              [
-                "dwRVAFunctionAddressList"
-              ],
+              ["The final field, "],
+              ["dwRVAFunctionAddressList"],
               [
                 ", is a relative virtual address to a list of virtual addresses that will be placed in the section data by the loader when the file is loaded. Before the file is loaded, however, these virtual addresses are replaced by relative virtual addresses that correspond exactly to the list of function names. So before the file is loaded, there are two identical lists of relative virtual addresses pointing to imported function names."
               ]
@@ -10039,14 +8837,10 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int  WINAPI GetExportFunctionNames (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszFunctions)\n{\n    IMAGE_SECTION_HEADER       sh;\n    PIMAGE_EXPORT_DIRECTORY    ped;\n    char                       *pNames, *pCnt;\n    int                        i, nCnt;\n\n    /* Get section header and pointer to data directory\n       for .edata section. */\n    if ((ped = (PIMAGE_EXPORT_DIRECTORY)ImageDirectoryOffset\n            (lpFile, IMAGE_DIRECTORY_ENTRY_EXPORT)) == NULL)\n        return 0;\n    GetSectionHdrByName (lpFile, \u0026sh, \".edata\");\n\n    /* Determine the offset of the export function names. */\n    pNames = (char *)(*(int *)((int)ped-\u003eAddressOfNames -\n                               (int)sh.VirtualAddress   +\n                               (int)sh.PointerToRawData +\n                               (int)lpFile)    -\n                      (int)sh.VirtualAddress   +\n                      (int)sh.PointerToRawData +\n                      (int)lpFile);\n\n    /* Figure out how much memory to allocate for all strings. */\n    pCnt = pNames;\n    for (i=0; i\u003c(int)ped-\u003eNumberOfNames; i++)\n        while (*pCnt++);\n    nCnt = (int)(pCnt. pNames);\n\n    /* Allocate memory off heap for function names. */\n    *pszFunctions = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nCnt);\n\n    /* Copy all strings to buffer. */\n    CopyMemory ((LPVOID)*pszFunctions, (LPVOID)pNames, nCnt);\n\n    return nCnt;\n}"
+                "int  WINAPI GetExportFunctionNames (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszFunctions)\n{\n    IMAGE_SECTION_HEADER       sh;\n    PIMAGE_EXPORT_DIRECTORY    ped;\n    char                       *pNames, *pCnt;\n    int                        i, nCnt;\n\n    /* Get section header and pointer to data directory\n       for .edata section. */\n    if ((ped = (PIMAGE_EXPORT_DIRECTORY)ImageDirectoryOffset\n            (lpFile, IMAGE_DIRECTORY_ENTRY_EXPORT)) == NULL)\n        return 0;\n    GetSectionHdrByName (lpFile, &sh, \".edata\");\n\n    /* Determine the offset of the export function names. */\n    pNames = (char *)(*(int *)((int)ped->AddressOfNames -\n                               (int)sh.VirtualAddress   +\n                               (int)sh.PointerToRawData +\n                               (int)lpFile)    -\n                      (int)sh.VirtualAddress   +\n                      (int)sh.PointerToRawData +\n                      (int)lpFile);\n\n    /* Figure out how much memory to allocate for all strings. */\n    pCnt = pNames;\n    for (i=0; i<(int)ped->NumberOfNames; i++)\n        while (*pCnt++);\n    nCnt = (int)(pCnt. pNames);\n\n    /* Allocate memory off heap for function names. */\n    *pszFunctions = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nCnt);\n\n    /* Copy all strings to buffer. */\n    CopyMemory ((LPVOID)*pszFunctions, (LPVOID)pNames, nCnt);\n\n    return nCnt;\n}"
               ]
             ]
           },
@@ -10071,11 +8865,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Import data section, .idata"
-              ]
-            ]
+            "title": [["Import data section, .idata"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -10098,14 +8888,10 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int  WINAPI GetImportFunctionNamesByModule (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      *pszModule,\n    char      **pszFunctions)\n{\n    PIMAGE_IMPORT_MODULE_DIRECTORY  pid;\n    IMAGE_SECTION_HEADER     idsh;\n    DWORD                    dwBase;\n    int                      nCnt = 0, nSize = 0;\n    DWORD                    dwFunction;\n    char                     *psz;\n\n\n    /* Locate section header for \".idata\" section. */\n    if (!GetSectionHdrByName (lpFile, \u0026idsh, \".idata\"))\n        return 0;\n\n    pid = (PIMAGE_IMPORT_MODULE_DIRECTORY)ImageDirectoryOffset\n             (lpFile, IMAGE_DIRECTORY_ENTRY_IMPORT);\n\n    dwBase = ((DWORD)pid. idsh.VirtualAddress);\n\n    /* Find module's pid. */\n    while (pid-\u003edwRVAModuleName \u0026\u0026\n           strcmp (pszModule,\n                  (char *)(pid-\u003edwRVAModuleName+dwBase)))\n        pid++;\n\n    /* Exit if the module is not found. */\n    if (!pid-\u003edwRVAModuleName)\n        return 0;\n\n    /* Count number of function names and length of strings. */\n    dwFunction = pid-\u003edwRVAFunctionNameList;\n    while (dwFunction                      \u0026\u0026\n           *(DWORD *)(dwFunction + dwBase) \u0026\u0026\n           *(char *)((*(DWORD *)(dwFunction + dwBase)) +\n            dwBase+2))\n        {\n        nSize += strlen ((char *)((*(DWORD *)(dwFunction +\n             dwBase)) + dwBase+2)) + 1;\n        dwFunction += 4;\n        nCnt++;\n        }\n\n    /* Allocate memory off heap for function names. */\n    *pszFunctions = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nSize);\n    psz = *pszFunctions;\n\n    /* Copy function names to memory pointer. */\n    dwFunction = pid-\u003edwRVAFunctionNameList;\n    while (dwFunction                      \u0026\u0026\n           *(DWORD *)(dwFunction + dwBase) \u0026\u0026\n           *((char *)((*(DWORD *)(dwFunction + dwBase)) +\n            dwBase+2)))\n        {\n        strcpy (psz, (char *)((*(DWORD *)(dwFunction + dwBase)) +\n                dwBase+2));\n        psz += strlen((char *)((*(DWORD *)(dwFunction + dwBase))+\n                dwBase+2)) + 1;\n        dwFunction += 4;\n        }\n\n    return nCnt;\n}"
+                "int  WINAPI GetImportFunctionNamesByModule (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      *pszModule,\n    char      **pszFunctions)\n{\n    PIMAGE_IMPORT_MODULE_DIRECTORY  pid;\n    IMAGE_SECTION_HEADER     idsh;\n    DWORD                    dwBase;\n    int                      nCnt = 0, nSize = 0;\n    DWORD                    dwFunction;\n    char                     *psz;\n\n\n    /* Locate section header for \".idata\" section. */\n    if (!GetSectionHdrByName (lpFile, &idsh, \".idata\"))\n        return 0;\n\n    pid = (PIMAGE_IMPORT_MODULE_DIRECTORY)ImageDirectoryOffset\n             (lpFile, IMAGE_DIRECTORY_ENTRY_IMPORT);\n\n    dwBase = ((DWORD)pid. idsh.VirtualAddress);\n\n    /* Find module's pid. */\n    while (pid->dwRVAModuleName &&\n           strcmp (pszModule,\n                  (char *)(pid->dwRVAModuleName+dwBase)))\n        pid++;\n\n    /* Exit if the module is not found. */\n    if (!pid->dwRVAModuleName)\n        return 0;\n\n    /* Count number of function names and length of strings. */\n    dwFunction = pid->dwRVAFunctionNameList;\n    while (dwFunction                      &&\n           *(DWORD *)(dwFunction + dwBase) &&\n           *(char *)((*(DWORD *)(dwFunction + dwBase)) +\n            dwBase+2))\n        {\n        nSize += strlen ((char *)((*(DWORD *)(dwFunction +\n             dwBase)) + dwBase+2)) + 1;\n        dwFunction += 4;\n        nCnt++;\n        }\n\n    /* Allocate memory off heap for function names. */\n    *pszFunctions = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nSize);\n    psz = *pszFunctions;\n\n    /* Copy function names to memory pointer. */\n    dwFunction = pid->dwRVAFunctionNameList;\n    while (dwFunction                      &&\n           *(DWORD *)(dwFunction + dwBase) &&\n           *((char *)((*(DWORD *)(dwFunction + dwBase)) +\n            dwBase+2)))\n        {\n        strcpy (psz, (char *)((*(DWORD *)(dwFunction + dwBase)) +\n                dwBase+2));\n        psz += strlen((char *)((*(DWORD *)(dwFunction + dwBase))+\n                dwBase+2)) + 1;\n        dwFunction += 4;\n        }\n\n    return nCnt;\n}"
               ]
             ]
           },
@@ -10134,61 +8920,18 @@ Response:+72894
               [
                 "This particular section represents the beginning of the list of import module and function names. If you begin examining the right section part of the data, you should recognize the names of familiar Win32 API functions and the module names they are found in. Reading from the top down, you get "
               ],
-              [
-                "GetOpenFileNameA",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["GetOpenFileNameA", [["b"]]],
               [
                 ", followed by the module name COMDLG32.DLL. Shortly after that, you get"
               ],
-              [
-                "CreateFontIndirectA",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", followed by the module GDI32.DLL and then the functions "
-              ],
-              [
-                "GetDeviceCaps",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "GetStockObject",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", "
-              ],
-              [
-                "GetTextMetrics",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                ", and so forth."
-              ]
+              ["CreateFontIndirectA", [["b"]]],
+              [", followed by the module GDI32.DLL and then the functions "],
+              ["GetDeviceCaps", [["b"]]],
+              [", "],
+              ["GetStockObject", [["b"]]],
+              [", "],
+              ["GetTextMetrics", [["b"]]],
+              [", and so forth."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -10212,16 +8955,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -10271,11 +9005,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_DEBUG_DIRECTORY {\n    ULONG   Characteristics;\n    ULONG   TimeDateStamp;\n    USHORT  MajorVersion;\n    USHORT  MinorVersion;\n    ULONG   Type;\n    ULONG   SizeOfData;\n    ULONG   AddressOfRawData;\n    ULONG   PointerToRawData;\n} IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;"
@@ -10519,16 +9249,7 @@ Response:+72894
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -10552,12 +9273,8 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Notice that in this function the variable "
-              ],
-              [
-                "pNames"
-              ],
+              ["Notice that in this function the variable "],
+              ["pNames"],
               [
                 " is assigned by determining first the address of the offset and then the actual offset location. Both the address of the offset and the offset itself are relative virtual addresses and must be translated before being used, as the function demonstrates. You could write a similar function to determine the ordinal values or entry points of the functions."
               ]
@@ -10588,26 +9305,11 @@ Response:+72894
               [
                 "This function returns a list of resource type names in the string identified by "
               ],
-              [
-                "pszResTypes"
-              ],
-              [
-                ". Notice that, at the heart of this function, "
-              ],
-              [
-                "LoadString",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " is called using the "
-              ],
-              [
-                "Name"
-              ],
+              ["pszResTypes"],
+              [". Notice that, at the heart of this function, "],
+              ["LoadString", [["b"]]],
+              [" is called using the "],
+              ["Name"],
               [
                 " field of each resource type directory entry as the string ID.of resource type strings whose IDs are defined the same as the type specifiers in the directory entries.It would be rather easy to expand on these functions or write new functions that extracted other information from this section."
               ]
@@ -10661,11 +9363,7 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Debug information section, .debug"
-              ]
-            ]
+            "title": [["Debug information section, .debug"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -10692,17 +9390,8 @@ Response:+72894
               [
                 "The .idata section is import data, including the import directory and import address name table. Although an IMAGE_DIRECTORY_ENTRY_IMPORT directory is defined, no corresponding import directory structure is included in the file WINNT.H. Instead, there are several other structures called IMAGE_IMPORT_BY_NAME, IMAGE_THUNK_DATA, and IMAGE_IMPORT_DESCRIPTOR. Personally, I couldn't make heads or tails of how these structures are supposed to correlate to the .idata section, so I spent several hours deciphering the .idata section body and came up with a much simpler structure. I named this structure "
               ],
-              [
-                "IMAGE_IMPORT_MODULE_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["IMAGE_IMPORT_MODULE_DIRECTORY", [["b"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -10748,11 +9437,7 @@ Response:+72894
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -10776,29 +9461,14 @@ Response:+72894
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "One of the fields in the "
-              ],
-              [
-                "IMAGE_IMPORT_MODULE_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure is "
-              ],
-              [
-                "dwRVAModuleName"
-              ],
+              ["One of the fields in the "],
+              ["IMAGE_IMPORT_MODULE_DIRECTORY", [["b"]]],
+              [" structure is "],
+              ["dwRVAModuleName"],
               [
                 ", a relative virtual address pointing to the name of the module. There are also two "
               ],
-              [
-                "dwUseless"
-              ],
+              ["dwUseless"],
               [
                 "parameters in the structure that serve as padding to keep the structure aligned properly within the section. The PE file format specification mentions something about import flags, a time/date stamp, and major/minor versions, but these two fields remained empty throughout my experimentation, so I still consider them useless."
               ]
@@ -10825,14 +9495,10 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int  WINAPI GetImportModuleNames (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszModules)\n{\n    PIMAGE_IMPORT_MODULE_DIRECTORY  pid;\n    IMAGE_SECTION_HEADER            idsh;\n    BYTE                            *pData;\n    int                             nCnt = 0, nSize = 0, i;\n    char                            *pModule[1024];\n    char                            *psz;\n\n    pid = (PIMAGE_IMPORT_MODULE_DIRECTORY)ImageDirectoryOffset\n             (lpFile, IMAGE_DIRECTORY_ENTRY_IMPORT);\n    pData = (BYTE *)pid;\n\n    /* Locate section header for \".idata\" section. */\n    if (!GetSectionHdrByName (lpFile, \u0026idsh, \".idata\"))\n        return 0;\n\n    /* Extract all import modules. */\n    while (pid-\u003edwRVAModuleName)\n        {\n        /* Allocate buffer for absolute string offsets. */\n        pModule[nCnt] = (char *)(pData +\n               (pid-\u003edwRVAModuleName-idsh.VirtualAddress));\n        nSize += strlen (pModule[nCnt]) + 1;\n\n        /* Increment to the next import directory entry. */\n        pid++;\n        nCnt++;\n        }\n\n    /* Copy all strings to one chunk of heap memory. */\n    *pszModules = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nSize);\n    psz = *pszModules;\n    for (i=0; i\u003cnCnt; i++)\n        {\n        strcpy (psz, pModule[i]);\n        psz += strlen (psz) + 1;\n        }\n\n    return nCnt;\n}"
+                "int  WINAPI GetImportModuleNames (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszModules)\n{\n    PIMAGE_IMPORT_MODULE_DIRECTORY  pid;\n    IMAGE_SECTION_HEADER            idsh;\n    BYTE                            *pData;\n    int                             nCnt = 0, nSize = 0, i;\n    char                            *pModule[1024];\n    char                            *psz;\n\n    pid = (PIMAGE_IMPORT_MODULE_DIRECTORY)ImageDirectoryOffset\n             (lpFile, IMAGE_DIRECTORY_ENTRY_IMPORT);\n    pData = (BYTE *)pid;\n\n    /* Locate section header for \".idata\" section. */\n    if (!GetSectionHdrByName (lpFile, &idsh, \".idata\"))\n        return 0;\n\n    /* Extract all import modules. */\n    while (pid->dwRVAModuleName)\n        {\n        /* Allocate buffer for absolute string offsets. */\n        pModule[nCnt] = (char *)(pData +\n               (pid->dwRVAModuleName-idsh.VirtualAddress));\n        nSize += strlen (pModule[nCnt]) + 1;\n\n        /* Increment to the next import directory entry. */\n        pid++;\n        nCnt++;\n        }\n\n    /* Copy all strings to one chunk of heap memory. */\n    *pszModules = HeapAlloc (hHeap, HEAP_ZERO_MEMORY, nSize);\n    psz = *pszModules;\n    for (i=0; i<nCnt; i++)\n        {\n        strcpy (psz, pModule[i]);\n        psz += strlen (psz) + 1;\n        }\n\n    return nCnt;\n}"
               ]
             ]
           },
@@ -10857,14 +9523,10 @@ Response:+72894
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int     WINAPI GetListOfResourceTypes (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszResTypes)\n{\n    PIMAGE_RESOURCE_DIRECTORY          prdRoot;\n    PIMAGE_RESOURCE_DIRECTORY_ENTRY    prde;\n    char                               *pMem;\n    int                                nCnt, i;\n\n\n    /* Get root directory of resource tree. */\n    if ((prdRoot = PIMAGE_RESOURCE_DIRECTORY)ImageDirectoryOffset\n           (lpFile, IMAGE_DIRECTORY_ENTRY_RESOURCE)) == NULL)\n        return 0;\n\n    /* Allocate enough space from heap to cover all types. */\n    nCnt = prdRoot-\u003eNumberOfIdEntries * (MAXRESOURCENAME + 1);\n    *pszResTypes = (char *)HeapAlloc (hHeap,\n                                      HEAP_ZERO_MEMORY,\n                                      nCnt);\n    if ((pMem = *pszResTypes) == NULL)\n        return 0;\n\n    /* Set pointer to first resource type entry. */\n    prde = (PIMAGE_RESOURCE_DIRECTORY_ENTRY)((DWORD)prdRoot +\n               sizeof (IMAGE_RESOURCE_DIRECTORY));\n\n    /* Loop through all resource directory entry types. */\n    for (i=0; i\u003cprdRoot-\u003eNumberOfIdEntries; i++)\n        {\n        if (LoadString (hDll, prde-\u003eName, pMem, MAXRESOURCENAME))\n            pMem += strlen (pMem) + 1;\n\n        prde++;\n        }\n\n    return nCnt;\n}"
+                "int     WINAPI GetListOfResourceTypes (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszResTypes)\n{\n    PIMAGE_RESOURCE_DIRECTORY          prdRoot;\n    PIMAGE_RESOURCE_DIRECTORY_ENTRY    prde;\n    char                               *pMem;\n    int                                nCnt, i;\n\n\n    /* Get root directory of resource tree. */\n    if ((prdRoot = PIMAGE_RESOURCE_DIRECTORY)ImageDirectoryOffset\n           (lpFile, IMAGE_DIRECTORY_ENTRY_RESOURCE)) == NULL)\n        return 0;\n\n    /* Allocate enough space from heap to cover all types. */\n    nCnt = prdRoot->NumberOfIdEntries * (MAXRESOURCENAME + 1);\n    *pszResTypes = (char *)HeapAlloc (hHeap,\n                                      HEAP_ZERO_MEMORY,\n                                      nCnt);\n    if ((pMem = *pszResTypes) == NULL)\n        return 0;\n\n    /* Set pointer to first resource type entry. */\n    prde = (PIMAGE_RESOURCE_DIRECTORY_ENTRY)((DWORD)prdRoot +\n               sizeof (IMAGE_RESOURCE_DIRECTORY));\n\n    /* Loop through all resource directory entry types. */\n    for (i=0; i<prdRoot->NumberOfIdEntries; i++)\n        {\n        if (LoadString (hDll, prde->Name, pMem, MAXRESOURCENAME))\n            pMem += strlen (pMem) + 1;\n\n        prde++;\n        }\n\n    return nCnt;\n}"
               ]
             ]
           },
@@ -10921,12 +9583,14 @@ Response:+72894
     }
   }
 }
-42608 1624300680510 httpcache-v1
+40674 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+442
 {
+  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "chunkNumber": 6,
+  "limit": 30,
   "cursor": {
     "stack": [
       [
@@ -10945,11 +9609,9 @@ Body:+442
       ]
     ]
   },
-  "limit": 30,
-  "pageId": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
   "verticalColumns": false
 }
-Response:+42077
+Response:+40144
 {
   "cursor": {
     "stack": []
@@ -10976,17 +9638,8 @@ Response:+42077
               [
                 "As a last example, consider the following function, which extracts the image name from the "
               ],
-              [
-                "IMAGE_DEBUG_MISC",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " structure:"
-              ]
+              ["IMAGE_DEBUG_MISC", [["b"]]],
+              [" structure:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -11041,28 +9694,12 @@ Response:+42077
               [
                 "As you can see, the structure of the debug directory makes it relatively easy to locate a specific type of debug information. Once the "
               ],
-              [
-                "IMAGE_DEBUG_MISC",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_DEBUG_MISC", [["b"]]],
               [
                 " structure is located, extracting the image name is as simple as invoking the "
               ],
-              [
-                "CopyMemory",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
-              [
-                " function."
-              ]
+              ["CopyMemory", [["b"]]],
+              [" function."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -11086,16 +9723,8 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Shell"
-              ]
-            ],
-            "title": [
-              [
-                "rebase -b 40000 -x c:\\samples\\testdir test.exe"
-              ]
-            ]
+            "language": [["Shell"]],
+            "title": [["rebase -b 40000 -x c:\\samples\\testdir test.exe"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
@@ -11151,11 +9780,7 @@ Response:+42077
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -11178,11 +9803,7 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "#define IMAGE_DEBUG_TYPE_UNKNOWN          0\n#define IMAGE_DEBUG_TYPE_COFF             1\n#define IMAGE_DEBUG_TYPE_CODEVIEW         2\n#define IMAGE_DEBUG_TYPE_FPO              3\n#define IMAGE_DEBUG_TYPE_MISC             4"
@@ -11264,11 +9885,7 @@ Response:+42077
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -11295,25 +9912,11 @@ Response:+42077
               [
                 "The debug information is placed in a new file called TEST.DBG and located in the path specified, in this case c:\\samples\\testdir. The file begins with a single "
               ],
-              [
-                "IMAGE_SEPARATE_DEBUG_HEADER",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_SEPARATE_DEBUG_HEADER", [["b"]]],
               [
                 "structure, followed by a copy of the section headers that exist in the stripped executable image. Then the .debug section data follows the section headers. So, right after the section headers are the series of "
               ],
-              [
-                "IMAGE_DEBUG_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_DEBUG_DIRECTORY", [["b"]]],
               [
                 " structures and their associated data. The debug information itself retains the same structure as described above for normal image file debug information."
               ]
@@ -11340,11 +9943,7 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Copyright © 1996,1997 Johannes Plachy"
-              ]
-            ]
+            "title": [["Copyright © 1996,1997 Johannes Plachy"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -11391,26 +9990,15 @@ Response:+42077
               [
                 "Each type of debug information has its own header structure that defines its data. Each of these is listed in the file WINNT.H. One nice thing about the "
               ],
-              [
-                "IMAGE_DEBUG_DIRECTORY",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_DEBUG_DIRECTORY", [["b"]]],
               [
                 " structure is that it includes two fields that identify the debug information. The first of these, "
               ],
-              [
-                "AddressOfRawData"
-              ],
+              ["AddressOfRawData"],
               [
                 ", is the relative virtual address of the data once the file is loaded. The other, "
               ],
-              [
-                "PointerToRawData"
-              ],
+              ["PointerToRawData"],
               [
                 ", is an actual offset within the PE file, where the data is located. This makes it easy to locate specific debug information."
               ]
@@ -11437,11 +10025,7 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
                 "typedef struct _IMAGE_DEBUG_DIRECTORY {\n    ULONG   Characteristics;\n    ULONG   TimeDateStamp;\n    USHORT  MajorVersion;\n    USHORT  MinorVersion;\n    ULONG   Type;\n    ULONG   SizeOfData;\n    ULONG   AddressOfRawData;\n    ULONG   PointerToRawData;\n} IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;"
@@ -11685,16 +10269,7 @@ Response:+42077
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -11718,23 +10293,12 @@ Response:+42077
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The "
-              ],
-              [
-                "Type"
-              ],
+              ["The "],
+              ["Type"],
               [
                 " field in each directory indicates which type of debug information the directory represents. As you can see in the list above, the PE file format supports many different types of debug information, as well as some other informational fields. Of those, the "
               ],
-              [
-                "IMAGE_DEBUG_TYPE_MISC",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ],
+              ["IMAGE_DEBUG_TYPE_MISC", [["b"]]],
               [
                 " information is unique. This information was added to represent miscellaneous information about the executable image that could not be added to any of the more structured data sections in the PE file format. This is the only location in the image file where the image name is sure to appear. If an image exports information, the export data section will also include the image name."
               ]
@@ -11761,16 +10325,7 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "WINNT.H",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["WINNT.H", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -11842,11 +10397,7 @@ Response:+42077
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -11869,14 +10420,10 @@ Response:+42077
           "parent_id": "d4cdcfc3-e723-4773-a7c6-fe2ca5ee0ae0",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "C++"
-              ]
-            ],
+            "language": [["C++"]],
             "title": [
               [
-                "int    WINAPI RetrieveModuleName (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszModule)\n{\n\n    PIMAGE_DEBUG_DIRECTORY    pdd;\n    PIMAGE_DEBUG_MISC         pdm = NULL;\n    int                       nCnt;\n\n    if (!(pdd = (PIMAGE_DEBUG_DIRECTORY)ImageDirectoryOffset\n               (lpFile, IMAGE_DIRECTORY_ENTRY_DEBUG)))\n        return 0;\n\n    while (pdd-\u003eSizeOfData)\n        {\n        if (pdd-\u003eType == IMAGE_DEBUG_TYPE_MISC)\n            {\n            pdm = (PIMAGE_DEBUG_MISC)\n                ((DWORD)pdd-\u003ePointerToRawData + (DWORD)lpFile);\n\n            nCnt = lstrlen (pdm-\u003eData)*(pdm-\u003eUnicode?2:1);\n            *pszModule = (char *)HeapAlloc (hHeap,\n                                            HEAP_ZERO_MEMORY,\n                                            nCnt+1;\n            CopyMemory (*pszModule, pdm-\u003eData, nCnt);\n\n            break;\n            }\n\n        pdd ++;\n        }\n\n    if (pdm != NULL)\n        return nCnt;\n    else\n        return 0;\n}"
+                "int    WINAPI RetrieveModuleName (\n    LPVOID    lpFile,\n    HANDLE    hHeap,\n    char      **pszModule)\n{\n\n    PIMAGE_DEBUG_DIRECTORY    pdd;\n    PIMAGE_DEBUG_MISC         pdm = NULL;\n    int                       nCnt;\n\n    if (!(pdd = (PIMAGE_DEBUG_DIRECTORY)ImageDirectoryOffset\n               (lpFile, IMAGE_DIRECTORY_ENTRY_DEBUG)))\n        return 0;\n\n    while (pdd->SizeOfData)\n        {\n        if (pdd->Type == IMAGE_DEBUG_TYPE_MISC)\n            {\n            pdm = (PIMAGE_DEBUG_MISC)\n                ((DWORD)pdd->PointerToRawData + (DWORD)lpFile);\n\n            nCnt = lstrlen (pdm->Data)*(pdm->Unicode?2:1);\n            *pszModule = (char *)HeapAlloc (hHeap,\n                                            HEAP_ZERO_MEMORY,\n                                            nCnt+1;\n            CopyMemory (*pszModule, pdm->Data, nCnt);\n\n            break;\n            }\n\n        pdd ++;\n        }\n\n    if (pdm != NULL)\n        return nCnt;\n    else\n        return 0;\n}"
               ]
             ]
           },
@@ -11933,22 +10480,22 @@ Response:+42077
     }
   }
 }
-36134 1624300680511 httpcache-v1
+34698 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/queryCollection
 Body:+269
 {
   "collectionId": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
   "collectionViewId": "31fbe56d-30b6-471e-9aab-91cf4a7b517e",
+  "query": null,
   "loader": {
-    "limit": 256,
-    "loadContentCover": true,
     "type": "table",
-    "userTimeZone": "America/Los_Angeles"
-  },
-  "query": null
+    "limit": 256,
+    "userTimeZone": "America/Los_Angeles",
+    "loadContentCover": true
+  }
 }
-Response:+35774
+Response:+34339
 {
   "recordMap": {
     "block": {
@@ -11968,16 +10515,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Section cannot be cached"
-              ]
-            ],
-            "title": [
-              [
-                "0x04000000"
-              ]
-            ]
+            "C|.n": [["Section cannot be cached"]],
+            "title": [["0x04000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12033,11 +10572,7 @@ Response:+35774
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12114,11 +10649,7 @@ Response:+35774
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pe format, pefile"
-              ]
-            ]
+            "title": [["pe format, pefile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12141,16 +10672,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Code section"
-              ]
-            ],
-            "title": [
-              [
-                "0x00000020"
-              ]
-            ]
+            "C|.n": [["Code section"]],
+            "title": [["0x00000020"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12173,16 +10696,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Section is shared"
-              ]
-            ],
-            "title": [
-              [
-                "0x10000000"
-              ]
-            ]
+            "C|.n": [["Section is shared"]],
+            "title": [["0x10000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12205,16 +10720,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Writable section"
-              ]
-            ],
-            "title": [
-              [
-                "0x80000000"
-              ]
-            ]
+            "C|.n": [["Writable section"]],
+            "title": [["0x80000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12240,9 +10747,7 @@ Response:+35774
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "collection_view",
           "version": 5,
-          "view_ids": [
-            "31fbe56d-30b6-471e-9aab-91cf4a7b517e"
-          ]
+          "view_ids": ["31fbe56d-30b6-471e-9aab-91cf4a7b517e"]
         }
       },
       "ae20b690-ea2a-4e22-bd39-e03a1feb4825": {
@@ -12261,16 +10766,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Initialized data section"
-              ]
-            ],
-            "title": [
-              [
-                "0x00000040"
-              ]
-            ]
+            "C|.n": [["Initialized data section"]],
+            "title": [["0x00000040"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12293,16 +10790,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Uninitialized data section"
-              ]
-            ],
-            "title": [
-              [
-                "0x00000080"
-              ]
-            ]
+            "C|.n": [["Uninitialized data section"]],
+            "title": [["0x00000080"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12325,16 +10814,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Readable section"
-              ]
-            ],
-            "title": [
-              [
-                "0x40000000"
-              ]
-            ]
+            "C|.n": [["Readable section"]],
+            "title": [["0x40000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12573,16 +11054,7 @@ Response:+35774
           "parent_id": "65db085c-d90f-45d2-a271-8f19a7566e1b",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Portable Executable File Format",
-                [
-                  [
-                    "b"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["Portable Executable File Format", [["b"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12605,16 +11077,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Executable section"
-              ]
-            ],
-            "title": [
-              [
-                "0x20000000"
-              ]
-            ]
+            "C|.n": [["Executable section"]],
+            "title": [["0x20000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12637,16 +11101,8 @@ Response:+35774
           "parent_id": "3e15ce4c-be10-4fb6-8082-1c8bacf02ec1",
           "parent_table": "collection",
           "properties": {
-            "C|.n": [
-              [
-                "Section is not pageable"
-              ]
-            ],
-            "title": [
-              [
-                "0x08000000"
-              ]
-            ]
+            "C|.n": [["Section is not pageable"]],
+            "title": [["0x08000000"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -12691,11 +11147,7 @@ Response:+35774
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",

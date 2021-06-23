@@ -1,16 +1,16 @@
-16176 1624300580054 httpcache-v1
+15780 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
-      "table": "block"
+      "table": "block",
+      "id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e"
     }
   ]
 }
-Response:+15975
+Response:+15580
 {
   "recordMapWithRoles": {
     "block": {
@@ -36,11 +36,7 @@ Response:+15975
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -78,11 +74,7 @@ Response:+15975
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -137,11 +129,7 @@ Response:+15975
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -197,11 +185,7 @@ Response:+15975
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -256,9 +240,7 @@ Response:+15975
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531736780543,
-          "file_ids": [
-            "86bd3ca0-53f5-4048-997a-78a19bd9ce21"
-          ],
+          "file_ids": ["86bd3ca0-53f5-4048-997a-78a19bd9ce21"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86bd3ca0-53f5-4048-997a-78a19bd9ce21/header-06.jpg",
             "page_cover_position": 0.5,
@@ -273,11 +255,7 @@ Response:+15975
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Accessing GitHub API from Go"
-              ]
-            ]
+            "title": [["Accessing GitHub API from Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -380,9 +358,7 @@ Response:+15975
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
         "created_time": 1531736780543,
-        "file_ids": [
-          "86bd3ca0-53f5-4048-997a-78a19bd9ce21"
-        ],
+        "file_ids": ["86bd3ca0-53f5-4048-997a-78a19bd9ce21"],
         "format": {
           "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86bd3ca0-53f5-4048-997a-78a19bd9ce21/header-06.jpg",
           "page_cover_position": 0.5,
@@ -397,11 +373,7 @@ Response:+15975
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Accessing GitHub API from Go"
-            ]
-          ]
+          "title": [["Accessing GitHub API from Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -410,20 +382,20 @@ Response:+15975
     }
   ]
 }
-59104 1624300580055 httpcache-v1
+56443 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
   "verticalColumns": false
 }
-Response:+58863
+Response:+56203
 {
   "cursor": {
     "stack": []
@@ -446,14 +418,10 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "package main\n\nimport (\n    \"encoding/json\"\n    \"fmt\"\n\n    \"github.com/google/go-github/github\"\n    \"golang.org/x/oauth2\"\n)\n\nvar (\n    // you need to generate personal access token at\n    // https://github.com/settings/applications#personal-access-tokens\n    personalAccessToken = \"\"\n)\n\ntype TokenSource struct {\n    AccessToken string\n}\n\nfunc (t *TokenSource) Token() (*oauth2.Token, error) {\n    token := \u0026oauth2.Token{\n        AccessToken: t.AccessToken,\n    }\n    return token, nil\n}\n\nfunc main() {\n    tokenSource := \u0026TokenSource{\n        AccessToken: personalAccessToken,\n    }\n    oauthClient := oauth2.NewClient(oauth2.NoContext, tokenSource)\n    client := github.NewClient(oauthClient)\n    user, _, err := client.Users.Get(\"\")\n    if err != nil {\n        fmt.Printf(\"client.Users.Get() faled with '%s'\\n\", err)\n        return\n    }\n    d, err := json.MarshalIndent(user, \"\", \"  \")\n    if err != nil {\n        fmt.Printf(\"json.MarshlIndent() failed with %s\\n\", err)\n        return\n    }\n    fmt.Printf(\"User:\\n%s\\n\", string(d))\n}"
+                "package main\n\nimport (\n    \"encoding/json\"\n    \"fmt\"\n\n    \"github.com/google/go-github/github\"\n    \"golang.org/x/oauth2\"\n)\n\nvar (\n    // you need to generate personal access token at\n    // https://github.com/settings/applications#personal-access-tokens\n    personalAccessToken = \"\"\n)\n\ntype TokenSource struct {\n    AccessToken string\n}\n\nfunc (t *TokenSource) Token() (*oauth2.Token, error) {\n    token := &oauth2.Token{\n        AccessToken: t.AccessToken,\n    }\n    return token, nil\n}\n\nfunc main() {\n    tokenSource := &TokenSource{\n        AccessToken: personalAccessToken,\n    }\n    oauthClient := oauth2.NewClient(oauth2.NoContext, tokenSource)\n    client := github.NewClient(oauthClient)\n    user, _, err := client.Users.Get(\"\")\n    if err != nil {\n        fmt.Printf(\"client.Users.Get() faled with '%s'\\n\", err)\n        return\n    }\n    d, err := json.MarshalIndent(user, \"\", \"  \")\n    if err != nil {\n        fmt.Printf(\"json.MarshlIndent() failed with %s\\n\", err)\n        return\n    }\n    fmt.Printf(\"User:\\n%s\\n\", string(d))\n}"
               ]
             ]
           },
@@ -505,11 +473,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "the user authorizes your app by clicking on a link"
-              ]
-            ]
+            "title": [["the user authorizes your app by clicking on a link"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -565,11 +529,7 @@ Response:+58863
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -592,14 +552,10 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "const htmlIndex = `\u003chtml\u003e\u003cbody\u003e\nLogged in with \u003ca href=\"/login\"\u003eGitHub\u003c/a\u003e\n\u003c/body\u003e\u003c/html\u003e\n`\n\n// /\nfunc handleMain(w http.ResponseWriter, r *http.Request) {\n    w.Header().Set(\"Content-Type\", \"text/html; charset=utf-8\")\n    w.WriteHeader(http.StatusOK)\n    w.Write([]byte(htmlIndex))\n}"
+                "const htmlIndex = `<html><body>\nLogged in with <a href=\"/login\">GitHub</a>\n</body></html>\n`\n\n// /\nfunc handleMain(w http.ResponseWriter, r *http.Request) {\n    w.Header().Set(\"Content-Type\", \"text/html; charset=utf-8\")\n    w.WriteHeader(http.StatusOK)\n    w.Write([]byte(htmlIndex))\n}"
               ]
             ]
           },
@@ -639,11 +595,7 @@ Response:+58863
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -666,11 +618,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "The flow of OAuth is:"
-              ]
-            ]
+            "title": [["The flow of OAuth is:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -694,33 +642,16 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "To use GitHub API from Go you can use "
-              ],
+              ["To use GitHub API from Go you can use "],
               [
                 "github.com/google/go-github",
-                [
-                  [
-                    "a",
-                    "http://github.com/google/go-github"
-                  ]
-                ]
+                [["a", "http://github.com/google/go-github"]]
               ],
               [
                 " package. GitHub, like many other sites, uses OAuth 2.0 protocol for authentication. There are few packages for Go that implement OAuth. This article describes how to use "
               ],
-              [
-                "golang.org/x/oauth2",
-                [
-                  [
-                    "a",
-                    "http://golang.org/x/oauth2"
-                  ]
-                ]
-              ],
-              [
-                " package. If you prefer to read code, read "
-              ],
+              ["golang.org/x/oauth2", [["a", "http://golang.org/x/oauth2"]]],
+              [" package. If you prefer to read code, read "],
               [
                 "this sample",
                 [
@@ -730,9 +661,7 @@ Response:+58863
                   ]
                 ]
               ],
-              [
-                "."
-              ]
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -808,11 +737,7 @@ Response:+58863
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -835,11 +760,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Short intro to OAuth for GitHub"
-              ]
-            ]
+            "title": [["Short intro to OAuth for GitHub"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -862,11 +783,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 15"
-              ]
-            ]
+            "title": [["Id: 15"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -889,11 +806,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "func main() {\n    http.HandleFunc(\"/\", handleMain)\n    http.HandleFunc(\"/login\", handleGitHubLogin)\n    http.HandleFunc(\"/github_oauth_cb\", handleGitHubCallback)\n    fmt.Print(\"Started running on http://127.0.0.1:7000\\n\")\n    fmt.Println(http.ListenAndServe(\":7000\", nil))\n}"
@@ -921,14 +834,10 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "func tokenToJSON(token *oauth2.Token) (string, error) {\n    if d, err := json.Marshal(token); err != nil {\n        return \"\", err\n    } else {\n        return string(d), nil\n    }\n}\n\nfunc tokenFromJSON(jsonStr string) (*oauth2.Token, error) {\n    var token oauth2.Token\n    if err := json.Unmarshal([]byte(jsonStr), \u0026token); err != nil {\n        return nil, err\n    }\n    return \u0026token, nil\n}"
+                "func tokenToJSON(token *oauth2.Token) (string, error) {\n    if d, err := json.Marshal(token); err != nil {\n        return \"\", err\n    } else {\n        return string(d), nil\n    }\n}\n\nfunc tokenFromJSON(jsonStr string) (*oauth2.Token, error) {\n    var token oauth2.Token\n    if err := json.Unmarshal([]byte(jsonStr), &token); err != nil {\n        return nil, err\n    }\n    return &token, nil\n}"
               ]
             ]
           },
@@ -953,11 +862,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "This is your main html page:"
-              ]
-            ]
+            "title": [["This is your main html page:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1067,11 +972,7 @@ Response:+58863
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1094,11 +995,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: go, programming"
-              ]
-            ]
+            "title": [["Tags: go, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1121,11 +1018,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2015-02-12T23:18:58-08:00"
-              ]
-            ]
+            "title": [["Date: 2015-02-12T23:18:58-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1175,11 +1068,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Using personal access token"
-              ]
-            ]
+            "title": [["Using personal access token"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1256,11 +1145,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "// /login\nfunc handleGitHubLogin(w http.ResponseWriter, r *http.Request) {\n    url := oauthConf.AuthCodeURL(oauthStateString, oauth2.AccessTypeOnline)\n    http.Redirect(w, r, url, http.StatusTemporaryRedirect)\n}"
@@ -1288,11 +1173,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
                 "// /github_oauth_cb. Called by github after authorization is granted\nfunc handleGitHubCallback(w http.ResponseWriter, r *http.Request) {\n    state := r.FormValue(\"state\")\n    if state != oauthStateString {\n        fmt.Printf(\"invalid oauth state, expected '%s', got '%s'\\n\", oauthStateString, state)\n        http.Redirect(w, r, \"/\", http.StatusTemporaryRedirect)\n        return\n    }\n\n    code := r.FormValue(\"code\")\n    token, err := oauthConf.Exchange(oauth2.NoContext, code)\n    if err != nil {\n        fmt.Printf(\"oauthConf.Exchange() failed with '%s'\\n\", err)\n        http.Redirect(w, r, \"/\", http.StatusTemporaryRedirect)\n        return\n    }\n\n    oauthClient := oauthConf.Client(oauth2.NoContext, token)\n    client := github.NewClient(oauthClient)\n    user, _, err := client.Users.Get(\"\")\n    if err != nil {\n        fmt.Printf(\"client.Users.Get() faled with '%s'\\n\", err)\n        http.Redirect(w, r, \"/\", http.StatusTemporaryRedirect)\n        return\n    }\n    fmt.Printf(\"Logged in as GitHub user: %s\\n\", *user.Login)\n    http.Redirect(w, r, \"/\", http.StatusTemporaryRedirect)\n}"
@@ -1347,11 +1228,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes on callback url"
-              ]
-            ]
+            "title": [["Notes on callback url"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1374,11 +1251,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "And finally this is how you tie everything together:"
-              ]
-            ]
+            "title": [["And finally this is how you tie everything together:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1414,9 +1287,7 @@ Response:+58863
                   ]
                 ]
               ],
-              [
-                ". Here’s how to do it:"
-              ]
+              [". Here’s how to do it:"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1444,29 +1315,13 @@ Response:+58863
               [
                 "You define callback url when you register the app. This is a problem for testing, because your app might use different hosts for development or production. One option is to create different apps for testing and production, with different callback urls. OAuth protocol allows providing callback url as an argument when calling authorization page (and oauth2 library allows setting it as "
               ],
-              [
-                "oauth2.Config.RedirectURL",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                ") but GitHub "
-              ],
+              ["oauth2.Config.RedirectURL", [["c"]]],
+              [") but GitHub "],
               [
                 "has restrictions",
-                [
-                  [
-                    "a",
-                    "https://developer.github.com/v3/oauth/#redirect-urls"
-                  ]
-                ]
+                [["a", "https://developer.github.com/v3/oauth/#redirect-urls"]]
               ],
-              [
-                " and doesn’t allow changing host."
-              ]
+              [" and doesn’t allow changing host."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1491,9 +1346,7 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "you call another GitHub url to exchange code for access token"
-              ]
+              ["you call another GitHub url to exchange code for access token"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1517,14 +1370,10 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Go"
-              ]
-            ],
+            "language": [["Go"]],
             "title": [
               [
-                "import (\n    \"fmt\"\n    \"net/http\"\n\n    \"github.com/google/go-github/github\"\n    \"golang.org/x/oauth2\"\n    githuboauth \"golang.org/x/oauth2/github\"\n)\n\nvar (\n    // You must register the app at https://github.com/settings/applications\n    // Set callback to http://127.0.0.1:7000/github_oauth_cb\n    // Set ClientId and ClientSecret to\n    oauthConf = \u0026oauth2.Config{\n        ClientID:     \"\",\n        ClientSecret: \"\",\n        // select level of access you want https://developer.github.com/v3/oauth/#scopes\n        Scopes:       []string{\"user:email\", \"repo\"},\n        Endpoint:     githuboauth.Endpoint,\n    }\n    // random string for oauth2 API calls to protect against CSRF\n    oauthStateString = \"thisshouldberandom\"\n)"
+                "import (\n    \"fmt\"\n    \"net/http\"\n\n    \"github.com/google/go-github/github\"\n    \"golang.org/x/oauth2\"\n    githuboauth \"golang.org/x/oauth2/github\"\n)\n\nvar (\n    // You must register the app at https://github.com/settings/applications\n    // Set callback to http://127.0.0.1:7000/github_oauth_cb\n    // Set ClientId and ClientSecret to\n    oauthConf = &oauth2.Config{\n        ClientID:     \"\",\n        ClientSecret: \"\",\n        // select level of access you want https://developer.github.com/v3/oauth/#scopes\n        Scopes:       []string{\"user:email\", \"repo\"},\n        Endpoint:     githuboauth.Endpoint,\n    }\n    // random string for oauth2 API calls to protect against CSRF\n    oauthStateString = \"thisshouldberandom\"\n)"
               ]
             ]
           },
@@ -1549,11 +1398,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Collection: go-cookbook"
-              ]
-            ]
+            "title": [["Collection: go-cookbook"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1576,11 +1421,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Remembering OAuth access token"
-              ]
-            ]
+            "title": [["Remembering OAuth access token"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
@@ -1604,17 +1445,10 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "First, you need to "
-              ],
+              ["First, you need to "],
               [
                 "register your application with GitHub",
-                [
-                  [
-                    "a",
-                    "https://github.com/settings/applications"
-                  ]
-                ]
+                [["a", "https://github.com/settings/applications"]]
               ],
               [
                 " (under Developer applications). You provide description of the app, including a callback url (we’ll get back to that). GitHub creates client id and client secret that you’ll need to provide to OAuth libraries (and keep them secret)."
@@ -1642,11 +1476,7 @@ Response:+58863
           "parent_id": "f9cb88d7-a6ce-4f8a-902f-d39210b9f56e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Create OAuth config object:"
-              ]
-            ]
+            "title": [["Create OAuth config object:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1670,9 +1500,7 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Access token is what you use to authenticate your API calls."
-              ]
+              ["Access token is what you use to authenticate your API calls."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1697,9 +1525,7 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "in the url handler, extract “secret” and “code” args"
-              ]
+              ["in the url handler, extract “secret” and “code” args"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1755,9 +1581,7 @@ Response:+58863
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
           "created_time": 1531736780543,
-          "file_ids": [
-            "86bd3ca0-53f5-4048-997a-78a19bd9ce21"
-          ],
+          "file_ids": ["86bd3ca0-53f5-4048-997a-78a19bd9ce21"],
           "format": {
             "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86bd3ca0-53f5-4048-997a-78a19bd9ce21/header-06.jpg",
             "page_cover_position": 0.5,
@@ -1772,11 +1596,7 @@ Response:+58863
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Accessing GitHub API from Go"
-              ]
-            ]
+            "title": [["Accessing GitHub API from Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1800,18 +1620,8 @@ Response:+58863
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Implementing OAuth using "
-              ],
-              [
-                "golang.org/x/oauth2",
-                [
-                  [
-                    "a",
-                    "http://golang.org/x/oauth2"
-                  ]
-                ]
-              ]
+              ["Implementing OAuth using "],
+              ["golang.org/x/oauth2", [["a", "http://golang.org/x/oauth2"]]]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1867,27 +1677,27 @@ Response:+58863
     }
   }
 }
-22080 1624300580056 httpcache-v1
+21504 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+286
 {
   "requests": [
     {
-      "id": "1a427ccf-a37e-4d5e-b52c-fa69e4f14eee",
-      "table": "block"
+      "table": "block",
+      "id": "1a427ccf-a37e-4d5e-b52c-fa69e4f14eee"
     },
     {
-      "id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6",
-      "table": "block"
+      "table": "block",
+      "id": "4bc843dc-3ad2-4750-9203-e81ff4432bd6"
     },
     {
-      "id": "9070283f-b1a5-43b5-8af1-c4e5003a1891",
-      "table": "block"
+      "table": "block",
+      "id": "9070283f-b1a5-43b5-8af1-c4e5003a1891"
     }
   ]
 }
-Response:+21703
+Response:+21128
 {
   "recordMapWithRoles": {
     "block": {
@@ -1930,11 +1740,7 @@ Response:+21703
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go package for better guid generation"
-              ]
-            ]
+            "title": [["Go package for better guid generation"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1963,11 +1769,7 @@ Response:+21703
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2015 (4)"
-              ]
-            ]
+            "title": [["2015 (4)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2005,11 +1807,7 @@ Response:+21703
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2064,11 +1862,7 @@ Response:+21703
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2121,11 +1915,7 @@ Response:+21703
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Extracting files from .7z archives in Go"
-              ]
-            ]
+            "title": [["Extracting files from .7z archives in Go"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2181,11 +1971,7 @@ Response:+21703
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2228,11 +2014,7 @@ Response:+21703
           "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "First release of dbHero - a GUI database client"
-              ]
-            ]
+            "title": [["First release of dbHero - a GUI database client"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2326,11 +2108,7 @@ Response:+21703
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Go package for better guid generation"
-            ]
-          ]
+          "title": [["Go package for better guid generation"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2383,11 +2161,7 @@ Response:+21703
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Extracting files from .7z archives in Go"
-            ]
-          ]
+          "title": [["Extracting files from .7z archives in Go"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -2430,11 +2204,7 @@ Response:+21703
         "parent_id": "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "First release of dbHero - a GUI database client"
-            ]
-          ]
+          "title": [["First release of dbHero - a GUI database client"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",

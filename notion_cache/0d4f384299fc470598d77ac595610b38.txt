@@ -1,16 +1,16 @@
-10696 1624300670811 httpcache-v1
+10404 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
-      "table": "block"
+      "table": "block",
+      "id": "0d4f3842-99fc-4705-98d7-7ac595610b38"
     }
   ]
 }
-Response:+10495
+Response:+10204
 {
   "recordMapWithRoles": {
     "block": {
@@ -46,11 +46,7 @@ Response:+10495
             }
           ],
           "properties": {
-            "title": [
-              [
-                "mupdf"
-              ]
-            ]
+            "title": [["mupdf"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -86,11 +82,7 @@ Response:+10495
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pdf format"
-              ]
-            ]
+            "title": [["pdf format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -146,11 +138,7 @@ Response:+10495
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -195,11 +183,7 @@ Response:+10495
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -286,11 +270,7 @@ Response:+10495
           }
         ],
         "properties": {
-          "title": [
-            [
-              "mupdf"
-            ]
-          ]
+          "title": [["mupdf"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -299,20 +279,20 @@ Response:+10495
     }
   ]
 }
-13125 1624300670812 httpcache-v1
+12705 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "0d4f3842-99fc-4705-98d7-7ac595610b38",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "0d4f3842-99fc-4705-98d7-7ac595610b38",
   "verticalColumns": false
 }
-Response:+12884
+Response:+12465
 {
   "cursor": {
     "stack": []
@@ -351,11 +331,7 @@ Response:+12884
             }
           ],
           "properties": {
-            "title": [
-              [
-                "mupdf"
-              ]
-            ]
+            "title": [["mupdf"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -391,11 +367,7 @@ Response:+12884
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pdf format"
-              ]
-            ]
+            "title": [["pdf format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -424,11 +396,7 @@ Response:+12884
           "parent_id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "dealing with submodules"
-              ]
-            ]
+            "title": [["dealing with submodules"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -484,11 +452,7 @@ Response:+12884
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -522,11 +486,7 @@ Response:+12884
           "parent_id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "compiling mupdf in docker"
-              ]
-            ]
+            "title": [["compiling mupdf in docker"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -571,11 +531,7 @@ Response:+12884
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -598,11 +554,7 @@ Response:+12884
           "parent_id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "mutool"
-              ]
-            ]
+            "title": [["mutool"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -657,67 +609,67 @@ Response:+12884
     }
   }
 }
-40933 1624300670813 httpcache-v1
+37679 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+1166
 {
   "requests": [
     {
-      "id": "0dede636-e95c-47fa-8ba7-b262972c10c9",
-      "table": "block"
+      "table": "block",
+      "id": "0dede636-e95c-47fa-8ba7-b262972c10c9"
     },
     {
-      "id": "1d50bc58-5854-4cc9-80ef-b6e1bdca5621",
-      "table": "block"
+      "table": "block",
+      "id": "1d50bc58-5854-4cc9-80ef-b6e1bdca5621"
     },
     {
-      "id": "2fbea57a-1f70-4c14-876f-589047ca9bf2",
-      "table": "block"
+      "table": "block",
+      "id": "2fbea57a-1f70-4c14-876f-589047ca9bf2"
     },
     {
-      "id": "325bfbcf-615a-446f-becc-a7ac1b7fb517",
-      "table": "block"
+      "table": "block",
+      "id": "325bfbcf-615a-446f-becc-a7ac1b7fb517"
     },
     {
-      "id": "38f734e1-89c0-4744-a001-d8b5d8dd436c",
-      "table": "block"
+      "table": "block",
+      "id": "38f734e1-89c0-4744-a001-d8b5d8dd436c"
     },
     {
-      "id": "3c4435b4-ac5a-494a-8b24-063186bcd073",
-      "table": "block"
+      "table": "block",
+      "id": "3c4435b4-ac5a-494a-8b24-063186bcd073"
     },
     {
-      "id": "64d77434-c0b5-4ccd-8e3a-e67535cc1a3d",
-      "table": "block"
+      "table": "block",
+      "id": "64d77434-c0b5-4ccd-8e3a-e67535cc1a3d"
     },
     {
-      "id": "89fc2baa-cd9f-4573-94ae-c5c371f06cda",
-      "table": "block"
+      "table": "block",
+      "id": "89fc2baa-cd9f-4573-94ae-c5c371f06cda"
     },
     {
-      "id": "8d0de8b4-8454-453e-a605-50776476b650",
-      "table": "block"
+      "table": "block",
+      "id": "8d0de8b4-8454-453e-a605-50776476b650"
     },
     {
-      "id": "8d216ebe-efa1-4f1a-b560-2e4c342bb4e7",
-      "table": "block"
+      "table": "block",
+      "id": "8d216ebe-efa1-4f1a-b560-2e4c342bb4e7"
     },
     {
-      "id": "ad2af084-20ec-4af7-847c-a7baa8fabdec",
-      "table": "block"
+      "table": "block",
+      "id": "ad2af084-20ec-4af7-847c-a7baa8fabdec"
     },
     {
-      "id": "de6199a5-2ca1-4f27-aa26-32c9b3b6a405",
-      "table": "block"
+      "table": "block",
+      "id": "de6199a5-2ca1-4f27-aa26-32c9b3b6a405"
     },
     {
-      "id": "e97ea406-b414-4b82-a631-f50bdee5eff4",
-      "table": "block"
+      "table": "block",
+      "id": "e97ea406-b414-4b82-a631-f50bdee5eff4"
     }
   ]
 }
-Response:+39675
+Response:+36422
 {
   "recordMapWithRoles": {
     "block": {
@@ -753,11 +705,7 @@ Response:+39675
             }
           ],
           "properties": {
-            "title": [
-              [
-                "mupdf"
-              ]
-            ]
+            "title": [["mupdf"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -780,16 +728,7 @@ Response:+39675
           "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "git submodule update --recursive",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["git submodule update --recursive", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -812,16 +751,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "cd mupdf",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["cd mupdf", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -857,11 +787,7 @@ Response:+39675
           "parent_id": "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "pdf format"
-              ]
-            ]
+            "title": [["pdf format"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -890,11 +816,7 @@ Response:+39675
           "parent_id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "dealing with submodules"
-              ]
-            ]
+            "title": [["dealing with submodules"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -917,11 +839,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Notes:"
-              ]
-            ]
+            "title": [["Notes:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -945,17 +863,8 @@ Response:+39675
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "apt-get install clang clang-format valgrind",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " : optional"
-              ]
+              ["apt-get install clang clang-format valgrind", [["c"]]],
+              [" : optional"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -979,11 +888,7 @@ Response:+39675
           "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Dealing with submodules:"
-              ]
-            ]
+            "title": [["Dealing with submodules:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1006,16 +911,7 @@ Response:+39675
           "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "git submodule init",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["git submodule init", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -1071,11 +967,7 @@ Response:+39675
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1098,16 +990,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "make",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["make", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1163,19 +1046,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "it ends up in "
-              ],
-              [
-                "build/release",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["it ends up in "], ["build/release", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1198,16 +1069,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "apt-get update -y",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["apt-get update -y", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1233,11 +1095,7 @@ Response:+39675
             "title": [
               [
                 "apt-get install git g++ make xorg-dev freeglut3-dev pkg-config",
-                [
-                  [
-                    "c"
-                  ]
-                ]
+                [["c"]]
               ]
             ]
           },
@@ -1273,11 +1131,7 @@ Response:+39675
           "parent_id": "0d4f3842-99fc-4705-98d7-7ac595610b38",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "compiling mupdf in docker"
-              ]
-            ]
+            "title": [["compiling mupdf in docker"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -1300,16 +1154,7 @@ Response:+39675
           "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "docker run -it ubuntu:16.04 /bin/bash",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ]
-            ]
+            "title": [["docker run -it ubuntu:16.04 /bin/bash", [["c"]]]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -1335,11 +1180,7 @@ Response:+39675
             "title": [
               [
                 "git clone --recursive git://git.ghostscript.com/mupdf.git",
-                [
-                  [
-                    "c"
-                  ]
-                ]
+                [["c"]]
               ]
             ]
           },
@@ -1386,11 +1227,7 @@ Response:+39675
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "File formats"
-              ]
-            ]
+            "title": [["File formats"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1461,16 +1298,7 @@ Response:+39675
         "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "git submodule update --recursive",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["git submodule update --recursive", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "text",
@@ -1493,16 +1321,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "cd mupdf",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["cd mupdf", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -1525,11 +1344,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Notes:"
-            ]
-          ]
+          "title": [["Notes:"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "text",
@@ -1553,17 +1368,8 @@ Response:+39675
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "apt-get install clang clang-format valgrind",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ],
-            [
-              " : optional"
-            ]
+            ["apt-get install clang clang-format valgrind", [["c"]]],
+            [" : optional"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -1587,11 +1393,7 @@ Response:+39675
         "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Dealing with submodules:"
-            ]
-          ]
+          "title": [["Dealing with submodules:"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "text",
@@ -1614,16 +1416,7 @@ Response:+39675
         "parent_id": "2b705c50-ca6b-4cb3-b5c6-33b7d1d15756",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "git submodule init",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["git submodule init", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "text",
@@ -1646,16 +1439,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "make",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["make", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -1711,19 +1495,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "it ends up in "
-            ],
-            [
-              "build/release",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["it ends up in "], ["build/release", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -1746,16 +1518,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "apt-get update -y",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["apt-get update -y", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -1781,11 +1544,7 @@ Response:+39675
           "title": [
             [
               "apt-get install git g++ make xorg-dev freeglut3-dev pkg-config",
-              [
-                [
-                  "c"
-                ]
-              ]
+              [["c"]]
             ]
           ]
         },
@@ -1810,16 +1569,7 @@ Response:+39675
         "parent_id": "d3620a93-f1c5-49c6-b055-999bc387cca3",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "docker run -it ubuntu:16.04 /bin/bash",
-              [
-                [
-                  "c"
-                ]
-              ]
-            ]
-          ]
+          "title": [["docker run -it ubuntu:16.04 /bin/bash", [["c"]]]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "bulleted_list",
@@ -1845,11 +1595,7 @@ Response:+39675
           "title": [
             [
               "git clone --recursive git://git.ghostscript.com/mupdf.git",
-              [
-                [
-                  "c"
-                ]
-              ]
+              [["c"]]
             ]
           ]
         },

@@ -1,16 +1,16 @@
-14525 1624300507368 httpcache-v1
+14257 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
 {
   "requests": [
     {
-      "id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
-      "table": "block"
+      "table": "block",
+      "id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a"
     }
   ]
 }
-Response:+14324
+Response:+14057
 {
   "recordMapWithRoles": {
     "block": {
@@ -45,11 +45,7 @@ Response:+14324
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -104,11 +100,7 @@ Response:+14324
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -164,11 +156,7 @@ Response:+14324
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -227,11 +215,7 @@ Response:+14324
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2010 (34)"
-              ]
-            ]
+            "title": [["2010 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -364,9 +348,7 @@ Response:+14324
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Executable compressors comparisons: upx 3.07w vs. mpress 2.17"
-            ]
+            ["Executable compressors comparisons: upx 3.07w vs. mpress 2.17"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -376,20 +358,20 @@ Response:+14324
     }
   ]
 }
-25102 1624300507369 httpcache-v1
+23782 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
 {
+  "pageId": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
   "chunkNumber": 0,
+  "limit": 50,
   "cursor": {
     "stack": []
   },
-  "limit": 50,
-  "pageId": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
   "verticalColumns": false
 }
-Response:+24861
+Response:+23542
 {
   "cursor": {
     "stack": []
@@ -413,55 +395,17 @@ Response:+24861
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "For a long time I’ve been using "
-              ],
-              [
-                "upx",
-                [
-                  [
-                    "a",
-                    "http://upx.sourceforge.net/"
-                  ]
-                ]
-              ],
-              [
-                " but I’ll probably switch to "
-              ],
-              [
-                "mpress",
-                [
-                  [
-                    "a",
-                    "http://www.matcode.com/mpress.htm"
-                  ]
-                ]
-              ],
+              ["For a long time I’ve been using "],
+              ["upx", [["a", "http://upx.sourceforge.net/"]]],
+              [" but I’ll probably switch to "],
+              ["mpress", [["a", "http://www.matcode.com/mpress.htm"]]],
               [
                 " since it compresses a little bit better and it’s most expensive compression "
               ],
-              [
-                "-s",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                " is much faster than upx’s "
-              ],
-              [
-                "—ultra-brute",
-                [
-                  [
-                    "c"
-                  ]
-                ]
-              ],
-              [
-                "."
-              ]
+              ["-s", [["c"]]],
+              [" is much faster than upx’s "],
+              ["—ultra-brute", [["c"]]],
+              ["."]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -500,11 +444,7 @@ Response:+24861
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -559,11 +499,7 @@ Response:+24861
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -587,18 +523,8 @@ Response:+24861
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "The last result is for "
-              ],
-              [
-                "StripReloc",
-                [
-                  [
-                    "a",
-                    "http://www.jrsoftware.org/striprlc.php"
-                  ]
-                ]
-              ],
+              ["The last result is for "],
+              ["StripReloc", [["a", "http://www.jrsoftware.org/striprlc.php"]]],
               [
                 ", which is not a compressor. It only removes unneeded .reloc section in exes. Mpress must already be doing that internally because compressing raw version and stripreloc’ed resulted in the same size."
               ]
@@ -658,11 +584,7 @@ Response:+24861
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -705,11 +627,7 @@ Response:+24861
           "parent_id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Tags: sumatra, programming"
-              ]
-            ]
+            "title": [["Tags: sumatra, programming"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -732,11 +650,7 @@ Response:+24861
           "parent_id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Date: 2010-12-19T18:17:15-08:00"
-              ]
-            ]
+            "title": [["Date: 2010-12-19T18:17:15-08:00"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -822,11 +736,7 @@ Response:+24861
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2010 (34)"
-              ]
-            ]
+            "title": [["2010 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -920,11 +830,7 @@ Response:+24861
           "parent_id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Id: 374001"
-              ]
-            ]
+            "title": [["Id: 374001"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -947,11 +853,7 @@ Response:+24861
           "parent_id": "c229ef8b-afe9-478b-8a2e-05f29c07f86a",
           "parent_table": "block",
           "properties": {
-            "language": [
-              [
-                "Plain Text"
-              ]
-            ],
+            "language": [["Plain Text"]],
             "title": [
               [
                 "4598272 uncompressed\n4527104 stripreloc /b /c\n\n2205184 upx —best —compress-icons=0h\n1756160 upx —ultra-brute —compress-icons=0\n\n1725440 mpress -s (-s : find the best compression)\n1735168 mpress -s -r (-r : dont compress resources)\n1767424 mpress"
@@ -1038,147 +940,147 @@ Response:+24861
     }
   }
 }
-172447 1624300507373 httpcache-v1
+168839 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+2926
 {
   "requests": [
     {
-      "id": "04d4639b-fdf6-4439-88a9-7cb8d9915e44",
-      "table": "block"
+      "table": "block",
+      "id": "04d4639b-fdf6-4439-88a9-7cb8d9915e44"
     },
     {
-      "id": "0c7a8892-80c7-4f33-98b5-1023c93c46df",
-      "table": "block"
+      "table": "block",
+      "id": "0c7a8892-80c7-4f33-98b5-1023c93c46df"
     },
     {
-      "id": "162f7ce8-58b5-44ae-bcd2-69bfd209fe97",
-      "table": "block"
+      "table": "block",
+      "id": "162f7ce8-58b5-44ae-bcd2-69bfd209fe97"
     },
     {
-      "id": "1c4392af-d216-4531-98db-8fda708d111b",
-      "table": "block"
+      "table": "block",
+      "id": "1c4392af-d216-4531-98db-8fda708d111b"
     },
     {
-      "id": "1d1036c1-8617-451b-bd30-d0bdfcf08b43",
-      "table": "block"
+      "table": "block",
+      "id": "1d1036c1-8617-451b-bd30-d0bdfcf08b43"
     },
     {
-      "id": "36e15674-d4a1-480c-aa0a-259b4b42dabb",
-      "table": "block"
+      "table": "block",
+      "id": "36e15674-d4a1-480c-aa0a-259b4b42dabb"
     },
     {
-      "id": "4c55356e-f248-4267-aa3c-e2713c113df1",
-      "table": "block"
+      "table": "block",
+      "id": "4c55356e-f248-4267-aa3c-e2713c113df1"
     },
     {
-      "id": "567d71b1-013e-4fbb-8019-7847522d8013",
-      "table": "block"
+      "table": "block",
+      "id": "567d71b1-013e-4fbb-8019-7847522d8013"
     },
     {
-      "id": "5b52b4a3-ce91-4794-995d-3a364ea1f443",
-      "table": "block"
+      "table": "block",
+      "id": "5b52b4a3-ce91-4794-995d-3a364ea1f443"
     },
     {
-      "id": "69b73f18-d1b7-417e-a739-6a76ef50a624",
-      "table": "block"
+      "table": "block",
+      "id": "69b73f18-d1b7-417e-a739-6a76ef50a624"
     },
     {
-      "id": "6b2a8a79-7e37-489d-aaad-f69e191ab527",
-      "table": "block"
+      "table": "block",
+      "id": "6b2a8a79-7e37-489d-aaad-f69e191ab527"
     },
     {
-      "id": "6d2dfef4-d424-40e0-ae5d-a1fbb96cfa46",
-      "table": "block"
+      "table": "block",
+      "id": "6d2dfef4-d424-40e0-ae5d-a1fbb96cfa46"
     },
     {
-      "id": "6dcf730e-4909-4075-bf18-1acf27b3b3b9",
-      "table": "block"
+      "table": "block",
+      "id": "6dcf730e-4909-4075-bf18-1acf27b3b3b9"
     },
     {
-      "id": "74e313f2-afe7-41ad-b568-240d907e3f5e",
-      "table": "block"
+      "table": "block",
+      "id": "74e313f2-afe7-41ad-b568-240d907e3f5e"
     },
     {
-      "id": "83c4f593-f094-44b5-bce6-3eb76fd900db",
-      "table": "block"
+      "table": "block",
+      "id": "83c4f593-f094-44b5-bce6-3eb76fd900db"
     },
     {
-      "id": "8b09f02b-c1fa-49b5-b719-aba1e02430e0",
-      "table": "block"
+      "table": "block",
+      "id": "8b09f02b-c1fa-49b5-b719-aba1e02430e0"
     },
     {
-      "id": "96ed86c9-5c52-4d33-9665-32fc9090e65f",
-      "table": "block"
+      "table": "block",
+      "id": "96ed86c9-5c52-4d33-9665-32fc9090e65f"
     },
     {
-      "id": "9725a8e9-eadd-4f2b-b687-6f7977036f96",
-      "table": "block"
+      "table": "block",
+      "id": "9725a8e9-eadd-4f2b-b687-6f7977036f96"
     },
     {
-      "id": "9a011d51-7829-4491-b1fa-a4522bf8a65e",
-      "table": "block"
+      "table": "block",
+      "id": "9a011d51-7829-4491-b1fa-a4522bf8a65e"
     },
     {
-      "id": "9ddef2f1-fa4f-4722-a590-a2ba33b77c1f",
-      "table": "block"
+      "table": "block",
+      "id": "9ddef2f1-fa4f-4722-a590-a2ba33b77c1f"
     },
     {
-      "id": "a4a65836-65d3-41da-a5f9-d678e649ead2",
-      "table": "block"
+      "table": "block",
+      "id": "a4a65836-65d3-41da-a5f9-d678e649ead2"
     },
     {
-      "id": "afe30f39-1257-4383-ae09-8d9e978af697",
-      "table": "block"
+      "table": "block",
+      "id": "afe30f39-1257-4383-ae09-8d9e978af697"
     },
     {
-      "id": "b16813de-497f-45db-b305-dc1accf42c0a",
-      "table": "block"
+      "table": "block",
+      "id": "b16813de-497f-45db-b305-dc1accf42c0a"
     },
     {
-      "id": "b5f37ece-a4c5-48ef-a6e4-3b5ad36b4a87",
-      "table": "block"
+      "table": "block",
+      "id": "b5f37ece-a4c5-48ef-a6e4-3b5ad36b4a87"
     },
     {
-      "id": "cda91fb7-5983-45d9-bed0-55a1534104a8",
-      "table": "block"
+      "table": "block",
+      "id": "cda91fb7-5983-45d9-bed0-55a1534104a8"
     },
     {
-      "id": "cfc885cc-2252-4ed8-a27a-5a31d435fd9f",
-      "table": "block"
+      "table": "block",
+      "id": "cfc885cc-2252-4ed8-a27a-5a31d435fd9f"
     },
     {
-      "id": "d23c8976-8dc4-41ca-852d-d6742944cf39",
-      "table": "block"
+      "table": "block",
+      "id": "d23c8976-8dc4-41ca-852d-d6742944cf39"
     },
     {
-      "id": "d4edeaa9-f442-4822-8a1f-6482821c927c",
-      "table": "block"
+      "table": "block",
+      "id": "d4edeaa9-f442-4822-8a1f-6482821c927c"
     },
     {
-      "id": "da3ca38c-1443-4994-949e-1fe55fe6068c",
-      "table": "block"
+      "table": "block",
+      "id": "da3ca38c-1443-4994-949e-1fe55fe6068c"
     },
     {
-      "id": "e07c513b-44ea-419b-acdb-a1b41e618d43",
-      "table": "block"
+      "table": "block",
+      "id": "e07c513b-44ea-419b-acdb-a1b41e618d43"
     },
     {
-      "id": "ec5d5fbd-1360-4922-829a-f736e816fe16",
-      "table": "block"
+      "table": "block",
+      "id": "ec5d5fbd-1360-4922-829a-f736e816fe16"
     },
     {
-      "id": "edc47cc3-5219-4309-afe1-1cd91b2e1533",
-      "table": "block"
+      "table": "block",
+      "id": "edc47cc3-5219-4309-afe1-1cd91b2e1533"
     },
     {
-      "id": "f004ddf8-d670-4211-94b0-cc926c85567c",
-      "table": "block"
+      "table": "block",
+      "id": "f004ddf8-d670-4211-94b0-cc926c85567c"
     }
   ]
 }
-Response:+169428
+Response:+165821
 {
   "recordMapWithRoles": {
     "block": {
@@ -1212,11 +1114,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Searching for available DBA name in San Francisco "
-              ]
-            ]
+            "title": [["Searching for available DBA name in San Francisco "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1258,11 +1156,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Things I’ve learned this week "
-              ]
-            ]
+            "title": [["Things I’ve learned this week "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1304,11 +1198,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Value your time "
-              ]
-            ]
+            "title": [["Value your time "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1347,11 +1237,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Find free stock photos with Fotofi "
-              ]
-            ]
+            "title": [["Find free stock photos with Fotofi "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1424,11 +1310,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SEO is harder than you think"
-              ]
-            ]
+            "title": [["SEO is harder than you think"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1466,11 +1348,7 @@ Response:+169428
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Words written by me"
-              ]
-            ]
+            "title": [["Words written by me"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1525,11 +1403,7 @@ Response:+169428
             }
           ],
           "properties": {
-            "title": [
-              [
-                "blog posts"
-              ]
-            ]
+            "title": [["blog posts"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1567,11 +1441,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "VisualAck 0.3.3 released"
-              ]
-            ]
+            "title": [["VisualAck 0.3.3 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1609,11 +1479,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Hipmunk - a new site for finding flights"
-              ]
-            ]
+            "title": [["Hipmunk - a new site for finding flights"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1673,11 +1539,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Summary of talk on continuous deployment "
-              ]
-            ]
+            "title": [["Summary of talk on continuous deployment "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1733,11 +1595,7 @@ Response:+169428
             }
           ],
           "properties": {
-            "title": [
-              [
-                "Website"
-              ]
-            ]
+            "title": [["Website"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1886,11 +1744,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Introduction to PartCover - a short manual "
-              ]
-            ]
+            "title": [["Introduction to PartCover - a short manual "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1930,11 +1784,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "VisualAck 0.3.2 released "
-              ]
-            ]
+            "title": [["VisualAck 0.3.2 released "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -1975,11 +1825,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Best captcha is exotic captcha"
-              ]
-            ]
+            "title": [["Best captcha is exotic captcha"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2059,11 +1905,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Which technology for writing desktop software?"
-              ]
-            ]
+            "title": [["Which technology for writing desktop software?"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2111,11 +1953,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.2 released"
-              ]
-            ]
+            "title": [["SumatraPDF 1.2 released"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2164,11 +2002,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "E-books economics"
-              ]
-            ]
+            "title": [["E-books economics"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2234,11 +2068,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "8 habits for becoming a better programmer "
-              ]
-            ]
+            "title": [["8 habits for becoming a better programmer "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2296,11 +2126,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Marketing lessons from WebP launch "
-              ]
-            ]
+            "title": [["Marketing lessons from WebP launch "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2374,9 +2200,7 @@ Response:+169428
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Startup management lessons from “The Social Network”"
-              ]
+              ["Startup management lessons from “The Social Network”"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2447,11 +2271,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "BitTorrent-based, large file distribution for HTTP"
-              ]
-            ]
+            "title": [["BitTorrent-based, large file distribution for HTTP"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2496,11 +2316,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Comparing program versions (in C# and Python) "
-              ]
-            ]
+            "title": [["Comparing program versions (in C# and Python) "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2579,11 +2395,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "uISV stories"
-              ]
-            ]
+            "title": [["uISV stories"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2623,11 +2435,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Why you shouldn’t write Mac programs in QT"
-              ]
-            ]
+            "title": [["Why you shouldn’t write Mac programs in QT"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2686,11 +2494,7 @@ Response:+169428
           "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "2010 (34)"
-              ]
-            ]
+            "title": [["2010 (34)"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
@@ -2735,11 +2539,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Software licensing scheme "
-              ]
-            ]
+            "title": [["Software licensing scheme "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2838,11 +2638,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "How to accept online payments "
-              ]
-            ]
+            "title": [["How to accept online payments "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2899,11 +2695,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Productivity ideas "
-              ]
-            ]
+            "title": [["Productivity ideas "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -2950,9 +2742,7 @@ Response:+169428
           "parent_table": "block",
           "properties": {
             "title": [
-              [
-                "Using averages - a common performance measurement mistake"
-              ]
+              ["Using averages - a common performance measurement mistake"]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -2996,11 +2786,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Bash programming basics "
-              ]
-            ]
+            "title": [["Bash programming basics "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3041,11 +2827,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "You have to implement to understand"
-              ]
-            ]
+            "title": [["You have to implement to understand"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3108,11 +2890,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Go vs. Python for a simple web server "
-              ]
-            ]
+            "title": [["Go vs. Python for a simple web server "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3196,11 +2974,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Idea for code review tool "
-              ]
-            ]
+            "title": [["Idea for code review tool "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3263,11 +3037,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "Converting PartCover results to html"
-              ]
-            ]
+            "title": [["Converting PartCover results to html"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3314,11 +3084,7 @@ Response:+169428
           "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "SumatraPDF 1.1 release"
-              ]
-            ]
+            "title": [["SumatraPDF 1.1 release"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
@@ -3403,11 +3169,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Searching for available DBA name in San Francisco "
-            ]
-          ]
+          "title": [["Searching for available DBA name in San Francisco "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3449,11 +3211,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Things I’ve learned this week "
-            ]
-          ]
+          "title": [["Things I’ve learned this week "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3495,11 +3253,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Value your time "
-            ]
-          ]
+          "title": [["Value your time "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3538,11 +3292,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Find free stock photos with Fotofi "
-            ]
-          ]
+          "title": [["Find free stock photos with Fotofi "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3615,11 +3365,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SEO is harder than you think"
-            ]
-          ]
+          "title": [["SEO is harder than you think"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3657,11 +3403,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "VisualAck 0.3.3 released"
-            ]
-          ]
+          "title": [["VisualAck 0.3.3 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3699,11 +3441,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Hipmunk - a new site for finding flights"
-            ]
-          ]
+          "title": [["Hipmunk - a new site for finding flights"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3763,11 +3501,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Summary of talk on continuous deployment "
-            ]
-          ]
+          "title": [["Summary of talk on continuous deployment "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3916,11 +3650,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Introduction to PartCover - a short manual "
-            ]
-          ]
+          "title": [["Introduction to PartCover - a short manual "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -3960,11 +3690,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "VisualAck 0.3.2 released "
-            ]
-          ]
+          "title": [["VisualAck 0.3.2 released "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4005,11 +3731,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Best captcha is exotic captcha"
-            ]
-          ]
+          "title": [["Best captcha is exotic captcha"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4089,11 +3811,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Which technology for writing desktop software?"
-            ]
-          ]
+          "title": [["Which technology for writing desktop software?"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4141,11 +3859,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.2 released"
-            ]
-          ]
+          "title": [["SumatraPDF 1.2 released"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4194,11 +3908,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "E-books economics"
-            ]
-          ]
+          "title": [["E-books economics"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4264,11 +3974,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "8 habits for becoming a better programmer "
-            ]
-          ]
+          "title": [["8 habits for becoming a better programmer "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4326,11 +4032,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Marketing lessons from WebP launch "
-            ]
-          ]
+          "title": [["Marketing lessons from WebP launch "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4404,9 +4106,7 @@ Response:+169428
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Startup management lessons from “The Social Network”"
-            ]
+            ["Startup management lessons from “The Social Network”"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4477,11 +4177,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "BitTorrent-based, large file distribution for HTTP"
-            ]
-          ]
+          "title": [["BitTorrent-based, large file distribution for HTTP"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4526,11 +4222,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Comparing program versions (in C# and Python) "
-            ]
-          ]
+          "title": [["Comparing program versions (in C# and Python) "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4609,11 +4301,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "uISV stories"
-            ]
-          ]
+          "title": [["uISV stories"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4653,11 +4341,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Why you shouldn’t write Mac programs in QT"
-            ]
-          ]
+          "title": [["Why you shouldn’t write Mac programs in QT"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4702,11 +4386,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Software licensing scheme "
-            ]
-          ]
+          "title": [["Software licensing scheme "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4805,11 +4485,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "How to accept online payments "
-            ]
-          ]
+          "title": [["How to accept online payments "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4866,11 +4542,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Productivity ideas "
-            ]
-          ]
+          "title": [["Productivity ideas "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -4917,9 +4589,7 @@ Response:+169428
         "parent_table": "block",
         "properties": {
           "title": [
-            [
-              "Using averages - a common performance measurement mistake"
-            ]
+            ["Using averages - a common performance measurement mistake"]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
@@ -4963,11 +4633,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Bash programming basics "
-            ]
-          ]
+          "title": [["Bash programming basics "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5008,11 +4674,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "You have to implement to understand"
-            ]
-          ]
+          "title": [["You have to implement to understand"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5075,11 +4737,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Go vs. Python for a simple web server "
-            ]
-          ]
+          "title": [["Go vs. Python for a simple web server "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5163,11 +4821,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Idea for code review tool "
-            ]
-          ]
+          "title": [["Idea for code review tool "]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5230,11 +4884,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "Converting PartCover results to html"
-            ]
-          ]
+          "title": [["Converting PartCover results to html"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
@@ -5281,11 +4931,7 @@ Response:+169428
         "parent_id": "b059308f-5cc3-43fb-af19-9c71ae359418",
         "parent_table": "block",
         "properties": {
-          "title": [
-            [
-              "SumatraPDF 1.1 release"
-            ]
-          ]
+          "title": [["SumatraPDF 1.1 release"]]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
