@@ -1,11 +1,1247 @@
-38170 noahttpcache
+10654 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/queryCollection
-Body:+519
+URL: https://www.notion.so/api/v3/getRecordValues
+Body:+110
 {
-  "collectionId": "42d1cfe0-686b-459f-aa23-a21b939a995c",
-  "collectionViewId": "e59f3c24-0093-43a8-a1c8-5088c398c597",
-  "query": {
+  "requests": [
+    {
+      "table": "block",
+      "id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc"
+    }
+  ]
+}
+Response:+10454
+{
+  "recordMapWithRoles": {
+    "block": {
+      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "08e19004-306b-413a-ba6e-0e86a10fec7a",
+            "623523b6-7e15-48a0-b525-749d6921465c",
+            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
+            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
+            "4da97980-9fb6-45cb-886a-51c656751d35",
+            "aea20e01-890c-4874-ae08-4557d7789195",
+            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
+            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
+            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
+            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
+            "c5210d90-4251-437b-95d8-87da49bd8706",
+            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
+            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
+            "03ece883-f7df-4ce7-8596-73d04811479e",
+            "36859b86-c5ac-423e-a037-4f3a4331b814"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1528059171080,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1620930720000,
+          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "parent_table": "space",
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            },
+            {
+              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
+              "role": "read_and_write",
+              "type": "bot_permission"
+            }
+          ],
+          "properties": {
+            "title": [["Website"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 374
+        }
+      },
+      "c5210d90-4251-437b-95d8-87da49bd8706": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "2ba0b2e0-deae-4c77-b31e-4481777b70a2",
+            "ef5d3105-090f-453e-aa8d-aa628a76837a",
+            "615ae33e-1f87-4b5c-98a9-876e4915b021",
+            "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+            "f3dfcf36-fb46-4129-80b8-efa4336c0ea5",
+            "c674bebe-8adf-44d1-8c3a-36cc18c131e2",
+            "b51c5400-2cb8-42eb-8dec-2185ad877a9b",
+            "7736413a-48d2-49c3-a85e-71209d0c08eb"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531194475639,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "c5210d90-4251-437b-95d8-87da49bd8706",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1580546580000,
+          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Research"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 137
+        }
+      },
+      "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "8efa5166-5dd9-4231-988d-70f9349897b6",
+            "391b3575-a761-4d0f-b129-74b0366590ef",
+            "ceadd5d6-ee5e-4b09-9bad-58096c2fd154",
+            "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+            "648dba17-a115-4030-8820-3e65432664fc",
+            "94067982-666f-4d49-ab1b-d9b9c9f56aee",
+            "f8415555-3dfc-45b2-b9a7-01fe517c8cd7",
+            "ad2e35cf-4a18-4af3-8407-7b5a8c3595ec",
+            "eda4c945-8cb2-49c0-a9e2-f48e9e8eb885",
+            "48f52c1f-c135-4cd6-a79d-d9322d726903",
+            "665fda0d-20c5-43d0-b21a-7ca17f7a05d1",
+            "50018ac8-86c1-42a0-bf7e-6e110067098e",
+            "9c7012bb-3de7-42c2-9543-bf49fac8aa5e",
+            "83ca4f96-4ab4-4d1b-aca4-45b19c43e9e0",
+            "b86a932e-e38a-4a0e-89a7-4ee73cdebf1d",
+            "77fcd4dc-334c-4bf6-87fb-5eacb4b45ffd",
+            "a656a0f6-236c-4d42-98ad-c97d56b2a124",
+            "9635a5a5-5294-4c17-82d0-c1027571a50d",
+            "bd97b1f3-48c1-4f9c-8870-2df3b9621295",
+            "c8353362-e8d5-4341-9709-d031ce8be8b6",
+            "5da9e30d-c967-4220-8c69-0165b385b9ed",
+            "bb752b9d-e6a7-4727-8065-0e440a316191",
+            "6c22350d-e2bc-4da0-be92-42fd0b0360f2",
+            "1b057274-7aee-4552-b2c8-d40b5ad974f5",
+            "56af9ac6-7751-400e-932f-928cb3b54f15",
+            "cf049181-7793-48ff-b88a-fed3e593ab86",
+            "684a3a13-db60-4e45-8fe6-6acef91d796f"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071194505,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1572401040000,
+          "parent_id": "c5210d90-4251-437b-95d8-87da49bd8706",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Comparing prices of VPS servers"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 235
+        }
+      }
+    },
+    "space": {
+      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
+        "role": "editor",
+        "value": {
+          "beta_enabled": false,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1537253154666,
+          "disable_export": false,
+          "disable_guests": false,
+          "disable_move_to_space": false,
+          "disable_public_access": false,
+          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
+          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "invite_link_enabled": false,
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1620930540000,
+          "name": "Main",
+          "pages": [
+            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
+            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
+            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
+            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
+            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
+            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
+            "f75e0224-3821-4f6d-b879-e54a79bef338",
+            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
+            "fb641f80-cf53-42a2-8d8d-71b270c16569",
+            "1077c159-5493-41df-b4d4-75571b1f99d3",
+            "fed36a56-24d4-43fe-9f7b-e0e410ecd715"
+          ],
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            }
+          ],
+          "plan_type": "personal",
+          "version": 268
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "content": [
+          "8efa5166-5dd9-4231-988d-70f9349897b6",
+          "391b3575-a761-4d0f-b129-74b0366590ef",
+          "ceadd5d6-ee5e-4b09-9bad-58096c2fd154",
+          "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+          "648dba17-a115-4030-8820-3e65432664fc",
+          "94067982-666f-4d49-ab1b-d9b9c9f56aee",
+          "f8415555-3dfc-45b2-b9a7-01fe517c8cd7",
+          "ad2e35cf-4a18-4af3-8407-7b5a8c3595ec",
+          "eda4c945-8cb2-49c0-a9e2-f48e9e8eb885",
+          "48f52c1f-c135-4cd6-a79d-d9322d726903",
+          "665fda0d-20c5-43d0-b21a-7ca17f7a05d1",
+          "50018ac8-86c1-42a0-bf7e-6e110067098e",
+          "9c7012bb-3de7-42c2-9543-bf49fac8aa5e",
+          "83ca4f96-4ab4-4d1b-aca4-45b19c43e9e0",
+          "b86a932e-e38a-4a0e-89a7-4ee73cdebf1d",
+          "77fcd4dc-334c-4bf6-87fb-5eacb4b45ffd",
+          "a656a0f6-236c-4d42-98ad-c97d56b2a124",
+          "9635a5a5-5294-4c17-82d0-c1027571a50d",
+          "bd97b1f3-48c1-4f9c-8870-2df3b9621295",
+          "c8353362-e8d5-4341-9709-d031ce8be8b6",
+          "5da9e30d-c967-4220-8c69-0165b385b9ed",
+          "bb752b9d-e6a7-4727-8065-0e440a316191",
+          "6c22350d-e2bc-4da0-be92-42fd0b0360f2",
+          "1b057274-7aee-4552-b2c8-d40b5ad974f5",
+          "56af9ac6-7751-400e-932f-928cb3b54f15",
+          "cf049181-7793-48ff-b88a-fed3e593ab86",
+          "684a3a13-db60-4e45-8fe6-6acef91d796f"
+        ],
+        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1530071194505,
+        "format": {
+          "page_full_width": true,
+          "page_small_text": true
+        },
+        "id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1572401040000,
+        "parent_id": "c5210d90-4251-437b-95d8-87da49bd8706",
+        "parent_table": "block",
+        "properties": {
+          "title": [["Comparing prices of VPS servers"]]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "page",
+        "version": 235
+      }
+    }
+  ]
+}
+40290 noahttpcache
+Method: POST
+URL: https://www.notion.so/api/v3/loadPageChunk
+Body:+152
+{
+  "pageId": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+  "chunkNumber": 0,
+  "limit": 50,
+  "cursor": {
+    "stack": []
+  },
+  "verticalColumns": false
+}
+Response:+40050
+{
+  "cursor": {
+    "stack": []
+  },
+  "recordMap": {
+    "block": {
+      "1b057274-7aee-4552-b2c8-d40b5ad974f5": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071213852,
+          "id": "1b057274-7aee-4552-b2c8-d40b5ad974f5",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195324384,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "https://www.scaleway.com/pricing/",
+                [["a", "https://www.scaleway.com/pricing/#anchor_starter"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 39
+        }
+      },
+      "391b3575-a761-4d0f-b129-74b0366590ef": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531194616703,
+          "id": "391b3575-a761-4d0f-b129-74b0366590ef",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1572401040000,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Those are the best options for low priced servers from reputable vendors ("
+              ],
+              [
+                "Digital Ocean",
+                [["a", "https://www.digitalocean.com/pricing/"]]
+              ],
+              [", "],
+              ["Scaleway", [["a", "https://www.scaleway.com/pricing/"]]],
+              [", "],
+              ["OVHCloud", [["a", "https://us.ovhcloud.com/products/vps"]]],
+              [" and "],
+              ["Hetzner", [["a", "https://www.hetzner.com/cloud?country=us"]]],
+              [")."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 427
+        }
+      },
+      "48f52c1f-c135-4cd6-a79d-d9322d726903": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371059,
+          "id": "48f52c1f-c135-4cd6-a79d-d9322d726903",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195371336,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Scaleway and Hetzner prices are in euro, I converted them to $. Conversion rates might change"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 55
+        }
+      },
+      "50018ac8-86c1-42a0-bf7e-6e110067098e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "50018ac8-86c1-42a0-bf7e-6e110067098e",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195351489,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Hetzner has German data centers"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 10
+        }
+      },
+      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "08e19004-306b-413a-ba6e-0e86a10fec7a",
+            "623523b6-7e15-48a0-b525-749d6921465c",
+            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
+            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
+            "4da97980-9fb6-45cb-886a-51c656751d35",
+            "aea20e01-890c-4874-ae08-4557d7789195",
+            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
+            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
+            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
+            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
+            "c5210d90-4251-437b-95d8-87da49bd8706",
+            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
+            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
+            "03ece883-f7df-4ce7-8596-73d04811479e",
+            "36859b86-c5ac-423e-a037-4f3a4331b814"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1528059171080,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1620930720000,
+          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "parent_table": "space",
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            },
+            {
+              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
+              "role": "read_and_write",
+              "type": "bot_permission"
+            }
+          ],
+          "properties": {
+            "title": [["Website"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 374
+        }
+      },
+      "56af9ac6-7751-400e-932f-928cb3b54f15": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071213852,
+          "id": "56af9ac6-7751-400e-932f-928cb3b54f15",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531194644579,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "https://www.hetzner.com/cloud?country=us",
+                [["a", "https://www.hetzner.com/cloud?country=us"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 5
+        }
+      },
+      "5da9e30d-c967-4220-8c69-0165b385b9ed": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071590093,
+          "id": "5da9e30d-c967-4220-8c69-0165b385b9ed",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071590093,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 4
+        }
+      },
+      "648dba17-a115-4030-8820-3e65432664fc": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371056,
+          "id": "648dba17-a115-4030-8820-3e65432664fc",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Notes:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 2
+        }
+      },
+      "665fda0d-20c5-43d0-b21a-7ca17f7a05d1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "665fda0d-20c5-43d0-b21a-7ca17f7a05d1",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195350059,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Scaleway has data centers in  Paris and Amsterdam"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 84
+        }
+      },
+      "684a3a13-db60-4e45-8fe6-6acef91d796f": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531195510155,
+          "id": "684a3a13-db60-4e45-8fe6-6acef91d796f",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195511137,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 12
+        }
+      },
+      "6c22350d-e2bc-4da0-be92-42fd0b0360f2": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071213852,
+          "id": "6c22350d-e2bc-4da0-be92-42fd0b0360f2",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531194644579,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "https://www.digitalocean.com/pricing/",
+                [["a", "https://www.digitalocean.com/pricing/"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 5
+        }
+      },
+      "77fcd4dc-334c-4bf6-87fb-5eacb4b45ffd": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071585001,
+          "id": "77fcd4dc-334c-4bf6-87fb-5eacb4b45ffd",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195485878,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Scaleway has unmetered bandwidth but limits speed. 200 Mb/s is max 64 TB/month but obviously you won't be using max speed 24/7"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 74
+        }
+      },
+      "83ca4f96-4ab4-4d1b-aca4-45b19c43e9e0": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "83ca4f96-4ab4-4d1b-aca4-45b19c43e9e0",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195358426,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Scaleway allows attaching additional storage at 1 euro per 50 GB, multiple volumes of up to 150 GB"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 42
+        }
+      },
+      "8efa5166-5dd9-4231-988d-70f9349897b6": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531194590086,
+          "id": "8efa5166-5dd9-4231-988d-70f9349897b6",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531194610713,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "So you're looking for affordable hosting service to run your servers?"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 188
+        }
+      },
+      "94067982-666f-4d49-ab1b-d9b9c9f56aee": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531195406697,
+          "id": "94067982-666f-4d49-ab1b-d9b9c9f56aee",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195446680,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["VPS - you probably share the server with other people"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 291
+        }
+      },
+      "9635a5a5-5294-4c17-82d0-c1027571a50d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530072375438,
+          "id": "9635a5a5-5294-4c17-82d0-c1027571a50d",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195504731,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Scaleway allows adding additional volumes, 1 euro for 50 GB, volume size up to 150 GB"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 256
+        }
+      },
+      "9c7012bb-3de7-42c2-9543-bf49fac8aa5e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "9c7012bb-3de7-42c2-9543-bf49fac8aa5e",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Digital Ocean has SF and NYC data centers"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "a656a0f6-236c-4d42-98ad-c97d56b2a124": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "a656a0f6-236c-4d42-98ad-c97d56b2a124",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Digital Ocean offers CoreOS"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "ad2e35cf-4a18-4af3-8407-7b5a8c3595ec": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371059,
+          "id": "ad2e35cf-4a18-4af3-8407-7b5a8c3595ec",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["disk is SSD"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "b86a932e-e38a-4a0e-89a7-4ee73cdebf1d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "b86a932e-e38a-4a0e-89a7-4ee73cdebf1d",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071585001,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Digital Ocean has bandwidth limit (although currently they don't charge for going over the limit)."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 8
+        }
+      },
+      "bb752b9d-e6a7-4727-8065-0e440a316191": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071213850,
+          "id": "bb752b9d-e6a7-4727-8065-0e440a316191",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531194644579,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Source:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 5
+        }
+      },
+      "bd97b1f3-48c1-4f9c-8870-2df3b9621295": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "bd97b1f3-48c1-4f9c-8870-2df3b9621295",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Other options:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 2
+        }
+      },
+      "c5210d90-4251-437b-95d8-87da49bd8706": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "2ba0b2e0-deae-4c77-b31e-4481777b70a2",
+            "ef5d3105-090f-453e-aa8d-aa628a76837a",
+            "615ae33e-1f87-4b5c-98a9-876e4915b021",
+            "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+            "f3dfcf36-fb46-4129-80b8-efa4336c0ea5",
+            "c674bebe-8adf-44d1-8c3a-36cc18c131e2",
+            "b51c5400-2cb8-42eb-8dec-2185ad877a9b",
+            "7736413a-48d2-49c3-a85e-71209d0c08eb"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531194475639,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "c5210d90-4251-437b-95d8-87da49bd8706",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1580546580000,
+          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Research"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 137
+        }
+      },
+      "c8353362-e8d5-4341-9709-d031ce8be8b6": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071371060,
+          "id": "c8353362-e8d5-4341-9709-d031ce8be8b6",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071371069,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["server bidding at "],
+              [
+                "https://www.hetzner.com/sb",
+                [["a", "https://www.hetzner.com/sb"]]
+              ],
+              ["."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 6
+        }
+      },
+      "ceadd5d6-ee5e-4b09-9bad-58096c2fd154": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071220913,
+          "id": "ceadd5d6-ee5e-4b09-9bad-58096c2fd154",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1530071220913,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 4
+        }
+      },
+      "cf049181-7793-48ff-b88a-fed3e593ab86": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1572400920000,
+          "id": "cf049181-7793-48ff-b88a-fed3e593ab86",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1572400920000,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "https://us.ovhcloud.com/products/vps",
+                [["a", "https://us.ovhcloud.com/products/vps"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 8
+        }
+      },
+      "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "8efa5166-5dd9-4231-988d-70f9349897b6",
+            "391b3575-a761-4d0f-b129-74b0366590ef",
+            "ceadd5d6-ee5e-4b09-9bad-58096c2fd154",
+            "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+            "648dba17-a115-4030-8820-3e65432664fc",
+            "94067982-666f-4d49-ab1b-d9b9c9f56aee",
+            "f8415555-3dfc-45b2-b9a7-01fe517c8cd7",
+            "ad2e35cf-4a18-4af3-8407-7b5a8c3595ec",
+            "eda4c945-8cb2-49c0-a9e2-f48e9e8eb885",
+            "48f52c1f-c135-4cd6-a79d-d9322d726903",
+            "665fda0d-20c5-43d0-b21a-7ca17f7a05d1",
+            "50018ac8-86c1-42a0-bf7e-6e110067098e",
+            "9c7012bb-3de7-42c2-9543-bf49fac8aa5e",
+            "83ca4f96-4ab4-4d1b-aca4-45b19c43e9e0",
+            "b86a932e-e38a-4a0e-89a7-4ee73cdebf1d",
+            "77fcd4dc-334c-4bf6-87fb-5eacb4b45ffd",
+            "a656a0f6-236c-4d42-98ad-c97d56b2a124",
+            "9635a5a5-5294-4c17-82d0-c1027571a50d",
+            "bd97b1f3-48c1-4f9c-8870-2df3b9621295",
+            "c8353362-e8d5-4341-9709-d031ce8be8b6",
+            "5da9e30d-c967-4220-8c69-0165b385b9ed",
+            "bb752b9d-e6a7-4727-8065-0e440a316191",
+            "6c22350d-e2bc-4da0-be92-42fd0b0360f2",
+            "1b057274-7aee-4552-b2c8-d40b5ad974f5",
+            "56af9ac6-7751-400e-932f-928cb3b54f15",
+            "cf049181-7793-48ff-b88a-fed3e593ab86",
+            "684a3a13-db60-4e45-8fe6-6acef91d796f"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071194505,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1572401040000,
+          "parent_id": "c5210d90-4251-437b-95d8-87da49bd8706",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Comparing prices of VPS servers"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 235
+        }
+      },
+      "eda4c945-8cb2-49c0-a9e2-f48e9e8eb885": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1532925117930,
+          "id": "eda4c945-8cb2-49c0-a9e2-f48e9e8eb885",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1532925140530,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["gce prices are assuming sustained use discount"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 98
+        }
+      },
+      "f8415555-3dfc-45b2-b9a7-01fe517c8cd7": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1531195424432,
+          "id": "f8415555-3dfc-45b2-b9a7-01fe517c8cd7",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1531195449832,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "properties": {
+            "title": [["bare metal - server is all yours"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 74
+        }
+      },
+      "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "collection_id": "42d1cfe0-686b-459f-aa23-a21b939a995c",
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530071223328,
+          "id": "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1572401100000,
+          "parent_id": "dd5c0a81-3dfe-4487-a6cd-432f82c0c2fc",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "collection_view",
+          "version": 11,
+          "view_ids": ["e59f3c24-0093-43a8-a1c8-5088c398c597"]
+        }
+      }
+    },
+    "collection": {
+      "42d1cfe0-686b-459f-aa23-a21b939a995c": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "format": {
+            "collection_page_properties": [
+              {
+                "property": "E13y",
+                "visible": true
+              },
+              {
+                "property": "hYdP",
+                "visible": true
+              }
+            ]
+          },
+          "id": "42d1cfe0-686b-459f-aa23-a21b939a995c",
+          "name": [["VPS pricing comparison"]],
+          "parent_id": "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+          "parent_table": "block",
+          "schema": {
+            "2&_S": {
+              "name": "Ram (GB)",
+              "type": "number"
+            },
+            ":|m^": {
+              "name": "bandwidth",
+              "type": "text"
+            },
+            "E13y": {
+              "name": "Price",
+              "number_format": "dollar",
+              "type": "number"
+            },
+            "go4w": {
+              "name": "disk",
+              "type": "text"
+            },
+            "hYdP": {
+              "name": "cpu",
+              "type": "number"
+            },
+            "title": {
+              "name": "What",
+              "type": "title"
+            }
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "version": 40
+        }
+      }
+    },
+    "collection_view": {
+      "e59f3c24-0093-43a8-a1c8-5088c398c597": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "format": {
+            "table_properties": [
+              {
+                "property": "E13y",
+                "visible": true,
+                "width": 100
+              },
+              {
+                "property": "2&_S",
+                "visible": true,
+                "width": 105
+              },
+              {
+                "property": "hYdP",
+                "visible": true,
+                "width": 100
+              },
+              {
+                "property": "go4w",
+                "visible": true,
+                "width": 129
+              },
+              {
+                "property": ":|m^",
+                "visible": true,
+                "width": 101
+              },
+              {
+                "property": "title",
+                "visible": true,
+                "width": 245
+              }
+            ],
+            "table_wrap": true
+          },
+          "id": "e59f3c24-0093-43a8-a1c8-5088c398c597",
+          "name": "Default View",
+          "page_sort": [
+            "18b3413a-04a1-41bc-ba2b-5a208a01a74b",
+            "c1a68341-0126-4dfb-aa39-9a8925ed544f",
+            "f56f252a-b45d-470e-a479-72fd1c0dc399",
+            "103fbe97-fb67-40ae-b408-16b797ee8a52",
+            "2d7f7904-7da8-4e9c-82b7-188101d2f054",
+            "26f9b59b-50c5-4c66-b986-f2915a72fb86",
+            "0f55c59b-63d6-4d15-888d-534d6a4d50dc",
+            "018a8aa9-956b-46bc-85be-2071c5dd5662",
+            "c30a2562-2c79-4259-81bd-b4d61b5b4161",
+            "76c9c50a-0b95-402a-b75a-f9918eeb3e95",
+            "f9401d92-db8c-4209-95dd-9f3f49f44643",
+            "d9355a69-c231-48ec-97fc-1a69b82b223f",
+            "ffc202fc-6fef-4ef9-81b5-2f4f25da93e9",
+            "152ef944-ea35-40bf-8316-cdbedcf3910f",
+            "71f1aeaa-6702-40fb-9d78-185c7e8d43c1",
+            "dd162470-5d72-41e8-97b7-e2f8f164fac4",
+            "46025a01-df4e-4f3e-95b1-bf02a446c414",
+            "4fabf6ca-9fcc-4500-a5e1-f02e49118671",
+            "1f638b52-5ef4-4306-af2e-242ff72349b9",
+            "a9ff7500-27a9-442f-8f88-d084dc52fc73",
+            "d55a99d2-6cd6-4a40-90ab-fe9958dd7a43",
+            "576a7e80-e192-4808-bd1b-af93568cbfbd",
+            "66ac21af-73df-4538-a099-bb112af7b298",
+            "416b6417-10a3-4a3d-ada7-bedf1994ccb3"
+          ],
+          "parent_id": "fc3dd1d3-25e4-439d-96e0-6e6adf8f98c8",
+          "parent_table": "block",
+          "query2": {
             "sort": [
               {
                 "direction": "ascending",
@@ -15,6 +1251,67 @@ Body:+519
               }
             ]
           },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "table",
+          "version": 254
+        }
+      }
+    },
+    "space": {
+      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
+        "role": "editor",
+        "value": {
+          "beta_enabled": false,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1537253154666,
+          "disable_export": false,
+          "disable_guests": false,
+          "disable_move_to_space": false,
+          "disable_public_access": false,
+          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
+          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "invite_link_enabled": false,
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1620930540000,
+          "name": "Main",
+          "pages": [
+            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
+            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
+            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
+            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
+            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
+            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
+            "f75e0224-3821-4f6d-b879-e54a79bef338",
+            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
+            "fb641f80-cf53-42a2-8d8d-71b270c16569",
+            "1077c159-5493-41df-b4d4-75571b1f99d3",
+            "fed36a56-24d4-43fe-9f7b-e0e410ecd715"
+          ],
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            }
+          ],
+          "plan_type": "personal",
+          "version": 268
+        }
+      }
+    }
+  }
+}
+38030 noahttpcache
+Method: POST
+URL: https://www.notion.so/api/v3/queryCollection
+Body:+379
+{
+  "collectionId": "42d1cfe0-686b-459f-aa23-a21b939a995c",
+  "collectionViewId": "e59f3c24-0093-43a8-a1c8-5088c398c597",
+  "query": {"sort":[{"id":"6e89c507-e0da-47c7-b8c8-fe2b336e0985","type":"number","property":"E13y","direction":"ascending"}]},
   "loader": {
     "type": "table",
     "limit": 256,
