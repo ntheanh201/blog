@@ -1,0 +1,162 @@
+<!doctype html>
+
+<head>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "80287290daa24f24b5ab5240db78b2ab"}'></script>
+
+    <title>Oembed Proxy for GitHub</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+                sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        #tryit {
+            font-size: 10pt;
+            background-color: rgb(202, 202, 202);
+            border: none;
+            color: black;
+            padding: 8px 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        input[type=text] {
+            font-size: 11pt;
+        }
+
+        #tryit:hover {
+            background-color: rgb(222, 222, 222);
+        }
+
+        td {
+            padding-right: 8px;
+        }
+    </style>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function calcURL() {
+            var gitHubURL = $("url").value.trim();
+            if (gitHubURL == "") {
+                return;
+            }
+            var host = window.location.origin;
+            var url = host + "/gitoembed/widget?url=" + encodeURIComponent(gitHubURL);
+            var theme = $("theme").value.trim();
+            if (theme != "") {
+                url += "&theme=" + encodeURIComponent(theme);
+            }
+            var nolines = $("nolines").checked;
+            if (nolines) {
+                url += "&nolines";
+            }
+            return url;
+        }
+
+        function doTryIt() {
+            var url = calcURL();
+            window.location.href = url;
+        }
+
+        function onChange() {
+            var url = calcURL();
+            var el = $("urlel");
+            el.href = url;
+            el.textContent = url;
+        }
+    </script>
+</head>
+<html>
+
+<body>
+
+    <div><a href="/">Online Tools</a> : Oembed Proxy for GitHub</div>
+
+    <h2>Oembed Proxy for GitHub</h2>
+
+    <p>Oembed Proxy for GitHub makes it possible to embed source files from <a href="https://github.com">GithHub</a>
+        in services that support
+        <a href="https://oembed.com/">Oembed standard</a>.
+    </p>
+    <p>I made it so that I can include source files from GitHub in <a href="https://notions.so">Notion</a> pages.
+        It should work for other services that support Oembed.</p>
+
+    <h2>How to use it</h2>
+
+    <p>To embed <a
+            href="https://github.com/kjk/blog/blob/master/util.go">https://github.com/kjk/blog/blob/master/util.go</a>
+        source file pass it as <code>url</code> query argument to
+        <code>https://www.onlinetool.io/gitoembed/widget/</code>,
+        creating oembed URL <a
+            href="https://www.onlinetool.io/gitoembed/widget?url=https%3A%2F%2Fgithub.com%2Fkjk%2Fblog%2Fblob%2Fmaster%2Futil.go">https://www.onlinetool.io/gitoembed/widget?url=https%3A%2F%2Fgithub.com%2Fkjk%2Fblog%2Fblob%2Fmaster%2Futil.go</a>.
+    </p>
+    <h3>Options</h3>
+    <p>To modify how code is rendered you can append URL query parameters:
+    <ul>
+        <li><code>?nolines</code> : disable line numbers</li>
+        <li><code>?theme=${theme}</code> : select a code highlighting theme</li>
+    </ul>
+    </p>
+    <p>Available <a href="https://xyproto.github.io/splash/docs/">themes</a>: abap, algol, algol_nu, arduino, autumn,
+        borland,
+        bw, colorful, dracula, emacs, friendly, fruity, github, igor, lovelace, manni, monokai, monokailight, murphy,
+        native,
+        paraiso-dark, paraiso-light, pastie, perldoc, pygments, rainbow_dash, rrt, solarized-dark, solarized-dark256,
+        solarized-light,
+        swapoff, tango, trac vim, vs, xcode</p>
+    <p>Example: <code>?nolines&theme=github</code></p>
+
+    <h2>Try it</h2>
+    <p>Put GitHub URL of the file (<span>try:
+            <code>https://github.com/essentialbooks/books/blob/master/README.md</code></span>)</p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="url">GitHub URL:</label>
+                </td>
+                <td>
+                    <input type="text" id="url" size="96" oninput="onChange()" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="theme">Theme:</label>
+                </td>
+                <td>
+                    <input type="text" id="theme" size="96" oninput="onChange()" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nolines">No lines:</label>
+                </td>
+                <td>
+                    <input type="checkbox" id="nolines" onchange="onChange()" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="fullurl">Oembed url:
+        <a id="urlel" href="#" target="_blank"></a>
+    </p>
+    <p>You can test oembed url at <a href="http://oembed.frdnspnzr.de/" target="_blank">oEmbed Tester</a></p>
+    <p></p>
+    <hr>
+    <center>
+        Made by <a href="https://blog.kowalczyk.info" target="_blank">Krzysztof Kowalczyk</a>. Comments, questions,
+        feedback? <a href="https://blog.kowalczyk.info/contactme.html" target="_blank">Let
+            me know</a>
+    </center>
+</body>
+
+</html>

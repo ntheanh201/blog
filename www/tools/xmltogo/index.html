@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "80287290daa24f24b5ab5240db78b2ab"}'></script>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>XML to Go</title>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qwest/4.5.0/qwest.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.25.2/min/vs/loader.min.js"
+    integrity="sha512-dx6A3eMO/vvLembE8xNGc3RKUytoTIX3rNO5uMEhzhqnXYx1X5XYmjfZP7vxYv7x3gBhdj7Pgys8DUjdbDaLAA=="
+    crossorigin="anonymous"></script>
+
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper">
+    <div id="header"><a href="/">Online Tools</a> : XML to Go struct</div>
+    <div>Generate Go struct definition from sample XML, based on <a href="https://github.com/miku/zek"
+        target="_blank">zek library</a>.</div>
+    <div> Learn more about
+      <a href="https://www.programming-books.io/essential/go/xml-6744c6d0d620448dbe66e224f64b6f8b" target="_blank">XML
+        handling in Go</a> from free
+      <a href="https://www.programming-books.io/essential/go/" target="_blank">Essential
+        Go</a> book.
+    </div>
+    <div>Paste XML or get from URL: &nbsp;<input id="gourl" onkeyup="goKeyUp(event)" size="80" /> <button id="gobtn"
+        onclick="goClicked()">Get from URL</button></div>
+    <div id="msgOrErr">&nbsp;</div>
+
+    <div id="editors">
+      <div class="editor-cols">
+        <div class="editor-hdr">
+          XML here:
+        </div>
+        <div id="editor-xml" class="editor">
+        </div>
+      </div>
+      <div class="editor-cols">
+        <div class="editor-hdr">
+          Go definition here:
+        </div>
+        <div id="editor-go" class="editor">
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Made by <a href="https://blog.kowalczyk.info" target="_blank">Krzysztof Kowalczyk</a>. Comments, questions,
+      feedback? <a href="https://blog.kowalczyk.info/contactme.html" target="_blank">Let
+        me know</a>
+    </div>
+  </div>
+</body>
+
+</html>
