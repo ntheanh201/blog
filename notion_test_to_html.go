@@ -47,7 +47,6 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 
 	canonicalURL := netlifyRequestGetFullHost() + article.URL()
 	model := struct {
-		AnalyticsCode    string
 		Article          *Article
 		CanonicalURL     string
 		CoverImage       string
@@ -60,7 +59,6 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 		FacebookShareURL string
 		LinkedInShareURL string
 	}{
-		AnalyticsCode:    analyticsCode,
 		Article:          article,
 		CanonicalURL:     canonicalURL,
 		CoverImage:       article.HeaderImageURL,

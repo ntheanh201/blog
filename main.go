@@ -26,8 +26,7 @@ var (
 )
 
 const (
-	analyticsCode = "UA-194516-1"
-	htmlDir       = "netlify_static" // directory where we generate html files
+	htmlDir = "netlify_static" // directory where we generate html files
 )
 
 var (

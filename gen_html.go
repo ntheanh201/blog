@@ -207,18 +207,16 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 	}
 
 	model := struct {
-		AnalyticsCode string
-		Article       *Article
-		PostsCount    int
-		Tag           string
-		Years         []Year
-		Tags          []*TagInfo
+		Article    *Article
+		PostsCount int
+		Tag        string
+		Years      []Year
+		Tags       []*TagInfo
 	}{
-		AnalyticsCode: analyticsCode,
-		PostsCount:    len(articles),
-		Years:         buildYearsFromArticles(articles),
-		Tag:           tag,
-		Tags:          buildTags(articles),
+		PostsCount: len(articles),
+		Years:      buildYearsFromArticles(articles),
+		Tag:        tag,
+		Tags:       buildTags(articles),
 	}
 
 	return execTemplate(path, "archive.tmpl.html", model, w)
@@ -239,17 +237,15 @@ func genIndex(store *Articles, w io.Writer) error {
 	articleCount := len(articles)
 	websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
-		AnalyticsCode string
-		Article       *Article
-		Articles      []*Article
-		ArticleCount  int
-		WebsiteHTML   template.HTML
+		Article      *Article
+		Articles     []*Article
+		ArticleCount int
+		WebsiteHTML  template.HTML
 	}{
-		AnalyticsCode: analyticsCode,
-		Article:       nil, // always nil
-		ArticleCount:  articleCount,
-		Articles:      articles,
-		WebsiteHTML:   websiteIndexPage.HTMLBody,
+		Article:      nil, // always nil
+		ArticleCount: articleCount,
+		Articles:     articles,
+		WebsiteHTML:  websiteIndexPage.HTMLBody,
 	}
 	return execTemplate("/index.html", "mainpage.tmpl.html", model, w)
 }
@@ -275,13 +271,11 @@ func genChangelog(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		AnalyticsCode string
-		Article       *Article
-		Articles      []*Article
+		Article  *Article
+		Articles []*Article
 	}{
-		AnalyticsCode: analyticsCode,
-		Article:       nil, // always nil
-		Articles:      articles,
+		Article:  nil, // always nil
+		Articles: articles,
 	}
 	return execTemplate("/changelog.html", "changelog.tmpl.html", model, w)
 }
@@ -337,7 +331,6 @@ func genAtomAll(store *Articles, w io.Writer) error {
 func genArticle(article *Article, w io.Writer) error {
 	canonicalURL := netlifyRequestGetFullHost() + article.URL()
 	model := struct {
-		AnalyticsCode    string
 		Article          *Article
 		CanonicalURL     string
 		CoverImage       string
@@ -350,7 +343,6 @@ func genArticle(article *Article, w io.Writer) error {
 		FacebookShareURL string
 		LinkedInShareURL string
 	}{
-		AnalyticsCode:    analyticsCode,
 		Article:          article,
 		CanonicalURL:     canonicalURL,
 		CoverImage:       article.HeaderImageURL,
@@ -404,23 +396,21 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		Xid           string
-		Ksuid         string
-		Ulid          string
-		BetterGUID    string
-		Sonyflake     string
-		Sid           string
-		UUIDv4        string
-		AnalyticsCode string
+		Xid        string
+		Ksuid      string
+		Ulid       string
+		BetterGUID string
+		Sonyflake  string
+		Sid        string
+		UUIDv4     string
 	}{
-		Xid:           idXid.String(),
-		Ksuid:         idKsuid.String(),
-		Ulid:          idUlid.String(),
-		BetterGUID:    betterGUID,
-		Sonyflake:     sfidstr,
-		Sid:           sid.Id(),
-		UUIDv4:        uuid.String(),
-		AnalyticsCode: analyticsCode,
+		Xid:        idXid.String(),
+		Ksuid:      idKsuid.String(),
+		Ulid:       idUlid.String(),
+		BetterGUID: betterGUID,
+		Sonyflake:  sfidstr,
+		Sid:        sid.Id(),
+		UUIDv4:     uuid.String(),
 	}
 
 	// make sure /tools/generate-unique-id is served as html
