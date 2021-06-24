@@ -1,15 +1,4 @@
 <!-- prettier-ignore-start -->
-{{ if .AnalyticsCode }}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-194516-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{.AnalyticsCode}}');
-</script>
-{{ end }}
-
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0f7c56e290574281b5b69e26753e8f7e"}'></script>
 <!-- End Cloudflare Web Analytics -->
