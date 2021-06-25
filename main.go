@@ -212,6 +212,7 @@ func main() {
 		flgNoCache         bool
 		flgWc              bool
 		flgRedownload      bool
+		flgRedownloadOne   string
 		flgRebuild         bool
 		flgDiff            bool
 	)
@@ -223,7 +224,8 @@ func main() {
 		flag.BoolVar(&flgDeploy, "deploy", false, "deploy to Cloudflare")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
-		flag.BoolVar(&flgRedownload, "redownload-notion", false, "download the content from Notion")
+		flag.BoolVar(&flgRedownload, "redownload", false, "re-download the content from Notion. use -no-cache to disable cache")
+		flag.StringVar(&flgRedownloadOne, "redownload-one", "", "re-download a single Notion page. use -no-cache to disable cache")
 		flag.BoolVar(&flgRebuild, "rebuild", false, fmt.Sprintf("rebuild site in %s/ directory", htmlDir))
 		flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.Parse()
@@ -233,6 +235,10 @@ func main() {
 	defer func() {
 		logf("finished in %s\n", time.Since(timeStart))
 	}()
+
+	if true {
+		flgRedownloadOne = "c1bd7ffd669049d3a4f54ab5e4c02817"
+	}
 
 	if false {
 		testLoadCache("notion_cache")
@@ -249,12 +255,6 @@ func main() {
 
 	if flgDiff {
 		winmergeDiffPreview()
-		return
-	}
-
-	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRebuild || flgDeploy
-	if !hasCmd {
-		flag.Usage()
 		return
 	}
 
@@ -277,6 +277,12 @@ func main() {
 
 	if flgRedownload {
 		rebuildAll(d)
+		return
+	}
+
+	if flgRedownloadOne != "" {
+		_, err = d.DownloadPage(flgRedownloadOne)
+		must(err)
 		return
 	}
 
@@ -304,4 +310,6 @@ func main() {
 		startPreviewOnDemand(articles)
 		return
 	}
+
+	flag.Usage()
 }
