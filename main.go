@@ -236,7 +236,7 @@ func main() {
 		logf("finished in %s\n", time.Since(timeStart))
 	}()
 
-	if true {
+	if false {
 		flgRedownloadOne = "c1bd7ffd669049d3a4f54ab5e4c02817"
 	}
 
