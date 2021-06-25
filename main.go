@@ -224,7 +224,7 @@ func main() {
 		flag.BoolVar(&flgDeploy, "deploy", false, "deploy to Cloudflare")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
-		flag.BoolVar(&flgRedownload, "redownload", false, "re-download the content from Notion. use -no-cache to disable cache")
+		flag.BoolVar(&flgRedownload, "redownload-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.StringVar(&flgRedownloadOne, "redownload-one", "", "re-download a single Notion page. use -no-cache to disable cache")
 		flag.BoolVar(&flgRebuild, "rebuild", false, fmt.Sprintf("rebuild site in %s/ directory", htmlDir))
 		flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
@@ -237,7 +237,7 @@ func main() {
 	}()
 
 	if false {
-		flgRedownloadOne = "c1bd7ffd669049d3a4f54ab5e4c02817"
+		flgRedownloadOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
 	if false {
@@ -258,8 +258,14 @@ func main() {
 		return
 	}
 
-	client := newNotionClient()
+	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuild || flgDeploy
+	if !hasCmd {
+		flag.Usage()
+		return
+	}
+
 	if flgRebuild {
+		client := newNotionClient()
 		d, err := notionapi.NewCachingClient(cacheDir, client)
 		must(err)
 		d.EventObserver = eventObserver
@@ -269,6 +275,7 @@ func main() {
 		return
 	}
 
+	client := newNotionClient()
 	d, err := notionapi.NewCachingClient(cacheDir, client)
 	must(err)
 	d.EventObserver = eventObserver
