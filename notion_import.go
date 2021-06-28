@@ -58,8 +58,8 @@ func guessExt(fileName string, contentType string) string {
 	panic(fmt.Errorf("didn't find ext for file '%s', content type '%s'", fileName, contentType))
 }
 
-func downloadImage(c *notionapi.Client, uri string) ([]byte, string, error) {
-	resp, err := c.DownloadURL(uri)
+func downloadImage(c *notionapi.Client, uri string, blockID string, parentTable string) ([]byte, string, error) {
+	resp, err := c.DownloadFile(uri, blockID, parentTable)
 	if err != nil {
 		return nil, "", err
 	}
@@ -70,7 +70,7 @@ func downloadImage(c *notionapi.Client, uri string) ([]byte, string, error) {
 }
 
 // return path of cached image on disk
-func downloadAndCacheImage(c *notionapi.Client, uri string, blockID string) (string, error) {
+func downloadAndCacheImage(c *notionapi.Client, uri string, block *notionapi.Block) (string, error) {
 	sha := sha1OfLink(uri)
 
 	//ext := strings.ToLower(filepath.Ext(uri))
@@ -81,14 +81,14 @@ func downloadAndCacheImage(c *notionapi.Client, uri string, blockID string) (str
 
 	cachedPath := findImageInDir(imgDir, sha)
 	if cachedPath != "" {
-		verbose("Image %s already downloaded as %s\n", uri, cachedPath)
+		logvf("Image %s already downloaded as %s\n", uri, cachedPath)
 		return cachedPath, nil
 	}
 
 	timeStart := time.Now()
 	logf("Downloading %s ... ", uri)
 
-	imgData, ext, err := downloadImage(c, uri)
+	imgData, ext, err := downloadImage(c, uri, block.ID, block.ParentTable)
 	must(err)
 
 	cachedPath = filepath.Join(imgDir, sha+ext)

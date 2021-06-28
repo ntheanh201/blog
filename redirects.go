@@ -606,7 +606,7 @@ func readRedirects(store *Articles) {
 			articleRedirects[url] = id
 			continue
 		}
-		//verbose("skipping redirect '%s' because article with id %d no longer present\n", string(l), id)
+		//logvf("skipping redirect '%s' because article with id %d no longer present\n", string(l), id)
 	}
 }
 

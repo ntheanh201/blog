@@ -357,7 +357,7 @@ func genArticle(article *Article, w io.Writer) error {
 		model.NotionEditURL = "https://notion.so/" + id
 	}
 	path := fmt.Sprintf("/article/%s.html", article.ID)
-	logVerbose("%s => %s, %s, %s\n", article.ID, path, article.URL(), article.Title)
+	logvf("%s => %s, %s, %s\n", article.ID, path, article.URL(), article.Title)
 	return execTemplate(path, "article.tmpl.html", model, w)
 }
 
@@ -447,7 +447,7 @@ func generateHTML(store *Articles) {
 
 	{
 		// /blog/ and /kb/ are only for redirects, we only handle /article/ at this point
-		logVerbose("%d articles\n", len(store.idToPage))
+		logvf("%d articles\n", len(store.idToPage))
 		for _, article := range store.articles {
 			genArticle(article, nil)
 		}

@@ -41,12 +41,7 @@ func logf(format string, args ...interface{}) {
 	fmt.Print(s)
 }
 
-// TODO: have just one
-func logVerbose(format string, args ...interface{}) {
-	verbose(format, args...)
-}
-
-func verbose(format string, args ...interface{}) {
+func logvf(format string, args ...interface{}) {
 	s := fmt.Sprintf(format, args...)
 	if logFile != nil {
 		fmt.Fprint(logFile, s)

@@ -154,6 +154,7 @@ func preview() {
 
 var (
 	nDownloadedPage = 0
+	nReadFromCache  = 0
 )
 
 func eventObserver(ev interface{}) {
@@ -170,11 +171,15 @@ func eventObserver(ev interface{}) {
 	case *notionapi.EventDidReadFromCache:
 		// TODO: only verbose
 		nDownloadedPage++
+		nReadFromCache++
 		title := ""
 		if v.Page != nil {
 			title = shortenString(notionapi.TextSpansToString(v.Page.Root().GetTitle()), 32)
 		}
-		logf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
+		logvf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
+		if nReadFromCache < 2 {
+			logf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
+		}
 	case *notionapi.EventGotVersions:
 		logf("downloaded info about %d versions in %s\n", v.Count, v.Duration)
 	}

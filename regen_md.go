@@ -97,7 +97,7 @@ func mdToHTML(mdFile, templateFile, htmlFile string) {
 	must(err)
 	err = ioutil.WriteFile(htmlFile, buf.Bytes(), 0644)
 	must(err)
-	verbose("%s => %s\n", mdFile, htmlFile)
+	logvf("%s => %s\n", mdFile, htmlFile)
 }
 
 // template is a _md.tmpl.html file in the same directory
@@ -118,12 +118,12 @@ func regenMd() {
 		htmlFile := replaceExt(mdFile, ".html")
 		templateFile := findMdTemplate(mdFile)
 		if templateFile == "" {
-			verbose("%s : skipping because no template file\n", mdFile)
+			logvf("%s : skipping because no template file\n", mdFile)
 			continue
 		}
-		verbose("%s\n", mdFile)
+		logvf("%s\n", mdFile)
 		mdToHTML(mdFile, templateFile, htmlFile)
-		verbose("Whitelisted: %s\n", htmlFile)
+		logvf("Whitelisted: %s\n", htmlFile)
 		mdOutWhitelist[htmlFile] = true
 	}
 }
