@@ -8,7 +8,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20200609195525-3f9352745725
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/notionapi v0.0.0-20210630011335-809877d58523
+	github.com/kjk/notionapi v0.0.0-20210703151502-e954b9b9578e
 	github.com/kjk/siser v0.0.0-20210621233355-17e67ed4384f
 	github.com/kjk/u v0.0.0-20191229080709-d1ac8976d53f
 	github.com/microcosm-cc/bluemonday v1.0.3
