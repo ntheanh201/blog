@@ -25,6 +25,8 @@
     <meta property="og:description" content="{{.Article.Description}}"> {{end}} {{if .CoverImage}}
     <meta property="og:image" content="{{.CoverImage}}"> {{end}}
 
+    {{.AnalyticsHTML}}
+
     <title>{{.PageTitle}}</title>
 
     <link href="/css/main.css" rel="stylesheet">

@@ -14,7 +14,7 @@ Note that this blog is specific to my needs. Most of the content comes from noti
 
 If you want to adopt it for your purposes, here are some things you might want to change:
 
-- `analyticsCode` in `main.go`
+- `analyticsHTML()`
 - `notionBlogsStartPage` in `articles.go`. this is a page that has a list of blog articles, which are treated specially (they form the blog part)
 - `notionWebsiteStartPage` in `articles.go` this is a page for the root of the website's content
 - `notionGoCookbookStartPage` in `articles.go` - well, this and all code related to it should be removed. This is a page for the root of my "Go Cookbook" mini-book

@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"html/template"
 	"io/ioutil"
 	_ "net/url"
 	"os"
@@ -23,6 +24,10 @@ var (
 	fatalIf    = u.PanicIf
 	panicIf    = u.PanicIf
 	panicIfErr = u.PanicIfErr
+
+	analyticsURL = `` // empty to disable
+	// analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
+	//analyticsURL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost`
 )
 
 const (
@@ -44,6 +49,14 @@ type RequestCacheEntry struct {
 type Cache struct {
 	Path    string
 	Entries []*RequestCacheEntry
+}
+
+func analyticsHTML() template.HTML {
+	if analyticsURL == "" {
+		return template.HTML("")
+	}
+	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analyticsURL + `"></script>`
+	return template.HTML(html)
 }
 
 const (

@@ -207,16 +207,18 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 	}
 
 	model := struct {
-		Article    *Article
-		PostsCount int
-		Tag        string
-		Years      []Year
-		Tags       []*TagInfo
+		AnalyticsHTML template.HTML
+		Article       *Article
+		PostsCount    int
+		Tag           string
+		Years         []Year
+		Tags          []*TagInfo
 	}{
-		PostsCount: len(articles),
-		Years:      buildYearsFromArticles(articles),
-		Tag:        tag,
-		Tags:       buildTags(articles),
+		AnalyticsHTML: analyticsHTML(),
+		PostsCount:    len(articles),
+		Years:         buildYearsFromArticles(articles),
+		Tag:           tag,
+		Tags:          buildTags(articles),
 	}
 
 	return execTemplate(path, "archive.tmpl.html", model, w)
@@ -237,15 +239,17 @@ func genIndex(store *Articles, w io.Writer) error {
 	articleCount := len(articles)
 	websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
-		Article      *Article
-		Articles     []*Article
-		ArticleCount int
-		WebsiteHTML  template.HTML
+		AnalyticsHTML template.HTML
+		Article       *Article
+		Articles      []*Article
+		ArticleCount  int
+		WebsiteHTML   template.HTML
 	}{
-		Article:      nil, // always nil
-		ArticleCount: articleCount,
-		Articles:     articles,
-		WebsiteHTML:  websiteIndexPage.HTMLBody,
+		AnalyticsHTML: analyticsHTML(),
+		Article:       nil, // always nil
+		ArticleCount:  articleCount,
+		Articles:      articles,
+		WebsiteHTML:   websiteIndexPage.HTMLBody,
 	}
 	return execTemplate("/index.html", "mainpage.tmpl.html", model, w)
 }
@@ -331,6 +335,7 @@ func genAtomAll(store *Articles, w io.Writer) error {
 func genArticle(article *Article, w io.Writer) error {
 	canonicalURL := netlifyRequestGetFullHost() + article.URL()
 	model := struct {
+		AnalyticsHTML    template.HTML
 		Article          *Article
 		CanonicalURL     string
 		CoverImage       string
@@ -343,6 +348,7 @@ func genArticle(article *Article, w io.Writer) error {
 		FacebookShareURL string
 		LinkedInShareURL string
 	}{
+		AnalyticsHTML:    analyticsHTML(),
 		Article:          article,
 		CanonicalURL:     canonicalURL,
 		CoverImage:       article.HeaderImageURL,
@@ -364,7 +370,10 @@ func genArticle(article *Article, w io.Writer) error {
 func genGoCookbook(store *Articles, w io.Writer) error {
 	// url: /book/go-cookbook.html
 	model := struct {
-	}{}
+		AnalyticsHTML template.HTML
+	}{
+		AnalyticsHTML: analyticsHTML(),
+	}
 	return execTemplate("/book/go-cookbook.html", "go-cookbook.tmpl.html", model, w)
 }
 
