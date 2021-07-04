@@ -275,11 +275,13 @@ func genChangelog(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		Article  *Article
-		Articles []*Article
+		AnalyticsHTML template.HTML
+		Article       *Article
+		Articles      []*Article
 	}{
-		Article:  nil, // always nil
-		Articles: articles,
+		AnalyticsHTML: analyticsHTML(),
+		Article:       nil, // always nil
+		Articles:      articles,
 	}
 	return execTemplate("/changelog.html", "changelog.tmpl.html", model, w)
 }
@@ -405,21 +407,23 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		Xid        string
-		Ksuid      string
-		Ulid       string
-		BetterGUID string
-		Sonyflake  string
-		Sid        string
-		UUIDv4     string
+		AnalyticsHTML template.HTML
+		Xid           string
+		Ksuid         string
+		Ulid          string
+		BetterGUID    string
+		Sonyflake     string
+		Sid           string
+		UUIDv4        string
 	}{
-		Xid:        idXid.String(),
-		Ksuid:      idKsuid.String(),
-		Ulid:       idUlid.String(),
-		BetterGUID: betterGUID,
-		Sonyflake:  sfidstr,
-		Sid:        sid.Id(),
-		UUIDv4:     uuid.String(),
+		AnalyticsHTML: analyticsHTML(),
+		Xid:           idXid.String(),
+		Ksuid:         idKsuid.String(),
+		Ulid:          idUlid.String(),
+		BetterGUID:    betterGUID,
+		Sonyflake:     sfidstr,
+		Sid:           sid.Id(),
+		UUIDv4:        uuid.String(),
 	}
 
 	// make sure /tools/generate-unique-id is served as html
