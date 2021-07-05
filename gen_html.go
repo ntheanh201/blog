@@ -286,6 +286,16 @@ func genChangelog(store *Articles, w io.Writer) error {
 	return execTemplate("/changelog.html", "changelog.tmpl.html", model, w)
 }
 
+func gen404(store *Articles, w io.Writer) error {
+	// store is not used
+	model := struct {
+		AnalyticsHTML template.HTML
+	}{
+		AnalyticsHTML: analytics404HTML(),
+	}
+	return execTemplate("/404.html", "404.tmpl.html", model, w)
+}
+
 func genPerTagArchives(store *Articles) {
 	// tag/<tagname>
 	tags := map[string]struct{}{}
@@ -470,6 +480,7 @@ func generateHTML(store *Articles) {
 	genPerTagArchives(store)
 
 	genSitemap(store, nil)
+	gen404(nil, nil)
 
 	genToolGenerateUniqueID(store, nil)
 

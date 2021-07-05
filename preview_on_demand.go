@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"path/filepath"
 	"strings"
@@ -17,35 +15,10 @@ var (
 )
 
 func serve404(w http.ResponseWriter, r *http.Request) {
-	uri := r.URL.Path
-	path := filepath.Join("www", "404.html")
-
-	parts := strings.Split(uri[1:], "/")
-	if len(parts) > 2 && parts[0] == "essential" {
-		bookName := parts[1]
-		maybePath := filepath.Join("www", "essential", bookName, "404.html")
-		if u.FileExists(maybePath) {
-			logf("'%s' exists\n", maybePath)
-			path = maybePath
-		} else {
-			logf("'%s' doesn't exist\n", maybePath)
-		}
-	}
-	logf("Serving 404 from '%s' for '%s'\n", path, uri)
-	d, err := ioutil.ReadFile(path)
-	if err != nil {
-		d = []byte(fmt.Sprintf("URL '%s' not found!", uri))
-	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.WriteHeader(http.StatusNotFound)
-	w.Write(d)
-}
-
-func writeHTMLHeaders(w http.ResponseWriter) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Header().Set("X-Content-Type-Options", "nosniff")
-	w.WriteHeader(http.StatusOK)
+	gen404(nil, w)
 }
 
 // tempRedirect gives a Moved Permanently response.
@@ -122,6 +95,7 @@ var knownURLs = map[string]func(*Articles, io.Writer) error{
 	"/archives.html":                 genArchives,
 	"/sitemap.xml":                   genSitemap,
 	"/atom.xml":                      genAtom,
+	"/404.html":                      gen404,
 	"/atom-all.xml":                  genAtomAll,
 	"/book/go-cookbook.html":         genGoCookbook,
 	"/tools/generate-unique-id.html": genToolGenerateUniqueID,
@@ -131,7 +105,9 @@ var knownURLs = map[string]func(*Articles, io.Writer) error{
 func tryServeKnown(w http.ResponseWriter, r *http.Request) bool {
 	uri := r.URL.Path
 	if fn := knownURLs[uri]; fn != nil {
-		writeHTMLHeaders(w)
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.WriteHeader(http.StatusOK)
 		logIfError(fn(gPreviewArticles, w))
 		return true
 	}

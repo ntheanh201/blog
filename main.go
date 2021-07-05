@@ -25,9 +25,13 @@ var (
 	panicIf    = u.PanicIf
 	panicIfErr = u.PanicIfErr
 
-	analyticsURL = `` // empty to disable
-	// analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
+	analyticsURL    = `` // empty to disable
+	analytics404URL = `` // empty to disable
+	//analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
+	//analytics404URL = `http://localhost:8333/a/a.js?localhost&404` // for local testing
 	//analyticsURL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost`
+	//analytics404URL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost&404`
+
 )
 
 const (
@@ -56,6 +60,14 @@ func analyticsHTML() template.HTML {
 		return template.HTML("")
 	}
 	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analyticsURL + `"></script>`
+	return template.HTML(html)
+}
+
+func analytics404HTML() template.HTML {
+	if analytics404URL == "" {
+		return template.HTML("")
+	}
+	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analytics404URL + `"></script>`
 	return template.HTML(html)
 }
 
