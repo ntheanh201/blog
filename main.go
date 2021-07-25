@@ -236,7 +236,8 @@ func recreateDir(dir string) {
 
 func main() {
 	var (
-		flgDeploy          bool
+		flgDeployDev       bool
+		flgDeployProd      bool
 		flgPreview         bool
 		flgPreviewOnDemand bool
 		flgNoCache         bool
@@ -251,7 +252,8 @@ func main() {
 		flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
-		flag.BoolVar(&flgDeploy, "deploy", false, "deploy to Cloudflare")
+		flag.BoolVar(&flgDeployDev, "deploy-dev", false, "deploy to https://blog.kjk.workers.dev/")
+		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgRedownload, "redownload-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
@@ -288,7 +290,7 @@ func main() {
 		return
 	}
 
-	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuild || flgDeploy
+	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuild || flgDeployDev || flgDeployProd
 	if !hasCmd {
 		flag.Usage()
 		return
@@ -323,9 +325,17 @@ func main() {
 		return
 	}
 
-	if flgDeploy {
+	if flgDeployDev {
 		rebuildAll(d)
 		cmd := exec.Command("wrangler", "publish")
+		u.RunCmdLoggedMust(cmd)
+		u.OpenBrowser("https://blog.kjk.workers.dev/")
+		return
+	}
+
+	if flgDeployProd {
+		rebuildAll(d)
+		cmd := exec.Command("wrangler", "publish", "-e", "production")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kowalczyk.info")
 		return

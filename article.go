@@ -291,8 +291,9 @@ func (a *Article) setHeaderImageMust(val string) {
 	}
 	path := filepath.Join("www", val)
 	u.PanicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
-	uri := netlifyRequestGetFullHost() + val
+	//uri := netlifyRequestGetFullHost() + val
 	// logf("Found HeaderImageURL: %s\n", uri)
+	uri := val
 	a.HeaderImageURL = uri
 }
 
@@ -588,7 +589,8 @@ func notionPageToArticle(c *notionapi.Client, page *notionapi.Page) *Article {
 			relativeURL: relURL,
 		}
 		a.Images = append(a.Images, im)
-		uri := netlifyRequestGetFullHost() + relURL
+		//uri := netlifyRequestGetFullHost() + relURL
+		uri := relURL
 		a.HeaderImageURL = uri
 	}
 
