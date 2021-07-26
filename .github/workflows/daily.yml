@@ -16,9 +16,6 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
-      - name: build the program
-        run: go build -o blog
-
       - name: Update from notion and deploy if changed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
