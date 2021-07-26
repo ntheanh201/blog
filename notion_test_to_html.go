@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	destDir = "netlify_static"
+	destDir = "www_generated"
 )
 
 func copyCSS() {

@@ -31,11 +31,10 @@ var (
 	//analytics404URL = `http://localhost:8333/a/a.js?localhost&404` // for local testing
 	//analyticsURL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost`
 	//analytics404URL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost&404`
-
 )
 
 const (
-	htmlDir = "netlify_static" // directory where we generate html files
+	htmlDir = "www_generated" // directory where we generate html files
 )
 
 var (
@@ -244,8 +243,10 @@ func main() {
 		flgWc              bool
 		flgRedownload      bool
 		flgRedownloadOne   string
-		flgRebuild         bool
+		flgRebuildHTML     bool
 		flgDiff            bool
+		flgCiDaily         bool
+		flgCiBuild         bool
 	)
 
 	{
@@ -258,8 +259,10 @@ func main() {
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgRedownload, "redownload-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.StringVar(&flgRedownloadOne, "redownload-one", "", "re-download a single Notion page. use -no-cache to disable cache")
-		flag.BoolVar(&flgRebuild, "rebuild", false, fmt.Sprintf("rebuild site in %s/ directory", htmlDir))
-		flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
+		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
+		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
+		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
+		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
 		flag.Parse()
 	}
 
@@ -290,42 +293,81 @@ func main() {
 		return
 	}
 
-	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuild || flgDeployDev || flgDeployProd
+	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuildHTML || flgDeployDev || flgDeployProd || flgCiBuild || flgCiDaily
 	if !hasCmd {
 		flag.Usage()
 		return
 	}
 
-	if flgRebuild {
-		client := newNotionClient()
-		d, err := notionapi.NewCachingClient(cacheDir, client)
-		must(err)
-		d.EventObserver = eventObserver
+	if flgRebuildHTML || flgCiBuild {
+		// don't download from Notion, only read from cache
+		d := getNotionCachingClient(false)
 		d.RedownloadNewerVersions = false
-		d.NoReadCache = false
 		rebuildAll(d)
 		return
 	}
 
-	client := newNotionClient()
-	d, err := notionapi.NewCachingClient(cacheDir, client)
-	must(err)
-	d.EventObserver = eventObserver
-	d.RedownloadNewerVersions = true
-	d.NoReadCache = flgNoCache
+	if flgCiDaily {
+		// once a day re-download everything from Notion from scratch
+		// checkin if files changed
+		// and deploy to cloudflare if changed
+		ghToken := os.Getenv("GITHUB_TOKEN")
+		panicIf(ghToken == "", "GITHUB_TOKEN env variable missing")
+		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
+		panicIf(os.Getenv("CF_ACCOUNT_ID") == "", "CF_ACCOUNT_ID env variable missing")
+		panicIf(os.Getenv("CF_API_TOKEN") == "", "CF_API_TOKEN env variable missing")
+		d := getNotionCachingClient(true)
+		rebuildAll(d)
+		var cmd *exec.Cmd
+		{
+			cmd = exec.Command("git", "status")
+			s := u.RunCmdLoggedMust(cmd)
+			if strings.Contains(s, "nothing to commit, working tree clean") {
+				// nothing changed so nothing else to do
+				logf("Nothing changed, skipping deploy")
+				return
+			}
+		}
+		{
+			// not sure if this is needed on GitHub CI
+			cmd = exec.Command("git", "config", "--global", "user.email", "kkowalczyk@gmail.com")
+			u.RunCmdLoggedMust(cmd)
+			cmd = exec.Command("git", "config", "--global", "user.name", "Krzysztof Kowalczyk")
+			u.RunCmdLoggedMust(cmd)
+			cmd = exec.Command("git", "config", "--global", "github.user", "kjk")
+			u.RunCmdLoggedMust(cmd)
+			cmd = exec.Command("git", "config", "--global", "github.token", ghToken)
+			u.RunCmdLoggedMust(cmd)
+
+			cmd = exec.Command("git", "add", "notion_cache")
+			u.RunCmdLoggedMust(cmd)
+			nowStr := time.Now().Format("2006-01-02")
+			commitMsg := "ci: update from onotion on " + nowStr
+			cmd = exec.Command("git", "commit", "-am", commitMsg)
+			u.RunCmdLoggedMust(cmd)
+
+			// TODO: do I need to be so specific or can I just do "git push"?
+			s := strings.Replace("https://${GITHUB_TOKEN}@github.com/kjk/blog.git", "${GITHUB_TOKEN}", ghToken, -1)
+			cmd = exec.Command("git", "push", s, "master")
+			u.RunCmdLoggedMust(cmd)
+		}
+	}
 
 	if flgRedownload {
+		d := getNotionCachingClient(flgNoCache)
 		rebuildAll(d)
 		return
 	}
 
 	if flgRedownloadOne != "" {
-		_, err = d.DownloadPage(flgRedownloadOne)
+		d := getNotionCachingClient(flgNoCache)
+		_, err := d.DownloadPage(flgRedownloadOne)
 		must(err)
 		return
 	}
 
 	if flgDeployDev {
+		d := getNotionCachingClient(flgNoCache)
 		rebuildAll(d)
 		cmd := exec.Command("wrangler", "publish")
 		u.RunCmdLoggedMust(cmd)
@@ -334,6 +376,7 @@ func main() {
 	}
 
 	if flgDeployProd {
+		d := getNotionCachingClient(flgNoCache)
 		rebuildAll(d)
 		cmd := exec.Command("wrangler", "publish", "-e", "production")
 		u.RunCmdLoggedMust(cmd)
@@ -342,10 +385,12 @@ func main() {
 	}
 
 	if false {
+		d := getNotionCachingClient(flgNoCache)
 		testNotionToHTMLOnePage(d, "dfbefe6906a943d8b554699341e997b0")
 		os.Exit(0)
 	}
 
+	d := getNotionCachingClient(flgNoCache)
 	articles := rebuildAll(d)
 
 	if flgPreview {
@@ -359,4 +404,14 @@ func main() {
 	}
 
 	flag.Usage()
+}
+
+func getNotionCachingClient(redownload bool) *notionapi.CachingClient {
+	client := newNotionClient()
+	d, err := notionapi.NewCachingClient(cacheDir, client)
+	must(err)
+	d.EventObserver = eventObserver
+	d.RedownloadNewerVersions = true
+	d.NoReadCache = redownload
+	return d
 }
