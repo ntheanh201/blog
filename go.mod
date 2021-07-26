@@ -11,7 +11,7 @@ require (
 	github.com/kjk/notionapi v0.0.0-20210703151502-e954b9b9578e
 	github.com/kjk/siser v0.0.0-20210621233355-17e67ed4384f
 	github.com/kjk/u v0.0.0-20191229080709-d1ac8976d53f
-	github.com/microcosm-cc/bluemonday v1.0.3
+	github.com/microcosm-cc/bluemonday v1.0.5
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/xid v1.2.1
 	github.com/satori/go.uuid v1.2.0
