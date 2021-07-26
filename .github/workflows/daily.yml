@@ -16,6 +16,9 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
+      - name: Install @cloudflare/wrangler
+        run: yarn global add @cloudflare/wrangler
+
       - name: Update from notion and deploy if changed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

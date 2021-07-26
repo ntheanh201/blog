@@ -17,11 +17,7 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v1
 
-      - name: Test
-        run: go test -v .
-
-      - name: Install @cloudflare/wrangler
-        run: npm i -g @cloudflare/wrangler
-
       - name: Build as a sanity check
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: go run . -ci-build
