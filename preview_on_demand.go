@@ -60,7 +60,7 @@ again:
 		return
 	}
 
-	for _, redir := range netlifyRedirects {
+	for _, redir := range wwwRedirects {
 		if redir.from == uri {
 			// this is internal rewrite
 			if redir.code == 200 {
@@ -147,7 +147,7 @@ func tryServeTagArchive(w http.ResponseWriter, r *http.Request) bool {
 	if uri == tag {
 		return false
 	}
-	netlifyWriteArticlesArchiveForTag(gPreviewArticles, tag, w)
+	writeArticlesArchiveForTag(gPreviewArticles, tag, w)
 	return true
 }
 

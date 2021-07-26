@@ -2,7 +2,7 @@ name: Deploy to netlify
 on:
   push:
     branches:
-      - not_exist
+      - master
 jobs:
   build:
     name: Build
@@ -20,11 +20,11 @@ jobs:
       - name: Test
         run: go test -v .
 
-      - name: Install netlify-ctl
+      - name: Install @cloudflare/wrangler
         run: yarn install
 
-      - name: Regenerate HTML and deploy to netlify
+      - name: Regenerate HTML and deploy to Cloudflare
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: go run . -deploy-prod

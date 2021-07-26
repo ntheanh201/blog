@@ -45,7 +45,7 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 	id = normalizeID(id)
 	article := loadPageAsArticle(d, id)
 
-	canonicalURL := netlifyRequestGetFullHost() + article.URL()
+	canonicalURL := getHostURL() + article.URL()
 	model := struct {
 		Article          *Article
 		CanonicalURL     string

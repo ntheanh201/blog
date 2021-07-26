@@ -611,61 +611,61 @@ func readRedirects(store *Articles) {
 }
 
 var (
-	netlifyRedirects []*netlifyRedirect
+	wwwRedirects []*wwwRedirect
 )
 
-type netlifyRedirect struct {
+type wwwRedirect struct {
 	from string
 	to   string
 	// valid code is 301, 302, 200, 404
 	code int
 }
 
-func netlifyAddRedirect(from, to string, code int) {
-	r := netlifyRedirect{
+func addRedirect(from, to string, code int) {
+	r := wwwRedirect{
 		from: from,
 		to:   to,
 		code: code,
 	}
-	netlifyRedirects = append(netlifyRedirects, &r)
+	wwwRedirects = append(wwwRedirects, &r)
 }
 
-func netlifyAddRewrite(from, to string) {
-	netlifyAddRedirect(from, to, 200)
+func addRewrite(from, to string) {
+	addRedirect(from, to, 200)
 }
 
-func netflifyAddTempRedirect(from, to string) {
-	netlifyAddRedirect(from, to, 302)
+func addTempRedirect(from, to string) {
+	addRedirect(from, to, 302)
 }
 
-func netlifyAddStaticRedirects() {
+func addStaticRedirects() {
 	for _, redirect := range redirects {
 		from := redirect[0]
 		to := redirect[1]
-		netflifyAddTempRedirect(from, to)
+		addTempRedirect(from, to)
 	}
 }
 
-func netlifyAddArticleRedirects(store *Articles) {
+func addArticleRedirects(store *Articles) {
 	for from, articleID := range articleRedirects {
 		from = "/" + from
 		article := store.idToArticle[articleID]
 		panicIf(article == nil, "didn't find article for id '%s'", articleID)
 		to := article.URL()
-		netflifyAddTempRedirect(from, to) // TODO: change to permanent
+		addTempRedirect(from, to) // TODO: change to permanent
 	}
 
 }
 
 // redirect /article/:id/* => /article/:id/pretty-title
-const netlifyRedirectsProlog = `/article/:id/*	/article/:id.html	200
+const wwwRedirectsProlog = `/article/:id/*	/article/:id.html	200
 `
 
-func netlifyWriteRedirects() {
-	buf := bytes.NewBufferString(netlifyRedirectsProlog)
-	for _, r := range netlifyRedirects {
+func writeRedirects() {
+	buf := bytes.NewBufferString(wwwRedirectsProlog)
+	for _, r := range wwwRedirects {
 		s := fmt.Sprintf("%s\t%s\t%d\n", r.from, r.to, r.code)
 		buf.WriteString(s)
 	}
-	netlifyWriteFile("_redirects", buf.Bytes())
+	wwwWriteFile("_redirects", buf.Bytes())
 }

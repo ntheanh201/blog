@@ -25,28 +25,28 @@ import (
 )
 
 func addAllRedirects(store *Articles) {
-	netlifyAddStaticRedirects()
-	netlifyAddRewrite("/favicon.ico", "/static/favicon.ico")
-	//netlifyAddRewrite("/book/", "/static/documents.html")
-	//netflifyAddTempRedirect("/book/*", "/article/:splat")
-	netflifyAddTempRedirect("/software/sumatrapdf*", "https://www.sumatrapdfreader.org/:splat")
+	addStaticRedirects()
+	addRewrite("/favicon.ico", "/static/favicon.ico")
+	//addRewrite("/book/", "/static/documents.html")
+	//addTempRedirect("/book/*", "/article/:splat")
+	addTempRedirect("/software/sumatrapdf*", "https://www.sumatrapdfreader.org/:splat")
 
-	netflifyAddTempRedirect("/articles/", "/documents.html")
-	netflifyAddTempRedirect("/articles/index.html", "/documents.html")
-	netflifyAddTempRedirect("/static/documents.html", "/documents.html")
-	netflifyAddTempRedirect("/software/index.html", "/software/")
+	addTempRedirect("/articles/", "/documents.html")
+	addTempRedirect("/articles/index.html", "/documents.html")
+	addTempRedirect("/static/documents.html", "/documents.html")
+	addTempRedirect("/software/index.html", "/software/")
 
-	netlifyAddRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
-	netlifyAddRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
+	addRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
+	addRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
 
 	for _, article := range store.articles {
 		if article.urlOverride != "" {
 			path := fmt.Sprintf("/article/%s.html", article.ID)
-			netlifyAddRewrite(article.urlOverride, path)
+			addRewrite(article.urlOverride, path)
 		}
 	}
 
-	netlifyAddArticleRedirects(store)
+	addArticleRedirects(store)
 }
 
 func copyAndSortArticles(articles []*Article) []*Article {
@@ -101,33 +101,34 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 	return feed.GenXml()
 }
 
-func netlifyPath(fileName string) string {
+func wwwPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
 	path := filepath.Join(htmlDir, fileName)
 	u.CreateDirForFileMust(path)
 	return path
 }
 
-func netlifyWriteFile(fileName string, d []byte) {
-	path := netlifyPath(fileName)
+func wwwWriteFile(fileName string, d []byte) {
+	path := wwwPath(fileName)
 	//logf("%s\n", path)
 	ioutil.WriteFile(path, d, 0644)
 }
 
-func netlifyRequestGetFullHost() string {
+// TODO: should be https://blog.kjk.workers.dev for dev deployment
+func getHostURL() string {
 	return "https://blog.kowalczyk.info"
 }
 
 // https://www.linkedin.com/shareArticle?mini=true&;url=https://nodesource.com/blog/why-the-new-v8-is-so-damn-fast"
 func makeLinkedinShareURL(article *Article) string {
-	uri := netlifyRequestGetFullHost() + article.URL()
+	uri := getHostURL() + article.URL()
 	uri = url.QueryEscape(uri)
 	return fmt.Sprintf(`https://www.linkedin.com/shareArticle?mini=true&url=%s`, uri)
 }
 
 // https://www.facebook.com/sharer/sharer.php?u=https://nodesource.com/blog/why-the-new-v8-is-so-damn-fast
 func makeFacebookShareURL(article *Article) string {
-	uri := netlifyRequestGetFullHost() + article.URL()
+	uri := getHostURL() + article.URL()
 	uri = url.QueryEscape(uri)
 	return fmt.Sprintf(`https://www.facebook.com/sharer/sharer.php?u=%s`, uri)
 }
@@ -135,7 +136,7 @@ func makeFacebookShareURL(article *Article) string {
 // https://twitter.com/intent/tweet?text=%s&url=%s&via=kjk
 func makeTwitterShareURL(article *Article) string {
 	title := url.QueryEscape(article.Title)
-	uri := netlifyRequestGetFullHost() + article.URL()
+	uri := getHostURL() + article.URL()
 	uri = url.QueryEscape(uri)
 	return fmt.Sprintf(`https://twitter.com/intent/tweet?text=%s&url=%s&via=kjk`, title, uri)
 }
@@ -188,7 +189,7 @@ func buildTags(articles []*Article) []*TagInfo {
 	return res
 }
 
-func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error {
+func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error {
 	path := "/archives.html"
 	articles := store.getBlogNotHidden()
 	if tag != "" {
@@ -203,7 +204,7 @@ func netlifyWriteArticlesArchiveForTag(store *Articles, tag string, w io.Writer)
 		tagInPath = urlify(tagInPath)
 		path = fmt.Sprintf("/article/archives-by-tag-%s.html", tagInPath)
 		from := "/tag/" + tag
-		netlifyAddRewrite(from, path)
+		addRewrite(from, path)
 	}
 
 	model := struct {
@@ -305,13 +306,13 @@ func genPerTagArchives(store *Articles) {
 		}
 	}
 	for tag := range tags {
-		netlifyWriteArticlesArchiveForTag(store, tag, nil)
+		writeArticlesArchiveForTag(store, tag, nil)
 	}
 }
 
 func genArchives(store *Articles, w io.Writer) error {
 	// /archives.html
-	return netlifyWriteArticlesArchiveForTag(store, "", w)
+	return writeArticlesArchiveForTag(store, "", w)
 }
 
 func writeFileOrWriter(path string, data []byte, w io.Writer) error {
@@ -319,7 +320,7 @@ func writeFileOrWriter(path string, data []byte, w io.Writer) error {
 		_, err := w.Write(data)
 		return err
 	}
-	netlifyWriteFile(path, data)
+	wwwWriteFile(path, data)
 	return nil
 }
 
@@ -345,7 +346,7 @@ func genAtomAll(store *Articles, w io.Writer) error {
 }
 
 func genArticle(article *Article, w io.Writer) error {
-	canonicalURL := netlifyRequestGetFullHost() + article.URL()
+	canonicalURL := getHostURL() + article.URL()
 	model := struct {
 		AnalyticsHTML    template.HTML
 		Article          *Article
@@ -438,7 +439,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 
 	// make sure /tools/generate-unique-id is served as html
 	path := "/tools/generate-unique-id.html"
-	netlifyAddRewrite("/tools/generate-unique-id", path)
+	addRewrite("/tools/generate-unique-id", path)
 	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
 }
 
@@ -485,9 +486,9 @@ func generateHTML(store *Articles) {
 	genToolGenerateUniqueID(store, nil)
 
 	// /ping
-	netlifyWriteFile("/ping", []byte("pong"))
+	wwwWriteFile("/ping", []byte("pong"))
 
 	// no longer care about /worklog
 
-	netlifyWriteRedirects()
+	writeRedirects()
 }

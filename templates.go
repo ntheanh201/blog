@@ -39,7 +39,7 @@ func execTemplate(path string, tmplName string, d interface{}, w io.Writer) erro
 	}
 
 	// this code path is for generating static files
-	netPath := netlifyPath(path)
+	netPath := wwwPath(path)
 	err := execTemplateToFile(netPath, tmplName, d)
 	must(err)
 	return nil
