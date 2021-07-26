@@ -21,7 +21,7 @@ jobs:
         run: go test -v .
 
       - name: Install @cloudflare/wrangler
-        run: yarn install
+        run: npm i -g @cloudflare/wrangler
 
       - name: Regenerate HTML and deploy to Cloudflare
         env:
