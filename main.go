@@ -308,6 +308,14 @@ func main() {
 	}
 
 	if flgCiDaily {
+		var cmd *exec.Cmd
+
+		{
+			// not sure if needed
+			cmd = exec.Command("git", "checkout", "master")
+			u.RunCmdLoggedMust(cmd)
+		}
+
 		// once a day re-download everything from Notion from scratch
 		// checkin if files changed
 		// and deploy to cloudflare if changed
@@ -318,7 +326,6 @@ func main() {
 		panicIf(os.Getenv("CF_API_TOKEN") == "", "CF_API_TOKEN env variable missing")
 		d := getNotionCachingClient(true)
 		rebuildAll(d)
-		var cmd *exec.Cmd
 		{
 			cmd = exec.Command("git", "status")
 			s := u.RunCmdLoggedMust(cmd)
@@ -334,10 +341,12 @@ func main() {
 			u.RunCmdLoggedMust(cmd)
 			cmd = exec.Command("git", "config", "--global", "user.name", "Krzysztof Kowalczyk")
 			u.RunCmdLoggedMust(cmd)
-			cmd = exec.Command("git", "config", "--global", "github.user", "kjk")
-			u.RunCmdLoggedMust(cmd)
-			cmd = exec.Command("git", "config", "--global", "github.token", ghToken)
-			u.RunCmdLoggedMust(cmd)
+			/*
+				cmd = exec.Command("git", "config", "--global", "github.user", "kjk")
+				u.RunCmdLoggedMust(cmd)
+				cmd = exec.Command("git", "config", "--global", "github.token", ghToken)
+				u.RunCmdLoggedMust(cmd)
+			*/
 
 			cmd = exec.Command("git", "add", "notion_cache")
 			u.RunCmdLoggedMust(cmd)
@@ -346,9 +355,19 @@ func main() {
 			cmd = exec.Command("git", "commit", "-am", commitMsg)
 			u.RunCmdLoggedMust(cmd)
 
-			// TODO: do I need to be so specific or can I just do "git push"?
-			s := strings.Replace("https://${GITHUB_TOKEN}@github.com/kjk/blog.git", "${GITHUB_TOKEN}", ghToken, -1)
-			cmd = exec.Command("git", "push", s, "master")
+			if false {
+				// TODO: do I need to be so specific or can I just do "git push"?
+				s := strings.Replace("https://${GITHUB_TOKEN}@github.com/kjk/blog.git", "${GITHUB_TOKEN}", ghToken, -1)
+				cmd = exec.Command("git", "push", s, "master")
+				u.RunCmdLoggedMust(cmd)
+			} else {
+				cmd = exec.Command("git", "push")
+				u.RunCmdLoggedMust(cmd)
+			}
+		}
+
+		{
+			cmd = exec.Command("wrangler", "publish")
 			u.RunCmdLoggedMust(cmd)
 		}
 	}
