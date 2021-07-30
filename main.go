@@ -328,7 +328,7 @@ func main() {
 		rebuildAll(d)
 		{
 			cmd = exec.Command("git", "status")
-			s := u.RunCmdLoggedMust(cmd)
+			s := u.RunCmdMust(cmd)
 			if strings.Contains(s, "nothing to commit, working tree clean") {
 				// nothing changed so nothing else to do
 				logf("Nothing changed, skipping deploy")
