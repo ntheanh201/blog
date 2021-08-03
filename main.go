@@ -370,6 +370,7 @@ func main() {
 			cmd = exec.Command("wrangler", "publish")
 			u.RunCmdLoggedMust(cmd)
 		}
+		return
 	}
 
 	if flgRedownload {
