@@ -351,7 +351,7 @@ func main() {
 			cmd = exec.Command("git", "add", "notion_cache")
 			u.RunCmdLoggedMust(cmd)
 			nowStr := time.Now().Format("2006-01-02")
-			commitMsg := "ci: update from onotion on " + nowStr
+			commitMsg := "ci: update from notion on " + nowStr
 			cmd = exec.Command("git", "commit", "-am", commitMsg)
 			u.RunCmdLoggedMust(cmd)
 
