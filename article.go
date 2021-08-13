@@ -59,7 +59,7 @@ type BlockInfo struct {
 // Article describes a single article
 type Article struct {
 	page         *notionapi.Page
-	notionClient *notionapi.Client
+	notionClient *notionapi.CachingClient
 
 	ID                   string
 	PublishedOn          time.Time
@@ -533,7 +533,7 @@ func findImageMapping(images []*ImageMapping, link string) *ImageMapping {
 	return nil
 }
 
-func notionPageToArticle(c *notionapi.Client, page *notionapi.Page) *Article {
+func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Article {
 	//logf("extractMetadata: %s-%s, %d blocks\n", title, id, len(blocks))
 	// metadata blocks are always at the beginning. They are TypeText blocks and
 	// have only one plain string as content

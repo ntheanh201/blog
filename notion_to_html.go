@@ -13,7 +13,7 @@ import (
 type Converter struct {
 	article      *Article
 	page         *notionapi.Page
-	notionClient *notionapi.Client
+	notionClient *notionapi.CachingClient
 	idToArticle  func(string) *Article
 	galleries    [][]string
 
@@ -198,7 +198,7 @@ func (c *Converter) blockRenderOverride(block *notionapi.Block) bool {
 }
 
 // NewHTMLConverter returns new HTMLGenerator
-func NewHTMLConverter(c *notionapi.Client, article *Article) *Converter {
+func NewHTMLConverter(c *notionapi.CachingClient, article *Article) *Converter {
 	res := &Converter{
 		notionClient: c,
 		article:      article,
@@ -233,7 +233,7 @@ func (c *Converter) GenereateHTML() []byte {
 	return []byte(s)
 }
 
-func notionToHTML(client *notionapi.Client, article *Article, articles *Articles) ([]byte, []*ImageMapping) {
+func notionToHTML(client *notionapi.CachingClient, article *Article, articles *Articles) ([]byte, []*ImageMapping) {
 	//logf("notionToHTML: %s\n", notionapi.ToNoDashID(article.ID))
 	c := NewHTMLConverter(client, article)
 	if articles != nil {

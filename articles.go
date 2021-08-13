@@ -130,24 +130,16 @@ func buildArticlesNavigation(articles *Articles) {
 	}
 }
 
-func shortenString(s string, n int) string {
-	if len(s) < n {
-		return s
-	}
-	return s[:n-3] + "..."
-}
-
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
 	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, nil)
 	must(err)
 	res.idToPage = d.IdToPage
 
-	c := newNotionClient()
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
 		u.PanicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
-		article := notionPageToArticle(c, page)
+		article := notionPageToArticle(d, page)
 		if article.urlOverride != "" {
 			logvf("url override: %s => %s\n", article.urlOverride, article.ID)
 		}
@@ -162,7 +154,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	}
 
 	for _, article := range res.articles {
-		html, images := notionToHTML(c, article, res)
+		html, images := notionToHTML(d, article, res)
 		article.BodyHTML = string(html)
 		article.HTMLBody = template.HTML(article.BodyHTML)
 		article.Images = append(article.Images, images...)

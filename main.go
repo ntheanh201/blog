@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 
@@ -146,85 +147,66 @@ func rebuildAll(d *notionapi.CachingClient) *Articles {
 	return articles
 }
 
-// caddy -log stdout
-func runCaddy() {
-	cmd := exec.Command("caddy", "-log", "stdout")
+func runWranglerDev() {
+	err := exec.Command("wrangler", "--version").Run()
+	if err != nil {
+		err = exec.Command("npm", "i", "-g", "@cloudflare/wrangler").Run()
+		panicIfErr(err)
+	}
+	cmd := exec.Command("wrangler", "dev")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	err = cmd.Run()
+	logIfError(err)
+}
+
+func runSirv(dir string) {
+	err := exec.Command("sirv", "--version").Run()
+	if err != nil {
+		err = exec.Command("npm", "i", "-g", "sirv-cli").Run()
+		panicIfErr(err)
+	}
+	// on codespace they detect the port automatically
+	if isWindows() {
+		go func() {
+			time.Sleep(time.Second * 1)
+			u.OpenBrowser("http://localhost:5000")
+		}()
+	}
+	cmd := exec.Command("sirv", dir)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 }
 
-func runWranglerDev() {
-	cmd := exec.Command("wrangler", "dev")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err := cmd.Run()
-	logIfError(err)
+func hasWranglerConfig() bool {
+	homeDir, err := os.UserHomeDir()
+	panicIfErr(err)
+	wranglerConfigPath := filepath.Join(homeDir, "config", "default.toml")
+	if _, err := os.Stat(wranglerConfigPath); err == nil {
+		return true
+	}
+	apiKey := strings.TrimSpace(os.Getenv("CLOUDFLARE_API_TOKEN"))
+	if apiKey == "" {
+		return false
+	}
+	u.CreateDirForFileMust(wranglerConfigPath)
+	toml := fmt.Sprintf(`api_token = "%s"`+"\n", apiKey)
+	u.WriteFileMust(wranglerConfigPath, []byte(toml))
+	return true
 }
-
-/*
-func stopCaddy(cmd *exec.Cmd) {
-	cmd.Process.Kill()
-}
-*/
 
 func preview() {
-	go func() {
-		time.Sleep(time.Second * 1)
-		u.OpenBrowser("http://localhost:8787")
-	}()
-	runWranglerDev()
+	if isWindows() || hasWranglerConfig() {
+		runWranglerDev()
+		return
+	}
+	runSirv("www_generated")
 }
 
 var (
-	nDownloadedPage = 0
-	nReadFromCache  = 0
+	cachingPolicy = notionapi.PolicyDownloadNewer
 )
-
-func eventObserver(ev interface{}) {
-	switch v := ev.(type) {
-	case *notionapi.EventError:
-		logf(v.Error)
-	case *notionapi.EventDidDownload:
-		nDownloadedPage++
-		title := ""
-		if v.Page != nil {
-			title = shortenString(notionapi.TextSpansToString(v.Page.Root().GetTitle()), 32)
-		}
-		logf("%03d %s '%s' : downloaded in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
-	case *notionapi.EventDidReadFromCache:
-		// TODO: only verbose
-		nDownloadedPage++
-		nReadFromCache++
-		title := ""
-		if v.Page != nil {
-			title = shortenString(notionapi.TextSpansToString(v.Page.Root().GetTitle()), 32)
-		}
-		logvf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
-		if nReadFromCache < 2 {
-			logf("%03d %s %s : read from cache in %s\n", nDownloadedPage, v.PageID, title, v.Duration)
-		}
-	case *notionapi.EventGotVersions:
-		logf("downloaded info about %d versions in %s\n", v.Count, v.Duration)
-	}
-}
-
-func newNotionClient() *notionapi.Client {
-	token := os.Getenv("NOTION_TOKEN")
-	if token == "" {
-		logf("must set NOTION_TOKEN env variable\n")
-		//flag.Usage()
-		os.Exit(1)
-	}
-	// TODO: verify token still valid, somehow
-	client := &notionapi.Client{
-		AuthToken: token,
-	}
-	if flgVerbose {
-		client.Logger = os.Stdout
-	}
-	return client
-}
 
 func recreateDir(dir string) {
 	err := os.RemoveAll(dir)
@@ -272,6 +254,23 @@ func main() {
 	}()
 
 	if false {
+		s := `{
+	"collectionId": "42d1cfe0-686b-459f-aa23-a21b939a995c",
+	"collectionViewId": "e59f3c24-0093-43a8-a1c8-5088c398c597",
+	"query": {"sort":[{"id":"6e89c507-e0da-47c7-b8c8-fe2b336e0985","type":"number","property":"E13y","direction":"ascending"}]},
+	"loader": {
+		"type": "table",
+		"limit": 256,
+		"userTimeZone": "America/Los_Angeles",
+		"loadContentCover": true
+	}
+}`
+		d := notionapi.PrettyPrintJS([]byte(s))
+		fmt.Printf("%s\n", string(d))
+		return
+	}
+
+	if false {
 		flgRedownloadOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
@@ -299,12 +298,13 @@ func main() {
 		return
 	}
 
-	if flgRebuildHTML || flgCiBuild {
-		// don't download from Notion, only read from cache
-		d := getNotionCachingClient(false)
-		d.RedownloadNewerVersions = false
-		rebuildAll(d)
-		return
+	// for those commands we only want to use cache
+	if flgPreview || flgRebuildHTML || flgCiBuild {
+		cachingPolicy = notionapi.PolicyCacheOnly
+	}
+
+	if flgNoCache {
+		cachingPolicy = notionapi.PolicyDownloadAlways
 	}
 
 	if flgCiDaily {
@@ -324,7 +324,7 @@ func main() {
 		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
 		panicIf(os.Getenv("CF_ACCOUNT_ID") == "", "CF_ACCOUNT_ID env variable missing")
 		panicIf(os.Getenv("CF_API_TOKEN") == "", "CF_API_TOKEN env variable missing")
-		d := getNotionCachingClient(true)
+		d := getNotionCachingClient()
 		rebuildAll(d)
 		{
 			cmd = exec.Command("git", "status")
@@ -374,20 +374,20 @@ func main() {
 	}
 
 	if flgRedownload {
-		d := getNotionCachingClient(flgNoCache)
+		d := getNotionCachingClient()
 		rebuildAll(d)
 		return
 	}
 
 	if flgRedownloadOne != "" {
-		d := getNotionCachingClient(flgNoCache)
+		d := getNotionCachingClient()
 		_, err := d.DownloadPage(flgRedownloadOne)
 		must(err)
 		return
 	}
 
 	if flgDeployDev {
-		d := getNotionCachingClient(flgNoCache)
+		d := getNotionCachingClient()
 		rebuildAll(d)
 		cmd := exec.Command("wrangler", "publish")
 		u.RunCmdLoggedMust(cmd)
@@ -396,7 +396,7 @@ func main() {
 	}
 
 	if flgDeployProd {
-		d := getNotionCachingClient(flgNoCache)
+		d := getNotionCachingClient()
 		rebuildAll(d)
 		cmd := exec.Command("wrangler", "publish", "-e", "production")
 		u.RunCmdLoggedMust(cmd)
@@ -405,12 +405,12 @@ func main() {
 	}
 
 	if false {
-		d := getNotionCachingClient(flgNoCache)
+		d := getNotionCachingClient()
 		testNotionToHTMLOnePage(d, "dfbefe6906a943d8b554699341e997b0")
 		os.Exit(0)
 	}
 
-	d := getNotionCachingClient(flgNoCache)
+	d := getNotionCachingClient()
 	articles := rebuildAll(d)
 
 	if flgPreview {
@@ -426,12 +426,27 @@ func main() {
 	flag.Usage()
 }
 
-func getNotionCachingClient(redownload bool) *notionapi.CachingClient {
-	client := newNotionClient()
+func isWindows() bool {
+	return strings.Contains(runtime.GOOS, "windows")
+}
+
+func getNotionCachingClient() *notionapi.CachingClient {
+	token := os.Getenv("NOTION_TOKEN")
+	if token == "" && cachingPolicy != notionapi.PolicyCacheOnly {
+		logf("must set NOTION_TOKEN env variable\n")
+		os.Exit(1)
+	}
+	// TODO: verify token still valid, somehow
+	client := &notionapi.Client{
+		AuthToken: token,
+	}
+	if flgVerbose {
+		client.Logger = os.Stdout
+		client.DebugLog = true
+	}
+
 	d, err := notionapi.NewCachingClient(cacheDir, client)
 	must(err)
-	d.EventObserver = eventObserver
-	d.RedownloadNewerVersions = true
-	d.NoReadCache = redownload
+	d.Policy = cachingPolicy
 	return d
 }

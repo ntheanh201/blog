@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/kjk/notionapi"
 	"github.com/kjk/u"
@@ -87,9 +86,11 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 	err = os.Chdir(destDir)
 	must(err)
 
-	go func() {
-		time.Sleep(time.Second * 1)
-		u.OpenBrowser("http://localhost:2015")
-	}()
-	runCaddy()
+	/*
+		go func() {
+			time.Sleep(time.Second * 1)
+			u.OpenBrowser("http://localhost:2015")
+		}()
+	*/
+	runSirv(destDir)
 }
