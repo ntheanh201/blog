@@ -257,7 +257,12 @@ func genIndex(store *Articles, w io.Writer) error {
 
 func genChangelog(store *Articles, w io.Writer) error {
 	// /changelog.html
-	articles := append([]*Article{}, store.articles...)
+	var articles []*Article
+	for _, a := range store.articles {
+		if !a.IsHidden() {
+			articles = append(articles, a)
+		}
+	}
 	sort.Slice(articles, func(i, j int) bool {
 		a1 := articles[i]
 		a2 := articles[j]

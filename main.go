@@ -239,8 +239,8 @@ func main() {
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
-		flag.BoolVar(&flgRedownload, "redownload-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
-		flag.StringVar(&flgRedownloadOne, "redownload-one", "", "re-download a single Notion page. use -no-cache to disable cache")
+		flag.BoolVar(&flgRedownload, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
+		flag.StringVar(&flgRedownloadOne, "import-notion-one", "", "re-download a single Notion page, no caching")
 		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
@@ -381,6 +381,7 @@ func main() {
 
 	if flgRedownloadOne != "" {
 		d := getNotionCachingClient()
+		d.Policy = notionapi.PolicyDownloadAlways
 		_, err := d.DownloadPage(flgRedownloadOne)
 		must(err)
 		return
@@ -422,8 +423,6 @@ func main() {
 		startPreviewOnDemand(articles)
 		return
 	}
-
-	flag.Usage()
 }
 
 func isWindows() bool {
