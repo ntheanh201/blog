@@ -229,15 +229,6 @@ func copyFileAddedMust(dirBefore, dirAfter string, change *GitChange) {
 	copyFileMust(path, change.Path)
 }
 
-func copyFileDeletedMust(dirBefore, dirAfter string, change *GitChange) {
-	// empty file in after
-	path := filepath.Join(dirAfter, change.Name)
-	createEmptyFileMust(path)
-	// version from HEAD in before
-	path = filepath.Join(dirBefore, change.Name)
-	catGitHeadToFileMust(path, change.Path)
-}
-
 func copyFileModifiedMust(dirBefore, dirAfter string, change *GitChange) {
 	// current version on disk in after
 	path := filepath.Join(dirAfter, change.Name)

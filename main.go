@@ -1,12 +1,9 @@
 package main
 
 import (
-	"bufio"
-	"bytes"
 	"flag"
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	_ "net/url"
 	"os"
 	"os/exec"
@@ -16,7 +13,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/siser"
 	"github.com/kjk/u"
 )
 
@@ -69,73 +65,6 @@ func analytics404HTML() template.HTML {
 	}
 	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analytics404URL + `"></script>`
 	return template.HTML(html)
-}
-
-const (
-	recCacheName = "httpcache-v1"
-)
-
-func recGetKey(r *siser.Record, key string, pErr *error) string {
-	if *pErr != nil {
-		return ""
-	}
-	v, ok := r.Get(key)
-	if !ok {
-		*pErr = fmt.Errorf("didn't find key '%s'", key)
-	}
-	return v
-}
-
-func recGetKeyBytes(r *siser.Record, key string, pErr *error) []byte {
-	return []byte(recGetKey(r, key, pErr))
-}
-
-func deserializeCache(d []byte) (*Cache, error) {
-	br := bufio.NewReader(bytes.NewBuffer(d))
-	r := siser.NewReader(br)
-	r.NoTimestamp = true
-	var err error
-	c := &Cache{}
-	for r.ReadNextRecord() {
-		if r.Name != recCacheName {
-			return nil, fmt.Errorf("unexpected record type '%s', wanted '%s'", r.Name, recCacheName)
-		}
-		rr := &RequestCacheEntry{}
-		rr.Method = recGetKey(r.Record, "Method", &err)
-		rr.URL = recGetKey(r.Record, "URL", &err)
-		rr.Body = recGetKeyBytes(r.Record, "Body", &err)
-		rr.Response = recGetKeyBytes(r.Record, "Response", &err)
-		c.Entries = append(c.Entries, rr)
-	}
-	if err != nil {
-		return nil, err
-	}
-	return c, nil
-}
-
-func testLoadCache(dir string) {
-	timeStart := time.Now()
-	entries, err := ioutil.ReadDir(dir)
-	must(err)
-	nFiles := 0
-
-	var caches []*Cache
-	for _, fi := range entries {
-		if !fi.Mode().IsRegular() {
-			continue
-		}
-		name := fi.Name()
-		if !strings.HasSuffix(name, ".txt") {
-			continue
-		}
-		nFiles++
-		path := filepath.Join(dir, name)
-		d := u.ReadFileMust(path)
-		c, err := deserializeCache(d)
-		must(err)
-		caches = append(caches, c)
-	}
-	fmt.Printf("testLoadCache() loaded %d files in %s, %d caches\n", nFiles, time.Since(timeStart), len(caches))
 }
 
 func rebuildAll(d *notionapi.CachingClient) *Articles {
@@ -223,8 +152,8 @@ func main() {
 		flgPreviewOnDemand bool
 		flgNoCache         bool
 		flgWc              bool
-		flgRedownload      bool
-		flgRedownloadOne   string
+		flgImportNotion    bool
+		flgImportNotionOne string
 		flgRebuildHTML     bool
 		flgDiff            bool
 		flgCiDaily         bool
@@ -239,8 +168,8 @@ func main() {
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
-		flag.BoolVar(&flgRedownload, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
-		flag.StringVar(&flgRedownloadOne, "import-notion-one", "", "re-download a single Notion page, no caching")
+		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
+		flag.StringVar(&flgImportNotionOne, "import-notion-one", "", "re-download a single Notion page, no caching")
 		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
@@ -253,30 +182,12 @@ func main() {
 		logf("finished in %s\n", time.Since(timeStart))
 	}()
 
-	if false {
-		s := `{
-	"collectionId": "42d1cfe0-686b-459f-aa23-a21b939a995c",
-	"collectionViewId": "e59f3c24-0093-43a8-a1c8-5088c398c597",
-	"query": {"sort":[{"id":"6e89c507-e0da-47c7-b8c8-fe2b336e0985","type":"number","property":"E13y","direction":"ascending"}]},
-	"loader": {
-		"type": "table",
-		"limit": 256,
-		"userTimeZone": "America/Los_Angeles",
-		"loadContentCover": true
-	}
-}`
-		d := notionapi.PrettyPrintJS([]byte(s))
-		fmt.Printf("%s\n", string(d))
-		return
+	if true {
+		flgImportNotion = true
 	}
 
 	if false {
-		flgRedownloadOne = "08e19004306b413aba6e0e86a10fec7a"
-	}
-
-	if false {
-		testLoadCache("notion_cache")
-		return
+		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
 	openLog()
@@ -292,7 +203,7 @@ func main() {
 		return
 	}
 
-	hasCmd := flgPreview || flgPreviewOnDemand || flgRedownload || flgRedownloadOne != "" || flgRebuildHTML || flgDeployDev || flgDeployProd || flgCiBuild || flgCiDaily
+	hasCmd := flgPreview || flgPreviewOnDemand || flgImportNotion || flgImportNotionOne != "" || flgRebuildHTML || flgDeployDev || flgDeployProd || flgCiBuild || flgCiDaily
 	if !hasCmd {
 		flag.Usage()
 		return
@@ -373,16 +284,16 @@ func main() {
 		return
 	}
 
-	if flgRedownload {
+	if flgImportNotion {
 		d := getNotionCachingClient()
 		rebuildAll(d)
 		return
 	}
 
-	if flgRedownloadOne != "" {
+	if flgImportNotionOne != "" {
 		d := getNotionCachingClient()
 		d.Policy = notionapi.PolicyDownloadAlways
-		_, err := d.DownloadPage(flgRedownloadOne)
+		_, err := d.DownloadPage(flgImportNotionOne)
 		must(err)
 		return
 	}
