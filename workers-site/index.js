@@ -89,8 +89,10 @@ async function maybeRedirect(event) {
 }
 
 async function handleEvent(event) {
+  //console.log("url:", event.request.url);
   const redirectRsp = await maybeRedirect(event);
   if (redirectRsp != null) {
+    logdna(event.request, 200);
     return redirectRsp;
   }
 
@@ -133,12 +135,33 @@ async function handleEvent(event) {
   }
 }
 
+// we don't care to log access to files that end with this extension
+const extsToFilter = [".png", ".jpg", ".css", "/ping", "/robots.txt"];
+
+function shouldSkipLoggingOf(request, statusCode) {
+  if (statusCode != 200) {
+    // we want to know about all errors
+    return false;
+  }
+  const uri = request.url;
+  for (let ext of extsToFilter) {
+    if (uri.endsWith(ext)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // TODO: send more info as meta?
 function logdna(request, statusCode) {
+  //console.log("logdna:", request.url);
   const hostname = "blog.kowalczyk.info";
   const app = "blog";
   const apiKey = LOGDNA_INGESTION_KEY;
   if (!apiKey) {
+    return;
+  }
+  if (shouldSkipLoggingOf(request, statusCode)) {
     return;
   }
   const line = {
