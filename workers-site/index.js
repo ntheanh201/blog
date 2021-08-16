@@ -158,7 +158,6 @@ function shouldSkipLoggingOf(request, statusCode) {
   return false;
 }
 
-// TODO: send more info as meta?
 function logdna(request, statusCode) {
   //console.log("logdna:", request.url);
   const hostname = "blog.kowalczyk.info";
