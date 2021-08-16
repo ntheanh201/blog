@@ -181,13 +181,12 @@ function logdna(request, statusCode) {
     line["level"] = "ERROR";
   }
   const meta = {
-    "status": statusCode,
+    "code": statusCode,
   };
   if (referer) {
     meta["referer"] = referer;
   }
   if (ua) {
-    //console.log("ua:", ua);
     meta["ua"] = ua;
   }
   line["meta"] = meta;
