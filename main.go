@@ -199,12 +199,6 @@ func main() {
 		return
 	}
 
-	hasCmd := flgPreview || flgPreviewOnDemand || flgImportNotion || flgImportNotionOne != "" || flgRebuildHTML || flgDeployDev || flgDeployProd || flgCiBuild || flgCiDaily
-	if !hasCmd {
-		flag.Usage()
-		return
-	}
-
 	// for those commands we only want to use cache
 	if flgPreview || flgRebuildHTML || flgCiBuild {
 		cachingPolicy = notionapi.PolicyCacheOnly
@@ -312,24 +306,14 @@ func main() {
 		return
 	}
 
-	if false {
-		d := getNotionCachingClient()
-		testNotionToHTMLOnePage(d, "dfbefe6906a943d8b554699341e997b0")
-		os.Exit(0)
-	}
-
-	d := getNotionCachingClient()
-	articles := rebuildAll(d)
-
 	if flgPreview {
+		d := getNotionCachingClient()
+		rebuildAll(d)
 		preview()
 		return
 	}
 
-	if flgPreviewOnDemand {
-		startPreviewOnDemand(articles)
-		return
-	}
+	flag.Usage()
 }
 
 func isWindows() bool {
