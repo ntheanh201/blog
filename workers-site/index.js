@@ -9,6 +9,7 @@ import redirects from './redirects.js';
  *    than the default 404.html page.
  */
 const DEBUG = false
+let rspLogDNA = null;
 
 addEventListener('fetch', event => {
   try {
@@ -23,6 +24,7 @@ addEventListener('fetch', event => {
     }
     event.respondWith(new Response('Internal Error', { status: 500 }))
   }
+  waitForLogDnaCompleted()
 })
 
 function setHeaders(response) {
@@ -44,26 +46,22 @@ function getRedirectInfo(path) {
     return null;
   }
   const parts = path.split("/");
-  // console.log("getRedirectInfo: path:", parts);
   if (parts.length !== 4) {
     return null;
   }
   const id = parts[2];
   const newURL =  "/article/" + id + ".html";
-  //console.log("getRedirectInfo: newURL:", newURL);
   return [newURL, 200];
 }
 
 async function maybeRedirect(event) {
   const url = new URL(event.request.url);
-  //console.log(`maybeRedirect: url.pathname: ${url.pathname}`);
   const a = getRedirectInfo(url.pathname);
   if (!a) {
     return null;
   }
   const newURL = a[0];
   const code = a[1];
-  //console.log(`maybeRedirect, newURL: ${newURL}, code: ${code}`);
   if (code === 302) {
     const response = new Response("", { status: 302 });
     response.headers.set("Location", newURL);
@@ -73,7 +71,6 @@ async function maybeRedirect(event) {
   try {
     function mapReqToAssetFunc(req) {
       const reqURL = `${new URL(req.url).origin}${newURL}`;
-      //console.log(`maybeRedirect: reqURL: ${reqURL}`);
       const ret = new Request(reqURL, req);
       return ret;
     }
@@ -92,14 +89,10 @@ async function maybeRedirect(event) {
 }
 
 async function handleEvent(event) {
-  //console.log(`handleEvent: ${event.request.url}`);
-
   const redirectRsp = await maybeRedirect(event);
   if (redirectRsp != null) {
     return redirectRsp;
   }
-
-  const url = new URL(event.request.url)
 
   let options = {}
 
@@ -107,7 +100,6 @@ async function handleEvent(event) {
    * You can add custom logic to how we fetch your assets
    * by configuring the function `mapRequestToAsset`
    */
-  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
 
   try {
     if (DEBUG) {
@@ -120,6 +112,7 @@ async function handleEvent(event) {
     // allow headers to be altered
     const response = new Response(page.body, page);
     setHeaders(response);
+    logdna(event.request, 200);
     return response;
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
@@ -129,31 +122,60 @@ async function handleEvent(event) {
           mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
         })
 
+        logdna(event.request, 400);
         return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
       } catch (e) {}
     }
+
+    logdna(event.request, 500);
 
     return new Response(e.message || e.toString(), { status: 500 })
   }
 }
 
-/**
- * Here's one example of how to modify a request to
- * remove a specific prefix, in this case `/docs` from
- * the url. This can be useful if you are deploying to a
- * route on a zone, or if you only want your static content
- * to exist at a specific path.
- */
-function handlePrefix(prefix) {
-  return request => {
-    // compute the default (e.g. / -> index.html)
-    let defaultAssetKey = mapRequestToAsset(request)
-    let url = new URL(defaultAssetKey.url)
+// TODO: send more info as meta?
+function logdna(request, statusCode) {
+  const hostname = "blog.kowalczyk.info";
+  const app = "blog";
+  const apiKey = LOGDNA_INGESTION_KEY;
+  if (!apikey) {
+    return;
+  }
+  const line = {
+    "line": request.url,
+    "app": app,
+    "timestamp": Date.now(),
+  };
+  if (statusCode >= 300) {
+    line["level"] = "ERROR";
+  }
+  const payload = {
+    "lines": [line],
+  };
+  const opts = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(payload),
+  };
+  // set it here so that we can wa
+  try {
+    let uri = `https://logs.logdna.com/logs/ingest?hostname=${hostname}&apikey=${apiKey}`;
+    rspLogDNA = fetch(uri, opts);
+  } catch {
+    // no-op
+  }
+}
 
-    // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, '/')
+async function waitForLogDnaCompleted() {
+  if (!rspLogDNA) {
+    return;
+  }
 
-    // inherit all other props from the default request
-    return new Request(url.toString(), defaultAssetKey)
+  try {
+    await rspLogDNA;
+  } catch {
+    // no-op
   }
 }
