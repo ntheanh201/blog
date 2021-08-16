@@ -32,6 +32,7 @@ const redirects = {
   "/software/sumatrapdf": ["https://www.sumatrapdfreader.org/free-pdf-reader.html", 302],
   "/software/sumatrapdf/": ["https://www.sumatrapdfreader.org/free-pdf-reader.html", 302],
   "/software/sumatrapdf/index.html": ["https://www.sumatrapdfreader.org/free-pdf-reader.html", 302],
+  "/software/sumatrapdf/news.html": ["https://www.sumatrapdfreader.org/docs/Version-history", 302],
   "software/sumatrapdf/settings3.0.html": ["https://www.sumatrapdfreader.org/settings/settings3-0.html", 302],
   "software/sumatrapdf/settings2.4.html": ["https://www.sumatrapdfreader.org/settings/settings2-4.html", 302],
   "/software/sumatrapdf/download.html": ["https://www.sumatrapdfreader.org/download-free-pdf-viewer.html", 302],
