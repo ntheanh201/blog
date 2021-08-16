@@ -182,10 +182,6 @@ func main() {
 		logf("finished in %s\n", time.Since(timeStart))
 	}()
 
-	if true {
-		flgImportNotion = true
-	}
-
 	if false {
 		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
