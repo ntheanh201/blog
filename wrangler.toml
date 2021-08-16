@@ -2,8 +2,9 @@ name = "blog"
 type = "webpack"
 workers_dev = true
 
-[secrets]
-LOGDNA_INGESTION_KEY
+# https://developers.cloudflare.com/workers/platform/environments#environment-variables
+# [secrets]
+# LOGDNA_INGESTION_KEY
 
 [env.production]
 workers_dev = false
