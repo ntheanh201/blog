@@ -149,7 +149,6 @@ func main() {
 		flgDeployDev       bool
 		flgDeployProd      bool
 		flgPreview         bool
-		flgPreviewOnDemand bool
 		flgNoCache         bool
 		flgWc              bool
 		flgImportNotion    bool
@@ -167,7 +166,6 @@ func main() {
 		flag.BoolVar(&flgDeployDev, "deploy-dev", false, "deploy to https://blog.kjk.workers.dev/")
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
-		flag.BoolVar(&flgPreviewOnDemand, "preview-on-demand", false, "runs the browser for local preview")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.StringVar(&flgImportNotionOne, "import-notion-one", "", "re-download a single Notion page, no caching")
 		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
@@ -202,6 +200,11 @@ func main() {
 	// for those commands we only want to use cache
 	if flgPreview || flgRebuildHTML || flgCiBuild {
 		cachingPolicy = notionapi.PolicyCacheOnly
+	}
+
+	if true {
+		flgPreview = true
+		cachingPolicy = notionapi.PolicyDownloadNewer
 	}
 
 	if flgNoCache {
