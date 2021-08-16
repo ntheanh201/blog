@@ -137,7 +137,7 @@ async function handleEvent(event) {
 
 // we don't care to log access to files that end with this extension
 const extsToFilter = [".png", ".jpg", ".css", "/ping", "/robots.txt"];
-const containsToFilter = ["/app/crashsubmit", "wp-login.php", "xmlrpc.php"];
+const containsToFilter = ["/app/crashsubmit", "wp-login.php", "xmlrpc.php", "/favicon.ico"];
 
 function shouldSkipLoggingOf(request, statusCode) {
   if (statusCode != 200) {
@@ -170,8 +170,6 @@ function logdna(request, statusCode) {
   if (shouldSkipLoggingOf(request, statusCode)) {
     return;
   }
-  const referer = request.headers.get("referer");
-  const ua = request.headers.get("user-agent");
   const line = {
     "line": request.url,
     "app": app,
@@ -183,12 +181,27 @@ function logdna(request, statusCode) {
   const meta = {
     "code": statusCode,
   };
+  const referer = request.headers.get("referer");
   if (referer) {
     meta["referer"] = referer;
   }
+  const ua = request.headers.get("user-agent");
   if (ua) {
     meta["ua"] = ua;
   }
+  const ip = request.headers.get("cf-connecting-ip");
+  if (ip) {
+    meta["ip"] = ip;
+  }
+  if (request.cf) {
+    if (request.cf.country) {
+      meta["country"] = request.cf.country;
+    }
+    if (request.cf.city) {
+      meta["city"] = request.cf.city;
+    }
+  }
+
   line["meta"] = meta;
   const payload = {
     "lines": [line],
