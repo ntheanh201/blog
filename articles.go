@@ -132,20 +132,36 @@ func buildArticlesNavigation(articles *Articles) {
 
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
+	nFromCache := 0
+	nReq := 0
 	afterDl := func(di *notionapi.DownloadInfo) error {
 		if flgVerbose {
 			return nil
 		}
+		nReq++
 		if di.ReqeustsFromServer > 0 {
-			logf("DL    %s\n", di.Page.ID)
+			logf("DL    %s %d\n", di.Page.ID, nReq)
 		} else {
-			logf("CACHE %s\n", di.Page.ID)
+			nFromCache++
+			if nFromCache == 1 || nFromCache%16 == 0 {
+				logf("CACHE %s %d\n", di.Page.ID, nReq)
+			}
 		}
 		return nil
 	}
 	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, afterDl)
 	must(err)
-	res.idToPage = d.IdToPage
+	res.idToPage = map[string]*notionapi.Page{}
+	for id, cp := range d.IdToCachedPage {
+		page := cp.PageFromServer
+		if page == nil {
+			page = cp.PageFromCache
+		}
+		if page == nil {
+			continue
+		}
+		res.idToPage[id] = page
+	}
 
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
