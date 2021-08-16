@@ -138,7 +138,7 @@ function logdna(request, statusCode) {
   const hostname = "blog.kowalczyk.info";
   const app = "blog";
   const apiKey = LOGDNA_INGESTION_KEY;
-  if (!apikey) {
+  if (!apiKey) {
     return;
   }
   const line = {
