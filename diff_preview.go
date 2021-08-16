@@ -72,7 +72,7 @@ func getWinTempDirMust() string {
 		return dir
 	}
 	dir = os.Getenv("TMP")
-	fatalIf(dir == "", "env variable TEMP and TMP are not set\n")
+	panicIf(dir == "", "env variable TEMP and TMP are not set\n")
 	return dir
 }
 
@@ -99,7 +99,7 @@ func runCmdNoWait(exePath string, args ...string) error {
 func parseGitStatusLineMust(s string) *GitChange {
 	c := &GitChange{}
 	parts := strings.SplitN(s, " ", 2)
-	fatalIf(len(parts) != 2, "invalid line: '%s'\n", s)
+	panicIf(len(parts) != 2, "invalid line: '%s'\n", s)
 	switch parts[0] {
 	case "M":
 		c.Type = Modified
@@ -114,7 +114,7 @@ func parseGitStatusLineMust(s string) *GitChange {
 		// RM tools/diff-preview.go -> do/diff_preview.go
 		return nil
 	default:
-		fatalIf(true, "invalid line: '%s'\n", s)
+		panicIf(true, "invalid line: '%s'\n", s)
 	}
 	c.Path = strings.TrimSpace(parts[1])
 	c.Name = filepath.Base(c.Path)
@@ -248,7 +248,7 @@ func copyFileChangeMust(dir string, change *GitChange) {
 	case Deleted:
 		copyFileModifiedMust(dirBefore, dirAfter, change)
 	default:
-		fatalIf(true, "unknown change %+v\n", change)
+		panicIf(true, "unknown change %+v\n", change)
 	}
 }
 
@@ -284,7 +284,7 @@ func cdToGitRoot() {
 			break
 		}
 		newDir = filepath.Dir(dir)
-		fatalIf(dir == newDir, "dir == newDir (%s == %s)", dir, newDir)
+		panicIf(dir == newDir, "dir == newDir (%s == %s)", dir, newDir)
 		dir = newDir
 	}
 	if newDir != "" {

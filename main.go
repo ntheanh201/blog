@@ -17,11 +17,6 @@ import (
 )
 
 var (
-	must       = u.Must
-	fatalIf    = u.PanicIf
-	panicIf    = u.PanicIf
-	panicIfErr = u.PanicIfErr
-
 	analyticsURL    = `` // empty to disable
 	analytics404URL = `` // empty to disable
 	//analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
