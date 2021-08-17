@@ -4,11 +4,13 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
+	"log"
 	_ "net/url"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
+	"runtime/pprof"
 	"strings"
 	"time"
 
@@ -147,11 +149,12 @@ func main() {
 		flgNoCache         bool
 		flgWc              bool
 		flgImportNotion    bool
-		flgImportNotionOne string
 		flgRebuildHTML     bool
 		flgDiff            bool
 		flgCiDaily         bool
 		flgCiBuild         bool
+		flgImportNotionOne string
+		flgProfile         string
 	)
 
 	{
@@ -162,11 +165,11 @@ func main() {
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
-		flag.StringVar(&flgImportNotionOne, "import-notion-one", "", "re-download a single Notion page, no caching")
 		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
 		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
+		flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
 		flag.Parse()
 	}
 
@@ -204,6 +207,16 @@ func main() {
 
 	if flgNoCache {
 		cachingPolicy = notionapi.PolicyDownloadAlways
+	}
+
+	if flgProfile != "" {
+		logf("staring cpu profile in file '%s'\n", flgProfile)
+		f, err := os.Create(flgProfile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.StartCPUProfile(f)
+		defer pprof.StopCPUProfile()
 	}
 
 	if flgCiDaily {
@@ -272,7 +285,8 @@ func main() {
 		return
 	}
 
-	if flgImportNotion {
+	if flgImportNotion || flgRebuildHTML {
+		// the difference is in different caching policy
 		d := getNotionCachingClient()
 		rebuildAll(d)
 		return

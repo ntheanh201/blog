@@ -7,7 +7,7 @@ require (
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20200609195525-3f9352745725
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/notionapi v0.0.0-20210817083536-e6066840e5ea
+	github.com/kjk/notionapi v0.0.0-20210817093838-65a0d2bff10f
 	github.com/kjk/u v0.0.0-20191229080709-d1ac8976d53f
 	github.com/microcosm-cc/bluemonday v1.0.5
 	github.com/oklog/ulid v1.3.1
