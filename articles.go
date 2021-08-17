@@ -132,6 +132,12 @@ func buildArticlesNavigation(articles *Articles) {
 }
 
 func loadArticles(d *notionapi.CachingClient) *Articles {
+	{
+		timeStart := time.Now()
+		d.PreLoadCache()
+		logf("d.PreLoadCache() finished in %s\n", time.Since(timeStart))
+	}
+
 	res := &Articles{}
 	nFromCache := 0
 	nReq := 0
