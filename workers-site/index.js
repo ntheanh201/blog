@@ -136,14 +136,24 @@ async function handleEvent(event) {
 }
 
 // we don't care to log access to files that end with this extension
-const extsToFilter = [".png", ".jpg", ".css", "/ping", "/robots.txt"];
-const containsToFilter = ["/app/crashsubmit", "wp-login.php", "xmlrpc.php", "/favicon.ico"];
+const extsToFilter = [
+  ".png",
+  ".jpg",
+  ".css",
+  "/ping",
+  "/robots.txt",
+  ".xml"
+];
+
+const containsToFilter = [
+  "/app/crashsubmit",
+  "wp-login.php",
+  "xmlrpc.php",
+  "/favicon.ico",
+  "/software/sumatrapdf"
+];
 
 function shouldSkipLoggingOf(request, statusCode) {
-  if (statusCode != 200) {
-    // we want to know about all errors
-    return false;
-  }
   const uri = request.url;
   for (let ext of extsToFilter) {
     if (uri.endsWith(ext)) {
