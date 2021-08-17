@@ -179,6 +179,16 @@ func main() {
 		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
+	// for those commands we only want to use cache
+	if flgPreview || flgRebuildHTML || flgCiBuild {
+		cachingPolicy = notionapi.PolicyCacheOnly
+	}
+
+	if true {
+		flgPreview = true
+		cachingPolicy = notionapi.PolicyDownloadNewer
+	}
+
 	openLog()
 	defer closeLog()
 
@@ -190,16 +200,6 @@ func main() {
 	if flgDiff {
 		winmergeDiffPreview()
 		return
-	}
-
-	// for those commands we only want to use cache
-	if flgPreview || flgRebuildHTML || flgCiBuild {
-		cachingPolicy = notionapi.PolicyCacheOnly
-	}
-
-	if true {
-		flgPreview = true
-		cachingPolicy = notionapi.PolicyDownloadNewer
 	}
 
 	if flgNoCache {

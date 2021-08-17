@@ -498,11 +498,12 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 
 		if block.Type == notionapi.BlockImage {
 			link := block.ImageURL
-			path, err := downloadAndCacheImage(a.notionClient, link, block)
+			resp, err := a.notionClient.DownloadFile(link, block)
 			if err != nil {
-				logf("genImage: downloadAndCacheImage('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
+				logf("genImage: DownloadFile('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
 				must(err)
 			}
+			path := resp.CacheFilePath
 			relURL := "/img/" + filepath.Base(path)
 			im := &ImageMapping{
 				link:        link,
@@ -580,8 +581,9 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 	format := root.FormatPage()
 	// set image header from cover page
 	if a.HeaderImageURL == "" && format != nil && format.PageCover != "" {
-		path, err := downloadAndCacheImage(c, format.PageCover, root)
-		must(err)
+		rsp, err := c.DownloadFile(format.PageCover, root)
+		panicIf(err != nil, "downloading '%s' for page '%s' failed with '%s'", format.PageCover, root.ID, err)
+		path := rsp.CacheFilePath
 		relURL := "/img/" + filepath.Base(path)
 		im := &ImageMapping{
 			link:        a.HeaderImageURL,

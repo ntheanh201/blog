@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"sort"
+	"time"
 
 	"github.com/kjk/notionapi"
 	"github.com/kjk/u"
@@ -134,17 +135,19 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	res := &Articles{}
 	nFromCache := 0
 	nReq := 0
+	timeStart := time.Now()
 	afterDl := func(di *notionapi.DownloadInfo) error {
 		if flgVerbose {
 			return nil
 		}
 		nReq++
+		dur := time.Since(timeStart)
 		if di.ReqeustsFromServer > 0 {
-			logf("DL    %s %d\n", di.Page.ID, nReq)
+			logf("DL    %s %d, total time: %s\n", di.Page.ID, nReq, dur)
 		} else {
 			nFromCache++
 			if nFromCache == 1 || nFromCache%16 == 0 {
-				logf("CACHE %s %d\n", di.Page.ID, nReq)
+				logf("CACHE %s %d, total time: %s\n", di.Page.ID, nReq, dur)
 			}
 		}
 		return nil

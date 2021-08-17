@@ -226,7 +226,7 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 }
 
 func copyImages() {
-	srcDir := filepath.Join("notion_cache", "img")
+	srcDir := filepath.Join("notion_cache", "files")
 	dstDir := filepath.Join(htmlDir, "img")
 	u.DirCopyRecurMust(dstDir, srcDir, nil)
 }
