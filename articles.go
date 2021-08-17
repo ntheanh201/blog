@@ -142,7 +142,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 		}
 		nReq++
 		dur := time.Since(timeStart)
-		if di.ReqeustsFromServer > 0 {
+		if !di.FromCache {
 			logf("DL    %s %d, total time: %s\n", di.Page.ID, nReq, dur)
 		} else {
 			nFromCache++

@@ -184,7 +184,7 @@ func main() {
 		cachingPolicy = notionapi.PolicyCacheOnly
 	}
 
-	if true {
+	if false {
 		flgPreview = true
 		cachingPolicy = notionapi.PolicyDownloadNewer
 	}

@@ -468,12 +468,6 @@ func (a *Article) maybeParseMeta(nBlock int, block *notionapi.Block) bool {
 	return true
 }
 
-/*
-func (a *Article) processBlock(blcok *notionapi.Block, nBlock int, blocks []*notionapi.Block) {
-
-}
-*/
-
 func (a *Article) processBlocks(blocks []*notionapi.Block) {
 	parsingMeta := true
 	for nBlock, block := range blocks {
