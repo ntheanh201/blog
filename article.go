@@ -333,7 +333,7 @@ func (a *Article) maybeParseGallery(block *notionapi.Block, nBlock int, blocks [
 	var urls []string
 	for _, b := range imageBlocks {
 		a.markBlockToSkip(b)
-		urls = append(urls, b.ImageURL)
+		urls = append(urls, b.Source)
 	}
 	a.setGalleryImages(block, urls)
 	return true
@@ -497,10 +497,11 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 		}
 
 		if block.Type == notionapi.BlockImage {
-			link := block.ImageURL
+			link := block.Source
 			resp, err := a.notionClient.DownloadFile(link, block)
 			if err != nil {
 				logf("genImage: DownloadFile('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
+				a.notionClient.DownloadFile(link, block)
 				must(err)
 			}
 			path := resp.CacheFilePath
