@@ -141,7 +141,7 @@ const extsToFilter = [
   ".jpg",
   ".css",
   "/ping",
-  "/robots.txt",
+  ".txt",
   ".xml"
 ];
 
@@ -150,6 +150,7 @@ const containsToFilter = [
   "wp-login.php",
   "xmlrpc.php",
   "/favicon.ico",
+  "/forum_sumatra",
   "/software/sumatrapdf"
 ];
 
