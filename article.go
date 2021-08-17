@@ -504,6 +504,9 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 				a.notionClient.DownloadFile(link, block)
 				must(err)
 			}
+			if !resp.FromCache {
+				logf("genImage: DownloadFile('%s') from page https://notion.so/%s\n", link, normalizeID(a.page.ID))
+			}
 			path := resp.CacheFilePath
 			relURL := "/img/" + filepath.Base(path)
 			im := &ImageMapping{
