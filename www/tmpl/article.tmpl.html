@@ -149,17 +149,18 @@
 
             <div id="ad-software-2">
                 <div>
-                    Try <a
-                            href="/software/documentalist/like-dash-for-windows.html" target="_blank">Documentalist</a>, my app that offers fast, offline access to 190+ programmer API docs.
+                    Try <a href="/software/documentalist/like-dash-for-windows.html" target="_blank">Documentalist</a>,
+                    my app that offers fast, offline access to 190+ programmer API docs.
                 </div>
             </div>
 
             {{if .Article.HeaderImageURL}}
-            <div class="article-header hide-mobile">
-                <center>
-                    <img class="hdr-image hide-mobile" src="{{.Article.HeaderImageURL}}">
-                </center>
-            </div>
+
+            <picture>
+                <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)">
+                <img class="page-cover-image" src="{{.Article.HeaderImageURL}}"
+                    style="object-position:center 50.000000%">
+            </picture>
             {{end}}
 
             <div>
@@ -182,9 +183,9 @@
                     {{if .Article.CollectionURL}}
                     <a href="{{.Article.CollectionURL}}">{{.Article.Collection}}</a>
                     {{else}}
-                        <a href="/">home</a>
-                        {{end}}
-                        <!-- prettier-ignore -->
+                    <a href="/">home</a>
+                    {{end}}
+                    <!-- prettier-ignore -->
                 </div>
                 <div>
                     Found a mistake, have a comment?
@@ -194,14 +195,14 @@
 
             <form name="blog-article-feedback" netlify id="contact-form">
                 <p>
-                    <div class="contact-light">Feedback about page:</div>
-                    <input type="text" name="page-url" id="contact-page-url" readonly />
+                <div class="contact-light">Feedback about page:</div>
+                <input type="text" name="page-url" id="contact-page-url" readonly />
                 </p>
                 <p>
-                    <div class="contact-light">Feedback:</div>
-                    <textarea name="message" id="msg-for-chris"></textarea>
-                    <div class="contact-light">Optional: your email if you want me to get back to you: </div>
-                    <input type="email" name="email" />
+                <div class="contact-light">Feedback:</div>
+                <textarea name="message" id="msg-for-chris"></textarea>
+                <div class="contact-light">Optional: your email if you want me to get back to you: </div>
+                <input type="email" name="email" />
                 </p>
                 <p>
                     <button type="submit" class="contact-btn">
@@ -212,7 +213,7 @@
                     </button>
                 </p>
                 <p>
-                    <div data-netlify-recaptcha></div>
+                <div data-netlify-recaptcha></div>
                 </p>
             </form>
 
