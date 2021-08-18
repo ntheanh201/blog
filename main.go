@@ -19,20 +19,17 @@ import (
 )
 
 var (
+	htmlDir = "www_generated" // directory where we generate html files
+
 	analyticsURL    = `` // empty to disable
 	analytics404URL = `` // empty to disable
 	//analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
 	//analytics404URL = `http://localhost:8333/a/a.js?localhost&404` // for local testing
 	//analyticsURL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost`
 	//analytics404URL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost&404`
-)
 
-const (
-	htmlDir = "www_generated" // directory where we generate html files
-)
-
-var (
 	flgVerbose bool
+	flgNoCache bool
 )
 
 type RequestCacheEntry struct {
@@ -146,7 +143,6 @@ func main() {
 		flgDeployDev       bool
 		flgDeployProd      bool
 		flgPreview         bool
-		flgNoCache         bool
 		flgWc              bool
 		flgImportNotion    bool
 		flgRebuildHTML     bool
@@ -203,10 +199,6 @@ func main() {
 	if flgDiff {
 		winmergeDiffPreview()
 		return
-	}
-
-	if flgNoCache {
-		cachingPolicy = notionapi.PolicyDownloadAlways
 	}
 
 	if flgProfile != "" {
@@ -287,22 +279,28 @@ func main() {
 
 	if flgImportNotion || flgRebuildHTML {
 		// the difference is in different caching policy
+		if flgImportNotion {
+			cachingPolicy = notionapi.PolicyDownloadNewer
+		} else if flgRebuildHTML {
+			cachingPolicy = notionapi.PolicyCacheOnly
+		}
 		d := getNotionCachingClient()
 		rebuildAll(d)
 		return
 	}
 
 	if flgImportNotionOne != "" {
-		d := getNotionCachingClient()
-		d.Policy = notionapi.PolicyDownloadAlways
-		_, err := d.DownloadPage(flgImportNotionOne)
+		cachingPolicy = notionapi.PolicyDownloadAlways
+		cc := getNotionCachingClient()
+		_, err := cc.DownloadPage(flgImportNotionOne)
 		must(err)
 		return
 	}
 
 	if flgDeployDev {
-		d := getNotionCachingClient()
-		rebuildAll(d)
+		cachingPolicy = notionapi.PolicyCacheOnly
+		cc := getNotionCachingClient()
+		rebuildAll(cc)
 		cmd := exec.Command("wrangler", "publish")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kjk.workers.dev/")
@@ -310,8 +308,9 @@ func main() {
 	}
 
 	if flgDeployProd {
-		d := getNotionCachingClient()
-		rebuildAll(d)
+		cachingPolicy = notionapi.PolicyCacheOnly
+		cc := getNotionCachingClient()
+		rebuildAll(cc)
 		cmd := exec.Command("wrangler", "publish", "-e", "production")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kowalczyk.info")
@@ -319,8 +318,9 @@ func main() {
 	}
 
 	if flgPreview {
-		d := getNotionCachingClient()
-		rebuildAll(d)
+		cachingPolicy = notionapi.PolicyCacheOnly
+		cc := getNotionCachingClient()
+		rebuildAll(cc)
 		preview()
 		return
 	}
@@ -333,6 +333,9 @@ func isWindows() bool {
 }
 
 func getNotionCachingClient() *notionapi.CachingClient {
+	if flgNoCache {
+		cachingPolicy = notionapi.PolicyDownloadAlways
+	}
 	token := os.Getenv("NOTION_TOKEN")
 	if token == "" && cachingPolicy != notionapi.PolicyCacheOnly {
 		logf("must set NOTION_TOKEN env variable\n")
