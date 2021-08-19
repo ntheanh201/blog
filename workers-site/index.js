@@ -171,7 +171,8 @@ function shouldSkipLoggingOf(request, statusCode) {
 
 function logdna(request, statusCode) {
   //console.log("logdna:", request.url);
-  const hostname = "blog.kowalczyk.info";
+  // hostname cannot have dots in it so can't do blog.kowalczyk.info
+  const hostname = "blog";
   const app = "blog";
   const apiKey = LOGDNA_INGESTION_KEY;
   if (!apiKey) {
