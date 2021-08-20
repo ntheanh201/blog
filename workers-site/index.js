@@ -11,7 +11,9 @@ import redirects from './redirects.js';
 const DEBUG = false
 let rspLogDNA = null;
 
-addEventListener('fetch', event => {
+addEventListener('fetch', fetchEventListener);
+
+function fetchEventListener(event) {
   try {
     event.respondWith(handleEvent(event))
   } catch (e) {
@@ -24,8 +26,7 @@ addEventListener('fetch', event => {
     }
     event.respondWith(new Response('Internal Error', { status: 500 }))
   }
-  waitForLogDnaCompleted()
-})
+}
 
 function setHeaders(response) {
   response.headers.set("X-XSS-Protection", "1; mode=block");
@@ -92,7 +93,7 @@ async function handleEvent(event) {
   //console.log("url:", event.request.url);
   const redirectRsp = await maybeRedirect(event);
   if (redirectRsp != null) {
-    logdna(event.request, 200);
+    logdna(event, 200);
     return redirectRsp;
   }
 
@@ -114,7 +115,7 @@ async function handleEvent(event) {
     // allow headers to be altered
     const response = new Response(page.body, page);
     setHeaders(response);
-    logdna(event.request, 200);
+    logdna(event, 200);
     return response;
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
@@ -124,12 +125,12 @@ async function handleEvent(event) {
           mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
         })
 
-        logdna(event.request, 400);
+        logdna(event, 400);
         return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
       } catch (e) {}
     }
 
-    logdna(event.request, 500);
+    logdna(event, 500);
 
     return new Response(e.message || e.toString(), { status: 500 })
   }
@@ -169,7 +170,8 @@ function shouldSkipLoggingOf(request, statusCode) {
   return false;
 }
 
-function logdna(request, statusCode) {
+function logdna(event, statusCode) {
+  const request = event.request;
   //console.log("logdna:", request.url);
   // hostname cannot have dots in it so can't do blog.kowalczyk.info
   const hostname = "blog";
@@ -228,18 +230,6 @@ function logdna(request, statusCode) {
   try {
     let uri = `https://logs.logdna.com/logs/ingest?hostname=${hostname}&apikey=${apiKey}`;
     rspLogDNA = fetch(uri, opts);
-  } catch {
-    // no-op
-  }
-}
-
-async function waitForLogDnaCompleted() {
-  if (!rspLogDNA) {
-    return;
-  }
-
-  try {
-    await rspLogDNA;
   } catch {
     // no-op
   }
