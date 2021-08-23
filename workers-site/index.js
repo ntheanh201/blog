@@ -9,7 +9,6 @@ import redirects from './redirects.js';
  *    than the default 404.html page.
  */
 const DEBUG = false
-let rspLogDNA = null;
 
 addEventListener('fetch', fetchEventListener);
 
@@ -226,10 +225,11 @@ function logdna(event, statusCode) {
     },
     body: JSON.stringify(payload),
   };
+  let uri = `https://logs.logdna.com/logs/ingest?hostname=${hostname}&apikey=${apiKey}`;
   // set it here so that we can wa
   try {
-    let uri = `https://logs.logdna.com/logs/ingest?hostname=${hostname}&apikey=${apiKey}`;
-    rspLogDNA = fetch(uri, opts);
+    let rsp = fetch(uri, opts);
+    event.waitUntil(rsp);
   } catch {
     // no-op
   }
