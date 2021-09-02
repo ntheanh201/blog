@@ -91,7 +91,7 @@ Response:+9730
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630554000000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -99,7 +99,7 @@ Response:+9730
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 129
+          "version": 143
         }
       },
       "6f70163e-a5b8-4ba9-928a-faa2e45d1f51": {
@@ -249,7 +249,7 @@ Response:+9730
         "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1630095720000,
+        "last_edited_time": 1630554000000,
         "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
         "parent_table": "block",
         "properties": {
@@ -257,12 +257,12 @@ Response:+9730
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
-        "version": 129
+        "version": 143
       }
     }
   ]
 }
-42705 noahttpcache
+50304 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
@@ -275,13 +275,79 @@ Body:+152
   },
   "verticalColumns": false
 }
-Response:+42465
+Response:+50064
 {
   "cursor": {
     "stack": []
   },
   "recordMap": {
     "block": {
+      "05827a2b-5cd4-4d16-a27b-213e1658d6e2": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["f827cd59-d6b6-4a9e-a599-e7dd57930e1e"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553160000,
+          "id": "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553160000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["stringInSlice"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 25
+        }
+      },
+      "0fb960a8-e918-402a-9064-1f397fac5d6b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["48c37a43-007e-408d-ab17-8130fcee9d74"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551240000,
+          "id": "0fb960a8-e918-402a-9064-1f397fac5d6b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551240000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["dirExists"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 21
+        }
+      },
+      "1568d2d2-c324-47b7-be7e-f3e52aefc084": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["6c6eb52a-e547-4882-90e5-731f3071bfa1"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553040000,
+          "id": "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553040000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["createDirForFile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 30
+        }
+      },
       "1583edfb-2623-4f5e-89a2-0a5d032e07db": {
         "role": "editor",
         "value": {
@@ -424,6 +490,7 @@ Response:+42465
         "role": "editor",
         "value": {
           "alive": true,
+          "content": ["88952dc6-0929-406e-86cf-a67c6be5e103"],
           "copied_from": "8a679405-84e4-440b-a7fb-13806ee421f3",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -438,12 +505,62 @@ Response:+42465
           "id": "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095000000,
+          "last_edited_time": 1630551120000,
           "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
           "parent_table": "block",
+          "properties": {
+            "title": [["sha1OfFile, sha1HexOfFile"]]
+          },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 5
+          "type": "toggle",
+          "version": 47
+        }
+      },
+      "36258818-c818-4702-8698-9649fce63251": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["48762dd2-04fe-42db-a209-07b3914b5437"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551180000,
+          "id": "36258818-c818-4702-8698-9649fce63251",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551180000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["formatDuration / FormattedDuration"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 46
+        }
+      },
+      "39910fc5-c47b-4d36-a4e3-9d87f53ca775": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "e911a83f-0c6e-4ab1-9109-ec44441cd9f7",
+            "3d6aae28-7cc1-48e5-b56f-eee500f35f8a"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553700000,
+          "id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630554000000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["cdUpDir"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 164
         }
       },
       "3af349c2-7deb-449e-8897-bdffa548a230": {
@@ -528,6 +645,28 @@ Response:+42465
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 6
+        }
+      },
+      "43b2d873-24fa-49bb-9f0f-3c1c02896765": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["de12bf7c-b985-441a-b184-dd9bb7a93d77"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553280000,
+          "id": "43b2d873-24fa-49bb-9f0f-3c1c02896765",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553280000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["runCmdMust"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 22
         }
       },
       "47ecbe32-c3a1-4740-ad96-b711d54f8b2e": {
@@ -650,14 +789,18 @@ Response:+42465
             "1583edfb-2623-4f5e-89a2-0a5d032e07db",
             "9c2613e7-be7e-4372-b6de-d14041feda41",
             "7001affc-c09f-4962-a77f-7ea9699c9b9b",
+            "e1235662-877f-4732-a0c3-d4d72cd52106",
             "404d7fed-d7ad-4ca2-84d4-b3e6824ab12f",
             "5f2fac9f-b0f5-47d5-93f4-8077af81ec5e",
             "93d8f491-4d5f-488d-9187-9c8a6ea7f12d",
             "d7724a1d-06c1-44e8-8fda-afde4daca7bc",
             "bbf82344-2303-4990-a02e-d1d3a2928d6b",
             "768e7295-1243-4219-951c-c42ae2f35314",
+            "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
             "3af349c2-7deb-449e-8897-bdffa548a230",
-            "2a406ecd-1b58-4326-ba81-58101b267c99"
+            "2a406ecd-1b58-4326-ba81-58101b267c99",
+            "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+            "36258818-c818-4702-8698-9649fce63251"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -668,12 +811,12 @@ Response:+42465
           "id": "59936009-e92d-45d2-aac1-b7764e085bd3",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630553160000,
           "parent_id": "ff21df9d-58c2-431c-8251-d718656a4a4b",
           "parent_table": "block",
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "column",
-          "version": 33
+          "version": 45
         }
       },
       "5a832dad-dc7e-45c9-9025-807c013cfa8b": {
@@ -697,7 +840,7 @@ Response:+42465
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630554000000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -705,7 +848,7 @@ Response:+42465
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 129
+          "version": 143
         }
       },
       "5f2fac9f-b0f5-47d5-93f4-8077af81ec5e": {
@@ -865,10 +1008,13 @@ Response:+42465
           "alive": true,
           "content": [
             "4efee1a9-6626-48d8-9bcf-da25198cc881",
+            "0fb960a8-e918-402a-9064-1f397fac5d6b",
             "229cfeb7-9ec7-4764-bbd3-bffd9931de79",
             "dcfc1a73-f15f-4504-98c5-48ed2e7e4e72",
             "afe8a577-1a12-47a9-98ec-87526cdb6d8f",
             "f1349e63-fc8a-4123-ad33-d596f95c6303",
+            "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+            "43b2d873-24fa-49bb-9f0f-3c1c02896765",
             "221a4fb7-8cb6-4bce-bd55-14a5a788b160",
             "822848c6-d4f3-4496-a2fb-d0c839e2ed41",
             "e506454c-ad92-47dd-8dc6-41422baa4242",
@@ -877,7 +1023,8 @@ Response:+42465
             "f17970aa-6717-4c0b-b7c6-8ecebe9a5de1",
             "47ecbe32-c3a1-4740-ad96-b711d54f8b2e",
             "7258e947-3a93-4385-8a11-1bb2c987dcbd",
-            "3577c6f7-1185-4d4d-b07d-c109bd74c6e3"
+            "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
+            "39910fc5-c47b-4d36-a4e3-9d87f53ca775"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -888,12 +1035,12 @@ Response:+42465
           "id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630553700000,
           "parent_id": "ff21df9d-58c2-431c-8251-d718656a4a4b",
           "parent_table": "block",
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "column",
-          "version": 29
+          "version": 45
         }
       },
       "822848c6-d4f3-4496-a2fb-d0c839e2ed41": {
@@ -918,6 +1065,28 @@ Response:+42465
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 19
+        }
+      },
+      "8ee615fb-76c6-4a53-976f-ffa4b445ca8c": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["99e07bcd-9865-438c-a894-86c7780ace87"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630548977420,
+          "id": "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630548960000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["mimeTypeFromFileName"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 34
         }
       },
       "93d8f491-4d5f-488d-9187-9c8a6ea7f12d": {
@@ -1187,6 +1356,28 @@ Response:+42465
           "version": 35
         }
       },
+      "e1235662-877f-4732-a0c3-d4d72cd52106": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["9dff181f-e4dc-4449-8b2e-2a0e26df6b9d"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630550700000,
+          "id": "e1235662-877f-4732-a0c3-d4d72cd52106",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630550700000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["userHomeDirMust"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 33
+        }
+      },
       "e506454c-ad92-47dd-8dc6-41422baa4242": {
         "role": "editor",
         "value": {
@@ -1331,10 +1522,10 @@ Response:+42465
     }
   }
 }
-132408 noahttpcache
+166806 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
-Body:+2574
+Body:+3454
 {
   "requests": [
     {
@@ -1344,6 +1535,18 @@ Body:+2574
     {
       "table": "block",
       "id": "3cc94dc3-cd72-4177-ae1e-e9eab7c1dfa9"
+    },
+    {
+      "table": "block",
+      "id": "3d6aae28-7cc1-48e5-b56f-eee500f35f8a"
+    },
+    {
+      "table": "block",
+      "id": "48762dd2-04fe-42db-a209-07b3914b5437"
+    },
+    {
+      "table": "block",
+      "id": "48c37a43-007e-408d-ab17-8130fcee9d74"
     },
     {
       "table": "block",
@@ -1367,11 +1570,19 @@ Body:+2574
     },
     {
       "table": "block",
+      "id": "6c6eb52a-e547-4882-90e5-731f3071bfa1"
+    },
+    {
+      "table": "block",
       "id": "7caaa3b8-0ee6-45ee-ab20-1940cb378bf8"
     },
     {
       "table": "block",
       "id": "85c0aa5f-0de2-4010-905a-4c06feb21fc7"
+    },
+    {
+      "table": "block",
+      "id": "88952dc6-0929-406e-86cf-a67c6be5e103"
     },
     {
       "table": "block",
@@ -1388,6 +1599,14 @@ Body:+2574
     {
       "table": "block",
       "id": "90721a56-3b25-4f86-86b2-72556cdcd98f"
+    },
+    {
+      "table": "block",
+      "id": "99e07bcd-9865-438c-a894-86c7780ace87"
+    },
+    {
+      "table": "block",
+      "id": "9dff181f-e4dc-4449-8b2e-2a0e26df6b9d"
     },
     {
       "table": "block",
@@ -1423,6 +1642,10 @@ Body:+2574
     },
     {
       "table": "block",
+      "id": "de12bf7c-b985-441a-b184-dd9bb7a93d77"
+    },
+    {
+      "table": "block",
       "id": "e3ed3d05-f2aa-4f41-bf47-e838e4c9d3d8"
     },
     {
@@ -1432,6 +1655,10 @@ Body:+2574
     {
       "table": "block",
       "id": "e731cb45-6bae-4b4d-b233-430fab9534bf"
+    },
+    {
+      "table": "block",
+      "id": "e911a83f-0c6e-4ab1-9109-ec44441cd9f7"
     },
     {
       "table": "block",
@@ -1451,14 +1678,84 @@ Body:+2574
     },
     {
       "table": "block",
+      "id": "f827cd59-d6b6-4a9e-a599-e7dd57930e1e"
+    },
+    {
+      "table": "block",
       "id": "fe4f3651-8cef-45be-b9a0-438d9c185781"
     }
   ]
 }
-Response:+129742
+Response:+163260
 {
   "recordMapWithRoles": {
     "block": {
+      "05827a2b-5cd4-4d16-a27b-213e1658d6e2": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["f827cd59-d6b6-4a9e-a599-e7dd57930e1e"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553160000,
+          "id": "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553160000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["stringInSlice"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 25
+        }
+      },
+      "0fb960a8-e918-402a-9064-1f397fac5d6b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["48c37a43-007e-408d-ab17-8130fcee9d74"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551240000,
+          "id": "0fb960a8-e918-402a-9064-1f397fac5d6b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551240000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["dirExists"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 21
+        }
+      },
+      "1568d2d2-c324-47b7-be7e-f3e52aefc084": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["6c6eb52a-e547-4882-90e5-731f3071bfa1"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553040000,
+          "id": "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553040000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["createDirForFile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 30
+        }
+      },
       "1583edfb-2623-4f5e-89a2-0a5d032e07db": {
         "role": "editor",
         "value": {
@@ -1630,6 +1927,83 @@ Response:+129742
           "version": 9
         }
       },
+      "3577c6f7-1185-4d4d-b07d-c109bd74c6e3": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["88952dc6-0929-406e-86cf-a67c6be5e103"],
+          "copied_from": "8a679405-84e4-440b-a7fb-13806ee421f3",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630095045099,
+          "format": {
+            "copied_from_pointer": {
+              "id": "8a679405-84e4-440b-a7fb-13806ee421f3",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551120000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["sha1OfFile, sha1HexOfFile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 47
+        }
+      },
+      "36258818-c818-4702-8698-9649fce63251": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["48762dd2-04fe-42db-a209-07b3914b5437"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551180000,
+          "id": "36258818-c818-4702-8698-9649fce63251",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551180000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["formatDuration / FormattedDuration"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 46
+        }
+      },
+      "39910fc5-c47b-4d36-a4e3-9d87f53ca775": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "e911a83f-0c6e-4ab1-9109-ec44441cd9f7",
+            "3d6aae28-7cc1-48e5-b56f-eee500f35f8a"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553700000,
+          "id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630554000000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["cdUpDir"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 164
+        }
+      },
       "3af349c2-7deb-449e-8897-bdffa548a230": {
         "role": "editor",
         "value": {
@@ -1666,20 +2040,20 @@ Response:+129742
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095120000,
+          "last_edited_time": 1630553100000,
           "parent_id": "acd21668-c6f7-4d6d-a654-d1c660c0612f",
           "parent_table": "block",
           "properties": {
             "language": [["Go"]],
             "title": [
               [
-                "import (\n    \"bufio\"\n    \"fmt\"\n    \"os\"\n)\n\nfunc readLinesUsingScanner(filePath string) ([]string, error) {\n    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)\n    if err != nil {\n        return nil, err\n    }\n    defer file.Close()\n    scanner := bufio.NewScanner(file)\n    res := make([]string, 0)\n    for scanner.Scan() {\n        line := scanner.Bytes()\n        res = append(res, string(line))\n    }\n    if err = scanner.Err(); err != nil {\n        return nil, err\n    }\n    return res, nil\n}"
+                "func readLinesUsingScanner(filePath string) ([]string, error) {\n    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)\n    if err != nil {\n        return nil, err\n    }\n    defer file.Close()\n    scanner := bufio.NewScanner(file)\n    res := make([]string, 0)\n    for scanner.Scan() {\n        line := scanner.Bytes()\n        res = append(res, string(line))\n    }\n    if err = scanner.Err(); err != nil {\n        return nil, err\n    }\n    return res, nil\n}"
               ]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
-          "version": 15
+          "version": 18
         }
       },
       "3cf0ffcb-3539-42ec-8c7a-f4329b4a9432": {
@@ -1712,6 +2086,24 @@ Response:+129742
           "version": 6
         }
       },
+      "3d6aae28-7cc1-48e5-b56f-eee500f35f8a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553700000,
+          "id": "3d6aae28-7cc1-48e5-b56f-eee500f35f8a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553700000,
+          "parent_id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 26
+        }
+      },
       "404d7fed-d7ad-4ca2-84d4-b3e6824ab12f": {
         "role": "editor",
         "value": {
@@ -1742,6 +2134,28 @@ Response:+129742
           "version": 6
         }
       },
+      "43b2d873-24fa-49bb-9f0f-3c1c02896765": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["de12bf7c-b985-441a-b184-dd9bb7a93d77"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553280000,
+          "id": "43b2d873-24fa-49bb-9f0f-3c1c02896765",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553280000,
+          "parent_id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
+          "parent_table": "block",
+          "properties": {
+            "title": [["runCmdMust"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 22
+        }
+      },
       "47ecbe32-c3a1-4740-ad96-b711d54f8b2e": {
         "role": "editor",
         "value": {
@@ -1764,6 +2178,58 @@ Response:+129742
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 8
+        }
+      },
+      "48762dd2-04fe-42db-a209-07b3914b5437": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551198289,
+          "id": "48762dd2-04fe-42db-a209-07b3914b5437",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551180000,
+          "parent_id": "36258818-c818-4702-8698-9649fce63251",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "// time.Duration with a better string representation\ntype FormattedDuration time.Duration\n\nfunc (d FormattedDuration) String() string {\n\treturn formatDuration(time.Duration(d))\n}\n\n// formats duration in a more human friendly way\n// than time.Duration.String()\nfunc formatDuration(d time.Duration) string {\n\ts := d.String()\n\tif strings.HasSuffix(s, \"µs\") {\n\t\t// for µs we don't want fractions\n\t\tparts := strings.Split(s, \".\")\n\t\tif len(parts) > 1 {\n\t\t\treturn parts[0] + \" µs\"\n\t\t}\n\t\treturn strings.ReplaceAll(s, \"µs\", \" µs\")\n\t} else if strings.HasSuffix(s, \"ms\") {\n\t\t// for ms we only want 2 digit fractions\n\t\tparts := strings.Split(s, \".\")\n\t\t//fmt.Printf(\"fmtDur: '%s' => %#v\\n\", s, parts)\n\t\tif len(parts) > 1 {\n\t\t\ts2 := parts[1]\n\t\t\tif len(s2) > 4 {\n\t\t\t\t// 2 for \"ms\" and 2+ for fraction\n\t\t\t\tres := parts[0] + \".\" + s2[:2] + \" ms\"\n\t\t\t\t//fmt.Printf(\"fmtDur: s2: '%s', res: '%s'\\n\", s2, res)\n\t\t\t\treturn res\n\t\t\t}\n\t\t}\n\t\treturn strings.ReplaceAll(s, \"ms\", \" ms\")\n\t}\n\treturn s\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 31
+        }
+      },
+      "48c37a43-007e-408d-ab17-8130fcee9d74": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551276004,
+          "id": "48c37a43-007e-408d-ab17-8130fcee9d74",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551300000,
+          "parent_id": "0fb960a8-e918-402a-9064-1f397fac5d6b",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func dirExists(path string) bool {\n\tst, err := os.Lstat(path)\n\treturn err == nil && st.IsDir()\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 16
         }
       },
       "4e14536a-10b9-4a25-9381-daccee6db6b8": {
@@ -1958,14 +2424,18 @@ Response:+129742
             "1583edfb-2623-4f5e-89a2-0a5d032e07db",
             "9c2613e7-be7e-4372-b6de-d14041feda41",
             "7001affc-c09f-4962-a77f-7ea9699c9b9b",
+            "e1235662-877f-4732-a0c3-d4d72cd52106",
             "404d7fed-d7ad-4ca2-84d4-b3e6824ab12f",
             "5f2fac9f-b0f5-47d5-93f4-8077af81ec5e",
             "93d8f491-4d5f-488d-9187-9c8a6ea7f12d",
             "d7724a1d-06c1-44e8-8fda-afde4daca7bc",
             "bbf82344-2303-4990-a02e-d1d3a2928d6b",
             "768e7295-1243-4219-951c-c42ae2f35314",
+            "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
             "3af349c2-7deb-449e-8897-bdffa548a230",
-            "2a406ecd-1b58-4326-ba81-58101b267c99"
+            "2a406ecd-1b58-4326-ba81-58101b267c99",
+            "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+            "36258818-c818-4702-8698-9649fce63251"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -1976,12 +2446,12 @@ Response:+129742
           "id": "59936009-e92d-45d2-aac1-b7764e085bd3",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630553160000,
           "parent_id": "ff21df9d-58c2-431c-8251-d718656a4a4b",
           "parent_table": "block",
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "column",
-          "version": 33
+          "version": 45
         }
       },
       "5a832dad-dc7e-45c9-9025-807c013cfa8b": {
@@ -2005,7 +2475,7 @@ Response:+129742
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630554000000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -2013,7 +2483,7 @@ Response:+129742
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 129
+          "version": 143
         }
       },
       "5ef2afb4-0d64-47c7-907f-4b7c5313c396": {
@@ -2100,6 +2570,32 @@ Response:+129742
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
           "version": 2
+        }
+      },
+      "6c6eb52a-e547-4882-90e5-731f3071bfa1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553051151,
+          "id": "6c6eb52a-e547-4882-90e5-731f3071bfa1",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553040000,
+          "parent_id": "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func createDirForFile(path string) error {\n\tdir := filepath.Dir(path)\n\treturn os.MkdirAll(dir, 0755)\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 10
         }
       },
       "6f70163e-a5b8-4ba9-928a-faa2e45d1f51": {
@@ -2269,10 +2765,13 @@ Response:+129742
           "alive": true,
           "content": [
             "4efee1a9-6626-48d8-9bcf-da25198cc881",
+            "0fb960a8-e918-402a-9064-1f397fac5d6b",
             "229cfeb7-9ec7-4764-bbd3-bffd9931de79",
             "dcfc1a73-f15f-4504-98c5-48ed2e7e4e72",
             "afe8a577-1a12-47a9-98ec-87526cdb6d8f",
             "f1349e63-fc8a-4123-ad33-d596f95c6303",
+            "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+            "43b2d873-24fa-49bb-9f0f-3c1c02896765",
             "221a4fb7-8cb6-4bce-bd55-14a5a788b160",
             "822848c6-d4f3-4496-a2fb-d0c839e2ed41",
             "e506454c-ad92-47dd-8dc6-41422baa4242",
@@ -2281,7 +2780,8 @@ Response:+129742
             "f17970aa-6717-4c0b-b7c6-8ecebe9a5de1",
             "47ecbe32-c3a1-4740-ad96-b711d54f8b2e",
             "7258e947-3a93-4385-8a11-1bb2c987dcbd",
-            "3577c6f7-1185-4d4d-b07d-c109bd74c6e3"
+            "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
+            "39910fc5-c47b-4d36-a4e3-9d87f53ca775"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -2292,12 +2792,12 @@ Response:+129742
           "id": "7f2a3ae7-6f27-4ba7-bd07-946a82739184",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095720000,
+          "last_edited_time": 1630553700000,
           "parent_id": "ff21df9d-58c2-431c-8251-d718656a4a4b",
           "parent_table": "block",
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "column",
-          "version": 29
+          "version": 45
         }
       },
       "822848c6-d4f3-4496-a2fb-d0c839e2ed41": {
@@ -2352,6 +2852,32 @@ Response:+129742
           "version": 57
         }
       },
+      "88952dc6-0929-406e-86cf-a67c6be5e103": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630551101839,
+          "id": "88952dc6-0929-406e-86cf-a67c6be5e103",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630551120000,
+          "parent_id": "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func sha1OfFile(path string) ([]byte, error) {\n\tf, err := os.Open(path)\n\tif err != nil {\n\t\t//fmt.Printf(\"os.Open(%s) failed with %s\\n\", path, err.Error())\n\t\treturn nil, err\n\t}\n\tdefer f.Close()\n\th := sha1.New()\n\t_, err = io.Copy(h, f)\n\tif err != nil {\n\t\t//fmt.Printf(\"io.Copy() failed with %s\\n\", err.Error())\n\t\treturn nil, err\n\t}\n\treturn h.Sum(nil), nil\n}\n\nfunc sha1HexOfFile(path string) (string, error) {\n\tsha1, err := sha1OfFile(path)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\treturn fmt.Sprintf(\"%x\", sha1), nil\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 20
+        }
+      },
       "8dd8f960-5cb5-4fae-bd52-f8a15944126f": {
         "role": "editor",
         "value": {
@@ -2384,6 +2910,28 @@ Response:+129742
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
           "version": 2
+        }
+      },
+      "8ee615fb-76c6-4a53-976f-ffa4b445ca8c": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["99e07bcd-9865-438c-a894-86c7780ace87"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630548977420,
+          "id": "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630548960000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["mimeTypeFromFileName"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 34
         }
       },
       "8f1ad12c-d9e6-4a1b-a478-8e6f93ac5119": {
@@ -2496,6 +3044,32 @@ Response:+129742
           "version": 76
         }
       },
+      "99e07bcd-9865-438c-a894-86c7780ace87": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630548989576,
+          "id": "99e07bcd-9865-438c-a894-86c7780ace87",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630548960000,
+          "parent_id": "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func mimeTypeFromFileName(path string) string {\n\tvar mimeTypes = map[string]string{\n\t\t// this is a list from go's mime package\n\t\t\".css\":  \"text/css; charset=utf-8\",\n\t\t\".gif\":  \"image/gif\",\n\t\t\".htm\":  \"text/html; charset=utf-8\",\n\t\t\".html\": \"text/html; charset=utf-8\",\n\t\t\".jpg\":  \"image/jpeg\",\n\t\t\".js\":   \"application/javascript\",\n\t\t\".wasm\": \"application/wasm\",\n\t\t\".pdf\":  \"application/pdf\",\n\t\t\".png\":  \"image/png\",\n\t\t\".svg\":  \"image/svg+xml\",\n\t\t\".xml\":  \"text/xml; charset=utf-8\",\n\n\t\t// those are my additions\n\t\t\".txt\":  \"text/plain\",\n\t\t\".exe\":  \"application/octet-stream\",\n\t\t\".json\": \"application/json\",\n\t}\n\n\text := strings.ToLower(filepath.Ext(path))\n\tmt := mimeTypes[ext]\n\tif mt != \"\" {\n\t\treturn mt\n\t}\n\t// if not given, default to this\n\treturn \"application/octet-stream\"\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 11
+        }
+      },
       "9c2613e7-be7e-4372-b6de-d14041feda41": {
         "role": "editor",
         "value": {
@@ -2524,6 +3098,32 @@ Response:+129742
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 6
+        }
+      },
+      "9dff181f-e4dc-4449-8b2e-2a0e26df6b9d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630550747256,
+          "id": "9dff181f-e4dc-4449-8b2e-2a0e26df6b9d",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630550700000,
+          "parent_id": "e1235662-877f-4732-a0c3-d4d72cd52106",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func userHomeDirMust() string {\n\ts, err := os.UserHomeDir()\n\tmust(err)\n\treturn s\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 10
         }
       },
       "a1f84ba8-4250-4ba7-a1eb-294a22c6783f": {
@@ -2963,6 +3563,54 @@ Response:+129742
           "version": 5
         }
       },
+      "de12bf7c-b985-441a-b184-dd9bb7a93d77": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553318560,
+          "id": "de12bf7c-b985-441a-b184-dd9bb7a93d77",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553280000,
+          "parent_id": "43b2d873-24fa-49bb-9f0f-3c1c02896765",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func fmtCmdShort(cmd exec.Cmd) string {\n\tcmd.Path = filepath.Base(cmd.Path)\n\treturn cmd.String()\n}\n\nfunc runCmdMust(cmd *exec.Cmd) string {\n\tfmt.Printf(\"> %s\\n\", fmtCmdShort(*cmd))\n\tcanCapture := (cmd.Stdout == nil) && (cmd.Stderr == nil)\n\tif canCapture {\n\t\tout, err := cmd.CombinedOutput()\n\t\tif err == nil {\n\t\t\tif len(out) > 0 {\n\t\t\t\tlogf(\"Output:\\n%s\\n\", string(out))\n\t\t\t}\n\t\t\treturn string(out)\n\t\t}\n\t\tlogf(\"cmd '%s' failed with '%s'. Output:\\n%s\\n\", cmd, err, string(out))\n\t\tmust(err)\n\t\treturn string(out)\n\t}\n\terr := cmd.Run()\n\tif err == nil {\n\t\treturn \"\"\n\t}\n\tlogf(\"cmd '%s' failed with '%s'\\n\", cmd, err)\n\tmust(err)\n\treturn \"\"\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 10
+        }
+      },
+      "e1235662-877f-4732-a0c3-d4d72cd52106": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["9dff181f-e4dc-4449-8b2e-2a0e26df6b9d"],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630550700000,
+          "id": "e1235662-877f-4732-a0c3-d4d72cd52106",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630550700000,
+          "parent_id": "59936009-e92d-45d2-aac1-b7764e085bd3",
+          "parent_table": "block",
+          "properties": {
+            "title": [["userHomeDirMust"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 33
+        }
+      },
       "e3ed3d05-f2aa-4f41-bf47-e838e4c9d3d8": {
         "role": "editor",
         "value": {
@@ -3076,6 +3724,32 @@ Response:+129742
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
           "version": 71
+        }
+      },
+      "e911a83f-0c6e-4ab1-9109-ec44441cd9f7": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630554023198,
+          "id": "e911a83f-0c6e-4ab1-9109-ec44441cd9f7",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630554000000,
+          "parent_id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func currDirAbsMust() string {\n\tdir, err := filepath.Abs(\".\")\n\tmust(err)\n\treturn dir\n}\n\n// we are executed for do/ directory so top dir is parent dir\nfunc cdUpDir(dirName string) {\n\tstartDir := currDirAbsMust()\n\tdir := startDir\n\tfor {\n\t\t// we're already in top directory\n\t\tif filepath.Base(dir) == dirName && dirExists(dir) {\n\t\t\terr := os.Chdir(dir)\n\t\t\tmust(err)\n\t\t\treturn\n\t\t}\n\t\tparentDir := filepath.Dir(dir)\n\t\tpanicIf(dir == parentDir, \"invalid startDir: '%s', dir: '%s'\", startDir, dir)\n\t\tdir = parentDir\n\t}\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 10
         }
       },
       "ed055f63-753e-42ef-9025-e11ac9062c35": {
@@ -3287,6 +3961,32 @@ Response:+129742
           "version": 14
         }
       },
+      "f827cd59-d6b6-4a9e-a599-e7dd57930e1e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1630553206453,
+          "id": "f827cd59-d6b6-4a9e-a599-e7dd57930e1e",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1630553160000,
+          "parent_id": "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
+          "parent_table": "block",
+          "properties": {
+            "language": [["Go"]],
+            "title": [
+              [
+                "func stringInSlice(a []string, toCheck string) bool {\n\tfor _, s := range a {\n\t\tif s == toCheck {\n\t\t\treturn true\n\t\t}\n\t}\n\treturn false\n}"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "code",
+          "version": 10
+        }
+      },
       "fe4f3651-8cef-45be-b9a0-438d9c185781": {
         "role": "editor",
         "value": {
@@ -3422,20 +4122,90 @@ Response:+129742
         "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1630095120000,
+        "last_edited_time": 1630553100000,
         "parent_id": "acd21668-c6f7-4d6d-a654-d1c660c0612f",
         "parent_table": "block",
         "properties": {
           "language": [["Go"]],
           "title": [
             [
-              "import (\n    \"bufio\"\n    \"fmt\"\n    \"os\"\n)\n\nfunc readLinesUsingScanner(filePath string) ([]string, error) {\n    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)\n    if err != nil {\n        return nil, err\n    }\n    defer file.Close()\n    scanner := bufio.NewScanner(file)\n    res := make([]string, 0)\n    for scanner.Scan() {\n        line := scanner.Bytes()\n        res = append(res, string(line))\n    }\n    if err = scanner.Err(); err != nil {\n        return nil, err\n    }\n    return res, nil\n}"
+              "func readLinesUsingScanner(filePath string) ([]string, error) {\n    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)\n    if err != nil {\n        return nil, err\n    }\n    defer file.Close()\n    scanner := bufio.NewScanner(file)\n    res := make([]string, 0)\n    for scanner.Scan() {\n        line := scanner.Bytes()\n        res = append(res, string(line))\n    }\n    if err = scanner.Err(); err != nil {\n        return nil, err\n    }\n    return res, nil\n}"
             ]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
-        "version": 15
+        "version": 18
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630553700000,
+        "id": "3d6aae28-7cc1-48e5-b56f-eee500f35f8a",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630553700000,
+        "parent_id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+        "parent_table": "block",
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "text",
+        "version": 26
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630551198289,
+        "id": "48762dd2-04fe-42db-a209-07b3914b5437",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630551180000,
+        "parent_id": "36258818-c818-4702-8698-9649fce63251",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "// time.Duration with a better string representation\ntype FormattedDuration time.Duration\n\nfunc (d FormattedDuration) String() string {\n\treturn formatDuration(time.Duration(d))\n}\n\n// formats duration in a more human friendly way\n// than time.Duration.String()\nfunc formatDuration(d time.Duration) string {\n\ts := d.String()\n\tif strings.HasSuffix(s, \"µs\") {\n\t\t// for µs we don't want fractions\n\t\tparts := strings.Split(s, \".\")\n\t\tif len(parts) > 1 {\n\t\t\treturn parts[0] + \" µs\"\n\t\t}\n\t\treturn strings.ReplaceAll(s, \"µs\", \" µs\")\n\t} else if strings.HasSuffix(s, \"ms\") {\n\t\t// for ms we only want 2 digit fractions\n\t\tparts := strings.Split(s, \".\")\n\t\t//fmt.Printf(\"fmtDur: '%s' => %#v\\n\", s, parts)\n\t\tif len(parts) > 1 {\n\t\t\ts2 := parts[1]\n\t\t\tif len(s2) > 4 {\n\t\t\t\t// 2 for \"ms\" and 2+ for fraction\n\t\t\t\tres := parts[0] + \".\" + s2[:2] + \" ms\"\n\t\t\t\t//fmt.Printf(\"fmtDur: s2: '%s', res: '%s'\\n\", s2, res)\n\t\t\t\treturn res\n\t\t\t}\n\t\t}\n\t\treturn strings.ReplaceAll(s, \"ms\", \" ms\")\n\t}\n\treturn s\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 31
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630551276004,
+        "id": "48c37a43-007e-408d-ab17-8130fcee9d74",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630551300000,
+        "parent_id": "0fb960a8-e918-402a-9064-1f397fac5d6b",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func dirExists(path string) bool {\n\tst, err := os.Lstat(path)\n\treturn err == nil && st.IsDir()\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 16
       }
     },
     {
@@ -3600,6 +4370,32 @@ Response:+129742
       "role": "editor",
       "value": {
         "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630553051151,
+        "id": "6c6eb52a-e547-4882-90e5-731f3071bfa1",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630553040000,
+        "parent_id": "1568d2d2-c324-47b7-be7e-f3e52aefc084",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func createDirForFile(path string) error {\n\tdir := filepath.Dir(path)\n\treturn os.MkdirAll(dir, 0755)\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 10
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
         "copied_from": "43b38179-94ce-4e08-b9e4-80419e985930",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
@@ -3656,6 +4452,32 @@ Response:+129742
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
         "version": 57
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630551101839,
+        "id": "88952dc6-0929-406e-86cf-a67c6be5e103",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630551120000,
+        "parent_id": "3577c6f7-1185-4d4d-b07d-c109bd74c6e3",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func sha1OfFile(path string) ([]byte, error) {\n\tf, err := os.Open(path)\n\tif err != nil {\n\t\t//fmt.Printf(\"os.Open(%s) failed with %s\\n\", path, err.Error())\n\t\treturn nil, err\n\t}\n\tdefer f.Close()\n\th := sha1.New()\n\t_, err = io.Copy(h, f)\n\tif err != nil {\n\t\t//fmt.Printf(\"io.Copy() failed with %s\\n\", err.Error())\n\t\treturn nil, err\n\t}\n\treturn h.Sum(nil), nil\n}\n\nfunc sha1HexOfFile(path string) (string, error) {\n\tsha1, err := sha1OfFile(path)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\treturn fmt.Sprintf(\"%x\", sha1), nil\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 20
       }
     },
     {
@@ -3772,6 +4594,58 @@ Response:+129742
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "text",
         "version": 2
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630548989576,
+        "id": "99e07bcd-9865-438c-a894-86c7780ace87",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630548960000,
+        "parent_id": "8ee615fb-76c6-4a53-976f-ffa4b445ca8c",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func mimeTypeFromFileName(path string) string {\n\tvar mimeTypes = map[string]string{\n\t\t// this is a list from go's mime package\n\t\t\".css\":  \"text/css; charset=utf-8\",\n\t\t\".gif\":  \"image/gif\",\n\t\t\".htm\":  \"text/html; charset=utf-8\",\n\t\t\".html\": \"text/html; charset=utf-8\",\n\t\t\".jpg\":  \"image/jpeg\",\n\t\t\".js\":   \"application/javascript\",\n\t\t\".wasm\": \"application/wasm\",\n\t\t\".pdf\":  \"application/pdf\",\n\t\t\".png\":  \"image/png\",\n\t\t\".svg\":  \"image/svg+xml\",\n\t\t\".xml\":  \"text/xml; charset=utf-8\",\n\n\t\t// those are my additions\n\t\t\".txt\":  \"text/plain\",\n\t\t\".exe\":  \"application/octet-stream\",\n\t\t\".json\": \"application/json\",\n\t}\n\n\text := strings.ToLower(filepath.Ext(path))\n\tmt := mimeTypes[ext]\n\tif mt != \"\" {\n\t\treturn mt\n\t}\n\t// if not given, default to this\n\treturn \"application/octet-stream\"\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 11
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630550747256,
+        "id": "9dff181f-e4dc-4449-8b2e-2a0e26df6b9d",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630550700000,
+        "parent_id": "e1235662-877f-4732-a0c3-d4d72cd52106",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func userHomeDirMust() string {\n\ts, err := os.UserHomeDir()\n\tmust(err)\n\treturn s\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 10
       }
     },
     {
@@ -4026,6 +4900,32 @@ Response:+129742
       "role": "editor",
       "value": {
         "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630553318560,
+        "id": "de12bf7c-b985-441a-b184-dd9bb7a93d77",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630553280000,
+        "parent_id": "43b2d873-24fa-49bb-9f0f-3c1c02896765",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func fmtCmdShort(cmd exec.Cmd) string {\n\tcmd.Path = filepath.Base(cmd.Path)\n\treturn cmd.String()\n}\n\nfunc runCmdMust(cmd *exec.Cmd) string {\n\tfmt.Printf(\"> %s\\n\", fmtCmdShort(*cmd))\n\tcanCapture := (cmd.Stdout == nil) && (cmd.Stderr == nil)\n\tif canCapture {\n\t\tout, err := cmd.CombinedOutput()\n\t\tif err == nil {\n\t\t\tif len(out) > 0 {\n\t\t\t\tlogf(\"Output:\\n%s\\n\", string(out))\n\t\t\t}\n\t\t\treturn string(out)\n\t\t}\n\t\tlogf(\"cmd '%s' failed with '%s'. Output:\\n%s\\n\", cmd, err, string(out))\n\t\tmust(err)\n\t\treturn string(out)\n\t}\n\terr := cmd.Run()\n\tif err == nil {\n\t\treturn \"\"\n\t}\n\tlogf(\"cmd '%s' failed with '%s'\\n\", cmd, err)\n\tmust(err)\n\treturn \"\"\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 10
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
         "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "created_by_table": "notion_user",
@@ -4111,6 +5011,32 @@ Response:+129742
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
         "version": 71
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630554023198,
+        "id": "e911a83f-0c6e-4ab1-9109-ec44441cd9f7",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630554000000,
+        "parent_id": "39910fc5-c47b-4d36-a4e3-9d87f53ca775",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func currDirAbsMust() string {\n\tdir, err := filepath.Abs(\".\")\n\tmust(err)\n\treturn dir\n}\n\n// we are executed for do/ directory so top dir is parent dir\nfunc cdUpDir(dirName string) {\n\tstartDir := currDirAbsMust()\n\tdir := startDir\n\tfor {\n\t\t// we're already in top directory\n\t\tif filepath.Base(dir) == dirName && dirExists(dir) {\n\t\t\terr := os.Chdir(dir)\n\t\t\tmust(err)\n\t\t\treturn\n\t\t}\n\t\tparentDir := filepath.Dir(dir)\n\t\tpanicIf(dir == parentDir, \"invalid startDir: '%s', dir: '%s'\", startDir, dir)\n\t\tdir = parentDir\n\t}\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 10
       }
     },
     {
@@ -4272,6 +5198,32 @@ Response:+129742
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
         "version": 14
+      }
+    },
+    {
+      "role": "editor",
+      "value": {
+        "alive": true,
+        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "created_by_table": "notion_user",
+        "created_time": 1630553206453,
+        "id": "f827cd59-d6b6-4a9e-a599-e7dd57930e1e",
+        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1630553160000,
+        "parent_id": "05827a2b-5cd4-4d16-a27b-213e1658d6e2",
+        "parent_table": "block",
+        "properties": {
+          "language": [["Go"]],
+          "title": [
+            [
+              "func stringInSlice(a []string, toCheck string) bool {\n\tfor _, s := range a {\n\t\tif s == toCheck {\n\t\t\treturn true\n\t\t}\n\t}\n\treturn false\n}"
+            ]
+          ]
+        },
+        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+        "type": "code",
+        "version": 10
       }
     },
     {
