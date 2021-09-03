@@ -91,7 +91,7 @@ Response:+9730
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630554000000,
+          "last_edited_time": 1630556460000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -99,7 +99,7 @@ Response:+9730
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 143
+          "version": 144
         }
       },
       "6f70163e-a5b8-4ba9-928a-faa2e45d1f51": {
@@ -249,7 +249,7 @@ Response:+9730
         "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1630554000000,
+        "last_edited_time": 1630556460000,
         "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
         "parent_table": "block",
         "properties": {
@@ -257,7 +257,7 @@ Response:+9730
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
-        "version": 143
+        "version": 144
       }
     }
   ]
@@ -840,7 +840,7 @@ Response:+50064
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630554000000,
+          "last_edited_time": 1630556460000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -848,7 +848,7 @@ Response:+50064
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 143
+          "version": 144
         }
       },
       "5f2fac9f-b0f5-47d5-93f4-8077af81ec5e": {
@@ -1522,7 +1522,7 @@ Response:+50064
     }
   }
 }
-166806 noahttpcache
+167066 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+3454
@@ -1686,7 +1686,7 @@ Body:+3454
     }
   ]
 }
-Response:+163260
+Response:+163520
 {
   "recordMapWithRoles": {
     "block": {
@@ -2475,7 +2475,7 @@ Response:+163260
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630554000000,
+          "last_edited_time": 1630556460000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -2483,7 +2483,7 @@ Response:+163260
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 143
+          "version": 144
         }
       },
       "5ef2afb4-0d64-47c7-907f-4b7c5313c396": {
@@ -3459,20 +3459,20 @@ Response:+163260
           "id": "ccc2677f-2e17-43b8-b747-9bcea50953d6",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095000000,
+          "last_edited_time": 1630556460000,
           "parent_id": "404d7fed-d7ad-4ca2-84d4-b3e6824ab12f",
           "parent_table": "block",
           "properties": {
             "language": [["Go"]],
             "title": [
               [
-                "func humanizeSize(i int64) string {\n\tif i > 1024*1024*1024 {\n\t\treturn fmt.Sprintf(\"%.2f GB\", float64(i)/1024*1024*1024)\n\t}\n\tif i > 1024*1024 {\n\t\treturn fmt.Sprintf(\"%.2f MB\", float64(i)/1024*1024)\n\t}\n\tif i > 1024 {\n\t\treturn fmt.Sprintf(\"%.2f kB\", float64(i)/1024)\n\t}\n\treturn fmt.Sprintf(\"%d bytes\", i)\n}"
+                "func humanizeSize(i int64) string {\n\tconst (\n\t\tkb = 1024\n\t\tmb = kb * 1024\n\t\tgb = mb * 1024\n\t)\n\tfs := func(n int64, d float64, size string) string {\n\t\ts := fmt.Sprintf(\"%.2f\", float64(n)/d)\n\t\treturn strings.TrimSuffix(s, \".00\") + \" \" + size\n\t}\n\n\tif i > gb {\n\t\treturn fs(i, gb, \"GB\")\n\t}\n\tif i > mb {\n\t\treturn fs(i, mb, \"MB\")\n\t}\n\tif i > kb {\n\t\treturn fs(i, kb, \"kB\")\n\t}\n\treturn fmt.Sprintf(\"%d bytes\", i)\n}"
               ]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
-          "version": 2
+          "version": 5
         }
       },
       "d3fee55b-6831-44cd-95ca-3ec36935bd66": {
@@ -4846,20 +4846,20 @@ Response:+163260
         "id": "ccc2677f-2e17-43b8-b747-9bcea50953d6",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1630095000000,
+        "last_edited_time": 1630556460000,
         "parent_id": "404d7fed-d7ad-4ca2-84d4-b3e6824ab12f",
         "parent_table": "block",
         "properties": {
           "language": [["Go"]],
           "title": [
             [
-              "func humanizeSize(i int64) string {\n\tif i > 1024*1024*1024 {\n\t\treturn fmt.Sprintf(\"%.2f GB\", float64(i)/1024*1024*1024)\n\t}\n\tif i > 1024*1024 {\n\t\treturn fmt.Sprintf(\"%.2f MB\", float64(i)/1024*1024)\n\t}\n\tif i > 1024 {\n\t\treturn fmt.Sprintf(\"%.2f kB\", float64(i)/1024)\n\t}\n\treturn fmt.Sprintf(\"%d bytes\", i)\n}"
+              "func humanizeSize(i int64) string {\n\tconst (\n\t\tkb = 1024\n\t\tmb = kb * 1024\n\t\tgb = mb * 1024\n\t)\n\tfs := func(n int64, d float64, size string) string {\n\t\ts := fmt.Sprintf(\"%.2f\", float64(n)/d)\n\t\treturn strings.TrimSuffix(s, \".00\") + \" \" + size\n\t}\n\n\tif i > gb {\n\t\treturn fs(i, gb, \"GB\")\n\t}\n\tif i > mb {\n\t\treturn fs(i, mb, \"MB\")\n\t}\n\tif i > kb {\n\t\treturn fs(i, kb, \"kB\")\n\t}\n\treturn fmt.Sprintf(\"%d bytes\", i)\n}"
             ]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
-        "version": 2
+        "version": 5
       }
     },
     {
