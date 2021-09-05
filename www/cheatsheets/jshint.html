@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Jshint cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Jshint cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\jshint.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#relaxing">Relaxing</a>, <a href="#enforcing">Enforcing</a>, <a href="#ignore">Ignore</a>, <a href="#globals-and-environments">Globals and Environments</a>, <a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="relaxing">Relaxing</h3>
+<p>Enable these options to <em>not</em> throw errors in these conditions.
+See: <a href="http://www.jshint.com/docs/options/#relaxing-options">Relaxing</a></p>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint asi: true */</span>
+<span class="hljs-title function_">allow</span>()
+<span class="hljs-title function_">missing_semicolons</span>()
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint boss: true */</span>
+<span class="hljs-keyword">if</span> (m = str.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/.../</span>))
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint debug: true */</span>
+<span class="hljs-keyword">debugger</span>;
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint eqnull: true */</span>
+<span class="hljs-keyword">if</span> (x == <span class="hljs-literal">null</span>)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint evil: true */</span>
+<span class="hljs-built_in">eval</span>(<span class="hljs-string">&#x27;...&#x27;</span>)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint expr: true */</span>
+production &amp;&amp; minify = <span class="hljs-literal">true</span>;
+div.<span class="hljs-property">innerWidth</span>;
+<span class="hljs-title function_">expect</span>(x).<span class="hljs-property">be</span>.<span class="hljs-property">true</span>;
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint laxcomma: true */</span>
+<span class="hljs-keyword">var</span> one = <span class="hljs-number">1</span>
+  , two = <span class="hljs-number">2</span>;
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint loopfunc: true */</span>
+<span class="hljs-keyword">for</span> (i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; x++) {
+  (<span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>) { ... })(i);
+}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint sub: true */</span>
+process.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;name_here&#x27;</span>]
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint strict: &quot;global&quot; */</span>
+<span class="hljs-meta">&quot;use strict&quot;</span>;
+</code></pre>
+<h3 id="enforcing">Enforcing</h3>
+<p>Enable these options to catch more errors.
+See: <a href="http://www.jshint.com/docs/options/#enforcing-options">Enforcing</a></p>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint curly: true */</span>
+<span class="hljs-keyword">while</span> (day)                     <span class="hljs-comment">// err: use { }&#x27;s</span>
+  <span class="hljs-title function_">shuffle</span>();
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint eqeqeq: true */</span>
+<span class="hljs-keyword">if</span> (a == <span class="hljs-literal">null</span>)                  <span class="hljs-comment">// err: use ===</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint es3: true */</span>
+<span class="hljs-comment">// ...for legacy IE compatibility</span>
+a.<span class="hljs-property">default</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ... }; <span class="hljs-comment">// err: reserved word</span>
+array = [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, ];           <span class="hljs-comment">// err: extra comma</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint forin: true */</span>
+<span class="hljs-keyword">for</span> (key <span class="hljs-keyword">in</span> obj) { ... }        <span class="hljs-comment">// err: check obj.hasOwnProperty(key)</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint freeze: true */</span>
+<span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">count</span> = ...;    <span class="hljs-comment">// err: don&#x27;t modify native prototypes</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint indent: 4 */</span>
+<span class="hljs-keyword">if</span> (x) {                        <span class="hljs-comment">// err: expected indent of 4, found 2</span>
+  ...;
+}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint quotmark: single */</span>
+<span class="hljs-comment">/* jshint quotmark: double */</span>
+<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;hi&quot;</span>);                    <span class="hljs-comment">// err: only single allowed</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint strict: true */</span>
+<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ... }              <span class="hljs-comment">// err: need &quot;use strict&quot;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint white: true, indent: 4 */</span>
+<span class="hljs-comment">/* jshint maxdepth: 2 */</span>
+<span class="hljs-comment">/* jshint maxparams: 3 */</span>
+<span class="hljs-comment">/* jshint maxstatements: 4 */</span>
+<span class="hljs-comment">/* jshint maxcomplexity: 5 */</span>
+<span class="hljs-comment">/* jshint maxlen: 80 */</span>
+</code></pre>
+<h3 id="ignore">Ignore</h3>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint ignore:start */</span>
+<span class="hljs-comment">/* jshint ignore:end */</span>
+</code></pre>
+<h3 id="globals-and-environments">Globals and Environments</h3>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint undef: true */</span>
+<span class="hljs-comment">/* global jQuery */</span>
+<span class="hljs-comment">/* global -BAD_LIB */</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">/* jshint devel: true */</span>   <span class="hljs-variable language_">console</span>, alert, ...
+<span class="hljs-comment">/* jshint browser: true */</span> <span class="hljs-variable language_">window</span>, <span class="hljs-variable language_">document</span>, location, ...
+<span class="hljs-comment">/* jshint node: true */</span>    <span class="hljs-variable language_">module</span>, <span class="hljs-built_in">exports</span>, <span class="hljs-variable language_">console</span>, process, ...
+<span class="hljs-comment">/* jshint jquery: true */</span>  jQuery, $
+</code></pre>
+<p>See: <a href="http://www.jshint.com/docs/options/#environments">Environments</a></p>
+<h3 id="also-see">Also see</h3>
+
+<ul>
+<li><a href="http://www.jshint.com/docs/options/">http://www.jshint.com/docs/options/</a></li>
+<li><a href="https://gist.github.com/haschek/2595796">https://gist.github.com/haschek/2595796</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

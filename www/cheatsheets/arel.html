@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Arel cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Arel cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\arel.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#tables">Tables</a>, <a href="#fields">Fields</a>, <a href="#-where-restriction-">where (restriction)</a>, <a href="#-select-projection-">select (projection)</a>, <a href="#-join-">join</a>, <a href="#-limit-offset-">limit / offset</a>, <a href="#aggregates">Aggregates</a>, <a href="#-order-">order</a>, <a href="#with-activerecord">With ActiveRecord</a>, <a href="#clean-code-with-arel">Clean code with arel</a><br>
+<a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="tables">Tables</h3>
+
+<pre><code class="rb">users = Arel::Table.new(<span class="hljs-symbol">:users</span>)
+users = User.arel_table  <span class="hljs-comment"># ActiveRecord model</span>
+</code></pre>
+<h3 id="fields">Fields</h3>
+
+<pre><code class="rb">users[<span class="hljs-symbol">:name</span>]
+users[<span class="hljs-symbol">:id</span>]
+</code></pre>
+<h3 id="-where-restriction-"><code>where</code> (restriction)</h3>
+
+<pre><code class="rb">users.where(users[<span class="hljs-symbol">:name</span>].eq(<span class="hljs-string">&#x27;amy&#x27;</span>))
+<span class="hljs-comment"># SELECT * FROM users WHERE users.name = &#x27;amy&#x27;</span>
+</code></pre>
+<h3 id="-select-projection-"><code>select</code> (projection)</h3>
+
+<pre><code class="rb">users.project(users[<span class="hljs-symbol">:id</span>])
+<span class="hljs-comment"># SELECT users.id FROM users</span>
+</code></pre>
+<h3 id="-join-"><code>join</code></h3>
+<h4 id="basic-join">basic join</h4>
+<p>In ActiveRecord (without Arel), if <code>:photos</code> is the name of the association, use <code>joins</code></p>
+
+<pre><code class="rb">users.joins(<span class="hljs-symbol">:photos</span>)
+</code></pre>
+<p>In Arel, if <code>photos</code> is defined as the Arel table,</p>
+
+<pre><code class="rb">photos = Photo.arel_table
+users.join(photos) 
+users.join(photos, Arel::Nodes::OuterJoin).on(users[<span class="hljs-symbol">:id</span>].eq(photos[<span class="hljs-symbol">:user_id</span>]))
+</code></pre>
+<h4 id="join-with-conditions">join with conditions</h4>
+
+<pre><code class="rb">users.joins(<span class="hljs-symbol">:photos</span>).merge(Photo.where(<span class="hljs-symbol">published:</span> <span class="hljs-literal">true</span>))
+</code></pre>
+<p>If the simpler version doesn&#39;t help and you want to add more SQL statements to it:</p>
+
+<pre><code class="rb">users.join(
+   users.join(photos, Arel::Nodes::OuterJoin)
+   .on(photos[<span class="hljs-symbol">:user_id</span>].eq(users[<span class="hljs-symbol">:id</span>]).<span class="hljs-keyword">and</span>(photos[<span class="hljs-symbol">:published</span>].eq(<span class="hljs-literal">true</span>)))
+)
+</code></pre>
+<h4 id="advanced-join">advanced join</h4>
+<p>multiple <code>joins</code> with the same table but different meanings and/or conditions</p>
+
+<pre><code class="rb">creators = User.arel_table.<span class="hljs-keyword">alias</span>(<span class="hljs-string">&#x27;creators&#x27;</span>)
+updaters = User.arel_table.<span class="hljs-keyword">alias</span>(<span class="hljs-string">&#x27;updaters&#x27;</span>)
+photos = Photo.arel_table
+
+photos_with_credits = photos
+.join(photos.join(creators, Arel::Nodes::OuterJoin).on(photos[<span class="hljs-symbol">:created_by_id</span>].eq(creators[<span class="hljs-symbol">:id</span>])))
+.join(photos.join(updaters, Arel::Nodes::OuterJoin).on(photos[<span class="hljs-symbol">:assigned_id</span>].eq(updaters[<span class="hljs-symbol">:id</span>])))
+.project(photos[<span class="hljs-symbol">:name</span>], photos[<span class="hljs-symbol">:created_at</span>], creators[<span class="hljs-symbol">:name</span>].as(<span class="hljs-string">&#x27;creator&#x27;</span>), updaters[<span class="hljs-symbol">:name</span>].as(<span class="hljs-string">&#x27;editor&#x27;</span>))
+
+photos_with_credits.to_sql
+<span class="hljs-comment"># =&gt; &quot;SELECT `photos`.`name`, `photos`.`created_at`, `creators`.`name` AS creator, `updaters`.`name` AS editor FROM `photos` INNER JOIN (SELECT FROM `photos` LEFT OUTER JOIN `users` `creators` ON `photos`.`created_by_id` = `creators`.`id`) INNER JOIN (SELECT FROM `photos` LEFT OUTER JOIN `users` `updaters` ON `photos`.`updated_by_id` = `updaters`.`id`)&quot;</span>
+
+<span class="hljs-comment"># after the request is done, you can use the attributes you named</span>
+<span class="hljs-comment"># it&#x27;s as if every Photo record you got has &quot;creator&quot; and &quot;editor&quot; fields, containing creator name and editor name</span>
+photos_with_credits.map{<span class="hljs-params">|x|</span>
+  <span class="hljs-string">&quot;<span class="hljs-subst">#{photo.name}</span> - copyright <span class="hljs-subst">#{photo.created_at.year}</span> <span class="hljs-subst">#{photo.creator}</span>, edited by <span class="hljs-subst">#{photo.editor}</span>&quot;</span>
+}.join(<span class="hljs-string">&#x27;; &#x27;</span>)
+</code></pre>
+<h3 id="-limit-offset-"><code>limit</code> / <code>offset</code></h3>
+
+<pre><code class="rb">users.take(<span class="hljs-number">5</span>) <span class="hljs-comment"># =&gt; SELECT * FROM users LIMIT 5</span>
+users.skip(<span class="hljs-number">4</span>) <span class="hljs-comment"># =&gt; SELECT * FROM users OFFSET 4</span>
+</code></pre>
+<h3 id="aggregates">Aggregates</h3>
+
+<pre><code class="rb">users.project(users[<span class="hljs-symbol">:age</span>].sum) <span class="hljs-comment"># .average .minimum .maximum</span>
+users.project(users[<span class="hljs-symbol">:id</span>].count)
+users.project(users[<span class="hljs-symbol">:id</span>].count.as(<span class="hljs-string">&#x27;user_count&#x27;</span>))
+</code></pre>
+<h3 id="-order-"><code>order</code></h3>
+
+<pre><code class="rb">users.order(users[<span class="hljs-symbol">:name</span>])
+users.order(users[<span class="hljs-symbol">:name</span>], users[<span class="hljs-symbol">:age</span>].desc)
+users.reorder(users[<span class="hljs-symbol">:age</span>])
+</code></pre>
+<h3 id="with-activerecord">With ActiveRecord</h3>
+
+<pre><code class="rb">User.arel_table
+User.where(<span class="hljs-symbol">id:</span> <span class="hljs-number">1</span>).arel
+</code></pre>
+<h3 id="clean-code-with-arel">Clean code with arel</h3>
+<p>Most of the clever stuff should be in scopes, e.g. the code above could become:</p>
+
+<pre><code class="rb">photos_with_credits = Photo.with_creator.with_editor
+</code></pre>
+<p>You can store requests in variables then add SQL segments:</p>
+
+<pre><code class="rb">all_time      = photos_with_credits.count
+this_month    = photos_with_credits.where(photos[<span class="hljs-symbol">:created_at</span>].gteq(Date.today.beginning_of_month))
+recent_photos = photos_with_credits.where(photos[<span class="hljs-symbol">:created_at</span>].gteq(Date.today.beginning_of_month)).limit(<span class="hljs-number">5</span>)
+</code></pre>
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="http://github.com/rails/arel">http://github.com/rails/arel</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

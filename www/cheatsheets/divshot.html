@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Divshot cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Divshot cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\divshot.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#install-divshot-cli">Install divshot-cli</a>, <a href="#create-divshot-json">Create divshot.json</a>, <a href="#push-your-app">Push your app</a><br>
+<a href="#configuration">Configuration</a><br>
+<b>CLI</b>: <a href="#config">Config</a>, <a href="#environment-vars">Environment vars</a>, <a href="#app-management">App management</a><br>
+<a href="#custom-domains">Custom domains</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="install-divshot-cli">Install divshot-cli</h3>
+
+<pre><code>$ npm <span class="hljs-keyword">install </span>-g <span class="hljs-keyword">divshot-cli
+</span>$ <span class="hljs-keyword">divshot </span>login
+</code></pre>
+<h3 id="create-divshot-json">Create divshot.json</h3>
+
+<pre><code class="json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yourapp&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./app&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="push-your-app">Push your app</h3>
+
+<pre><code>$ divshot <span class="hljs-keyword">push</span>
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>See <a href="https://docs.divshot.com/guides/configuration">configuration reference</a> and <a href="https://docs.divshot.com/guides/routing">routing guide</a>.</p>
+
+<pre><code class="json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yourapp&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./app&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;clean_urls&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;clean_urls&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;/app/**&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;/!components/**&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;error_page&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;error.html&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;exclude&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;Gruntfile.js&quot;</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;cache_control&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;routes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;/*.html&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.html&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;/app/**/*.html&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;app.html&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;**&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.html&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;redirects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;/old/:segment/path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/new/path/:segment&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;/some/old/path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">302</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/some/new/path&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;headers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;/cors-stuff/**&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;Access-Control-Allow-Origin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;/scripts/**&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;content-type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text/javascript&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="cli">CLI</h2>
+
+<pre><code class="sh">divshot s   <span class="hljs-comment"># server</span>
+
+divshot push [staging|production|development]
+divshot pull [staging|production|development]
+divshot purge   <span class="hljs-comment"># cleans cache</span>
+divshot files
+
+divshot promote development production
+
+divshot open [&lt;env&gt;]
+</code></pre>
+<h3 id="config">Config</h3>
+<p>Edits <code>divshot.json</code></p>
+
+<pre><code>
+<span class="hljs-keyword">divshot </span><span class="hljs-built_in">config</span>:<span class="hljs-keyword">add </span>name your-app-name
+<span class="hljs-keyword">divshot </span><span class="hljs-built_in">config</span>:remove name
+</code></pre>
+<h3 id="environment-vars">Environment vars</h3>
+
+<pre><code>divshot <span class="hljs-keyword">en</span><span class="hljs-variable">v:add</span> <span class="hljs-symbol">&lt;env&gt;</span> KEY=value
+divshot <span class="hljs-keyword">en</span><span class="hljs-variable">v:remove</span> <span class="hljs-symbol">&lt;env&gt;</span> KEY
+divshot <span class="hljs-keyword">en</span><span class="hljs-variable">v:pull</span> <span class="hljs-symbol">&lt;env&gt;</span>
+</code></pre>
+<h3 id="app-management">App management</h3>
+
+<pre><code><span class="hljs-keyword">divshot </span>create &lt;appname&gt;
+<span class="hljs-keyword">divshot </span>rename &lt;newname&gt;
+<span class="hljs-keyword">divshot </span>status
+<span class="hljs-keyword">divshot </span>destroy
+</code></pre>
+<p>divshot apps
+divshot account</p>
+
+<pre><code>
+### Password protect
+
+```sh
+divshot protect &lt;env&gt; &lt;username:password&gt;
+</code></pre>
+<h2 id="custom-domains">Custom domains</h2>
+<p>See <a href="http://docs.divshot.com/guides/domains">custom domains guide</a>.</p>
+
+<pre><code class="sh">divshot domains:add foo.bar.com
+</code></pre>
+<p>In your DNS create a <code>CNAME</code>: (no apex domains are supported)</p>
+
+<pre><code>www.    <span class="hljs-keyword">CNAME</span>    yourname.divshot.io
+</code></pre>
+
+</div>
+</body>  
+</html>

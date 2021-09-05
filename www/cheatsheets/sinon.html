@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sinon cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Sinon cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\sinon.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#creating-spies">Creating spies</a>, <a href="#spying-stubbing">Spying/stubbing</a>, <a href="#spy-stub-properties">Spy/stub properties</a>, <a href="#anonymous-stub">Anonymous stub</a>, <a href="#fake-date">Fake date</a>, <a href="#fake-server">Fake server</a>, <a href="#fake-xhr">Fake XHR</a>, <a href="#sandbox">Sandbox</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="creating-spies">Creating spies</h3>
+
+<pre><code class="js">fn = sinon.<span class="hljs-title function_">spy</span>()
+<span class="hljs-title function_">fn</span>()
+</code></pre>
+
+<pre><code class="js">fn.<span class="hljs-property">calledOnce</span> == <span class="hljs-literal">true</span>
+fn.<span class="hljs-property">callCount</span> == <span class="hljs-number">1</span>
+</code></pre>
+<h3 id="spying-stubbing">Spying/stubbing</h3>
+
+<pre><code class="js">sinon.<span class="hljs-title function_">spy</span>($, <span class="hljs-string">&#x27;ajax&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">$.<span class="hljs-title function_">ajax</span>();
+$.ajax.<span class="hljs-property">calledOnce</span> == <span class="hljs-literal">true</span>
+</code></pre>
+
+<pre><code class="js">sinon.<span class="hljs-title function_">stub</span>($, <span class="hljs-string">&#x27;ajax&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) { ... }) <span class="hljs-comment">// function optional</span>
+</code></pre>
+
+<pre><code class="js">$.ajax.<span class="hljs-title function_">calledWithMatch</span>({ <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/x&#x27;</span> })
+$.ajax.<span class="hljs-title function_">restore</span>()
+</code></pre>
+<h3 id="spy-stub-properties">Spy/stub properties</h3>
+
+<pre><code class="js">spy
+  .<span class="hljs-property">args</span>        <span class="hljs-comment">//=&gt; [ [..], [..] ] one per call</span>
+  .<span class="hljs-property">thisValues</span>
+  .<span class="hljs-property">returnValues</span>
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-property">called</span>      <span class="hljs-comment">//=&gt; true</span>
+  .<span class="hljs-property">notCalled</span>
+  .<span class="hljs-property">callCount</span>
+  .<span class="hljs-property">calledOnce</span>
+  .<span class="hljs-property">calledTwice</span>
+  .<span class="hljs-property">calledThrice</span>
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-title function_">getCalls</span>()   <span class="hljs-comment">//=&gt; Array</span>
+  .<span class="hljs-title function_">getCall</span>(<span class="hljs-number">0</span>)
+  .<span class="hljs-property">firstCall</span>
+</code></pre>
+<h3 id="anonymous-stub">Anonymous stub</h3>
+
+<pre><code class="js">stub = sinon.<span class="hljs-title function_">stub</span>().<span class="hljs-title function_">returns</span>(<span class="hljs-number">42</span>)
+<span class="hljs-title function_">stub</span>() == <span class="hljs-number">42</span>
+</code></pre>
+
+<pre><code class="js">stub
+  .<span class="hljs-title function_">withArgs</span>(<span class="hljs-number">42</span>).<span class="hljs-title function_">returns</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">withArgs</span>(<span class="hljs-number">43</span>).<span class="hljs-title function_">throws</span>(<span class="hljs-string">&quot;TypeError&quot;</span>)
+</code></pre>
+
+<pre><code class="js">stub
+  .<span class="hljs-title function_">returns</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">throws</span>(<span class="hljs-string">&quot;TypeError&quot;</span>)
+  .<span class="hljs-title function_">returnsArg</span>(<span class="hljs-number">0</span>) <span class="hljs-comment">// Return 1st argument</span>
+  .<span class="hljs-title function_">callsArg</span>(<span class="hljs-number">0</span>)
+</code></pre>
+<h3 id="fake-date">Fake date</h3>
+
+<pre><code class="js">sinon.<span class="hljs-title function_">useFakeTimers</span>(+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2011</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>));
+</code></pre>
+<h3 id="fake-server">Fake server</h3>
+
+<pre><code class="js">server = sinon.<span class="hljs-property">fakeServer</span>.<span class="hljs-title function_">create</span>()
+</code></pre>
+
+<pre><code class="js">$.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/file.json&#x27;</span>, ...)
+server.<span class="hljs-property">requests</span>[<span class="hljs-number">0</span>].<span class="hljs-title function_">respond</span>(
+  <span class="hljs-number">200</span>,
+  { <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span> },
+  <span class="hljs-variable constant_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">hello</span>: <span class="hljs-string">&#x27;world&#x27;</span> })
+)
+</code></pre>
+
+<pre><code class="js">server.<span class="hljs-title function_">restore</span>()
+</code></pre>
+<h3 id="fake-xhr">Fake XHR</h3>
+
+<pre><code class="js">xhr = sinon.<span class="hljs-title function_">useFakeXMLHttpRequest</span>()
+xhr.<span class="hljs-title function_">restore</span>()
+</code></pre>
+<h3 id="sandbox">Sandbox</h3>
+
+<pre><code class="js"><span class="hljs-title function_">beforeEach</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">global</span>.<span class="hljs-property">sinon</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;sinon&#x27;</span>).<span class="hljs-property">sandbox</span>.<span class="hljs-title function_">create</span>()
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-title function_">afterEach</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">global</span>.<span class="hljs-property">sinon</span>.<span class="hljs-title function_">restore</span>()
+})
+</code></pre>
+
+</div>
+</body>  
+</html>

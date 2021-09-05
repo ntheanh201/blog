@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Haml cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Haml cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\haml.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#doctype">Doctype</a>, <a href="#tags">Tags</a>, <a href="#classes-and-id-s">Classes and ID's</a>, <a href="#inline-attributes">Inline Attributes</a>, <a href="#ruby">Ruby</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="doctype">Doctype</h3>
+
+<pre><code class="haml"><span class="hljs-meta">!!! 5</span>
+</code></pre>
+<h3 id="tags">Tags</h3>
+
+<pre><code class="haml"><span class="hljs-tag">%<span class="hljs-selector-tag">html</span></span>
+<span class="hljs-tag">  %<span class="hljs-selector-tag">head</span></span>
+<span class="hljs-tag">    %<span class="hljs-selector-tag">title</span></span>
+<span class="hljs-tag">  %<span class="hljs-selector-tag">body</span></span>
+<span class="hljs-tag">    %<span class="hljs-selector-tag">h1</span></span> Hello World
+<span class="hljs-tag">    %<span class="hljs-selector-tag">br</span></span>/
+</code></pre>
+<h3 id="classes-and-id-s">Classes and ID&#39;s</h3>
+
+<pre><code class="haml"><span class="hljs-tag">%<span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.class-example</span></span>
+.no-tag-defaults-to-div
+<span class="hljs-tag">%<span class="hljs-selector-tag">div</span><span class="hljs-selector-id">#butItCanBeIncluded</span></span>
+</code></pre>
+<h3 id="inline-attributes">Inline Attributes</h3>
+<p>Either hash syntax works</p>
+
+<pre><code class="haml"><span class="hljs-tag">%<span class="hljs-selector-tag">meta</span>{ name: &quot;viewport&quot;, content: &quot;width=device-width, initial-scale=1.0&quot; }</span>
+<span class="hljs-tag">%<span class="hljs-selector-tag">input</span>{ <span class="hljs-attr">:type</span> =&gt; <span class="hljs-string">&quot;text&quot;</span>, <span class="hljs-attr">:required</span> =&gt; true }</span>
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="haml"><span class="hljs-comment">-# This is a comment</span>
+<span class="hljs-comment">-# Anything starting with a hyphen signals to Haml that Ruby is coming</span>
+-<span class="language-ruby"> <span class="hljs-variable">@arr</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span>
+-<span class="language-ruby"> <span class="hljs-variable">@str</span> = <span class="hljs-string">&quot;test&quot;</span></span>
+<span class="hljs-comment">-# Equal signals output</span>
+=<span class="language-ruby"> render <span class="hljs-symbol">partial:</span> <span class="hljs-string">&quot;shared/header&quot;</span></span>
+=<span class="language-ruby"> <span class="hljs-keyword">yield</span></span>
+=<span class="language-ruby"> link_to page_url</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

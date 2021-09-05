@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>git log cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / git log cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\git-log.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#revision-ranges">Revision ranges</a>, <a href="#basic-filters">Basic filters</a>, <a href="#search">Search</a>, <a href="#limiting">Limiting</a>, <a href="#simplification">Simplification</a>, <a href="#ordering">Ordering</a>, <a href="#formatting">Formatting</a>, <a href="#custom-formats">Custom formats</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="revision-ranges">Revision ranges</h3>
+
+<pre><code class="bash">git <span class="hljs-built_in">log</span> master             <span class="hljs-comment"># branch</span>
+git <span class="hljs-built_in">log</span> origin/master      <span class="hljs-comment"># branch, remote</span>
+git <span class="hljs-built_in">log</span> v1.0.0             <span class="hljs-comment"># tag</span>
+
+git <span class="hljs-built_in">log</span> master develop
+
+git <span class="hljs-built_in">log</span> v2.0..master       <span class="hljs-comment"># reachable from *master* but not *v2.0*</span>
+git <span class="hljs-built_in">log</span> v2.0...master      <span class="hljs-comment"># reachable from *master* and *v2.0*, but not both</span>
+</code></pre>
+<p>See <a href="./git-revisions">gitrevisions</a>.</p>
+<h3 id="basic-filters">Basic filters</h3>
+
+<pre><code class="bash">-n, --max-count=2
+    --skip=2
+</code></pre>
+
+<pre><code class="bash">    --since=<span class="hljs-string">&quot;1 week ago&quot;</span>
+    --until=<span class="hljs-string">&quot;yesterday&quot;</span>
+</code></pre>
+
+<pre><code class="bash">    --author=<span class="hljs-string">&quot;Rico&quot;</span>
+    --committer=<span class="hljs-string">&quot;Rico&quot;</span>
+</code></pre>
+<h3 id="search">Search</h3>
+
+<pre><code class="bash">    --grep=<span class="hljs-string">&quot;Merge pull request&quot;</span>   <span class="hljs-comment"># in commit messages</span>
+    -S<span class="hljs-string">&quot;console.log&quot;</span>               <span class="hljs-comment"># in code</span>
+    -G<span class="hljs-string">&quot;foo.*&quot;</span>                     <span class="hljs-comment"># in code (regex)</span>
+</code></pre>
+
+<pre><code class="bash">    --invert-grep
+    --all-match                   <span class="hljs-comment"># AND in multi --grep</span>
+</code></pre>
+<h3 id="limiting">Limiting</h3>
+
+<pre><code class="bash">    --merges
+    --no-merges
+</code></pre>
+
+<pre><code class="bash">    --first-parent          <span class="hljs-comment"># no stuff from merged branches</span>
+</code></pre>
+
+<pre><code class="bash">    --branches=<span class="hljs-string">&quot;feature/*&quot;</span>
+    --tags=<span class="hljs-string">&quot;v*&quot;</span>
+    --remotes=<span class="hljs-string">&quot;origin&quot;</span>
+</code></pre>
+<h3 id="simplification">Simplification</h3>
+
+<pre><code class="bash">git <span class="hljs-built_in">log</span> -- app/file.rb          <span class="hljs-comment"># only file</span>
+    --simplify-by-decoration    <span class="hljs-comment"># tags and branches</span>
+</code></pre>
+<h3 id="ordering">Ordering</h3>
+
+<pre><code class="bash">    --date-order
+    --author-date-order
+    --topo-order              <span class="hljs-comment"># &quot;smart&quot; ordering</span>
+    --reverse
+</code></pre>
+<h3 id="formatting">Formatting</h3>
+
+<pre><code class="bash">    --abbrev-commit
+    --oneline
+    --graph
+</code></pre>
+<h3 id="custom-formats">Custom formats</h3>
+
+<pre><code class="bash">    --pretty=<span class="hljs-string">&quot;format:%H&quot;</span>
+</code></pre>
+<p>See: <a href="./git-log-format">Git log format cheatsheet</a></p>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="./git-log-format">Git log format cheatsheet</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

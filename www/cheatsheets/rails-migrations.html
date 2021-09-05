@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Migrations cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Migrations cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rails-migrations.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#automatically-make-migrations">Automatically make migrations</a>, <a href="#run-migrations">Run migrations</a>, <a href="#creating-tables">Creating tables</a>, <a href="#operations">Operations</a>, <a href="#use-models">Use models</a>, <a href="#associations">Associations</a>, <a href="#auto-add-remove-columns">Auto-Add/remove columns</a>, <a href="#indices">Indices</a>, <a href="#in-console">In console</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="automatically-make-migrations">Automatically make migrations</h3>
+
+<pre><code>$ rails <span class="hljs-keyword">generate</span> migration RemovePartNumberFromProducts part_number:<span class="hljs-keyword">string</span>
+$ rails <span class="hljs-keyword">generate</span> migration remove_part_number_from_products part_number # rails assumes <span class="hljs-keyword">string</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">type</span> given - <span class="hljs-keyword">and</span> you can <span class="hljs-keyword">use</span> snake_case
+
+$ rails <span class="hljs-keyword">generate</span> migration AddNameToWidgets name:<span class="hljs-keyword">string</span>
+$ rails g migration add_name_to_widgets name:<span class="hljs-keyword">string</span> # you can <span class="hljs-keyword">use</span> the short cut &#x27;g&#x27; instead of <span class="hljs-keyword">generate</span> - they both <span class="hljs-keyword">do</span> the same thing
+</code></pre>
+<h3 id="run-migrations">Run migrations</h3>
+
+<pre><code><span class="hljs-variable">$ </span>rake <span class="hljs-symbol">db:</span>migrate
+</code></pre>
+<h3 id="creating-tables">Creating tables</h3>
+
+<pre><code>create_table <span class="hljs-symbol">:users</span> <span class="hljs-keyword">do</span> |t|
+  t.string <span class="hljs-symbol">:name</span>
+  t.text   <span class="hljs-symbol">:description</span>
+
+  t.primary_key <span class="hljs-symbol">:id</span>
+  t.string      <span class="hljs-symbol">:title</span>
+  t.text        <span class="hljs-symbol">:description</span>
+  t.integer     <span class="hljs-symbol">:games_count</span>
+  t.float       <span class="hljs-symbol">:lol</span>
+  t.decimal     <span class="hljs-symbol">:price</span>
+  t.decimal     <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:precision</span> =&gt; <span class="hljs-number">2</span>, <span class="hljs-symbol">:scale</span> =&gt; <span class="hljs-number">10</span>
+  t.datetime    <span class="hljs-symbol">:expiration</span>
+  t.timestamp   <span class="hljs-symbol">:time_in</span>
+  t.time        <span class="hljs-symbol">:time_in</span>
+  t.date        <span class="hljs-symbol">:expiry</span>
+  t.binary      <span class="hljs-symbol">:image_data</span>
+  t.boolean     <span class="hljs-symbol">:is_admin</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># Options:</span>
+  <span class="hljs-symbol">:null</span> (boolean)
+  <span class="hljs-symbol">:limit</span> (integer)
+  <span class="hljs-symbol">:default</span>
+</code></pre>
+<h3 id="operations">Operations</h3>
+
+<pre><code>add_column    <span class="hljs-symbol">:users</span>, <span class="hljs-symbol">:first_name</span>, <span class="hljs-symbol">:string</span>
+remove_column <span class="hljs-symbol">:users</span>, <span class="hljs-symbol">:first_name</span>, <span class="hljs-symbol">:string</span>
+
+change_column <span class="hljs-symbol">:users</span>, <span class="hljs-symbol">:first_name</span>, <span class="hljs-symbol">:text</span>
+
+change_column_default <span class="hljs-symbol">:users</span>, <span class="hljs-symbol">:admin</span>, <span class="hljs-keyword">nil</span>
+change_column_null    <span class="hljs-symbol">:users</span>, <span class="hljs-symbol">:email</span>, <span class="hljs-keyword">false</span> <span class="hljs-comment"># adds NOT NULL constraint</span>
+
+create_table
+change_table
+drop_table
+
+add_column
+change_column
+rename_column
+remove_column
+
+add_index
+remove_index
+</code></pre>
+<h3 id="use-models">Use models</h3>
+
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddFlagToProduct</span> &lt; ActiveRecord::Migration</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> &lt; ActiveRecord::Base</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change</span></span>
+    add_column <span class="hljs-symbol">:products</span>, <span class="hljs-symbol">:flag</span>, <span class="hljs-symbol">:boolean</span>
+    Product.reset_column_information
+    reversible <span class="hljs-keyword">do</span> <span class="hljs-params">|dir|</span>
+      dir.up { Product.update_all <span class="hljs-symbol">flag:</span> <span class="hljs-literal">false</span> }
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="associations">Associations</h3>
+
+<pre><code>t.references <span class="hljs-symbol">:category</span>   <span class="hljs-comment"># kinda same as t.integer :category_id</span>
+
+<span class="hljs-comment"># Can have different types</span>
+t.references <span class="hljs-symbol">:category</span>, <span class="hljs-symbol">polymorphic:</span> <span class="hljs-keyword">true</span>
+</code></pre>
+<h3 id="auto-add-remove-columns">Auto-Add/remove columns</h3>
+
+<pre><code>$ rails <span class="hljs-keyword">generate</span> migration RemovePartNumberFromProducts part_number:<span class="hljs-keyword">string</span>
+</code></pre>
+<h3 id="indices">Indices</h3>
+
+<pre><code><span class="hljs-comment"># Simple</span>
+add_index <span class="hljs-symbol">:suppliers</span>, <span class="hljs-symbol">:name</span>
+
+<span class="hljs-comment"># Unique</span>
+add_index <span class="hljs-symbol">:accounts</span>, [<span class="hljs-symbol">:branch_id</span>, <span class="hljs-symbol">:party_id</span>], <span class="hljs-symbol">:unique</span> =&gt; <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># Named (:name =&gt; ...)</span>
+add_index <span class="hljs-symbol">:accounts</span>, [<span class="hljs-symbol">:branch_id</span>, <span class="hljs-symbol">:party_id</span>], <span class="hljs-symbol">:unique</span> =&gt; <span class="hljs-keyword">true</span>, <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;by_branch_party&quot;</span>
+
+<span class="hljs-comment"># Length</span>
+add_index <span class="hljs-symbol">:accounts</span>, <span class="hljs-symbol">:name</span>, <span class="hljs-symbol">:name</span> =&gt; ‘by_name’, <span class="hljs-symbol">:length</span> =&gt; <span class="hljs-number">10</span>
+add_index <span class="hljs-symbol">:accounts</span>, [<span class="hljs-symbol">:name</span>, <span class="hljs-symbol">:surname</span>], <span class="hljs-symbol">:name</span> =&gt; ‘by_name_surname’,
+  <span class="hljs-symbol">:length</span> =&gt; {
+    <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-number">10</span>,
+    <span class="hljs-symbol">:surname</span> =&gt; <span class="hljs-number">15</span>
+  }
+
+<span class="hljs-comment"># Sort order (no MySQL support)</span>
+add_index <span class="hljs-symbol">:accounts</span>, [<span class="hljs-symbol">:branch_id</span>, <span class="hljs-symbol">:party_id</span>, <span class="hljs-symbol">:surname</span>],
+  <span class="hljs-symbol">:order</span> =&gt; 
+</code></pre>
+<h3 id="in-console">In console</h3>
+<p>Use <code>ActiveRecord::Migration</code>.</p>
+
+<pre><code>ActiveRecord::Migration.add_index <span class="hljs-symbol">:posts</span>, <span class="hljs-symbol">:slug</span>
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index">http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/add_index</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

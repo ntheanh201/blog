@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>cssnext cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / cssnext cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\cssnext.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#variables">Variables</a>, <a href="#colors">Colors</a>, <a href="#mixins">Mixins</a><br>
+<b>Selectors</b>: <a href="#nesting">Nesting</a>, <a href="#custom-selectors">Custom selectors</a>, <a href="#future-selectors">Future selectors</a><br>
+<b>Media queries</b>: <a href="#custom-media-queries">Custom media queries</a>, <a href="#media-query-ranges">Media query ranges</a><br>
+<b>Properties</b>: <a href="#property-fallbacks">Property fallbacks</a>, <a href="#autoprefixing">Autoprefixing</a>, <a href="#reset">Reset</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="variables">Variables</h3>
+
+<pre><code class="scss"><span class="hljs-selector-pseudo">:root</span> {
+  --text-<span class="hljs-attribute">color</span>: <span class="hljs-number">#30333a</span>;
+}
+</code></pre>
+
+<pre><code class="scss"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background</span>: var(--text-color);
+  <span class="hljs-attribute">background</span>: color(var(--text-color) shade(<span class="hljs-number">30%</span>));
+}
+</code></pre>
+<h3 id="colors">Colors</h3>
+
+<pre><code class="scss"><span class="hljs-selector-tag">a</span> {
+  <span class="hljs-comment">/* Adjustments */</span>
+  <span class="hljs-attribute">color</span>: color(red alpha(-<span class="hljs-number">10%</span>));
+  <span class="hljs-attribute">color</span>: color(red tint(-<span class="hljs-number">10%</span>));    <span class="hljs-comment">/* lighten */</span>
+  <span class="hljs-attribute">color</span>: color(red shade(-<span class="hljs-number">10%</span>));   <span class="hljs-comment">/* darken */</span>
+
+  <span class="hljs-comment">/* Absolute */</span>
+  <span class="hljs-attribute">color</span>: color(red alpha(<span class="hljs-number">50%</span>));
+  <span class="hljs-attribute">color</span>: color(red hue(<span class="hljs-number">225</span>));
+  <span class="hljs-attribute">color</span>: color(red saturation(<span class="hljs-number">100%</span>));
+  <span class="hljs-attribute">color</span>: color(red lightness(<span class="hljs-number">50%</span>));
+
+  <span class="hljs-attribute">color</span>: gray(<span class="hljs-number">33</span>);       <span class="hljs-comment">/* rgb(33, 33, 33) */</span>
+  <span class="hljs-attribute">color</span>: gray(<span class="hljs-number">33%</span>);      <span class="hljs-comment">/* rgb(84, 84, 84) */</span>
+  <span class="hljs-attribute">color</span>: gray(<span class="hljs-number">33%</span>, <span class="hljs-number">50%</span>); <span class="hljs-comment">/* rgba(84, 84, 84, 0.5) */</span>
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#0000ff</span>80;      <span class="hljs-comment">/* rgba(0, 0, 255, 0.5) */</span>
+
+  <span class="hljs-attribute">color</span>: hwb(<span class="hljs-number">90</span>, <span class="hljs-number">0%</span>, <span class="hljs-number">0%</span>, <span class="hljs-number">0.5</span>);     <span class="hljs-comment">/* like hsl() but easier for humans */</span>
+  <span class="hljs-attribute">color</span>: hsl(<span class="hljs-number">90deg</span> <span class="hljs-number">90%</span> <span class="hljs-number">70%</span>);       <span class="hljs-comment">/* hsl(180, 90%, 70%) -- supports deg */</span>
+  <span class="hljs-attribute">color</span>: hsl(<span class="hljs-number">90deg</span> <span class="hljs-number">90%</span> <span class="hljs-number">70%</span> / <span class="hljs-number">30%</span>); <span class="hljs-comment">/* hsla(180, 90%, 70%, 0.3) */</span>
+  <span class="hljs-attribute">color</span>: rgb(<span class="hljs-number">30</span> <span class="hljs-number">60</span> <span class="hljs-number">90</span> / <span class="hljs-number">30%</span>);      <span class="hljs-comment">/* rgba(30, 60, 90, 0.3) */</span>
+}
+</code></pre>
+<p>Also see <a href="http://colorme.io/">colorme.io</a>.</p>
+<h3 id="mixins">Mixins</h3>
+
+<pre><code class="scss"><span class="hljs-selector-pseudo">:root</span> {
+  --centered: {
+    display: flex;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">justify-content</span>: center;
+  };
+}
+
+<span class="hljs-selector-class">.centered</span> {
+  <span class="hljs-keyword">@apply</span> --centered;
+}
+</code></pre>
+<h2 id="selectors">Selectors</h2>
+<h3 id="nesting">Nesting</h3>
+
+<pre><code class="scss"><span class="hljs-selector-class">.class-name</span> {
+  &amp; <span class="hljs-selector-class">.nesting</span> { ··· }      <span class="hljs-comment">/* direct nesting starts with &amp; */</span>
+  <span class="hljs-keyword">@nest</span> span &amp; { ··· }    <span class="hljs-comment">/* complex nesting */</span>
+  <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">30em</span>) { ··· }
+}
+</code></pre>
+<h3 id="custom-selectors">Custom selectors</h3>
+
+<pre><code class="scss"><span class="hljs-keyword">@custom-selector</span> :--button input[type=<span class="hljs-string">&#x27;submit&#x27;</span>], input[type=<span class="hljs-string">&#x27;button&#x27;</span>];
+<span class="hljs-keyword">@custom-selector</span> :--enter :<span class="hljs-attribute">hover</span>, :focus;
+</code></pre>
+
+<pre><code class="scss">:--button { ··· }
+:--button:--enter { ··· }
+</code></pre>
+<h3 id="future-selectors">Future selectors</h3>
+
+<pre><code class="scss"><span class="hljs-selector-pseudo">:any-link</span> { ··· }         <span class="hljs-comment">/* :link, :visited */</span>
+<span class="hljs-selector-tag">p</span>:matches(.a, .b) { ··· } /* p.a, p.b */
+p:not(.a, .b) { ··· }     /* p:not(.a), p:not(.b) */
+a::before { ··· }         /* a:before -- for IE compatibility */
+[frame=hsides i] { ··· }  /* [frame=hsides] -- but case insensitive */
+</code></pre>
+<h2 id="media-queries">Media queries</h2>
+<h3 id="custom-media-queries">Custom media queries</h3>
+
+<pre><code class="scss"><span class="hljs-keyword">@custom-media</span> --viewport-medium (<span class="hljs-attribute">width</span> &lt;= <span class="hljs-number">50rem</span>);
+</code></pre>
+
+<pre><code class="scss"><span class="hljs-keyword">@media</span> (--viewport-medium) { ··· }
+</code></pre>
+<h3 id="media-query-ranges">Media query ranges</h3>
+
+<pre><code class="scss"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">width</span> &gt;= <span class="hljs-number">500px</span>) { ··· }    <span class="hljs-comment">/* (min-width: 500px) */</span>
+</code></pre>
+<h2 id="properties">Properties</h2>
+<h3 id="property-fallbacks">Property fallbacks</h3>
+
+<pre><code class="scss"><span class="hljs-comment">/* font-feature-settings fallback */</span>
+<span class="hljs-selector-tag">h2</span> { <span class="hljs-attribute">font-variant</span>-caps: small-caps; }
+<span class="hljs-selector-tag">table</span> { <span class="hljs-attribute">font-variant</span>-numeric: lining-nums; }
+</code></pre>
+
+<pre><code class="scss"><span class="hljs-selector-tag">div</span> { <span class="hljs-attribute">filter</span>: blur(<span class="hljs-number">4px</span>); }          <span class="hljs-comment">/* svg filter fallback */</span>
+<span class="hljs-selector-tag">div</span> { <span class="hljs-attribute">overflow-wrap</span>: break-word; }  <span class="hljs-comment">/* word-wrap fallback */</span>
+</code></pre>
+<h3 id="autoprefixing">Autoprefixing</h3>
+
+<pre><code class="scss"><span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">display</span>: flex;
+}
+</code></pre>
+
+<pre><code class="scss"><span class="hljs-comment">/*
+ * display: -webkit-box;
+ * display: -ms-flexbox;
+ * display: flex;
+ */</span>
+</code></pre>
+<h3 id="reset">Reset</h3>
+
+<pre><code class="scss"><span class="hljs-selector-tag">div</span> {
+  all: initial;
+}
+</code></pre>
+<p>Sets animation, background, margin, padding, and so on.</p>
+<h2 id="references">References</h2>
+
+<ul>
+<li>Based on cssnext 2.9.0.</li>
+<li><a href="http://cssnext.io/features/">http://cssnext.io/features/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

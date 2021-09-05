@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Harvey.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Harvey.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\harvey.js.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#usage">Usage</a>, <a href="#deprecated">Deprecated</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="usage">Usage</h3>
+
+<pre><code class="js"><span class="hljs-title class_">Harvey</span>.<span class="hljs-title function_">attach</span>(<span class="hljs-string">&#x27;(min-width: 600px)&#x27;</span>, {
+  <span class="hljs-attr">setup</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Called on first enter</span>
+  },
+  <span class="hljs-attr">on</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Called on every enter</span>
+  },
+  <span class="hljs-attr">off</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Called on every exit</span>
+  }
+})
+</code></pre>
+<h3 id="deprecated">Deprecated</h3>
+<p>Harvey.js hasn&#39;t been updated in a while, as of time of writing. Consider <a href="https://github.com/WickyNilliams/enquire.js">enquire.js</a> instead.</p>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://harvesthq.github.io/harvey">http://harvesthq.github.io/harvey</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

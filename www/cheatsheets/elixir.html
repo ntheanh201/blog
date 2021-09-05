@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Elixir cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Elixir cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\elixir.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#hello-world">Hello world</a>, <a href="#variables">Variables</a>, <a href="#maps">Maps</a>, <a href="#lists">Lists</a>, <a href="#piping">Piping</a>, <a href="#pattern-matching">Pattern matching</a>, <a href="#pattern-matching-in-functions">Pattern matching in functions</a><br>
+<b>Control flow</b>: <a href="#if">If</a>, <a href="#case">Case</a>, <a href="#cond">Cond</a>, <a href="#errors">Errors</a><br>
+<b>Types</b>: <a href="#primitives">Primitives</a>, <a href="#type-checks">Type checks</a>, <a href="#operators">Operators</a><br>
+<b>Modules</b>: <a href="#importing">Importing</a>, <a href="#aliases">Aliases</a><br>
+<b>String</b>: <a href="#functions">Functions</a>, <a href="#inspecting-objects">Inspecting objects</a><br>
+<b>Numbers</b>: <a href="#operations">Operations</a>, <a href="#float">Float</a>, <a href="#integer">Integer</a>, <a href="#type-casting">Type casting</a><br>
+<b>Map</b>: <a href="#defining">Defining</a>, <a href="#updating">Updating</a>, <a href="#deleting">Deleting</a>, <a href="#reading">Reading</a>, <a href="#deep">Deep</a>, <a href="#constructing-from-lists">Constructing from lists</a>, <a href="#working-with-structs">Working with structs</a><br>
+<a href="#list">List</a><br>
+<b>Enum</b>: <a href="#usage">Usage</a>, <a href="#map-reduce">Map/reduce</a><br>
+<b>Tuple</b>: <a href="#tuples">Tuples</a>, <a href="#keyword-lists">Keyword lists</a><br>
+<b>Functions</b>: <a href="#lambdas">Lambdas</a>, <a href="#-syntax">& syntax</a>, <a href="#running">Running</a>, <a href="#function-heads">Function heads</a><br>
+<b>Structs</b>: <a href="#structs">Structs</a><br>
+<b>Protocols</b>: <a href="#defining-protocols">Defining protocols</a>, <a href="#any">Any</a>, <a href="#examples">Examples</a><br>
+<b>Comprehensions</b>: <a href="#for">For</a>, <a href="#conditions">Conditions</a>, <a href="#complex">Complex</a><br>
+<b>Misc</b>: <a href="#metaprogramming">Metaprogramming</a>, <a href="#regexp">Regexp</a>, <a href="#sigils">Sigils</a>, <a href="#type-specs">Type specs</a>, <a href="#behaviours">Behaviours</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="hello-world">Hello world</h3>
+
+<pre><code class="elixir"><span class="hljs-comment"># hello.exs</span>
+<span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">Greeter</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(name) <span class="hljs-keyword">do</span>
+    message = <span class="hljs-string">&quot;Hello, &quot;</span> &lt;&gt; name &lt;&gt; <span class="hljs-string">&quot;!&quot;</span>
+    IO.puts message
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+Greeter.greet(<span class="hljs-string">&quot;world&quot;</span>)
+</code></pre>
+
+<pre><code class="bash">elixir hello.exs
+<span class="hljs-comment"># Hello, world!</span>
+</code></pre>
+<h3 id="variables">Variables</h3>
+
+<pre><code class="elixir">age = <span class="hljs-number">23</span>
+</code></pre>
+<h3 id="maps">Maps</h3>
+
+<pre><code class="elixir">user = %{
+  <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;John&quot;</span>,
+  <span class="hljs-symbol">city:</span> <span class="hljs-string">&quot;Melbourne&quot;</span>
+}
+</code></pre>
+
+<pre><code class="elixir">IO.puts <span class="hljs-string">&quot;Hello, &quot;</span> &lt;&gt; user.name
+</code></pre>
+<h3 id="lists">Lists</h3>
+
+<pre><code class="elixir">users = [ <span class="hljs-string">&quot;Tom&quot;</span>, <span class="hljs-string">&quot;Dick&quot;</span>, <span class="hljs-string">&quot;Harry&quot;</span> ]
+</code></pre>
+
+<pre><code class="elixir">Enum.map(users, <span class="hljs-keyword">fn</span> user -&gt;
+  IO.puts <span class="hljs-string">&quot;Hello &quot;</span> &lt;&gt; user
+<span class="hljs-keyword">end</span>)
+</code></pre>
+<h3 id="piping">Piping</h3>
+
+<pre><code class="elixir">source
+|&gt; transform(<span class="hljs-symbol">:hello</span>)
+|&gt; print()
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-comment"># Same as:</span>
+print(transform(source, <span class="hljs-symbol">:hello</span>))
+</code></pre>
+<p>These two are equivalent.</p>
+<h3 id="pattern-matching">Pattern matching</h3>
+
+<pre><code class="elixir">user = %{<span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Tom&quot;</span>, <span class="hljs-symbol">age:</span> <span class="hljs-number">23</span>}
+%{<span class="hljs-symbol">name:</span> username} = user
+</code></pre>
+<p>This sets <code>username</code> to <code>&quot;Tom&quot;</code>.</p>
+<h3 id="pattern-matching-in-functions">Pattern matching in functions</h3>
+
+<pre><code class="elixir"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(%{<span class="hljs-symbol">name:</span> username}) <span class="hljs-keyword">do</span>
+  IO.puts <span class="hljs-string">&quot;Hello, &quot;</span> &lt;&gt; username
+<span class="hljs-keyword">end</span>
+
+user = %{<span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Tom&quot;</span>, <span class="hljs-symbol">age:</span> <span class="hljs-number">23</span>}
+</code></pre>
+<p>Pattern matching works in function parameters too.</p>
+<h2 id="control-flow">Control flow</h2>
+<h3 id="if">If</h3>
+
+<pre><code class="elixir">if <span class="hljs-keyword">false</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-string">&quot;This will never be seen&quot;</span>
+else
+  <span class="hljs-string">&quot;This will&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="case">Case</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">case</span> {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>} <span class="hljs-keyword">do</span>
+  {<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>} -&gt;
+    <span class="hljs-string">&quot;This clause won&#x27;t match&quot;</span>
+  {<span class="hljs-number">1</span>, x, <span class="hljs-number">3</span>} -&gt;
+    <span class="hljs-string">&quot;This will match and bind x to 2&quot;</span>
+  _ -&gt;
+   <span class="hljs-string">&quot;This will match any value&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="cond">Cond</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">cond</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-number">1</span> + <span class="hljs-number">1</span> == <span class="hljs-number">3</span> -&gt;
+    <span class="hljs-string">&quot;I will never be seen&quot;</span>
+  <span class="hljs-number">2</span> * <span class="hljs-number">5</span> == <span class="hljs-number">12</span> -&gt;
+    <span class="hljs-string">&quot;Me neither&quot;</span>
+  <span class="hljs-keyword">true</span> -&gt;
+    <span class="hljs-string">&quot;But I will (this is essentially an else)&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="errors">Errors</h3>
+
+<pre><code class="elixir">try <span class="hljs-keyword">do</span>
+  throw(<span class="hljs-symbol">:hello</span>)
+catch
+  message -&gt; <span class="hljs-string">&quot;Got <span class="hljs-subst">#{message}</span>.&quot;</span>
+after
+  IO.puts(<span class="hljs-string">&quot;I&#x27;m the after clause.&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="types">Types</h2>
+<h3 id="primitives">Primitives</h3>
+
+<table>
+<thead>
+<tr>
+<th>Sample</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nil</code></td>
+<td>Nil/null</td>
+</tr>
+<tr>
+<td><code>true</code> <em>/</em> <code>false</code></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>?a</code></td>
+<td>Integer (ASCII)</td>
+</tr>
+<tr>
+<td><code>23</code></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><code>3.14</code></td>
+<td>Float</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>&#39;hello&#39;</code></td>
+<td>Charlist</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;2, 3&gt;&gt;</code></td>
+<td>Binary</td>
+</tr>
+<tr>
+<td><code>&quot;hello&quot;</code></td>
+<td>Binary string</td>
+</tr>
+<tr>
+<td><code>:hello</code></td>
+<td>Atom</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>[a, b]</code></td>
+<td>List</td>
+</tr>
+<tr>
+<td><code>{a, b}</code></td>
+<td>Tuple</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>%{a: &quot;hello&quot;}</code></td>
+<td>Map</td>
+</tr>
+<tr>
+<td><code>%MyStruct{a: &quot;hello&quot;}</code></td>
+<td>Struct</td>
+</tr>
+<tr>
+<td><code>fn -&gt; ... end</code></td>
+<td>Function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="type-checks">Type checks</h3>
+
+<pre><code class="elixir">is_atom/<span class="hljs-number">1</span>
+is_bitstring/<span class="hljs-number">1</span>
+is_boolean/<span class="hljs-number">1</span>
+is_function/<span class="hljs-number">1</span>
+is_function/<span class="hljs-number">2</span>
+is_integer/<span class="hljs-number">1</span>
+is_float/<span class="hljs-number">1</span>
+</code></pre>
+
+<pre><code class="elixir">is_binary/<span class="hljs-number">1</span>
+is_list/<span class="hljs-number">1</span>
+is_map/<span class="hljs-number">1</span>
+is_tuple/<span class="hljs-number">1</span>
+</code></pre>
+
+<pre><code class="elixir">is_nil/<span class="hljs-number">1</span>
+is_number/<span class="hljs-number">1</span>
+is_pid/<span class="hljs-number">1</span>
+is_port/<span class="hljs-number">1</span>
+is_reference/<span class="hljs-number">1</span>
+</code></pre>
+<h3 id="operators">Operators</h3>
+
+<pre><code class="elixir">left != right   <span class="hljs-comment"># equal</span>
+left !== right  <span class="hljs-comment"># match</span>
+left ++ right   <span class="hljs-comment"># concat lists</span>
+left &lt;&gt; right   <span class="hljs-comment"># concat string/binary</span>
+left =~ right   <span class="hljs-comment"># regexp</span>
+</code></pre>
+<h2 id="modules">Modules</h2>
+<h3 id="importing">Importing</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">require</span> Redux   <span class="hljs-comment"># compiles a module</span>
+<span class="hljs-keyword">import</span> Redux    <span class="hljs-comment"># compiles, and you can use without the `Redux.` prefix</span>
+
+<span class="hljs-keyword">use</span> Redux       <span class="hljs-comment"># compiles, and runs Redux.__using__/1</span>
+<span class="hljs-keyword">use</span> Redux, <span class="hljs-symbol">async:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-keyword">import</span> Redux, <span class="hljs-symbol">only:</span> [<span class="hljs-symbol">duplicate:</span> <span class="hljs-number">2</span>]
+<span class="hljs-keyword">import</span> Redux, <span class="hljs-symbol">only:</span> <span class="hljs-symbol">:functions</span>
+<span class="hljs-keyword">import</span> Redux, <span class="hljs-symbol">only:</span> <span class="hljs-symbol">:macros</span>
+
+<span class="hljs-keyword">import</span> Foo.{Bar, Baz}
+</code></pre>
+<h3 id="aliases">Aliases</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">alias</span> Foo.Bar, <span class="hljs-symbol">as:</span> Bar
+<span class="hljs-keyword">alias</span> Foo.Bar   <span class="hljs-comment"># same as above</span>
+
+<span class="hljs-keyword">alias</span> Foo.{Bar, Baz}
+</code></pre>
+<h2 id="string">String</h2>
+<h3 id="functions">Functions</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> String
+</code></pre>
+
+<pre><code class="elixir">str = <span class="hljs-string">&quot;hello&quot;</span>
+str |&gt; length()        <span class="hljs-comment"># → 5</span>
+str |&gt; codepoints()    <span class="hljs-comment"># → [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]</span>
+str |&gt; slice(<span class="hljs-number">2</span>..<span class="hljs-number">-1</span>)    <span class="hljs-comment"># → &quot;llo&quot;</span>
+str |&gt; split(<span class="hljs-string">&quot; &quot;</span>)      <span class="hljs-comment"># → [&quot;hello&quot;]</span>
+str |&gt; capitalize()    <span class="hljs-comment"># → &quot;Hello&quot;</span>
+str |&gt; match(regex)
+</code></pre>
+<h3 id="inspecting-objects">Inspecting objects</h3>
+
+<pre><code class="elixir">inspect(object, opts \\ [])
+</code></pre>
+
+<pre><code class="elixir">value |&gt; IO.inspect()
+</code></pre>
+
+<pre><code class="elixir">value |&gt; IO.inspect(<span class="hljs-symbol">label:</span> <span class="hljs-string">&quot;value&quot;</span>)
+</code></pre>
+<h2 id="numbers">Numbers</h2>
+<h3 id="operations">Operations</h3>
+
+<pre><code class="elixir">abs(n)
+round(n)
+rem(a, b)   <span class="hljs-comment"># remainder (modulo)</span>
+div(a, b)   <span class="hljs-comment"># integer division</span>
+</code></pre>
+<h3 id="float">Float</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> Float
+</code></pre>
+
+<pre><code class="elixir">n = <span class="hljs-number">10.3</span>
+</code></pre>
+
+<pre><code class="elixir">n |&gt; ceil()            <span class="hljs-comment"># → 11.0</span>
+n |&gt; ceil(<span class="hljs-number">2</span>)           <span class="hljs-comment"># → 11.30</span>
+n |&gt; to_string()       <span class="hljs-comment"># → &quot;1.030000+e01&quot;</span>
+n |&gt; to_string([<span class="hljs-symbol">decimals:</span> <span class="hljs-number">2</span>, <span class="hljs-symbol">compact:</span> <span class="hljs-keyword">true</span>])
+</code></pre>
+
+<pre><code class="elixir">Float.parse(<span class="hljs-string">&quot;34&quot;</span>)  <span class="hljs-comment"># → { 34.0, &quot;&quot; }</span>
+</code></pre>
+<h3 id="integer">Integer</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> Integer
+</code></pre>
+
+<pre><code class="elixir">n = <span class="hljs-number">12</span>
+</code></pre>
+
+<pre><code class="elixir">n |&gt; digits()         <span class="hljs-comment"># → [1, 2]</span>
+n |&gt; to_charlist()    <span class="hljs-comment"># → &#x27;12&#x27;</span>
+n |&gt; to_string()      <span class="hljs-comment"># → &quot;12&quot;</span>
+n |&gt; is_even()
+n |&gt; is_odd()
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-comment"># Different base:</span>
+n |&gt; digits(<span class="hljs-number">2</span>)        <span class="hljs-comment"># → [1, 1, 0, 0]</span>
+n |&gt; to_charlist(<span class="hljs-number">2</span>)   <span class="hljs-comment"># → &#x27;1100&#x27;</span>
+n |&gt; to_string(<span class="hljs-number">2</span>)     <span class="hljs-comment"># → &quot;1100&quot;</span>
+</code></pre>
+
+<pre><code class="elixir">parse(<span class="hljs-string">&quot;12&quot;</span>)           <span class="hljs-comment"># → {12, &quot;&quot;}</span>
+undigits([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])      <span class="hljs-comment"># → 12</span>
+</code></pre>
+<h3 id="type-casting">Type casting</h3>
+
+<pre><code class="elixir">Float.parse(<span class="hljs-string">&quot;34.1&quot;</span>)    <span class="hljs-comment"># → {34.1, &quot;&quot;}</span>
+Integer.parse(<span class="hljs-string">&quot;34&quot;</span>)    <span class="hljs-comment"># → {34, &quot;&quot;}</span>
+</code></pre>
+
+<pre><code class="elixir">Float.to_string(<span class="hljs-number">34.1</span>)  <span class="hljs-comment"># → &quot;3.4100e+01&quot;</span>
+Float.to_string(<span class="hljs-number">34.1</span>, [<span class="hljs-symbol">decimals:</span> <span class="hljs-number">2</span>, <span class="hljs-symbol">compact:</span> <span class="hljs-keyword">true</span>])  <span class="hljs-comment"># → &quot;34.1&quot;</span>
+</code></pre>
+<h2 id="map">Map</h2>
+<h3 id="defining">Defining</h3>
+
+<pre><code class="elixir">m = %{<span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;hi&quot;</span>}       <span class="hljs-comment"># atom keys (:name)</span>
+m = %{<span class="hljs-string">&quot;name&quot;</span> =&gt; <span class="hljs-string">&quot;hi&quot;</span>}   <span class="hljs-comment"># string keys (&quot;name&quot;)</span>
+</code></pre>
+<h3 id="updating">Updating</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> Map
+</code></pre>
+
+<pre><code class="elixir">m = %{m | <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;yo&quot;</span>}  <span class="hljs-comment"># key must exist</span>
+</code></pre>
+
+<pre><code class="elixir">m |&gt; put(<span class="hljs-symbol">:id</span>, <span class="hljs-number">2</span>)      <span class="hljs-comment"># → %{id: 2, name: &quot;hi&quot;}</span>
+m |&gt; put_new(<span class="hljs-symbol">:id</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># only if `id` doesn&#x27;t exist (`||=`)</span>
+</code></pre>
+
+<pre><code class="elixir">m |&gt; put(<span class="hljs-symbol">:b</span>, <span class="hljs-string">&quot;Banana&quot;</span>)
+m |&gt; merge(%{<span class="hljs-symbol">b:</span> <span class="hljs-string">&quot;Banana&quot;</span>})
+m |&gt; update(<span class="hljs-symbol">:a</span>, &amp;(&amp;<span class="hljs-number">1</span> + <span class="hljs-number">1</span>))
+m |&gt; update(<span class="hljs-symbol">:a</span>, fun a -&gt; a + <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>)
+</code></pre>
+
+<pre><code class="elixir">m |&gt; get_and_update(<span class="hljs-symbol">:a</span>, &amp;(&amp;<span class="hljs-number">1</span> || <span class="hljs-string">&quot;default&quot;</span>))
+<span class="hljs-comment"># → {old, new}</span>
+</code></pre>
+<h3 id="deleting">Deleting</h3>
+
+<pre><code class="elixir">m |&gt; delete(<span class="hljs-symbol">:name</span>)  <span class="hljs-comment"># → %{}</span>
+m |&gt; pop(<span class="hljs-symbol">:name</span>)     <span class="hljs-comment"># → {&quot;John&quot;, %{}}</span>
+</code></pre>
+<h3 id="reading">Reading</h3>
+
+<pre><code class="elixir">m |&gt; get(<span class="hljs-symbol">:id</span>)       <span class="hljs-comment"># → 1</span>
+m |&gt; keys()         <span class="hljs-comment"># → [:id, :name]</span>
+m |&gt; values()       <span class="hljs-comment"># → [1, &quot;hi&quot;]</span>
+</code></pre>
+
+<pre><code class="elixir">m |&gt; to_list()      <span class="hljs-comment"># → [id: 1, name: &quot;hi&quot;]</span>
+                    <span class="hljs-comment"># → []</span>
+</code></pre>
+<h3 id="deep">Deep</h3>
+
+<pre><code class="elixir">put_in(map, [<span class="hljs-symbol">:b</span>, <span class="hljs-symbol">:c</span>], <span class="hljs-string">&quot;Banana&quot;</span>)
+put_in(map[<span class="hljs-symbol">:b</span>][<span class="hljs-symbol">:c</span>], <span class="hljs-string">&quot;Banana&quot;</span>)    <span class="hljs-comment"># via macros</span>
+</code></pre>
+
+<pre><code class="elixir">get_and_update_in(users, [<span class="hljs-string">&quot;john&quot;</span>, <span class="hljs-symbol">:age</span>], &amp;{&amp;<span class="hljs-number">1</span>, &amp;<span class="hljs-number">1</span> + <span class="hljs-number">1</span>})
+</code></pre>
+<h3 id="constructing-from-lists">Constructing from lists</h3>
+
+<pre><code class="elixir">Map.new([])
+Map.new([<span class="hljs-symbol">a:</span> <span class="hljs-number">1</span>, <span class="hljs-symbol">b:</span> <span class="hljs-number">2</span>])
+Map.new([<span class="hljs-symbol">:a</span>, <span class="hljs-symbol">:b</span>], <span class="hljs-keyword">fn</span> x -&gt; {x, x} <span class="hljs-keyword">end</span>)  <span class="hljs-comment"># → %{a: :a, b: :b}</span>
+</code></pre>
+<h3 id="working-with-structs">Working with structs</h3>
+<h4 id="struct-to-map">Struct to map</h4>
+
+<pre><code class="elixir">Map.from_struct(%AnyStruct{<span class="hljs-symbol">a:</span> <span class="hljs-string">&quot;b&quot;</span>})  <span class="hljs-comment"># → %{a: &quot;b&quot;}</span>
+</code></pre>
+<h4 id="map-to-struct">Map to struct</h4>
+
+<pre><code class="elixir">struct(AnyStruct, %{<span class="hljs-symbol">a:</span> <span class="hljs-string">&quot;b&quot;</span>})  <span class="hljs-comment"># → %AnyStruct{a: &quot;b&quot;}</span>
+</code></pre>
+<h2 id="list">List</h2>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> List
+</code></pre>
+
+<pre><code class="elixir">l = [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span> ]
+</code></pre>
+
+<pre><code class="elixir">l = l ++ [<span class="hljs-number">5</span>]         <span class="hljs-comment"># push (append)</span>
+l = [ 0 | list ]     <span class="hljs-comment"># unshift (prepend)</span>
+</code></pre>
+
+<pre><code class="elixir">l |&gt; first()
+l |&gt; last()
+</code></pre>
+
+<pre><code class="elixir">l |&gt; flatten()
+l |&gt; flatten(tail)
+</code></pre>
+<p>Also see <a href="#enum">Enum</a>.</p>
+<h2 id="enum">Enum</h2>
+<h3 id="usage">Usage</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> Enum
+</code></pre>
+
+<pre><code class="elixir">list = [<span class="hljs-symbol">:a</span>, <span class="hljs-symbol">:b</span>, <span class="hljs-symbol">:c</span>]
+</code></pre>
+
+<pre><code class="elixir">list |&gt; at(0)         <span class="hljs-comment"># → :a</span>
+list |&gt; count()       <span class="hljs-comment"># → 3</span>
+list |&gt; empty?()      <span class="hljs-comment"># → false</span>
+list |&gt; any?()        <span class="hljs-comment"># → true</span>
+</code></pre>
+
+<pre><code class="elixir">list |&gt; concat([<span class="hljs-symbol">:d</span>])  <span class="hljs-comment"># → [:a, :b, :c, :d]</span>
+</code></pre>
+<p>Also, consider streams instead.</p>
+<h3 id="map-reduce">Map/reduce</h3>
+
+<pre><code class="elixir">list |&gt; reduce(<span class="hljs-keyword">fn</span>)
+list |&gt; reduce(acc, <span class="hljs-keyword">fn</span>)
+list |&gt; map(<span class="hljs-keyword">fn</span>)
+list |&gt; reject(<span class="hljs-keyword">fn</span>)
+list |&gt; any?(<span class="hljs-keyword">fn</span>)
+list |&gt; empty?(<span class="hljs-keyword">fn</span>)
+</code></pre>
+
+<pre><code class="elixir">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+|&gt; Enum.reduce(0, <span class="hljs-keyword">fn</span>(x, acc) -&gt; x + acc <span class="hljs-keyword">end</span>)
+</code></pre>
+<h2 id="tuple">Tuple</h2>
+<h3 id="tuples">Tuples</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">import</span> Tuple
+</code></pre>
+
+<pre><code class="elixir">t = { <span class="hljs-symbol">:a</span>, <span class="hljs-symbol">:b</span> }
+</code></pre>
+
+<pre><code class="elixir">t |&gt; elem(<span class="hljs-number">1</span>)    <span class="hljs-comment"># like tuple[1]</span>
+t |&gt; put_elem(index, value)
+t |&gt; tuple_size()
+</code></pre>
+<h3 id="keyword-lists">Keyword lists</h3>
+
+<pre><code class="elixir">list = [{ <span class="hljs-symbol">:name</span>, <span class="hljs-string">&quot;John&quot;</span> }, { <span class="hljs-symbol">:age</span>, <span class="hljs-number">15</span> }]
+list[<span class="hljs-symbol">:name</span>]
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-comment"># For string-keyed keyword lists</span>
+list = [{<span class="hljs-string">&quot;size&quot;</span>, <span class="hljs-number">2</span>}, {<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;shoe&quot;</span>}]
+List.keyfind(list, <span class="hljs-string">&quot;size&quot;</span>, 0)  <span class="hljs-comment"># → {&quot;size&quot;, 2}</span>
+</code></pre>
+<h2 id="functions">Functions</h2>
+<h3 id="lambdas">Lambdas</h3>
+
+<pre><code class="elixir">square = <span class="hljs-keyword">fn</span> n -&gt; n*n <span class="hljs-keyword">end</span>
+square.(<span class="hljs-number">20</span>)
+</code></pre>
+<h3 id="-syntax">&amp; syntax</h3>
+
+<pre><code class="elixir">square = &amp;(&amp;<span class="hljs-number">1</span> * &amp;<span class="hljs-number">1</span>)
+square.(<span class="hljs-number">20</span>)
+
+square = &amp;Math.square/<span class="hljs-number">1</span>
+</code></pre>
+<h3 id="running">Running</h3>
+
+<pre><code class="elixir">fun.(args)
+apply(fun, args)
+apply(<span class="hljs-keyword">module</span>, fun, args)
+</code></pre>
+<h3 id="function-heads">Function heads</h3>
+
+<pre><code class="elixir"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">join</span></span>(a, b \\ <span class="hljs-keyword">nil</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">join</span></span>(a, b) <span class="hljs-keyword">when</span> is_nil(b) <span class="hljs-symbol">do:</span> a
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">join</span></span>(a, b) <span class="hljs-symbol">do:</span> a &lt;&gt; b
+</code></pre>
+<h2 id="structs">Structs</h2>
+<h3 id="structs">Structs</h3>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">User</span></span> <span class="hljs-keyword">do</span>
+  defstruct <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-symbol">age:</span> <span class="hljs-keyword">nil</span>
+<span class="hljs-keyword">end</span>
+
+%User{<span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-symbol">age:</span> <span class="hljs-number">20</span>}
+
+%User{}.struct  <span class="hljs-comment"># → User</span>
+</code></pre>
+<p>See: <a href="http://elixir-lang.org/getting-started/structs.html">Structs</a></p>
+<h2 id="protocols">Protocols</h2>
+<h3 id="defining-protocols">Defining protocols</h3>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defprotocol</span> <span class="hljs-title">Blank</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@doc</span> <span class="hljs-string">&quot;Returns true if data is considered blank/empty&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">blank?</span></span>(data)
+<span class="hljs-keyword">end</span>
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defimpl</span> <span class="hljs-title">Blank</span></span>, <span class="hljs-symbol">for:</span> List <span class="hljs-keyword">do</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">blank?</span></span>([]), <span class="hljs-symbol">do:</span> <span class="hljs-keyword">true</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">blank?</span></span>(_), <span class="hljs-symbol">do:</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+
+Blank.blank?([])  <span class="hljs-comment"># → true</span>
+</code></pre>
+<h3 id="any">Any</h3>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defimpl</span> <span class="hljs-title">Blank</span></span>, <span class="hljs-symbol">for:</span> Any <span class="hljs-keyword">do</span> ... <span class="hljs-keyword">end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">User</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@derive</span> Blank     <span class="hljs-comment"># Falls back to Any</span>
+  defstruct <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="examples">Examples</h3>
+
+<ul>
+<li><code>Enumerable</code> and <code>Enum.map()</code></li>
+<li><code>Inspect</code> and <code>inspect()</code></li>
+</ul>
+<h2 id="comprehensions">Comprehensions</h2>
+<h3 id="for">For</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">for</span> n &lt;- [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], <span class="hljs-symbol">do:</span> n * n
+<span class="hljs-keyword">for</span> n &lt;- <span class="hljs-number">1</span>..<span class="hljs-number">4</span>, <span class="hljs-symbol">do:</span> n * n
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-keyword">for</span> {key, val} &lt;- %{<span class="hljs-symbol">a:</span> <span class="hljs-number">10</span>, <span class="hljs-symbol">b:</span> <span class="hljs-number">20</span>}, <span class="hljs-symbol">do:</span> val
+<span class="hljs-comment"># → [10, 20]</span>
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-keyword">for</span> {key, val} &lt;- %{<span class="hljs-symbol">a:</span> <span class="hljs-number">10</span>, <span class="hljs-symbol">b:</span> <span class="hljs-number">20</span>}, <span class="hljs-symbol">into:</span> %{}, <span class="hljs-symbol">do:</span> {key, val*val}
+</code></pre>
+<h3 id="conditions">Conditions</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">for</span> n &lt;- <span class="hljs-number">1</span>..<span class="hljs-number">10</span>, rem(n, <span class="hljs-number">2</span>) == 0, <span class="hljs-symbol">do:</span> n
+<span class="hljs-comment"># → [2, 4, 6, 8, 10]</span>
+</code></pre>
+<h3 id="complex">Complex</h3>
+
+<pre><code class="elixir"><span class="hljs-keyword">for</span> dir &lt;- dirs,
+    file &lt;- File.ls!(dir),          <span class="hljs-comment"># nested comprehension</span>
+    path = Path.join(dir, file),    <span class="hljs-comment"># invoked</span>
+    File.regular?(path) <span class="hljs-keyword">do</span>          <span class="hljs-comment"># condition</span>
+  IO.puts(file)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="metaprogramming">Metaprogramming</h3>
+
+<pre><code class="elixir">__MODULE__
+__MODULE__.__info__
+
+<span class="hljs-variable">@after_compile</span> __MODULE__
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__before_compile__</span></span>(env)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__after_compile__</span></span>(env, _bytecode)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__using__</span></span>(opts)    <span class="hljs-comment"># invoked on `use`</span>
+
+<span class="hljs-variable">@on_definition</span> {__MODULE__, <span class="hljs-symbol">:on_def</span>}
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_def</span></span>(_env, kind, name, args, guards, body)
+
+<span class="hljs-variable">@on_load</span> <span class="hljs-symbol">:load_check</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_check</span></span>
+</code></pre>
+<h3 id="regexp">Regexp</h3>
+
+<pre><code class="elixir">exp = <span class="hljs-string">~r/hello/</span>
+exp = <span class="hljs-string">~r/hello/</span>i
+<span class="hljs-string">&quot;hello world&quot;</span> =~ exp
+</code></pre>
+<h3 id="sigils">Sigils</h3>
+
+<pre><code class="elixir"><span class="hljs-string">~r/regexp/</span>
+<span class="hljs-string">~w(list of strings)</span>
+<span class="hljs-string">~s|strings with <span class="hljs-subst">#{interpolation}</span> and \x20 escape codes|</span>
+<span class="hljs-string">~S|no interpolation and no escapes|</span>
+<span class="hljs-string">~c(charlist)</span>
+</code></pre>
+<p>Allowed chars: <code>/</code> <code>|</code> <code>&quot;</code> <code>&#39;</code> <code>(</code> <code>[</code> <code>{</code> <code>&lt;</code> <code>&quot;&quot;&quot;</code>.
+See: <a href="http://elixir-lang.org/getting-started/sigils.html">Sigils</a></p>
+<h3 id="type-specs">Type specs</h3>
+
+<pre><code class="elixir"><span class="hljs-variable">@spec</span> round(number) :: integer
+
+<span class="hljs-variable">@type</span> number_with_remark :: {number, String.t}
+<span class="hljs-variable">@spec</span> add(number, number) :: number_with_remark
+</code></pre>
+<p>Useful for <a href="http://www.erlang.org/doc/man/dialyzer.html">dialyzer</a>.
+See: <a href="http://elixir-lang.org/getting-started/typespecs-and-behaviours.html">Typespecs</a></p>
+<h3 id="behaviours">Behaviours</h3>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">Parser</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@callback</span> parse(String.t) :: any
+  <span class="hljs-variable">@callback</span> extensions() :: [String.t]
+<span class="hljs-keyword">end</span>
+</code></pre>
+
+<pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">JSONParser</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@behaviour</span> Parser
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span></span>(str), <span class="hljs-symbol">do:</span> <span class="hljs-comment"># ... parse JSON</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extensions</span></span>, <span class="hljs-symbol">do:</span> [<span class="hljs-string">&quot;json&quot;</span>]
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>See: <a href="http://elixir-lang.org/docs/stable/elixir/Module.html">Module</a></p>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://learnxinyminutes.com/docs/elixir/">Learn Elixir in Y minutes</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

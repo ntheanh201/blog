@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>applicationCache cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / applicationCache cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\js-appcache.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Reference</b>: <a href="#applicationcache-checking">applicationCache checking</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reference">Reference</h2>
+<h3 id="applicationcache-checking">applicationCache checking</h3>
+
+<pre><code class="js"><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>) {
+  <span class="hljs-comment">// &quot;Naturally&quot; reload when an update is available</span>
+  <span class="hljs-keyword">var</span> reload = <span class="hljs-literal">false</span>
+
+  <span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;updateready&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>.<span class="hljs-property">status</span> === <span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>.<span class="hljs-property">UPDATEREADY</span>) {
+      <span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>.<span class="hljs-title function_">swapCache</span>()
+      reload = <span class="hljs-literal">true</span>
+    }
+  }, <span class="hljs-literal">false</span>)
+
+  <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// There&#x27;s nothing to update for first-time load, browser freaks out :/</span>
+      <span class="hljs-variable language_">window</span>.<span class="hljs-property">applicationCache</span>.<span class="hljs-title function_">update</span>()
+    } <span class="hljs-keyword">catch</span> (e) { }
+  }, <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// Every hour</span>
+}
+</code></pre>
+<p>This is a deprecated HTML feature. See: <a href="https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache">Using the application cache</a> <em>(developer.mozilla.org)</em></p>
+
+</div>
+</body>  
+</html>

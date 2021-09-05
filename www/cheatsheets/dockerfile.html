@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Dockerfile cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Dockerfile cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\dockerfile.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Reference</b>: <a href="#inheritance">Inheritance</a>, <a href="#variables">Variables</a>, <a href="#initialization">Initialization</a>, <a href="#onbuild">Onbuild</a>, <a href="#commands">Commands</a>, <a href="#entrypoint">Entrypoint</a>, <a href="#metadata">Metadata</a><br>
+<a href="#see-also">See also</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reference">Reference</h2>
+<h3 id="inheritance">Inheritance</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">FROM</span> ruby:<span class="hljs-number">2.2</span>.<span class="hljs-number">2</span>
+</code></pre>
+<h3 id="variables">Variables</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">ENV</span> APP_HOME /myapp
+<span class="hljs-keyword">RUN</span><span class="language-bash"> mkdir <span class="hljs-variable">$APP_HOME</span></span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">ARG</span> APP_HOME=<span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> mkdir <span class="hljs-variable">$APP_HOME</span></span>
+</code></pre>
+<h3 id="initialization">Initialization</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">RUN</span><span class="language-bash"> bundle install</span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /myapp</span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">VOLUME</span><span class="language-bash"> [<span class="hljs-string">&quot;/data&quot;</span>]</span>
+<span class="hljs-comment"># Specification for mount point</span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">ADD</span><span class="language-bash"> file.xyz /file.xyz</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> --chown=user:group host_file.xyz /path/container_file.xyz</span>
+</code></pre>
+<h3 id="onbuild">Onbuild</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">ONBUILD</span> <span class="hljs-keyword">RUN</span><span class="language-bash"> bundle install</span>
+<span class="hljs-comment"># when used with another file</span>
+</code></pre>
+<h3 id="commands">Commands</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">5900</span>
+<span class="hljs-keyword">CMD</span><span class="language-bash">    [<span class="hljs-string">&quot;bundle&quot;</span>, <span class="hljs-string">&quot;exec&quot;</span>, <span class="hljs-string">&quot;rails&quot;</span>, <span class="hljs-string">&quot;server&quot;</span>]</span>
+</code></pre>
+<h3 id="entrypoint">Entrypoint</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;executable&quot;</span>, <span class="hljs-string">&quot;param1&quot;</span>, <span class="hljs-string">&quot;param2&quot;</span>]</span>
+<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">command</span> param1 param2</span>
+</code></pre>
+<p>Configures a container that will run as an executable.</p>
+
+<pre><code class="docker"><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> <span class="hljs-built_in">exec</span> top -b</span>
+</code></pre>
+<p>This will use shell processing to substitute shell variables, and will ignore any <code>CMD</code> or <code>docker run</code> command line arguments.</p>
+<h3 id="metadata">Metadata</h3>
+
+<pre><code class="docker"><span class="hljs-keyword">LABEL</span><span class="language-bash"> version=<span class="hljs-string">&quot;1.0&quot;</span></span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">LABEL</span><span class="language-bash"> <span class="hljs-string">&quot;com.example.vendor&quot;</span>=<span class="hljs-string">&quot;ACME Incorporated&quot;</span></span>
+<span class="hljs-keyword">LABEL</span><span class="language-bash"> com.example.label-with-value=<span class="hljs-string">&quot;foo&quot;</span></span>
+</code></pre>
+
+<pre><code class="docker"><span class="hljs-keyword">LABEL</span><span class="language-bash"> description=<span class="hljs-string">&quot;This text illustrates \
+that label-values can span multiple lines.&quot;</span></span>
+</code></pre>
+<h2 id="see-also">See also</h2>
+
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

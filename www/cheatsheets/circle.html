@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CircleCI cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / CircleCI cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\circle.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#circle-yml">circle.yml</a><br>
+<a href="#sample">Sample</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="circle-yml">circle.yml</h2>
+
+<ul>
+<li><strong>machine</strong>: adjusting the VM to your preferences and requirements</li>
+<li><strong>checkout</strong>: checking out and cloning your git repo</li>
+<li><strong>dependencies</strong>: setting up your project&#39;s language-specific dependencies</li>
+<li><strong>database</strong>: preparing the databases for your tests</li>
+<li><strong>test</strong>: running your tests</li>
+<li><strong>deployment</strong>: deploying your code to your web servers</li>
+</ul>
+<p>See: <a href="https://circleci.com/docs/configuration">https://circleci.com/docs/configuration</a></p>
+<h2 id="sample">Sample</h2>
+
+<pre><code class="yml"><span class="hljs-comment">## Customize the test machine</span>
+<span class="hljs-attr">machine:</span>
+
+  <span class="hljs-attr">timezone:</span>
+    <span class="hljs-string">America/Los_Angeles</span> <span class="hljs-comment"># Set the timezone</span>
+
+  <span class="hljs-comment"># Version of ruby to use</span>
+  <span class="hljs-attr">ruby:</span>
+    <span class="hljs-attr">version:</span>
+      <span class="hljs-number">1.8</span><span class="hljs-number">.7</span><span class="hljs-string">-p358-falcon-perf</span>
+
+  <span class="hljs-comment"># Override /etc/hosts</span>
+  <span class="hljs-attr">hosts:</span>
+    <span class="hljs-attr">circlehost:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    <span class="hljs-attr">dev.mycompany.com:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+
+  <span class="hljs-comment"># Add some environment variables</span>
+  <span class="hljs-attr">environment:</span>
+    <span class="hljs-attr">CIRCLE_ENV:</span> <span class="hljs-string">test</span>
+    <span class="hljs-attr">DATABASE_URL:</span> <span class="hljs-string">postgres://ubuntu:@127.0.0.1:5432/circle_test</span>
+
+<span class="hljs-comment">## Customize checkout</span>
+<span class="hljs-attr">checkout:</span>
+  <span class="hljs-attr">post:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">submodule</span> <span class="hljs-string">sync</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">submodule</span> <span class="hljs-string">update</span> <span class="hljs-string">--init</span> <span class="hljs-comment"># use submodules</span>
+
+<span class="hljs-comment">## Customize dependencies</span>
+<span class="hljs-attr">dependencies:</span>
+  <span class="hljs-attr">pre:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span> <span class="hljs-string">coffeescript</span> <span class="hljs-comment"># install from a different package manager</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">gem</span> <span class="hljs-string">uninstall</span> <span class="hljs-string">bundler</span> <span class="hljs-comment"># use a custom version of bundler</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">gem</span> <span class="hljs-string">install</span> <span class="hljs-string">bundler</span> <span class="hljs-string">--pre</span>
+
+  <span class="hljs-attr">override:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">bundle install:</span> <span class="hljs-comment"># note &#x27;:&#x27; here</span>
+        <span class="hljs-attr">timeout:</span> <span class="hljs-number">180</span> <span class="hljs-comment"># fail if command has no output for 3 minutes</span>
+
+  <span class="hljs-comment"># we automatically cache and restore many dependencies between</span>
+  <span class="hljs-comment"># builds. If you need to, you can add custom paths to cache:</span>
+  <span class="hljs-attr">cache_directories:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;custom_1&quot;</span>   <span class="hljs-comment"># relative to the build directory</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;~/custom_2&quot;</span> <span class="hljs-comment"># relative to the user&#x27;s home directory</span>
+
+<span class="hljs-comment">## Customize database setup</span>
+<span class="hljs-attr">database:</span>
+  <span class="hljs-attr">override:</span>
+    <span class="hljs-comment"># replace CircleCI&#x27;s generated database.yml</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cp</span> <span class="hljs-string">config/database.yml.ci</span> <span class="hljs-string">config/database.yml</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">bundle</span> <span class="hljs-string">exec</span> <span class="hljs-string">rake</span> <span class="hljs-string">db:create</span> <span class="hljs-string">db:schema:load</span>
+
+<span class="hljs-comment">## Customize test commands</span>
+<span class="hljs-attr">test:</span>
+  <span class="hljs-attr">override:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">phpunit</span> <span class="hljs-string">test/unit-tests</span> <span class="hljs-comment"># use PHPunit for testing</span>
+  <span class="hljs-attr">post:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">bundle exec rake jasmine:ci:</span> <span class="hljs-comment"># add an extra test type</span>
+        <span class="hljs-attr">environment:</span>
+          <span class="hljs-attr">RAILS_ENV:</span> <span class="hljs-string">test</span>
+          <span class="hljs-attr">RACK_ENV:</span> <span class="hljs-string">test</span>
+
+<span class="hljs-comment">## Customize deployment commands</span>
+<span class="hljs-attr">deployment:</span>
+  <span class="hljs-attr">staging:</span>
+    <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span>
+    <span class="hljs-attr">heroku:</span>
+      <span class="hljs-attr">appname:</span> <span class="hljs-string">foo-bar-123</span>
+
+<span class="hljs-comment">## Custom notifications</span>
+<span class="hljs-attr">notify:</span>
+  <span class="hljs-attr">webhooks:</span>
+    <span class="hljs-comment"># A list of hashes representing hooks. Only the url field is supported.</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://someurl.com/hooks/circle</span>
+</code></pre>
+<p>See: <a href="https://circleci.com/docs/config-sample">https://circleci.com/docs/config-sample</a></p>
+
+</div>
+</body>  
+</html>

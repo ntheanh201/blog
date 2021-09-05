@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Express.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Express.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\express.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#settings">Settings</a>, <a href="#env">Env</a>, <a href="#config">Config</a>, <a href="#wares">Wares</a>, <a href="#helpers">Helpers</a><br>
+<b>Request & response</b>: <a href="#request">Request</a>, <a href="#response">Response</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="settings">Settings</h3>
+
+<pre><code class="js">app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;yyy&#x27;</span>)
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;x&#x27;</span>) <span class="hljs-comment">//=&gt; &#x27;yyy&#x27;</span>
+
+app.<span class="hljs-title function_">enable</span>(<span class="hljs-string">&#x27;trust proxy&#x27;</span>)
+app.<span class="hljs-title function_">disable</span>(<span class="hljs-string">&#x27;trust proxy&#x27;</span>)
+
+app.<span class="hljs-title function_">enabled</span>(<span class="hljs-string">&#x27;trust proxy&#x27;</span>) <span class="hljs-comment">//=&gt; true</span>
+</code></pre>
+<h3 id="env">Env</h3>
+
+<pre><code class="js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;env&#x27;</span>)
+</code></pre>
+<h3 id="config">Config</h3>
+
+<pre><code class="js">app.<span class="hljs-title function_">configure</span>(<span class="hljs-string">&#x27;production&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  app.<span class="hljs-property">set</span>...
+})
+</code></pre>
+<h3 id="wares">Wares</h3>
+
+<pre><code class="js">app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(__dirname + <span class="hljs-string">&#x27;/public&#x27;</span>))
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">logger</span>())
+</code></pre>
+<h3 id="helpers">Helpers</h3>
+
+<pre><code class="js">app.<span class="hljs-title function_">locals</span>({
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;MyApp&quot;</span>,
+})
+</code></pre>
+<h2 id="request-response">Request &amp; response</h2>
+<h3 id="request">Request</h3>
+
+<pre><code class="js"><span class="hljs-comment">// GET  /user/tj</span>
+req.<span class="hljs-property">path</span>         <span class="hljs-comment">//=&gt; &quot;/user/tj&quot;</span>
+req.<span class="hljs-property">url</span>          <span class="hljs-comment">//=&gt; &quot;/user/tj&quot;</span>
+req.<span class="hljs-property">xhr</span>          <span class="hljs-comment">//=&gt; true|false</span>
+req.<span class="hljs-property">method</span>       <span class="hljs-comment">//=&gt; &quot;GET&quot;</span>
+req.<span class="hljs-property">params</span>
+req.<span class="hljs-property">params</span>.<span class="hljs-property">name</span>  <span class="hljs-comment">//=&gt; &quot;tj&quot;</span>
+req.<span class="hljs-property">params</span>[<span class="hljs-number">0</span>]
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// GET /search?q=tobi+ferret</span>
+req.<span class="hljs-property">query</span>.<span class="hljs-property">q</span> <span class="hljs-comment">// =&gt; &quot;tobi ferret&quot;</span>
+</code></pre>
+
+<pre><code class="js">req.<span class="hljs-property">cookies</span>
+</code></pre>
+
+<pre><code class="js">req.<span class="hljs-property">accepted</span>
+<span class="hljs-comment">// [ { value: &#x27;application/json&#x27;, quality: 1, type: &#x27;application&#x27;, subtype: &#x27;json&#x27; },</span>
+<span class="hljs-comment">//   { value: &#x27;text/html&#x27;, quality: 0.5, type: &#x27;text&#x27;,subtype: &#x27;html&#x27; } ]</span>
+</code></pre>
+
+<pre><code class="js">req.<span class="hljs-title function_">is</span>(<span class="hljs-string">&#x27;html&#x27;</span>)
+req.<span class="hljs-title function_">is</span>(<span class="hljs-string">&#x27;text/html&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">req.<span class="hljs-property">headers</span>
+req.<span class="hljs-property">headers</span>[<span class="hljs-string">&#x27;host&#x27;</span>]
+req.<span class="hljs-property">headers</span>[<span class="hljs-string">&#x27;user-agent&#x27;</span>]
+req.<span class="hljs-property">headers</span>[<span class="hljs-string">&#x27;accept-encoding&#x27;</span>]
+req.<span class="hljs-property">headers</span>[<span class="hljs-string">&#x27;accept-language&#x27;</span>]
+</code></pre>
+<h3 id="response">Response</h3>
+
+<pre><code class="js">res.<span class="hljs-title function_">redirect</span>(<span class="hljs-string">&#x27;/&#x27;</span>)
+res.<span class="hljs-title function_">redirect</span>(<span class="hljs-number">301</span>, <span class="hljs-string">&#x27;/&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">res.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;text/html&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;hi&#x27;</span>)
+res.<span class="hljs-title function_">send</span>(<span class="hljs-number">200</span>, <span class="hljs-string">&#x27;hi&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">res.<span class="hljs-title function_">json</span>({ <span class="hljs-attr">a</span>: <span class="hljs-number">2</span> })
+</code></pre>
+
+</div>
+</body>  
+</html>

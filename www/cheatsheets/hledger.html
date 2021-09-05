@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hledger cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Hledger cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\hledger.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#reporting">Reporting</a><br>
+<b>Query</b>: <a href="#filter-by-status-type">Filter by status/type</a>, <a href="#periods">Periods</a>, <a href="#intervals">Intervals</a>, <a href="#smart-dates">Smart dates</a><br>
+<a href="#display-formats">Display formats</a><br>
+<a href="#multi-column-mode">Multi-column mode</a><br>
+<a href="#accounts">Accounts</a><br>
+<a href="#other-commands">Other commands</a><br>
+<a href="#examples">Examples</a><br>
+<a href="#see-also">See also</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reporting">Reporting</h2>
+
+<pre><code>hledger <span class="hljs-keyword">bal</span> {query}
+<span class="hljs-keyword">hledger</span> <span class="hljs-keyword">reg</span> {query}
+</code></pre>
+<h2 id="query">Query</h2>
+<p>Queries are used on all commands (<code>bal</code>, <code>reg</code>, etc). <a href="http://hledger.org/manual.html#queries">(docs)</a></p>
+
+<pre><code>Assets           <span class="hljs-meta"># An account (regex)</span>
+<span class="hljs-symbol">acct:</span>Assets      <span class="hljs-meta"># same</span>
+^Assets          <span class="hljs-meta"># Starting with Assets (eg, not &#x27;Expenses:Assets&#x27;)</span>
+
+<span class="hljs-symbol">acctonly:</span>A       <span class="hljs-meta"># no subaccounts</span>
+
+<span class="hljs-symbol">amt:</span><span class="hljs-number">2000</span>         <span class="hljs-meta"># amount (in absolute value)</span>
+<span class="hljs-symbol">amt:</span>&lt;<span class="hljs-number">200</span>         <span class="hljs-meta"># amount comparison (in absolute value)</span>
+<span class="hljs-symbol">amt:</span>&lt;+<span class="hljs-number">200</span>        <span class="hljs-meta"># amount comparison</span>
+                 <span class="hljs-meta"># also: &lt;=, &gt;, &gt;=</span>
+
+<span class="hljs-symbol">desc:</span>REGEX      <span class="hljs-meta"># description</span>
+<span class="hljs-symbol">code:</span>REGEX      <span class="hljs-meta"># transaction code (check number?)</span>
+<span class="hljs-symbol">tag:</span>REGEX
+<span class="hljs-symbol">cur:</span><span class="hljs-string">&#x27;\$&#x27;</span>
+
+<span class="hljs-symbol">real:</span>            <span class="hljs-meta"># real posts</span>
+<span class="hljs-symbol">real:</span><span class="hljs-number">0</span>           <span class="hljs-meta"># virtual posts</span>
+
+<span class="hljs-symbol">depth:</span>N          <span class="hljs-meta"># --depth 2</span>
+<span class="hljs-symbol">not:</span>...          <span class="hljs-meta"># eg, not:status:!</span>
+</code></pre>
+<h3 id="filter-by-status-type">Filter by status/type</h3>
+
+<pre><code><span class="hljs-symbol">real:</span><span class="hljs-number">1</span>           <span class="hljs-meta"># -R, --real, no virtuals</span>
+<span class="hljs-symbol">status:</span>!         <span class="hljs-meta">#     --pending</span>
+<span class="hljs-symbol">status:</span>*         <span class="hljs-meta"># -C, --cleared</span>
+<span class="hljs-symbol">status:</span>          <span class="hljs-meta">#     --uncleared</span>
+</code></pre>
+<h3 id="periods">Periods</h3>
+<p>For dates and intervals (see above).</p>
+
+<pre><code><span class="hljs-attribute">date</span>:<span class="hljs-number">2015</span>/<span class="hljs-number">01</span>/<span class="hljs-number">01</span>
+<span class="hljs-attribute">date</span>:<span class="hljs-number">2015</span>/<span class="hljs-number">01</span>/<span class="hljs-number">01</span>-    # -b, --begin
+<span class="hljs-attribute">date</span>:-<span class="hljs-number">2015</span>/<span class="hljs-number">01</span>/<span class="hljs-number">01</span>    # -e, --end
+<span class="hljs-attribute">date2</span>:PERIODEXPR
+</code></pre>
+
+<pre><code>-p, <span class="hljs-params">--period=</span><span class="hljs-string">...</span>
+  -p <span class="hljs-string">&quot;2009/01/01&quot;</span>
+  -p <span class="hljs-string">&quot;2009/01/01 to 2009/12/31&quot;</span>
+  -p <span class="hljs-string">&quot;2009/01/01to2009/12/31&quot;</span>      <span class="hljs-comment"># spaces optional</span>
+  -p <span class="hljs-string">&quot;1/1 to 12/31&quot;</span>
+  -p <span class="hljs-string">&quot;to 2009&quot;</span>
+  -p <span class="hljs-string">&quot;weekly&quot;</span>                      <span class="hljs-comment"># -W, --weekly</span>
+  -p <span class="hljs-string">&quot;weekly 2009/01/01 to 2009/12/31&quot;</span>
+</code></pre>
+<h3 id="intervals">Intervals</h3>
+<p>Used on all commands (<code>bal</code>, <code>reg</code>, etc). Displays in multi-column mode. In <code>ledger-cli</code>, only <code>reg</code> is supported. Can also specified via <code>-p</code> (period).</p>
+
+<pre><code>-D, <span class="hljs-comment">--daily</span>
+-W, <span class="hljs-comment">--weekly</span>
+-M, <span class="hljs-comment">--monthly</span>
+-Q, <span class="hljs-comment">--quarterly</span>
+-Y, <span class="hljs-comment">--yearly</span>
+</code></pre>
+<h3 id="smart-dates">Smart dates</h3>
+<p>Used for <code>--period</code>, <code>--begin</code> and <code>--end</code> (<code>-p</code> <code>-b</code> <code>-e</code>).</p>
+
+<pre><code>-<span class="hljs-selector-tag">p</span> <span class="hljs-number">2015</span>/<span class="hljs-number">01</span>/<span class="hljs-number">01</span>
+-<span class="hljs-selector-tag">p</span> <span class="hljs-number">2015</span>/<span class="hljs-number">01</span>
+-<span class="hljs-selector-tag">p</span> <span class="hljs-number">2015</span>
+-<span class="hljs-selector-tag">p</span> january
+-<span class="hljs-selector-tag">p</span> jan
+-<span class="hljs-selector-tag">p</span> <span class="hljs-number">05</span>/<span class="hljs-number">25</span>
+</code></pre>
+
+<pre><code><span class="hljs-deletion">-b today</span>
+<span class="hljs-deletion">-b yesterday</span>
+<span class="hljs-deletion">-e tomorrow</span>
+</code></pre>
+
+<pre><code>-p <span class="hljs-keyword">this</span> week
+-p last month
+-p <span class="hljs-keyword">this</span> year
+</code></pre>
+<h2 id="display-formats">Display formats</h2>
+
+<pre><code>    <span class="hljs-built_in">--tree</span>          <span class="hljs-comment"># only in bal</span>
+    <span class="hljs-built_in">--flat</span>
+
+    <span class="hljs-built_in">--depth</span> <span class="hljs-string">2</span>       <span class="hljs-comment"># collapse those under this depth</span>
+    <span class="hljs-built_in">--drop</span> <span class="hljs-string">1</span>        <span class="hljs-comment"># drop top-level accounts</span>
+-<span class="hljs-string">B</span>, <span class="hljs-built_in">--cost</span>          <span class="hljs-comment"># convert to default currency</span>
+-<span class="hljs-string">E</span>, <span class="hljs-built_in">--empty</span>         <span class="hljs-comment"># don&#x27;t strip out $0 accounts</span>
+    <span class="hljs-built_in">--date2</span>         <span class="hljs-comment"># use date2 when available</span>
+</code></pre>
+<h2 id="multi-column-mode">Multi-column mode</h2>
+<p>When used with intervals (like <code>--weekly</code>):</p>
+
+<pre><code>-<span class="hljs-built_in">T</span>, --<span class="hljs-built_in">row</span>-total
+-<span class="hljs-built_in">N</span>, --no-total
+</code></pre>
+<p>Also: (only in <code>bal</code>)</p>
+
+<pre><code>    --<span class="hljs-comment">cumulative</span>    <span class="hljs-comment"># show ending balance per</span> <span class="hljs-comment">period</span>
+<span class="hljs-literal">-</span><span class="hljs-comment">I</span><span class="hljs-string">,</span> --<span class="hljs-comment">historical</span>    <span class="hljs-comment">#</span> <span class="hljs-comment">like</span> --<span class="hljs-comment">cumulative but only for </span>--<span class="hljs-comment">begin</span>
+<span class="hljs-literal">-</span><span class="hljs-comment">A</span><span class="hljs-string">,</span> --<span class="hljs-comment">average</span>
+</code></pre>
+<h2 id="accounts">Accounts</h2>
+
+<pre><code>hledger accounts [<span class="hljs-comment">--tree]</span>
+</code></pre>
+<h2 id="other-commands">Other commands</h2>
+
+<pre><code>hledger balancesheet       <span class="hljs-meta"># bs</span>
+hledger incomestatement    <span class="hljs-meta"># is</span>
+hledger cashflow           <span class="hljs-meta"># cf</span>
+hledger print
+hledger activity
+hledger stats
+</code></pre>
+<h2 id="examples">Examples</h2>
+
+<pre><code><span class="hljs-comment"># Current balance</span>
+  <span class="hljs-string">hledger</span> <span class="hljs-string">bal</span> <span class="hljs-string">Assets</span>
+  <span class="hljs-string">hledger</span> <span class="hljs-string">balancesheet</span>
+
+  <span class="hljs-string">hledger</span> <span class="hljs-string">balancesheet</span> <span class="hljs-string">Assets</span> [<span class="hljs-built_in">--cleared</span> <span class="hljs-built_in">--cost</span> <span class="hljs-built_in">--empty</span> -<span class="hljs-string">e</span> <span class="hljs-string">tomorrow</span>]
+  <span class="hljs-comment"># ...discard future stuff; convert foreign currencies</span>
+
+<span class="hljs-comment"># Monthly changes in assets</span>
+  <span class="hljs-string">hledger</span> <span class="hljs-string">bal</span> <span class="hljs-string">Assets</span> <span class="hljs-string">Liabilities</span> <span class="hljs-built_in">--monthly</span> <span class="hljs-built_in">--tree</span> <span class="hljs-built_in">--historical</span> [<span class="hljs-built_in">--cleared</span> <span class="hljs-built_in">--cost</span> <span class="hljs-built_in">--empty</span> -<span class="hljs-string">e</span> <span class="hljs-string">tomorrow</span>]
+
+<span class="hljs-comment"># Weekly expenses</span>
+  <span class="hljs-string">hledger</span> <span class="hljs-string">bal</span> <span class="hljs-string">Expenses</span> <span class="hljs-built_in">--weekly</span> <span class="hljs-built_in">--average</span> <span class="hljs-built_in">--tree</span> -<span class="hljs-string">b</span> <span class="hljs-string">&#x27;last month&#x27;</span> [<span class="hljs-built_in">--cleared</span> <span class="hljs-built_in">--cost</span> <span class="hljs-built_in">--empty</span> -<span class="hljs-string">e</span> <span class="hljs-string">tomorrow</span>]
+</code></pre>
+<h2 id="see-also">See also</h2>
+
+<ul>
+<li><a href="http://hledger.org/manual.html">http://hledger.org/manual.html</a></li>
+<li><a href="http://ledger-cli.org/3.0/doc/ledger3.html">http://ledger-cli.org/3.0/doc/ledger3.html</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

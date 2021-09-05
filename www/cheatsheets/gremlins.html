@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gremlins.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Gremlins.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\gremlins.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Example</b>: <a href="#simple-example">Simple example</a>, <a href="#custom-gremlins">Custom gremlins</a>, <a href="#full-example">Full example</a><br>
+<b>Hooks</b>: <a href="#before-and-after">Before and after</a>, <a href="#asynchronous">Asynchronous</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="example">Example</h2>
+<h3 id="simple-example">Simple example</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/gremlins/dist/gremlins.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+gremlins.createHorde().unleash()
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p><img src="https://camo.githubusercontent.com/130e101ee69d4d9b6f065df0a0404c861eb5ce18/687474703a2f2f7374617469632e6d61726d656c61622e636f6d2f746f646f2e676966?q=99" alt=""></p>
+<h3 id="custom-gremlins">Custom gremlins</h3>
+
+<pre><code class="js">gremlins.<span class="hljs-title function_">createHorde</span>()
+  .<span class="hljs-title function_">allGremlins</span>()
+  .<span class="hljs-title function_">gremlin</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">activeElement</span>.<span class="hljs-title function_">blur</span>()
+  })
+</code></pre>
+<p>Runs the given function at regular intervals.</p>
+<h3 id="full-example">Full example</h3>
+
+<pre><code class="js">gremlins.<span class="hljs-title function_">createHorde</span>()
+  .<span class="hljs-title function_">gremlin</span>(gremlins.<span class="hljs-property">species</span>.<span class="hljs-title function_">formFiller</span>())
+  .<span class="hljs-title function_">gremlin</span>(gremlins.<span class="hljs-property">species</span>.<span class="hljs-title function_">clicker</span>()
+    .<span class="hljs-title function_">clickTypes</span>([<span class="hljs-string">&#x27;click&#x27;</span>])
+    .<span class="hljs-title function_">canClick</span>(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> { ··· })
+    .<span class="hljs-title function_">showAction</span>(<span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> { ··· }))
+  .<span class="hljs-title function_">gremlin</span>(gremlins.<span class="hljs-property">species</span>.<span class="hljs-title function_">scroller</span>())
+  .<span class="hljs-title function_">mogwai</span>(gremlins.<span class="hljs-property">mogwais</span>.<span class="hljs-title function_">alert</span>())
+  .<span class="hljs-title function_">mogwai</span>(gremlins.<span class="hljs-property">mogwais</span>.<span class="hljs-title function_">fps</span>())
+  .<span class="hljs-title function_">mogwai</span>(gremlins.<span class="hljs-property">mogwais</span>.<span class="hljs-title function_">gizmo</span>().<span class="hljs-title function_">maxErrors</span>(<span class="hljs-number">2</span>))
+  .<span class="hljs-title function_">unleash</span>()
+</code></pre>
+<p>By default, all gremlins and mogwais species are added to the horde. Do it this way to customize gremlins.</p>
+<p>See: <a href="https://github.com/marmelab/gremlins.js#setting-gremlins-and-mogwais-to-use-in-a-test">Specifying gremlins</a></p>
+<h2 id="hooks">Hooks</h2>
+<h3 id="before-and-after">Before and after</h3>
+
+<pre><code class="js">gremlins.<span class="hljs-title function_">createHorde</span>()
+  .<span class="hljs-title function_">before</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;sync&#x27;</span>)
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">profile</span>(<span class="hljs-string">&#x27;gremlins&#x27;</span>)
+  })
+  .<span class="hljs-title function_">after</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;done&#x27;</span>)
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">profileEnd</span>()
+  })
+</code></pre>
+<h3 id="asynchronous">Asynchronous</h3>
+
+<pre><code class="js">gremlins.<span class="hljs-title function_">createHorde</span>()
+  .<span class="hljs-title function_">before</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) {
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async&#x27;</span>)
+      <span class="hljs-title function_">done</span>()
+    }, <span class="hljs-number">500</span>)
+  })
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/marmelab/gremlins.js">marmelab/gremlins.js</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

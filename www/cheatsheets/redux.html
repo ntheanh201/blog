@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Redux cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Redux cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\redux.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#creating-a-store">Creating a store</a>, <a href="#using-a-store">Using a store</a><br>
+<b>React Redux</b>: <a href="#provider">Provider</a>, <a href="#mapping-state">Mapping state</a>, <a href="#shorthand">Shorthand</a>, <a href="#combining-reducers">Combining reducers</a><br>
+<b>Middleware</b>: <a href="#signature">Signature</a>, <a href="#applying-middleware">Applying middleware</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="creating-a-store">Creating a store</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Reducer</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">counter</span> (state = { <span class="hljs-attr">value</span>: <span class="hljs-number">0</span> }, action) {
+  <span class="hljs-keyword">switch</span> (action.<span class="hljs-property">type</span>) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;INCREMENT&#x27;</span>:
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">value</span>: state.<span class="hljs-property">value</span> + <span class="hljs-number">1</span> }
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DECREMENT&#x27;</span>:
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">value</span>: state.<span class="hljs-property">value</span> - <span class="hljs-number">1</span> }
+  <span class="hljs-attr">default</span>:
+    <span class="hljs-keyword">return</span> state
+  }
+}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">let</span> store = <span class="hljs-title function_">createStore</span>(counter)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Optional - you can pass `initialState` as a second arg</span>
+<span class="hljs-keyword">let</span> store = <span class="hljs-title function_">createStore</span>(counter, { <span class="hljs-attr">value</span>: <span class="hljs-number">0</span> })
+</code></pre>
+<p>A store is made from a reducer function, which takes the current <code>state</code>, and
+returns a new <code>state</code> depending on the <code>action</code> it was given.</p>
+<h3 id="using-a-store">Using a store</h3>
+
+<pre><code class="js"><span class="hljs-keyword">let</span> store = <span class="hljs-title function_">createStore</span>(counter)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Dispatches an action; this changes the state</span>
+store.<span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;INCREMENT&#x27;</span> })
+store.<span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;DECREMENT&#x27;</span> })
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Gets the current state</span>
+store.<span class="hljs-title function_">getState</span>()
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Listens for changes</span>
+store.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">() =&gt;</span> { ... })
+</code></pre>
+<p>Dispatch actions to change the store&#39;s state.</p>
+<h2 id="react-redux">React Redux</h2>
+<h3 id="provider">Provider</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Provider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-redux&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-title class_">React</span>.<span class="hljs-title function_">render</span>(
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>, mountNode)
+</code></pre>
+<p>The <code>&lt;Provider&gt;</code> component makes the store available in your React components. You need this so you can use <code>connect()</code>.</p>
+<h3 id="mapping-state">Mapping state</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-redux&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// A functional React component</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span> ({ message, onMessageClick }) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> onMessageClick(&#x27;hello&#x27;)}&gt;
+      {message}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Maps `state` to `props`:</span>
+<span class="hljs-comment">// These will be added as props to the component.</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">mapState</span> (state) {
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">message</span>: state.<span class="hljs-property">message</span> }
+}
+
+<span class="hljs-comment">// Maps `dispatch` to `props`:</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">mapDispatch</span> (dispatch) {
+  <span class="hljs-keyword">return</span> {
+    onMessageClick (message) {
+      <span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;click&#x27;</span>, message })
+    }
+  }
+}
+
+<span class="hljs-comment">// Connect them:</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">connect</span>(mapState, mapDispatch)(<span class="hljs-title class_">App</span>)
+</code></pre>
+<h3 id="shorthand">Shorthand</h3>
+
+<pre><code class="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">connect</span>(
+  <span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> ({
+    <span class="hljs-attr">message</span>: state.<span class="hljs-property">message</span>
+  }),
+  <span class="hljs-function">(<span class="hljs-params">dispatch</span>) =&gt;</span> ({
+    <span class="hljs-attr">onMessageClick</span>: <span class="hljs-function">(<span class="hljs-params">message</span>) =&gt;</span> {
+      <span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;click&#x27;</span>, message })
+    }
+  })
+)(<span class="hljs-title class_">App</span>)
+</code></pre>
+<p>Same as above, but shorter.</p>
+<h3 id="combining-reducers">Combining reducers</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> reducer = <span class="hljs-title function_">combineReducers</span>({
+  counter, user, store
+})
+</code></pre>
+<p>Combines multiple reducers into one reducer function. See: <a href="https://redux.js.org/docs/api/combineReducers.html">combineReducers</a> <em>(redux.js.org)</em></p>
+<h2 id="middleware">Middleware</h2>
+<h3 id="signature">Signature</h3>
+
+<pre><code class="js"><span class="hljs-comment">// noop middleware</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">logger</span> = store =&gt; <span class="hljs-function"><span class="hljs-params">dispatch</span> =&gt;</span> action { <span class="hljs-title function_">dispatch</span>(action) }
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">logger</span> = store =&gt; {
+  <span class="hljs-comment">// This function runs on createStore().</span>
+  <span class="hljs-comment">// It returns a decorator for dispatch().</span>
+
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">dispatch</span> =&gt;</span> {
+    <span class="hljs-comment">// Runs on createStore(), too.</span>
+    <span class="hljs-comment">// It returns a new dispatch() function</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">action</span> =&gt;</span> {
+      <span class="hljs-comment">// Runs on every dispatch()</span>
+    }
+  }
+}
+</code></pre>
+<p>Middlewares are simply decorators for <code>dispatch()</code> to allow you to take
+different kinds of actions, and to perform different tasks when receiving
+actions.</p>
+<h3 id="applying-middleware">Applying middleware</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> enhancer = <span class="hljs-title function_">applyMiddleware</span>(logger, thunk, ...)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">createStore</span>(reducer, {}, enhancer)
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/redux">Redux</a> <em>(npmjs.com)</em></li>
+<li><a href="https://www.npmjs.com/package/react-redux">React-redux</a> <em>(npmjs.com)</em></li>
+<li><a href="http://redux.js.org/docs/basics/UsageWithReact.html">Usage with React</a> <em>(redux.js.org)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

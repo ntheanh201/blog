@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Meow cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Meow cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\meow.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#typical-settings">Typical settings</a>, <a href="#using-the-result">Using the result</a>, <a href="#lesser-used-settings">Lesser-used settings</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="typical-settings">Typical settings</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> cli = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;meow&#x27;</span>)(<span class="hljs-string">`
+  Usage: appname [options]
+
+  Options:
+        --lang LANG    set the language
+
+  Other options:
+    -h, --help         show usage information
+    -v, --version      print version info and exit
+`</span>, {
+  <span class="hljs-attr">string</span>: [<span class="hljs-string">&#x27;lang&#x27;</span>],
+  <span class="hljs-attr">boolean</span>: [<span class="hljs-string">&#x27;help&#x27;</span>, <span class="hljs-string">&#x27;version&#x27;</span>],
+  <span class="hljs-attr">alias</span>: { <span class="hljs-attr">h</span>: <span class="hljs-string">&#x27;help&#x27;</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">&#x27;version&#x27;</span> }
+})
+</code></pre>
+<p><code>string</code> and <code>boolean</code> lets meow/minimist know which flags expect arguments (<code>string</code>) and which don&#39;t (<code>boolean</code>).</p>
+<h3 id="using-the-result">Using the result</h3>
+
+<pre><code class="js">cli.<span class="hljs-property">flags</span>   <span class="hljs-comment">// { lang: &#x27;en&#x27; }</span>
+cli.<span class="hljs-property">input</span>   <span class="hljs-comment">// []</span>
+</code></pre>
+<p>Yes, flags are automatically camelCased!</p>
+<h3 id="lesser-used-settings">Lesser-used settings</h3>
+
+<pre><code class="js"><span class="hljs-title function_">meow</span>(<span class="hljs-string">`...`</span>, {
+  <span class="hljs-comment">// Default values if flags are not specified</span>
+  <span class="hljs-attr">default</span>: { <span class="hljs-attr">lang</span>: <span class="hljs-string">&#x27;en&#x27;</span> },
+
+  <span class="hljs-comment">// allow using -- to stop processing flags</span>
+  <span class="hljs-string">&#x27;--&#x27;</span>: <span class="hljs-literal">true</span>,
+
+  <span class="hljs-comment">// Populate `_` with first non-option</span>
+  <span class="hljs-attr">stopEarly</span>: <span class="hljs-literal">true</span>,
+
+  <span class="hljs-comment">// Invoked on unknown param</span>
+  <span class="hljs-attr">unknown</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) { ... }
+})
+</code></pre>
+<p>Also see <a href="minimist.html">minimist</a>.</p>
+
+</div>
+</body>  
+</html>

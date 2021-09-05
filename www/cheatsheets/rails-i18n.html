@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>i18n cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / i18n cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rails-i18n.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#interpolation">Interpolation</a>, <a href="#lazy-lookup">Lazy lookup</a>, <a href="#plural">Plural</a><br>
+<b>Localizing</b>: <a href="#time">Time</a>, <a href="#date">Date</a><br>
+<b>ActiveRecord</b>: <a href="#model-names">Model names</a>, <a href="#attributes">Attributes</a>, <a href="#error-messages">Error messages</a>, <a href="#form-labels">Form labels</a>, <a href="#submit-buttons">Submit buttons</a><br>
+<b>Numbers</b>: <a href="#delimited">Delimited</a>, <a href="#currencies">Currencies</a>, <a href="#percentage">Percentage</a><br>
+<a href="#programmatic-access">Programmatic access</a><br>
+<a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+
+<pre><code class="rb">t(<span class="hljs-string">&#x27;my.messages.hello&#x27;</span>)
+
+<span class="hljs-comment"># same as &#x27;my.messages.hello&#x27;</span>
+t(<span class="hljs-symbol">:hello</span>, <span class="hljs-symbol">scope:</span> <span class="hljs-string">&#x27;my.messages&#x27;</span>)
+t(<span class="hljs-symbol">:hello</span>, <span class="hljs-symbol">scope:</span> [<span class="hljs-symbol">:my</span>, <span class="hljs-symbol">:messages</span>])
+
+t(<span class="hljs-string">&#x27;my.messages.hello&#x27;</span>, <span class="hljs-symbol">default:</span> <span class="hljs-string">&quot;Hello&quot;</span>)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">my:</span>
+    <span class="hljs-attr">messages:</span>
+      <span class="hljs-attr">hello:</span> <span class="hljs-string">&quot;Hello&quot;</span>
+</code></pre>
+<h3 id="interpolation">Interpolation</h3>
+
+<pre><code class="rb">t(<span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;John&quot;</span>)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">hello:</span> <span class="hljs-string">&quot;Hello <span class="hljs-template-variable">%{name}</span>&quot;</span>
+</code></pre>
+<h3 id="lazy-lookup">Lazy lookup</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># from the &#x27;books/index&#x27; view</span>
+t(<span class="hljs-string">&#x27;.title&#x27;</span>)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">books:</span>
+    <span class="hljs-attr">index:</span>
+      <span class="hljs-attr">title:</span> <span class="hljs-string">&quot;Título&quot;</span>
+</code></pre>
+<h3 id="plural">Plural</h3>
+
+<pre><code class="rb">t(<span class="hljs-symbol">:inbox</span>, <span class="hljs-symbol">count:</span> <span class="hljs-number">1</span>)  <span class="hljs-comment">#=&gt; &#x27;one message&#x27;</span>
+t(<span class="hljs-symbol">:inbox</span>, <span class="hljs-symbol">count:</span> <span class="hljs-number">2</span>)  <span class="hljs-comment">#=&gt; &#x27;2 messages&#x27;</span>
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">inbox:</span>
+  <span class="hljs-attr">one:</span> <span class="hljs-string">&#x27;one message&#x27;</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">other:</span> <span class="hljs-string">&#x27;<span class="hljs-template-variable">%{count}</span> messages&#x27;</span>
+</code></pre>
+<h2 id="localizing">Localizing</h2>
+<h3 id="time">Time</h3>
+
+<pre><code class="rb">l(Time.now)
+l(Time.now, <span class="hljs-symbol">format:</span> <span class="hljs-symbol">:short</span>)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">time:</span>
+    <span class="hljs-attr">formats:</span>
+      <span class="hljs-attr">default:</span> <span class="hljs-string">&quot;%a, %d %b %Y %H:%M:%S %z&quot;</span>
+      <span class="hljs-attr">long:</span> <span class="hljs-string">&quot;%B %d, %Y %H:%M&quot;</span>
+      <span class="hljs-attr">short:</span> <span class="hljs-string">&quot;%d %b %H:%M&quot;</span>
+</code></pre>
+<h3 id="date">Date</h3>
+
+<pre><code class="rb">l(Date.today)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">date:</span>
+    <span class="hljs-attr">formats:</span>
+      <span class="hljs-attr">default:</span> <span class="hljs-string">&quot;%Y-%m-%d&quot;</span> <span class="hljs-comment"># 2015-06-25</span>
+      <span class="hljs-attr">long:</span> <span class="hljs-string">&quot;%B %d, %Y&quot;</span>   <span class="hljs-comment"># June 25, 2015</span>
+      <span class="hljs-attr">short:</span> <span class="hljs-string">&quot;%b %d&quot;</span>      <span class="hljs-comment"># Jun 25</span>
+</code></pre>
+<h2 id="activerecord">ActiveRecord</h2>
+<h3 id="model-names">Model names</h3>
+
+<pre><code class="rb">User.model_name.human            <span class="hljs-comment">#=&gt; &quot;User&quot;</span>
+Child.model_name.human(<span class="hljs-symbol">count:</span> <span class="hljs-number">2</span>) <span class="hljs-comment">#=&gt; &quot;Children&quot;</span>
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">activerecord:</span>
+    <span class="hljs-attr">models:</span>
+      <span class="hljs-attr">user:</span> <span class="hljs-string">&quot;User&quot;</span>
+      <span class="hljs-attr">child:</span>
+        <span class="hljs-attr">one:</span> <span class="hljs-string">&quot;Child&quot;</span>
+        <span class="hljs-attr">other:</span> <span class="hljs-string">&quot;Children&quot;</span>
+</code></pre>
+<h3 id="attributes">Attributes</h3>
+
+<pre><code class="rb">User.human_attribute_for <span class="hljs-symbol">:name</span>   <span class="hljs-comment">#=&gt; &quot;Name&quot;</span>
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">en:</span>
+  <span class="hljs-attr">activerecord:</span>
+    <span class="hljs-attr">attributes:</span>
+      <span class="hljs-attr">user:</span>
+        <span class="hljs-comment"># activerecord.attributes.&lt;model&gt;.&lt;field&gt;</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;Name&quot;</span>
+        <span class="hljs-attr">email:</span> <span class="hljs-string">&quot;Email&quot;</span>
+</code></pre>
+<h3 id="error-messages">Error messages</h3>
+
+<pre><code class="rb">error_messages_for(...)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">activerecord:</span>
+  <span class="hljs-attr">errors:</span>
+    <span class="hljs-attr">models:</span>
+      <span class="hljs-attr">venue:</span>
+        <span class="hljs-attr">attributes:</span>
+          <span class="hljs-attr">name:</span>
+            <span class="hljs-attr">blank:</span> <span class="hljs-string">&quot;Please enter a name.&quot;</span>
+</code></pre>
+<p>Possible scopes (in order):</p>
+
+<pre><code class="yml"><span class="hljs-string">activerecord.errors.models.[model_name].attributes.[attribute_name].[error]</span>
+<span class="hljs-string">activerecord.errors.models.[model_name].[error]</span>
+<span class="hljs-string">activerecord.errors.messages.[error]</span>
+<span class="hljs-string">errors.attributes.[attribute_name].[error]</span>
+<span class="hljs-string">errors.messages.[error]</span>
+</code></pre>
+<p>Where <code>[error]</code> can be:</p>
+
+<pre><code class="yml"><span class="hljs-string">validates</span>
+  <span class="hljs-string">confirmation</span> <span class="hljs-bullet">-</span> <span class="hljs-string">:confirmation</span>
+  <span class="hljs-string">acceptance</span>   <span class="hljs-bullet">-</span> <span class="hljs-string">:accepted</span>
+  <span class="hljs-string">presence</span>     <span class="hljs-bullet">-</span> <span class="hljs-string">:blank</span>
+  <span class="hljs-string">length</span>       <span class="hljs-bullet">-</span> <span class="hljs-string">:too_short</span> <span class="hljs-string">(%{count})</span>
+  <span class="hljs-string">length</span>       <span class="hljs-bullet">-</span> <span class="hljs-string">:too_long</span> <span class="hljs-string">(%{count})</span>
+  <span class="hljs-string">length</span>       <span class="hljs-bullet">-</span> <span class="hljs-string">:wrong_length</span> <span class="hljs-string">(%{count})</span>
+  <span class="hljs-string">uniqueness</span>   <span class="hljs-bullet">-</span> <span class="hljs-string">:taken</span>
+  <span class="hljs-string">format</span>       <span class="hljs-bullet">-</span> <span class="hljs-string">:invalid</span>
+  <span class="hljs-string">numericality</span> <span class="hljs-bullet">-</span> <span class="hljs-string">:not_a_number</span>
+</code></pre>
+<h3 id="form-labels">Form labels</h3>
+
+<pre><code class="rb">form_for <span class="hljs-variable">@post</span> <span class="hljs-keyword">do</span>
+  f.label <span class="hljs-symbol">:body</span>
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">helpers:</span>
+  <span class="hljs-comment"># helpers.label.&lt;model&gt;.&lt;field&gt;</span>
+  <span class="hljs-attr">label:</span>
+    <span class="hljs-attr">post:</span>
+      <span class="hljs-attr">body:</span> <span class="hljs-string">&quot;Your body text&quot;</span>
+</code></pre>
+<h3 id="submit-buttons">Submit buttons</h3>
+
+<pre><code class="rb">form_for <span class="hljs-variable">@post</span> <span class="hljs-keyword">do</span>
+  f.submit
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">helpers:</span>
+  <span class="hljs-attr">submit:</span>
+    <span class="hljs-comment"># helpers.submit.&lt;action&gt;</span>
+    <span class="hljs-attr">create:</span> <span class="hljs-string">&quot;Create a <span class="hljs-template-variable">%{model}</span>&quot;</span>
+    <span class="hljs-attr">update:</span> <span class="hljs-string">&quot;Confirm changes to <span class="hljs-template-variable">%{model}</span>&quot;</span>
+
+    <span class="hljs-comment"># helpers.submit.&lt;model&gt;.&lt;action&gt;</span>
+    <span class="hljs-attr">article:</span>
+      <span class="hljs-attr">create:</span> <span class="hljs-string">&quot;Publish article&quot;</span>
+      <span class="hljs-attr">update:</span> <span class="hljs-string">&quot;Update article&quot;</span>
+</code></pre>
+<h2 id="numbers">Numbers</h2>
+
+<pre><code class="rb">number_to_delimited(<span class="hljs-number">2000</span>)             <span class="hljs-comment">#=&gt; &quot;2,000&quot;</span>
+number_to_currency(<span class="hljs-number">12.3</span>)              <span class="hljs-comment">#=&gt; &quot;$12.30&quot;</span>
+number_to_percentage(<span class="hljs-number">0.3</span>)             <span class="hljs-comment">#=&gt; &quot;30%&quot;</span>
+number_to_rounded(<span class="hljs-number">3.14</span>, <span class="hljs-symbol">precision:</span> <span class="hljs-number">0</span>) <span class="hljs-comment">#=&gt; &quot;3&quot;</span>
+number_to_human(<span class="hljs-number">12_000</span>)               <span class="hljs-comment">#=&gt; &quot;12 Thousand&quot;</span>
+number_to_human_size(<span class="hljs-number">12345</span>)           <span class="hljs-comment">#=&gt; &quot;12.3 kb&quot;</span>
+</code></pre>
+<h3 id="delimited">Delimited</h3>
+
+<pre><code class="rb">number_to_delimited(n)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">number:</span>
+  <span class="hljs-attr">format:</span>
+    <span class="hljs-attr">separator:</span> <span class="hljs-string">&#x27;.&#x27;</span>
+    <span class="hljs-attr">delimiter:</span> <span class="hljs-string">&#x27;,&#x27;</span>
+    <span class="hljs-attr">precision:</span> <span class="hljs-number">3</span>
+    <span class="hljs-attr">significant:</span> <span class="hljs-literal">false</span>
+    <span class="hljs-attr">strip_insignificant_zeroes:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<h3 id="currencies">Currencies</h3>
+
+<pre><code class="rb">number_to_currency(n)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">number:</span>
+  <span class="hljs-attr">currency:</span>
+    <span class="hljs-attr">format:</span>
+      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;%u%n&quot;</span> <span class="hljs-comment"># %u = unit, %n = number</span>
+      <span class="hljs-attr">unit:</span> <span class="hljs-string">&quot;$&quot;</span>
+      <span class="hljs-attr">separator:</span> <span class="hljs-string">&#x27;.&#x27;</span>
+      <span class="hljs-attr">delimiter:</span> <span class="hljs-string">&#x27;,&#x27;</span>
+      <span class="hljs-attr">precision:</span> <span class="hljs-number">3</span>
+      <span class="hljs-comment"># (see number.format)</span>
+</code></pre>
+<h3 id="percentage">Percentage</h3>
+
+<pre><code class="rb">number_to_percentage(n)
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-attr">number:</span>
+  <span class="hljs-attr">percentage:</span>
+    <span class="hljs-attr">format:</span>
+      <span class="hljs-attr">format:</span> <span class="hljs-string">&quot;%n%&quot;</span>
+      <span class="hljs-comment"># (see number.format)</span>
+</code></pre>
+<h2 id="programmatic-access">Programmatic access</h2>
+
+<pre><code class="rb">I18n.backend.store_translations <span class="hljs-symbol">:en</span>, <span class="hljs-symbol">ok:</span> <span class="hljs-string">&quot;Ok&quot;</span>
+I18n.locale = <span class="hljs-symbol">:en</span>
+I18n.default_locale = <span class="hljs-symbol">:en</span>
+
+I18n.available_locales
+
+I18n.translate <span class="hljs-symbol">:ok</span>   <span class="hljs-comment"># aka, I18n.t</span>
+I18n.localize date   <span class="hljs-comment"># aka, I18n.l</span>
+</code></pre>
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="http://guides.rubyonrails.org/i18n.html">http://guides.rubyonrails.org/i18n.html</a></li>
+<li><a href="http://rails-i18n.org/wiki">http://rails-i18n.org/wiki</a></li>
+<li><a href="https://github.com/svenfuchs/i18n">https://github.com/svenfuchs/i18n</a></li>
+<li><a href="https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml">https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

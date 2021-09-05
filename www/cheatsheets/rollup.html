@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rollup.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Rollup.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rollup.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#basic-config">Basic config</a>, <a href="#multiple-outputs">Multiple outputs</a><br>
+<b>Using plugins</b>: <a href="#plugins">Plugins</a>, <a href="#npm-packages">npm packages</a>, <a href="#peer-dependencies">Peer dependencies</a>, <a href="#babel">Babel</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="basic-config">Basic config</h3>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>
+  }
+}
+</code></pre>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install -D rollup
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rollup -c -o bundle.js</code></td>
+<td>bundle using config</td>
+</tr>
+<tr>
+<td><code>rollup main.js --o bundle.js --f cjs</code></td>
+<td>bundle</td>
+</tr>
+<tr>
+<td><code>rollup --watch</code></td>
+<td>bundle continuously</td>
+</tr>
+</tbody>
+</table>
+<p>You may need to use <code>./node_modules/.bin/rollup</code> as a command if you did not install rollup globally.</p>
+<h3 id="multiple-outputs">Multiple outputs</h3>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [
+  {
+    <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+    <span class="hljs-attr">output</span>: {
+      <span class="hljs-attr">file</span>: __dirname + <span class="hljs-string">&#x27;/public/main.js&#x27;</span>,
+      <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;main&#x27;</span>
+    }
+  },
+  {
+    <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/vendor.js&#x27;</span>,
+    <span class="hljs-attr">output</span>: {
+      <span class="hljs-attr">file</span>: __dirname + <span class="hljs-string">&#x27;public/vendor.js&#x27;</span>,
+      <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;vendor&#x27;</span>
+    }
+  }
+]
+</code></pre>
+<p>This creates <code>main.js</code> and <code>vendor.js</code>.</p>
+<h2 id="using-plugins">Using plugins</h2>
+<h3 id="plugins">Plugins</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install -D @rollup/plugin-json
+</code></pre>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> json <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-json&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>
+  },
+  <span class="hljs-attr">plugins</span>: [ <span class="hljs-title function_">json</span>() ]
+}
+</code></pre>
+<h3 id="npm-packages">npm packages</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install -D @rollup/plugin-node-resolve
+</code></pre>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>
+  },
+  <span class="hljs-attr">plugins</span>: [ <span class="hljs-title function_">resolve</span>() ]
+}
+</code></pre>
+<p>When you run a npm run build, no warning is emitted and contains the imported modules.</p>
+<h3 id="peer-dependencies">Peer dependencies</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install -D @rollup/plugin-node-resolve
+</code></pre>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>
+  },
+  <span class="hljs-attr">plugins</span>: [<span class="hljs-title function_">resolve</span>({
+    <span class="hljs-comment">// pass custom options to the resolve plugin</span>
+    <span class="hljs-attr">customResolveOptions</span>: {
+      <span class="hljs-attr">moduleDirectory</span>: <span class="hljs-string">&#x27;node_modules&#x27;</span>
+    }
+  })],
+  <span class="hljs-comment">// indicate which modules should be treated as external</span>
+  <span class="hljs-attr">external</span>: [<span class="hljs-string">&#x27;lodash&#x27;</span>]
+}
+</code></pre>
+<h3 id="babel">Babel</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install -D rollup-plugin-babel
+</code></pre>
+<h4 id="rollup-config-js">rollup.config.js</h4>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
+<span class="hljs-keyword">import</span> babel <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rollup-plugin-babel&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/main.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">&#x27;cjs&#x27;</span>
+  },
+  <span class="hljs-attr">plugins</span>: [
+    <span class="hljs-title function_">resolve</span>(),
+    <span class="hljs-title function_">babel</span>({
+      <span class="hljs-attr">exclude</span>: <span class="hljs-string">&#x27;node_modules/**&#x27;</span> <span class="hljs-comment">// only transpile our source code</span>
+    })
+  ]
+}
+</code></pre>
+<h4 id="src-babelrc">src/.babelrc</h4>
+
+<pre><code class="js">{
+  <span class="hljs-string">&quot;presets&quot;</span>: [
+    [<span class="hljs-string">&quot;latest&quot;</span>, {
+      <span class="hljs-string">&quot;es2015&quot;</span>: {
+        <span class="hljs-string">&quot;modules&quot;</span>: <span class="hljs-literal">false</span>
+      }
+    }]
+  ],
+  <span class="hljs-string">&quot;plugins&quot;</span>: [<span class="hljs-string">&quot;external-helpers&quot;</span>]
+}
+</code></pre>
+
+</div>
+</body>  
+</html>

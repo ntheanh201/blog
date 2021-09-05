@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Node.js path API cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Node.js path API cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\nodejs-path.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#functions">Functions</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="functions">Functions</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)
+
+fs.<span class="hljs-title function_">realpath</span>(<span class="hljs-string">&#x27;/etc/passwd&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">err, path</span>) {
+  path <span class="hljs-comment">// =&gt; &quot;/private/etc/passwd&quot;</span>
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)
+dir = path.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;etc&#x27;</span>, <span class="hljs-string">&#x27;passwd&#x27;</span>)
+dir = path.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;/etc&#x27;</span>, <span class="hljs-string">&#x27;passwd&#x27;</span>, <span class="hljs-string">&#x27;..&#x27;</span>, <span class="hljs-string">&#x27;var&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">path.<span class="hljs-title function_">dirname</span>(<span class="hljs-string">&#x27;/etc/passwd&#x27;</span>) <span class="hljs-comment">//      =&gt; &quot;/etc&quot;</span>
+path.<span class="hljs-title function_">basename</span>(<span class="hljs-string">&#x27;/etc/passwd&#x27;</span>) <span class="hljs-comment">//     =&gt; &quot;passwd&quot;</span>
+path.<span class="hljs-title function_">basename</span>(<span class="hljs-string">&#x27;/etc/rc.d&#x27;</span>, <span class="hljs-string">&#x27;.d&#x27;</span>) <span class="hljs-comment">// =&gt; &quot;rc&quot;</span>
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="https://nodejs.org/api/path.html">https://nodejs.org/api/path.html</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

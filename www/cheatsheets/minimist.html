@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>minimist cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / minimist cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\minimist.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#usage">Usage</a>, <a href="#all-options">All options</a>, <a href="#result">Result</a><br>
+<b>Meow</b>: <a href="#help-and-version">Help and version</a>, <a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="usage">Usage</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> minimist = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;minimist&#x27;</span>)
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> args = <span class="hljs-title function_">minimist</span>(process.<span class="hljs-property">argv</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>), {
+  <span class="hljs-attr">string</span>: <span class="hljs-string">&#x27;lang&#x27;</span>,           <span class="hljs-comment">// --lang xml</span>
+  <span class="hljs-attr">boolean</span>: [<span class="hljs-string">&#x27;version&#x27;</span>],     <span class="hljs-comment">// --version</span>
+  <span class="hljs-attr">alias</span>: { <span class="hljs-attr">v</span>: <span class="hljs-string">&#x27;version&#x27;</span> }
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(args)
+</code></pre>
+<p>All options are optional, but it&#39;s recommended you set <code>string</code> and <code>boolean</code> at least.</p>
+<h3 id="all-options">All options</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> args = <span class="hljs-title function_">minimist</span>(process.<span class="hljs-property">argv</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>), {
+  <span class="hljs-attr">string</span>: [ <span class="hljs-string">&#x27;lang&#x27;</span> ],
+  <span class="hljs-attr">boolean</span>: [ <span class="hljs-string">&#x27;pager&#x27;</span> ],
+  <span class="hljs-attr">alias</span>: { <span class="hljs-attr">h</span>: <span class="hljs-string">&#x27;help&#x27;</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">&#x27;version&#x27;</span> },
+  <span class="hljs-attr">default</span>: { <span class="hljs-attr">lang</span>: <span class="hljs-string">&#x27;en&#x27;</span> },
+  <span class="hljs-string">&#x27;--&#x27;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">stopEarly</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">/* populate _ with first non-option */</span>
+  <span class="hljs-attr">unknown</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) { ... } <span class="hljs-comment">/* invoked on unknown param */</span>
+})
+</code></pre>
+<p>All options are optional.</p>
+<h3 id="result">Result</h3>
+<p>With <code>--lang xml --no-pager -h index.js package.json</code>, you get:</p>
+
+<pre><code>args == {
+  lang: <span class="hljs-symbol">&#x27;xml&#x27;</span>,
+  version: <span class="hljs-literal">false</span>,
+  h: <span class="hljs-literal">true</span>,
+  help: <span class="hljs-literal">true</span>,
+  _: [ <span class="hljs-symbol">&#x27;index</span>.js&#x27;, <span class="hljs-symbol">&#x27;package</span>.json&#x27; ]
+}
+</code></pre>
+<h2 id="meow">Meow</h2>
+<h3 id="help-and-version">Help and version</h3>
+<p>Use <a href="https://www.npmjs.com/package/meow">meow</a> to automatically add support for <code>--help</code>, <code>--version</code> and more.</p>
+
+<pre><code class="js"><span class="hljs-title function_">meow</span>(<span class="hljs-string">`
+    Usage:
+        $0 FILES [options]
+
+    Options:
+        -h, --help         print usage information
+        -v, --version      show version info and exit
+`</span>, {
+  <span class="hljs-attr">alias</span>: { <span class="hljs-attr">h</span>: <span class="hljs-string">&#x27;help&#x27;</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">&#x27;version&#x27;</span> }
+  <span class="hljs-comment">/* minimist options */</span>
+})
+</code></pre>
+<h3 id="reference">Reference</h3>
+
+<ul>
+<li><a href="https://www.npmjs.org/package/minimist">https://www.npmjs.org/package/minimist</a></li>
+<li><a href="https://github.com/substack/minimist">https://github.com/substack/minimist</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

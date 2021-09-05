@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Input tag cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Input tag cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\html-input.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#input">Input</a>, <a href="#input-types">Input types</a><br>
+<b>Examples</b>: <a href="#dates">Dates</a>, <a href="#datetime">Datetime</a>, <a href="#numbers">Numbers</a>, <a href="#text">Text</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="input">Input</h3>
+
+<pre><code class="html"> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">...</span>
+   <span class="hljs-attr">disabled</span>
+   <span class="hljs-attr">required</span>
+   <span class="hljs-attr">checked</span></span>
+</code></pre>
+
+<pre><code class="html">   autofocus
+</code></pre>
+
+<pre><code class="html">   autocomplete=&#x27;off&#x27;        <span class="hljs-comment">&lt;!-- autocomplete --&gt;</span>
+   autocompletetype=&#x27;cc-exp&#x27;
+   autocapitalize=&#x27;off&#x27;      <span class="hljs-comment">&lt;!-- for mobiles --&gt;</span>
+   pattern=&#x27;\d*&#x27;             <span class="hljs-comment">&lt;!-- force numeric input in iOS --&gt;</span>
+</code></pre>
+<h3 id="input-types">Input types</h3>
+<h4 id="text">Text</h4>
+
+<ul>
+<li>email</li>
+<li>hidden</li>
+<li><strong>password</strong></li>
+<li>tel</li>
+<li><strong>text</strong></li>
+<li>search</li>
+</ul>
+<h4 id="time">Time</h4>
+
+<ul>
+<li>date</li>
+<li>time</li>
+</ul>
+<h4 id="time-not-widely-supported-">Time (not widely supported)</h4>
+
+<ul>
+<li>month</li>
+<li>week</li>
+<li>datetime</li>
+<li>datetime-local</li>
+</ul>
+<h4 id="etc">Etc</h4>
+
+<ul>
+<li><strong>file</strong></li>
+<li><strong>radio</strong></li>
+<li><strong>checkbox</strong></li>
+</ul>
+<h4 id="buttons">Buttons</h4>
+
+<ul>
+<li>button</li>
+<li>reset</li>
+<li>submit</li>
+<li>image</li>
+</ul>
+<h4 id="numeric">Numeric</h4>
+
+<ul>
+<li>number</li>
+<li>range</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="dates">Dates</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type=&#39;date&#39;</code></td>
+<td><input type='date'></td>
+</tr>
+<tr>
+<td><code>type=&#39;time&#39;</code></td>
+<td><input type='time'></td>
+</tr>
+</tbody>
+</table>
+<h3 id="datetime">Datetime</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type=&#39;datetime&#39;</code></td>
+<td><input type='datetime'></td>
+</tr>
+<tr>
+<td><code>type=&#39;datetime-local&#39;</code></td>
+<td><input type='datetime-local'></td>
+</tr>
+</tbody>
+</table>
+<p><code>datetime</code> and <code>datetime-local</code> fields are not widely supported.</p>
+<h3 id="numbers">Numbers</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type=&#39;number&#39;</code></td>
+<td><input type='number'></td>
+</tr>
+<tr>
+<td><code>type=&#39;range&#39;</code></td>
+<td><input type='range'></td>
+</tr>
+</tbody>
+</table>
+<h3 id="text">Text</h3>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type=&#39;text&#39;</code></td>
+<td><input type='text'></td>
+</tr>
+<tr>
+<td><code>type=&#39;password&#39;</code></td>
+<td><input type='password'></td>
+</tr>
+<tr>
+<td><code>type=&#39;search&#39;</code></td>
+<td><input type='search'></td>
+</tr>
+<tr>
+<td><code>type=&#39;tel&#39;</code></td>
+<td><input type='tel'></td>
+</tr>
+</tbody>
+</table>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

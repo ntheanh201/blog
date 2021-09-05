@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>OS X cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / OS X cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\osx.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#locations-of-startup-items">Locations of startup items</a>, <a href="#hide-desktop-icons">Hide desktop icons</a>, <a href="#auto-hide-other-windows-on-dock-switch">Auto-hide other windows on dock switch</a>, <a href="#flush-dns">Flush DNS</a>, <a href="#disable-spotlight-indexing">Disable spotlight indexing</a>, <a href="#turn-on-off-proxy">Turn on/off proxy</a>, <a href="#system-utils">System utils</a>, <a href="#useful-utils">Useful utils</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="locations-of-startup-items">Locations of startup items</h3>
+
+<pre><code>~<span class="hljs-regexp">/Library/</span>LaunchAgents
+<span class="hljs-regexp">/System/</span>Library<span class="hljs-regexp">/LaunchAgents/</span>
+<span class="hljs-regexp">/System/</span>Library<span class="hljs-regexp">/LaunchDaemons/</span>
+<span class="hljs-regexp">/Library/</span>LaunchAgents/
+<span class="hljs-regexp">/Library/</span>LaunchDaemons/
+
+__Running `launchctl list` show you what launch scripts are currently loaded.__
+</code></pre>
+<h3 id="hide-desktop-icons">Hide desktop icons</h3>
+
+<pre><code>defaults write com.apple.finder CreateDesktop -<span class="hljs-type">bool</span> <span class="hljs-literal">false</span>
+killall Finder
+</code></pre>
+<h3 id="auto-hide-other-windows-on-dock-switch">Auto-hide other windows on dock switch</h3>
+
+<pre><code>defaults <span class="hljs-keyword">write</span> com.apple.dock single-app -<span class="hljs-type">bool</span> <span class="hljs-keyword">TRUE</span>
+killall Dock
+
+defaults <span class="hljs-keyword">delete</span> com.apple.dock single-app
+killall Dock
+</code></pre>
+<h3 id="flush-dns">Flush DNS</h3>
+
+<pre><code><span class="hljs-attribute">killall</span> -HUP mDNSResponder   # <span class="hljs-number">10</span>.<span class="hljs-number">8</span>+
+<span class="hljs-attribute">dscacheutil</span> -flushcache      # <span class="hljs-number">10</span>.<span class="hljs-number">7</span> below
+</code></pre>
+<h3 id="disable-spotlight-indexing">Disable spotlight indexing</h3>
+
+<pre><code><span class="hljs-attribute">mdutil</span> -a -i <span class="hljs-literal">off</span>                    <span class="hljs-comment"># disable indexing for all volumes</span>
+mdutil -i <span class="hljs-literal">off</span> MOUNT_POINT           <span class="hljs-comment"># disable for specific volume</span>
+touch FOLDER/.metadata_never_index  <span class="hljs-comment"># disable for FOLDER</span>
+</code></pre>
+<h3 id="turn-on-off-proxy">Turn on/off proxy</h3>
+
+<pre><code><span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxystate Wi-Fi <span class="hljs-literal">off</span>
+<span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxystate Ethernet <span class="hljs-literal">off</span>
+<span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxy Wi-Fi <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">9999</span>
+<span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxy Ethernet <span class="hljs-number">127.0.0.1</span> <span class="hljs-number">9999</span>
+<span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxystate Wi-Fi <span class="hljs-literal">on</span>
+<span class="hljs-attribute">sudo</span> networksetup -setsocksfirewallproxystate Ethernet <span class="hljs-literal">on</span>
+</code></pre>
+<h3 id="system-utils">System utils</h3>
+
+<ul>
+<li><code>networksetup</code> - Configure network (ip, dns, proxy, etc)</li>
+<li><code>tmutil</code> - Configure Time Machine (enable/disable, exclude path, delete snapshots, etc)</li>
+<li><code>mdutil</code> - Manage Spotlight (enable/disable, exclude, etc)</li>
+<li><code>diskutil</code> - Control disk (format, eject, unmount, etc)</li>
+<li><code>launchctl</code> - Control running &quot;agents&quot;</li>
+</ul>
+<h3 id="useful-utils">Useful utils</h3>
+
+<ul>
+<li><code>open</code> - open files and directories (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/open.1.html">man</a>)</li>
+<li><code>textutil</code> - manipulate text files of various formats (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/textutil.1.html">man</a>)</li>
+<li><code>pbcopy</code> / <code>pbpaste</code> - provide copying and pasting to the pasteboard (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/pbcopy.1.html">man</a>)</li>
+<li><code>sips</code> - scriptable image processing system (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/sips.1.html">man</a>)</li>
+<li><code>mdfind</code> - finds files matching a given query (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/mdfind.1.html">man</a>)</li>
+<li><code>screencapture</code> - capture images from the screen (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/screencapture.1.html">man</a>)</li>
+<li><code>defaults</code> - access the Mac OS X user defaults system (<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/defaults.1.html">man</a>)</li>
+<li><code>/usr/libexec/airportd</code></li>
+<li><p><code>scutil</code></p>
+<p><strong>INFO: <code>brew</code> (<a href="https://brew.sh">link</a>) is highly recommended utility</strong></p>
+</li>
+</ul>
+
+</div>
+</body>  
+</html>

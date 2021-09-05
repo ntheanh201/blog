@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ZNC bouncer cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ZNC bouncer cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\znc.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#start">Start</a><br>
+<a href="#away">Away</a><br>
+<a href="#watch">Watch</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="start">Start</h2>
+
+<pre><code><span class="hljs-string">/msg</span> *status addserver irc.undernet.org [6667]
+<span class="hljs-string">/msg</span> *status <span class="hljs-keyword">connect</span>
+
+<span class="hljs-string">/msg</span> *status loadmod webadmin
+<span class="hljs-string">/msg</span> *status loadmod admin
+<span class="hljs-string">/msg</span> *status loadmod away
+<span class="hljs-string">/msg</span> *status loadmod awaynick
+<span class="hljs-string">/msg</span> *status loadmod clientnotify    <span class="hljs-comment"># Notifies when another client logs</span>
+<span class="hljs-string">/msg</span> *status loadmod keepnick
+<span class="hljs-string">/msg</span> *status loadmod kickrejoin
+</code></pre>
+<h2 id="away">Away</h2>
+
+<pre><code><span class="hljs-string">/msg</span> *status loadmod away
+<span class="hljs-string">/msg</span> *away away
+<span class="hljs-string">/msg</span> *away back
+<span class="hljs-string">/msg</span> *away show   <span class="hljs-comment">#=&gt; Show messages</span>
+<span class="hljs-string">/msg</span> *away delete all
+</code></pre>
+<h2 id="watch">Watch</h2>
+
+<pre><code>/msg <span class="hljs-emphasis">*status loadmod watch
+/msg *</span>watch list
+/msg <span class="hljs-emphasis">*watch add *</span> <span class="hljs-emphasis">*watch *</span>rico<span class="hljs-emphasis">*
+/msg *</span>watch add <span class="hljs-emphasis">* *</span>watch <span class="hljs-emphasis">*%nick%*</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Promises cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Promises cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\promise.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Reference</b>: <a href="#introduction">Introduction</a>, <a href="#creating-promises">Creating promises</a>, <a href="#consuming-promises">Consuming promises</a>, <a href="#multiple-promises">Multiple promises</a>, <a href="#converting-other-promises">Converting other promises</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reference">Reference</h2>
+<h3 id="introduction">Introduction</h3>
+<p>intro: A quick reference to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise API</a>.</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using Promises guide</a> <em>(developer.mozilla.org)</em></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise documentation</a> <em>(developer.mozilla.org)</em></li>
+</ul>
+<h3 id="creating-promises">Creating promises</h3>
+
+<pre><code class="js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+  <span class="hljs-title function_">doStuff</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">if</span> (success) {
+      <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;good&#x27;</span>)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-title function_">reject</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;oops&#x27;</span>))
+    }
+  })
+})
+</code></pre>
+<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor">new Promise</a> to create new promises.</p>
+<h3 id="consuming-promises">Consuming promises</h3>
+
+<pre><code class="js">promise
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+    <span class="hljs-comment">/* success */</span>
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-comment">/* failure */</span>
+  })
+</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> runs a function when a promise resolves. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch()</a> runs when a promise fails.</p>
+<h3 id="multiple-promises">Multiple promises</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> promises = [<span class="hljs-title function_">promise1</span>(), <span class="hljs-title function_">promise2</span>() <span class="hljs-comment">/* ... */</span>]
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Succeeds when all succeed</span>
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(promises).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">results</span>) =&gt;</span> {
+  <span class="hljs-comment">/* ... */</span>
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Succeeds when one finishes first</span>
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">race</span>(promises).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+  <span class="hljs-comment">/* ... */</span>
+})
+</code></pre>
+<h3 id="converting-other-promises">Converting other promises</h3>
+
+<pre><code class="js"><span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;result&#x27;</span>)
+<span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(promise)
+<span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(thenable)
+
+<span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;reason&#x27;</span>)
+
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(result).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-comment">/* ... */</span>
+})
+</code></pre>
+<p><code>Promise.resolve(val)</code> will return a promise that resolves to the value given to it.</p>
+
+</div>
+</body>  
+</html>

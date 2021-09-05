@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / jQuery cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\jquery.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#traversing">Traversing</a><br>
+<b>Advanced features</b>: <a href="#extending-selectors">Extending selectors</a>, <a href="#extend-css-properties">Extend CSS properties</a>, <a href="#fn-animate-hooks">fn.animate() hooks</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="traversing">Traversing</h3>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;.box&#x27;</span>)
+  .<span class="hljs-title function_">children</span>()
+  .<span class="hljs-title function_">closest</span>(<span class="hljs-string">&#x27;div&#x27;</span>)
+  .<span class="hljs-title function_">filter</span>(<span class="hljs-string">&#x27;:selected&#x27;</span>)
+  .<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;div&#x27;</span>)
+  .<span class="hljs-title function_">has</span>(<span class="hljs-string">&#x27;div&#x27;</span>)
+  .<span class="hljs-title function_">first</span>()
+  .<span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;div&#x27;</span>)
+  .<span class="hljs-title function_">nextUntil</span>(<span class="hljs-string">&#x27;div&#x27;</span>)
+</code></pre>
+<h2 id="advanced-features">Advanced features</h2>
+<h3 id="extending-selectors">Extending selectors</h3>
+
+<pre><code class="js">$.expr[<span class="hljs-string">&#x27;:&#x27;</span>].<span class="hljs-property">inline</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) {
+  <span class="hljs-keyword">return</span> $(el).<span class="hljs-title function_">css</span>(<span class="hljs-string">&#x27;display&#x27;</span>) === <span class="hljs-string">&#x27;inline&#x27;</span>
+}
+</code></pre>
+<p>Enables <code>$(&#39;:inline&#39;)</code></p>
+<h3 id="extend-css-properties">Extend CSS properties</h3>
+
+<pre><code class="js">$.cssHooks.<span class="hljs-property">someCSSProp</span> = {
+  <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">elem, computed, extra</span>) {
+  },
+  <span class="hljs-attr">set</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">elem, value</span>) {
+  }
+}
+
+<span class="hljs-comment">// Disable &quot;px&quot;</span>
+$.cssNumber[<span class="hljs-string">&quot;someCSSProp&quot;</span>] = <span class="hljs-literal">true</span>
+</code></pre>
+<h3 id="fn-animate-hooks">fn.animate() hooks</h3>
+
+<pre><code class="js">$.fn.<span class="hljs-property">step</span>.<span class="hljs-property">someWhatever</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">fx</span>) {
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+
+</div>
+</body>  
+</html>

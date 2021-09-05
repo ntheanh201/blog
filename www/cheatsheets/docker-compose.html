@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>docker-compose cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / docker-compose cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\docker-compose.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#basic-example">Basic example</a>, <a href="#commands">Commands</a><br>
+<b>Reference</b>: <a href="#building">Building</a>, <a href="#ports">Ports</a>, <a href="#commands">Commands</a>, <a href="#environment-variables">Environment variables</a>, <a href="#dependencies">Dependencies</a>, <a href="#other-options">Other options</a><br>
+<b>Advanced features</b>: <a href="#labels">Labels</a>, <a href="#dns-servers">DNS servers</a>, <a href="#devices">Devices</a>, <a href="#external-links">External links</a>, <a href="#hosts">Hosts</a>, <a href="#network">Network</a>, <a href="#external-network">External network</a>, <a href="#volume">Volume</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="basic-example">Basic example</h3>
+
+<pre><code class="yaml"><span class="hljs-comment"># docker-compose.yml</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;2&#x27;</span>
+
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>
+    <span class="hljs-comment"># build from Dockerfile</span>
+    <span class="hljs-attr">context:</span> <span class="hljs-string">./Path</span>
+    <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">Dockerfile</span>
+    <span class="hljs-attr">ports:</span>
+     <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;5000:5000&quot;</span>
+    <span class="hljs-attr">volumes:</span>
+     <span class="hljs-bullet">-</span> <span class="hljs-string">.:/code</span>
+  <span class="hljs-attr">redis:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">redis</span>
+</code></pre>
+<h3 id="commands">Commands</h3>
+
+<pre><code class="sh">docker-compose start
+docker-compose stop
+</code></pre>
+
+<pre><code class="sh">docker-compose pause
+docker-compose unpause
+</code></pre>
+
+<pre><code class="sh">docker-compose ps
+docker-compose up
+docker-compose down
+</code></pre>
+<h2 id="reference">Reference</h2>
+<h3 id="building">Building</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">web:</span>
+  <span class="hljs-comment"># build from Dockerfile</span>
+  <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>
+  <span class="hljs-attr">args:</span>     <span class="hljs-comment"># Add build arguments</span>
+    <span class="hljs-attr">APP_HOME:</span> <span class="hljs-string">app</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># build from custom Dockerfile</span>
+  <span class="hljs-attr">build:</span>
+    <span class="hljs-attr">context:</span> <span class="hljs-string">./dir</span>
+    <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">Dockerfile.dev</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># build from image</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">ubuntu</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">ubuntu:14.04</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">tutum/influxdb</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">example-registry:4000/postgresql</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">a4bc65fd</span>
+</code></pre>
+<h3 id="ports">Ports</h3>
+
+<pre><code class="yaml">  <span class="hljs-attr">ports:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;3000&quot;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8000:80&quot;</span>  <span class="hljs-comment"># host:container</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># expose ports to linked services (not to host)</span>
+  <span class="hljs-attr">expose:</span> [<span class="hljs-string">&quot;3000&quot;</span>]
+</code></pre>
+<h3 id="commands">Commands</h3>
+
+<pre><code class="yaml">  <span class="hljs-comment"># command to execute</span>
+  <span class="hljs-attr">command:</span> <span class="hljs-string">bundle</span> <span class="hljs-string">exec</span> <span class="hljs-string">thin</span> <span class="hljs-string">-p</span> <span class="hljs-number">3000</span>
+  <span class="hljs-attr">command:</span> [<span class="hljs-string">bundle</span>, <span class="hljs-string">exec</span>, <span class="hljs-string">thin</span>, <span class="hljs-string">-p</span>, <span class="hljs-number">3000</span>]
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># override the entrypoint</span>
+  <span class="hljs-attr">entrypoint:</span> <span class="hljs-string">/app/start.sh</span>
+  <span class="hljs-attr">entrypoint:</span> [<span class="hljs-string">php</span>, <span class="hljs-string">-d</span>, <span class="hljs-string">vendor/bin/phpunit</span>]
+</code></pre>
+<h3 id="environment-variables">Environment variables</h3>
+
+<pre><code class="yaml">  <span class="hljs-comment"># environment vars</span>
+  <span class="hljs-attr">environment:</span>
+    <span class="hljs-attr">RACK_ENV:</span> <span class="hljs-string">development</span>
+  <span class="hljs-attr">environment:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">RACK_ENV=development</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># environment vars from file</span>
+  <span class="hljs-attr">env_file:</span> <span class="hljs-string">.env</span>
+  <span class="hljs-attr">env_file:</span> [<span class="hljs-string">.env</span>, <span class="hljs-string">.development.env</span>]
+</code></pre>
+<h3 id="dependencies">Dependencies</h3>
+
+<pre><code class="yaml">  <span class="hljs-comment"># makes the `db` service available as the hostname `database`</span>
+  <span class="hljs-comment"># (implies depends_on)</span>
+  <span class="hljs-attr">links:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">db:database</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">redis</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-comment"># make sure `db` is alive before starting</span>
+  <span class="hljs-attr">depends_on:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">db</span>
+</code></pre>
+<h3 id="other-options">Other options</h3>
+
+<pre><code class="yaml">  <span class="hljs-comment"># make this service extend another</span>
+  <span class="hljs-attr">extends:</span>
+    <span class="hljs-attr">file:</span> <span class="hljs-string">common.yml</span>  <span class="hljs-comment"># optional</span>
+    <span class="hljs-attr">service:</span> <span class="hljs-string">webapp</span>
+</code></pre>
+
+<pre><code class="yaml">  <span class="hljs-attr">volumes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">/var/lib/mysql</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">./_data:/var/lib/mysql</span>
+</code></pre>
+<h2 id="advanced-features">Advanced features</h2>
+<h3 id="labels">Labels</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">labels:</span>
+      <span class="hljs-attr">com.example.description:</span> <span class="hljs-string">&quot;Accounting web app&quot;</span>
+</code></pre>
+<h3 id="dns-servers">DNS servers</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">dns:</span> <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>
+    <span class="hljs-attr">dns:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span>
+</code></pre>
+<h3 id="devices">Devices</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">devices:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/dev/ttyUSB0:/dev/ttyUSB0&quot;</span>
+</code></pre>
+<h3 id="external-links">External links</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">external_links:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">redis_1</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">project_db_1:mysql</span>
+</code></pre>
+<h3 id="hosts">Hosts</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">extra_hosts:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;somehost:192.168.1.100&quot;</span>
+</code></pre>
+<h3 id="network">Network</h3>
+
+<pre><code class="yaml"><span class="hljs-comment"># creates a custom network called `frontend`</span>
+<span class="hljs-attr">networks:</span>
+  <span class="hljs-attr">frontend:</span>
+</code></pre>
+<h3 id="external-network">External network</h3>
+
+<pre><code class="yaml"><span class="hljs-comment"># join a pre-existing network</span>
+<span class="hljs-attr">networks:</span>
+  <span class="hljs-attr">default:</span>
+    <span class="hljs-attr">external:</span>
+      <span class="hljs-attr">name:</span> <span class="hljs-string">frontend</span>
+</code></pre>
+<h3 id="volume">Volume</h3>
+
+<pre><code class="yaml"><span class="hljs-comment"># Mount host paths or named volumes, specified as sub-options to a service</span>
+  <span class="hljs-attr">db:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">postgres:latest</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock&quot;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;dbdata:/var/lib/postgresql/data&quot;</span>
+
+<span class="hljs-attr">volumes:</span>
+  <span class="hljs-attr">dbdata:</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

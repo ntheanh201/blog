@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Slim cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Slim cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\slim.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#example">Example</a>, <a href="#attributes">Attributes</a>, <a href="#ruby-attributes">Ruby attributes</a>, <a href="#hash-attributes">Hash attributes</a>, <a href="#inline-ruby">Inline Ruby</a>, <a href="#inline-markdown">Inline Markdown</a>, <a href="#embedded-javascript">Embedded JavaScript</a>, <a href="#comments">Comments</a>, <a href="#ruby">Ruby</a>, <a href="#verbatim-text">Verbatim text</a>, <a href="#advanced-whitespaces">Advanced whitespaces</a>, <a href="#inline-html">Inline HTML</a>, <a href="#inline-tags">Inline tags</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="example">Example</h3>
+
+<pre><code class="jade">doctype html
+html
+  head
+    title Slim Examples
+    meta[<span class="hljs-attribute">charset</span>=<span class="hljs-string">&#x27;utf-8&#x27;</span>]
+    meta(<span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;keywords&quot;</span> <span class="hljs-attribute">content</span>=<span class="hljs-string">&quot;template language&quot;</span>)
+    meta <span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attribute">content</span>=author
+    meta <span class="hljs-attribute">property</span>=<span class="hljs-string">&#x27;og:image&#x27;</span> <span class="hljs-attribute">content</span>=asset_url(&#x27;foo.png&#x27;)
+    meta <span class="hljs-attribute">property</span>=<span class="hljs-string">&#x27;og:image&#x27;</span> content=(path_to_user user)
+    meta(
+      <span class="hljs-attribute">property</span>=<span class="hljs-string">&#x27;description&#x27;</span>
+      <span class="hljs-attribute">content</span>=<span class="hljs-string">&#x27;this is the song that never ends&#x27;</span>)
+</code></pre>
+<h3 id="attributes">Attributes</h3>
+
+<pre><code class="jade">meta[<span class="hljs-attribute">charset</span>=<span class="hljs-string">&#x27;utf-8&#x27;</span>]
+meta(<span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;keywords&quot;</span> <span class="hljs-attribute">content</span>=<span class="hljs-string">&quot;template language&quot;</span>)
+meta <span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attribute">content</span>=author
+</code></pre>
+<p>You can use parentheses, brackets, or none at all.</p>
+<h3 id="ruby-attributes">Ruby attributes</h3>
+
+<pre><code class="jade">a <span class="hljs-keyword">class</span>=[:<span class="hljs-symbol">menu,:<span class="hljs-symbol">highlight</span></span>]
+</code></pre>
+<p>You can use Ruby expressions in attributes.</p>
+<h3 id="hash-attributes">Hash attributes</h3>
+
+<pre><code class="jade">.card *{&#x27;<span class="hljs-class"><span class="hljs-keyword">data</span>-url&#x27; =&gt; place_path(<span class="hljs-title">place</span>)}</span>
+</code></pre>
+<p>You can destructure Ruby hashes as attributes.</p>
+<h3 id="inline-ruby">Inline Ruby</h3>
+
+<pre><code class="jade">ruby:
+  def foobar
+    <span class="hljs-string">&quot;hello&quot;</span>
+  <span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">div</span>= foobar
+</code></pre>
+<h3 id="inline-markdown">Inline Markdown</h3>
+
+<pre><code class="jade">markdown:
+  ### On Markdown
+
+  I am *Markdown* _text_!
+</code></pre>
+<p>Slim can handle your <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> content for longer content blocks or <code>code</code>.
+Depending on your parser, like <a href="https://kramdown.gettalong.org/quickref.html">Kramdown</a>, other features might work, like assigning attributes or classes.</p>
+<h3 id="embedded-javascript">Embedded JavaScript</h3>
+
+<pre><code class="jade"><span class="hljs-variable">javascript</span>:
+  <span class="hljs-function"><span class="hljs-title">alert</span>(<span class="hljs-string">&#x27;Slim supports embedded javascript!&#x27;</span>)</span>
+</code></pre>
+<h3 id="comments">Comments</h3>
+
+<pre><code class="jade">/ <span class="hljs-keyword">Comment</span>
+/! HTML <span class="hljs-keyword">comment</span>
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+
+<pre><code class="jade"><span class="hljs-section">== yield</span>
+<span class="hljs-section">= t(&#x27;.hello&#x27;)</span>
+<span class="hljs-bullet">- </span>3.times do |i|
+<span class="hljs-code">  div</span>
+</code></pre>
+<h3 id="verbatim-text">Verbatim text</h3>
+
+<pre><code class="jade"><span class="hljs-keyword">div</span>
+  | This <span class="hljs-keyword">is</span> <span class="hljs-built_in">text</span>
+    <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> nice
+</code></pre>
+<h3 id="advanced-whitespaces">Advanced whitespaces</h3>
+
+<pre><code class="jade">div
+  <span class="hljs-string">&#x27; This appends a whitespace
+div
+  |  This hackily prepends a whitespace
+div
+  =&gt; &#x27;</span>This appends a whitespac<span class="hljs-string">e&#x27;
+div
+  =&lt; &#x27;</span>This prepends a whitespac<span class="hljs-string">e&#x27;</span>
+</code></pre>
+<h3 id="inline-html">Inline HTML</h3>
+
+<pre><code class="jade">&lt;<span class="hljs-keyword">div</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;foo&#x27;</span>&gt;
+  - <span class="hljs-keyword">if</span> articles.empty?
+    | Nothing here
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<h3 id="inline-tags">Inline tags</h3>
+
+<pre><code class="jade"><span class="hljs-selector-tag">ul</span>
+  <span class="hljs-selector-tag">li</span>: <span class="hljs-built_in">a</span>(href=<span class="hljs-string">&#x27;/&#x27;</span>) Home
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://slim-lang.com/">http://slim-lang.com/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

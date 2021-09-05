@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Universal JS module loader cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Universal JS module loader cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\umdjs.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#-with-dependency-https-github-com-umdjs-umd-blob-master-amdwebglobal-js-">With dependency</a>, <a href="#no-dependencies">No dependencies</a>, <a href="#-supports-circular-references-https-github-com-umdjs-umd-blob-master-commonjsstrict-js-">Supports circular references</a>, <a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="-with-dependency-https-github-com-umdjs-umd-blob-master-amdwebglobal-js-"><a href="https://github.com/umdjs/umd/blob/master/amdWebGlobal.js">With dependency</a></h3>
+
+<pre><code class="js">;(<span class="hljs-keyword">function</span> (<span class="hljs-params">root, factory</span>) {
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">&#x27;function&#x27;</span> &amp;&amp; define.<span class="hljs-property">amd</span>) {
+    <span class="hljs-title function_">define</span>([<span class="hljs-string">&#x27;jquery&#x27;</span>], factory);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">exports</span> === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">factory</span>(<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;jquery&#x27;</span>));
+  } <span class="hljs-keyword">else</span> {
+    root.<span class="hljs-property">YourModule</span> = <span class="hljs-title function_">factory</span>(root.<span class="hljs-property">jQuery</span>);
+  }
+
+}(<span class="hljs-variable language_">this</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">jquery</span>) {
+  <span class="hljs-keyword">return</span> {};
+}));
+</code></pre>
+<h3 id="no-dependencies">No dependencies</h3>
+
+<pre><code class="js">;(<span class="hljs-keyword">function</span> (<span class="hljs-params">root, factory</span>) {
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">&#x27;function&#x27;</span> &amp;&amp; define.<span class="hljs-property">amd</span>) {
+    <span class="hljs-title function_">define</span>(factory);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">exports</span> === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">factory</span>();
+  } <span class="hljs-keyword">else</span> {
+    root.<span class="hljs-property">YourModule</span> = <span class="hljs-title function_">factory</span>();
+  }
+
+}(<span class="hljs-variable language_">this</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> {};
+}));
+</code></pre>
+<h3 id="-supports-circular-references-https-github-com-umdjs-umd-blob-master-commonjsstrict-js-"><a href="https://github.com/umdjs/umd/blob/master/commonjsStrict.js">Supports circular references</a></h3>
+
+<pre><code class="js">(<span class="hljs-keyword">function</span> (<span class="hljs-params">root, factory</span>) {
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">&#x27;function&#x27;</span> &amp;&amp; define.<span class="hljs-property">amd</span>) {
+    <span class="hljs-title function_">define</span>([<span class="hljs-string">&#x27;exports&#x27;</span>, <span class="hljs-string">&#x27;jquery&#x27;</span>], factory);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">exports</span> === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-title function_">factory</span>(<span class="hljs-built_in">exports</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;jquery&#x27;</span>));
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">factory</span>((root.<span class="hljs-property">YourModule</span> = {}), root.<span class="hljs-property">jQuery</span>);
+  }
+
+}(<span class="hljs-variable language_">this</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">exports</span>, jQuery</span>) {
+  <span class="hljs-built_in">exports</span>.<span class="hljs-property">action</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {};
+}));
+</code></pre>
+<h3 id="reference">Reference</h3>
+
+<ul>
+<li><a href="https://github.com/umdjs/umd">https://github.com/umdjs/umd</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

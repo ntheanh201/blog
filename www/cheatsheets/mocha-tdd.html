@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mocha.js TDD interface cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Mocha.js TDD interface cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\mocha-tdd.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#tdd">TDD</a>, <a href="#async">Async</a>, <a href="#chai-expect">Chai: Expect</a>, <a href="#see-also">See also</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="tdd">TDD</h3>
+
+<pre><code><span class="hljs-variable">mocha</span>.<span class="hljs-property">setup</span>(&#x27;<span class="hljs-variable">tdd</span>&#x27;);
+
+<span class="hljs-title function_">suite</span>(&#x27;<span class="hljs-params">something</span>&#x27;, <span class="hljs-params">function</span>() {
+  <span class="hljs-title function_">setup</span>(<span class="hljs-params">function</span>() {
+  });
+
+  <span class="hljs-title function_">test</span>(&#x27;<span class="hljs-params">should</span> <span class="hljs-params">work</span>&#x27;, <span class="hljs-params">function</span>() {
+  });
+
+  <span class="hljs-title function_">teardown</span>(<span class="hljs-params">function</span>() {
+  });
+});
+</code></pre>
+<h3 id="async">Async</h3>
+
+<pre><code>test(<span class="hljs-string">&#x27;should save&#x27;</span>, <span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {
+  <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> User();
+  user.save(<span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+    done();
+  });
+});
+</code></pre>
+<h3 id="chai-expect">Chai: Expect</h3>
+
+<pre><code>var expect = chai.expect;
+
+expect(foo).<span class="hljs-keyword">to</span>.be.a(&#x27;<span class="hljs-built_in">string</span>&#x27;);
+expect(foo).<span class="hljs-keyword">to</span>.<span class="hljs-keyword">equal</span>(&#x27;bar&#x27;);
+expect(foo).<span class="hljs-keyword">to</span>.have.<span class="hljs-built_in">length</span>(<span class="hljs-number">3</span>);
+expect(tea).<span class="hljs-keyword">to</span>.have.<span class="hljs-keyword">property</span>(&#x27;flavors&#x27;).<span class="hljs-keyword">with</span>.<span class="hljs-built_in">length</span>(<span class="hljs-number">3</span>);
+</code></pre>
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="mocha.html">Mocha BDD</a></li>
+<li><a href="mocha-html.html">Mocha HTML</a></li>
+<li><a href="chai.html">Chai</a></li>
+<li><a href="sinon.html">Sinon</a></li>
+<li><a href="sinon-chai.html">Sinon Chai</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

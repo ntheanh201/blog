@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Less.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Less.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\less.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#functions">Functions</a>, <a href="#conditionals">Conditionals</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="functions">Functions</h3>
+
+<pre><code>unit(<span class="hljs-number">30</span>px / <span class="hljs-number">5</span>px)  <span class="hljs-meta">#=&gt; 6</span>
+unit(<span class="hljs-number">5</span>, px)       <span class="hljs-meta">#=&gt; 5px</span>
+
+e(<span class="hljs-string">&quot;ms:stuff()&quot;</span>)   <span class="hljs-meta">#=&gt; ms:stuff() (unquote)</span>
+
+%(<span class="hljs-string">&quot;count: %d&quot;</span>, <span class="hljs-number">1</span>+<span class="hljs-number">2</span>) <span class="hljs-meta">#=&gt; <span class="hljs-string">&quot;count: 3&quot;</span></span>
+
+iscolor(<span class="hljs-symbol">@x</span>)
+<span class="hljs-built_in">isstring</span>(<span class="hljs-symbol">@x</span>)
+<span class="hljs-built_in">isnumber</span>(<span class="hljs-symbol">@x</span>)
+<span class="hljs-built_in">iskeyword</span>(<span class="hljs-symbol">@x</span>)
+isurl(url(...))
+ispixel()
+isem()
+ispercentage()
+isunit()
+
+hue(<span class="hljs-symbol">@color</span>)
+saturation(<span class="hljs-symbol">@color</span>)
+lightness(<span class="hljs-symbol">@color</span>)
+luma(<span class="hljs-symbol">@color</span>)
+luminance(<span class="hljs-symbol">@color</span>)
+
+fade(<span class="hljs-symbol">@color</span>, amount)
+fadein(<span class="hljs-symbol">@color</span>, amount)
+fadeout(<span class="hljs-symbol">@color</span>, amount)
+spin(<span class="hljs-symbol">@color</span>, degrees)
+mix(<span class="hljs-symbol">@a</span>, <span class="hljs-symbol">@b</span>, amount)
+</code></pre>
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code><span class="hljs-selector-class">.image</span> <span class="hljs-keyword">when</span> (luma(<span class="hljs-variable">@color</span>) &gt; <span class="hljs-number">50%</span>) { }
+<span class="hljs-selector-class">.image</span> <span class="hljs-keyword">when</span> (<span class="hljs-keyword">not</span>(...)) { }
+<span class="hljs-selector-class">.image</span> <span class="hljs-keyword">when</span> (default()) {}
+<span class="hljs-selector-class">.image</span> <span class="hljs-keyword">when</span> (e(<span class="hljs-variable">@shape</span>) = <span class="hljs-string">&#x27;circle&#x27;</span>) { }
+</code></pre>
+
+</div>
+</body>  
+</html>

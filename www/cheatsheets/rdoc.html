@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rdoc cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Rdoc cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rdoc.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#basic-rdoc-format">Basic RDoc format</a>, <a href="#hash-parameters">Hash parameters</a>, <a href="#parameter-types">Parameter types</a>, <a href="#inline">Inline</a>, <a href="#skip">Skip</a>, <a href="#definition-lists">Definition lists</a>, <a href="#return-types">Return types</a>, <a href="#callseq">Callseq</a>, <a href="#category">Category</a>, <a href="#sections">Sections</a>, <a href="#using-tomdoc">Using tomdoc</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="basic-rdoc-format">Basic RDoc format</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># Foo.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@example</span></span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#   y</span>
+<span class="hljs-comment">#   g</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@param</span> [String] param_name The xx and xx.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@see</span> https://example.com/</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@return</span> [true] if so</span>
+</code></pre>
+<h3 id="hash-parameters">Hash parameters</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># <span class="hljs-doctag">@param</span> [Hash] opts the options to create a message with.</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@option</span> opts [String] :subject The subject</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@option</span> opts [String] :from (&#x27;nobody&#x27;) From address</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@option</span> opts [String] :to Recipient email</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@option</span> opts [String] :body (&#x27;&#x27;) The email&#x27;s body</span>
+</code></pre>
+<h3 id="parameter-types">Parameter types</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># <span class="hljs-doctag">@param</span> (see User#initialize)</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@param</span> [OptionParser] opts the option parser object</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@param</span> [Array&lt;String&gt;] args the arguments passed from input. This</span>
+<span class="hljs-comment">#   array will be modified.</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@param</span> [Array&lt;String, Symbol&gt;] list the list of strings and symbols.</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@param</span> [Hash&lt;Symbol, String&gt;] a hash with symbol keys and string values</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># The options parsed out of the commandline.</span>
+<span class="hljs-comment"># Default options are:</span>
+<span class="hljs-comment">#   :format =&gt; :dot</span>
+</code></pre>
+<h3 id="inline">Inline</h3>
+
+<pre><code class="markdown"><span class="hljs-emphasis">*bold*</span>
+<span class="hljs-emphasis">_emphasized_</span>
++code+
+</code></pre>
+
+<pre><code class="markdown">https://www.example.com/
+See Models::User@Examples
+{Google}[https://google.com/]
+</code></pre>
+<h3 id="skip">Skip</h3>
+
+<pre><code class="rb">def input <span class="hljs-comment"># :nodoc:</span>
+</code></pre>
+
+<pre><code class="rb"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">MyModule</span> <span class="hljs-comment"># :nodoc: all</span></span>
+</code></pre>
+<h3 id="definition-lists">Definition lists</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># == Definition lists</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># list::  hi.</span>
+<span class="hljs-comment"># +foo+:: parameterized</span>
+</code></pre>
+
+<pre><code class="rb"><span class="hljs-comment"># == Definition lists</span>
+<span class="hljs-comment"># [foo]   also</span>
+<span class="hljs-comment"># [bar]   like this</span>
+</code></pre>
+<h3 id="return-types">Return types</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># <span class="hljs-doctag">@return</span> [String]</span>
+<span class="hljs-comment"># <span class="hljs-doctag">@return</span> [String, nil] the name</span>
+</code></pre>
+<h3 id="callseq">Callseq</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># :call-seq:</span>
+<span class="hljs-comment">#   ARGF.readlines(sep=$/)     -&gt; array</span>
+<span class="hljs-comment">#   ARGF.readlines(limit)      -&gt; array</span>
+<span class="hljs-comment">#   ARGF.readlines(sep, limit) -&gt; array</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#   ARGF.to_a(sep=$/)     -&gt; array</span>
+<span class="hljs-comment">#   ARGF.to_a(limit)      -&gt; array</span>
+<span class="hljs-comment">#   ARGF.to_a(sep, limit) -&gt; array</span>
+</code></pre>
+<h3 id="category">Category</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># :category: Utilities</span>
+</code></pre>
+<h3 id="sections">Sections</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># :section: Expiry methods</span>
+<span class="hljs-comment"># methods relating to expiring</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expire!</span></span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expired?</span></span>
+...
+</code></pre>
+<h3 id="using-tomdoc">Using tomdoc</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># :markup: TomDoc</span>
+</code></pre>
+<p>Place this at the beginning of the file.</p>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="http://rdoc.rubyforge.org/RDoc/Markup.html">http://rdoc.rubyforge.org/RDoc/Markup.html</a></li>
+<li><a href="https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md">https://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

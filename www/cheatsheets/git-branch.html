@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Git branches cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Git branches cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\git-branch.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Working with branches</b>: <a href="#creating">Creating</a>, <a href="#getting-from-remote">Getting from remote</a>, <a href="#delete-local-remote-tracking-branches">Delete local remote-tracking branches</a>, <a href="#list-existing-branches">List existing branches</a>, <a href="#list-merged-branches">List merged branches</a>, <a href="#delete-a-local-branch">Delete a local branch</a>, <a href="#delete-branch-forcefully">Delete branch forcefully</a>, <a href="#delete-remote-branch">Delete remote branch</a>, <a href="#get-current-sha1">Get current sha1</a>, <a href="#reset-branch-and-remove-all-changes">Reset branch and remove all changes</a>, <a href="#undo-commits-to-a-specific-commit">Undo commits to a specific commit</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="working-with-branches">Working with branches</h2>
+<h3 id="creating">Creating</h3>
+
+<pre><code class="bash">git checkout -b <span class="hljs-variable">$branchname</span>
+git push origin <span class="hljs-variable">$branchname</span> --set-upstream
+</code></pre>
+<p>Creates a new branch locally then pushes it.</p>
+<h3 id="getting-from-remote">Getting from remote</h3>
+
+<pre><code class="bash">git fetch origin
+git checkout --track origin/<span class="hljs-variable">$branchname</span>
+</code></pre>
+<p>Gets a branch in a remote.</p>
+<h3 id="delete-local-remote-tracking-branches">Delete local remote-tracking branches</h3>
+
+<pre><code class="bash">git remote prune origin
+</code></pre>
+<p>Deletes <code>origin/*</code> branches in your local copy. Doesn&#39;t affect the remote.</p>
+<h3 id="list-existing-branches">List existing branches</h3>
+
+<pre><code class="bash">git branch --list
+</code></pre>
+<p>Existing branches are listed. Current branch will be highlighted with an asterisk.</p>
+<h3 id="list-merged-branches">List merged branches</h3>
+
+<pre><code class="bash">git branch -a --merged
+</code></pre>
+<p>List outdated branches that have been merged into the current one.</p>
+<h3 id="delete-a-local-branch">Delete a local branch</h3>
+
+<pre><code class="bash">git branch -d <span class="hljs-variable">$branchname</span>
+</code></pre>
+<p>Deletes the branch only if the changes have been pushed and merged with remote.</p>
+<h3 id="delete-branch-forcefully">Delete branch forcefully</h3>
+
+<pre><code class="bash">git branch -D <span class="hljs-variable">$branchname</span>
+</code></pre>
+
+<pre><code class="bash">git branch -d <span class="hljs-variable">$branchname</span>
+</code></pre>
+<blockquote>
+<p>Note: You can also use the -D flag which is synonymous with --delete --force instead of -d. This will delete the branch regardless of its merge status.
+Delete a branch irrespective of its merged status.</p>
+</blockquote>
+<h3 id="delete-remote-branch">Delete remote branch</h3>
+
+<pre><code class="bash">git push origin --delete :<span class="hljs-variable">$branchname</span>
+</code></pre>
+<p>Works for tags, too!</p>
+<h3 id="get-current-sha1">Get current sha1</h3>
+
+<pre><code class="bash">git show-ref HEAD -s
+</code></pre>
+<h3 id="reset-branch-and-remove-all-changes">Reset branch and remove all changes</h3>
+
+<pre><code class="bash">git reset --hard
+</code></pre>
+<h3 id="undo-commits-to-a-specific-commit">Undo commits to a specific commit</h3>
+
+<pre><code class="bash">git reset --hard <span class="hljs-variable">$commit_id</span>
+
+<span class="hljs-comment"># Now push safely to your branch</span>
+git push --force-with-lease
+
+<span class="hljs-comment"># Or push brutally to your branch</span>
+git push --force
+</code></pre>
+
+</div>
+</body>  
+</html>

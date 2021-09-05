@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CIDR cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / CIDR cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\cidr.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#cidr-ranges">CIDR ranges</a>, <a href="#resources">Resources</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="cidr-ranges">CIDR ranges</h3>
+
+<table>
+<thead>
+<tr>
+<th>Range</th>
+<th>First IP</th>
+<th>Last IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10.0.0.0/24</strong></td>
+<td>10.0.0.0</td>
+<td>10.0.0.255</td>
+</tr>
+<tr>
+<td><strong>10.0.0.0/16</strong></td>
+<td>10.0.0.0</td>
+<td>10.0.255.255</td>
+</tr>
+<tr>
+<td><strong>10.0.0.0/8</strong></td>
+<td>10.0.0.0</td>
+<td>10.255.255.255</td>
+</tr>
+<tr>
+<td><strong>0.0.0.0/0</strong></td>
+<td>(all)</td>
+<td>(all)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resources">Resources</h3>
+
+<ul>
+<li><a href="http://ipaddressguide.com/cidr#range">CIDR range calculator</a> <em>(ipaddressguide.com)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Blessed cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Blessed cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\blessed.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#screen">Screen</a>, <a href="#element">Element</a>, <a href="#tags">Tags</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="screen">Screen</h3>
+
+<pre><code class="js">screen = blessed.<span class="hljs-title function_">screen</span>({
+  <span class="hljs-attr">smartCSR</span>: <span class="hljs-literal">true</span>       <span class="hljs-comment">// optimize for flickering</span>
+  <span class="hljs-attr">autoPadding</span>: <span class="hljs-literal">true</span>    <span class="hljs-comment">// ..</span>
+})
+
+screen.<span class="hljs-title function_">append</span>(<span class="hljs-title class_">Element</span>)
+screen.<span class="hljs-title function_">destroy</span>()
+
+screen.<span class="hljs-property">width</span>
+screen.<span class="hljs-property">height</span>
+screen.<span class="hljs-property">title</span> = <span class="hljs-string">&#x27;My window title&#x27;</span>
+screen.<span class="hljs-title function_">key</span>([<span class="hljs-string">&#x27;escape&#x27;</span>, <span class="hljs-string">&#x27;q&#x27;</span>, <span class="hljs-string">&#x27;C-c&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">ch, key</span>) =&gt;</span> { ... })
+</code></pre>
+<h3 id="element">Element</h3>
+
+<pre><code class="js">box = blessed.<span class="hljs-title function_">box</span>({
+  <span class="hljs-attr">style</span>: { fg, bg, border.<span class="hljs-property">fg</span>, scrollbar.<span class="hljs-property">bg</span>, focus.<span class="hljs-property">bg</span>, hover.<span class="hljs-property">bg</span> },
+  <span class="hljs-attr">border</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>|<span class="hljs-string">&#x27;bg&#x27;</span>, bg, fg, bold, underline }
+  <span class="hljs-attr">tags</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// parse {bold}tags{/bold}</span>
+
+  top, left, width, height,
+  <span class="hljs-attr">width</span>: <span class="hljs-string">&#x27;100%&#x27;</span>,
+  <span class="hljs-attr">height</span>: <span class="hljs-string">&#x27;100%-1&#x27;</span>,
+  <span class="hljs-attr">top</span>: <span class="hljs-string">&#x27;center&#x27;</span>
+})
+</code></pre>
+<h3 id="tags">Tags</h3>
+
+<pre><code><span class="hljs-template-variable">{bold}</span><span class="language-xml">
+</span><span class="hljs-template-variable">{right}</span><span class="language-xml"> </span><span class="hljs-template-variable">{center}</span><span class="language-xml">
+</span><span class="hljs-template-variable">{|}</span><span class="language-xml">    left-right separator
+</span><span class="hljs-template-tag">{#<span class="hljs-name">c</span>0ff33-fg}</span><span class="hljs-template-tag">{/}</span>
+</code></pre>
+
+<pre><code>blessed.<span class="hljs-built_in">escape</span>(<span class="hljs-string">&#x27;...&#x27;</span>)
+</code></pre>
+
+</div>
+</body>  
+</html>

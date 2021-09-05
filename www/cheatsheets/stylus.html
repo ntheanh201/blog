@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Stylus cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Stylus cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\stylus.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#css-syntax">CSS syntax</a>, <a href="#indent-syntax">Indent syntax</a>, <a href="#mixins">Mixins</a>, <a href="#variables">Variables</a><br>
+<b>Mixins</b>: <a href="#without-arguments">Without arguments</a>, <a href="#with-arguments">With arguments</a>, <a href="#argument-defaults">Argument defaults</a>, <a href="#block-mixins">Block mixins</a>, <a href="#rest-params">Rest params</a><br>
+<b>Functions</b>: <a href="#functions">Functions</a>, <a href="#argument-defaults">Argument defaults</a>, <a href="#named-parameters">Named parameters</a>, <a href="#multiple-return-values">Multiple return values</a><br>
+<b>Values</b>: <a href="#conditional-assignment">Conditional assignment</a>, <a href="#property-lookup">Property lookup</a>, <a href="#interpolation">Interpolation</a>, <a href="#color-operators">Color operators</a>, <a href="#casting">Casting</a>, <a href="#lookup">Lookup</a><br>
+<b>Advanced features</b>: <a href="#conditional">Conditional</a>, <a href="#for-loops">For loops</a>, <a href="#definition-check">Definition check</a>, <a href="#false-values">False values</a>, <a href="#type-check">Type check</a><br>
+<b>Built-in functions</b>: <a href="#color-functions">Color functions</a>, <a href="#image-size">Image size</a>, <a href="#caching">Caching</a>, <a href="#add-property">Add Property</a>, <a href="#sprintf">sprintf</a>, <a href="#embed-url">Embed URL</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="css-syntax">CSS syntax</h3>
+
+<pre><code class="stylus"><span class="hljs-selector-class">.box</span> {
+  <span class="hljs-attribute">color</span>: blue;
+
+  <span class="hljs-selector-class">.button</span> {
+    <span class="hljs-attribute">color</span>: red;
+  }
+}
+</code></pre>
+<p>Stylus is a CSS pre-processor.</p>
+<p>See: <a href="http://stylus-lang.com/">stylus-lang.com</a></p>
+<h3 id="indent-syntax">Indent syntax</h3>
+
+<pre><code class="stylus"><span class="hljs-selector-class">.box</span>
+  <span class="hljs-attribute">color</span>: blue
+
+  <span class="hljs-selector-class">.button</span>
+    <span class="hljs-attribute">color</span>: red
+</code></pre>
+<p>Also works! The colon is optional, as well. This is typically the syntax used with Stylus documents.</p>
+<h3 id="mixins">Mixins</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">caps-type</span><span class="hljs-params">()</span></span>
+  <span class="hljs-attribute">text-transform</span>: uppercase
+  <span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">0.05em</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">h5</span>
+  caps-type()
+</code></pre>
+<p>See <a href="#mixins-1">Mixins</a> below.</p>
+<h3 id="variables">Variables</h3>
+
+<pre><code class="stylus">royal-blue = <span class="hljs-number">#36a</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">div</span>
+  <span class="hljs-attribute">color</span>: royal-blue
+</code></pre>
+<h2 id="mixins">Mixins</h2>
+<h3 id="without-arguments">Without arguments</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">red-border</span><span class="hljs-params">()</span></span>
+  <span class="hljs-attribute">border</span>: solid <span class="hljs-number">2px</span> red
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">div</span>
+  red-<span class="hljs-attribute">border</span>()
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/mixins.html">Mixins</a></p>
+<h3 id="with-arguments">With arguments</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">border-radius</span><span class="hljs-params">(n)</span></span>
+  -webkit-<span class="hljs-attribute">border-radius</span>: n
+  <span class="hljs-attribute">border-radius</span>: n
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">div</span>
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>
+  <span class="hljs-attribute">border-radius</span>(<span class="hljs-number">2px</span>)
+</code></pre>
+<p>Mixins can be applied in two different ways.</p>
+<h3 id="argument-defaults">Argument defaults</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">border-radius</span><span class="hljs-params">(n = <span class="hljs-number">2px</span>)</span></span>
+  -webkit-<span class="hljs-attribute">border-radius</span>: n
+</code></pre>
+<h3 id="block-mixins">Block mixins</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">mobile</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">480px</span>)
+    {block}
+</code></pre>
+
+<pre><code class="stylus">+mobile()
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">10px</span>
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/mixins.html#block-mixins">Block mixins</a></p>
+<h3 id="rest-params">Rest params</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">shadow</span><span class="hljs-params">(offset-x, args...)</span></span>
+  <span class="hljs-attribute">box-shadow</span>: offset-x args
+  <span class="hljs-attribute">margin-top</span>: offset-x
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-id">#login</span>
+  shadow: <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-number">5px</span> <span class="hljs-number">#eee</span>
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/vargs.html">Rest params</a></p>
+<h2 id="functions">Functions</h2>
+<h3 id="functions">Functions</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">add</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-selector-tag">a</span> + b
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">body</span>
+  <span class="hljs-attribute">padding</span>: add(<span class="hljs-number">10px</span>, <span class="hljs-number">5</span>)
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/functions.html">Functions</a></p>
+<h3 id="argument-defaults">Argument defaults</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">add</span><span class="hljs-params">(a, b = <span class="hljs-number">2</span>)</span></span>
+  <span class="hljs-selector-tag">a</span> + b
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/functions.html#argument-defaults">Argument defaults</a></p>
+<h3 id="named-parameters">Named parameters</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">shadow</span><span class="hljs-params">(x, y)</span></span>
+  x y (y * <span class="hljs-number">1.5</span>) <span class="hljs-number">#000</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-class">.button</span>
+  <span class="hljs-attribute">box-shadow</span>: shadow(x: <span class="hljs-number">2</span>, y: <span class="hljs-number">4</span>)
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/functions.html#named-parameters">Named parameters</a></p>
+<h3 id="multiple-return-values">Multiple return values</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">sizes</span><span class="hljs-params">()</span></span>
+  <span class="hljs-number">8px</span> <span class="hljs-number">16px</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">sizes</span><span class="hljs-params">()</span></span><span class="hljs-selector-attr">[0]</span>  <span class="hljs-comment">// → 8px</span>
+<span class="hljs-function"><span class="hljs-title">sizes</span><span class="hljs-params">()</span></span><span class="hljs-selector-attr">[1]</span>  <span class="hljs-comment">// → 16px</span>
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/functions.html#multiple-return-values">Multiple return values</a></p>
+<h2 id="values">Values</h2>
+<h3 id="conditional-assignment">Conditional assignment</h3>
+
+<pre><code class="stylus">royal-blue = <span class="hljs-number">#36a</span>
+royal-blue ?= <span class="hljs-number">#89f</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">div</span>
+  <span class="hljs-attribute">color</span>: royal-blue  // <span class="hljs-number">#36a</span>
+</code></pre>
+<p><code>?=</code> will only set a variable if it&#39;s previously unset.</p>
+<p>See: <a href="https://stylus-lang.com/docs/operators.html#conditional-assignment--">Conditional assignment</a></p>
+<h3 id="property-lookup">Property lookup</h3>
+
+<pre><code class="stylus"><span class="hljs-selector-class">.logo</span>
+  <span class="hljs-attribute">width</span>: w = <span class="hljs-number">150</span>
+  <span class="hljs-attribute">margin-left</span>: -(w / <span class="hljs-number">2</span>)
+  <span class="hljs-comment">// or</span>
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">80px</span>
+  <span class="hljs-attribute">margin-top</span>: -(@height / <span class="hljs-number">2</span>)
+</code></pre>
+<p>See: <a href="https://stylus-lang.com/docs/variables.html#property-lookup">Property lookup</a></p>
+<h3 id="interpolation">Interpolation</h3>
+
+<pre><code class="stylus">-{prefix}-<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>
+</code></pre>
+<p>See: <a href="https://stylus-lang.com/docs/interpolation.html">Interpolation</a></p>
+<h3 id="color-operators">Color operators</h3>
+
+<pre><code class="stylus"><span class="hljs-number">#888</span> + <span class="hljs-number">50%</span>    <span class="hljs-comment">// → #c3c3c3 (lighten)</span>
+<span class="hljs-number">#888</span> - <span class="hljs-number">50%</span>    <span class="hljs-comment">// → #444 (darken)</span>
+<span class="hljs-number">#f00</span> + <span class="hljs-number">50deg</span>  <span class="hljs-comment">// → #ffd500 (hue)</span>
+</code></pre>
+<h3 id="casting">Casting</h3>
+
+<pre><code class="stylus">n = <span class="hljs-number">5px</span>
+</code></pre>
+
+<pre><code class="stylus">foo: (n)<span class="hljs-selector-tag">em</span>
+foo: (n * <span class="hljs-number">5</span>)%
+</code></pre>
+<h3 id="lookup">Lookup</h3>
+
+<pre><code class="stylus">light-blue = <span class="hljs-number">#3bd</span>
+name = <span class="hljs-string">&#x27;blue&#x27;</span>
+<span class="hljs-function"><span class="hljs-title">lookup</span><span class="hljs-params">(<span class="hljs-string">&#x27;light-&#x27;</span> + name)</span></span>
+</code></pre>
+<p>See: <a href="https://stylus-lang.com/docs/bifs.html#lookupname">lookup</a></p>
+<h2 id="advanced-features">Advanced features</h2>
+<h3 id="conditional">Conditional</h3>
+
+<pre><code class="stylus"><span class="hljs-keyword">if</span> <span class="hljs-attribute">color</span> == blue
+  <span class="hljs-attribute">display</span>: block
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> true and true
+  <span class="hljs-attribute">display</span>: inline
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;hey&#x27;</span> is not <span class="hljs-string">&#x27;bye&#x27;</span>
+  <span class="hljs-attribute">display</span>: flex
+<span class="hljs-keyword">else</span>
+  <span class="hljs-attribute">display</span>: none
+</code></pre>
+<p>Aliases:</p>
+<p>| <code>==</code> | <code>is</code> |
+| <code>!=</code> | <code>is not</code> |
+| <code>!=</code> | <code>isnt</code> |</p>
+<p>See: <a href="https://stylus-lang.com/docs/functions.html#conditionals">Conditionals</a></p>
+<h3 id="for-loops">For loops</h3>
+
+<pre><code class="stylus"><span class="hljs-attribute">font-size</span>-<span class="hljs-number">1</span> = <span class="hljs-number">10px</span>
+<span class="hljs-attribute">font-size</span>-<span class="hljs-number">2</span> = <span class="hljs-number">20px</span>
+<span class="hljs-attribute">font-size</span>-<span class="hljs-number">3</span> = <span class="hljs-number">30px</span>
+
+<span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>
+  .text-{i}
+    <span class="hljs-attribute">font-size</span>: lookup(<span class="hljs-string">&#x27;font-size-&#x27;</span> + i)
+</code></pre>
+<h3 id="definition-check">Definition check</h3>
+
+<pre><code class="stylus"><span class="hljs-keyword">if</span> ohnoes is defined
+  <span class="hljs-attribute">color</span>: blue
+</code></pre>
+<p>See: <a href="https://stylus-lang.com/docs/operators.html#variable-definition-is-defined">is defined</a></p>
+<h3 id="false-values">False values</h3>
+
+<pre><code class="stylus"><span class="hljs-number">0</span>
+null
+false
+<span class="hljs-string">&#x27;&#x27;</span>
+</code></pre>
+<h3 id="type-check">Type check</h3>
+
+<pre><code class="stylus"><span class="hljs-keyword">if</span> val is <span class="hljs-selector-tag">a</span> <span class="hljs-string">&#x27;string&#x27;</span>
+<span class="hljs-keyword">if</span> val is <span class="hljs-selector-tag">a</span> <span class="hljs-string">&#x27;ident&#x27;</span>
+<span class="hljs-keyword">if</span> <span class="hljs-number">#fff</span> is <span class="hljs-selector-tag">a</span> <span class="hljs-string">&#x27;rgba&#x27;</span>    <span class="hljs-comment">// → true</span>
+</code></pre>
+<p>See: <a href="https://stylus-lang.com/docs/operators.html#instance-check-is-a">Instance check</a></p>
+<h2 id="built-in-functions">Built-in functions</h2>
+<h3 id="color-functions">Color functions</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">alpha</span><span class="hljs-params">(<span class="hljs-number">#fff</span>)</span></span>   <span class="hljs-comment">//→ 1</span>
+<span class="hljs-function"><span class="hljs-title">alpha</span><span class="hljs-params">(rgba(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>)</span></span>)   <span class="hljs-comment">//→ 0.2</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">dark</span><span class="hljs-params">(black)</span></span>  <span class="hljs-comment">//→ true</span>
+<span class="hljs-function"><span class="hljs-title">light</span><span class="hljs-params">(black)</span></span> <span class="hljs-comment">//→ false</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">hue</span><span class="hljs-params">(<span class="hljs-number">#0a0</span>)</span></span>         <span class="hljs-comment">//→ 50deg</span>
+<span class="hljs-function"><span class="hljs-title">saturation</span><span class="hljs-params">(<span class="hljs-number">#f00</span>)</span></span>  <span class="hljs-comment">//→ 100%</span>
+<span class="hljs-function"><span class="hljs-title">lightness</span><span class="hljs-params">(<span class="hljs-number">#f00</span>)</span></span>   <span class="hljs-comment">//→ 50%</span>
+<span class="hljs-function"><span class="hljs-title">luminosity</span><span class="hljs-params">(<span class="hljs-number">#f00</span>)</span></span>  <span class="hljs-comment">//→ 0.2126</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">hue</span><span class="hljs-params">(<span class="hljs-number">#0a0</span>, <span class="hljs-number">0deg</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">saturation</span><span class="hljs-params">(<span class="hljs-number">#f00</span>, <span class="hljs-number">50%</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">lightness</span><span class="hljs-params">(<span class="hljs-number">#f00</span>)</span></span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">lighten</span><span class="hljs-params">(color, <span class="hljs-number">10%</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">darken</span><span class="hljs-params">(color, <span class="hljs-number">10%</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">saturate</span><span class="hljs-params">(color, <span class="hljs-number">10%</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">desaturate</span><span class="hljs-params">(color, <span class="hljs-number">10%</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">invert</span><span class="hljs-params">(color)</span></span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">tint</span><span class="hljs-params">(color, <span class="hljs-number">50%</span>)</span></span>  <span class="hljs-comment">// mix with white</span>
+<span class="hljs-function"><span class="hljs-title">shade</span><span class="hljs-params">(color, <span class="hljs-number">50%</span>)</span></span> <span class="hljs-comment">// mix with black</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">unquote</span><span class="hljs-params">(string)</span></span>
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html">Built-in functions</a></p>
+<h3 id="image-size">Image size</h3>
+
+<pre><code class="stylus"><span class="hljs-attribute">width</span>:  image-size(<span class="hljs-string">&#x27;tux.png&#x27;</span>)[<span class="hljs-number">0</span>]
+<span class="hljs-attribute">height</span>: image-size(<span class="hljs-string">&#x27;tux.png&#x27;</span>)[<span class="hljs-number">1</span>]
+</code></pre>
+<p>Returns the width and height of a given image.</p>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html#image-sizepath">image-size</a></p>
+<h3 id="caching">Caching</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">(<span class="hljs-variable">$width</span>)</span></span>
+  +cache(<span class="hljs-string">&#x27;w&#x27;</span> + <span class="hljs-variable">$width</span>)
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$width</span>
+<span class="hljs-selector-class">.a</span> { size: <span class="hljs-number">10px</span> }
+<span class="hljs-selector-class">.b</span> { size: <span class="hljs-number">10px</span> }
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-comment">// yields: .a, b { width: 10px }</span>
+</code></pre>
+<p>Applies its contents to the given selector on the first call, but would @extend the first call’s selector at the second call with the same params.</p>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html#cachekeys">cache</a></p>
+<h3 id="add-property">Add Property</h3>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">gradient</span><span class="hljs-params">(color)</span></span>
+  add-property(<span class="hljs-string">&#x27;background-image&#x27;</span>, linear-gradient(<span class="hljs-attribute">top</span>, color, darken(color, <span class="hljs-number">20%</span>)))
+  <span class="hljs-attribute">color</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-selector-tag">body</span>
+  <span class="hljs-attribute">background</span>: gradient(red)
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html#add-propertyname-expr">add-property</a></p>
+<h3 id="sprintf">sprintf</h3>
+
+<pre><code class="stylus"><span class="hljs-string">&#x27;-webkit-gradient(%s, %s, %s)&#x27;</span> % (linear (<span class="hljs-number">0</span> <span class="hljs-number">0</span>) (<span class="hljs-number">0</span> <span class="hljs-number">100%</span>))
+<span class="hljs-comment">// → -webkit-gradient(linear, 0 0, 0 100%)</span>
+</code></pre>
+
+<pre><code class="stylus"><span class="hljs-function"><span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">&quot;rgba(0, 0, 0, %s)&quot;</span>, <span class="hljs-number">0.3</span>)</span></span>
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html#sfmt-">s</a></p>
+<h3 id="embed-url">Embed URL</h3>
+
+<pre><code><span class="hljs-attribute">background</span>: <span class="hljs-built_in">embedurl</span>(<span class="hljs-string">&#x27;logo.png&#x27;</span>)
+// → background: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/png;base64,…&quot;</span>)
+</code></pre>
+<p>See: <a href="http://stylus-lang.com/docs/bifs.html#embedurlpath-encoding">embedurl</a></p>
+
+</div>
+</body>  
+</html>

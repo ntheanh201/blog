@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mixpanel cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Mixpanel cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\mixpanel.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#identify">Identify</a>, <a href="#track-events">Track events</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="identify">Identify</h3>
+
+<pre><code class="js">mixpanel.<span class="hljs-title function_">identify</span>(<span class="hljs-string">&#x27;284&#x27;</span>)
+mixpanel.<span class="hljs-property">people</span>.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">$email</span>: <span class="hljs-string">&#x27;hi@gmail.com&#x27;</span> })
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Set common properties</span>
+mixpanel.<span class="hljs-title function_">register</span>({ <span class="hljs-attr">age</span>: <span class="hljs-number">28</span>, <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;male&#x27;</span> })
+</code></pre>
+<h3 id="track-events">Track events</h3>
+
+<pre><code class="js">mixpanel.<span class="hljs-title function_">track</span>(<span class="hljs-string">&#x27;Login success&#x27;</span>)
+mixpanel.<span class="hljs-title function_">track</span>(<span class="hljs-string">&#x27;Search&#x27;</span>, { <span class="hljs-attr">query</span>: <span class="hljs-string">&#x27;cheese&#x27;</span> })
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="https://mixpanel.com/help/reference/javascript">https://mixpanel.com/help/reference/javascript</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

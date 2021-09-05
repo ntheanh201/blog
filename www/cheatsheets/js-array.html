@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript Arrays cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / JavaScript Arrays cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\js-array.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#arrays">Arrays</a>, <a href="#subsets">Subsets</a>, <a href="#adding-items">Adding items</a>, <a href="#inserting">Inserting</a>, <a href="#replace-items">Replace items</a>, <a href="#removing-items">Removing items</a>, <a href="#iterables">Iterables</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="arrays">Arrays</h3>
+
+<pre><code class="bash">list = [a,b,c,d,e]
+</code></pre>
+
+<pre><code class="bash">list[1]                 // → b
+list.indexOf(b)         // → 1
+</code></pre>
+<h3 id="subsets">Subsets</h3>
+<h4 id="immutable">Immutable</h4>
+
+<pre><code class="bash">list.slice(0,1)         // → [a        ]
+list.slice(1)           // → [  b,c,d,e]
+list.slice(1,2)         // → [  b      ]
+</code></pre>
+<h4 id="mutative">Mutative</h4>
+
+<pre><code class="bash">re = list.splice(1)     // re = [b,c,d,e]  list == [a]
+re = list.splice(1,2)   // re = [b,c]      list == [a,d,e]
+</code></pre>
+<h3 id="adding-items">Adding items</h3>
+<h4 id="immutable">Immutable</h4>
+
+<pre><code class="bash">list.concat([X,Y])      // → [_,_,_,_,_,X,Y]
+</code></pre>
+<h4 id="mutative">Mutative</h4>
+
+<pre><code class="bash">list.push(X)            // list == [_,_,_,_,_,X]
+list.unshift(X)         // list == [X,_,_,_,_,_]
+list.splice(2, 0, X)    // list == [_,_,X,_,_,_]
+</code></pre>
+<h3 id="inserting">Inserting</h3>
+
+<pre><code class="bash">// after -- [_,_,REF,NEW,_,_]
+list.splice(list.indexOf(REF)+1, 0, NEW))
+</code></pre>
+
+<pre><code class="bash">// before -- [_,_,NEW,REF,_,_]
+list.splice(list.indexOf(REF), 0, NEW))
+</code></pre>
+<h3 id="replace-items">Replace items</h3>
+
+<pre><code class="bash">list.splice(2, 1, X)    // list == [a,b,X,d,e]
+</code></pre>
+<h3 id="removing-items">Removing items</h3>
+
+<pre><code class="bash">list.pop()              // → e    list == [a,b,c,d]
+list.shift()            // → a    list == [b,c,d,e]
+list.splice(2, 1)       // → [c]  list == [a,b,d,e]
+</code></pre>
+<h3 id="iterables">Iterables</h3>
+
+<pre><code class="bash">.filter(n =&gt; ...) =&gt; array
+</code></pre>
+
+<pre><code class="bash">.find(n =&gt; ...)  // es6
+.findIndex(...)  // es6
+</code></pre>
+
+<pre><code class="bash">.every(n =&gt; ...) =&gt; Boolean // ie9+
+.some(n =&gt; ..) =&gt; Boolean   // ie9+
+</code></pre>
+
+<pre><code class="bash">.map(n =&gt; ...)   // ie9+
+.reduce((total, n) =&gt; total) // ie9+
+.reduceRight(...)
+</code></pre>
+
+</div>
+</body>  
+</html>

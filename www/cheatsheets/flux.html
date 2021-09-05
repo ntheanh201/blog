@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Flux architecture cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Flux architecture cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\flux.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#architecture">Architecture</a><br>
+<b>Dispatcher</b>: <a href="#pub-sub">Pub-sub</a>, <a href="#ensuring-proper-order">Ensuring proper order</a>, <a href="#subclassing">Subclassing</a><br>
+<b>Stores</b>: <a href="#plain-objects">Plain objects</a>, <a href="#events">Events</a>, <a href="#model-logic">Model logic</a><br>
+<b>Stores and dispatchers</b>: <a href="#instantiate">Instantiate</a>, <a href="#updating-data">Updating data</a><br>
+<b>With Views</b>: <a href="#listen-to-dispatchers">Listen to dispatchers</a>, <a href="#listen-to-stores">Listen to Stores</a>, <a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="architecture">Architecture</h2>
+
+<ul>
+<li><p><strong>Dispatchers</strong> receive <em>actions</em> that get dispatched to its listeners.</p>
+</li>
+<li><p><strong>Stores</strong> are objects that store data, usually changed from a dispatcher listener.</p>
+</li>
+<li><p><strong>Views</strong> are React components that listen to Store changes, or emit <em>actions</em> to the dispatcher.</p>
+</li>
+</ul>
+<hr>
+<h2 id="dispatcher">Dispatcher</h2>
+<h3 id="pub-sub">Pub-sub</h3>
+<p><a href="http://facebook.github.io/flux/docs/dispatcher.html">A dispatcher</a> emits events (<code>.dispatch()</code>) to its listeners (<code>.register(fn)</code>).</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Dispatcher</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;flux&#x27;</span>).<span class="hljs-property">Dispatcher</span>;
+
+d = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dispatcher</span>();
+
+<span class="hljs-comment">// send</span>
+d.<span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">action</span>: <span class="hljs-string">&#x27;edit&#x27;</span>, ... };
+
+<span class="hljs-comment">// receive</span>
+token = d.<span class="hljs-title function_">register</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">payload</span>) {
+  payload.<span class="hljs-property">action</span> === <span class="hljs-string">&#x27;edit&#x27;</span>
+})
+</code></pre>
+<h3 id="ensuring-proper-order">Ensuring proper order</h3>
+<p>With multiple listeners, you can ensure one is fired after another using <code>.waitFor()</code>.</p>
+
+<pre><code class="js">token1 = d.<span class="hljs-title function_">register</span>(...);
+
+token2 = d.<span class="hljs-title function_">register</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">payload</span>) {
+
+  <span class="hljs-comment">// ensure receiver 1 is fired before this</span>
+  d.<span class="hljs-title function_">waitFor</span>([ token1 ]);
+
+  <span class="hljs-comment">// process here</span>
+})
+</code></pre>
+<h3 id="subclassing">Subclassing</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> is the preferred way to subclass Dispatcher (think <code>$.extend</code>).<br>
+You can also make <em>action creators</em>, which are shortcuts for <code>dispatch()</code>.</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Dispatcher</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;flux&#x27;</span>).<span class="hljs-property">Dispatcher</span>;
+<span class="hljs-keyword">var</span> assign = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;object-assign&#x27;</span>);
+
+<span class="hljs-keyword">var</span> <span class="hljs-title class_">AppDispatcher</span> = <span class="hljs-title function_">assign</span>({}, <span class="hljs-title class_">Dispatcher</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>, {
+
+  <span class="hljs-comment">// action creator</span>
+  <span class="hljs-title function_">handleViewAction</span>(<span class="hljs-params">action</span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">dispatch</span>({
+      <span class="hljs-attr">source</span>: <span class="hljs-string">&#x27;VIEW_ACTION&#x27;</span>,
+      <span class="hljs-attr">action</span>: action
+    })
+  } 
+
+})
+</code></pre>
+<hr>
+<h2 id="stores">Stores</h2>
+<h3 id="plain-objects">Plain objects</h3>
+<p>Stores are just like objects.</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">TodoStore</span> = { <span class="hljs-attr">list</span>: [] };
+</code></pre>
+<h3 id="events">Events</h3>
+<p>Sometimes they&#39;re eventemitters, too. Usually it&#39;s used to emit <code>change</code> events for views to pick up.</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">TodoStore</span> = <span class="hljs-title function_">assign</span>({}, <span class="hljs-title class_">EventEmitter</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>, {
+  ...
+});
+
+<span class="hljs-title class_">TodoStore</span>.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;change&#x27;</span>);
+<span class="hljs-title class_">TodoStore</span>.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) { ... });
+</code></pre>
+<h3 id="model-logic">Model logic</h3>
+<p>Logic can sometimes belong in stores.</p>
+
+<pre><code class="js">{
+  <span class="hljs-title function_">isAllActive</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">list</span>.<span class="hljs-title function_">every</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.<span class="hljs-property">active</span>);
+  }
+}
+</code></pre>
+<hr>
+<h2 id="stores-and-dispatchers">Stores and dispatchers</h2>
+<h3 id="instantiate">Instantiate</h3>
+<p>Make a Dispatcher and Stores.</p>
+
+<pre><code class="js">d = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dispatcher</span>();
+<span class="hljs-title class_">TabStore</span> = { <span class="hljs-attr">tab</span>: <span class="hljs-string">&#x27;home&#x27;</span> };
+</code></pre>
+<h3 id="updating-data">Updating data</h3>
+<p>Dispatch events to alter the store.</p>
+
+<pre><code class="js">d.<span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">action</span>: <span class="hljs-string">&#x27;tab.change&#x27;</span>, <span class="hljs-attr">tab</span>: <span class="hljs-string">&#x27;timeline&#x27;</span> });
+
+d.<span class="hljs-title function_">register</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) {
+  <span class="hljs-keyword">if</span> (data.<span class="hljs-property">action</span> === <span class="hljs-string">&#x27;tab.change&#x27;</span>) {
+    <span class="hljs-title class_">TabStore</span>.<span class="hljs-property">tab</span> = data.<span class="hljs-property">tab</span>;
+  }
+});
+</code></pre>
+<hr>
+<h2 id="with-views">With Views</h2>
+<h3 id="listen-to-dispatchers">Listen to dispatchers</h3>
+<p>Views (React Components) can listen to Dispatchers.</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">TodoApp</span> = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">createClass</span>({
+
+  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">token</span> = <span class="hljs-title class_">AppDispatcher</span>.<span class="hljs-title function_">register</span>(<span class="hljs-function">(<span class="hljs-params">payload</span>) =&gt;</span> {
+      <span class="hljs-keyword">switch</span> (payload.<span class="hljs-property">action</span>) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;tab.change&#x27;</span>:
+          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">render</span>();
+          <span class="hljs-comment">// ...</span>
+      }
+    });
+  },
+
+  <span class="hljs-title function_">componentDidUnmount</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">AppDispatcher</span>.<span class="hljs-title function_">unregister</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">token</span>);
+  }
+
+});
+</code></pre>
+<h3 id="listen-to-stores">Listen to Stores</h3>
+<p>Or to Stores&#39;s <code>change</code> events.</p>
+
+<pre><code class="js">{
+  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">TodoStore</span>.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">onChange</span>);
+  },
+
+  <span class="hljs-title function_">componentDidUnmount</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title class_">TodoState</span>.<span class="hljs-title function_">removeListener</span>(<span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">onChange</span>);
+  },
+
+  <span class="hljs-title function_">onChange</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-comment">// ...</span>
+  }
+}
+</code></pre>
+<hr>
+<h3 id="also-see">Also see</h3>
+
+<ul>
+<li><a href="http://facebook.github.io/flux/docs/dispatcher.html">Dispatcher API</a></li>
+<li><a href="react.html">React cheatsheet</a></li>
+<li><a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js">Dispatcher.js source</a></li>
+<li><a href="https://github.com/facebook/flux/tree/master/examples/flux-todomvc">Flux-todomvc explanation</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

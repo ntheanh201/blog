@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Phoenix: Ecto migrations cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Phoenix: Ecto migrations cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\phoenix-migrations.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#creating">Creating</a>, <a href="#creating-models">Creating models</a>, <a href="#creating-context">Creating context</a><br>
+<b>Migration functions</b>: <a href="#creating-tables">Creating tables</a>, <a href="#other-operations">Other operations</a>, <a href="#indices">Indices</a>, <a href="#execute-sql">Execute SQL</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="creating">Creating</h3>
+
+<pre><code class="bash">$ mix ecto.gen.migration update_posts_table
+  creating priv/repo/migrations/20160602085927_update_posts_table.exs
+  ···
+</code></pre>
+
+<pre><code class="bash">$ mix ecto.migrate
+$ mix ecto.rollback
+</code></pre>
+<p>Creates a migration (no models).</p>
+<h3 id="creating-models">Creating models</h3>
+
+<pre><code class="bash">$ mix phoenix.gen.model Message messages user_id:<span class="hljs-built_in">integer</span> content:text
+</code></pre>
+<p>This is only for Phoenix 1.2 or older; models aren&#39;t available in Phoenix 1.3+.</p>
+<h3 id="creating-context">Creating context</h3>
+
+<pre><code class="bash">$ mix phx.gen.context Images Album albums title:string subtitle:string privacy:string
+</code></pre>
+<h2 id="migration-functions">Migration functions</h2>
+<h3 id="creating-tables">Creating tables</h3>
+
+<pre><code class="elixir">create table(<span class="hljs-symbol">:documents</span>) <span class="hljs-keyword">do</span>
+  add <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:string</span>
+  add <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:string</span>, <span class="hljs-symbol">size:</span> <span class="hljs-number">40</span>
+  add <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:string</span>, <span class="hljs-symbol">default:</span> <span class="hljs-string">&quot;Hello&quot;</span>
+  add <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:string</span>, <span class="hljs-symbol">default:</span> fragment(<span class="hljs-string">&quot;now()&quot;</span>)
+  add <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:string</span>, <span class="hljs-symbol">null:</span> <span class="hljs-keyword">false</span>
+  add <span class="hljs-symbol">:body</span>, <span class="hljs-symbol">:text</span>
+  add <span class="hljs-symbol">:age</span>, <span class="hljs-symbol">:integer</span>
+  add <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:float</span>
+  add <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:float</span>
+  add <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:decimal</span>, <span class="hljs-symbol">precision:</span> <span class="hljs-number">10</span>, <span class="hljs-symbol">scale:</span> <span class="hljs-number">2</span>
+  add <span class="hljs-symbol">:published_at</span>, <span class="hljs-symbol">:utc_datetime</span>
+  add <span class="hljs-symbol">:group_id</span>, references(<span class="hljs-symbol">:groups</span>)
+  add <span class="hljs-symbol">:object</span>, <span class="hljs-symbol">:json</span>
+
+  timestamps  <span class="hljs-comment"># inserted_at and updated_at</span>
+<span class="hljs-keyword">end</span>
+
+create_if_not_exists table(<span class="hljs-symbol">:documents</span>) <span class="hljs-symbol">do:</span> ... <span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="other-operations">Other operations</h3>
+
+<pre><code class="elixir">alter table(<span class="hljs-symbol">:posts</span>) <span class="hljs-keyword">do</span>
+  add <span class="hljs-symbol">:summary</span>, <span class="hljs-symbol">:text</span>
+  modify <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:text</span>
+  remove <span class="hljs-symbol">:views</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+
+<pre><code class="elixir">rename table(<span class="hljs-symbol">:posts</span>), <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">to:</span> <span class="hljs-symbol">:summary</span>
+rename table(<span class="hljs-symbol">:posts</span>), <span class="hljs-symbol">to:</span> table(<span class="hljs-symbol">:new_posts</span>)
+</code></pre>
+
+<pre><code class="elixir">drop table(<span class="hljs-symbol">:documents</span>)
+drop_if_exists table(<span class="hljs-symbol">:documents</span>)
+</code></pre>
+
+<pre><code class="elixir">table(<span class="hljs-symbol">:documents</span>)
+table(<span class="hljs-symbol">:weather</span>, <span class="hljs-symbol">prefix:</span> <span class="hljs-symbol">:north_america</span>)
+</code></pre>
+<h3 id="indices">Indices</h3>
+
+<pre><code class="elixir">create index(<span class="hljs-symbol">:posts</span>, [<span class="hljs-symbol">:slug</span>], <span class="hljs-symbol">concurrently:</span> <span class="hljs-keyword">true</span>)
+create unique_index(<span class="hljs-symbol">:posts</span>, [<span class="hljs-symbol">:slug</span>])
+drop index(<span class="hljs-symbol">:posts</span>, [<span class="hljs-symbol">:name</span>])
+</code></pre>
+<h3 id="execute-sql">Execute SQL</h3>
+
+<pre><code class="elixir">execute <span class="hljs-string">&quot;UPDATE posts SET published_at = NULL&quot;</span>
+execute <span class="hljs-symbol">create:</span> <span class="hljs-string">&quot;posts&quot;</span>, <span class="hljs-symbol">capped:</span> <span class="hljs-keyword">true</span>, <span class="hljs-symbol">size:</span> <span class="hljs-number">1024</span>
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://devdocs.io/phoenix/ecto/ecto.migration">Ecto.Migration</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

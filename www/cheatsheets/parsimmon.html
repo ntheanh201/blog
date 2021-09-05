@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Parsimmon cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Parsimmon cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\parsimmon.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#atoms">Atoms</a><br>
+<a href="#combinators">Combinators</a><br>
+<a href="#formatting">Formatting</a><br>
+<a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+
+<pre><code class="js"><span class="hljs-keyword">const</span> P = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;parsimmon&#x27;</span>)
+
+P.<span class="hljs-title function_">regexp</span>(<span class="hljs-regexp">/[a-z]+/</span>)
+.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)
+<span class="hljs-comment">//=&gt; { status: true, value: [&#x27;hello&#x27;] }</span>
+</code></pre>
+<h2 id="atoms">Atoms</h2>
+
+<pre><code class="js">P.<span class="hljs-title function_">regexp</span>(<span class="hljs-regexp">/[a-z]+/</span>)
+P.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)
+P.<span class="hljs-title function_">oneOf</span>(<span class="hljs-string">&#x27;abc&#x27;</span>)             <span class="hljs-comment">// like P.regexp(/[abc]/)</span>
+
+P.<span class="hljs-property">whitespace</span>
+P.<span class="hljs-property">optWhitespace</span>
+P.<span class="hljs-property">eof</span>
+</code></pre>
+<h2 id="combinators">Combinators</h2>
+
+<pre><code class="js">P.<span class="hljs-title function_">seq</span>(a, b, c)             <span class="hljs-comment">// sequence of these</span>
+P.<span class="hljs-title function_">alt</span>(a, b)                <span class="hljs-comment">// any of these</span>
+P.<span class="hljs-title function_">sepBy</span>(a, P.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;,&#x27;</span>))  <span class="hljs-comment">// sequence of `a`, separated by &#x27;,&#x27;</span>
+P.<span class="hljs-title function_">sepBy1</span>(a, P.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;,&#x27;</span>)) <span class="hljs-comment">// same, at least once</span>
+
+a.<span class="hljs-title function_">or</span>(b)                    <span class="hljs-comment">// like P.alt(a, b)</span>
+a.<span class="hljs-title function_">skip</span>(b)                  <span class="hljs-comment">// parses `b` but discards it</span>
+
+a.<span class="hljs-title function_">many</span>()
+a.<span class="hljs-title function_">times</span>(<span class="hljs-number">3</span>)
+a.<span class="hljs-title function_">times</span>(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>)              <span class="hljs-comment">// 1 &lt;= x &lt;= 4</span>
+a.<span class="hljs-title function_">atMost</span>(<span class="hljs-number">10</span>)
+a.<span class="hljs-title function_">atLeast</span>(<span class="hljs-number">10</span>)
+</code></pre>
+<h2 id="formatting">Formatting</h2>
+
+<pre><code class="js">P.<span class="hljs-title function_">seq</span>(P.<span class="hljs-property">number</span>, P.<span class="hljs-title function_">oneOf</span>(<span class="hljs-string">&#x27;+-*/&#x27;</span>), P.<span class="hljs-property">number</span>)
+.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">[left, oper, right]</span>) =&gt;</span> ({ oper, left, right }))
+</code></pre>
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://github.com/jneen/parsimmon/blob/master/API.md">https://github.com/jneen/parsimmon/blob/master/API.md</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

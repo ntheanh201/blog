@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>tmux cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / tmux cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\tmux.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#commands">Commands</a>, <a href="#help">Help</a>, <a href="#scrolling">Scrolling</a>, <a href="#copy-paste">Copy/paste</a>, <a href="#panes">Panes</a>, <a href="#windows">Windows</a>, <a href="#detach-attach">Detach/attach</a>, <a href="#niceties">Niceties</a><br>
+<b>Status formats</b>: <a href="#attribute-colors">Attribute/colors</a>, <a href="#colors">Colors</a>, <a href="#attributes">Attributes</a>, <a href="#variables">Variables</a><br>
+<a href="#options">Options</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="commands">Commands</h3>
+
+<pre><code><span class="hljs-variable">$ </span>tmux
+  -u        <span class="hljs-comment"># UTF8 mode</span>
+  -S ~<span class="hljs-regexp">/.tmux.socket</span>
+</code></pre>
+<h4 id="sessions">Sessions</h4>
+
+<pre><code><span class="hljs-variable">$</span> tmux new
+<span class="hljs-variable">$</span> tmux new <span class="hljs-literal">-s</span> session_name
+
+<span class="hljs-variable">$</span> tmux attach <span class="hljs-comment"># Default session</span>
+<span class="hljs-variable">$</span> tmux attach <span class="hljs-literal">-t</span> session_name
+
+<span class="hljs-variable">$</span> tmux <span class="hljs-keyword">switch</span> <span class="hljs-literal">-t</span> session_name
+
+<span class="hljs-variable">$</span> tmux <span class="hljs-built_in">ls</span>     <span class="hljs-comment"># List sessions</span>
+
+<span class="hljs-variable">$</span> tmux detach
+</code></pre>
+<h4 id="windows">Windows</h4>
+
+<pre><code>$ tmux <span class="hljs-keyword">new</span>-<span class="hljs-built_in">window</span>
+</code></pre>
+<h3 id="help">Help</h3>
+
+<pre><code>C-<span class="hljs-keyword">b</span> ?
+</code></pre>
+<h3 id="scrolling">Scrolling</h3>
+
+<pre><code>C-<span class="hljs-keyword">b </span>[       <span class="hljs-comment"># Enter scroll mode then press up and down</span>
+</code></pre>
+<h3 id="copy-paste">Copy/paste</h3>
+
+<pre><code>C-<span class="hljs-keyword">b </span>[       <span class="hljs-comment"># 1. Enter scroll mode first.</span>
+Space       <span class="hljs-comment"># 2. Start selecting and move around.</span>
+Enter       <span class="hljs-comment"># 3. Press enter to copy.</span>
+C-<span class="hljs-keyword">b </span>]       <span class="hljs-comment"># Paste</span>
+</code></pre>
+<h3 id="panes">Panes</h3>
+
+<pre><code>C-<span class="hljs-selector-tag">b</span> %       # vert
+C-<span class="hljs-selector-tag">b</span> &quot;       # horiz
+C-<span class="hljs-selector-tag">b</span> hkjl    # navigation
+C-<span class="hljs-selector-tag">b</span> HJKL    # <span class="hljs-attribute">resize</span>
+C-<span class="hljs-selector-tag">b</span> o       # next window
+C-<span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">q</span>       # show pane numbers
+C-<span class="hljs-selector-tag">b</span> x       # close pane
+
+C-<span class="hljs-selector-tag">b</span> { or }  # move windows around
+</code></pre>
+<h3 id="windows">Windows</h3>
+
+<pre><code>C-<span class="hljs-keyword">b </span>c       <span class="hljs-comment"># New window</span>
+C-<span class="hljs-keyword">b </span><span class="hljs-number">1</span>       <span class="hljs-comment"># Go to window 1</span>
+C-<span class="hljs-keyword">b </span>n       <span class="hljs-comment"># Go to next window</span>
+C-<span class="hljs-keyword">b </span>p       <span class="hljs-comment"># Go to previous window</span>
+C-<span class="hljs-keyword">b </span>w       <span class="hljs-comment"># List all window</span>
+</code></pre>
+<h3 id="detach-attach">Detach/attach</h3>
+
+<pre><code>C-<span class="hljs-keyword">b </span>d       <span class="hljs-comment"># Detach</span>
+C-<span class="hljs-keyword">b </span>( )     <span class="hljs-comment"># Switch through sessions</span>
+$ tmux attach
+</code></pre>
+<h3 id="niceties">Niceties</h3>
+
+<pre><code>C-<span class="hljs-selector-tag">b</span> t    # <span class="hljs-selector-tag">Time</span>
+</code></pre>
+<h2 id="status-formats">Status formats</h2>
+
+<pre><code>setw -g window-<span class="hljs-keyword">status</span>-<span class="hljs-keyword">format</span> `#[fg=<span class="hljs-number">8</span>,bg=<span class="hljs-keyword">default</span>]#I`
+</code></pre>
+<p>See <code>message-command-style</code> in the man page.</p>
+<h3 id="attribute-colors">Attribute/colors</h3>
+<p>| <code>#[fg=1]</code> | standard color |
+| <code>#[fg=yellow]</code> | yellow |
+| <code>#[bold]</code> | bold |
+| <code>#[fg=colour240]</code> | 256 color |
+| <code>#[fg=default]</code> | default |
+| <code>#[fg=1,bg=2]</code> | combinations |
+| <code>#[default]</code> | reset |</p>
+<h3 id="colors">Colors</h3>
+
+<ul>
+<li><code>black</code> <code>red</code> <code>green</code> <code>yellow</code> <code>blue</code> <code>magenta</code> <code>cyan</code> <code>white</code></li>
+<li><code>brightred</code> (and so on)</li>
+<li><code>colour0</code> ... <code>colour255</code></li>
+<li><code>#333</code> (rgb hex)</li>
+</ul>
+<h3 id="attributes">Attributes</h3>
+
+<ul>
+<li><code>bold</code> <code>underscore</code> <code>blink</code> <code>noreverse</code> <code>hidden</code> <code>dim</code> <code>italics</code></li>
+</ul>
+<h3 id="variables">Variables</h3>
+<p>| <code>#(date)</code> | shell command |
+| <code>#I</code> | window index |
+| <code>#S</code> | session name |
+| <code>#W</code> | window name |
+| <code>#F</code> | window flags |
+| <code>#H</code> | Hostname |
+| <code>#h</code> | Hostname, short |
+| <code>#D</code> | pane id |
+| <code>#P</code> | pane index |
+| <code>#T</code> | pane title |</p>
+<h2 id="options">Options</h2>
+
+<pre><code><span class="hljs-keyword">set</span> <span class="hljs-operator">-</span>g status<span class="hljs-operator">-</span>justify [<span class="hljs-keyword">left</span><span class="hljs-operator">|</span>centre<span class="hljs-operator">|</span><span class="hljs-keyword">right</span>]
+<span class="hljs-keyword">set</span> <span class="hljs-operator">-</span>g status<span class="hljs-operator">-</span><span class="hljs-keyword">left</span> <span class="hljs-string">&#x27;...&#x27;</span>
+
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>style
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>activity<span class="hljs-operator">-</span>style
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>bell<span class="hljs-operator">-</span>style
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>content<span class="hljs-operator">-</span>style
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span><span class="hljs-keyword">current</span><span class="hljs-operator">-</span>style
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span><span class="hljs-keyword">last</span><span class="hljs-operator">-</span>style
+
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>format
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span><span class="hljs-keyword">current</span><span class="hljs-operator">-</span>format
+
+setw <span class="hljs-operator">-</span>g <span class="hljs-keyword">window</span><span class="hljs-operator">-</span>status<span class="hljs-operator">-</span>separator
+</code></pre>
+
+</div>
+</body>  
+</html>

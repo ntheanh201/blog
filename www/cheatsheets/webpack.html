@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Webpack cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Webpack cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\webpack.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#basic-config">Basic config</a>, <a href="#multiple-files">Multiple files</a><br>
+<b>Loaders</b>: <a href="#babel">Babel</a>, <a href="#css">CSS</a>, <a href="#postcss">PostCSS</a><br>
+<b>Other features</b>: <a href="#dev-server">Dev server</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="basic-config">Basic config</h3>
+<h4 id="webpack-config-js">webpack.config.js</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">context</span>: __dirname,
+  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;src/app.js&#x27;</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">path</span>: __dirname + <span class="hljs-string">&#x27;/public&#x27;</span>,
+    <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;app.js&#x27;</span>
+  }
+}
+</code></pre>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install --save-dev webpack
+</code></pre>
+<p>| <code>webpack</code> | build
+| <code>webpack -- -p</code> | build production
+| <code>webpack -- --watch</code> | compile continuously</p>
+<p>This compiles <code>src/app.js</code> into <code>public/app.js</code>. (Note: you may need to use <code>./node_modules/.bin/webpack</code> as a command if you&#39;re not invoking Webpack via npm scripts.)</p>
+<h3 id="multiple-files">Multiple files</h3>
+<h4 id="webpack-config-js">webpack.config.js</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">entry</span>: {
+    <span class="hljs-attr">app</span>: <span class="hljs-string">&#x27;src/app.js&#x27;</span>,
+    <span class="hljs-attr">vendor</span>: <span class="hljs-string">&#x27;src/vendor.js&#x27;</span>
+  },
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">path</span>: __dirname + <span class="hljs-string">&#x27;/public&#x27;</span>,
+    <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;[name].js&#x27;</span>
+  }
+}
+</code></pre>
+<p>This creates <code>app.js</code> and <code>vendor.js</code>.</p>
+<h2 id="loaders">Loaders</h2>
+<h3 id="babel">Babel</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install --save-dev \
+  babel-loader \
+  babel-preset-env \
+  babel-preset-react
+</code></pre>
+<h4 id="webpack-config-js">webpack.config.js</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  ···
+  <span class="hljs-attr">module</span>: {
+    <span class="hljs-attr">rules</span>: [
+      { <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.js$/</span>,
+        <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>,
+        <span class="hljs-attr">use</span>: [
+          { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;babel-loader&#x27;</span> }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+<h4 id="-babelrc">.babelrc</h4>
+
+<pre><code class="js">{
+  <span class="hljs-string">&quot;presets&quot;</span>: [ <span class="hljs-string">&quot;env&quot;</span>, <span class="hljs-string">&quot;react&quot;</span> ]
+}
+</code></pre>
+<p>Adds support for <a href="http://babeljs.io">Babel</a>.</p>
+<h3 id="css">CSS</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install --save-dev \
+  css-loader \
+  style-loader
+</code></pre>
+<h4 id="webpack-config-js">webpack.config.js</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  ···
+  <span class="hljs-attr">module</span>: {
+    <span class="hljs-attr">rules</span>: [
+     { <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>,
+       <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>,
+       <span class="hljs-attr">use</span>: [
+         { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;style-loader&#x27;</span> },
+         { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;css-loader&#x27;</span> }
+       ]
+      }
+    ]
+  }
+}
+</code></pre>
+<h4 id="your-javascript">Your JavaScript</h4>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./styles.css&#x27;</span>
+<span class="hljs-comment">// or:</span>
+<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./styles.css&#x27;</span>)
+</code></pre>
+<p>This allows you to use CSS inside your JavaScript. This packages your CSS inside your JavaScript bundle.</p>
+<h3 id="postcss">PostCSS</h3>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code><span class="hljs-built_in">npm</span> install --save-dev <span class="hljs-string">\</span>
+  postcss-loader <span class="hljs-string">\</span>
+  postcss-cssnext
+</code></pre>
+<h4 id="webpack-config-js">webpack.config.js</h4>
+
+<pre><code class="js">···
+<span class="hljs-comment">// Inside module.rules[]:</span>
+{ <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>,
+  <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>,
+  <span class="hljs-attr">use</span>: [
+    { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;style-loader&#x27;</span> },
+    { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;css-loader&#x27;</span> },
+    { <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;postcss-loader&#x27;</span> }
+···
+</code></pre>
+<h4 id="postcss-config-js">postcss.config.js</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">plugins</span>: [
+    <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;postcss-cssnext&#x27;</span>)()
+  ]
+}
+</code></pre>
+<p>This example adds <a href="https://www.npmjs.com/package/postcss-cssnext">postcss-cssnext</a> support to your CSS files.</p>
+<h2 id="other-features">Other features</h2>
+<h3 id="dev-server">Dev server</h3>
+<h4 id="package-json">package.json</h4>
+
+<pre><code class="json"><span class="hljs-punctuation">{</span> ···
+  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dev&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;webpack-dev-server&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h4 id="terminal">Terminal</h4>
+
+<pre><code class="bash">npm install --save-dev \
+  webpack-dev-server
+</code></pre>
+
+<pre><code class="bash">npm run dev
+</code></pre>
+<p>This starts an HTTP server for development (port 8080 by default).</p>
+
+</div>
+</body>  
+</html>

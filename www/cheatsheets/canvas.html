@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Canvas cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Canvas cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\canvas.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#getting-the-context">Getting the context</a>, <a href="#basic-drawing">Basic drawing</a>, <a href="#saving-and-restoring">Saving and restoring</a>, <a href="#animation">Animation</a>, <a href="#transformations">Transformations</a>, <a href="#image-drawing">Image drawing</a>, <a href="#colors-styles-shadows">Colors, styles shadows</a>, <a href="#gradients">Gradients</a>, <a href="#drawing">Drawing</a>, <a href="#more-resources">More resources</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="getting-the-context">Getting the context</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;c&#x27;</span>)
+<span class="hljs-keyword">var</span> c = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>)
+</code></pre>
+<h3 id="basic-drawing">Basic drawing</h3>
+
+<pre><code class="js"><span class="hljs-comment">// x = 10, y = 20, width = 200, height = 100</span>
+c.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;#ff0000&#x27;</span>
+c.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&#x27;#ff00ff&#x27;</span>
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">5</span>
+c.<span class="hljs-property">lineCap</span> = <span class="hljs-string">&#x27;round&#x27;</span>
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>)
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-title function_">stroke</span>()
+c.<span class="hljs-title function_">fill</span>()
+</code></pre>
+<h3 id="saving-and-restoring">Saving and restoring</h3>
+
+<pre><code class="js">c.<span class="hljs-title function_">save</span>()
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-title function_">restore</span>()
+</code></pre>
+<p>Saves: <code>strokeStyle</code> <code>fillStyle</code> <code>globalAlpha</code> <code>lineWidth</code> <code>lineCap</code> <code>lineJoin</code> <code>miterLimit</code> <code>shadowOffsetX</code> <code>shadowOffsetY</code> <code>shadowBlur</code> <code>shadowColor</code>
+<code>globalCompositeOperation</code>, Transformations (<code>translate</code> <code>rotate</code> <code>scale</code> <code>transform</code> <code>setTransform</code>), Clipping path</p>
+<h3 id="animation">Animation</h3>
+
+<pre><code class="js"><span class="hljs-attr">onframe</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  c.<span class="hljs-title function_">clearRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, w, h)
+}
+</code></pre>
+<h3 id="transformations">Transformations</h3>
+
+<pre><code class="js">c.<span class="hljs-title function_">translate</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+c.<span class="hljs-title function_">rotate</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>*<span class="hljs-number">2</span>/<span class="hljs-number">5</span>)
+c.<span class="hljs-title function_">scale</span>(<span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>)
+</code></pre>
+<p>To rotate along origin:</p>
+
+<pre><code class="js">c.<span class="hljs-title function_">translate</span>(ox, oy)
+c.<span class="hljs-title function_">rotate</span>(theta)
+c.<span class="hljs-title function_">translate</span>(-ox, -oy)
+</code></pre>
+<p>To scale along origin:</p>
+
+<pre><code class="js">c.<span class="hljs-title function_">translate</span>(-ox*x, -oy*y)
+c.<span class="hljs-title function_">scale</span>(x, y)
+c.<span class="hljs-title function_">translate</span>(ox/x, oy/y)
+</code></pre>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations">MDN: Transformations</a>.</p>
+<h3 id="image-drawing">Image drawing</h3>
+
+<pre><code class="js">c.<span class="hljs-title function_">drawImage</span>(image, dx, dy, [dw, dh]);
+<span class="hljs-comment">/* `image` can be HTML Image/Canvas/Video */</span>
+</code></pre>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images">MDN: Images</a>.</p>
+<h3 id="colors-styles-shadows">Colors, styles shadows</h3>
+
+<pre><code class="js">c.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&#x27;#ff00ff&#x27;</span>;
+c.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;#ff00ff&#x27;</span>;
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-property">shadowOffsetX</span> = <span class="hljs-number">0</span>;
+c.<span class="hljs-property">shadowOffsetY</span> = <span class="hljs-number">0</span>;
+c.<span class="hljs-property">shadowOffsetBlur</span> = <span class="hljs-number">3.0</span>;
+c.<span class="hljs-property">shadowColor</span> = <span class="hljs-string">&#x27;rgba(0,0,0,0.2)&#x27;</span>;
+</code></pre>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors">MDN: Styles</a></p>
+<h3 id="gradients">Gradients</h3>
+
+<pre><code class="js">gr = c.<span class="hljs-title function_">createLinearGradient</span>(x0,y0,x1,y1)
+gr = c.<span class="hljs-title function_">createRadialGradient</span>(x0,y0,r0,x1,y1,r1)
+pat = c.<span class="hljs-title function_">createPattern</span>(image, <span class="hljs-string">&#x27;repeat-x&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">c.<span class="hljs-property">fillStyle</span> = gr
+</code></pre>
+<h3 id="drawing">Drawing</h3>
+
+<pre><code class="js">c.<span class="hljs-title function_">beginPath</span>()
+c.<span class="hljs-title function_">moveTo</span>(x,y)
+c.<span class="hljs-title function_">lineTo</span>(x,y)
+c.<span class="hljs-title function_">quadraticCurveTo</span>(cpx,cpy,x,y)
+c.<span class="hljs-title function_">bezierCurveTo</span>(cp1x,cp1y,cp2x,cp2y)
+c.<span class="hljs-title function_">arcTo</span>(...)
+c.<span class="hljs-title function_">arc</span>(...)
+c.<span class="hljs-title function_">closePath</span>()
+</code></pre>
+<h3 id="more-resources">More resources</h3>
+
+<ul>
+<li><a href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf">Canvas Cheatsheet PDF</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

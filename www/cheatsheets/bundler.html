@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bundler cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Bundler cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\bundler.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#commands">Commands</a>, <a href="#gems">Gems</a>, <a href="#github-support">Github support</a>, <a href="#grouping">Grouping</a>, <a href="#deployment">Deployment</a>, <a href="#local-gem-development">Local gem development</a>, <a href="#rake-gem-tasks">Rake Gem tasks</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="commands">Commands</h3>
+
+<pre><code><span class="hljs-keyword">bundle </span>                 <span class="hljs-comment"># same as bundle install</span>
+<span class="hljs-keyword">bundle </span><span class="hljs-keyword">install </span>         <span class="hljs-comment"># installs gems</span>
+<span class="hljs-keyword">bundle </span><span class="hljs-keyword">install </span>-<span class="hljs-keyword">j3 </span>     <span class="hljs-comment"># faster (3 jobs)</span>
+<span class="hljs-keyword">bundle </span>update           <span class="hljs-comment"># update all gems</span>
+<span class="hljs-keyword">bundle </span>update --source gemname  <span class="hljs-comment"># update specified gem</span>
+
+<span class="hljs-keyword">bundle </span>outdated         <span class="hljs-comment"># show outdated gems</span>
+cd `<span class="hljs-keyword">bundle </span><span class="hljs-keyword">show </span>rails`  <span class="hljs-comment"># inspect a gem&#x27;s dir</span>
+
+<span class="hljs-keyword">bundle </span>gem              <span class="hljs-comment"># new gem skeleton</span>
+</code></pre>
+<h3 id="gems">Gems</h3>
+
+<pre><code>gem <span class="hljs-string">&#x27;hello&#x27;</span>
+gem <span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-keyword">group</span>: <span class="hljs-string">&#x27;development&#x27;</span>
+</code></pre>
+<h3 id="github-support">Github support</h3>
+
+<pre><code>gem <span class="hljs-symbol">&#x27;hello&#x27;</span>, github: <span class="hljs-symbol">&#x27;rstacruz</span>/hello&#x27;
+gem <span class="hljs-symbol">&#x27;hello&#x27;</span>, github: <span class="hljs-symbol">&#x27;rstacruz</span>/hello&#x27;, <span class="hljs-symbol">&#x27;branch</span>: master&#x27;
+</code></pre>
+<h3 id="grouping">Grouping</h3>
+
+<pre><code>group <span class="hljs-symbol">:development</span> <span class="hljs-keyword">do</span>
+  gem <span class="hljs-string">&#x27;hello&#x27;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="deployment">Deployment</h3>
+
+<pre><code><span class="hljs-comment">$</span> <span class="hljs-comment">bundle</span> <span class="hljs-comment">install</span> --<span class="hljs-comment">without=test</span><span class="hljs-string">,</span><span class="hljs-comment">development</span> --<span class="hljs-comment">deployment</span>
+</code></pre>
+<h3 id="local-gem-development">Local gem development</h3>
+<p>In your Gemfile, define a Git source and a branch:</p>
+
+<pre><code><span class="hljs-attribute">gem</span> <span class="hljs-string">&#x27;hello&#x27;</span>, github: <span class="hljs-string">&#x27;rstacruz/hello&#x27;</span>, branch: <span class="hljs-string">&#x27;master&#x27;</span>
+</code></pre>
+<p>And then:</p>
+
+<pre><code>$ bundle config --<span class="hljs-variable language_">global</span> local.<span class="hljs-property">xxx</span> ~<span class="hljs-regexp">/projects/</span>xxx
+</code></pre>
+<h3 id="rake-gem-tasks">Rake Gem tasks</h3>
+
+<pre><code><span class="hljs-comment"># Rakefile</span>
+<span class="hljs-built_in">require</span> <span class="hljs-string">&#x27;bundler/gem_tasks&#x27;</span>
+</code></pre>
+<p>Terminal:</p>
+
+<pre><code><span class="hljs-variable">$ </span>rake release
+<span class="hljs-variable">$ </span>rake build
+</code></pre>
+
+</div>
+</body>  
+</html>

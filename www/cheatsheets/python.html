@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Python cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Python cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\python.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#lists">Lists</a>, <a href="#dict">Dict</a>, <a href="#iteration">Iteration</a>, <a href="#-string-https-docs-python-org-2-library-stdtypes-html-string-methods-">String</a>, <a href="#casting">Casting</a>, <a href="#comprehensions">Comprehensions</a>, <a href="#regex">Regex</a><br>
+<b>File manipulation</b>: <a href="#reading">Reading</a>, <a href="#writing-overwrite-">Writing (overwrite)</a>, <a href="#writing-append-">Writing (append)</a>, <a href="#context-manager">Context manager</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="lists">Lists</h3>
+
+<pre><code><span class="hljs-built_in">list</span> = []
+<span class="hljs-built_in">list</span>[i:j]  <span class="hljs-comment"># returns list subset</span>
+<span class="hljs-built_in">list</span>[<span class="hljs-number">-1</span>]   <span class="hljs-comment"># returns last element</span>
+<span class="hljs-built_in">list</span>[:<span class="hljs-number">-1</span>]  <span class="hljs-comment"># returns all but the last element</span>
+
+<span class="hljs-built_in">list</span>[i] = val
+<span class="hljs-built_in">list</span>[i:j] = otherlist  <span class="hljs-comment"># replace ith to jth-1 elements with otherlist</span>
+del <span class="hljs-built_in">list</span>[i:j]
+
+<span class="hljs-built_in">list</span>.append(<span class="hljs-built_in">item</span>)
+<span class="hljs-built_in">list</span>.extend(another_list)
+<span class="hljs-built_in">list</span>.insert(index, <span class="hljs-built_in">item</span>)
+<span class="hljs-built_in">list</span>.pop()        <span class="hljs-comment"># returns and removes last element from the list</span>
+<span class="hljs-built_in">list</span>.pop(i)       <span class="hljs-comment"># returns and removes i-th element from the list</span>
+<span class="hljs-built_in">list</span>.remove(i)    <span class="hljs-comment"># removes the first item from the list whose value is i</span>
+list1 + list2     <span class="hljs-comment"># combine two list    </span>
+<span class="hljs-keyword">set</span>(<span class="hljs-built_in">list</span>)         <span class="hljs-comment"># remove duplicate elements from a list</span>
+
+<span class="hljs-built_in">list</span>.<span class="hljs-built_in">reverse</span>()    <span class="hljs-comment"># reverses the elements of the list in-place</span>
+<span class="hljs-built_in">list</span>.<span class="hljs-built_in">count</span>(<span class="hljs-built_in">item</span>)
+sum(<span class="hljs-built_in">list</span>)
+
+zip(list1, list2)  <span class="hljs-comment"># returns list of tuples with n-th element of both list1 and list2</span>
+<span class="hljs-built_in">list</span>.sort()        <span class="hljs-comment"># sorts in-place, returns None</span>
+sorted(<span class="hljs-built_in">list</span>)       <span class="hljs-comment"># returns sorted copy of list</span>
+<span class="hljs-string">&quot;,&quot;</span>.join(<span class="hljs-built_in">list</span>)     <span class="hljs-comment"># returns a string with list elements seperated by comma</span>
+</code></pre>
+<h3 id="dict">Dict</h3>
+
+<pre><code><span class="hljs-built_in">dict</span>.keys()
+<span class="hljs-built_in">dict</span>.values()
+<span class="hljs-string">&quot;key&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">dict</span>    <span class="hljs-comment"># let&#x27;s say this returns False, then...</span>
+<span class="hljs-built_in">dict</span>[<span class="hljs-string">&quot;key&quot;</span>]      <span class="hljs-comment"># ...this raises KeyError</span>
+<span class="hljs-built_in">dict</span>.get(<span class="hljs-string">&quot;key&quot;</span>)  <span class="hljs-comment"># ...this returns None</span>
+<span class="hljs-built_in">dict</span>.setdefault(<span class="hljs-string">&quot;key&quot;</span>, <span class="hljs-number">1</span>)
+</code></pre>
+<h3 id="iteration">Iteration</h3>
+
+<pre><code><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]:
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):        <span class="hljs-comment"># 0 to 3</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>, <span class="hljs-number">8</span>):     <span class="hljs-comment"># 4 to 7</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>):  <span class="hljs-comment"># 1, 3, 5, 7</span>
+<span class="hljs-keyword">for</span> key, val <span class="hljs-keyword">in</span> <span class="hljs-built_in">dict</span>.items():
+<span class="hljs-keyword">for</span> index, item <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(<span class="hljs-built_in">list</span>):
+</code></pre>
+<h3 id="-string-https-docs-python-org-2-library-stdtypes-html-string-methods-"><a href="https://docs.python.org/2/library/stdtypes.html#string-methods">String</a></h3>
+
+<pre><code><span class="hljs-built_in">str</span>[<span class="hljs-number">0</span>:<span class="hljs-number">4</span>]
+<span class="hljs-built_in">len</span>(<span class="hljs-built_in">str</span>)
+
+string.replace(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot; &quot;</span>)
+<span class="hljs-string">&quot;,&quot;</span>.join(<span class="hljs-built_in">list</span>)
+<span class="hljs-string">&quot;hi {0}&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;j&#x27;</span>)
+<span class="hljs-string">f&quot;hi <span class="hljs-subst">{name}</span>&quot;</span> <span class="hljs-comment"># same as &quot;hi {}&quot;.format(&#x27;name&#x27;)</span>
+<span class="hljs-built_in">str</span>.find(<span class="hljs-string">&quot;,&quot;</span>)
+<span class="hljs-built_in">str</span>.index(<span class="hljs-string">&quot;,&quot;</span>)   <span class="hljs-comment"># same, but raises IndexError</span>
+<span class="hljs-built_in">str</span>.count(<span class="hljs-string">&quot;,&quot;</span>)
+<span class="hljs-built_in">str</span>.split(<span class="hljs-string">&quot;,&quot;</span>)
+
+<span class="hljs-built_in">str</span>.lower()
+<span class="hljs-built_in">str</span>.upper()
+<span class="hljs-built_in">str</span>.title()
+
+<span class="hljs-built_in">str</span>.lstrip()
+<span class="hljs-built_in">str</span>.rstrip()
+<span class="hljs-built_in">str</span>.strip()
+
+<span class="hljs-built_in">str</span>.islower()
+
+/* escape characters */
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&#x27;doesn\&#x27;t&#x27;</span>  <span class="hljs-comment"># use \&#x27; to escape the single quote...</span>
+    <span class="hljs-string">&quot;doesn&#x27;t&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;doesn&#x27;t&quot;</span>  <span class="hljs-comment"># ...or use double quotes instead</span>
+    <span class="hljs-string">&quot;doesn&#x27;t&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&#x27;&quot;Yes,&quot; they said.&#x27;</span>
+    <span class="hljs-string">&#x27;&quot;Yes,&quot; they said.&#x27;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;\&quot;Yes,\&quot; they said.&quot;</span>
+    <span class="hljs-string">&#x27;&quot;Yes,&quot; they said.&#x27;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&#x27;&quot;Isn\&#x27;t,&quot; they said.&#x27;</span>
+    <span class="hljs-string">&#x27;&quot;Isn\&#x27;t,&quot; they said.&#x27;</span>
+</code></pre>
+<h3 id="casting">Casting</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">int</span><span class="hljs-params">(str)</span></span>
+<span class="hljs-function"><span class="hljs-title">float</span><span class="hljs-params">(str)</span></span>
+<span class="hljs-function"><span class="hljs-title">str</span><span class="hljs-params">(int)</span></span>
+<span class="hljs-function"><span class="hljs-title">str</span><span class="hljs-params">(float)</span></span>
+<span class="hljs-string">&#x27;string&#x27;</span><span class="hljs-selector-class">.encode</span>()
+</code></pre>
+<h3 id="comprehensions">Comprehensions</h3>
+
+<pre><code>[<span class="hljs-keyword">fn</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> list]            <span class="hljs-comment"># .map</span>
+map(<span class="hljs-keyword">fn</span>, list)                    <span class="hljs-comment"># .map, returns iterator</span>
+
+filter(<span class="hljs-keyword">fn</span>, list)                 <span class="hljs-comment"># .filter, returns iterator</span>
+[<span class="hljs-keyword">fn</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> list if i &gt; 0]   <span class="hljs-comment"># .filter.map</span>
+</code></pre>
+<h3 id="regex">Regex</h3>
+
+<pre><code><span class="hljs-keyword">import</span> re
+
+re.match(<span class="hljs-string">r&#x27;^[aeiou]&#x27;</span>, <span class="hljs-built_in">str</span>)
+re.sub(<span class="hljs-string">r&#x27;^[aeiou]&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span>, <span class="hljs-built_in">str</span>)
+re.sub(<span class="hljs-string">r&#x27;(xyz)&#x27;</span>, <span class="hljs-string">r&#x27;\1&#x27;</span>, <span class="hljs-built_in">str</span>)
+
+expr = re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">r&#x27;^...$&#x27;</span>)
+expr.match(...)
+expr.sub(...)
+</code></pre>
+<h2 id="file-manipulation">File manipulation</h2>
+<h3 id="reading">Reading</h3>
+
+<pre><code class="py">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;hello.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-comment"># open in read mode &#x27;r&#x27;</span>
+file.close()
+</code></pre>
+
+<pre><code class="py"><span class="hljs-built_in">print</span>(file.read())  <span class="hljs-comment"># read the entire file and set the cursor at the end of file</span>
+<span class="hljs-built_in">print</span> file.readline() <span class="hljs-comment"># Reading one line</span>
+file.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) <span class="hljs-comment"># place the cursor at the beggining of the file</span>
+</code></pre>
+<h3 id="writing-overwrite-">Writing (overwrite)</h3>
+
+<pre><code class="py">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;hello.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-comment"># open in write mode &#x27;w&#x27;</span>
+file.write(<span class="hljs-string">&quot;Hello World&quot;</span>) 
+
+text_lines = [<span class="hljs-string">&quot;First line&quot;</span>, <span class="hljs-string">&quot;Second line&quot;</span>, <span class="hljs-string">&quot;Last line&quot;</span>] 
+file.writelines(text_lines)
+
+file.close()
+</code></pre>
+<h3 id="writing-append-">Writing (append)</h3>
+
+<pre><code class="py">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;Hello.txt&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>) <span class="hljs-comment"># open in append mode</span>
+file.write(<span class="hljs-string">&quot;Hello World again&quot;</span>)  
+file.close()
+</code></pre>
+<h3 id="context-manager">Context manager</h3>
+
+<pre><code class="py"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;welcome.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> file:
+    <span class="hljs-comment"># &#x27;file&#x27; refers directly to &quot;welcome.txt&quot;</span>
+   data = file.read()
+
+<span class="hljs-comment"># It closes the file automatically at the end of scope, no need for `file.close()`.</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

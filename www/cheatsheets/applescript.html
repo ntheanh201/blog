@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AppleScript cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / AppleScript cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\applescript.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#running">Running</a>, <a href="#comments">Comments</a>, <a href="#say">Say</a>, <a href="#beep">Beep</a>, <a href="#delay">Delay</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="running">Running</h3>
+
+<pre><code class="applescript">osascript -e <span class="hljs-string">&quot;...&quot;</span>
+</code></pre>
+
+<pre><code class="applescript">display notification <span class="hljs-string">&quot;X&quot;</span> <span class="hljs-keyword">with</span> title <span class="hljs-string">&quot;Y&quot;</span>
+</code></pre>
+<h3 id="comments">Comments</h3>
+
+<pre><code class="applescript"><span class="hljs-comment">-- This is a single line comment</span>
+</code></pre>
+
+<pre><code class="applescript"><span class="hljs-comment"># This is another single line comment</span>
+</code></pre>
+
+<pre><code class="applescript"><span class="hljs-comment">(*
+This is
+a multi
+line comment
+*)</span>
+</code></pre>
+<h3 id="say">Say</h3>
+
+<pre><code class="applescript"><span class="hljs-comment">-- default voice</span>
+<span class="hljs-built_in">say</span> <span class="hljs-string">&quot;Hi I am a Mac&quot;</span>
+</code></pre>
+
+<pre><code class="applescript"><span class="hljs-comment">-- specified voice</span>
+<span class="hljs-built_in">say</span> <span class="hljs-string">&quot;Hi I am a Mac&quot;</span> using <span class="hljs-string">&quot;Zarvox&quot;</span>
+</code></pre>
+<h3 id="beep">Beep</h3>
+
+<pre><code class="applescript"><span class="hljs-comment">-- beep once</span>
+<span class="hljs-built_in">beep</span>
+</code></pre>
+
+<pre><code class="applescript"><span class="hljs-comment">-- beep 10 times</span>
+<span class="hljs-built_in">beep</span> <span class="hljs-number">10</span>
+</code></pre>
+<h3 id="delay">Delay</h3>
+
+<pre><code class="applescript"><span class="hljs-comment">-- delay for 5 seconds</span>
+<span class="hljs-built_in">delay</span> <span class="hljs-number">5</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

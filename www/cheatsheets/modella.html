@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Modella cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Modella cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\modella.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#defining-models">Defining models</a>, <a href="#instances">Instances</a><br>
+<b>Events</b>: <a href="#emitting">Emitting</a>, <a href="#list-of-events">List of events</a><br>
+<b>Misc</b>: <a href="#plugins">Plugins</a>, <a href="#memory">Memory</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="defining-models">Defining models</h3>
+
+<pre><code class="coffeescript">User = Modella(<span class="hljs-string">&#x27;User&#x27;</span>)
+</code></pre>
+
+<pre><code class="coffeescript">  .attr(<span class="hljs-string">&#x27;name&#x27;</span>)
+  .attr(<span class="hljs-string">&#x27;email&#x27;</span>, { required: <span class="hljs-literal">true</span> })
+  .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;modella-validators&#x27;</span>))
+</code></pre>
+
+<pre><code class="coffeescript">  .validator (u) -&gt;
+    u.error(<span class="hljs-string">&#x27;username&#x27;</span>, <span class="hljs-string">&#x27;is required&#x27;</span>)  <span class="hljs-keyword">unless</span> u.has(<span class="hljs-string">&#x27;username&#x27;</span>)
+</code></pre>
+<h3 id="instances">Instances</h3>
+
+<pre><code class="coffeescript">user
+  .name()
+  .name(<span class="hljs-string">&#x27;John&#x27;</span>)
+  .set(name: <span class="hljs-string">&#x27;John&#x27;</span>)
+</code></pre>
+
+<pre><code class="coffeescript">  .has(<span class="hljs-string">&#x27;name&#x27;</span>)   <span class="hljs-comment"># → true</span>
+  .isNew()
+  .isValid()
+</code></pre>
+
+<pre><code class="coffeescript">  .save (err) -&gt;
+  .remove (err) -&gt;
+  .removed
+  .model         <span class="hljs-comment"># === User</span>
+</code></pre>
+<h2 id="events">Events</h2>
+<h3 id="emitting">Emitting</h3>
+
+<pre><code class="coffeescript">Model.emit(<span class="hljs-string">&#x27;event&#x27;</span>, [data...])
+</code></pre>
+
+<pre><code class="coffeescript">record.emit(<span class="hljs-string">&#x27;event&#x27;</span>, [data...])
+</code></pre>
+<h3 id="list-of-events">List of events</h3>
+
+<pre><code class="coffeescript">user
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;save&#x27;</span>, <span class="hljs-function">-&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;create&#x27;</span>, <span class="hljs-function">-&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;saving&#x27;</span>, <span class="hljs-function"><span class="hljs-params">(data, done)</span> -&gt;</span> done()
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;remove&#x27;</span>, <span class="hljs-function">-&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;removing&#x27;</span>, <span class="hljs-function"><span class="hljs-params">(data, done)</span> -&gt;</span> done()
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;valid&#x27;</span>, <span class="hljs-function">-&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;invalid&#x27;</span>, <span class="hljs-function">-&gt;</span>
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-function">-&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;change email&#x27;</span>, <span class="hljs-function">-&gt;</span>
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;initializing&#x27;</span>, <span class="hljs-function"><span class="hljs-params">(instance, attrs)</span> -&gt;</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;initialize&#x27;</span>, <span class="hljs-function">-&gt;</span>
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;error&#x27;</span>, <span class="hljs-function">-&gt;</span> failed to save model
+</code></pre>
+
+<pre><code class="coffeescript">  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;setting&#x27;</span>, <span class="hljs-function"><span class="hljs-params">(instance, attrs)</span> -&gt;</span>  <span class="hljs-comment"># on Model#set()</span>
+  .<span class="hljs-literal">on</span> <span class="hljs-string">&#x27;attr&#x27;</span>, <span class="hljs-function">-&gt;</span> <span class="hljs-comment"># new attr via Model.attr()</span>
+</code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="plugins">Plugins</h3>
+
+<pre><code class="coffeescript"><span class="hljs-function"><span class="hljs-title">MyPlugin</span> = -&gt;</span>
+  <span class="hljs-keyword">return</span> (Model) -&gt;
+
+    Model.method = ...
+    Model.prototype.method = ...
+    Model.attr(...)
+
+    Model
+</code></pre>
+<p>A plugin is a function that returns a model decorator (ie, a function that takes in a model and returns a model).</p>
+<h3 id="memory">Memory</h3>
+
+<pre><code class="coffeescript">User
+  .all (err, users) -&gt;
+  .find id, <span class="hljs-function"><span class="hljs-params">(err, user)</span> -&gt;</span>
+</code></pre>
+
+<pre><code class="coffeescript">  .remove -&gt;
+  .save -&gt;
+  .update -&gt;
+</code></pre>
+
+</div>
+</body>  
+</html>

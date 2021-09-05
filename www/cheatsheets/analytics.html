@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Analytics libraries cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Analytics libraries cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\analytics.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#mixpanel">Mixpanel</a>, <a href="#google-analytics-s-analytics-js">Google Analytics's analytics.js</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="mixpanel">Mixpanel</h3>
+
+<pre><code class="js">mixpanel.<span class="hljs-title function_">identify</span>(<span class="hljs-string">&#x27;284&#x27;</span>);
+mixpanel.<span class="hljs-property">people</span>.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">$email</span>: <span class="hljs-string">&#x27;hi@gmail.com&#x27;</span> });
+mixpanel.<span class="hljs-title function_">register</span>({ <span class="hljs-attr">age</span>: <span class="hljs-number">28</span>, <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;male&#x27;</span> }); <span class="hljs-comment">/* set common properties */</span>
+</code></pre>
+<p><a href="./mixpanel">mixpanel</a></p>
+<h3 id="google-analytics-s-analytics-js">Google Analytics&#39;s analytics.js</h3>
+
+<pre><code class="js"><span class="hljs-title function_">ga</span>(<span class="hljs-string">&#x27;create&#x27;</span>, <span class="hljs-string">&#x27;UA-XXXX-Y&#x27;</span>, <span class="hljs-string">&#x27;auto&#x27;</span>);
+<span class="hljs-title function_">ga</span>(<span class="hljs-string">&#x27;create&#x27;</span>, <span class="hljs-string">&#x27;UA-XXXX-Y&#x27;</span>, { <span class="hljs-attr">userId</span>: <span class="hljs-string">&#x27;USER_ID&#x27;</span> });
+</code></pre>
+
+<pre><code class="js"><span class="hljs-title function_">ga</span>(<span class="hljs-string">&#x27;send&#x27;</span>, <span class="hljs-string">&#x27;pageview&#x27;</span>);
+<span class="hljs-title function_">ga</span>(<span class="hljs-string">&#x27;send&#x27;</span>, <span class="hljs-string">&#x27;pageview&#x27;</span>, { <span class="hljs-string">&#x27;dimension15&#x27;</span>: <span class="hljs-string">&#x27;My custom dimension&#x27;</span> });
+</code></pre>
+<p><a href="./analytics.js">analytics.js</a></p>
+
+</div>
+</body>  
+</html>

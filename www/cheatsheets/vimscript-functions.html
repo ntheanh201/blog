@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vimscript functions cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Vimscript functions cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\vimscript-functions.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#dictionaries">Dictionaries</a><br>
+<a href="#lists">Lists</a><br>
+<b>Functions</b>: <a href="#buffer">Buffer</a>, <a href="#marks">Marks</a>, <a href="#cursor">Cursor</a>, <a href="#expand">Expand</a>, <a href="#files">Files</a>, <a href="#math">Math</a>, <a href="#casting">Casting</a>, <a href="#type-checking">Type checking</a>, <a href="#date-time">Date/time</a>, <a href="#strings">Strings</a>, <a href="#syntax">Syntax</a>, <a href="#shell">Shell</a>, <a href="#registers">Registers</a><br>
+<a href="#comparisons">Comparisons</a><br>
+<b>Executing</b>: <a href="#running-commands">Running commands</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="dictionaries">Dictionaries</h2>
+
+<pre><code class="vim"><span class="hljs-keyword">let</span> colors = {
+  \ <span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-string">&quot;red&quot;</span>,
+  \ <span class="hljs-string">&quot;banana&quot;</span>: <span class="hljs-string">&quot;yellow&quot;</span>
+}
+
+<span class="hljs-keyword">echo</span> colors[<span class="hljs-string">&quot;a&quot;</span>]
+<span class="hljs-keyword">echo</span> <span class="hljs-built_in">get</span>(colors, <span class="hljs-string">&quot;apple&quot;</span>)   <span class="hljs-comment">&quot; suppress error</span>
+
+<span class="hljs-built_in">remove</span>(colors, <span class="hljs-string">&quot;apple&quot;</span>)
+
+<span class="hljs-comment">&quot; :help E715</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has_key</span>(dict, <span class="hljs-string">&#x27;foo&#x27;</span>)
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">empty</span>(dict)
+<span class="hljs-built_in">keys</span>(dict)
+<span class="hljs-built_in">len</span>(dict)
+
+<span class="hljs-built_in">max</span>(dict)
+<span class="hljs-built_in">min</span>(dict)
+
+<span class="hljs-built_in">count</span>(dict, <span class="hljs-string">&#x27;x&#x27;</span>)
+<span class="hljs-built_in">string</span>(dict)
+
+<span class="hljs-keyword">map</span>(dict, <span class="hljs-string">&#x27;&lt;&gt;&gt; &quot; . v:val&#x27;</span>)
+<span class="hljs-built_in">extend</span>(<span class="hljs-variable">s:fruits</span>, { ... })
+</code></pre>
+
+<pre><code class="vim"><span class="hljs-keyword">for</span> key in <span class="hljs-built_in">keys</span>(mydict)
+  <span class="hljs-keyword">echo</span> key . <span class="hljs-string">&#x27;: &#x27;</span> . mydict(key)
+<span class="hljs-keyword">endfor</span>
+</code></pre>
+<h2 id="lists">Lists</h2>
+
+<pre><code class="vim"><span class="hljs-keyword">let</span> mylist = [<span class="hljs-number">1</span>, two, <span class="hljs-number">3</span>, <span class="hljs-string">&quot;four&quot;</span>]
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">first</span> = mylist[<span class="hljs-number">0</span>]
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">last</span>  = mylist[-<span class="hljs-number">1</span>]
+
+<span class="hljs-comment">&quot; Suppresses errors</span>
+<span class="hljs-keyword">let</span> second = <span class="hljs-built_in">get</span>(mylist, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">let</span> second = <span class="hljs-built_in">get</span>(mylist, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;NONE&quot;</span>)
+</code></pre>
+<h2 id="functions">Functions</h2>
+<h3 id="buffer">Buffer</h3>
+
+<pre><code><span class="hljs-built_in">line</span>(<span class="hljs-string">&#x27;.&#x27;</span>)             <span class="hljs-comment">&quot; current line number</span>
+<span class="hljs-keyword">col</span>(<span class="hljs-string">&#x27;.&#x27;</span>)
+<span class="hljs-keyword">col</span>(<span class="hljs-string">&#x27;$&#x27;</span>)
+
+<span class="hljs-built_in">getline</span>(<span class="hljs-string">&#x27;.&#x27;</span>)          <span class="hljs-comment">&quot; current line as a string</span>
+<span class="hljs-built_in">getline</span>(<span class="hljs-number">1</span>)            <span class="hljs-comment">&quot; get line 1</span>
+<span class="hljs-built_in">getline</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>)         <span class="hljs-comment">&quot; get lines 1-5</span>
+<span class="hljs-built_in">search</span>(<span class="hljs-string">&#x27;^$&#x27;</span>)          <span class="hljs-comment">&quot; next blank line, returns line number</span>
+<span class="hljs-built_in">search</span>(<span class="hljs-string">&#x27;^$&#x27;</span>,<span class="hljs-string">&#x27;n&#x27;</span>)      <span class="hljs-comment">&quot; but don&#x27;t move cursor</span>
+
+getcurpos()           <span class="hljs-comment">&quot; [bufnum, lnum, col, off, curswant]</span>
+<span class="hljs-built_in">getpos</span>(<span class="hljs-string">&#x27;.&#x27;</span>)           <span class="hljs-comment">&quot; [bufnum, lnum, col, off]</span>
+
+<span class="hljs-built_in">nextnonblank</span>(<span class="hljs-number">1</span>)       <span class="hljs-comment">&quot; next non-blank line after line1</span>
+<span class="hljs-built_in">prevnonblank</span>()
+</code></pre>
+<h3 id="marks">Marks</h3>
+
+<pre><code><span class="hljs-built_in">getpos</span>(<span class="hljs-string">&quot;&#x27;a&quot;</span>)          <span class="hljs-comment">&quot; position of a mark</span>
+<span class="hljs-built_in">setpos</span>(<span class="hljs-string">&quot;&#x27;a&quot;</span>,...)
+
+<span class="hljs-built_in">getpos</span>(<span class="hljs-string">&quot;&#x27;&lt;&quot;</span>)          <span class="hljs-comment">&quot; position of selection start</span>
+</code></pre>
+<h3 id="cursor">Cursor</h3>
+
+<pre><code><span class="hljs-built_in">cursor</span>(<span class="hljs-built_in">line</span>,<span class="hljs-keyword">col</span>)      <span class="hljs-comment">&quot; moves cursor</span>
+<span class="hljs-built_in">cursor</span>(<span class="hljs-built_in">line</span>,<span class="hljs-keyword">col</span>,off,curswant)
+
+getcurpos()           <span class="hljs-comment">&quot; returns [bufnum,line,col,off,curswant]</span>
+</code></pre>
+<h3 id="expand">Expand</h3>
+
+<pre><code><span class="hljs-built_in">expand</span>(<span class="hljs-string">&#x27;&lt;cword&gt;&#x27;</span>)      <span class="hljs-comment">&quot; word under cursor</span>
+<span class="hljs-built_in">expand</span>(<span class="hljs-string">&#x27;%&#x27;</span>)            <span class="hljs-comment">&quot; current file</span>
+
+<span class="hljs-comment">&quot; &lt;cword&gt;  current word on cursor</span>
+<span class="hljs-comment">&quot; :p    full path</span>
+<span class="hljs-comment">&quot; :h    head</span>
+<span class="hljs-comment">&quot; :p:h  dirname   (/Users/rsc/project)</span>
+<span class="hljs-comment">&quot; :t    tail      (file.txt)</span>
+<span class="hljs-comment">&quot; :r    root      (file)</span>
+<span class="hljs-comment">&quot; :e    extension (.txt)</span>
+<span class="hljs-comment">&quot; see :h cmdline-special</span>
+</code></pre>
+<h3 id="files">Files</h3>
+
+<pre><code><span class="hljs-built_in">fnameescape</span>(<span class="hljs-string">&#x27;string&#x27;</span>)
+<span class="hljs-built_in">fnamemodify</span>(<span class="hljs-string">&#x27;main.c&#x27;</span>, <span class="hljs-string">&#x27;:p:h&#x27;</span>)
+<span class="hljs-built_in">fnamemodify</span>(fname, <span class="hljs-string">&#x27;:e&#x27;</span>)   <span class="hljs-comment">&quot; current file extension - see expand()</span>
+<span class="hljs-built_in">filereadable</span>(fname)
+<span class="hljs-built_in">getfsize</span>(<span class="hljs-string">&#x27;file.txt&#x27;</span>)
+<span class="hljs-built_in">getcwd</span>()
+
+<span class="hljs-built_in">globpath</span>(&amp;rtp, <span class="hljs-string">&quot;plugin/commentary.vim&quot;</span>)
+</code></pre>
+<h3 id="math">Math</h3>
+
+<pre><code><span class="hljs-built_in">fmod</span>(<span class="hljs-number">9</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment">&quot; modulus</span>
+<span class="hljs-built_in">abs</span>(-<span class="hljs-number">0.5</span>)
+<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">9</span>)
+
+<span class="hljs-built_in">trunc</span>(<span class="hljs-number">1.84</span>)
+<span class="hljs-built_in">floor</span>(<span class="hljs-number">1.84</span>)
+<span class="hljs-built_in">ceil</span>(<span class="hljs-number">1.84</span>)
+<span class="hljs-built_in">float2nr</span>(<span class="hljs-number">3.14</span>)
+</code></pre>
+<h3 id="casting">Casting</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">str2float</span><span class="hljs-params">(<span class="hljs-string">&#x27;0.2&#x27;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">str2nr</span><span class="hljs-params">(<span class="hljs-string">&#x27;240&#x27;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">str2nr</span><span class="hljs-params">(<span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;16&#x27;</span>)</span></span>
+
+<span class="hljs-function"><span class="hljs-title">string</span><span class="hljs-params">(<span class="hljs-number">0.3</span>)</span></span>
+</code></pre>
+<h3 id="type-checking">Type checking</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type(<span class="hljs-number">0</span>)
+<span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type(<span class="hljs-string">&quot;&quot;</span>)
+<span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type(function(<span class="hljs-string">&quot;tr&quot;</span>))
+<span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type(<span class="hljs-selector-attr">[]</span>)
+<span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type({})
+<span class="hljs-function"><span class="hljs-title">type</span><span class="hljs-params">(var)</span></span> == type(<span class="hljs-number">0.0</span>)
+</code></pre>
+<h3 id="date-time">Date/time</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">strftime</span><span class="hljs-params">(<span class="hljs-string">&#x27;%c&#x27;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">strftime</span><span class="hljs-params">(<span class="hljs-string">&#x27;%c&#x27;</span>,getftime(<span class="hljs-string">&#x27;file.c&#x27;</span>)</span></span>)
+</code></pre>
+<h3 id="strings">Strings</h3>
+
+<pre><code><span class="hljs-keyword">if</span> <span class="hljs-keyword">a</span> =~ <span class="hljs-string">&#x27;\s*&#x27;</span>
+<span class="hljs-keyword">substitute</span>(str, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>)
+<span class="hljs-built_in">strpart</span>(<span class="hljs-string">&quot;abcdef&quot;</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)    <span class="hljs-string">&quot; == &quot;</span>de<span class="hljs-comment">&quot; (substring)</span>
+<span class="hljs-built_in">strpart</span>(<span class="hljs-string">&quot;abcdef&quot;</span>, <span class="hljs-number">3</span>)       <span class="hljs-string">&quot; == &quot;</span>def<span class="hljs-comment">&quot;</span>
+<span class="hljs-built_in">stridx</span>(<span class="hljs-string">&quot;abcdef&quot;</span>, <span class="hljs-string">&quot;e&quot;</span>)      <span class="hljs-comment">&quot; == 4</span>
+<span class="hljs-built_in">strridx</span>()                  <span class="hljs-comment">&quot; reverse</span>
+
+<span class="hljs-built_in">matchstr</span>(<span class="hljs-string">&#x27;testing&#x27;</span>,<span class="hljs-string">&#x27;test&#x27;</span>)  <span class="hljs-comment">&quot; == &#x27;test&#x27; (or &#x27;&#x27;)</span>
+<span class="hljs-keyword">match</span>(<span class="hljs-string">&#x27;testing&#x27;</span>,<span class="hljs-string">&#x27;test&#x27;</span>)     <span class="hljs-comment">&quot; == 0</span>
+<span class="hljs-built_in">matchend</span>(<span class="hljs-string">&#x27;testing&#x27;</span>,<span class="hljs-string">&#x27;test&#x27;</span>)  <span class="hljs-comment">&quot; == 4</span>
+<span class="hljs-keyword">match</span>(<span class="hljs-string">&#x27;testing&#x27;</span>,<span class="hljs-string">&#x27;\ctest&#x27;</span>)   <span class="hljs-comment">&quot; ignore case</span>
+
+<span class="hljs-keyword">split</span>(str, <span class="hljs-string">&#x27;\zs&#x27;</span>)           <span class="hljs-comment">&quot; split into characters</span>
+
+<span class="hljs-built_in">strlen</span>(str)
+<span class="hljs-built_in">strchars</span>()                  <span class="hljs-comment">&quot; accounts for composing chars</span>
+<span class="hljs-built_in">strwidth</span>()                  <span class="hljs-comment">&quot; accounts for ambig characters</span>
+<span class="hljs-built_in">strdisplaywidth</span>()           <span class="hljs-comment">&quot; accounts for tab stops</span>
+
+<span class="hljs-built_in">toupper</span>(str)
+<span class="hljs-built_in">tolower</span>(str)
+<span class="hljs-keyword">tr</span>(<span class="hljs-string">&#x27;foo&#x27;</span>, <span class="hljs-string">&#x27;_-&#x27;</span>, <span class="hljs-string">&#x27;  &#x27;</span>)
+</code></pre>
+<h3 id="syntax">Syntax</h3>
+
+<pre><code><span class="hljs-built_in">synstack</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&#x27;.&#x27;</span>),<span class="hljs-keyword">col</span>(<span class="hljs-string">&#x27;.&#x27;</span>))   <span class="hljs-comment">&quot; returns many</span>
+<span class="hljs-built_in">synID</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&#x27;.&#x27;</span>),<span class="hljs-keyword">col</span>(<span class="hljs-string">&#x27;.&#x27;</span>),<span class="hljs-number">1</span>)    <span class="hljs-comment">&quot; only one</span>
+
+<span class="hljs-built_in">synIDattr</span>(id,<span class="hljs-string">&quot;bg&quot;</span>)
+<span class="hljs-built_in">synIDattr</span>(id,<span class="hljs-string">&quot;name&quot;</span>)
+<span class="hljs-built_in">synIDtrans</span>()
+
+<span class="hljs-comment">&quot; syntax stack</span>
+<span class="hljs-keyword">map</span>(<span class="hljs-built_in">synstack</span>(<span class="hljs-built_in">line</span>(<span class="hljs-string">&#x27;.&#x27;</span>), <span class="hljs-keyword">col</span>(<span class="hljs-string">&#x27;.&#x27;</span>)), <span class="hljs-string">&#x27;synIDattr(v:val, &quot;name&quot;)&#x27;</span>)
+</code></pre>
+<h3 id="shell">Shell</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">system</span>(<span class="hljs-string">&#x27;ls &#x27;</span>.shellescape(<span class="hljs-title">expand</span>(<span class="hljs-string">&#x27;%:h&#x27;</span>)))</span>
+</code></pre>
+<h3 id="registers">Registers</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">getreg</span><span class="hljs-params">(<span class="hljs-string">&#x27;*&#x27;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">getregtype</span><span class="hljs-params">(<span class="hljs-string">&#x27;*&#x27;</span>)</span></span>     <span class="hljs-string">&quot; v(char), V(line) &lt;ctrl-v&gt;(block)</span>
+</code></pre>
+<h2 id="comparisons">Comparisons</h2>
+
+<pre><code><span class="hljs-keyword">if</span> <span class="hljs-type">name</span> ==# <span class="hljs-string">&#x27;John&#x27;</span>     &quot; case-sensitive
+if name ==? &#x27;John&#x27;     &quot; <span class="hljs-keyword">case</span>-insensitive
+<span class="hljs-keyword">if</span> <span class="hljs-type">name</span> == <span class="hljs-string">&#x27;John&#x27;</span>      &quot; depends on :set ignorecase
+&quot; <span class="hljs-keyword">also</span>: <span class="hljs-keyword">is</span>#, <span class="hljs-keyword">is</span>?, &gt;=#, &gt;=?, <span class="hljs-keyword">and</span> so <span class="hljs-keyword">on</span>
+
+<span class="hljs-keyword">if</span> &quot;hello&quot; =~ <span class="hljs-string">&#x27;.*&#x27;</span>
+<span class="hljs-keyword">if</span> &quot;hello&quot; !~ <span class="hljs-string">&#x27;.*&#x27;</span>
+</code></pre>
+<h2 id="executing">Executing</h2>
+<h3 id="running-commands">Running commands</h3>
+
+<pre><code><span class="hljs-keyword">normal</span> <span class="hljs-string">&#x27;ddahello&#x27;</span>
+<span class="hljs-keyword">exe</span> <span class="hljs-string">&#x27;normal ^C&#x27;</span>  <span class="hljs-comment">&quot; with expansions</span>
+<span class="hljs-keyword">wincmd</span> J
+</code></pre>
+
+</div>
+</body>  
+</html>

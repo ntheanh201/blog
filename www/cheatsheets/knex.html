@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Knex cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Knex cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\knex.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#connect">Connect</a>, <a href="#create-table">Create table</a>, <a href="#select">Select</a>, <a href="#insert">Insert</a>, <a href="#update">Update</a>, <a href="#migrations">Migrations</a>, <a href="#seeds">Seeds</a><br>
+<b>Connect</b>: <a href="#libraries">Libraries</a>, <a href="#connect-via-host">Connect via host</a>, <a href="#connect-via-url">Connect via URL</a>, <a href="#connect-via-sqlite">Connect via Sqlite</a><br>
+<b>Select</b>: <a href="#where">Where</a>, <a href="#join">Join</a>, <a href="#others">Others</a>, <a href="#etc">Etc</a><br>
+<b>Schema</b>: <a href="#create-table">Create table</a>, <a href="#alter-table">Alter table</a>, <a href="#other-methods">Other methods</a><br>
+<b>Modifying</b>: <a href="#insert">Insert</a>, <a href="#update">Update</a>, <a href="#delete">Delete</a><br>
+<b>Migrations</b>: <a href="#setting-up">Setting up</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="connect">Connect</h3>
+
+<pre><code class="js"><span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;knex&#x27;</span>)({
+  <span class="hljs-attr">client</span>: <span class="hljs-string">&#x27;pg&#x27;</span>,
+  <span class="hljs-attr">connection</span>: <span class="hljs-string">&#x27;postgres://user:pass@localhost:5432/dbname&#x27;</span>
+})
+</code></pre>
+<p>See: <a href="#connect-1">Connect</a></p>
+<h3 id="create-table">Create table</h3>
+
+<pre><code class="js">knex.<span class="hljs-property">schema</span>.<span class="hljs-title function_">createTable</span>(<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">table</span>) =&gt;</span> {
+  table.<span class="hljs-title function_">increments</span>(<span class="hljs-string">&#x27;id&#x27;</span>)
+  table.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;name&#x27;</span>)
+  table.<span class="hljs-title function_">integer</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+})
+.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> ···)
+</code></pre>
+<p>See: <a href="#schema">Schema</a></p>
+<h3 id="select">Select</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;hi@example.com&#x27;</span> })
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">rows</span> =&gt;</span> ···)
+</code></pre>
+<p>See: <a href="#select-1">Select</a></p>
+<h3 id="insert">Insert</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">insert</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;hi@example.com&#x27;</span> })
+</code></pre>
+<p>See: <a href="#insert-1">Insert</a></p>
+<h3 id="update">Update</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">135</span> })
+  .<span class="hljs-title function_">update</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;hi@example.com&#x27;</span> })
+</code></pre>
+<p>See: <a href="#update-1">Update</a></p>
+<h3 id="migrations">Migrations</h3>
+
+<pre><code class="bash">knex init
+knex migrate:make migration_name
+knex migrate:make migration_name -x ts <span class="hljs-comment"># Generates a TypeScript migration file</span>
+knex migrate:latest
+knex migrate:rollback
+</code></pre>
+<p>See: <a href="#migrations-1">Migrations</a></p>
+<h3 id="seeds">Seeds</h3>
+
+<pre><code class="bash">knex seed:make seed_name
+knex seed:make seed_name -x ts <span class="hljs-comment"># Generates a TypeScript seed file</span>
+knex seed:run <span class="hljs-comment"># Runs all seed files</span>
+knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a specific seed file</span>
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Seeds">Seeds</a></p>
+<h2 id="connect">Connect</h2>
+<h3 id="libraries">Libraries</h3>
+<p>| <code>pg</code> | PostgreSQL |
+| <code>mysql</code> | MySQL or MariaDB |
+| <code>sqlite3</code> | Sqlite3 |
+| <code>mssql</code> | MSSQL |</p>
+<p>Install any of these packages along with <code>knex</code>.</p>
+<p>See: <a href="http://knexjs.org/#Installation-node">Node.js installation</a></p>
+<h3 id="connect-via-host">Connect via host</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> knex = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;knex&#x27;</span>)({
+  <span class="hljs-attr">client</span>: <span class="hljs-string">&#x27;mysql&#x27;</span>,
+  <span class="hljs-attr">connection</span>: {
+    <span class="hljs-attr">host</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,
+    <span class="hljs-attr">user</span>: <span class="hljs-string">&#x27;your_database_user&#x27;</span>,
+    <span class="hljs-attr">password</span>: <span class="hljs-string">&#x27;your_database_password&#x27;</span>,
+    <span class="hljs-attr">database</span>: <span class="hljs-string">&#x27;myapp_test&#x27;</span>
+  },
+  <span class="hljs-attr">pool</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">7</span> }
+})
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Installation-client">Initializing the library</a></p>
+<h3 id="connect-via-url">Connect via URL</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> pg = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;knex&#x27;</span>)({
+  <span class="hljs-attr">client</span>: <span class="hljs-string">&#x27;pg&#x27;</span>,
+  <span class="hljs-attr">connection</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">DATABASE_URL</span>,
+  <span class="hljs-attr">searchPath</span>: <span class="hljs-string">&#x27;knex,public&#x27;</span>,
+  <span class="hljs-attr">pool</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">7</span> }
+})
+</code></pre>
+<h3 id="connect-via-sqlite">Connect via Sqlite</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> knex = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;knex&#x27;</span>)({
+  <span class="hljs-attr">client</span>: <span class="hljs-string">&#x27;sqlite3&#x27;</span>,
+  <span class="hljs-attr">connection</span>: { <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;./mydb.sqlite&#x27;</span> }
+})
+</code></pre>
+<h2 id="select">Select</h2>
+<h3 id="where">Where</h3>
+
+<pre><code class="js">knex
+  .<span class="hljs-title function_">from</span>(<span class="hljs-string">&#x27;books&#x27;</span>)
+  .<span class="hljs-title function_">select</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;author&#x27;</span>, <span class="hljs-string">&#x27;year&#x27;</span>)
+</code></pre>
+<h4 id="where">Where</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">where</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>)
+  .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> })
+  .<span class="hljs-title function_">whereIn</span>(<span class="hljs-string">&#x27;id&#x27;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+  .<span class="hljs-title function_">whereNot</span>(···)
+  .<span class="hljs-title function_">whereNotIn</span>(<span class="hljs-string">&#x27;id&#x27;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+</code></pre>
+<h4 id="where-conditions">Where conditions</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">whereNull</span>(<span class="hljs-string">&#x27;updated_at&#x27;</span>)
+  .<span class="hljs-title function_">whereNotNull</span>(···)
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-title function_">whereExists</span>(<span class="hljs-string">&#x27;updated_at&#x27;</span>)
+  .<span class="hljs-title function_">whereNotExists</span>(···)
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-title function_">whereBetween</span>(<span class="hljs-string">&#x27;votes&#x27;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>])
+  .<span class="hljs-title function_">whereNotBetween</span>(···)
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-title function_">whereRaw</span>(<span class="hljs-string">&#x27;id = ?&#x27;</span>, [<span class="hljs-number">1</span>])
+</code></pre>
+<h4 id="where-grouping">Where grouping</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">where</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>
+      .<span class="hljs-title function_">where</span>(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1</span>)
+      .<span class="hljs-title function_">orWhere</span>(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;&gt;&#x27;</span>, <span class="hljs-number">10</span>)
+  })
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder-wheres">Where clauses</a></p>
+<h3 id="join">Join</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+</code></pre>
+<h4 id="basic-join">Basic join</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;contacts&#x27;</span>, <span class="hljs-string">&#x27;users.id&#x27;</span>, <span class="hljs-string">&#x27;=&#x27;</span>, <span class="hljs-string">&#x27;contacts.id&#x27;</span>)
+  .<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;contacts&#x27;</span>, {<span class="hljs-string">&#x27;users.id&#x27;</span>: <span class="hljs-string">&#x27;contacts.id&#x27;</span>})
+</code></pre>
+<h4 id="strings">Strings</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;accounts&#x27;</span>, <span class="hljs-string">&#x27;accounts.type&#x27;</span>, <span class="hljs-string">&#x27;=&#x27;</span>, knex.<span class="hljs-title function_">raw</span>(<span class="hljs-string">&#x27;?&#x27;</span>, [<span class="hljs-string">&#x27;admin&#x27;</span>]))
+</code></pre>
+<h4 id="directions">Directions</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">leftJoin</span>(···)
+  .<span class="hljs-title function_">leftOuterJoin</span>(···)
+  .<span class="hljs-title function_">rightJoin</span>(···)
+  .<span class="hljs-title function_">rightOuterJoin</span>(···)
+  .<span class="hljs-title function_">outerJoin</span>(···)
+  .<span class="hljs-title function_">fullOuterJoin</span>(···)
+  .<span class="hljs-title function_">crossJoin</span>(···)
+</code></pre>
+<h4 id="raw">Raw</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">joinRaw</span>(<span class="hljs-string">&#x27;natural full join table1&#x27;</span>)
+</code></pre>
+<h4 id="grouping">Grouping</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;accounts&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>
+      .<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;accounts.id&#x27;</span>, <span class="hljs-string">&#x27;=&#x27;</span>, <span class="hljs-string">&#x27;users.account_id&#x27;</span>)
+      .<span class="hljs-title function_">orOn</span>(<span class="hljs-string">&#x27;accounts.owner_id&#x27;</span>, <span class="hljs-string">&#x27;=&#x27;</span>, <span class="hljs-string">&#x27;users.id&#x27;</span>)
+
+      .<span class="hljs-title function_">onIn</span>(<span class="hljs-string">&#x27;accounts.id&#x27;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>])
+      .<span class="hljs-title function_">onNotIn</span>(···)
+
+      .<span class="hljs-title function_">onNull</span>(<span class="hljs-string">&#x27;accounts.email&#x27;</span>)
+      .<span class="hljs-title function_">onNotNull</span>(···)
+
+      .<span class="hljs-title function_">onExists</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">select</span>(···)
+      })
+      .<span class="hljs-title function_">onNotExists</span>(···)
+  })
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder-join">Join methods</a></p>
+<h3 id="others">Others</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">distinct</span>()
+</code></pre>
+<h4 id="group">Group</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">groupBy</span>(<span class="hljs-string">&#x27;count&#x27;</span>)
+  .<span class="hljs-title function_">groupByRaw</span>(<span class="hljs-string">&#x27;year WITH ROLLUP&#x27;</span>)
+</code></pre>
+<h4 id="order">Order</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">orderBy</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;desc&#x27;</span>)
+  .<span class="hljs-title function_">orderByRaw</span>(<span class="hljs-string">&#x27;name DESC&#x27;</span>)
+</code></pre>
+<h4 id="offset-limit">Offset/limit</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">offset</span>(<span class="hljs-number">10</span>)
+  .<span class="hljs-title function_">limit</span>(<span class="hljs-number">20</span>)
+</code></pre>
+<h4 id="having">Having</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">having</span>(<span class="hljs-string">&#x27;count&#x27;</span>, <span class="hljs-string">&#x27;&gt;&#x27;</span>, <span class="hljs-number">100</span>)
+  .<span class="hljs-title function_">havingIn</span>(<span class="hljs-string">&#x27;count&#x27;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>])
+</code></pre>
+<h4 id="union">Union</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">union</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">select</span>(···)
+  })
+  .<span class="hljs-title function_">unionAll</span>(···)
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder">Query builder</a></p>
+<h3 id="etc">Etc</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">pluck</span>(<span class="hljs-string">&#x27;id&#x27;</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">ids</span> =&gt;</span> { ··· })
+</code></pre>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">first</span>()
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> { ··· })
+</code></pre>
+<h4 id="booleans">Booleans</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;active&#x27;</span>)
+  .<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;active as is_active&#x27;</span>)
+</code></pre>
+<h4 id="numbers">Numbers</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">min</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  .<span class="hljs-title function_">max</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  .<span class="hljs-title function_">sum</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  .<span class="hljs-title function_">sumDistinct</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  .<span class="hljs-title function_">avg</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder">Query builder</a></p>
+<h2 id="schema">Schema</h2>
+<h3 id="create-table">Create table</h3>
+
+<pre><code class="js">knex.<span class="hljs-property">schema</span>.<span class="hljs-title function_">createTable</span>(<span class="hljs-string">&#x27;accounts&#x27;</span>, <span class="hljs-function"><span class="hljs-params">table</span> =&gt;</span> {
+</code></pre>
+<h4 id="columns">Columns</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">increments</span>(<span class="hljs-string">&#x27;id&#x27;</span>)
+  table.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;account_name&#x27;</span>)
+  table.<span class="hljs-title function_">integer</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  table.<span class="hljs-title function_">float</span>(<span class="hljs-string">&#x27;age&#x27;</span>)
+  table.<span class="hljs-title function_">decimal</span>(<span class="hljs-string">&#x27;balance&#x27;</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>)
+  table.<span class="hljs-title function_">boolean</span>(<span class="hljs-string">&#x27;is_admin&#x27;</span>)
+  table.<span class="hljs-title function_">date</span>(<span class="hljs-string">&#x27;birthday&#x27;</span>)
+  table.<span class="hljs-title function_">time</span>(<span class="hljs-string">&#x27;created_at&#x27;</span>)
+  table.<span class="hljs-title function_">timestamp</span>(<span class="hljs-string">&#x27;created_at&#x27;</span>).<span class="hljs-title function_">defaultTo</span>(knex.<span class="hljs-property">fn</span>.<span class="hljs-title function_">now</span>())
+  table.<span class="hljs-title function_">json</span>(<span class="hljs-string">&#x27;profile&#x27;</span>)
+  table.<span class="hljs-title function_">jsonb</span>(<span class="hljs-string">&#x27;profile&#x27;</span>)
+  table.<span class="hljs-title function_">uuid</span>(<span class="hljs-string">&#x27;id&#x27;</span>).<span class="hljs-title function_">primary</span>()
+</code></pre>
+<h4 id="constraints">Constraints</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">unique</span>(<span class="hljs-string">&#x27;email&#x27;</span>)
+  table.<span class="hljs-title function_">unique</span>([<span class="hljs-string">&#x27;email&#x27;</span>, <span class="hljs-string">&#x27;company_id&#x27;</span>])
+  table.<span class="hljs-title function_">dropUnique</span>(···)
+</code></pre>
+<h4 id="indices">Indices</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">foreign</span>(<span class="hljs-string">&#x27;company_id&#x27;</span>)
+    .<span class="hljs-title function_">references</span>(<span class="hljs-string">&#x27;companies.id&#x27;</span>)
+  table.<span class="hljs-title function_">dropForeign</span>(···)
+</code></pre>
+<h4 id="variations">Variations</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">integer</span>(<span class="hljs-string">&#x27;user_id&#x27;</span>)
+    .<span class="hljs-title function_">unsigned</span>()
+    .<span class="hljs-title function_">references</span>(<span class="hljs-string">&#x27;users.id&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">})
+.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> ···)
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
+<h3 id="alter-table">Alter table</h3>
+
+<pre><code class="js">knex.<span class="hljs-property">schema</span>.<span class="hljs-title function_">table</span>(<span class="hljs-string">&#x27;accounts&#x27;</span>, <span class="hljs-function"><span class="hljs-params">table</span> =&gt;</span> {
+</code></pre>
+<h4 id="create">Create</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;first_name&#x27;</span>)
+</code></pre>
+<h4 id="alter">Alter</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">string</span>(<span class="hljs-string">&#x27;first_name&#x27;</span>).<span class="hljs-title function_">alter</span>()
+  table.<span class="hljs-title function_">renameColumn</span>(<span class="hljs-string">&#x27;admin&#x27;</span>, <span class="hljs-string">&#x27;is_admin&#x27;</span>)
+</code></pre>
+<h4 id="drop">Drop</h4>
+
+<pre><code class="js">  table.<span class="hljs-title function_">dropColumn</span>(<span class="hljs-string">&#x27;admin&#x27;</span>)
+  table.<span class="hljs-title function_">dropTimestamps</span>(<span class="hljs-string">&#x27;created_at&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">})
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
+<h3 id="other-methods">Other methods</h3>
+
+<pre><code class="js">knex.<span class="hljs-property">schema</span>
+  .<span class="hljs-title function_">renameTable</span>(<span class="hljs-string">&#x27;persons&#x27;</span>, <span class="hljs-string">&#x27;people&#x27;</span>)
+  .<span class="hljs-title function_">dropTable</span>(<span class="hljs-string">&#x27;persons&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">  .<span class="hljs-title function_">hasTable</span>(<span class="hljs-string">&#x27;users&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">exists</span> =&gt;</span> ···)
+  .<span class="hljs-title function_">hasColumn</span>(<span class="hljs-string">&#x27;users&#x27;</span>, <span class="hljs-string">&#x27;id&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">exists</span> =&gt;</span> ···)
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
+<h2 id="modifying">Modifying</h2>
+<h3 id="insert">Insert</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+</code></pre>
+<h4 id="insert-one">Insert one</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">insert</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;John&#x27;</span> })
+</code></pre>
+<h4 id="insert-many">Insert many</h4>
+
+<pre><code class="js">  .<span class="hljs-title function_">insert</span>([
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Starsky&#x27;</span> },
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Hutch&#x27;</span> }
+  ])
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder-insert">Insert</a></p>
+<h3 id="update">Update</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> })
+  .<span class="hljs-title function_">update</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Homer&#x27;</span> })
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder-update">Update</a></p>
+<h3 id="delete">Delete</h3>
+
+<pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
+  .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> })
+  .<span class="hljs-title function_">del</span>()
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Builder-del">Delete</a></p>
+<h2 id="migrations">Migrations</h2>
+<h3 id="setting-up">Setting up</h3>
+<h4 id="create-knexfile-js">Create knexfile.js</h4>
+
+<pre><code>.<span class="hljs-regexp">/node_modules/</span>.bin/knex init
+</code></pre>
+<h4 id="create-a-migration">Create a migration</h4>
+
+<pre><code>knex migrate:<span class="hljs-built_in">make</span> migration_name
+knex migrate:<span class="hljs-built_in">make</span> migration_name --env production
+</code></pre>
+<h4 id="run-migrations">Run migrations</h4>
+
+<pre><code>knex migrate:latest
+knex migrate:latest <span class="hljs-comment">--env production</span>
+</code></pre>
+<h4 id="rollback">Rollback</h4>
+
+<pre><code>knex migrate:<span class="hljs-keyword">rollback</span>
+knex migrate:<span class="hljs-keyword">rollback</span> <span class="hljs-comment">--env production</span>
+</code></pre>
+<p>See: <a href="http://knexjs.org/#Migrations">Migrations</a></p>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Spine cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Spine cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\spine.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Models</b>: <a href="#javascript">JavaScript</a>, <a href="#class-methods">Class methods</a>, <a href="#instance-methods">Instance methods</a>, <a href="#mixins">Mixins</a>, <a href="#events">Events</a><br>
+<b>Ajax</b>: <a href="#using">Using</a>, <a href="#host">Host</a>, <a href="#ajax-mapping">Ajax mapping</a>, <a href="#associations">Associations</a>, <a href="#see">See</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="models">Models</h2>
+
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Spine</span>.<span class="hljs-title">Model</span></span>
+  <span class="hljs-meta">@configure</span> <span class="hljs-string">&quot;User&quot;</span>, <span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;address&quot;</span>
+
+  fullName: -&gt;
+    [<span class="hljs-meta">@first</span>, <span class="hljs-meta">@last</span>].join &#x27; &#x27;
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+
+<pre><code>// Subclassing
+<span class="hljs-keyword">User</span> <span class="hljs-title">= Spine</span>.Model.sub()
+</code></pre>
+<h3 id="class-methods">Class methods</h3>
+
+<pre><code><span class="hljs-string">.configure</span> &#x27;modelname&#x27;, attributes.<span class="hljs-string">..</span>
+
+<span class="hljs-comment"># Inheritance</span>
+<span class="hljs-string">.include</span><span class="hljs-params">(Module)</span>
+<span class="hljs-string">.extend</span><span class="hljs-params">(Module)</span>
+
+<span class="hljs-string">.create</span><span class="hljs-params">(name: &quot;John&quot;)</span>
+
+<span class="hljs-string">.count</span><span class="hljs-params">()</span>
+
+<span class="hljs-comment"># Events</span>
+<span class="hljs-string">.on</span> &#x27;refresh change&#x27;, <span class="hljs-params">(user)</span> -&gt; <span class="hljs-string">...</span>
+<span class="hljs-string">.trigger</span> &#x27;event&#x27;
+
+<span class="hljs-string">.change</span> <span class="hljs-params">(user)</span> -&gt; <span class="hljs-string">...</span>  <span class="hljs-comment"># same as on(&#x27;change&#x27;)</span>
+<span class="hljs-string">.fetch</span> <span class="hljs-params">(user)</span> -&gt; <span class="hljs-string">...</span>   <span class="hljs-comment"># same as on(&#x27;fetch&#x27;)</span>
+
+<span class="hljs-comment"># JSON</span>
+<span class="hljs-string">.toJSON</span><span class="hljs-params">()</span>         <span class="hljs-comment"># all records</span>
+<span class="hljs-string">.fromJSON</span><span class="hljs-params">(json)</span>   <span class="hljs-comment"># from json string</span>
+<span class="hljs-string">.fromForm</span><span class="hljs-params">(el)</span>
+
+<span class="hljs-comment"># Data</span>
+<span class="hljs-string">.records</span>     <span class="hljs-comment"># Hash of instances</span>
+<span class="hljs-string">.attributes</span>  <span class="hljs-comment"># array of attributes (from .configure)</span>
+
+<span class="hljs-comment"># Convenience</span>
+<span class="hljs-string">.toString</span><span class="hljs-params">()</span>  <span class="hljs-comment">#=&gt; &quot;User&quot;</span>
+
+<span class="hljs-comment"># Find by ID</span>
+<span class="hljs-string">.exists</span><span class="hljs-params">(1)</span>
+<span class="hljs-string">.find</span><span class="hljs-params">(1)</span>     <span class="hljs-comment"># throws error</span>
+
+<span class="hljs-comment"># Find by something</span>
+<span class="hljs-string">.select</span> <span class="hljs-params">(u)</span> u.name == &#x27;bob&#x27;
+<span class="hljs-string">.findByAttribute</span> &#x27;name&#x27;, &#x27;bob&#x27;
+<span class="hljs-string">.findAllByAttribute</span> &#x27;name&#x27;, &#x27;bob&#x27;
+
+<span class="hljs-string">.all</span><span class="hljs-params">()</span>
+<span class="hljs-string">.slice</span><span class="hljs-params">(6, 13)</span>  <span class="hljs-comment"># cloned copies of instances</span>
+
+<span class="hljs-comment"># Iterating</span>
+<span class="hljs-string">.each</span> <span class="hljs-params">(user)</span> -&gt;
+
+<span class="hljs-comment"># Ends</span>
+<span class="hljs-string">.first</span><span class="hljs-params">()</span>
+<span class="hljs-string">.last</span><span class="hljs-params">()</span>
+
+<span class="hljs-comment"># Deleting</span>
+<span class="hljs-string">.deleteAll</span><span class="hljs-params">()</span>
+<span class="hljs-string">.destroyAll</span><span class="hljs-params">()</span>
+<span class="hljs-string">.destroyAll</span><span class="hljs-params">({ ..options.. })</span>
+<span class="hljs-string">.destroy</span><span class="hljs-params">(2)</span>
+</code></pre>
+<h3 id="instance-methods">Instance methods</h3>
+
+<pre><code>user = new User<span class="hljs-params">()</span>;
+
+user
+<span class="hljs-string">.isNew</span><span class="hljs-params">()</span>
+<span class="hljs-string">.exists</span><span class="hljs-params">()</span>
+
+<span class="hljs-comment"># Validation</span>
+<span class="hljs-string">.isValid</span><span class="hljs-params">()</span>
+<span class="hljs-string">.validate</span><span class="hljs-params">()</span>    <span class="hljs-comment"># validate = (-&gt; &quot;Name required&quot; unless @name)</span>
+
+<span class="hljs-string">.attributes</span><span class="hljs-params">()</span>  <span class="hljs-comment"># hash of attr values</span>
+<span class="hljs-string">.eql</span><span class="hljs-params">(other)</span>    <span class="hljs-comment"># equality check</span>
+
+<span class="hljs-comment"># Update</span>
+<span class="hljs-string">.load</span><span class="hljs-params">(attrs)</span>
+<span class="hljs-string">.reload</span><span class="hljs-params">()</span>
+<span class="hljs-string">.fromForm</span><span class="hljs-params">(form)</span>
+<span class="hljs-string">.updateAttribute</span><span class="hljs-params">(&quot;name&quot;, &quot;john&quot;)</span>
+<span class="hljs-string">.updateAttributes</span><span class="hljs-params">(name: &quot;John&quot;)</span>
+
+<span class="hljs-comment"># Event</span>
+<span class="hljs-string">.on</span> &#x27;event&#x27;, -&gt; <span class="hljs-string">...</span>
+<span class="hljs-string">.trigger</span> &#x27;event&#x27;
+
+<span class="hljs-comment"># Retrieve</span>
+<span class="hljs-string">.toJSON</span><span class="hljs-params">()</span>
+
+<span class="hljs-comment"># Persistence</span>
+<span class="hljs-string">.save</span><span class="hljs-params">()</span>
+
+<span class="hljs-string">.destroy</span><span class="hljs-params">()</span>
+<span class="hljs-string">.dup</span><span class="hljs-params">()</span>         <span class="hljs-comment"># clone as unsaved</span>
+</code></pre>
+<h3 id="mixins">Mixins</h3>
+
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Spine</span>.<span class="hljs-title">Model</span></span>
+  <span class="hljs-meta">@include</span> <span class="hljs-type">MyModule</span>
+  <span class="hljs-meta">@extend</span> <span class="hljs-type">MyModule</span>
+</code></pre>
+<h3 id="events">Events</h3>
+
+<pre><code>.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;create&#x27;</span>
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;update&#x27;</span>
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;destroy&#x27;</span>
+
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;save&#x27;</span>    # <span class="hljs-keyword">create</span> / <span class="hljs-keyword">update</span>
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;change&#x27;</span>  # <span class="hljs-keyword">create</span> / <span class="hljs-keyword">update</span> / destroy
+
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;refresh&#x27;</span>
+.<span class="hljs-keyword">on</span> <span class="hljs-string">&#x27;error&#x27;</span>    # validation <span class="hljs-keyword">error</span>
+</code></pre>
+<h2 id="ajax">Ajax</h2>
+
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Spine</span>.<span class="hljs-title">Model</span></span>
+  <span class="hljs-meta">@extend</span> <span class="hljs-type">Spine</span>.<span class="hljs-type">Model</span>.<span class="hljs-type">Ajax</span>
+
+  <span class="hljs-meta">@url</span>: &#x27;/users&#x27;
+  <span class="hljs-meta">@url</span>: -&gt; &#x27;/users&#x27;
+  scope: <span class="hljs-symbol">&#x27;201</span>3&#x27;
+</code></pre>
+<h3 id="using">Using</h3>
+
+<pre><code><span class="hljs-keyword">User</span>.<span class="hljs-keyword">fetch</span>()
+<span class="hljs-keyword">user</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">User</span>()
+
+<span class="hljs-keyword">user</span>.url()            #=&gt; &quot;/users&quot;
+<span class="hljs-keyword">user</span>.url(<span class="hljs-string">&#x27;bands&#x27;</span>)     #=&gt; &quot;/users/bands&quot;
+
+<span class="hljs-keyword">user</span>.scope = <span class="hljs-string">&#x27;admin&#x27;</span>
+<span class="hljs-keyword">user</span>.url()            #=&gt; &quot;/admin/users&quot;
+</code></pre>
+<h3 id="host">Host</h3>
+
+<pre><code><span class="hljs-attr">Spine.Model.host</span> = <span class="hljs-string">&#x27;http://endpoint&#x27;</span>
+</code></pre>
+<h3 id="ajax-mapping">Ajax mapping</h3>
+
+<pre><code><span class="hljs-keyword">read</span>    → GET    /collection
+create  → POST   /collection (<span class="hljs-number">201</span> created)
+update  → PUT    <span class="hljs-regexp">/collection/i</span>d
+destroy → <span class="hljs-keyword">DELETE</span> <span class="hljs-regexp">/collection/i</span>d
+</code></pre>
+<h3 id="associations">Associations</h3>
+
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Photo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Spine</span>.<span class="hljs-title">Model</span></span>
+  <span class="hljs-meta">@belongsTo</span> <span class="hljs-symbol">&#x27;albu</span>m&#x27;, <span class="hljs-symbol">&#x27;Albu</span>m&#x27;          # window[<span class="hljs-symbol">&#x27;Albu</span>m&#x27;]
+  <span class="hljs-meta">@belongsTo</span> <span class="hljs-symbol">&#x27;albu</span>m&#x27;, <span class="hljs-symbol">&#x27;models</span>/album&#x27;   # via require.js
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Album</span></span>
+  <span class="hljs-meta">@hasMany</span> <span class="hljs-symbol">&#x27;photo</span>s&#x27;, <span class="hljs-symbol">&#x27;models</span>/photo&#x27;
+
+album.photos().all()
+album.photos().create(name: <span class="hljs-string">&quot;Vacation&quot;</span>)
+album.photos().find(id)
+
+photo = <span class="hljs-type">Photo</span>.create(album: album)
+photo.album()
+photo.album_id
+</code></pre>
+<h3 id="see">See</h3>
+
+<ul>
+<li><a href="http://spinejs.com/api/index">http://spinejs.com/api/index</a></li>
+<li><a href="http://spinejs.com/api/models">http://spinejs.com/api/models</a></li>
+<li><a href="http://spinejs.com/docs/ajax">http://spinejs.com/docs/ajax</a>
+<ul>
+<li><a href="http://spinejs.com/docs/relations">http://spinejs.com/docs/relations</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>C# 7 cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / C# 7 cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\csharp7.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#out-variables">Out Variables</a>, <a href="#pattern-matching">Pattern Matching</a>, <a href="#tuples">Tuples</a>, <a href="#local-functions">Local Functions</a>, <a href="#literal-improvements">Literal Improvements</a>, <a href="#ref-returns-and-locals">Ref Returns and Locals</a>, <a href="#more-expression-bodied-members">More Expression Bodied Members</a>, <a href="#throw-expressions">Throw Expressions</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="out-variables">Out Variables</h3>
+
+<pre><code class="csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintCoordinates</span>(<span class="hljs-params">Point p</span>)</span>
+{
+    p.GetCoordinates(<span class="hljs-keyword">out</span> <span class="hljs-built_in">int</span> x, <span class="hljs-keyword">out</span> <span class="hljs-built_in">int</span> y);
+    WriteLine(<span class="hljs-string">$&quot;(<span class="hljs-subst">{x}</span>, <span class="hljs-subst">{y}</span>)&quot;</span>);
+}
+</code></pre>
+<p><code>out</code> is used to declare a variable at the point where it is passed as an argument.</p>
+<h3 id="pattern-matching">Pattern Matching</h3>
+<h4 id="is-expressions-with-patterns">Is-expressions with patterns</h4>
+
+<pre><code class="csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintStars</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> o</span>)</span>
+{
+    <span class="hljs-keyword">if</span> (o <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;     <span class="hljs-comment">// constant pattern &quot;null&quot;</span>
+    <span class="hljs-keyword">if</span> (!(o <span class="hljs-keyword">is</span> <span class="hljs-built_in">int</span> i)) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// type pattern &quot;int i&quot;</span>
+    WriteLine(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">&#x27;*&#x27;</span>, i));
+}
+</code></pre>
+<h4 id="switch-statements-with-patterns">Switch statements with patterns</h4>
+
+<pre><code class="csharp"><span class="hljs-keyword">switch</span>(shape)
+{
+    <span class="hljs-keyword">case</span> Circle c:
+        WriteLine(<span class="hljs-string">$&quot;circle with radius <span class="hljs-subst">{c.Radius}</span>&quot;</span>);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-function"><span class="hljs-keyword">case</span> Rectangle s <span class="hljs-title">when</span> (<span class="hljs-params">s.Length == s.Height</span>):
+        <span class="hljs-title">WriteLine</span>(<span class="hljs-params"><span class="hljs-string">$&quot;<span class="hljs-subst">{s.Length}</span> x <span class="hljs-subst">{s.Height}</span> square&quot;</span></span>)</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> Rectangle r:
+        WriteLine(<span class="hljs-string">$&quot;<span class="hljs-subst">{r.Length}</span> x <span class="hljs-subst">{r.Height}</span> rectangle&quot;</span>);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-literal">default</span>:
+        WriteLine(<span class="hljs-string">&quot;&lt;unknown shape&gt;&quot;</span>);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-literal">null</span>:
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-keyword">nameof</span>(shape));
+}
+</code></pre>
+<h3 id="tuples">Tuples</h3>
+<h4 id="tuple-type">Tuple type</h4>
+
+<pre><code class="csharp">(<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>) LookupName(<span class="hljs-built_in">long</span> id) <span class="hljs-comment">// tuple return type</span>
+{
+    ... <span class="hljs-comment">// retrieve first, middle and last from data storage</span>
+    <span class="hljs-keyword">return</span> (first, middle, last); <span class="hljs-comment">// tuple literal</span>
+}
+</code></pre>
+
+<pre><code class="csharp"><span class="hljs-keyword">var</span> names = LookupName(id);
+WriteLine(<span class="hljs-string">$&quot;found <span class="hljs-subst">{names.Item1}</span> <span class="hljs-subst">{names.Item3}</span>.&quot;</span>);
+</code></pre>
+<h4 id="tuple-elements-with-name">Tuple elements with name</h4>
+
+<pre><code class="csharp">(<span class="hljs-built_in">string</span> first, <span class="hljs-built_in">string</span> middle, <span class="hljs-built_in">string</span> last) LookupName(<span class="hljs-built_in">long</span> id) <span class="hljs-comment">// tuple elements have names</span>
+</code></pre>
+
+<pre><code class="csharp"><span class="hljs-keyword">var</span> names = LookupName(id);
+WriteLine(<span class="hljs-string">$&quot;found <span class="hljs-subst">{names.first}</span> <span class="hljs-subst">{names.last}</span>.&quot;</span>);
+</code></pre>
+<h4 id="tuple-literals">Tuple Literals</h4>
+
+<pre><code class="csharp">   <span class="hljs-keyword">return</span> (first: first, middle: middle, last: last); <span class="hljs-comment">// named tuple elements in a literal</span>
+</code></pre>
+<h4 id="tuple-deconstruction">Tuple Deconstruction</h4>
+
+<pre><code class="csharp">(<span class="hljs-keyword">var</span> first, <span class="hljs-keyword">var</span> middle, <span class="hljs-keyword">var</span> last) = LookupName(id1);
+WriteLine(<span class="hljs-string">$&quot;found <span class="hljs-subst">{first}</span> <span class="hljs-subst">{last}</span>.&quot;</span>);
+</code></pre>
+<p>or</p>
+
+<pre><code class="csharp"><span class="hljs-keyword">var</span> (first, middle, last) = LookupName(id1); <span class="hljs-comment">// var outside</span>
+</code></pre>
+<p>or</p>
+
+<pre><code class="csharp">(first, middle, last) = LookupName(id2); <span class="hljs-comment">// assign onto existing variables</span>
+</code></pre>
+<h3 id="local-functions">Local Functions</h3>
+
+<pre><code class="csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Fibonacci</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> x</span>)</span>
+{
+    <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentException(<span class="hljs-string">&quot;Less negativity please!&quot;</span>, <span class="hljs-keyword">nameof</span>(x));
+    <span class="hljs-keyword">return</span> Fib(x).current;
+
+    (<span class="hljs-built_in">int</span> current, <span class="hljs-built_in">int</span> previous) Fib(<span class="hljs-built_in">int</span> i)
+    {
+        <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">var</span> (p, pp) = Fib(i - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> (p + pp, p);
+    }
+}
+</code></pre>
+<h3 id="literal-improvements">Literal Improvements</h3>
+<h4 id="digit-separator-inside-numbers-literals">Digit Separator inside numbers literals</h4>
+
+<pre><code class="csharp"><span class="hljs-keyword">var</span> d = <span class="hljs-number">123</span>_456;
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">0xAB</span>_CD_EF;
+</code></pre>
+<h4 id="binary-literals">Binary Literals</h4>
+
+<pre><code class="csharp"><span class="hljs-keyword">var</span> b = <span class="hljs-number">0b1010</span>_1011_1100_1101_1110_1111;
+</code></pre>
+<h3 id="ref-returns-and-locals">Ref Returns and Locals</h3>
+
+<pre><code class="csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">ref</span> <span class="hljs-built_in">int</span> <span class="hljs-title">Find</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> number, <span class="hljs-built_in">int</span>[] numbers</span>)</span>
+{
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numbers.Length; i++)
+    {
+        <span class="hljs-keyword">if</span> (numbers[i] == number) 
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">ref</span> numbers[i]; <span class="hljs-comment">// return the storage location, not the value</span>
+        }
+    }
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfRangeException(<span class="hljs-string">$&quot;<span class="hljs-subst">{<span class="hljs-keyword">nameof</span>(number)}</span> not found&quot;</span>);
+}
+
+<span class="hljs-built_in">int</span>[] array = { <span class="hljs-number">1</span>, <span class="hljs-number">15</span>, <span class="hljs-number">-39</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">14</span>, <span class="hljs-number">-12</span> };
+<span class="hljs-keyword">ref</span> <span class="hljs-built_in">int</span> place = <span class="hljs-function"><span class="hljs-keyword">ref</span> <span class="hljs-title">Find</span>(<span class="hljs-params"><span class="hljs-number">7</span>, array</span>)</span>; <span class="hljs-comment">// aliases 7&#x27;s place in the array</span>
+place = <span class="hljs-number">9</span>; <span class="hljs-comment">// replaces 7 with 9 in the array</span>
+WriteLine(array[<span class="hljs-number">4</span>]); <span class="hljs-comment">// prints 9</span>
+</code></pre>
+<h3 id="more-expression-bodied-members">More Expression Bodied Members</h3>
+<p>C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:</p>
+
+<pre><code class="csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-title">ConcurrentDictionary</span>&lt;<span class="hljs-title">int</span>, <span class="hljs-title">string</span>&gt; names</span> = <span class="hljs-keyword">new</span> ConcurrentDictionary&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt;();
+    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> id = GetId();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>)</span> =&gt; names.TryAdd(id, name); <span class="hljs-comment">// constructors</span>
+    ~Person() =&gt; names.TryRemove(id, <span class="hljs-keyword">out</span> *);              <span class="hljs-comment">// destructors</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name
+    {
+        <span class="hljs-keyword">get</span> =&gt; names[id];                                 <span class="hljs-comment">// getters</span>
+        <span class="hljs-keyword">set</span> =&gt; names[id] = <span class="hljs-keyword">value</span>;                         <span class="hljs-comment">// setters</span>
+    }
+}
+</code></pre>
+<h3 id="throw-expressions">Throw Expressions</h3>
+
+<pre><code class="csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name { <span class="hljs-keyword">get</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>)</span> =&gt; Name = name ?? <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(name);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> <span class="hljs-title">GetFirstName</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-keyword">var</span> parts = Name.Split(<span class="hljs-string">&quot; &quot;</span>);
+        <span class="hljs-keyword">return</span> (parts.Length &gt; <span class="hljs-number">0</span>) ? parts[<span class="hljs-number">0</span>] : <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InvalidOperationException(<span class="hljs-string">&quot;No name!&quot;</span>);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> <span class="hljs-title">GetLastName</span>(<span class="hljs-params"></span>)</span> =&gt; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NotImplementedException();
+}
+</code></pre>
+
+</div>
+</body>  
+</html>

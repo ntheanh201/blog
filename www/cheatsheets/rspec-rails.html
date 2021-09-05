@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rspec-rails cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Rspec-rails cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rspec-rails.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#spec-tasks">Spec tasks</a>, <a href="#models">Models</a>, <a href="#controllers">Controllers</a>, <a href="#request">Request</a>, <a href="#routing">Routing</a>, <a href="#helpers">Helpers</a>, <a href="#features">Features</a>, <a href="#matchers">Matchers</a>, <a href="#time-helpers">Time helpers</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="spec-tasks">Spec tasks</h3>
+
+<pre><code>rake <span class="hljs-keyword">spec</span>:controllers
+rake <span class="hljs-keyword">spec</span>:helpers
+rake <span class="hljs-keyword">spec</span>:lib
+rake <span class="hljs-keyword">spec</span>:mailers
+rake <span class="hljs-keyword">spec</span>:models
+rake <span class="hljs-keyword">spec</span>:requests
+rake <span class="hljs-keyword">spec</span>:routing
+rake <span class="hljs-keyword">spec</span>:views
+</code></pre>
+<h3 id="models">Models</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># spec/models/*.rb</span>
+describe MyModel <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="controllers">Controllers</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># spec/controllers/*.rb</span>
+describe MyController <span class="hljs-keyword">do</span>
+  describe <span class="hljs-string">&quot;POST update&quot;</span> <span class="hljs-keyword">do</span>
+    render_views <span class="hljs-comment">#optional</span>
+
+    it <span class="hljs-string">&quot;works&quot;</span> <span class="hljs-keyword">do</span>
+      post <span class="hljs-symbol">:update</span>, { <span class="hljs-symbol">user:</span> { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;john&quot;</span> } }
+
+      controller
+      controller.send ...
+
+      response
+      expect(response).to be_success
+      expect(response).to have_http_status(<span class="hljs-number">200</span>)
+      expect(response).to render_template(<span class="hljs-string">&quot;index&quot;</span>)
+      expect(response).to redirect_to <span class="hljs-string">&#x27;/..&#x27;</span>
+
+      expect(assigns <span class="hljs-symbol">:article</span>).to eq article
+
+      response.status
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="request">Request</h3>
+
+<pre><code class="js"># spec/requests<span class="hljs-comment">/*.rb
+describe &quot;home page&quot; do
+  it &quot;displays the user&#x27;s username after successful login&quot; do
+    get &quot;/login&quot;
+    post &quot;/login&quot;, username: &quot;jdoe&quot;, password: &quot;secret&quot;
+
+    expect(response.status).to eql 200
+    expect(response).to redirect_to(...)
+    expect(response).to render_template(:show)
+    expect(response.body).to include &#x27;hello&#x27;
+    follow_redirect!
+  end
+end</span>
+</code></pre>
+<h3 id="routing">Routing</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># spec/routing/*.rb</span>
+describe <span class="hljs-string">&quot;routing to profiles&quot;</span> <span class="hljs-keyword">do</span>
+  it <span class="hljs-string">&quot;routes /profile/:username to profile#show for username&quot;</span> <span class="hljs-keyword">do</span>
+    expect(<span class="hljs-symbol">get:</span> <span class="hljs-string">&quot;/profiles/jsmith&quot;</span>).to route_to(
+      <span class="hljs-symbol">controller:</span> <span class="hljs-string">&quot;profiles&quot;</span>,
+      <span class="hljs-symbol">action:</span> <span class="hljs-string">&quot;show&quot;</span>,
+      <span class="hljs-symbol">username:</span> <span class="hljs-string">&quot;jsmith&quot;</span>
+    )
+  <span class="hljs-keyword">end</span>
+
+  it <span class="hljs-string">&quot;does not expose a list of profiles&quot;</span> <span class="hljs-keyword">do</span>
+    expect(<span class="hljs-symbol">get:</span> <span class="hljs-string">&quot;/profiles&quot;</span>).not_to be_routable
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="helpers">Helpers</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># spec/helpers/*.rb</span>
+describe EventsHelper <span class="hljs-keyword">do</span>
+  describe <span class="hljs-string">&quot;#link_to_event&quot;</span> <span class="hljs-keyword">do</span>
+    it <span class="hljs-string">&quot;displays the title, and formatted date&quot;</span> <span class="hljs-keyword">do</span>
+      event = Event.new(<span class="hljs-string">&quot;Ruby Kaigi&quot;</span>, Date.new(<span class="hljs-number">2010</span>, <span class="hljs-number">8</span>, <span class="hljs-number">27</span>))
+
+      <span class="hljs-comment"># helper is an instance of ActionView::Base configured with the</span>
+      <span class="hljs-comment"># EventsHelper and all of Rails&#x27; built-in helpers</span>
+      expect(helper.link_to_event).to match /Ruby Kaigi, <span class="hljs-number">27</span> Aug, <span class="hljs-number">2010</span>/
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="features">Features</h3>
+
+<pre><code class="rb"><span class="hljs-comment"># spec/features/*.rb</span>
+feature <span class="hljs-string">&#x27;Signing in&#x27;</span> <span class="hljs-keyword">do</span>
+  given(<span class="hljs-symbol">:something</span>) { <span class="hljs-string">&quot;hi&quot;</span> }
+
+  background <span class="hljs-keyword">do</span>
+    User.make <span class="hljs-symbol">email:</span> <span class="hljs-string">&#x27;hi@gmail.com&#x27;</span>
+  <span class="hljs-keyword">end</span>
+
+  scenario <span class="hljs-string">&#x27;Signing in with credentials&#x27;</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="matchers">Matchers</h3>
+
+<pre><code class="rb">be_a_new(Widget)  <span class="hljs-comment"># new_record?</span>
+render_template(<span class="hljs-string">&quot;new&quot;</span>)
+render_template(<span class="hljs-symbol">partial:</span> <span class="hljs-string">&#x27;form&#x27;</span>, <span class="hljs-symbol">locals:</span> {...})
+redirect_to(widgets_path)
+route_to(..)
+be_routable
+have_http_status(<span class="hljs-number">500</span>)
+have_http_status(<span class="hljs-symbol">:created</span>)
+</code></pre>
+<h3 id="time-helpers">Time helpers</h3>
+
+<pre><code>travel_to <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Time</span>.</span></span><span class="hljs-keyword">new</span>(<span class="hljs-number">2014</span>, <span class="hljs-number">11</span>, <span class="hljs-number">14</span>, <span class="hljs-number">01</span>, <span class="hljs-number">04</span>, <span class="hljs-number">44</span>)<span class="hljs-operator">
+...
+</span>travel_back
+
+travel_to <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Time</span>.</span></span><span class="hljs-keyword">new</span>(<span class="hljs-number">2014</span>, <span class="hljs-number">11</span>, <span class="hljs-number">14</span>, <span class="hljs-number">01</span>, <span class="hljs-number">04</span>, <span class="hljs-number">44</span>) <span class="hljs-keyword">do</span><span class="hljs-operator">
+  ...
+</span><span class="hljs-keyword">end</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

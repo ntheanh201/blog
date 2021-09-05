@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lodash cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Lodash cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\lodash.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Collections</b>: <a href="#finding">Finding</a>, <a href="#accessing">Accessing</a>, <a href="#set-get">Set/get</a>, <a href="#iteration">Iteration</a><br>
+<b>Array</b>: <a href="#arrays">Arrays</a>, <a href="#filtering">Filtering</a>, <a href="#accessing">Accessing</a>, <a href="#sets">Sets</a>, <a href="#indexes">Indexes</a><br>
+<b>Functions</b>: <a href="#currying">Currying</a><br>
+<b>Decorating functions</b>: <a href="#throttling">Throttling</a>, <a href="#limiting">Limiting</a>, <a href="#etc">Etc</a><br>
+<b>Strings</b>: <a href="#capitalization">Capitalization</a>, <a href="#padding">Padding</a>, <a href="#trim">Trim</a>, <a href="#etc">Etc</a><br>
+<b>Objects</b>: <a href="#keys-and-values">Keys and values</a><br>
+<b>Chaining</b>: <a href="#chain-and-value">Chain and value</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="collections">Collections</h2>
+<h3 id="finding">Finding</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">filter</span>(list, <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>)    <span class="hljs-comment">// → Array</span>
+_.<span class="hljs-title function_">find</span>(list, <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>)      <span class="hljs-comment">// → item</span>
+_.<span class="hljs-title function_">findLast</span>(list, ...)           <span class="hljs-comment">// → item</span>
+</code></pre>
+<p>Works for both arrays and objects.</p>
+<h3 id="accessing">Accessing</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">at</span>([ abcd ], <span class="hljs-number">0</span>)               <span class="hljs-comment">// → [ a ] - same as list[0]</span>
+_.<span class="hljs-title function_">at</span>([ abcd ], [ <span class="hljs-number">0</span>, <span class="hljs-number">1</span> ])        <span class="hljs-comment">// → [ ab ]</span>
+</code></pre>
+<h3 id="set-get">Set/get</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">set</span>(object, <span class="hljs-string">&#x27;users[0].name&#x27;</span>, value)
+_.<span class="hljs-title function_">get</span>(object, <span class="hljs-string">&#x27;users[0].name&#x27;</span>)
+_.<span class="hljs-title function_">get</span>(object, [<span class="hljs-string">&#x27;users&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;name&#x27;</span>])
+</code></pre>
+<h3 id="iteration">Iteration</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">forEach</span>(list, <span class="hljs-function">(<span class="hljs-params">item, i</span>) =&gt;</span> ...)
+_.<span class="hljs-title function_">forEachRight</span>(list, ...)
+
+_.<span class="hljs-title function_">map</span>(list, ...)
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">every</span>(users, <span class="hljs-function">(<span class="hljs-params">u</span>) =&gt;</span> u.<span class="hljs-property">active</span>)  <span class="hljs-comment">// → true|false (aka _.all)</span>
+_.<span class="hljs-title function_">any</span>(users, ...)                <span class="hljs-comment">// → true|false (aka _.some)</span>
+</code></pre>
+<h2 id="array">Array</h2>
+<h3 id="arrays">Arrays</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">chunk</span>([ abcd ], <span class="hljs-number">2</span>)           <span class="hljs-comment">// → [ [ab], [cd] ]</span>
+_.<span class="hljs-title function_">compact</span>(list)
+
+_.<span class="hljs-title function_">fill</span>(<span class="hljs-title class_">Array</span>(<span class="hljs-number">4</span>), <span class="hljs-string">&#x27;x&#x27;</span>)          <span class="hljs-comment">// → [ &#x27;x&#x27;, &#x27;x&#x27;, &#x27;x&#x27;, &#x27;x&#x27; ]</span>
+_.<span class="hljs-property">flatten</span>
+_.<span class="hljs-property">flattenDeep</span>
+</code></pre>
+<h3 id="filtering">Filtering</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">drop</span>([ abcdef ], <span class="hljs-number">2</span>)          <span class="hljs-comment">// → [   cdef ]</span>
+_.<span class="hljs-title function_">dropRight</span>([ abcdef ], <span class="hljs-number">2</span>)     <span class="hljs-comment">// → [ abcd   ]</span>
+_.<span class="hljs-title function_">take</span>([ abcdef ], <span class="hljs-number">2</span>)          <span class="hljs-comment">// → [ ab     ]</span>
+_.<span class="hljs-title function_">takeRight</span>([ abcdef ], <span class="hljs-number">2</span>)     <span class="hljs-comment">// → [     de ]</span>
+_.<span class="hljs-title function_">slice</span>([ abcdef ], <span class="hljs-number">2</span>, <span class="hljs-number">4</span>)      <span class="hljs-comment">// → [   cd   ]</span>
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">initial</span>([ abcdef ])          <span class="hljs-comment">// → [ abcde  ] - dropRight(list, 1)</span>
+_.<span class="hljs-title function_">rest</span>([ abcdef ])             <span class="hljs-comment">// → [  bcdef ] - takeRight(list, 1)</span>
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">dropWhile</span>(list, <span class="hljs-string">&#x27;active&#x27;</span>)            <span class="hljs-comment">// works like filter</span>
+_.<span class="hljs-title function_">dropWhile</span>(list, <span class="hljs-string">&#x27;active&#x27;</span>, <span class="hljs-literal">true</span>)
+_.<span class="hljs-title function_">dropWhile</span>(list, { <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span> })
+_.<span class="hljs-title function_">dropWhile</span>(list, <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> ...)
+_.<span class="hljs-title function_">dropRightWhile</span>(list, ...)
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">without</span>([ abcde ], b)        <span class="hljs-comment">// → [ acde ]</span>
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">remove</span>(list, <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>)
+</code></pre>
+<h3 id="accessing">Accessing</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">first</span>([ abcdef ])            <span class="hljs-comment">// → a</span>
+_.<span class="hljs-title function_">last</span>([ abcdef ])             <span class="hljs-comment">// → f</span>
+</code></pre>
+<h3 id="sets">Sets</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">uniq</span>()
+_.<span class="hljs-title function_">difference</span>([ abc ], [ bc ])       <span class="hljs-comment">// → [ a    ]</span>
+_.<span class="hljs-title function_">intersection</span>([ abc ], [ bcd ])    <span class="hljs-comment">// → [  bc  ]</span>
+_.<span class="hljs-title function_">union</span>([ abc ], [ bcd ])           <span class="hljs-comment">// → [ abcd ] (unique)</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-title class_">Array</span>#<span class="hljs-title function_">concat</span>()
+</code></pre>
+<h3 id="indexes">Indexes</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">findIndex</span>(list, fn)
+_.<span class="hljs-title function_">findLastIndex</span>(list, fn)
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">sortedIndex</span>(list, val)
+_.<span class="hljs-title function_">sortedLastIndex</span>(list, val)
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">indexOf</span>(list, val)
+</code></pre>
+<h2 id="functions">Functions</h2>
+<h3 id="currying">Currying</h3>
+
+<pre><code class="js">greet = <span class="hljs-function">(<span class="hljs-params">greeting, name</span>) =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${greeting}</span>, <span class="hljs-subst">${name}</span>!`</span>
+</code></pre>
+
+<pre><code class="js">fn = _.<span class="hljs-title function_">partial</span>(fn, <span class="hljs-string">&#x27;hi&#x27;</span>)
+<span class="hljs-title function_">fn</span>(<span class="hljs-string">&#x27;joe&#x27;</span>)    <span class="hljs-comment">// → &#x27;hi, joe!&#x27;</span>
+
+fn = _.<span class="hljs-title function_">partial</span>(fn, <span class="hljs-string">&#x27;joe&#x27;</span>)
+<span class="hljs-title function_">fn</span>(<span class="hljs-string">&#x27;yo&#x27;</span>)     <span class="hljs-comment">// → &#x27;yo, joe!&#x27;</span>
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">curry</span>(greet)(<span class="hljs-string">&#x27;hi&#x27;</span>)         <span class="hljs-comment">// → function(name)</span>
+_.<span class="hljs-title function_">curryRight</span>(greet)(<span class="hljs-string">&#x27;joe&#x27;</span>)   <span class="hljs-comment">// → function(greet)</span>
+</code></pre>
+<h2 id="decorating-functions">Decorating functions</h2>
+<h3 id="throttling">Throttling</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">throttle</span>(fn)
+_.<span class="hljs-title function_">debounce</span>(fn)
+</code></pre>
+<h3 id="limiting">Limiting</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">before</span>(<span class="hljs-number">5</span>, fn)         <span class="hljs-comment">// only works 5 times</span>
+_.<span class="hljs-title function_">after</span>(<span class="hljs-number">5</span>, fn)          <span class="hljs-comment">// works only after 5 times</span>
+_.<span class="hljs-title function_">once</span>(fn)              <span class="hljs-comment">// like _.before(fn, 1)</span>
+</code></pre>
+<h3 id="etc">Etc</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">wrap</span>(_.<span class="hljs-property">escape</span>, <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> <span class="hljs-string">`hi <span class="hljs-subst">${name}</span>`</span>)
+<span class="hljs-comment">// same as doing `name = _.escape(name)`</span>
+
+_.<span class="hljs-title function_">delay</span>(fn, <span class="hljs-number">2000</span>)
+
+_.<span class="hljs-title function_">negate</span>(fn)
+
+_.<span class="hljs-title function_">memoize</span>(fn)
+_.<span class="hljs-title function_">memoize</span>(fn, ...)
+</code></pre>
+<h2 id="strings">Strings</h2>
+<h3 id="capitalization">Capitalization</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">capitalize</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)   <span class="hljs-comment">// → &#x27;Hello world&#x27;</span>
+_.<span class="hljs-title function_">startCase</span>(<span class="hljs-string">&#x27;hello_world&#x27;</span>)    <span class="hljs-comment">// → &#x27;Hello World&#x27;</span>
+_.<span class="hljs-title function_">snakeCase</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)    <span class="hljs-comment">// → &#x27;hello_world&#x27;</span>
+_.<span class="hljs-title function_">kebabCase</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)    <span class="hljs-comment">// → &#x27;hello-world&#x27;</span>
+_.<span class="hljs-title function_">camelCase</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)    <span class="hljs-comment">// → &#x27;helloWorld&#x27;</span>
+</code></pre>
+<h3 id="padding">Padding</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">pad</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">3</span>)           <span class="hljs-comment">// → &#x27;abc&#x27;</span>
+_.<span class="hljs-title function_">pad</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">8</span>)           <span class="hljs-comment">// → &#x27;   abc  &#x27;</span>
+_.<span class="hljs-title function_">pad</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">8</span>, <span class="hljs-string">&#x27;_-&#x27;</span>)     <span class="hljs-comment">// → &#x27;_-abc_-_&#x27;</span>
+_.<span class="hljs-title function_">padStart</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">3</span>)      <span class="hljs-comment">// → &#x27;abc&#x27;</span>
+_.<span class="hljs-title function_">padStart</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">6</span>)      <span class="hljs-comment">// → &#x27;   abc&#x27;</span>
+_.<span class="hljs-title function_">padStart</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">6</span>, <span class="hljs-string">&#x27;_-&#x27;</span>)<span class="hljs-comment">// → &#x27;_-_abc&#x27;</span>
+_.<span class="hljs-title function_">padEnd</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">3</span>)        <span class="hljs-comment">// → &#x27;abc&#x27;</span>
+_.<span class="hljs-title function_">padEnd</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">6</span>)        <span class="hljs-comment">// → &#x27;abc   &#x27;</span>
+_.<span class="hljs-title function_">padEnd</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-number">6</span>, <span class="hljs-string">&#x27;_-&#x27;</span>)  <span class="hljs-comment">// → &#x27;abc_-_&#x27;</span>
+</code></pre>
+<h3 id="trim">Trim</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">trim</span>(<span class="hljs-string">&#x27;  str  &#x27;</span>)         <span class="hljs-comment">// → &#x27;str&#x27; </span>
+_.<span class="hljs-title function_">trimLeft</span>(<span class="hljs-string">&#x27;  str  &#x27;</span>)     <span class="hljs-comment">// → &#x27;str  &#x27;</span>
+_.<span class="hljs-title function_">trimRight</span>(<span class="hljs-string">&#x27;  str  &#x27;</span>)    <span class="hljs-comment">// → &#x27;  str&#x27;</span>
+</code></pre>
+<h3 id="etc">Etc</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">repeat</span>(<span class="hljs-string">&#x27;-&#x27;</span>, <span class="hljs-number">2</span>)              <span class="hljs-comment">// → &#x27;--&#x27;</span>
+_.<span class="hljs-title function_">deburr</span>(<span class="hljs-string">&#x27;déjà vu&#x27;</span>)           <span class="hljs-comment">// → &#x27;deja vu&#x27;</span>
+_.<span class="hljs-title function_">trunc</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>, <span class="hljs-number">5</span>)     <span class="hljs-comment">// → &#x27;hello...&#x27;</span>
+</code></pre>
+
+<pre><code class="js">_.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>)   <span class="hljs-comment">// → true</span>
+_.<span class="hljs-title function_">endsWith</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>)     <span class="hljs-comment">// → true</span>
+</code></pre>
+<h2 id="objects">Objects</h2>
+<h3 id="keys-and-values">Keys and values</h3>
+
+<pre><code class="js">_.<span class="hljs-title function_">keys</span>(obj)
+_.<span class="hljs-title function_">values</span>(obj)
+</code></pre>
+<h2 id="chaining">Chaining</h2>
+<h3 id="chain-and-value">Chain and value</h3>
+
+<pre><code class="js"><span class="hljs-title function_">_</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+  .<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">total, n</span>) =&gt;</span> total + n)
+  .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n * n)
+  .<span class="hljs-title function_">tap</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>)
+  .<span class="hljs-title function_">thru</span>(<span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n.<span class="hljs-title function_">reverse</span>())
+  .<span class="hljs-title function_">value</span>()
+</code></pre>
+
+</div>
+</body>  
+</html>

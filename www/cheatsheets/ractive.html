@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ractive.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Ractive.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ractive.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#-initialization-http-docs-ractivejs-org-latest-options-">Initialization</a><br>
+<b>Instance methods</b>: <a href="#updating-values">Updating values</a>, <a href="#nodes-and-components">Nodes and components</a>, <a href="#events">Events</a>, <a href="#others">Others</a><br>
+<a href="#extend">Extend</a><br>
+<a href="#-components-https-github-com-ractivejs-ractive-wiki-components-">Components</a><br>
+<a href="#partials">Partials</a><br>
+<b>Events</b>: <a href="#dom-events">DOM Events</a>, <a href="#observing">Observing</a><br>
+<a href="#markup">Markup</a><br>
+<a href="#transformed-attributes">Transformed attributes</a><br>
+<a href="#transitions">Transitions</a><br>
+<a href="#-decorators-http-docs-ractivejs-org-latest-decorators-">Decorators</a><br>
+<a href="#-adaptors-http-docs-ractivejs-org-latest-adaptors-">Adaptors</a><br>
+<a href="#-computed-properties-http-docs-ractivejs-org-latest-computed-properties-">Computed properties</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="-initialization-http-docs-ractivejs-org-latest-options-"><a href="http://docs.ractivejs.org/latest/options">Initialization</a></h3>
+
+<pre><code><span class="hljs-string">new</span> <span class="hljs-string">Ractive({</span>
+  <span class="hljs-attr">el:</span> <span class="hljs-string">$(&#x27;..&#x27;),</span>
+  <span class="hljs-attr">el:</span> <span class="hljs-string">&#x27;#box&#x27;</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">template:</span> <span class="hljs-string">&#x27;...&#x27;</span><span class="hljs-string">,</span> <span class="hljs-string">//</span> <span class="hljs-string">required</span>
+
+  <span class="hljs-string">//</span> <span class="hljs-string">callbacks</span>
+  <span class="hljs-attr">init:</span> <span class="hljs-string">function()</span> {}<span class="hljs-string">,</span>    <span class="hljs-string">//</span> <span class="hljs-string">on</span> <span class="hljs-string">instantiate</span>
+  <span class="hljs-attr">complete:</span> <span class="hljs-string">function()</span> {}<span class="hljs-string">,</span> <span class="hljs-string">//</span> <span class="hljs-string">on</span> <span class="hljs-string">finish</span> <span class="hljs-string">animations</span>
+
+  <span class="hljs-string">//</span> <span class="hljs-string">objs</span>
+  <span class="hljs-attr">data:</span> { <span class="hljs-string">...</span> }<span class="hljs-string">,</span>
+  <span class="hljs-attr">partials:</span> { <span class="hljs-string">...</span> }<span class="hljs-string">,</span>    <span class="hljs-string">//</span> <span class="hljs-attr">global:</span> <span class="hljs-string">Ractive.partials</span>
+  <span class="hljs-attr">transitions:</span> { <span class="hljs-string">...</span> }<span class="hljs-string">,</span> <span class="hljs-string">//</span> <span class="hljs-attr">global:</span> <span class="hljs-string">Ractive.transitions</span>
+  <span class="hljs-attr">components:</span> { <span class="hljs-string">...</span> }<span class="hljs-string">,</span>
+  <span class="hljs-attr">adaptors:</span> [ <span class="hljs-string">...</span> ]<span class="hljs-string">,</span>
+
+  <span class="hljs-string">//</span> <span class="hljs-string">options</span>
+  <span class="hljs-attr">magic:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">modifyArrays:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">twoway:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">noIntro:</span> <span class="hljs-literal">true</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span> <span class="hljs-string">=</span> <span class="hljs-string">disable</span> <span class="hljs-string">transition</span> <span class="hljs-string">on</span> <span class="hljs-string">initial</span> <span class="hljs-string">render</span>
+  <span class="hljs-attr">lazy:</span> <span class="hljs-literal">false</span>   <span class="hljs-string">//</span> <span class="hljs-literal">false</span> <span class="hljs-string">=</span> <span class="hljs-string">use</span> <span class="hljs-string">keyevents,</span> <span class="hljs-literal">true</span> <span class="hljs-string">=</span> <span class="hljs-string">use</span> <span class="hljs-string">change/blur</span>
+  <span class="hljs-attr">append:</span> <span class="hljs-literal">false</span> <span class="hljs-string">//</span> <span class="hljs-literal">false</span> <span class="hljs-string">=</span> <span class="hljs-string">overwrite</span> <span class="hljs-string">element,</span> <span class="hljs-literal">true</span> <span class="hljs-string">=</span> <span class="hljs-string">append</span>
+  <span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">sanitize:</span> <span class="hljs-literal">false</span>
+<span class="hljs-string">})</span>
+</code></pre>
+<h2 id="instance-methods">Instance methods</h2>
+<h3 id="updating-values">Updating values</h3>
+
+<pre><code><span class="hljs-keyword">view</span>.<span class="hljs-keyword">add</span>(<span class="hljs-string">&#x27;count&#x27;</span>, <span class="hljs-number">1</span>)       //=&gt; promise
+<span class="hljs-keyword">view</span>.subtract(<span class="hljs-string">&#x27;count&#x27;</span>, <span class="hljs-number">1</span>)  //=&gt; promise
+<span class="hljs-keyword">view</span>.toggle(<span class="hljs-string">&#x27;shown&#x27;</span>)       //=&gt; promise
+
+<span class="hljs-keyword">view</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-keyword">true</span>)
+<span class="hljs-keyword">view</span>.<span class="hljs-keyword">set</span>({ a: <span class="hljs-keyword">true</span> })
+<span class="hljs-keyword">view</span>.<span class="hljs-keyword">reset</span>({ a: <span class="hljs-keyword">true</span> })
+<span class="hljs-keyword">view</span>.merge(<span class="hljs-string">&#x27;list&#x27;</span>, [a,b,c])
+
+<span class="hljs-keyword">view</span>.<span class="hljs-keyword">get</span>(<span class="hljs-string">&#x27;a&#x27;</span>)
+<span class="hljs-keyword">view</span>.data.a
+</code></pre>
+<h3 id="nodes-and-components">Nodes and components</h3>
+
+<pre><code><span class="hljs-keyword">view</span>.<span class="hljs-keyword">find</span>(<span class="hljs-string">&#x27;.klass&#x27;</span>)
+<span class="hljs-keyword">view</span>.findAll(<span class="hljs-string">&#x27;.klass&#x27;</span>)
+<span class="hljs-keyword">view</span>.nodes
+<span class="hljs-keyword">view</span>.nodes[<span class="hljs-string">&#x27;hello&#x27;</span>]   // .<span class="hljs-keyword">find</span>(<span class="hljs-string">&#x27;#hello&#x27;</span>)
+
+<span class="hljs-keyword">view</span>.findComponent(<span class="hljs-string">&#x27;photo&#x27;</span>)
+<span class="hljs-keyword">view</span>.findAllComponents(<span class="hljs-string">&#x27;photo&#x27;</span>)
+</code></pre>
+<h3 id="events">Events</h3>
+
+<pre><code>view.<span class="hljs-keyword">on</span>(<span class="hljs-string">&#x27;event&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> <span class="hljs-comment">{ ... }</span>)
+<span class="hljs-title">view</span>.<span class="hljs-title">off</span><span class="hljs-params">(<span class="hljs-string">&#x27;event&#x27;</span>, fn)</span>
+<span class="hljs-title">view</span>.<span class="hljs-title">fire</span><span class="hljs-params">(<span class="hljs-string">&#x27;event&#x27;</span>)</span></span>
+</code></pre>
+<h3 id="others">Others</h3>
+
+<pre><code><span class="hljs-keyword">view</span>.up<span class="hljs-meta">date</span>()
+<span class="hljs-keyword">view</span>.updateModel()
+
+<span class="hljs-keyword">view</span>.<span class="hljs-keyword">insert</span>(<span class="hljs-string">&#x27;.node .path&#x27;</span>)
+
+<span class="hljs-keyword">view</span>.observe({ <span class="hljs-string">&#x27;name&#x27;</span>: functio<span class="hljs-meta">n</span>() { ... } })
+
+<span class="hljs-keyword">view</span>.toHTML()  //=&gt; String
+<span class="hljs-keyword">view</span>.render()
+</code></pre>
+<h2 id="extend">Extend</h2>
+
+<pre><code><span class="hljs-keyword">View</span> = Ractive.extend({
+  ...
+})
+<span class="hljs-keyword">new</span> <span class="hljs-keyword">View</span>()
+</code></pre>
+<h2 id="-components-https-github-com-ractivejs-ractive-wiki-components-"><a href="https://github.com/RactiveJS/Ractive/wiki/Components">Components</a></h2>
+<p>See: <a href="https://github.com/RactiveJS/Ractive/issues/74">https://github.com/RactiveJS/Ractive/issues/74</a></p>
+
+<pre><code>Widget = Ractive.extend({ ... })
+
+ractive = <span class="hljs-keyword">new</span> <span class="hljs-type">Ractive</span>({
+  el: <span class="hljs-type"></span>&#x27;main<span class="hljs-string">&#x27;,
+  template: &#x27;</span>&lt;widget foo=<span class="hljs-string">&quot;bar&quot;</span>/&gt;<span class="hljs-string">&#x27;,
+  components: {
+    widget: Widget
+  }
+});</span>
+</code></pre>
+<h2 id="partials">Partials</h2>
+
+<pre><code><span class="hljs-comment">// Global partials</span>
+Ractive<span class="hljs-selector-class">.partials</span><span class="hljs-selector-class">.x</span> = <span class="hljs-string">&quot;&lt;..&gt;&quot;</span>
+</code></pre>
+<h2 id="events">Events</h2>
+
+<pre><code><span class="hljs-keyword">view</span>.<span class="hljs-keyword">on</span>(<span class="hljs-string">&#x27;teardown&#x27;</span>)
+</code></pre>
+<h3 id="dom-events">DOM Events</h3>
+
+<pre><code>&lt;button <span class="hljs-keyword">on</span>-click=&#x27;<span class="hljs-built_in">activate</span>&#x27;&gt;Activate!&lt;/button&gt;
+
+view.<span class="hljs-keyword">on</span>({
+  <span class="hljs-built_in">activate</span>: function () { ... }
+});
+
+&lt;button <span class="hljs-keyword">on</span>-click=&#x27;sort:<span class="hljs-built_in">name</span>&#x27;&gt;Sort <span class="hljs-keyword">by</span> <span class="hljs-built_in">name</span>&lt;/button&gt;
+view.<span class="hljs-keyword">on</span>(&#x27;sort&#x27;, function (e, column) {
+  console.<span class="hljs-built_in">log</span>(&#x27;sorting <span class="hljs-keyword">by</span> <span class="hljs-comment">#{column}&#x27;);</span>
+});
+</code></pre>
+<h3 id="observing">Observing</h3>
+
+<pre><code> <span class="hljs-keyword">view</span>.observe(&quot;name&quot;, <span class="hljs-keyword">function</span> (<span class="hljs-type">name</span>) {
+   console.log(&quot;Changed name to&quot;, <span class="hljs-type">name</span>);
+ }, { init: <span class="hljs-keyword">false</span> });
+</code></pre>
+<h2 id="markup">Markup</h2>
+
+<pre><code><span class="language-xml">Hello, </span><span class="hljs-template-variable">{{<span class="hljs-name">name</span>}}</span><span class="language-xml">
+Body: </span><span class="hljs-template-variable">{{{<span class="hljs-name">unescaped</span>}}}</span><span class="language-xml">
+
+<span class="hljs-comment">&lt;!-- each --&gt;</span>
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">mylist:i</span>}}</span><span class="language-xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><span class="hljs-template-variable">{{<span class="hljs-name">this.name</span>}}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><span class="hljs-template-variable">{{<span class="hljs-name">name</span>}}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><span class="hljs-template-variable">{{.}}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-comment">&lt;!-- same as &#x27;this&#x27; --&gt;</span>
+</span><span class="hljs-template-tag">{{/<span class="hljs-name">mylist</span>}}</span><span class="language-xml">
+
+</span><span class="hljs-template-variable">{{^<span class="hljs-name">user</span>}}</span><span class="language-xml">Not logged in</span><span class="hljs-template-tag">{{/<span class="hljs-name">user</span>}}</span><span class="language-xml"> <span class="hljs-comment">&lt;!-- if false --&gt;</span>
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">user</span>}}</span><span class="language-xml">Welcome, sire</span><span class="hljs-template-tag">{{/<span class="hljs-name">user</span>}}</span><span class="language-xml"> <span class="hljs-comment">&lt;!-- if true --&gt;</span>
+
+</span><span class="hljs-template-variable">{{&gt;<span class="hljs-name">partialName</span>}}</span><span class="language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span>&gt;</span>
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name">statusDogs</span>[selected]}}</span>
+</code></pre>
+<h2 id="transformed-attributes">Transformed attributes</h2>
+<p>This transforms the <code>list</code> attribute via a helper function called <code>sort()</code>.</p>
+
+<pre><code><span class="hljs-template-tag">{{# <span class="hljs-name">sort</span>(<span class="hljs-name">list</span>, <span class="hljs-string">&quot;name&quot;</span>) :num }}</span><span class="language-xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><span class="hljs-template-variable">{{<span class="hljs-name">num</span>}}</span><span class="language-xml"> - </span><span class="hljs-template-variable">{{<span class="hljs-name">name</span>}}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</span><span class="hljs-template-tag">{{/ <span class="hljs-name">end</span>. <span class="hljs-name">any</span> <span class="hljs-name">text</span> <span class="hljs-name">goes</span> <span class="hljs-name">here</span> }}</span><span class="language-xml">
+
+data: {
+  sort: function(array, column) { return array.whatever(); }
+}</span>
+</code></pre>
+<h2 id="transitions">Transitions</h2>
+
+<pre><code>&lt;<span class="hljs-keyword">div</span> intro=<span class="hljs-string">&quot;fade&quot;</span>&gt;
+&lt;<span class="hljs-keyword">div</span> intro=<span class="hljs-string">&quot;bump&quot;</span>&gt;
+&lt;<span class="hljs-keyword">div</span> intro=<span class="hljs-string">&quot;bump:{duration:400}&quot;</span>&gt;
+
+Ractive.transitions.bump = <span class="hljs-keyword">function</span>(t, params) {
+   params = t.processParams( params, {
+     duration: <span class="hljs-number">400</span>,
+     color: t.isIntro ? <span class="hljs-string">&#x27;rgb(0,255,0)&#x27;</span> : <span class="hljs-string">&#x27;rgb(255,0,0)&#x27;</span>
+   });
+
+  <span class="hljs-keyword">if</span> (t.isIntro) {
+    <span class="hljs-comment">/* enter */</span>
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">/* exit */</span>
+  }
+
+  t.complete();
+};
+</code></pre>
+<h2 id="-decorators-http-docs-ractivejs-org-latest-decorators-"><a href="http://docs.ractivejs.org/latest/decorators">Decorators</a></h2>
+
+<pre><code><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">decorator</span>=<span class="hljs-string">&quot;tooltip:hello there&quot;</span>&gt;</span>Hover me<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+
+decorators: {
+  tooltip: <span class="hljs-keyword">function</span> (<span class="hljs-type">node</span>, content) {
+    // setup code here
+    <span class="hljs-keyword">return</span> {
+      teardown: <span class="hljs-keyword">function</span> () {
+        // cleanup code here
+      }
+    }
+  }
+}
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">decorator</span>=<span class="hljs-string">&quot;tooltip:&#x27;a&#x27;,&#x27;b&#x27;,2,&#x27;c&#x27;&quot;</span>&gt;</span>Hover me<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+
+tooltip: <span class="hljs-keyword">function</span> (<span class="hljs-type">node</span>, a, b, two, c) { ... }
+</code></pre>
+<h2 id="-adaptors-http-docs-ractivejs-org-latest-adaptors-"><a href="http://docs.ractivejs.org/latest/adaptors">Adaptors</a></h2>
+
+<pre><code>myAdaptor = {
+  filter: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(object, keypath, ractive) {
+    // <span class="hljs-keyword">return</span> <span class="hljs-type">`true`</span> <span class="hljs-keyword">if</span> a particular object <span class="hljs-keyword">is</span> <span class="hljs-keyword">of</span> the <span class="hljs-keyword">type</span> <span class="hljs-type">we </span>want to adapt
+  },
+  wrap: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(ractive, object, keypath, prefixer) {
+    // set up event bindings here
+    object.on(&#x27;change&#x27;, <span class="hljs-keyword">function</span> <span class="hljs-title"></span>() { ractive.set(prefixer({...})); });
+    // <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> a wrapper:
+    <span class="hljs-keyword">return</span> {
+      teardown: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>() { .. },
+      // json representation
+      get: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>() { <span class="hljs-keyword">return</span> <span class="hljs-type">{</span> a:<span class="hljs-number">2</span>, b:<span class="hljs-number">3</span>, c:<span class="hljs-number">4</span>, ... }; },
+      // called on ractive.set
+      set: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(key, val) { },
+      // called on ractive.set on root (<span class="hljs-keyword">return</span> <span class="hljs-type">false</span> = die)
+      reset: <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(data) { <span class="hljs-keyword">return</span> <span class="hljs-type">false</span>; }
+    };
+  }
+};
+</code></pre>
+<h2 id="-computed-properties-http-docs-ractivejs-org-latest-computed-properties-"><a href="http://docs.ractivejs.org/latest/computed-properties">Computed properties</a></h2>
+
+<pre><code><span class="hljs-built_in">new</span> Ractive({
+  <span class="hljs-keyword">template</span>: <span class="hljs-string">&#x27;{{area}}&#x27;</span>,
+  computed: {
+    area: <span class="hljs-keyword">function</span> () { <span class="hljs-keyword">return</span> this.<span class="hljs-keyword">get</span>(<span class="hljs-string">&#x27;width&#x27;</span>) * this.<span class="hljs-keyword">get</span>(<span class="hljs-string">&#x27;height&#x27;</span>); }
+    area: <span class="hljs-string">&#x27;${width} * ${height}&#x27;</span>
+    fullname: {
+      <span class="hljs-keyword">get</span>: <span class="hljs-string">&#x27;${first} + &quot; &quot; + ${last}&quot;
+      set: function (name) { ... }
+    }
+  }
+});</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

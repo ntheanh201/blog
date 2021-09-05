@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Markdown cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Markdown cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\markdown.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Reference</b>: <a href="#headers">Headers</a>, <a href="#emphasis">Emphasis</a>, <a href="#lists">Lists</a>, <a href="#links">Links</a>, <a href="#images">Images</a>, <a href="#code">Code</a>, <a href="#blockquotes">Blockquotes</a>, <a href="#horizontal-line">Horizontal line</a>, <a href="#tables">Tables</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reference">Reference</h2>
+<h3 id="headers">Headers</h3>
+
+<pre><code class="markdown"><span class="hljs-section"># h1</span>
+<span class="hljs-section">## h2</span>
+<span class="hljs-section">### h3</span>
+<span class="hljs-section">#### h4</span>
+<span class="hljs-section">##### h5</span>
+<span class="hljs-section">###### h6</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-section">Header 1
+========</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-section">Header 2
+--------</span>
+</code></pre>
+<h3 id="emphasis">Emphasis</h3>
+
+<pre><code class="markdown"><span class="hljs-emphasis">*italic*</span>
+<span class="hljs-emphasis">_italic_</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-strong">**bold**</span>
+<span class="hljs-strong">__bold__</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-strong">**<span class="hljs-emphasis">*bold italic<span class="hljs-strong">**<span class="hljs-emphasis">*
+<span class="hljs-strong">__<span class="hljs-emphasis">_bold italic<span class="hljs-strong">__<span class="hljs-emphasis">_</span></span></span></span></span></span></span></span>
+</code></pre>
+
+<pre><code class="markdown">~~strikethrough~~
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-code">`code`</span>
+</code></pre>
+<h3 id="lists">Lists</h3>
+
+<pre><code class="markdown"><span class="hljs-bullet">*</span> Item 1
+<span class="hljs-bullet">*</span> Item 2
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-bullet">-</span> Item 1
+<span class="hljs-bullet">-</span> Item 2
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-bullet">-</span> [ ] Checkbox off
+<span class="hljs-bullet">-</span> [x] Checkbox on
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-bullet">1.</span> Item 1
+<span class="hljs-bullet">2.</span> Item 2
+</code></pre>
+<h3 id="links">Links</h3>
+
+<pre><code class="markdown">[<span class="hljs-string">link</span>](<span class="hljs-link">http://google.com</span>)
+</code></pre>
+
+<pre><code class="markdown">[<span class="hljs-string">link</span>][<span class="hljs-symbol">google</span>]
+[<span class="hljs-symbol">google</span>]: <span class="hljs-link">http://google.com</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="language-xml">&lt;http://google.com&gt;</span>
+</code></pre>
+<h3 id="images">Images</h3>
+
+<pre><code class="markdown">![<span class="hljs-string">Image alt text</span>](<span class="hljs-link">/path/to/img.jpg</span>)
+![<span class="hljs-string">Image alt text</span>](<span class="hljs-link">/path/to/img.jpg &quot;title&quot;</span>)
+![<span class="hljs-string">Image alt text</span>][<span class="hljs-symbol">img</span>]
+</code></pre>
+
+<pre><code class="markdown">[<span class="hljs-symbol">img</span>]: <span class="hljs-link">http://foo.com/img.jpg</span>
+</code></pre>
+<h3 id="code">Code</h3>
+
+<pre><code>    <span class="hljs-number">4</span> <span class="hljs-meta">space</span> indent
+    makes a <span class="hljs-meta">code</span> block
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-code">```
+code fences
+```</span>
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-code">```js
+codeFences.withLanguage()
+```</span>
+</code></pre>
+<h3 id="blockquotes">Blockquotes</h3>
+
+<pre><code class="markdown"><span class="hljs-quote">&gt; This is</span>
+<span class="hljs-quote">&gt; a blockquote</span>
+<span class="hljs-quote">&gt;
+&gt; &gt; Nested</span>
+<span class="hljs-quote">&gt; &gt; Blockquote</span>
+</code></pre>
+<h3 id="horizontal-line">Horizontal line</h3>
+
+<pre><code class="markdown">----
+</code></pre>
+
+<pre><code class="markdown"><span class="hljs-strong">****</span>
+</code></pre>
+<h3 id="tables">Tables</h3>
+
+<pre><code class="markdown">| Column 1 Heading | Column 2 Heading |
+| ---------------- | ---------------- |
+| Some content     | Other content    |
+</code></pre>
+
+<pre><code class="markdown">Column 1 Heading | Column 2 Heading
+--- | ---
+Some content | Other content
+</code></pre>
+
+</div>
+</body>  
+</html>

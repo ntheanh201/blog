@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Immutable.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Immutable.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\immutable.js.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#maps">Maps</a>, <a href="#lists">Lists</a>, <a href="#nested-maps">Nested maps</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="maps">Maps</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> map = <span class="hljs-title class_">Immutable</span>.<span class="hljs-title class_">Map</span>({ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span> })
+</code></pre>
+
+<pre><code class="js">map
+  .<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">50</span>)
+  .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;b&#x27;</span>) <span class="hljs-comment">// 50</span>
+</code></pre>
+<h3 id="lists">Lists</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> list = <span class="hljs-title class_">Immutable</span>.<span class="hljs-property">List</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+list
+  .<span class="hljs-title function_">push</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
+  .<span class="hljs-title function_">unshift</span>(<span class="hljs-number">0</span>)
+  .<span class="hljs-title function_">concat</span>(list2, list3)
+  .<span class="hljs-title function_">get</span>(<span class="hljs-number">0</span>)
+  .<span class="hljs-property">size</span>
+</code></pre>
+<h3 id="nested-maps">Nested maps</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> nested = <span class="hljs-title class_">Immutable</span>.<span class="hljs-title function_">fromJS</span>({ <span class="hljs-attr">user</span>: { <span class="hljs-attr">profile</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;John&#x27;</span> } } })
+
+nested
+  <span class="hljs-comment">// Update</span>
+  .<span class="hljs-title function_">mergeDeep</span>({ <span class="hljs-attr">user</span>: { <span class="hljs-attr">profile</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">90</span> } } })
+  .<span class="hljs-title function_">setIn</span>([ <span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;profile&#x27;</span>, <span class="hljs-string">&#x27;name&#x27;</span> ], <span class="hljs-string">&#x27;Jack&#x27;</span>)
+  .<span class="hljs-title function_">updateIn</span>([ <span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;profile&#x27;</span>, <span class="hljs-string">&#x27;name&#x27;</span> ], <span class="hljs-function">(<span class="hljs-params">s</span>) =&gt;</span> s.<span class="hljs-title function_">toUpperCase</span>())
+
+  <span class="hljs-comment">// Get</span>
+  .<span class="hljs-title function_">getIn</span>([<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;profile&#x27;</span>, <span class="hljs-string">&#x27;name&#x27;</span>]) <span class="hljs-comment">// &#x27;JACK&#x27;</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Curl cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Curl cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\curl.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Options</b>: <a href="#options">Options</a>, <a href="#request">Request</a>, <a href="#data">Data</a>, <a href="#headers">Headers</a>, <a href="#ssl">SSL</a><br>
+<a href="#examples">Examples</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="options">Options</h2>
+<h3 id="options">Options</h3>
+
+<pre><code class="bash">-o &lt;file&gt;    <span class="hljs-comment"># --output: write to file</span>
+-u user:pass <span class="hljs-comment"># --user: Authentication</span>
+</code></pre>
+
+<pre><code class="bash">-v           <span class="hljs-comment"># --verbose</span>
+-vv          <span class="hljs-comment"># Even more verbose</span>
+-s           <span class="hljs-comment"># --silent</span>
+</code></pre>
+
+<pre><code class="bash">-i           <span class="hljs-comment"># --include: Include the HTTP-header in the output</span>
+-I           <span class="hljs-comment"># --head: headers only</span>
+</code></pre>
+<h3 id="request">Request</h3>
+
+<pre><code class="bash">-X POST          <span class="hljs-comment"># --request</span>
+-L               <span class="hljs-comment"># follow link if page redirects</span>
+-F                  <span class="hljs-comment"># --form: HTTP POST data for multipart/form-data</span>
+</code></pre>
+<h3 id="data">Data</h3>
+
+<pre><code class="bash">-d <span class="hljs-string">&#x27;data&#x27;</span>    <span class="hljs-comment"># --data: HTTP post data, URL encoded (eg, status=&quot;Hello&quot;)</span>
+-d @file     <span class="hljs-comment"># --data via file</span>
+-G           <span class="hljs-comment"># --get: send -d data via get</span>
+</code></pre>
+<h3 id="headers">Headers</h3>
+
+<pre><code class="bash">-A &lt;str&gt;         <span class="hljs-comment"># --user-agent</span>
+-b name=val      <span class="hljs-comment"># --cookie</span>
+-b FILE          <span class="hljs-comment"># --cookie</span>
+-H <span class="hljs-string">&quot;X-Foo: y&quot;</span>    <span class="hljs-comment"># --header</span>
+--compressed     <span class="hljs-comment"># use deflate/gzip</span>
+</code></pre>
+<h3 id="ssl">SSL</h3>
+
+<pre><code class="bash">    --cacert &lt;file&gt;
+    --capath &lt;dir&gt;
+</code></pre>
+
+<pre><code class="bash">-E, --cert &lt;cert&gt;     <span class="hljs-comment"># --cert: Client cert file</span>
+    --cert-type       <span class="hljs-comment"># der/pem/eng</span>
+-k, --insecure        <span class="hljs-comment"># for self-signed certs</span>
+</code></pre>
+<h2 id="examples">Examples</h2>
+
+<pre><code class="bash"><span class="hljs-comment"># Post data:</span>
+curl -d password=x http://x.com/y
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># Auth/data:</span>
+curl -u user:pass -d status=<span class="hljs-string">&quot;Hello&quot;</span> http://twitter.com/statuses/update.xml
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># multipart file upload</span>
+curl -v -include --form key1=value1 --form upload=@localfilename URL
+
+<span class="hljs-comment"># multipart form: send data from text field and upload file</span>
+curl -F person=anonymous -F secret=@file.txt http://example.com/submit.cgi
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># Use Curl to Check if a remote resource is available</span>
+<span class="hljs-comment"># details: https://matthewsetter.com/check-if-file-is-available-with-curl/</span>
+curl -o /dev/null --silent -Iw <span class="hljs-string">&quot;%{http_code}&quot;</span> https://example.com/my.remote.tarball.gz
+</code></pre>
+
+</div>
+</body>  
+</html>

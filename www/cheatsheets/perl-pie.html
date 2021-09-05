@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Perl-pie cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Perl-pie cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\perl-pie.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#search-and-replace">Search and replace</a>, <a href="#back-referencing">Back-referencing</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="search-and-replace">Search and replace</h3>
+
+<pre><code class="sh">perl -p -i -e <span class="hljs-string">&#x27;s/hello/hola/g&#x27;</span> *.txt
+</code></pre>
+<h3 id="back-referencing">Back-referencing</h3>
+<p>Use <code>\1</code> et al.</p>
+
+<pre><code class="sh"><span class="hljs-comment"># &#x27;@include align-items(center);&#x27; =&gt; &#x27;align-items: center;&#x27;</span>
+perl -p -i -e <span class="hljs-string">&quot;s/\@include (align-items)\((.*)\);/\1: \2;/g&quot;</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

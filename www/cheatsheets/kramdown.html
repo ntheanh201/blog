@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kramdown cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Kramdown cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\kramdown.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#configuration">Configuration</a>, <a href="#for-jekyll-gh-pages-">For jekyll (gh-pages)</a>, <a href="#footnotes-kramdown-">Footnotes (Kramdown)</a>, <a href="#abbreviations-kramdown-">Abbreviations (Kramdown)</a>, <a href="#classes-and-ids-kramdown-">Classes and IDs (Kramdown)</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="configuration">Configuration</h3>
+
+<ul>
+<li><code>parse_block_html</code> - process kramdown syntax inside blocks</li>
+<li><code>parse_span_html</code> - process kramdown syntax inside inlines</li>
+<li><code>html_to_native</code> - convert html elements to native elements</li>
+</ul>
+<p>For the GFM parser:</p>
+
+<ul>
+<li><code>hard_wrap</code></li>
+</ul>
+<p><a href="http://kramdown.gettalong.org/parser/gfm.html">http://kramdown.gettalong.org/parser/gfm.html</a></p>
+<h3 id="for-jekyll-gh-pages-">For jekyll (gh-pages)</h3>
+
+<pre><code><span class="hljs-meta"># _config.yml</span>
+<span class="hljs-symbol">markdown:</span> kramdown
+<span class="hljs-symbol">kramdown:</span>
+<span class="hljs-symbol">  input:</span> GFM
+</code></pre>
+<h3 id="footnotes-kramdown-">Footnotes (Kramdown)</h3>
+
+<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">some</span> <span class="hljs-type">text</span>.[^<span class="hljs-number">1</span>]. Other <span class="hljs-type">text</span>.[^footnote].
+
+[^<span class="hljs-number">1</span>]: <span class="hljs-keyword">Some</span> *crazy* footnote definition.
+</code></pre>
+<h3 id="abbreviations-kramdown-">Abbreviations (Kramdown)</h3>
+
+<pre><code>This <span class="hljs-keyword">is</span> <span class="hljs-keyword">some</span> <span class="hljs-type">text</span> <span class="hljs-keyword">not</span> written <span class="hljs-keyword">in</span> HTML but <span class="hljs-keyword">in</span> another <span class="hljs-keyword">language</span>!
+
+*[another <span class="hljs-keyword">language</span>]: It<span class="hljs-string">&#x27;s called Markdown
+*[HTML]: HyperTextMarkupLanguage</span>
+</code></pre>
+<h3 id="classes-and-ids-kramdown-">Classes and IDs (Kramdown)</h3>
+
+<pre><code>A simple <span class="hljs-keyword">paragraph</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">an</span> ID attribute.
+
+
+&gt; A blockquote <span class="hljs-keyword">with</span> <span class="hljs-keyword">a</span> title
+
+
+
+*  This <span class="hljs-keyword">item</span> has <span class="hljs-keyword">the</span> class <span class="hljs-string">&quot;cls&quot;</span>
+
+
+    Some code here
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://kramdown.gettalong.org/syntax.html">http://kramdown.gettalong.org/syntax.html</a></li>
+<li><a href="http://kramdown.gettalong.org/parser/kramdown.html">http://kramdown.gettalong.org/parser/kramdown.html</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

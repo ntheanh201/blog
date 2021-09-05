@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ffmpeg cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ffmpeg cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ffmpeg.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#common-switches">Common switches</a>, <a href="#bitrate">Bitrate</a>, <a href="#video">Video</a>, <a href="#audio">Audio</a><br>
+<b>Example</b>: <a href="#ringtone-conversion-using-ffmpeg">Ringtone conversion using ffmpeg</a>, <a href="#to-web">To web</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="common-switches">Common switches</h3>
+
+<pre><code class="bash">-codecs          <span class="hljs-comment"># list codecs</span>
+-c:v             <span class="hljs-comment"># video codec (-vcodec) - &#x27;copy&#x27; to copy stream</span>
+-c:a             <span class="hljs-comment"># audio codec (-acodec)</span>
+</code></pre>
+
+<pre><code class="bash">-fs SIZE         <span class="hljs-comment"># limit file size (bytes)</span>
+</code></pre>
+<h3 id="bitrate">Bitrate</h3>
+
+<pre><code class="bash">-b:v 1M          <span class="hljs-comment"># video bitrate (1M = 1Mbit/s)</span>
+-b:a 1M          <span class="hljs-comment"># audio bitrate</span>
+</code></pre>
+<h3 id="video">Video</h3>
+
+<pre><code class="bash">-aspect RATIO    <span class="hljs-comment"># aspect ratio (4:3, 16:9, or 1.25)</span>
+-r RATE          <span class="hljs-comment"># frame rate per sec</span>
+-s WIDTHxHEIGHT  <span class="hljs-comment"># frame size</span>
+-vn              <span class="hljs-comment"># no video</span>
+</code></pre>
+<h3 id="audio">Audio</h3>
+
+<pre><code class="bash">-aq QUALITY      <span class="hljs-comment"># audio quality (codec-specific)</span>
+-ar 44100        <span class="hljs-comment"># audio sample rate (hz)</span>
+-ac 1            <span class="hljs-comment"># audio channels (1=mono, 2=stereo)</span>
+-an              <span class="hljs-comment"># no audio</span>
+-vol N           <span class="hljs-comment"># volume (256=normal)</span>
+</code></pre>
+<h2 id="example">Example</h2>
+<h3 id="ringtone-conversion-using-ffmpeg">Ringtone conversion using ffmpeg</h3>
+
+<pre><code class="bash">ffmpeg -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r
+</code></pre>
+<h3 id="to-web">To web</h3>
+
+<pre><code class="bash"><span class="hljs-comment"># no audio</span>
+ffmpeg -i input.mov -vcodec h264   -an -strict -2 output.mp4
+ffmpeg -i input.mov -vcodec libvpx -an output.webm
+</code></pre>
+
+<pre><code class="bash">ffmpeg -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4
+ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
+</code></pre>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;320&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;240&quot;</span> <span class="hljs-attr">controls</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;movie.mp4&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;video/mp4&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;movie.webm&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;video/ogg&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

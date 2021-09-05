@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Middleman 3 cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Middleman 3 cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\middleman.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#compass-config">Compass config</a>, <a href="#config">Config</a>, <a href="#gems">Gems</a>, <a href="#page-command">Page command</a>, <a href="#helpers">Helpers</a>, <a href="#directories">Directories</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<p><strong>NB:</strong> This is for Middleman 3, not Middleman 4+.</p>
+<h3 id="compass-config">Compass config</h3>
+
+<pre><code>compass_config <span class="hljs-keyword">do</span> |config|
+  config.output_style = :compact
+end
+</code></pre>
+<h3 id="config">Config</h3>
+
+<pre><code><span class="hljs-comment"># Automatic image dimensions on image_tag helper</span>
+<span class="hljs-built_in">activate</span> :automatic_image_sizes
+</code></pre>
+<h3 id="gems">Gems</h3>
+
+<pre><code><span class="hljs-comment"># Susy grids in Compass</span>
+<span class="hljs-comment"># First: gem install compass-susy-plugin</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;susy&#x27;</span>
+
+<span class="hljs-comment"># CodeRay syntax highlighting in Haml</span>
+<span class="hljs-comment"># First: gem install haml-coderay</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;haml-coderay&#x27;</span>
+
+<span class="hljs-comment"># CoffeeScript filters in Haml</span>
+<span class="hljs-comment"># First: gem install coffee-filter</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;coffee-filter&#x27;</span>
+</code></pre>
+<h3 id="page-command">Page command</h3>
+
+<pre><code><span class="hljs-comment"># With no layout</span>
+page <span class="hljs-string">&quot;/path/to/file.html&quot;</span>, <span class="hljs-symbol">:layout</span> =&gt; <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment"># With alternative layout</span>
+page <span class="hljs-string">&quot;/path/to/file.html&quot;</span>, <span class="hljs-symbol">:layout</span> =&gt; <span class="hljs-symbol">:otherlayout</span>
+
+<span class="hljs-comment"># A path which all have the same layout</span>
+with_layout <span class="hljs-symbol">:admin</span> <span class="hljs-keyword">do</span>
+  page <span class="hljs-string">&quot;/admin/*&quot;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># Proxy (fake) files</span>
+page <span class="hljs-string">&quot;/this-page-has-no-template.html&quot;</span>, <span class="hljs-symbol">:proxy</span> =&gt; <span class="hljs-string">&quot;/template-file.html&quot;</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-variable">@which_fake_page</span> = <span class="hljs-string">&quot;Rendering a fake page with a variable&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="helpers">Helpers</h3>
+
+<pre><code>helpers <span class="hljs-keyword">do</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">some_helper</span></span>
+    <span class="hljs-string">&quot;Helping&quot;</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="directories">Directories</h3>
+
+<pre><code><span class="hljs-built_in">set</span> :css_dir, <span class="hljs-string">&quot;alternative_css_directory&quot;</span>
+<span class="hljs-built_in">set</span> :js_dir, <span class="hljs-string">&quot;alternative_js_directory&quot;</span>
+<span class="hljs-built_in">set</span> :images_dir, <span class="hljs-string">&quot;alternative_image_directory&quot;</span>
+</code></pre>
+<h1 id="build-specific-configuration">Build-specific configuration</h1>
+
+<pre><code>configure <span class="hljs-symbol">:build</span> <span class="hljs-keyword">do</span>
+  activate <span class="hljs-symbol">:minify_css</span>
+  activate <span class="hljs-symbol">:minify_javascript</span>
+
+  <span class="hljs-comment"># Enable cache buster</span>
+  activate <span class="hljs-symbol">:cache_buster</span>
+
+  <span class="hljs-comment"># Use relative URLs</span>
+  activate <span class="hljs-symbol">:relative_assets</span>
+
+  <span class="hljs-comment"># Compress PNGs after build</span>
+  <span class="hljs-comment"># First: gem install middleman-smusher</span>
+  <span class="hljs-comment"># require &quot;middleman-smusher&quot;</span>
+  activate <span class="hljs-symbol">:smusher</span>
+
+  <span class="hljs-comment"># Or use a different image path</span>
+  set <span class="hljs-symbol">:http_path</span>, <span class="hljs-string">&quot;/Content/images/&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

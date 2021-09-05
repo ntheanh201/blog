@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Moment.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Moment.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\moment.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#parsing">Parsing</a>, <a href="#formatting">Formatting</a>, <a href="#add">Add</a>, <a href="#internationalization">Internationalization</a><br>
+<b>References</b>: <a href="#alternatives">Alternatives</a>, <a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="parsing">Parsing</h3>
+
+<pre><code class="js">m = <span class="hljs-title function_">moment</span>(<span class="hljs-string">&#x27;2013-03-01&#x27;</span>, <span class="hljs-string">&#x27;YYYY-MM-DD&#x27;</span>)
+</code></pre>
+<p>This parses the given date using the given format. Returns a moment object.</p>
+<h3 id="formatting">Formatting</h3>
+
+<pre><code class="js">m.<span class="hljs-title function_">format</span>()            <span class="hljs-comment">// &quot;2013-03-01T00:00:00+01:00&quot;</span>
+m.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;dddd&#x27;</span>)      <span class="hljs-comment">// &quot;Friday&quot;</span>
+m.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;MMM Do YY&#x27;</span>) <span class="hljs-comment">// &quot;Mar 1st 13&quot;</span>
+m.<span class="hljs-title function_">fromNow</span>()           <span class="hljs-comment">// &quot;7 years ago&quot;</span>
+m.<span class="hljs-title function_">calendar</span>()          <span class="hljs-comment">// &quot;03/01/2013&quot;</span>
+</code></pre>
+<h3 id="add">Add</h3>
+
+<pre><code class="js">m.<span class="hljs-title function_">add</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;day&#x27;</span>)
+m.<span class="hljs-title function_">subtract</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;days&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">m.<span class="hljs-title function_">startOf</span>(<span class="hljs-string">&#x27;day&#x27;</span>)
+m.<span class="hljs-title function_">endOf</span>(<span class="hljs-string">&#x27;day&#x27;</span>)
+m.<span class="hljs-title function_">startOf</span>(<span class="hljs-string">&#x27;hour&#x27;</span>)
+</code></pre>
+<h3 id="internationalization">Internationalization</h3>
+
+<pre><code class="js">.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;L&#x27;</span>)      <span class="hljs-comment">// 06/09/2014</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;l&#x27;</span>)      <span class="hljs-comment">// 6/9/2014</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;LL&#x27;</span>)     <span class="hljs-comment">// June 9 2014</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;ll&#x27;</span>)     <span class="hljs-comment">// Jun 9 2014</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;LLL&#x27;</span>)    <span class="hljs-comment">// June 9 2014 9:32 PM</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;lll&#x27;</span>)    <span class="hljs-comment">// Jun 9 2014 9:32 PM</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;LLLL&#x27;</span>)   <span class="hljs-comment">// Monday, June 9 2014 9:32 PM</span>
+.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;llll&#x27;</span>)   <span class="hljs-comment">// Mon, Jun 9 2014 9:32 PM</span>
+</code></pre>
+<p>See <a href="./datetime">datetime</a> for more.</p>
+<p>{% include common/moment_format.md title=&quot;Formatting&quot; %}</p>
+<h2 id="references">References</h2>
+<h3 id="alternatives">Alternatives</h3>
+
+<ul>
+<li><a href="https://github.com/you-dont-need/You-Dont-Need-Momentjs">You don&#39;t need Moment.js</a> <em>(github.com)</em></li>
+</ul>
+<h3 id="also-see">Also see</h3>
+
+<ul>
+<li><a href="./datetime">Datetime cheatsheet</a> <em>(devhints.io)</em></li>
+<li><a href="http://momentjs.com/">Moment website</a> <em>(momentjs.com)</em></li>
+<li><a href="http://momentjs.com/docs/">Moment docs</a> <em>(momentjs.com)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

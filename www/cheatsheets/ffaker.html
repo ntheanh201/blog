@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>FFaker cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / FFaker cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ffaker.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>FFaker</b>: <a href="#installing">Installing</a><br>
+<a href="#faker-address">Faker::Address</a><br>
+<a href="#faker-company">Faker::Company</a><br>
+<a href="#faker-education">Faker::Education</a><br>
+<a href="#faker-geolocation">Faker::Geolocation</a><br>
+<a href="#faker-internet">Faker::Internet</a><br>
+<a href="#faker-job">Faker::Job</a><br>
+<a href="#faker-lorem">Faker::Lorem</a><br>
+<a href="#faker-hipsteripsum">Faker::HipsterIpsum</a><br>
+<a href="#faker-htmlipsum">Faker::HTMLIpsum</a><br>
+<a href="#faker-name">Faker::Name</a><br>
+<a href="#faker-phonenumber">Faker::PhoneNumber</a><br>
+<a href="#faker-product">Faker::Product</a><br>
+<a href="#faker-namecn">Faker::NameCN</a><br>
+<a href="#faker-namede">Faker::NameDE</a><br>
+<a href="#faker-nameja">Faker::NameJA</a><br>
+<a href="#faker-nameru">Faker::NameRU</a><br>
+<a href="#faker-namesn">Faker::NameSN</a><br>
+<a href="#faker-phonenumberau">Faker::PhoneNumberAU</a><br>
+<a href="#faker-phonenumbersn">Faker::PhoneNumberSN</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="ffaker">FFaker</h2>
+<h3 id="installing">Installing</h3>
+
+<pre><code class="ruby"><span class="hljs-comment"># gem install ffaker</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;ffaker&#x27;</span>
+</code></pre>
+<h2 id="faker-address">Faker::Address</h2>
+
+<pre><code class="ruby">Faker::Address.city                     <span class="hljs-comment">#=&gt; &quot;Autumnside&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;South Brielleberg&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;West Alvera&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Address.street_name              <span class="hljs-comment">#=&gt; &quot;Greyson Rapid&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Hoppe Grove&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Reichert Lights&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Address.street_address           <span class="hljs-comment">#=&gt; &quot;98786 Neal Motorway&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;6619 Yvonne Dale&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;6143 Bailey Plaza&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Address.secondary_address        <span class="hljs-comment">#=&gt; &quot;Suite 560&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Apt. 332&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Apt. 411&quot;</span>
+</code></pre>
+<h2 id="faker-company">Faker::Company</h2>
+
+<pre><code class="ruby">Faker::Company.name                     <span class="hljs-comment">#=&gt; &quot;Pouros-Ondricka&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Ward Group&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Walter-Romaguera&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Company.suffix                   <span class="hljs-comment">#=&gt; &quot;and Sons&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;LLC&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;and Sons&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Company.catch_phrase             <span class="hljs-comment">#=&gt; &quot;Versatile mobile help-desk&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Extended fresh-thinking utilisation&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Reactive coherent flexibility&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Company.bs                       <span class="hljs-comment">#=&gt; &quot;extend one-to-one convergence&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;architect 24/7 interfaces&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;revolutionize viral vortals&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Company.position                 <span class="hljs-comment">#=&gt; &quot;General Corporate President&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Executive Department Consultant&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Associate Director&quot;</span>
+</code></pre>
+<h2 id="faker-education">Faker::Education</h2>
+
+<pre><code class="ruby">Faker::Education.school                 <span class="hljs-comment">#=&gt; &quot;Larkwood Institution&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Whiteshire School&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;California International College&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Education.degree                 <span class="hljs-comment">#=&gt; &quot;Bachelor of Science in Political Administration&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Doctor of Medicine in Marketing Economics&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Bachelor of Music in Marketing Development&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Education.degree_short           <span class="hljs-comment">#=&gt; &quot;MD in Industrial Arts&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;DPhil in Social Management&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;AB in Political Science&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Education.major                  <span class="hljs-comment">#=&gt; &quot;Financial Philosophy&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Social Arts&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Business Accountancy&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Education.school_name            <span class="hljs-comment">#=&gt; &quot;Larkfield&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Northshire&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Lakepoint&quot;</span>
+</code></pre>
+<h2 id="faker-geolocation">Faker::Geolocation</h2>
+
+<pre><code class="ruby">Faker::Geolocation.lat                  <span class="hljs-comment">#=&gt; 40.89505</span>
+                                        <span class="hljs-comment">#=&gt; 41.77117</span>
+                                        <span class="hljs-comment">#=&gt; 41.022921</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Geolocation.lng                  <span class="hljs-comment">#=&gt; -115.120716573</span>
+                                        <span class="hljs-comment">#=&gt; -118.427610513239</span>
+                                        <span class="hljs-comment">#=&gt; -72.204989</span>
+</code></pre>
+<h2 id="faker-internet">Faker::Internet</h2>
+
+<pre><code class="ruby">Faker::Internet.email                   <span class="hljs-comment">#=&gt; &quot;dayna<span class="hljs-doctag">@auer</span>.name&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;joy<span class="hljs-doctag">@nienowbradtke</span>.info&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;bernhard<span class="hljs-doctag">@wyman</span>.ca&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.user_name               <span class="hljs-comment">#=&gt; &quot;emory&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;janelle_schamberger&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;brigitte.dooley&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.domain_name             <span class="hljs-comment">#=&gt; &quot;langworth.biz&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;corkery.info&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;schroeder.uk&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.disposable_email        <span class="hljs-comment">#=&gt; &quot;barrett_schroeder<span class="hljs-doctag">@spamherelots</span>.com&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;nicholaus<span class="hljs-doctag">@suremail</span>.info&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;gladys<span class="hljs-doctag">@safetymail</span>.info&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.free_email              <span class="hljs-comment">#=&gt; &quot;lemuel<span class="hljs-doctag">@yahoo</span>.com&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;nickolas.gulgowski<span class="hljs-doctag">@gmail</span>.com&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;isaac_ankunding<span class="hljs-doctag">@gmail</span>.com&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.domain_word             <span class="hljs-comment">#=&gt; &quot;purdykutch&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;sauer&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;trantowmaggio&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Internet.domain_suffix           <span class="hljs-comment">#=&gt; &quot;us&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;info&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;biz&quot;</span>
+</code></pre>
+<h2 id="faker-job">Faker::Job</h2>
+
+<pre><code class="ruby">Faker::Job.title                        <span class="hljs-comment">#=&gt; &quot;Future Data Assistant&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Product Division Technician&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Product Research Developer&quot;</span>
+</code></pre>
+<h2 id="faker-lorem">Faker::Lorem</h2>
+
+<pre><code class="ruby">Faker::Lorem.word                       <span class="hljs-comment">#=&gt; &quot;sint&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;sit&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;omnis&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.sentence                   <span class="hljs-comment">#=&gt; &quot;Expedita et aspernatur eum sit ipsam culpa.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Rem sunt voluptatem laborum dolores.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Ad explicabo atque culpa.&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.paragraph                  <span class="hljs-comment">#=&gt; &quot;Quidem deserunt qui atque labore sunt quis laborum. Et iste</span>
+                                        <span class="hljs-comment">#    laudantium nobis adipisci delectus. Quod vero repudiandae m</span>
+                                        <span class="hljs-comment">#    agni repellat totam. Id ullam a aperiam et laboriosam. Volup</span>
+                                        <span class="hljs-comment">#    tas aut perspiciatis o...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Dolor et quae quisquam placeat. Accusantium quidem totam no</span>
+                                        <span class="hljs-comment">#    n et deleniti accusamus hic. Iure quidem inventore molestiae</span>
+                                        <span class="hljs-comment">#    harum magni dolor. Deleniti ex a voluptas nihil temporibus.</span>
+                                        <span class="hljs-comment">#    &quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Fugiat sapiente vero voluptatum natus assumenda quam beatae</span>
+                                        <span class="hljs-comment">#    in. Nemo velit incidunt dolor perspiciatis. Ipsum minima oc</span>
+                                        <span class="hljs-comment">#    caecati est laudantium ducimus libero. Et fugit et adipisci</span>
+                                        <span class="hljs-comment">#    molestias. Cupiditate ...&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.words(<span class="hljs-number">4</span>)                   <span class="hljs-comment">#=&gt; [&quot;repellat&quot;, &quot;quos&quot;, &quot;amet&quot;, &quot;voluptatem&quot;]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;porro&quot;, &quot;molestias&quot;, &quot;ut&quot;, &quot;qui&quot;]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;blanditiis&quot;, &quot;soluta&quot;, &quot;enim&quot;, &quot;fugit&quot;]</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.sentence(<span class="hljs-number">5</span>)                <span class="hljs-comment">#=&gt; &quot;Laborum sint voluptate voluptatem rem doloremque et incidun</span>
+                                        <span class="hljs-comment">#    t itaque.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Autem atque eum laborum alias perspiciatis debitis suscipit</span>
+                                        <span class="hljs-comment">#    deserunt sint.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Quaerat nam consectetur eum dolor deleniti tempore doloremq</span>
+                                        <span class="hljs-comment">#    ue et aspernatur.&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.sentences(<span class="hljs-number">3</span>)               <span class="hljs-comment">#=&gt; [&quot;Culpa debitis architecto est.&quot;, &quot;Quo et voluptatem distinc</span>
+                                        <span class="hljs-comment">#    tio repellendus qui cupiditate.&quot;, &quot;Quo repellendus ut eius.&quot;</span>
+                                        <span class="hljs-comment">#    ]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;Quos nihil dolorem quidem maxime.&quot;, &quot;Expedita ab veniam do</span>
+                                        <span class="hljs-comment">#    lorum at et placeat iure.&quot;, &quot;In perspiciatis cupiditate amet</span>
+                                        <span class="hljs-comment">#    non saepe consequatur molestias minus.&quot;]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;Quasi velit et voluptas est.&quot;, &quot;Dolores ut dolor aut repel</span>
+                                        <span class="hljs-comment">#    lat fuga minima sed quia.&quot;, &quot;Eum id minus atque ex modi.&quot;]</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Lorem.paragraphs(<span class="hljs-number">3</span>)              <span class="hljs-comment">#=&gt; [&quot;Iusto mollitia sequi nam perspiciatis fuga aut. Modi moles</span>
+                                        <span class="hljs-comment">#    tiae consectetur architecto et dolorem aut perferendis. Cumq</span>
+                                        <span class="hljs-comment">#    ue rerum aliquam sapiente. Dolorum quo reiciendis nemo vero.</span>
+                                        <span class="hljs-comment">#    Quo earum explicabo pariatur.&quot;, &quot;Possimus omnis accusamus f</span>
+                                        <span class="hljs-comment">#    uga. Harum sint facere sed dolor itaque quia. Ullam optio at</span>
+                                        <span class="hljs-comment">#    que vel nihil facilis quidem accusantium sint.&quot;, &quot;Itaque per</span>
+                                        <span class="hljs-comment">#    ferendis saepe pariatur maxime expedita laborum qui. Ea nemo</span>
+                                        <span class="hljs-comment">#    dolor aut. In sed sit minus itaque sit.&quot;]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;Ducimus non quo qui doloremque aperiam aspernatur. Consequ</span>
+                                        <span class="hljs-comment">#    atur id qui sit occaecati. Incidunt tempora quia et. Esse vo</span>
+                                        <span class="hljs-comment">#    luptatem debitis similique ab totam sit. Illo neque vel face</span>
+                                        <span class="hljs-comment">#    re maxime voluptatum non voluptatem.&quot;, &quot;Aut eveniet consequa</span>
+                                        <span class="hljs-comment">#    tur laudantium veniam qui dolores. Provident pariatur perspi</span>
+                                        <span class="hljs-comment">#    ciatis id. Eum iste id quasi. Esse nihil quis rerum laudanti</span>
+                                        <span class="hljs-comment">#    um aliquam molestiae eum tempora.&quot;, &quot;Quia porro sint numquam</span>
+                                        <span class="hljs-comment">#    qui. Ut sint reiciendis quis pariatur veniam nesciunt optio</span>
+                                        <span class="hljs-comment">#    . Officia unde fugit distinctio dolorem voluptatem incidunt.</span>
+                                        <span class="hljs-comment">#    Ex omnis sit et non aut.&quot;]</span>
+                                        <span class="hljs-comment">#=&gt; [&quot;Dicta consequatur sapiente saepe fugiat ut. Necessitatibus</span>
+                                        <span class="hljs-comment">#    enim explicabo qui fugiat occaecati expedita quis. Quo iust</span>
+                                        <span class="hljs-comment">#    o magnam facere nihil earum.&quot;, &quot;In deleniti explicabo veniam</span>
+                                        <span class="hljs-comment">#    dolorem temporibus enim. Delectus exercitationem ipsum dolo</span>
+                                        <span class="hljs-comment">#    r modi. Aut quia voluptas velit sint aperiam sed eveniet.&quot;,</span>
+                                        <span class="hljs-comment">#    &quot;Quo doloribus explicabo ut magnam quasi. Voluptatem debitis</span>
+                                        <span class="hljs-comment">#    quaerat aperiam. Accusantium quis voluptatem dolorem.&quot;]</span>
+</code></pre>
+<h2 id="faker-hipsteripsum">Faker::HipsterIpsum</h2>
+
+<pre><code class="ruby">Faker::HipsterIpsum.paragraph           <span class="hljs-comment">#=&gt; &quot;Wayfarers mustache thundercats pitchfork messenger bag high</span>
+                                        <span class="hljs-comment">#    life. Beard messenger bag wayfarers squid vinyl letterpress</span>
+                                        <span class="hljs-comment">#    party iphone jean shorts. Lomo irony before they sold out e</span>
+                                        <span class="hljs-comment">#    thical wayfarers scene...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Tofu stumptown cliche sartorial vhs letterpress keffiyeh wi</span>
+                                        <span class="hljs-comment">#    lliamsburg. Whatever jean shorts williamsburg lomo salvia fo</span>
+                                        <span class="hljs-comment">#    od truck 8-bit. Cosby sweater portland artisan wayfarers vhs</span>
+                                        <span class="hljs-comment">#    photo booth.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Skateboard fanny pack wes anderson sartorial cred gluten-fr</span>
+                                        <span class="hljs-comment">#    ee vinyl marfa locavore. Messenger bag master cleanse mlkshk</span>
+                                        <span class="hljs-comment">#    vegan thundercats beard wes anderson brunch. Helvetica mess</span>
+                                        <span class="hljs-comment">#    enger bag lo-fi four l...&quot;</span>
+</code></pre>
+<h2 id="faker-htmlipsum">Faker::HTMLIpsum</h2>
+
+<pre><code class="ruby">Faker::HTMLIpsum.body                   <span class="hljs-comment">#=&gt; &quot;&lt;h1&gt;Exercitationem et&lt;/h1&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Eligendi&lt;/t</span>
+                                        <span class="hljs-comment">#    h&gt;&lt;th&gt;Vel&lt;/th&gt;&lt;th&gt;Sed&lt;/th&gt;&lt;th&gt;At&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr</span>
+                                        <span class="hljs-comment">#    &gt;&lt;...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;&lt;h1&gt;Excepturi sequi&lt;/h1&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Quam&lt;/th&gt;&lt;th&gt;</span>
+                                        <span class="hljs-comment">#    Eius&lt;/th&gt;&lt;th&gt;Quibusdam&lt;/th&gt;&lt;th&gt;Totam&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody</span>
+                                        <span class="hljs-comment">#    &gt;&lt;tr&gt;...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;&lt;h1&gt;Iusto voluptatem&lt;/h1&gt;&lt;p&gt;Laborum velit ducimus eius. Mol</span>
+                                        <span class="hljs-comment">#    estiae id vel ipsam a accusantium et ut. Sunt et fugiat qui</span>
+                                        <span class="hljs-comment">#    sint ab quia. Eum ut molestiae cumque molestiae error volupt</span>
+                                        <span class="hljs-comment">#    ates. Ipsum molestiae ...&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::HTMLIpsum.table                  <span class="hljs-comment">#=&gt; &quot;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Voluptatem&lt;/th&gt;&lt;th&gt;Porro&lt;/th&gt;&lt;th&gt;Tene</span>
+                                        <span class="hljs-comment">#    tur&lt;/th&gt;&lt;th&gt;Facilis&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Numquam&lt;</span>
+                                        <span class="hljs-comment">#    /t...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Impedit&lt;/th&gt;&lt;th&gt;Voluptatem&lt;/th&gt;&lt;th&gt;Qu</span>
+                                        <span class="hljs-comment">#    i&lt;/th&gt;&lt;th&gt;Est&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Nihil&lt;/td&gt;...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Iste&lt;/th&gt;&lt;th&gt;Et&lt;/th&gt;&lt;th&gt;Sequi&lt;/th&gt;&lt;th</span>
+                                        <span class="hljs-comment">#    &gt;Et&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Blanditiis&lt;/td&gt;...&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::HTMLIpsum.fancy_string           <span class="hljs-comment">#=&gt; &quot;&lt;a href=\&quot;#distinctio\&quot; title=\&quot;Tenetur explicabo\&quot;&gt;Velit e</span>
+                                        <span class="hljs-comment">#    st&lt;/a&gt; &lt;code&gt;aperiam reiciendis&lt;/code&gt; Consectetur aut hic e</span>
+                                        <span class="hljs-comment">#    um quisquam. Dolore aut rerum dolor accusantium ab repellend</span>
+                                        <span class="hljs-comment">#    us magni. Deserunt optio o...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Et vel similique ullam accusantium laboriosam. Sit ut ea to</span>
+                                        <span class="hljs-comment">#    tam. Iusto praesentium ut molestiae. Voluptatem laudantium a</span>
+                                        <span class="hljs-comment">#    ut qui adipisci. Est saepe repellendus qui blanditiis volupt</span>
+                                        <span class="hljs-comment">#    ates sed odit ullam. &lt;...&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Neque et omnis ipsam ad culpa maiores inventore. Laborum cu</span>
+                                        <span class="hljs-comment">#    m est fugit libero repellendus vero. Modi pariatur sunt tene</span>
+                                        <span class="hljs-comment">#    tur soluta inventore ratione. Iste consequuntur quia omnis n</span>
+                                        <span class="hljs-comment">#    umquam excepturi quod ...&quot;</span>
+</code></pre>
+<h2 id="faker-name">Faker::Name</h2>
+
+<pre><code class="ruby">Faker::Name.name                        <span class="hljs-comment">#=&gt; &quot;Trevion Herman V&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Aracely Balistreri&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Daphnee Terry Sr.&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Name.first_name                  <span class="hljs-comment">#=&gt; &quot;Aliza&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Joseph&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Orland&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Name.last_name                   <span class="hljs-comment">#=&gt; &quot;Hand&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Macejkovic&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Heller&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Name.prefix                      <span class="hljs-comment">#=&gt; &quot;Dr.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Ms.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Mr.&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Name.suffix                      <span class="hljs-comment">#=&gt; &quot;I&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;III&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;DDS&quot;</span>
+</code></pre>
+<h2 id="faker-phonenumber">Faker::PhoneNumber</h2>
+
+<pre><code class="ruby">Faker::PhoneNumber.phone_number         <span class="hljs-comment">#=&gt; &quot;335-364-4549 x430&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;040-278-4021 x753&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;420.645.4382&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::PhoneNumber.short_phone_number   <span class="hljs-comment">#=&gt; &quot;473-412-3192&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;353-084-1297&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;080-546-2356&quot;</span>
+</code></pre>
+<h2 id="faker-product">Faker::Product</h2>
+
+<pre><code class="ruby">Faker::Product.brand                    <span class="hljs-comment">#=&gt; &quot;Trouffeforge&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;VIG&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;NDZ&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Product.product_name             <span class="hljs-comment">#=&gt; &quot;Air HD Viewer&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;HD Kit&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Air HD Bridge&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Product.product                  <span class="hljs-comment">#=&gt; &quot;Amnix Air HD Tuner&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Panapod Audible Filter&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Phuffe Disc Receiver&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::Product.model                    <span class="hljs-comment">#=&gt; &quot;I-422&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;J89&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;L6&quot;</span>
+</code></pre>
+<h2 id="faker-namecn">Faker::NameCN</h2>
+
+<pre><code class="ruby">Faker::NameCN.name                      <span class="hljs-comment">#=&gt; &quot;姵书虞&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;修男嵇&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;瑜人军&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameCN.last_first                <span class="hljs-comment">#=&gt; &quot;向坚舜&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;疏骏哲&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;秘合雪&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameCN.first_name                <span class="hljs-comment">#=&gt; &quot;佑淑&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;燕谦&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;重生&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameCN.last_name                 <span class="hljs-comment">#=&gt; &quot;释&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;巩&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;麻&quot;</span>
+</code></pre>
+<h2 id="faker-namede">Faker::NameDE</h2>
+
+<pre><code class="ruby">Faker::NameDE.name                      <span class="hljs-comment">#=&gt; &quot;Noelle Schuster&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Bendix Schmid&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Azra Neumann&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameDE.first_name                <span class="hljs-comment">#=&gt; &quot;Victoria&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Lotta&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Mads&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameDE.last_name                 <span class="hljs-comment">#=&gt; &quot;Martin&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Klein&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Walter&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameDE.prefix                    <span class="hljs-comment">#=&gt; &quot;Frau&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Prof.&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Prof.&quot;</span>
+</code></pre>
+<h2 id="faker-nameja">Faker::NameJA</h2>
+
+<pre><code class="ruby">Faker::NameJA.name                      <span class="hljs-comment">#=&gt; &quot;飛鳥田部&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;未杉浦&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;功本間&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameJA.last_first                <span class="hljs-comment">#=&gt; &quot;青木杏子&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;棚原大貴&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;知名翔&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameJA.first_name                <span class="hljs-comment">#=&gt; &quot;巴&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;浩子&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;沙耶&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameJA.last_name                 <span class="hljs-comment">#=&gt; &quot;小栗&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;高江洲&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;友寄&quot;</span>
+</code></pre>
+<h2 id="faker-nameru">Faker::NameRU</h2>
+
+<pre><code class="ruby">Faker::NameRU.name                      <span class="hljs-comment">#=&gt; &quot;Стелла Карнилина&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Евгения Мазовская&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Кузьма Ваиренко&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameRU.last_name                 <span class="hljs-comment">#=&gt; &quot;Манишева&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Тюлева&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Понченко&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameRU.first_name                <span class="hljs-comment">#=&gt; &quot;Артур&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Руслана&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Зинаида&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameRU.patronymic                <span class="hljs-comment">#=&gt; &quot;Мечеславович&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Ионович&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Исаевич&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameRU.name(<span class="hljs-symbol">:male</span>)               <span class="hljs-comment">#=&gt; &quot;Слежиков Роман Всеволодович&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Осип Мугрузин&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Джиджаев Гавриил Леванович&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameRU.name(<span class="hljs-symbol">:female</span>)             <span class="hljs-comment">#=&gt; &quot;Зиядтдинова Полина Людвиговна&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Андреева Тереза Арсеновна&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Дарина Минхазова&quot;</span>
+</code></pre>
+<h2 id="faker-namesn">Faker::NameSN</h2>
+
+<pre><code class="ruby">Faker::NameSN.name_sn                   <span class="hljs-comment">#=&gt; &quot;mame Djaly Mbodj&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Hatab Samy&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Niouma Dramé&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.name_male                 <span class="hljs-comment">#=&gt; &quot;serigne Yakou Diagne&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;serigne Sécouba Diagne&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Sihalébé Badji&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.name_female               <span class="hljs-comment">#=&gt; &quot;Thiomba Niang&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;adjaratou Kiné Panduppy&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Nini Gakou&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.first_name_male           <span class="hljs-comment">#=&gt; &quot;Khoudia&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Sanokho&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Diomaye&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.first_name_female         <span class="hljs-comment">#=&gt; &quot;Assa&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Sahaba&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;Manthita&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.prefix_male               <span class="hljs-comment">#=&gt; &quot;eladji&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;eladji&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;serigne&quot;</span>
+</code></pre>
+
+<pre><code class="ruby">Faker::NameSN.prefix_female             <span class="hljs-comment">#=&gt; &quot;adjaratou&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;adja&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;adja&quot;</span>
+</code></pre>
+<h2 id="faker-phonenumberau">Faker::PhoneNumberAU</h2>
+
+<pre><code class="ruby">Faker::PhoneNumberAU.phone_number       <span class="hljs-comment">#=&gt; &quot;0495 539 191&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;(05) 6838 2406&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;0496 013 652&quot;</span>
+</code></pre>
+<h2 id="faker-phonenumbersn">Faker::PhoneNumberSN</h2>
+
+<pre><code class="ruby">Faker::PhoneNumberSN.phone_number       <span class="hljs-comment">#=&gt; &quot;77-356-93-09&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;33-891-67-75&quot;</span>
+                                        <span class="hljs-comment">#=&gt; &quot;33-886-02-02&quot;</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

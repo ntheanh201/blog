@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>js-model cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / js-model cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\js-model.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#example">Example</a>, <a href="#persistence">Persistence</a>, <a href="#attrs">Attrs</a>, <a href="#collection">Collection</a>, <a href="#events">Events</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="example">Example</h3>
+
+<pre><code class="bash">Project = Model <span class="hljs-string">&quot;project&quot;</span>, -&gt;
+  @extend
+    findByTitle: (title) -&gt; ...
+
+  @include
+    markAsDone: -&gt; ...
+
+  <span class="hljs-comment"># ActiveRecord::Base.include_root_in_json = false</span>
+</code></pre>
+
+<pre><code class="bash">project = Project.find(1)
+project = Project.findByTitle(<span class="hljs-string">&quot;hello&quot;</span>)
+
+project.markAsDone()
+</code></pre>
+<h3 id="persistence">Persistence</h3>
+
+<pre><code class="bash">Project <span class="hljs-string">&quot;hi&quot;</span>, -&gt;
+  @persistence Model.REST, <span class="hljs-string">&quot;/projects&quot;</span>
+  @persistence Model.localStorage
+</code></pre>
+
+<pre><code class="bash">Project.load -&gt;
+  <span class="hljs-comment"># loaded</span>
+</code></pre>
+<h3 id="attrs">Attrs</h3>
+
+<pre><code class="bash">project = new Project(name: <span class="hljs-string">&quot;Hello&quot;</span>)
+
+project.attr(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&quot;Hey&quot;</span>)
+project.attr(<span class="hljs-string">&#x27;name&#x27;</span>)
+
+project.save()
+project.destroy()
+</code></pre>
+<h3 id="collection">Collection</h3>
+
+<pre><code class="bash">Food.add(egg)
+Food.all()
+Food.select (food) -&gt; ...
+Food.first()
+</code></pre>
+
+<pre><code class="bash">Food.find(id)
+</code></pre>
+<h3 id="events">Events</h3>
+
+<pre><code class="bash"><span class="hljs-comment"># Classes</span>
+Project.bind <span class="hljs-string">&quot;add&quot;</span>, (obj) -&gt;
+Project.bind <span class="hljs-string">&quot;remove&quot;</span>, (obj) -&gt;
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># Instances</span>
+project.bind <span class="hljs-string">&quot;update&quot;</span>, -&gt;
+project.bind <span class="hljs-string">&quot;destroy&quot;</span>, -&gt;
+</code></pre>
+
+<pre><code class="bash">project.trigger <span class="hljs-string">&quot;turn_blue&quot;</span>
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://benpickles.github.io/js-model/">http://benpickles.github.io/js-model/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

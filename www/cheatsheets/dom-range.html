@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DOM Range cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / DOM Range cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\dom-range.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Reference</b>: <a href="#creating-ranges">Creating ranges</a><br>
+<b>Methods</b>: <a href="#collapsing">Collapsing</a>, <a href="#operations">Operations</a>, <a href="#string">String</a>, <a href="#read-only-attributes">Read-only attributes</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="reference">Reference</h2>
+<h3 id="creating-ranges">Creating ranges</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> range = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createRange</span>()
+</code></pre>
+<p>See: <a href="https://devdocs.io/dom/document/createrange">https://devdocs.io/dom/document/createrange</a></p>
+<h2 id="methods">Methods</h2>
+
+<pre><code class="js">range
+  .<span class="hljs-title function_">setStart</span>(startNode, startOffset)
+  .<span class="hljs-title function_">setEnd</span>(endNode, endOffset)
+
+  .<span class="hljs-title function_">setStartBefore</span>(node)
+  .<span class="hljs-title function_">setStartAfter</span>(node)
+  .<span class="hljs-title function_">setEndBefore</span>(node)
+  .<span class="hljs-title function_">setEndAfter</span>(node)
+
+  .<span class="hljs-title function_">selectNode</span>(node)
+  .<span class="hljs-title function_">selectNodeContents</span>(node)
+</code></pre>
+<p>See: <a href="https://devdocs.io/dom/range">https://devdocs.io/dom/range</a></p>
+<h3 id="collapsing">Collapsing</h3>
+
+<pre><code class="js">range.<span class="hljs-title function_">collapse</span>() <span class="hljs-comment">// to end (a single point)</span>
+range.<span class="hljs-title function_">collapse</span>(<span class="hljs-literal">true</span>) <span class="hljs-comment">// to start (a single point)</span>
+range.<span class="hljs-property">collapsed</span> <span class="hljs-comment">// true | false</span>
+</code></pre>
+<h3 id="operations">Operations</h3>
+
+<pre><code class="js">range.<span class="hljs-title function_">cloneContents</span>() <span class="hljs-comment">// copy =&gt; DocumentFragment</span>
+range.<span class="hljs-title function_">extractContents</span>() <span class="hljs-comment">// cut  =&gt; DocumentFragment</span>
+range.<span class="hljs-title function_">deleteContents</span>() <span class="hljs-comment">// delete</span>
+</code></pre>
+
+<pre><code class="js">range.<span class="hljs-title function_">insertNode</span>(node)
+</code></pre>
+<h3 id="string">String</h3>
+
+<pre><code class="js">range.<span class="hljs-title function_">toString</span>()
+</code></pre>
+<h3 id="read-only-attributes">Read-only attributes</h3>
+
+<pre><code class="js">range.<span class="hljs-property">collapsed</span> <span class="hljs-comment">//       =&gt; true/false</span>
+range.<span class="hljs-property">startContainer</span> <span class="hljs-comment">//  =&gt; Node</span>
+range.<span class="hljs-property">startOffset</span>
+range.<span class="hljs-property">endContainer</span> <span class="hljs-comment">//    =&gt; Node</span>
+range.<span class="hljs-property">endOffset</span>
+range.<span class="hljs-property">commonAncestorContainer</span> <span class="hljs-comment">// closest of start and end containers</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

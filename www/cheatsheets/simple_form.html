@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SimpleForm cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / SimpleForm cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\simple_form.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#inputs">Inputs</a>, <a href="#adding-a-wrapper">Adding a wrapper</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="inputs">Inputs</h3>
+
+<pre><code class="ruby">&lt;%= f.input <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">required:</span> <span class="hljs-literal">false</span>, <span class="hljs-symbol">autofocus:</span> <span class="hljs-literal">true</span> %&gt;
+&lt;%= f.input <span class="hljs-symbol">:password</span>, <span class="hljs-symbol">required:</span> <span class="hljs-literal">false</span> %&gt;
+&lt;%= f.input <span class="hljs-symbol">:remember_me</span>, <span class="hljs-symbol">as:</span> <span class="hljs-symbol">:boolean</span> %&gt;
+&lt;%= f.button <span class="hljs-symbol">:submit</span>, <span class="hljs-string">&quot;Sign in&quot;</span> %&gt;
+</code></pre>
+<h3 id="adding-a-wrapper">Adding a wrapper</h3>
+
+<pre><code class="ruby">simple_form_for <span class="hljs-variable">@x</span>, <span class="hljs-symbol">wrapper:</span> <span class="hljs-symbol">:small</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

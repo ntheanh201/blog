@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>scp cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / scp cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\scp.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#usage">Usage</a>, <a href="#conditions">Conditions</a>, <a href="#commands">Commands</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="usage">Usage</h3>
+
+<pre><code class="bash">scp &lt;options&gt; source_path destination_path
+</code></pre>
+<h3 id="conditions">Conditions</h3>
+
+<pre><code class="bash">-r      <span class="hljs-comment"># transfer directory </span>
+-v      <span class="hljs-comment"># see the transfer details</span>
+-C      <span class="hljs-comment"># copy files with compression</span>
+-l 800  <span class="hljs-comment"># limit bandwith with 800</span>
+-p      <span class="hljs-comment"># preserving the original attributes of the copied files</span>
+-P      <span class="hljs-comment"># connection port</span>
+-q      <span class="hljs-comment"># hidden the output</span>
+</code></pre>
+<h3 id="commands">Commands</h3>
+
+<pre><code class="bash">$ scp file user@host:/path/to/file                        <span class="hljs-comment"># copying a file to the remote system using scp command</span>
+$ scp user@host:/path/to/file /<span class="hljs-built_in">local</span>/path/to/file         <span class="hljs-comment"># copying a file from the remote system using scp command</span>
+</code></pre>
+
+<pre><code class="bash">$ scp file1 file2 user@host:/path/to/directory            <span class="hljs-comment"># copying multiple files using scp command</span>
+$ scp -r /path/to/directory user@host:/path/to/directory  <span class="hljs-comment"># Copying an entire directory with scp command</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

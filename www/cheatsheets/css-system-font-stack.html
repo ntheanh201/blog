@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CSS system fonts cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / CSS system fonts cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\css-system-font-stack.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#system-fonts">System fonts</a>, <a href="#explanation">Explanation</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="system-fonts">System fonts</h3>
+
+<pre><code class="css"><span class="hljs-attribute">font-family</span>: -apple-system, BlinkMacSystemFont,
+    <span class="hljs-string">&quot;Segoe UI&quot;</span>, <span class="hljs-string">&quot;Roboto&quot;</span>, <span class="hljs-string">&quot;Oxygen&quot;</span>,
+    <span class="hljs-string">&quot;Ubuntu&quot;</span>, <span class="hljs-string">&quot;Cantarell&quot;</span>, <span class="hljs-string">&quot;Fira Sans&quot;</span>,
+    <span class="hljs-string">&quot;Droid Sans&quot;</span>, <span class="hljs-string">&quot;Helvetica Neue&quot;</span>, sans-serif;
+</code></pre>
+<p>This uses whatever system font is available. See: <a href="https://medium.design/system-shock-6b1dc6d6596f?gi=90078e194544">System shock - Designing Medium</a> <em>(medium.com)</em></p>
+<h3 id="explanation">Explanation</h3>
+
+<table>
+<thead>
+<tr>
+<th>Font</th>
+<th>OS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-apple-system</code></td>
+<td>OS X (10.11+), iOS (9+)</td>
+</tr>
+<tr>
+<td><code>BlinkMacSystemFont</code></td>
+<td>OS X, Chrome</td>
+</tr>
+<tr>
+<td><code>Segoe UI</code></td>
+<td>Windows</td>
+</tr>
+<tr>
+<td><code>Roboto</code></td>
+<td>Android 4.0+</td>
+</tr>
+<tr>
+<td><code>Oxygen</code></td>
+<td>Linux, KDE</td>
+</tr>
+<tr>
+<td><code>Ubuntu</code></td>
+<td>Linux, Ubuntu</td>
+</tr>
+<tr>
+<td><code>Cantarell</code></td>
+<td>Linux, GNOME</td>
+</tr>
+<tr>
+<td><code>Fira Sans</code></td>
+<td>Firefox OS</td>
+</tr>
+<tr>
+<td><code>Droid Sans</code></td>
+<td>Android (until 3.2)</td>
+</tr>
+<tr>
+<td><code>Helvetica Neue</code></td>
+<td>OS X (10.9)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</body>  
+</html>

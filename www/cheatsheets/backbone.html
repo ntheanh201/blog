@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Backbone.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Backbone.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\backbone.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#binding-events">Binding events</a>, <a href="#unbinding-events">Unbinding events</a>, <a href="#events">Events</a>, <a href="#list-of-events">List of events</a><br>
+<b>Views</b>: <a href="#defining">Defining</a>, <a href="#instantiating">Instantiating</a>, <a href="#methods">Methods</a><br>
+<b>Models</b>: <a href="#defining">Defining</a>, <a href="#instantiating">Instantiating</a>, <a href="#methods">Methods</a>, <a href="#validation">Validation</a>, <a href="#custom-urls">Custom URLs</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="binding-events">Binding events</h3>
+
+<pre><code class="js">.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;event&#x27;</span>, callback)
+.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;event&#x27;</span>, callback, context)
+</code></pre>
+
+<pre><code class="js">.<span class="hljs-title function_">on</span>({
+  <span class="hljs-string">&#x27;event1&#x27;</span>: callback,
+  <span class="hljs-string">&#x27;event2&#x27;</span>: callback
+})
+</code></pre>
+
+<pre><code class="js">.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;all&#x27;</span>, callback)
+</code></pre>
+
+<pre><code class="js">.<span class="hljs-title function_">once</span>(<span class="hljs-string">&#x27;event&#x27;</span>, callback)   <span class="hljs-comment">// Only happens once</span>
+</code></pre>
+<h3 id="unbinding-events">Unbinding events</h3>
+
+<pre><code class="js">object.<span class="hljs-title function_">off</span>(<span class="hljs-string">&#x27;change&#x27;</span>, onChange)    <span class="hljs-comment">// just the `onChange` callback</span>
+object.<span class="hljs-title function_">off</span>(<span class="hljs-string">&#x27;change&#x27;</span>)              <span class="hljs-comment">// all &#x27;change&#x27; callbacks</span>
+object.<span class="hljs-title function_">off</span>(<span class="hljs-literal">null</span>, onChange)        <span class="hljs-comment">// `onChange` callback for all events</span>
+object.<span class="hljs-title function_">off</span>(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, context)   <span class="hljs-comment">// all callbacks for `context` all events</span>
+object.<span class="hljs-title function_">off</span>()                      <span class="hljs-comment">// all</span>
+</code></pre>
+<h3 id="events">Events</h3>
+
+<pre><code class="js">object.<span class="hljs-title function_">trigger</span>(<span class="hljs-string">&#x27;event&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">view.<span class="hljs-title function_">listenTo</span>(object, event, callback)
+view.<span class="hljs-title function_">stopListening</span>()
+</code></pre>
+<h3 id="list-of-events">List of events</h3>
+
+<ul>
+<li><p>Collection:</p>
+
+<ul>
+<li><code>add</code> (model, collection, options)</li>
+<li><code>remove</code> (model, collection, options)</li>
+<li><code>reset</code> (collection, options)</li>
+<li><code>sort</code> (collection, options)</li>
+</ul>
+</li>
+<li><p>Model:</p>
+
+<ul>
+<li><code>change</code> (model, options)</li>
+<li><code>change:[attr]</code> (model, value, options)</li>
+<li><code>destroy</code> (model, collection, options)</li>
+<li><code>error</code> (model, xhr, options)</li>
+</ul>
+</li>
+<li><p>Model and collection:</p>
+
+<ul>
+<li><code>request</code> (model, xhr, options)</li>
+<li><code>sync</code> (model, resp, options)</li>
+</ul>
+</li>
+<li><p>Router:</p>
+
+<ul>
+<li><code>route:[name]</code> (params)</li>
+<li><code>route</code> (router, route, params)</li>
+</ul>
+</li>
+</ul>
+<h2 id="views">Views</h2>
+<h3 id="defining">Defining</h3>
+
+<pre><code class="js"><span class="hljs-comment">// All attributes are optional</span>
+<span class="hljs-keyword">var</span> <span class="hljs-title class_">View</span> = <span class="hljs-title class_">Backbone</span>.<span class="hljs-property">View</span>.<span class="hljs-title function_">extend</span>({
+  <span class="hljs-attr">model</span>: doc,
+</code></pre>
+
+<pre><code class="js">  <span class="hljs-attr">tagName</span>: <span class="hljs-string">&#x27;div&#x27;</span>,
+  <span class="hljs-attr">className</span>: <span class="hljs-string">&#x27;document-item&#x27;</span>,
+  <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;document-&quot;</span> + doc.<span class="hljs-property">id</span>,
+  <span class="hljs-attr">attributes</span>: { <span class="hljs-attr">href</span>: <span class="hljs-string">&#x27;#&#x27;</span> },
+</code></pre>
+
+<pre><code class="js">  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;body&#x27;</span>,
+</code></pre>
+
+<pre><code class="js">  <span class="hljs-attr">events</span>: {
+    <span class="hljs-string">&#x27;click button.save&#x27;</span>: <span class="hljs-string">&#x27;save&#x27;</span>,
+    <span class="hljs-string">&#x27;click .cancel&#x27;</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ··· },
+    <span class="hljs-string">&#x27;click&#x27;</span>: <span class="hljs-string">&#x27;onclick&#x27;</span>
+  },
+</code></pre>
+
+<pre><code class="js">  <span class="hljs-attr">constructor</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ··· },
+  <span class="hljs-attr">render</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ··· }
+})
+</code></pre>
+<h3 id="instantiating">Instantiating</h3>
+
+<pre><code class="js">view = <span class="hljs-keyword">new</span> <span class="hljs-title class_">View</span>()
+view = <span class="hljs-keyword">new</span> <span class="hljs-title class_">View</span>({ <span class="hljs-attr">el</span>: ··· })
+</code></pre>
+<h3 id="methods">Methods</h3>
+
+<pre><code class="js">view.<span class="hljs-property">$el</span>.<span class="hljs-title function_">show</span>()
+view.$(<span class="hljs-string">&#x27;input&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">view.<span class="hljs-title function_">remove</span>()
+</code></pre>
+
+<pre><code class="js">view.<span class="hljs-title function_">delegateEvents</span>()
+view.<span class="hljs-title function_">undelegateEvents</span>()
+</code></pre>
+<h2 id="models">Models</h2>
+<h3 id="defining">Defining</h3>
+
+<pre><code class="js"><span class="hljs-comment">// All attributes are optional</span>
+<span class="hljs-keyword">var</span> <span class="hljs-title class_">Model</span> = <span class="hljs-title class_">Backbone</span>.<span class="hljs-property">Model</span>.<span class="hljs-title function_">extend</span>({
+  <span class="hljs-attr">defaults</span>: {
+    <span class="hljs-string">&#x27;author&#x27;</span>: <span class="hljs-string">&#x27;unknown&#x27;</span>
+  },
+  <span class="hljs-attr">idAttribute</span>: <span class="hljs-string">&#x27;_id&#x27;</span>,
+  <span class="hljs-attr">parse</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ··· }
+})
+</code></pre>
+<h3 id="instantiating">Instantiating</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Lolita&#x27;</span>, <span class="hljs-attr">author</span>: <span class="hljs-string">&#x27;Nabokov&#x27;</span> })
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">collection</span>: ··· })
+</code></pre>
+<h3 id="methods">Methods</h3>
+
+<pre><code class="js">obj.<span class="hljs-property">id</span>
+obj.<span class="hljs-property">cid</span>   <span class="hljs-comment">// → &#x27;c38&#x27; (client-side ID)</span>
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">clone</span>()
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">hasChanged</span>(<span class="hljs-string">&#x27;title&#x27;</span>)
+obj.<span class="hljs-title function_">changedAttributes</span>()  <span class="hljs-comment">// false, or hash</span>
+obj.<span class="hljs-title function_">previousAttributes</span>() <span class="hljs-comment">// false, or hash</span>
+obj.<span class="hljs-title function_">previous</span>(<span class="hljs-string">&#x27;title&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">isNew</span>()
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;A Study in Pink&#x27;</span> })
+obj.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;A Study in Pink&#x27;</span> }, { <span class="hljs-attr">validate</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">silent</span>: <span class="hljs-literal">true</span> })
+obj.<span class="hljs-title function_">unset</span>(<span class="hljs-string">&#x27;title&#x27;</span>)
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;title&#x27;</span>)
+obj.<span class="hljs-title function_">has</span>(<span class="hljs-string">&#x27;title&#x27;</span>)
+obj.<span class="hljs-built_in">escape</span>(<span class="hljs-string">&#x27;title&#x27;</span>)     <span class="hljs-comment">/* Like .get() but HTML-escaped */</span>
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">clear</span>()
+obj.<span class="hljs-title function_">clear</span>({ <span class="hljs-attr">silent</span>: <span class="hljs-literal">true</span> })
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">save</span>()
+obj.<span class="hljs-title function_">save</span>({ attributes })
+obj.<span class="hljs-title function_">save</span>(<span class="hljs-literal">null</span>, {
+  <span class="hljs-attr">silent</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">patch</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">wait</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">success</span>: callback, <span class="hljs-attr">error</span>: callback
+})
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">destroy</span>()
+obj.<span class="hljs-title function_">destroy</span>({
+  <span class="hljs-attr">wait</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">success</span>: callback, <span class="hljs-attr">error</span>: callback
+})
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">toJSON</span>()
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-title function_">fetch</span>()
+obj.<span class="hljs-title function_">fetch</span>({ <span class="hljs-attr">success</span>: callback, <span class="hljs-attr">error</span>: callback })
+</code></pre>
+<h3 id="validation">Validation</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Model</span> = <span class="hljs-title class_">Backbone</span>.<span class="hljs-property">Model</span>.<span class="hljs-title function_">extend</span>({
+  <span class="hljs-attr">validate</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">attrs, options</span>) {
+    <span class="hljs-keyword">if</span> (attrs.<span class="hljs-property">end</span> &lt; attrs.<span class="hljs-property">start</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Can&#x27;t end before it starts&quot;</span>
+    }
+  }
+})
+</code></pre>
+
+<pre><code class="js">obj.<span class="hljs-property">validationError</span>  <span class="hljs-comment">//=&gt; &quot;Can&#x27;t end before it starts&quot;</span>
+obj.<span class="hljs-title function_">isValid</span>()
+obj.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;invalid&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">model, error</span>) { ··· })
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Triggered on:</span>
+obj.<span class="hljs-title function_">save</span>()
+obj.<span class="hljs-title function_">set</span>({ ··· }, { <span class="hljs-attr">validate</span>: <span class="hljs-literal">true</span> })
+</code></pre>
+<h3 id="custom-urls">Custom URLs</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Model</span> = <span class="hljs-title class_">Backbone</span>.<span class="hljs-property">Model</span>.<span class="hljs-title function_">extend</span>({
+  <span class="hljs-comment">// Single URL (string or function)</span>
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/account&#x27;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;/account&#x27;</span> },
+</code></pre>
+
+<pre><code class="js">  <span class="hljs-comment">// Both of these two work the same way</span>
+  <span class="hljs-attr">url</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;/books/&#x27;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">id</span> }),
+  <span class="hljs-attr">urlRoot</span>: <span class="hljs-string">&#x27;/books&#x27;</span>
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">url</span>: ··· })
+<span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">urlRoot</span>: ··· })
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://backbonejs.org/">Backbone website</a> <em>(backbonejs.org)</em></li>
+<li><a href="http://ricostacruz.com/backbone-patterns/">Backbone patterns</a> <em>(ricostacruz.com)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Angular.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Angular.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\angularjs.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#lists-ng-repeat-">Lists (ng-repeat)</a>, <a href="#model-ng-model-">Model (ng-model)</a>, <a href="#defining-a-module">Defining a module</a>, <a href="#controller-with-protection-from-minification">Controller with protection from minification</a>, <a href="#service">Service</a>, <a href="#directive">Directive</a>, <a href="#http">HTTP</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+
+<pre><code class="html">    <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&quot;nameApp&quot;</span>&gt;</span>
+</code></pre>
+<h3 id="lists-ng-repeat-">Lists (ng-repeat)</h3>
+
+<pre><code class="html">    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">&quot;MyListCtrl&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">ng-repeat</span>=<span class="hljs-string">&quot;phone in phones&quot;</span>&gt;</span>
+        {{phone.name}}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<h3 id="model-ng-model-">Model (ng-model)</h3>
+
+<pre><code class="html">    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;orderProp&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Alphabetical<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span>Newest<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+</code></pre>
+<h3 id="defining-a-module">Defining a module</h3>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span> = angular.<span class="hljs-title function_">module</span>(<span class="hljs-string">&#x27;myApp&#x27;</span>, []);
+
+    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">controller</span>(<span class="hljs-string">&#x27;MyListCtrl&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) {
+      $scope.<span class="hljs-property">phones</span> = [ ... ];
+    });
+</code></pre>
+<h3 id="controller-with-protection-from-minification">Controller with protection from minification</h3>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">controller</span>(<span class="hljs-string">&#x27;Name&#x27;</span>, [
+      <span class="hljs-string">&#x27;$scope&#x27;</span>,
+      <span class="hljs-string">&#x27;$http&#x27;</span>,
+      <span class="hljs-keyword">function</span> (<span class="hljs-params">$scope, $http</span>) {
+      }
+    ]);
+
+    a.<span class="hljs-property">c</span> <span class="hljs-string">&#x27;name&#x27;</span>, [
+      <span class="hljs-string">&#x27;$scope&#x27;</span>
+      <span class="hljs-string">&#x27;$http&#x27;</span>
+      ($scope, $http) -&gt;
+    ]
+</code></pre>
+<h3 id="service">Service</h3>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">service</span>(<span class="hljs-string">&#x27;NameService&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">$http</span>){
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){
+          <span class="hljs-keyword">return</span> $http.<span class="hljs-title function_">get</span>(url);
+        }
+      }
+    });
+</code></pre>
+<p>In controller you call with parameter and will use promises to return data from server.</p>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">controller</span>(<span class="hljs-string">&#x27;controllerName&#x27;</span>,
+    <span class="hljs-keyword">function</span>(<span class="hljs-params">NameService</span>){
+      <span class="hljs-title class_">NameService</span>.<span class="hljs-title function_">get</span>()
+      .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){})
+    })
+</code></pre>
+<h3 id="directive">Directive</h3>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;h1&gt;Hello&lt;/h1&gt;&#x27;</span>
+      }
+    });
+</code></pre>
+<p>In HTML will use <code>&lt;name&gt;&lt;/name&gt;</code> to render your template <code>&lt;h1&gt;Hello&lt;/h1&gt;</code></p>
+<h3 id="http">HTTP</h3>
+
+<pre><code class="js">    <span class="hljs-title class_">App</span>.<span class="hljs-title function_">controller</span>(<span class="hljs-string">&#x27;PhoneListCtrl&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">$scope, $http</span>) {
+        $http.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/data.json&#x27;</span>).<span class="hljs-title function_">success</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) {
+            $scope.<span class="hljs-property">phones</span> = data;
+        })
+    });
+</code></pre>
+<p>References:</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular-seed">https://github.com/angular/angular-seed</a></li>
+<li><a href="https://angularjs.org/">https://angularjs.org/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

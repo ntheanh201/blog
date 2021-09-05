@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SQL joins cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / SQL joins cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\sql-join.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#example">Example</a>, <a href="#diagram">Diagram</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="example">Example</h3>
+
+<pre><code><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> order_items \
+  <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> orders \
+  <span class="hljs-keyword">ON</span> order_items.order_id = orders.id
+</code></pre>
+<p>Joins are typically added to <code>SELECT</code> statements to add more columns and records.</p>
+<h3 id="diagram">Diagram</h3>
+
+<pre><code><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`A`</span> <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> <span class="hljs-symbol">`B`</span>
+</code></pre>
+
+<pre><code>┌────────┐
+│ <span class="hljs-selector-tag">A</span>  ┌───┼────┐
+│    │ ∩ │    │
+└────┼───┘  <span class="hljs-selector-tag">B</span> │
+     └────────┘
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Join</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inner join</td>
+<td><code>∩</code></td>
+</tr>
+<tr>
+<td>Left outer join</td>
+<td><code>A</code> + <code>∩</code></td>
+</tr>
+<tr>
+<td>Right outer join</td>
+<td><code>∩</code> + <code>B</code></td>
+</tr>
+<tr>
+<td>Full outer join</td>
+<td><code>A</code> + <code>∩</code> + <code>B</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</body>  
+</html>

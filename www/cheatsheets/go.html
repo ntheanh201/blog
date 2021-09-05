@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Go cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Go cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\go.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#introduction">Introduction</a>, <a href="#hello-world">Hello world</a>, <a href="#variables">Variables</a>, <a href="#constants">Constants</a><br>
+<b>Basic types</b>: <a href="#strings">Strings</a>, <a href="#numbers">Numbers</a>, <a href="#arrays">Arrays</a>, <a href="#slices">Slices</a>, <a href="#pointers">Pointers</a>, <a href="#type-conversions">Type conversions</a><br>
+<b>Flow control</b>: <a href="#conditional">Conditional</a>, <a href="#statements-in-if">Statements in if</a>, <a href="#switch">Switch</a>, <a href="#for-loop">For loop</a>, <a href="#for-range-loop">For-Range loop</a>, <a href="#while-loop">While loop</a><br>
+<b>Functions</b>: <a href="#lambdas">Lambdas</a>, <a href="#multiple-return-types">Multiple return types</a>, <a href="#named-return-values">Named return values</a><br>
+<b>Packages</b>: <a href="#importing">Importing</a>, <a href="#aliases">Aliases</a>, <a href="#exporting-names">Exporting names</a>, <a href="#packages">Packages</a><br>
+<b>Concurrency</b>: <a href="#goroutines">Goroutines</a>, <a href="#buffered-channels">Buffered channels</a>, <a href="#closing-channels">Closing channels</a>, <a href="#waitgroup">WaitGroup</a><br>
+<b>Error control</b>: <a href="#defer">Defer</a>, <a href="#deferring-functions">Deferring functions</a><br>
+<b>Structs</b>: <a href="#defining">Defining</a>, <a href="#literals">Literals</a>, <a href="#pointers-to-structs">Pointers to structs</a><br>
+<b>Methods</b>: <a href="#receivers">Receivers</a>, <a href="#mutation">Mutation</a><br>
+<b>Interfaces</b>: <a href="#a-basic-interface">A basic interface</a>, <a href="#struct">Struct</a>, <a href="#methods">Methods</a>, <a href="#interface-example">Interface example</a><br>
+<b>References</b>: <a href="#official-resources">Official resources</a>, <a href="#other-links">Other links</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="introduction">Introduction</h3>
+
+<ul>
+<li><a href="https://tour.golang.org/welcome/1">A tour of Go</a> <em>(tour.golang.org)</em></li>
+<li><a href="https://repl.it/languages/go">Go repl</a> <em>(repl.it)</em></li>
+<li><a href="https://github.com/golang/go/wiki/">Golang wiki</a> <em>(github.com)</em></li>
+</ul>
+<h3 id="hello-world">Hello world</h3>
+<h4 id="hello-go">hello.go</h4>
+
+<pre><code class="go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  message := greetMe(<span class="hljs-string">&quot;world&quot;</span>)
+  fmt.Println(message)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">greetMe</span><span class="hljs-params">(name <span class="hljs-keyword">string</span>)</span> <span class="hljs-title">string</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>
+}
+</code></pre>
+
+<pre><code class="bash">$ go build
+</code></pre>
+<p>Or try it out in the <a href="https://repl.it/languages/go">Go repl</a>, or <a href="https://tour.golang.org/welcome/1">A Tour of Go</a>.</p>
+<h3 id="variables">Variables</h3>
+<h4 id="variable-declaration">Variable declaration</h4>
+
+<pre><code class="go"><span class="hljs-keyword">var</span> msg <span class="hljs-keyword">string</span>
+msg = <span class="hljs-string">&quot;Hello&quot;</span>
+</code></pre>
+<h4 id="shortcut-of-above-infers-type-">Shortcut of above (Infers type)</h4>
+
+<pre><code class="go">msg := <span class="hljs-string">&quot;Hello&quot;</span>
+</code></pre>
+<h3 id="constants">Constants</h3>
+
+<pre><code class="go"><span class="hljs-keyword">const</span> Phi = <span class="hljs-number">1.618</span>
+</code></pre>
+<p>Constants can be character, string, boolean, or numeric values.</p>
+<p>See: <a href="https://tour.golang.org/basics/15">Constants</a></p>
+<h2 id="basic-types">Basic types</h2>
+<h3 id="strings">Strings</h3>
+
+<pre><code class="go">str := <span class="hljs-string">&quot;Hello&quot;</span>
+</code></pre>
+
+<pre><code class="go">str := <span class="hljs-string">`Multiline
+string`</span>
+</code></pre>
+<p>Strings are of type <code>string</code>.</p>
+<h3 id="numbers">Numbers</h3>
+<h4 id="typical-types">Typical types</h4>
+
+<pre><code class="go">num := <span class="hljs-number">3</span>          <span class="hljs-comment">// int</span>
+num := <span class="hljs-number">3.</span>         <span class="hljs-comment">// float64</span>
+num := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span>     <span class="hljs-comment">// complex128</span>
+num := <span class="hljs-keyword">byte</span>(<span class="hljs-string">&#x27;a&#x27;</span>)  <span class="hljs-comment">// byte (alias for uint8)</span>
+</code></pre>
+<h4 id="other-types">Other types</h4>
+
+<pre><code class="go"><span class="hljs-keyword">var</span> u <span class="hljs-keyword">uint</span> = <span class="hljs-number">7</span>        <span class="hljs-comment">// uint (unsigned)</span>
+<span class="hljs-keyword">var</span> p <span class="hljs-keyword">float32</span> = <span class="hljs-number">22.7</span>  <span class="hljs-comment">// 32-bit float</span>
+</code></pre>
+<h3 id="arrays">Arrays</h3>
+
+<pre><code class="go"><span class="hljs-comment">// var numbers [5]int</span>
+numbers := [...]<span class="hljs-keyword">int</span>{<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>}
+</code></pre>
+<p>Arrays have a fixed size.</p>
+<h3 id="slices">Slices</h3>
+
+<pre><code class="go">slice := []<span class="hljs-keyword">int</span>{<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}
+</code></pre>
+
+<pre><code class="go">slice := []<span class="hljs-keyword">byte</span>(<span class="hljs-string">&quot;Hello&quot;</span>)
+</code></pre>
+<p>Slices have a dynamic size, unlike arrays.</p>
+<h3 id="pointers">Pointers</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span></span> {
+  b := *getPointer()
+  fmt.Println(<span class="hljs-string">&quot;Value is&quot;</span>, b)
+}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getPointer</span> <span class="hljs-params">()</span> <span class="hljs-params">(myPointer *<span class="hljs-keyword">int</span>)</span></span> {
+  a := <span class="hljs-number">234</span>
+  <span class="hljs-keyword">return</span> &amp;a
+}
+</code></pre>
+
+<pre><code class="go">a := <span class="hljs-built_in">new</span>(<span class="hljs-keyword">int</span>)
+*a = <span class="hljs-number">234</span>
+</code></pre>
+<p>Pointers point to a memory location of a variable. Go is fully garbage-collected.</p>
+<p>See: <a href="https://tour.golang.org/moretypes/1">Pointers</a></p>
+<h3 id="type-conversions">Type conversions</h3>
+
+<pre><code class="go">i := <span class="hljs-number">2</span>
+f := <span class="hljs-keyword">float64</span>(i)
+u := <span class="hljs-keyword">uint</span>(i)
+</code></pre>
+<p>See: <a href="https://tour.golang.org/basics/13">Type conversions</a></p>
+<h2 id="flow-control">Flow control</h2>
+<h3 id="conditional">Conditional</h3>
+
+<pre><code class="go"><span class="hljs-keyword">if</span> day == <span class="hljs-string">&quot;sunday&quot;</span> || day == <span class="hljs-string">&quot;saturday&quot;</span> {
+  rest()
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> day == <span class="hljs-string">&quot;monday&quot;</span> &amp;&amp; isTired() {
+  groan()
+} <span class="hljs-keyword">else</span> {
+  work()
+}
+</code></pre>
+<p>See: <a href="https://tour.golang.org/flowcontrol/5">If</a></p>
+<h3 id="statements-in-if">Statements in if</h3>
+
+<pre><code class="go"><span class="hljs-keyword">if</span> _, err := doThing(); err != <span class="hljs-literal">nil</span> {
+  fmt.Println(<span class="hljs-string">&quot;Uh oh&quot;</span>)
+}
+</code></pre>
+<p>A condition in an <code>if</code> statement can be preceded with a statement before a <code>;</code>. Variables declared by the statement are only in scope until the end of the <code>if</code>.</p>
+<p>See: <a href="https://tour.golang.org/flowcontrol/6">If with a short statement</a></p>
+<h3 id="switch">Switch</h3>
+
+<pre><code class="go"><span class="hljs-keyword">switch</span> day {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;sunday&quot;</span>:
+    <span class="hljs-comment">// cases don&#x27;t &quot;fall through&quot; by default!</span>
+    <span class="hljs-keyword">fallthrough</span>
+
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;saturday&quot;</span>:
+    rest()
+
+  <span class="hljs-keyword">default</span>:
+    work()
+}
+</code></pre>
+<p>See: <a href="https://github.com/golang/go/wiki/Switch">Switch</a></p>
+<h3 id="for-loop">For loop</h3>
+
+<pre><code class="go"><span class="hljs-keyword">for</span> count := <span class="hljs-number">0</span>; count &lt;= <span class="hljs-number">10</span>; count++ {
+  fmt.Println(<span class="hljs-string">&quot;My counter is at&quot;</span>, count)
+}
+</code></pre>
+<p>See: <a href="https://tour.golang.org/flowcontrol/1">For loops</a></p>
+<h3 id="for-range-loop">For-Range loop</h3>
+
+<pre><code class="go">entry := []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;Jack&quot;</span>,<span class="hljs-string">&quot;John&quot;</span>,<span class="hljs-string">&quot;Jones&quot;</span>}
+<span class="hljs-keyword">for</span> i, val := <span class="hljs-keyword">range</span> entry {
+  fmt.Printf(<span class="hljs-string">&quot;At position %d, the character %s is present\n&quot;</span>, i, val)
+}
+</code></pre>
+<p>See: <a href="https://gobyexample.com/range">For-Range loops</a></p>
+<h3 id="while-loop">While loop</h3>
+
+<pre><code class="go">n := <span class="hljs-number">0</span>
+x := <span class="hljs-number">42</span>
+<span class="hljs-keyword">for</span> n != x {
+  n := guess()
+}
+</code></pre>
+<p>See: <a href="https://tour.golang.org/flowcontrol/3">Go&#39;s &quot;while&quot;</a></p>
+<h2 id="functions">Functions</h2>
+<h3 id="lambdas">Lambdas</h3>
+
+<pre><code class="go">myfunc := <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span> <span class="hljs-title">bool</span></span> {
+  <span class="hljs-keyword">return</span> x &gt; <span class="hljs-number">10000</span>
+}
+</code></pre>
+<p>Functions are first class objects.</p>
+<h3 id="multiple-return-types">Multiple return types</h3>
+
+<pre><code class="go">a, b := getMessage()
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getMessage</span><span class="hljs-params">()</span> <span class="hljs-params">(a <span class="hljs-keyword">string</span>, b <span class="hljs-keyword">string</span>)</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;World&quot;</span>
+}
+</code></pre>
+<h3 id="named-return-values">Named return values</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">split</span><span class="hljs-params">(sum <span class="hljs-keyword">int</span>)</span> <span class="hljs-params">(x, y <span class="hljs-keyword">int</span>)</span></span> {
+  x = sum * <span class="hljs-number">4</span> / <span class="hljs-number">9</span>
+  y = sum - x
+  <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>By defining the return value names in the signature, a <code>return</code> (no args) will return variables with those names.</p>
+<p>See: <a href="https://tour.golang.org/basics/7">Named return values</a></p>
+<h2 id="packages">Packages</h2>
+<h3 id="importing">Importing</h3>
+
+<pre><code class="go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;math/rand&quot;</span>
+</code></pre>
+
+<pre><code class="go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;fmt&quot;</span>        <span class="hljs-comment">// gives fmt.Println</span>
+  <span class="hljs-string">&quot;math/rand&quot;</span>  <span class="hljs-comment">// gives rand.Intn</span>
+)
+</code></pre>
+<p>Both are the same.</p>
+<p>See: <a href="https://tour.golang.org/basics/1">Importing</a></p>
+<h3 id="aliases">Aliases</h3>
+
+<pre><code class="go"><span class="hljs-keyword">import</span> r <span class="hljs-string">&quot;math/rand&quot;</span>
+</code></pre>
+
+<pre><code class="go">r.Intn()
+</code></pre>
+<h3 id="exporting-names">Exporting names</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">Hello</span> <span class="hljs-params">()</span></span> {
+  ···
+}
+</code></pre>
+<p>Exported names begin with capital letters.</p>
+<p>See: <a href="https://tour.golang.org/basics/3">Exported names</a></p>
+<h3 id="packages">Packages</h3>
+
+<pre><code class="go"><span class="hljs-keyword">package</span> hello
+</code></pre>
+<p>Every package file has to start with <code>package</code>.</p>
+<h2 id="concurrency">Concurrency</h2>
+<h3 id="goroutines">Goroutines</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// A &quot;channel&quot;</span>
+  ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+
+  <span class="hljs-comment">// Start concurrent routines</span>
+  <span class="hljs-keyword">go</span> push(<span class="hljs-string">&quot;Moe&quot;</span>, ch)
+  <span class="hljs-keyword">go</span> push(<span class="hljs-string">&quot;Larry&quot;</span>, ch)
+  <span class="hljs-keyword">go</span> push(<span class="hljs-string">&quot;Curly&quot;</span>, ch)
+
+  <span class="hljs-comment">// Read 3 results</span>
+  <span class="hljs-comment">// (Since our goroutines are concurrent,</span>
+  <span class="hljs-comment">// the order isn&#x27;t guaranteed!)</span>
+  fmt.Println(&lt;-ch, &lt;-ch, &lt;-ch)
+}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">push</span><span class="hljs-params">(name <span class="hljs-keyword">string</span>, ch <span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)</span></span> {
+  msg := <span class="hljs-string">&quot;Hey, &quot;</span> + name
+  ch &lt;- msg
+}
+</code></pre>
+<p>Channels are concurrency-safe communication objects, used in goroutines.</p>
+<p>See: <a href="https://tour.golang.org/concurrency/1">Goroutines</a>, <a href="https://tour.golang.org/concurrency/2">Channels</a></p>
+<h3 id="buffered-channels">Buffered channels</h3>
+
+<pre><code class="go">ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">2</span>)
+ch &lt;- <span class="hljs-number">1</span>
+ch &lt;- <span class="hljs-number">2</span>
+ch &lt;- <span class="hljs-number">3</span>
+<span class="hljs-comment">// fatal error:</span>
+<span class="hljs-comment">// all goroutines are asleep - deadlock!</span>
+</code></pre>
+<p>Buffered channels limit the amount of messages it can keep.</p>
+<p>See: <a href="https://tour.golang.org/concurrency/3">Buffered channels</a></p>
+<h3 id="closing-channels">Closing channels</h3>
+<h4 id="closes-a-channel">Closes a channel</h4>
+
+<pre><code class="go">ch &lt;- <span class="hljs-number">1</span>
+ch &lt;- <span class="hljs-number">2</span>
+ch &lt;- <span class="hljs-number">3</span>
+<span class="hljs-built_in">close</span>(ch)
+</code></pre>
+<h4 id="iterates-across-a-channel-until-its-closed">Iterates across a channel until its closed</h4>
+
+<pre><code class="go"><span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> ch {
+  ···
+}
+</code></pre>
+<h4 id="closed-if-ok-false-">Closed if <code>ok == false</code></h4>
+
+<pre><code class="go">v, ok := &lt;- ch
+</code></pre>
+<p>See: <a href="https://tour.golang.org/concurrency/4">Range and close</a></p>
+<h3 id="waitgroup">WaitGroup</h3>
+
+<pre><code class="go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;sync&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">var</span> wg sync.WaitGroup
+
+  <span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> itemList {
+    <span class="hljs-comment">// Increment WaitGroup Counter</span>
+    wg.Add(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">go</span> doOperation(item)
+  }
+  <span class="hljs-comment">// Wait for goroutines to finish</span>
+  wg.Wait()
+
+}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">doOperation</span><span class="hljs-params">(item <span class="hljs-keyword">string</span>)</span></span> {
+  <span class="hljs-keyword">defer</span> wg.Done()
+  <span class="hljs-comment">// do operation on item</span>
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls <code>wg.Done()</code> when it finishes.
+See: <a href="https://golang.org/pkg/sync/#WaitGroup">WaitGroup</a></p>
+<h2 id="error-control">Error control</h2>
+<h3 id="defer">Defer</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">defer</span> fmt.Println(<span class="hljs-string">&quot;Done&quot;</span>)
+  fmt.Println(<span class="hljs-string">&quot;Working...&quot;</span>)
+}
+</code></pre>
+<p>Defers running a function until the surrounding function returns.
+The arguments are evaluated immediately, but the function call is not ran until later.</p>
+<p>See: <a href="https://blog.golang.org/defer-panic-and-recover">Defer, panic and recover</a></p>
+<h3 id="deferring-functions">Deferring functions</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+    fmt.Println(<span class="hljs-string">&quot;Done&quot;</span>)
+  }()
+  fmt.Println(<span class="hljs-string">&quot;Working...&quot;</span>)
+}
+</code></pre>
+<p>Lambdas are better suited for defer blocks.</p>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">int64</span>(<span class="hljs-number">0</span>)
+  <span class="hljs-keyword">defer</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(d *<span class="hljs-keyword">int64</span>)</span></span> {
+    fmt.Printf(<span class="hljs-string">&quot;&amp; %v Unix Sec\n&quot;</span>, *d)
+  }(&amp;d)
+  fmt.Print(<span class="hljs-string">&quot;Done &quot;</span>)
+  d = time.Now().Unix()
+}
+</code></pre>
+<p>The defer func uses current value of d, unless we use a pointer to get final value at end of main.</p>
+<h2 id="structs">Structs</h2>
+<h3 id="defining">Defining</h3>
+
+<pre><code class="go"><span class="hljs-keyword">type</span> Vertex <span class="hljs-keyword">struct</span> {
+  X <span class="hljs-keyword">int</span>
+  Y <span class="hljs-keyword">int</span>
+}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  v := Vertex{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+  v.X = <span class="hljs-number">4</span>
+  fmt.Println(v.X, v.Y)
+}
+</code></pre>
+<p>See: <a href="https://tour.golang.org/moretypes/2">Structs</a></p>
+<h3 id="literals">Literals</h3>
+
+<pre><code class="go">v := Vertex{X: <span class="hljs-number">1</span>, Y: <span class="hljs-number">2</span>}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-comment">// Field names can be omitted</span>
+v := Vertex{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-comment">// Y is implicit</span>
+v := Vertex{X: <span class="hljs-number">1</span>}
+</code></pre>
+<p>You can also put field names.</p>
+<h3 id="pointers-to-structs">Pointers to structs</h3>
+
+<pre><code class="go">v := &amp;Vertex{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+v.X = <span class="hljs-number">2</span>
+</code></pre>
+<p>Doing <code>v.X</code> is the same as doing <code>(*v).X</code>, when <code>v</code> is a pointer.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="receivers">Receivers</h3>
+
+<pre><code class="go"><span class="hljs-keyword">type</span> Vertex <span class="hljs-keyword">struct</span> {
+  X, Y <span class="hljs-keyword">float64</span>
+}
+</code></pre>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(v Vertex)</span> <span class="hljs-title">Abs</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
+  <span class="hljs-keyword">return</span> math.Sqrt(v.X * v.X + v.Y * v.Y)
+}
+</code></pre>
+
+<pre><code class="go">v := Vertex{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+v.Abs()
+</code></pre>
+<p>There are no classes, but you can define functions with <em>receivers</em>.</p>
+<p>See: <a href="https://tour.golang.org/methods/1">Methods</a></p>
+<h3 id="mutation">Mutation</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(v *Vertex)</span> <span class="hljs-title">Scale</span><span class="hljs-params">(f <span class="hljs-keyword">float64</span>)</span></span> {
+  v.X = v.X * f
+  v.Y = v.Y * f
+}
+</code></pre>
+
+<pre><code class="go">v := Vertex{<span class="hljs-number">6</span>, <span class="hljs-number">12</span>}
+v.Scale(<span class="hljs-number">0.5</span>)
+<span class="hljs-comment">// `v` is updated</span>
+</code></pre>
+<p>By defining your receiver as a pointer (<code>*Vertex</code>), you can do mutations.</p>
+<p>See: <a href="https://tour.golang.org/methods/4">Pointer receivers</a></p>
+<h2 id="interfaces">Interfaces</h2>
+<h3 id="a-basic-interface">A basic interface</h3>
+
+<pre><code class="go"><span class="hljs-keyword">type</span> Shape <span class="hljs-keyword">interface</span> {
+  Area() <span class="hljs-keyword">float64</span>
+  Perimeter() <span class="hljs-keyword">float64</span>
+}
+</code></pre>
+<h3 id="struct">Struct</h3>
+
+<pre><code class="go"><span class="hljs-keyword">type</span> Rectangle <span class="hljs-keyword">struct</span> {
+  Length, Width <span class="hljs-keyword">float64</span>
+}
+</code></pre>
+<p>Struct <code>Rectangle</code> implicitly implements interface <code>Shape</code> by implementing all of its methods.</p>
+<h3 id="methods">Methods</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">Area</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
+  <span class="hljs-keyword">return</span> r.Length * r.Width
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(r Rectangle)</span> <span class="hljs-title">Perimeter</span><span class="hljs-params">()</span> <span class="hljs-title">float64</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * (r.Length + r.Width)
+}
+</code></pre>
+<p>The methods defined in <code>Shape</code> are implemented in <code>Rectangle</code>.</p>
+<h3 id="interface-example">Interface example</h3>
+
+<pre><code class="go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">var</span> r Shape = Rectangle{Length: <span class="hljs-number">3</span>, Width: <span class="hljs-number">4</span>}
+  fmt.Printf(<span class="hljs-string">&quot;Type of r: %T, Area: %v, Perimeter: %v.&quot;</span>, r, r.Area(), r.Perimeter())
+}
+</code></pre>
+<h2 id="references">References</h2>
+<h3 id="official-resources">Official resources</h3>
+
+<ul>
+<li><a href="https://tour.golang.org/welcome/1">A tour of Go</a> <em>(tour.golang.org)</em></li>
+<li><a href="https://github.com/golang/go/wiki/">Golang wiki</a> <em>(github.com)</em></li>
+<li><a href="https://golang.org/doc/effective_go.html">Effective Go</a> <em>(golang.org)</em></li>
+</ul>
+<h3 id="other-links">Other links</h3>
+
+<ul>
+<li><a href="https://gobyexample.com/">Go by Example</a> <em>(gobyexample.com)</em></li>
+<li><a href="https://awesome-go.com/">Awesome Go</a> <em>(awesome-go.com)</em></li>
+<li><a href="https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw">JustForFunc Youtube</a> <em>(youtube.com)</em></li>
+<li><a href="https://github.com/golang/go/wiki/CodeReviewComments">Style Guide</a> <em>(github.com)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

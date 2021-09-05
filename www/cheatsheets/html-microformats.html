@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Microformats cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Microformats cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\html-microformats.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#author">Author</a>, <a href="#time">Time</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="author">Author</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;entry-author&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">itemscope</span>=<span class="hljs-string">&quot;itemscope&quot;</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;http://schema.org/Person&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://AUTHORPAGE&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;entry-author-link&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;author&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;entry-author-name&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>AUTHORNAME<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</code></pre>
+<h3 id="time">Time</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;entry-time&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;datePublished&quot;</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">&quot;2009-02-09T20:04:00+00:00&quot;</span>&gt;</span>February 9, 2009<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

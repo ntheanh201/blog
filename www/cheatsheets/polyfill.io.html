@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Polyfill.io cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Polyfill.io cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\polyfill.io.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Usage</b>: <a href="#default-usage">Default usage</a>, <a href="#references">References</a><br>
+<b>Optimized</b>: <a href="#for-modern-browsers">For modern browsers</a>, <a href="#extra-features">Extra features</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="usage">Usage</h2>
+<h3 id="default-usage">Default usage</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>This is the default script for Polyfill.io.</p>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="https://polyfill.io/v2/docs/api">API example</a> <em>(polyfill.io)</em></li>
+<li><a href="https://polyfill.io/v2/docs/features">List of features</a> <em>(polyfill.io)</em></li>
+</ul>
+<h2 id="optimized">Optimized</h2>
+<h3 id="for-modern-browsers">For modern browsers</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-keyword">if</span>(!(<span class="hljs-variable language_">window</span>.<span class="hljs-property">Promise</span>&amp;&amp;[].<span class="hljs-property">includes</span>&amp;&amp;<span class="hljs-title class_">Object</span>.<span class="hljs-property">assign</span>&amp;&amp;<span class="hljs-variable language_">window</span>.<span class="hljs-property">Map</span>)){<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-string">&#x27;&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;&gt;&lt;/scr&#x27;</span>+<span class="hljs-string">&#x27;ipt&gt;&#x27;</span>)}</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>This only includes polyfill.io when necessary, skipping it for modern browsers for faster load times.</p>
+<h3 id="extra-features">Extra features</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-keyword">if</span>(!(<span class="hljs-variable language_">window</span>.<span class="hljs-property">fetch</span>&amp;&amp;<span class="hljs-variable language_">window</span>.<span class="hljs-property">Promise</span>&amp;&amp;[].<span class="hljs-property">includes</span>&amp;&amp;<span class="hljs-title class_">Object</span>.<span class="hljs-property">assign</span>&amp;&amp;<span class="hljs-variable language_">window</span>.<span class="hljs-property">Map</span>)){<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-string">&#x27;&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch&quot;&gt;&lt;/scr&#x27;</span>+<span class="hljs-string">&#x27;ipt&gt;&#x27;</span>)}</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>This is the same as the previous, but also adds a polyfill for <code>window.fetch()</code>. We add a <code>window.fetch</code> check and loads the additional <code>fetch</code> feature.</p>
+
+</div>
+</body>  
+</html>

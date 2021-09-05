@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>GnuPG cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / GnuPG cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\gnupg.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Basics</b>: <a href="#exporting-keys">Exporting keys</a>, <a href="#importing-keys">Importing keys</a>, <a href="#managing-your-keyring">Managing your keyring</a>, <a href="#using-a-keyserver">Using a keyserver</a>, <a href="#trusting-a-key">Trusting a key</a><br>
+<b>Encrypting</b>: <a href="#public-key-encryption">Public key encryption</a>, <a href="#symmetric-encryption">Symmetric encryption</a><br>
+<b>Decrypting</b>: <a href="#decrypting-a-file">Decrypting a file</a><br>
+<b>Signing & Verifying</b>: <a href="#signing">Signing</a>, <a href="#verifying-a-signature">Verifying a signature</a>, <a href="#viewing-content-of-signed-file">Viewing content of signed file</a><br>
+<b>Miscellaneous</b>: <a href="#components">Components</a>, <a href="#parsing-keyring-data">Parsing keyring data</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="basics">Basics</h2>
+<h3 id="exporting-keys">Exporting keys</h3>
+
+<pre><code class="bash">gpg -o key.gpg --<span class="hljs-built_in">export</span> &lt;KEY ID&gt;
+</code></pre>
+<p><strong>Export key in ASCII:</strong></p>
+
+<pre><code class="bash">gpg -o key.asc --armor --<span class="hljs-built_in">export</span> &lt;KEY ID&gt;
+</code></pre>
+<p><strong>Note:</strong> Omitting the <code>-o|--output</code> option will print the key to <code>stdout</code>.</p>
+<h3 id="importing-keys">Importing keys</h3>
+
+<pre><code class="bash">gpg --import key.gpg
+gpg --import key.asc
+</code></pre>
+<p>Only merge updates for keys already in key-ring:</p>
+
+<pre><code class="bash">gpg --import key.asc --merge-options merge-only
+</code></pre>
+<h3 id="managing-your-keyring">Managing your keyring</h3>
+<p>Generate a new key:</p>
+
+<pre><code class="bash">gpg --gen-key
+<span class="hljs-comment"># or, generate a new key with dialogs for all options</span>
+gpg --full-gen-key
+</code></pre>
+<p>List public keys:</p>
+
+<pre><code class="bash">gpg -k
+gpg --list-keys
+</code></pre>
+<p>List secret keys:</p>
+
+<pre><code class="bash">gpg -K
+gpg --list-secret-keys
+</code></pre>
+<h3 id="using-a-keyserver">Using a keyserver</h3>
+<p>Import keys from keyserver:</p>
+
+<pre><code class="bash">gpg --receive-keys &lt;KEY IDS&gt;
+</code></pre>
+<p>Upload keys to keyserver:</p>
+
+<pre><code class="bash">gpg --send-keys &lt;KEY IDS&gt;
+</code></pre>
+<p>Request updates from keyserver for keys already in your keyring:</p>
+
+<pre><code class="bash">gpg --refresh-keys
+</code></pre>
+<p>Search keys from keyserver:</p>
+
+<pre><code class="bash">gpg --search-keys <span class="hljs-string">&quot;&lt;SEARCH STRING&gt;&quot;</span>
+</code></pre>
+<p>Override keyserver from <code>~/.gnupg/gpg.conf</code></p>
+
+<pre><code class="bash">gpg --keyserver &lt;URL&gt; ...
+</code></pre>
+<h3 id="trusting-a-key">Trusting a key</h3>
+
+<pre><code class="bash">gpg --edit-key &lt;KEY ID&gt;
+<span class="hljs-comment"># In the interactive prompt:</span>
+gpg&gt; sign
+gpg&gt; save
+</code></pre>
+<p><strong>NOTE:</strong> You can use the owner&#39;s email or name (or part thereof) instead of the key ID for <code>--edit-key</code></p>
+<h2 id="encrypting">Encrypting</h2>
+<h3 id="public-key-encryption">Public key encryption</h3>
+<p>This will produce an encrypted file, <code>secret.txt.gpg</code>, that can only be decrypted by the recipient:</p>
+
+<pre><code class="bash">gpg -e -o secret.txt.gpg -r &lt;RECIPIENT&gt; secret.txt
+</code></pre>
+<p>For <code>&lt;RECIPIENT&gt;</code> you can use their key ID, their email, or their name (or part thereof).</p>
+
+<pre><code class="bash">gpg -e -r &lt;KEY ID&gt; ...
+gpg -e -r <span class="hljs-string">&quot;Bez&quot;</span> ...
+gpg -e -r <span class="hljs-string">&quot;bezalelhermoso@gmail.com&quot;</span> ...
+</code></pre>
+<p>Specifying multiple recipients</p>
+
+<pre><code class="bash">gpg -e -r &lt;RECIPIENT&gt; -r &lt;ANOTHER RECIPIENT&gt; ... secret.txt
+</code></pre>
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will produce an encrypted file named <code>&lt;ORIGINAL FILENAME&gt;.gpg</code> by default.</p>
+<h3 id="symmetric-encryption">Symmetric encryption</h3>
+<p>Encrypt file using a shared key. You will be prompted for a passphrase.</p>
+
+<pre><code class="bash">gpg --symmetric secret.txt
+<span class="hljs-comment"># or</span>
+gpg -c secret.txt
+</code></pre>
+<h2 id="decrypting">Decrypting</h2>
+<h3 id="decrypting-a-file">Decrypting a file</h3>
+
+<pre><code class="bash">gpg -d -o secret.txt secret.txt.gpg
+</code></pre>
+<p>If the file is encrypted via symmetric encryption, you will be prompted for the passphrase.</p>
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will print the unencrypted contents to <code>stdout</code></p>
+<h2 id="signing-verifying">Signing &amp; Verifying</h2>
+<h3 id="signing">Signing</h3>
+
+<pre><code class="bash">gpg -o signed-file.txt.gpg -s file.txt
+</code></pre>
+<p>This can be used during encryption to also sign encrypted files:</p>
+
+<pre><code class="bash">gpg -s -o secret.txt.gpg \
+  -r &lt;RECIPIENT&gt; secret.txt
+</code></pre>
+<h3 id="verifying-a-signature">Verifying a signature</h3>
+
+<pre><code class="bash">gpg --verify file.txt.gpg
+</code></pre>
+<h3 id="viewing-content-of-signed-file">Viewing content of signed file</h3>
+
+<pre><code class="bash">gpg -d signed-file.txt.gpg
+</code></pre>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<h3 id="components">Components</h3>
+<p>List all components:</p>
+
+<pre><code class="bash">gpgconf --list-components
+</code></pre>
+<p>Kill a component:</p>
+
+<pre><code class="bash">gpgconf --<span class="hljs-built_in">kill</span> &lt;COMPONENT&gt; <span class="hljs-comment"># i.e. gpgconf --kill dirmngr</span>
+</code></pre>
+<p>Kill all components:</p>
+
+<pre><code class="bash">gpgconf --<span class="hljs-built_in">kill</span> all
+</code></pre>
+<h3 id="parsing-keyring-data">Parsing keyring data</h3>
+<p>Use <code>--with-colons</code> to produce an output that can easily be parsed i.e. with <code>awk</code>, <code>grep</code>. Fields are colon-separated.</p>
+
+<pre><code class="bash">gpg -k --with-colons
+</code></pre>
+<p>Field Quick Reference:</p>
+<p>| Field # | Description |
+| 1       | Record type |
+| 2       | Validity |
+| 3       | Key length in bits |
+| 4       | Public key algorithm |
+| 5       | Key ID |
+| 6       | Creation date |
+| 7       | Expiry date |
+| 8       | Certificate S/N, UID hash, trust signature info |
+| 9       | Ownertrust |
+| 10      | User ID |
+| 11      | Signature class |
+| 12      | Key capabilities |
+| 13      | Issuer fingerprint |
+| 14      | Flag field |
+| 15      | S/N of token |
+| 16      | Hash algorithm |
+| 17      | Curve name |
+| 18      | Compliance flags |
+| 19      | Last update timestamp |
+| 20      | Origin |</p>
+<p>See <a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS">GnuPG Details</a> for more details.</p>
+
+</div>
+</body>  
+</html>

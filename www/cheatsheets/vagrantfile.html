@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vagrantfile cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Vagrantfile cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\vagrantfile.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#vagrantfile">Vagrantfile</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="vagrantfile">Vagrantfile</h2>
+
+<pre><code class="rb">Vagrant.configure(<span class="hljs-string">&quot;2&quot;</span>) <span class="hljs-keyword">do</span> <span class="hljs-params">|config|</span>
+  <span class="hljs-comment"># All Vagrant configuration is done here. The most common configuration</span>
+  <span class="hljs-comment"># options are documented and commented below. For a complete reference,</span>
+  <span class="hljs-comment"># please see the online documentation at vagrantup.com.</span>
+
+  <span class="hljs-comment"># Every Vagrant virtual environment requires a box to build off of.</span>
+  config.vm.box = <span class="hljs-string">&quot;precise64&quot;</span>
+
+  <span class="hljs-comment"># The url from where the &#x27;config.vm.box&#x27; box will be fetched if it</span>
+  <span class="hljs-comment"># doesn&#x27;t already exist on the user&#x27;s system.</span>
+  <span class="hljs-comment"># config.vm.box_url = &quot;http://domain.com/path/to/above.box&quot;</span>
+
+  <span class="hljs-comment"># Create a forwarded port mapping which allows access to a specific port</span>
+  <span class="hljs-comment"># within the machine from a port on the host machine. In the example below,</span>
+  <span class="hljs-comment"># accessing &quot;localhost:8080&quot; will access port 80 on the guest machine.</span>
+  <span class="hljs-comment"># config.vm.network :forwarded_port, guest: 80, host: 8080</span>
+
+  <span class="hljs-comment"># Create a private network, which allows host-only access to the machine</span>
+  <span class="hljs-comment"># using a specific IP.</span>
+  <span class="hljs-comment"># config.vm.network :private_network, ip: &quot;192.168.33.10&quot;</span>
+
+  <span class="hljs-comment"># Create a public network, which generally matched to bridged network.</span>
+  <span class="hljs-comment"># Bridged networks make the machine appear as another physical device on</span>
+  <span class="hljs-comment"># your network.</span>
+  <span class="hljs-comment"># config.vm.network :public_network</span>
+
+  <span class="hljs-comment"># If true, then any SSH connections made will enable agent forwarding.</span>
+  <span class="hljs-comment"># Default value: false</span>
+  <span class="hljs-comment"># config.ssh.forward_agent = true</span>
+
+  <span class="hljs-comment"># Share an additional folder to the guest VM. The first argument is</span>
+  <span class="hljs-comment"># the path on the host to the actual folder. The second argument is</span>
+  <span class="hljs-comment"># the path on the guest to mount the folder. And the optional third</span>
+  <span class="hljs-comment"># argument is a set of non-required options.</span>
+  <span class="hljs-comment"># config.vm.synced_folder &quot;../data&quot;, &quot;/vagrant_data&quot;</span>
+
+  <span class="hljs-comment"># Provider-specific configuration so you can fine-tune various</span>
+  <span class="hljs-comment"># backing providers for Vagrant. These expose provider-specific options.</span>
+  <span class="hljs-comment"># Example for VirtualBox:</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># config.vm.provider :virtualbox do |vb|</span>
+  <span class="hljs-comment">#   # Don&#x27;t boot with headless mode</span>
+  <span class="hljs-comment">#   vb.gui = true</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment">#   # Use VBoxManage to customize the VM. For example to change memory:</span>
+  <span class="hljs-comment">#   vb.customize [&quot;modifyvm&quot;, :id, &quot;--memory&quot;, &quot;1024&quot;]</span>
+  <span class="hljs-comment"># end</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># View the documentation for the provider you&#x27;re using for more</span>
+  <span class="hljs-comment"># information on available options.</span>
+
+  <span class="hljs-comment"># Enable provisioning with Puppet stand alone.  Puppet manifests</span>
+  <span class="hljs-comment"># are contained in a directory path relative to this Vagrantfile.</span>
+  <span class="hljs-comment"># You will need to create the manifests directory and a manifest in</span>
+  <span class="hljs-comment"># the file precise64.pp in the manifests_path directory.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># An example Puppet manifest to provision the message of the day:</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># # group { &quot;puppet&quot;:</span>
+  <span class="hljs-comment"># #   ensure =&gt; &quot;present&quot;,</span>
+  <span class="hljs-comment"># # }</span>
+  <span class="hljs-comment"># #</span>
+  <span class="hljs-comment"># # File { owner =&gt; 0, group =&gt; 0, mode =&gt; 0644 }</span>
+  <span class="hljs-comment"># #</span>
+  <span class="hljs-comment"># # file { &#x27;/etc/motd&#x27;:</span>
+  <span class="hljs-comment"># #   content =&gt; &quot;Welcome to your Vagrant-built virtual machine!</span>
+  <span class="hljs-comment"># #               Managed by Puppet.\n&quot;</span>
+  <span class="hljs-comment"># # }</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># config.vm.provision :puppet do |puppet|</span>
+  <span class="hljs-comment">#   puppet.manifests_path = &quot;manifests&quot;</span>
+  <span class="hljs-comment">#   puppet.manifest_file  = &quot;init.pp&quot;</span>
+  <span class="hljs-comment"># end</span>
+
+  <span class="hljs-comment"># Enable provisioning with chef solo, specifying a cookbooks path, roles</span>
+  <span class="hljs-comment"># path, and data_bags path (all relative to this Vagrantfile), and adding</span>
+  <span class="hljs-comment"># some recipes and/or roles.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># config.vm.provision :chef_solo do |chef|</span>
+  <span class="hljs-comment">#   chef.cookbooks_path = &quot;../my-recipes/cookbooks&quot;</span>
+  <span class="hljs-comment">#   chef.roles_path = &quot;../my-recipes/roles&quot;</span>
+  <span class="hljs-comment">#   chef.data_bags_path = &quot;../my-recipes/data_bags&quot;</span>
+  <span class="hljs-comment">#   chef.add_recipe &quot;mysql&quot;</span>
+  <span class="hljs-comment">#   chef.add_role &quot;web&quot;</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment">#   # You may also specify custom JSON attributes:</span>
+  <span class="hljs-comment">#   chef.json = { :mysql_password =&gt; &quot;foo&quot; }</span>
+  <span class="hljs-comment"># end</span>
+
+  <span class="hljs-comment"># Enable provisioning with chef server, specifying the chef server URL,</span>
+  <span class="hljs-comment"># and the path to the validation key (relative to this Vagrantfile).</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># The Opscode Platform uses HTTPS. Substitute your organization for</span>
+  <span class="hljs-comment"># ORGNAME in the URL and validation key.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># If you have your own Chef Server, use the appropriate URL, which may be</span>
+  <span class="hljs-comment"># HTTP instead of HTTPS depending on your configuration. Also change the</span>
+  <span class="hljs-comment"># validation key to validation.pem.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># config.vm.provision :chef_client do |chef|</span>
+  <span class="hljs-comment">#   chef.chef_server_url = &quot;https://api.opscode.com/organizations/ORGNAME&quot;</span>
+  <span class="hljs-comment">#   chef.validation_key_path = &quot;ORGNAME-validator.pem&quot;</span>
+  <span class="hljs-comment"># end</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># If you&#x27;re using the Opscode platform, your validator client is</span>
+  <span class="hljs-comment"># ORGNAME-validator, replacing ORGNAME with your organization name.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment"># If you have your own Chef Server, the default validation client name is</span>
+  <span class="hljs-comment"># chef-validator, unless you changed the configuration.</span>
+  <span class="hljs-comment">#</span>
+  <span class="hljs-comment">#   chef.validation_client_name = &quot;ORGNAME-validator&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="./vagrant">Vagrant cheatsheet</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

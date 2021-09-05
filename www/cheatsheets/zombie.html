@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Zombie cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Zombie cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\zombie.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Zombie</b>: <a href="#examples">Examples</a>, <a href="#expectations">Expectations</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="zombie">Zombie</h2>
+<h3 id="examples">Examples</h3>
+
+<pre><code class="js">browser
+  .<span class="hljs-title function_">visit</span>(<span class="hljs-string">&quot;http://.../&quot;</span>, -&gt;)
+  .<span class="hljs-title function_">fill</span>(<span class="hljs-string">&quot;email&quot;</span>, <span class="hljs-string">&quot;zombie@underworld.dead&quot;</span>)
+  .<span class="hljs-title function_">fill</span>(<span class="hljs-string">&quot;password&quot;</span>, <span class="hljs-string">&quot;eat-the-living&quot;</span>)
+  .<span class="hljs-title function_">select</span>(<span class="hljs-string">&quot;Born&quot;</span>, <span class="hljs-string">&quot;1985&quot;</span>)
+  .<span class="hljs-title function_">uncheck</span>(<span class="hljs-string">&quot;Send newsletter&quot;</span>)
+  .<span class="hljs-title function_">clickLink</span>(<span class="hljs-string">&quot;Link name&quot;</span>)
+  .<span class="hljs-title function_">pressButton</span>(<span class="hljs-string">&quot;Sign&quot;</span>, <span class="hljs-function">() =&gt;</span> { ... })
+  .<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;H1&quot;</span>)
+</code></pre>
+<h3 id="expectations">Expectations</h3>
+
+<pre><code class="js"><span class="hljs-title function_">expect</span>(browser.<span class="hljs-title function_">query</span>(<span class="hljs-string">&quot;#brains&quot;</span>))
+
+<span class="hljs-title function_">expect</span>(browser.<span class="hljs-property">body</span>.<span class="hljs-title function_">queryAll</span>(<span class="hljs-string">&quot;.hand&quot;</span>)).<span class="hljs-property">length</span> <span class="hljs-number">2</span>
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(browser.<span class="hljs-title function_">html</span>())
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(browser.<span class="hljs-title function_">html</span>(<span class="hljs-string">&quot;table.parts&quot;</span>))
+
+<span class="hljs-title function_">expect</span>(<span class="hljs-title class_">Browser</span>.<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;.card-nopad small&quot;</span>), <span class="hljs-string">&quot;A better way to get around!&quot;</span>)
+</code></pre>
+
+</div>
+</body>  
+</html>

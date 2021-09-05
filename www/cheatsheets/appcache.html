@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Appcache cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Appcache cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\appcache.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#format">Format</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="format">Format</h3>
+
+<pre><code>CACHE MANIFEST
+<span class="hljs-comment"># version</span>
+
+CACHE:
+http:<span class="hljs-regexp">//</span>www.google.com/jsapi
+<span class="hljs-regexp">/assets/</span>app.js
+<span class="hljs-regexp">/assets/</span>bg.png
+
+NETWORK:
+*
+</code></pre>
+<p>Note that Appcache is deprecated!</p>
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache">Using the application cache</a> <em>(developer.mozilla.org)</em></p>
+
+</div>
+</body>  
+</html>

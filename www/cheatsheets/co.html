@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>co cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / co cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\co.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#running-generators">Running generators</a>, <a href="#generator-promise">Generator → Promise</a>, <a href="#generator-node-callback">Generator → Node callback</a>, <a href="#node-callback-thunk">Node callback → Thunk</a>, <a href="#using-node-js-api">Using Node.js API</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="running-generators">Running generators</h3>
+
+<pre><code class="js"><span class="hljs-title function_">co</span>(<span class="hljs-keyword">function</span> * () {
+  <span class="hljs-keyword">yield</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-literal">true</span>)
+}).<span class="hljs-title function_">then</span>(...)
+</code></pre>
+<p>A generator can <code>yield</code> a thunk or promise. Using <code>co()</code> will immediately invoke the block inside it.</p>
+<h3 id="generator-promise">Generator → Promise</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> fn = co.<span class="hljs-title function_">wrap</span>(<span class="hljs-keyword">function</span> * (val) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">yield</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(val)
+})
+
+<span class="hljs-title function_">fn</span>().<span class="hljs-title function_">then</span>(...)
+</code></pre>
+<p>Use <code>co.wrap()</code>. Most of the time, you&#39;ll be using co.wrap.</p>
+<h3 id="generator-node-callback">Generator → Node callback</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> get = <span class="hljs-title function_">unyield</span>(<span class="hljs-keyword">function</span> * () {
+})
+
+<span class="hljs-title function_">get</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) { ... })
+</code></pre>
+<p>Use <a href="https://github.com/MatthewMueller/unyield">unyield</a>. (You can <a href="https://github.com/visionmedia/node-thunkify">thunkify</a> this later)</p>
+<h3 id="node-callback-thunk">Node callback → Thunk</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> readFile = <span class="hljs-title function_">thunkify</span>(fs.<span class="hljs-property">readFile</span>)
+
+<span class="hljs-title function_">co</span>(<span class="hljs-keyword">function</span> * () {
+  <span class="hljs-keyword">var</span> data = <span class="hljs-keyword">yield</span> <span class="hljs-title function_">readFile</span>(<span class="hljs-string">&#x27;index.txt&#x27;</span>, <span class="hljs-string">&#x27;utf-8&#x27;</span>)
+})
+</code></pre>
+<p>Use <a href="https://github.com/visionmedia/node-thunkify">thunkify</a>. You can yield this. You can also use <a href="https://www.npmjs.com/package/thenify">thenify</a> too.</p>
+<h3 id="using-node-js-api">Using Node.js API</h3>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> readFile = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;mz/fs&#x27;</span>).<span class="hljs-property">readFile</span>
+
+<span class="hljs-keyword">var</span> getLines = co.<span class="hljs-title function_">wrap</span>(<span class="hljs-keyword">function</span> * (filename) {
+  <span class="hljs-keyword">var</span> data = <span class="hljs-keyword">yield</span> <span class="hljs-title function_">readFile</span>(filename, <span class="hljs-string">&#x27;utf-8&#x27;</span>)
+  <span class="hljs-keyword">return</span> data.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;\n&#x27;</span>)
+})
+
+<span class="hljs-title function_">getLines</span>(<span class="hljs-string">&#x27;file.txt&#x27;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">lines</span>) =&gt;</span> { ... })
+</code></pre>
+<p>Use <a href="https://www.npmjs.com/package/mz">mz</a> for async Node.js API. You can also either <a href="https://github.com/visionmedia/node-thunkify">thunkify</a> or <a href="https://www.npmjs.com/package/thenify">thenify</a> them instead.</p>
+
+</div>
+</body>  
+</html>

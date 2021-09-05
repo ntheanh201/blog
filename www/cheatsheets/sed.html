@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>sed cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / sed cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\sed.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>In place replacements</b>: <a href="#in-place-replacement-gnu-">In-place replacement (GNU)</a><br>
+<b>File regions</b>: <a href="#print-until-a-certain-line-is-met">Print until a certain line is met</a>, <a href="#print-until-a-certain-line-is-met-but-not-that-line">Print until a certain line is met, but not that line</a>, <a href="#print-everything-after-a-given-line">Print everything after a given line</a>, <a href="#print-everything-except-matching">Print everything except matching</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="in-place-replacements">In place replacements</h2>
+<h3 id="in-place-replacement-gnu-">In-place replacement (GNU)</h3>
+
+<pre><code class="bash">sed -i -e <span class="hljs-string">&#x27;s/foo/bar/&#x27;</span> example.md
+</code></pre>
+<p>In GNU sed: use <code>-i</code> without arg.</p>
+<h4 id="in-place-replacement-bsd-">In-place replacement (BSD)</h4>
+
+<pre><code class="bash">sed -i <span class="hljs-string">&#x27;&#x27;</span> -e <span class="hljs-string">&#x27;s/foo/bar/&#x27;</span> example.md
+</code></pre>
+<p> In OSX, <code>-i &#39;&#39;</code> is required.</p>
+<h2 id="file-regions">File regions</h2>
+<h3 id="print-until-a-certain-line-is-met">Print until a certain line is met</h3>
+
+<pre><code class="bash">sed <span class="hljs-string">&#x27;/begin api/q&#x27;</span>
+</code></pre>
+<h3 id="print-until-a-certain-line-is-met-but-not-that-line">Print until a certain line is met, but not that line</h3>
+
+<pre><code class="bash">sed <span class="hljs-string">&#x27;/^# begin/,$d&#x27;</span>
+</code></pre>
+<h3 id="print-everything-after-a-given-line">Print everything after a given line</h3>
+
+<pre><code class="bash">sed -n <span class="hljs-string">&#x27;/end api/,$p&#x27;</span>
+</code></pre>
+<p>Print after a given line is found.</p>
+<h3 id="print-everything-except-matching">Print everything except matching</h3>
+
+<pre><code class="bash">sed -n <span class="hljs-string">&#x27;/regex/d;&#x27;</span>
+</code></pre>
+<p>Print everything except lines matching regex. Useful for printing files with comments.</p>
+
+</div>
+</body>  
+</html>

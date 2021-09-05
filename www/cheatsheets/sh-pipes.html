@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Shell: named pipes cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Shell: named pipes cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\sh-pipes.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#named-pipes">Named pipes</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="named-pipes">Named pipes</h3>
+
+<pre><code class="sh">diff &lt;(ls ./old) &lt;(ls ./new)
+</code></pre>
+<p>This creates a virtual file with the contents of the output of <code>ls ./old</code>.</p>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Named_pipe">Named pipe</a> <em>(wikipedia.org)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

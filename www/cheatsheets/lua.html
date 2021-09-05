@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lua cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Lua cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\lua.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#comments">Comments</a><br>
+<a href="#invoking-functions">Invoking functions</a><br>
+<a href="#tables-arrays">Tables / arrays</a><br>
+<a href="#loops">Loops</a><br>
+<a href="#conditionals">Conditionals</a><br>
+<a href="#variables">Variables</a><br>
+<a href="#functions">Functions</a><br>
+<a href="#lookups">Lookups</a><br>
+<a href="#metatables">Metatables</a><br>
+<a href="#classes">Classes</a><br>
+<a href="#constants">Constants</a><br>
+<a href="#operators-and-their-metatable-names-">Operators (and their metatable names)</a><br>
+<a href="#api-global-functions-ref-http-lua-gts-stolberg-de-en-basis-php-">API: Global functions  (ref)</a><br>
+<a href="#api-strings">API: Strings</a><br>
+<a href="#api-tables">API: Tables</a><br>
+<a href="#api-math-ref-http-lua-users-org-wiki-mathlibrarytutorial-">API: Math (ref)</a><br>
+<a href="#api-misc">API: Misc</a><br>
+<a href="#reference">Reference</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="comments">Comments</h2>
+
+<pre><code><span class="hljs-comment">-- comment</span>
+<span class="hljs-comment">--[[ Multiline
+     comment ]]</span>
+</code></pre>
+<h2 id="invoking-functions">Invoking functions</h2>
+
+<pre><code><span class="hljs-built_in">print</span>()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hi&quot;</span>)
+
+-- You can omit parentheses <span class="hljs-keyword">if</span> the argument is one string <span class="hljs-keyword">or</span> table literal
+<span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Hello World&quot;</span>     &lt;--&gt;     <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)
+dofile <span class="hljs-string">&#x27;a.lua&#x27;</span>          &lt;--&gt;     dofile (<span class="hljs-string">&#x27;a.lua&#x27;</span>)
+<span class="hljs-built_in">print</span> [[a multi-line    &lt;--&gt;     <span class="hljs-built_in">print</span>([[a multi-line
+ message]]                        message]])
+f{<span class="hljs-attribute">x</span>=10, <span class="hljs-attribute">y</span>=20}           &lt;--&gt;     f({<span class="hljs-attribute">x</span>=10, <span class="hljs-attribute">y</span>=20})
+type{}                  &lt;--&gt;     type({})
+</code></pre>
+<h2 id="tables-arrays">Tables / arrays</h2>
+
+<pre><code>t = {}
+t = { a = <span class="hljs-number">1</span>, b = <span class="hljs-number">2</span> }
+t.a = <span class="hljs-keyword">function</span>() ... <span class="hljs-keyword">end</span>
+
+t = { [<span class="hljs-string">&quot;hello&quot;</span>] = <span class="hljs-number">200</span> }
+t.hello
+
+<span class="hljs-comment">-- Remember, arrays are also tables</span>
+<span class="hljs-keyword">array</span> = { <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;d&quot;</span> }
+print(<span class="hljs-keyword">array</span>[<span class="hljs-number">2</span>])       <span class="hljs-comment">-- &quot;b&quot; (one-indexed)</span>
+print(#<span class="hljs-keyword">array</span>)         <span class="hljs-comment">-- 4 (length)</span>
+</code></pre>
+<h2 id="loops">Loops</h2>
+
+<pre><code><span class="hljs-keyword">while</span> condition <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>,<span class="hljs-number">5</span> <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">for</span> i = start,finish,delta <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(tab) <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">repeat</span>
+<span class="hljs-keyword">until</span> condition
+
+<span class="hljs-comment">-- Breaking out:</span>
+<span class="hljs-keyword">while</span> x <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">if</span> condition <span class="hljs-keyword">then</span> <span class="hljs-keyword">break</span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="conditionals">Conditionals</h2>
+
+<pre><code><span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">condition</span> <span class="hljs-variable">then</span>
+  <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&quot;yes&quot;</span>)</span>
+<span class="hljs-variable">elseif</span> <span class="hljs-variable">condition</span> <span class="hljs-variable">then</span>
+  <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&quot;maybe&quot;</span>)</span>
+<span class="hljs-variable"><span class="hljs-keyword">else</span></span>
+  <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&quot;no&quot;</span>)</span>
+<span class="hljs-variable">end</span>
+</code></pre>
+<h2 id="variables">Variables</h2>
+
+<pre><code><span class="hljs-attribute">local</span> x = <span class="hljs-number">2</span>
+<span class="hljs-attribute">two</span>, four = <span class="hljs-number">2</span>, <span class="hljs-number">4</span>
+</code></pre>
+<h2 id="functions">Functions</h2>
+
+<pre><code><span class="hljs-keyword">function</span> my<span class="hljs-constructor">Function()</span>
+  return <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">function</span> my<span class="hljs-constructor">FunctionWithArgs(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>
+  --<span class="hljs-operator"> ...
+</span><span class="hljs-keyword">end</span>
+
+my<span class="hljs-constructor">Function()</span>
+
+anonymous<span class="hljs-constructor">Functions(<span class="hljs-params">function</span>()</span>
+  --<span class="hljs-operator"> ...
+</span><span class="hljs-keyword">end</span>)
+
+-- Not exported <span class="hljs-keyword">in</span> the <span class="hljs-keyword">module</span>
+local <span class="hljs-keyword">function</span> my<span class="hljs-constructor">PrivateFunction()</span>
+<span class="hljs-keyword">end</span>
+
+-- Splats
+<span class="hljs-keyword">function</span> <span class="hljs-keyword">do</span><span class="hljs-constructor">Action(<span class="hljs-params">action</span>, <span class="hljs-operator">...</span>)</span>
+  print(<span class="hljs-string">&quot;Doing &#x27;&quot;</span>..action..<span class="hljs-string">&quot;&#x27; to&quot;</span>, ...)
+  --&gt; print(<span class="hljs-string">&quot;Doing &#x27;write&#x27; to&quot;</span>, <span class="hljs-string">&quot;Shirley&quot;</span>, <span class="hljs-string">&quot;Abed&quot;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">do</span><span class="hljs-constructor">Action(&#x27;<span class="hljs-params">write</span>&#x27;, <span class="hljs-string">&quot;Shirley&quot;</span>, <span class="hljs-string">&quot;Abed&quot;</span>)</span>
+</code></pre>
+<h2 id="lookups">Lookups</h2>
+
+<pre><code>mytable = { x = <span class="hljs-number">2</span>, y = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> .. <span class="hljs-keyword">end</span> }
+
+<span class="hljs-comment">-- The same:</span>
+mytable.x
+mytable[<span class="hljs-string">&#x27;x&#x27;</span>]
+
+<span class="hljs-comment">-- Syntactic sugar, these are equivalent:</span>
+mytable.y(mytable)
+mytable:y()
+
+mytable.y(mytable, a, b)
+mytable:y(a, b)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">X:y</span><span class="hljs-params">(z)</span></span> .. <span class="hljs-keyword">end</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">X.y</span><span class="hljs-params">(self, z)</span></span> .. <span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="metatables">Metatables</h2>
+
+<pre><code>mt = {}
+
+<span class="hljs-comment">-- A metatable is simply a table with functions in it.</span>
+mt.<span class="hljs-built_in">__tostring</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;lol&quot;</span> <span class="hljs-keyword">end</span>
+mt.<span class="hljs-built_in">__add</span>      = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(b)</span></span> ... <span class="hljs-keyword">end</span>       <span class="hljs-comment">-- a + b</span>
+mt.<span class="hljs-built_in">__mul</span>      = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(b)</span></span> ... <span class="hljs-keyword">end</span>       <span class="hljs-comment">-- a * b</span>
+mt.<span class="hljs-built_in">__index</span>    = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(k)</span></span> ... <span class="hljs-keyword">end</span>       <span class="hljs-comment">-- Lookups (a[k] or a.k)</span>
+mt.<span class="hljs-built_in">__newindex</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(k, v)</span></span> ... <span class="hljs-keyword">end</span>    <span class="hljs-comment">-- Setters (a[k] = v)</span>
+
+<span class="hljs-comment">-- Metatables allow you to override behavior of another table.</span>
+mytable = {}
+<span class="hljs-built_in">setmetatable</span>(mytable, mt)
+
+<span class="hljs-built_in">print</span>(myobject)
+</code></pre>
+<h2 id="classes">Classes</h2>
+
+<pre><code>Account = {}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account:new</span><span class="hljs-params">(balance)</span></span>
+  <span class="hljs-keyword">local</span> t = <span class="hljs-built_in">setmetatable</span>({}, { <span class="hljs-built_in">__index</span> = Account })
+
+  <span class="hljs-comment">-- Your constructor stuff</span>
+  t.balance = (balance <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>)
+  <span class="hljs-keyword">return</span> t
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account:withdraw</span><span class="hljs-params">(amount)</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Withdrawing &quot;</span>..amount..<span class="hljs-string">&quot;...&quot;</span>)
+  <span class="hljs-built_in">self</span>.balance = <span class="hljs-built_in">self</span>.balance - amount
+  <span class="hljs-built_in">self</span>:report()
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account:report</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Your current balance is: &quot;</span>..<span class="hljs-built_in">self</span>.balance)
+<span class="hljs-keyword">end</span>
+
+a = Account:new(<span class="hljs-number">9000</span>)
+a:withdraw(<span class="hljs-number">200</span>)    <span class="hljs-comment">-- method call</span>
+</code></pre>
+<h2 id="constants">Constants</h2>
+
+<pre><code><span class="hljs-literal">nil</span>
+<span class="hljs-literal">false</span>
+<span class="hljs-literal">true</span>
+</code></pre>
+<h2 id="operators-and-their-metatable-names-">Operators (and their metatable names)</h2>
+
+<pre><code>-- Relational (binary)
+-- <span class="hljs-variable">__eq</span>  <span class="hljs-variable">__lt</span>  <span class="hljs-variable">__gt</span>  <span class="hljs-variable">__le</span>  <span class="hljs-variable">__ge</span>
+   ==    &lt;     &gt;     &lt;=    &gt;=
+~=   -- <span class="hljs-built_in">Not</span> equal, just like !=
+
+-- Arithmetic (binary)
+-- <span class="hljs-variable">__add</span>  <span class="hljs-variable">__sub</span>  <span class="hljs-variable">__muv</span>  <span class="hljs-variable">__div</span>  <span class="hljs-variable">__mod</span>  <span class="hljs-variable">__pow</span>
+   +      -      *      /      %      ^
+
+-- Arithmetic (unary)
+-- <span class="hljs-variable">__unm</span> (unary minus)
+   -
+
+-- Logic (<span class="hljs-built_in">and</span>/<span class="hljs-built_in">or</span>)
+<span class="hljs-literal">nil</span> <span class="hljs-built_in">and</span> <span class="hljs-literal">false</span>  --&gt; <span class="hljs-literal">nil</span>
+<span class="hljs-literal">false</span> <span class="hljs-built_in">and</span> <span class="hljs-literal">nil</span>  --&gt; <span class="hljs-literal">false</span>
+<span class="hljs-number">0</span> <span class="hljs-built_in">and</span> <span class="hljs-number">20</span>       --&gt; <span class="hljs-number">20</span>
+<span class="hljs-number">10</span> <span class="hljs-built_in">and</span> <span class="hljs-number">20</span>      --&gt; <span class="hljs-number">20</span>
+
+
+-- Length
+-- <span class="hljs-variable">__len</span>(array)
+<span class="hljs-meta">#array</span>
+
+
+-- Indexing
+-- <span class="hljs-variable">__index</span>(table, key)
+t[key]
+t.key
+
+-- <span class="hljs-variable">__newindex</span>(table, key, value)
+t[key]=value
+
+-- String concat
+-- <span class="hljs-variable">__concat</span>(left, right)
+<span class="hljs-string">&quot;hello, &quot;</span>..<span class="hljs-built_in">name</span>
+
+-- <span class="hljs-built_in">Call</span>
+-- <span class="hljs-variable">__call</span>(func, ...)
+</code></pre>
+<h2 id="api-global-functions-ref-http-lua-gts-stolberg-de-en-basis-php-">API: Global functions  <a href="http://lua.gts-stolberg.de/en/Basis.php">(ref)</a></h2>
+
+<pre><code><span class="hljs-built_in">dofile</span>(<span class="hljs-string">&quot;hello.lua&quot;</span>)
+<span class="hljs-built_in">loadfile</span>(<span class="hljs-string">&quot;hello.lua&quot;</span>)
+
+<span class="hljs-built_in">assert</span>(x)    <span class="hljs-comment">-- x or (raise an error)</span>
+<span class="hljs-built_in">assert</span>(x, <span class="hljs-string">&quot;failed&quot;</span>)
+
+<span class="hljs-built_in">type</span>(var)   <span class="hljs-comment">-- &quot;nil&quot; | &quot;number&quot; | &quot;string&quot; | &quot;boolean&quot; | &quot;table&quot; | &quot;function&quot; | &quot;thread&quot; | &quot;userdata&quot;</span>
+
+<span class="hljs-comment">-- Does /not/ invoke meta methods (__index and __newindex)</span>
+<span class="hljs-built_in">rawset</span>(t, index, value)    <span class="hljs-comment">-- Like t[index] = value</span>
+<span class="hljs-built_in">rawget</span>(t, index)           <span class="hljs-comment">-- Like t[index]</span>
+
+<span class="hljs-built_in">_G</span>  <span class="hljs-comment">-- Global context</span>
+<span class="hljs-built_in">setfenv</span>(<span class="hljs-number">1</span>, {})  <span class="hljs-comment">-- 1: current function, 2: caller, and so on -- {}: the new _G</span>
+
+<span class="hljs-built_in">pairs</span>(t)     <span class="hljs-comment">-- iterable list of {key, value}</span>
+<span class="hljs-built_in">ipairs</span>(t)    <span class="hljs-comment">-- iterable list of {index, value}</span>
+
+<span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&quot;34&quot;</span>)
+<span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&quot;8f&quot;</span>, <span class="hljs-number">16</span>)
+</code></pre>
+<h2 id="api-strings">API: Strings</h2>
+
+<pre><code><span class="hljs-comment">&#x27;string&#x27;..&#x27;concatenation&#x27;</span>
+
+s = <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-symbol">s:</span>upper()
+<span class="hljs-symbol">s:</span>lower()
+<span class="hljs-symbol">s:</span>len()    -- Just <span class="hljs-built_in">like</span> #s
+
+<span class="hljs-symbol">s:</span>find()
+<span class="hljs-symbol">s:</span>gfind()
+
+<span class="hljs-symbol">s:</span>match()
+<span class="hljs-symbol">s:</span>gmatch()
+
+<span class="hljs-symbol">s:</span><span class="hljs-keyword">sub</span>()
+<span class="hljs-symbol">s:</span>gsub()
+
+<span class="hljs-symbol">s:</span>rep()
+<span class="hljs-symbol">s:</span><span class="hljs-type">char</span>()
+<span class="hljs-symbol">s:</span>dump()
+<span class="hljs-symbol">s:</span>reverse()
+<span class="hljs-symbol">s:</span><span class="hljs-type">byte</span>()
+<span class="hljs-symbol">s:</span>format()
+</code></pre>
+<h2 id="api-tables">API: Tables</h2>
+
+<pre><code><span class="hljs-built_in">table</span>.<span class="hljs-built_in">foreach</span>(t, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(row)</span></span> ... <span class="hljs-keyword">end</span>)
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">setn</span>
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(t, <span class="hljs-number">21</span>)          <span class="hljs-comment">-- append (--&gt; t[#t+1] = 21)</span>
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">insert</span>(t, <span class="hljs-number">4</span>, <span class="hljs-number">99</span>)
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">getn</span>
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">concat</span>
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">sort</span>
+<span class="hljs-built_in">table</span>.<span class="hljs-built_in">remove</span>(t, <span class="hljs-number">4</span>)
+</code></pre>
+<h2 id="api-math-ref-http-lua-users-org-wiki-mathlibrarytutorial-">API: Math <a href="http://lua-users.org/wiki/MathLibraryTutorial">(ref)</a></h2>
+
+<pre><code><span class="hljs-built_in">math</span>.<span class="hljs-built_in">abs</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">acos</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">asin</span>       <span class="hljs-built_in">math</span>.<span class="hljs-built_in">atan</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">atan2</span>
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">ceil</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">cos</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">cosh</span>       <span class="hljs-built_in">math</span>.<span class="hljs-built_in">deg</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">exp</span>
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">floor</span>   <span class="hljs-built_in">math</span>.<span class="hljs-built_in">fmod</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">frexp</span>      <span class="hljs-built_in">math</span>.<span class="hljs-built_in">ldexp</span>   <span class="hljs-built_in">math</span>.<span class="hljs-built_in">log</span>
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">log10</span>   <span class="hljs-built_in">math</span>.<span class="hljs-built_in">max</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">min</span>        <span class="hljs-built_in">math</span>.<span class="hljs-built_in">modf</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">pow</span>
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">rad</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">random</span>  <span class="hljs-built_in">math</span>.<span class="hljs-built_in">randomseed</span> <span class="hljs-built_in">math</span>.<span class="hljs-built_in">sin</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">sinh</span>
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">sqrt</span>    <span class="hljs-built_in">math</span>.<span class="hljs-built_in">tan</span>     <span class="hljs-built_in">math</span>.<span class="hljs-built_in">tanh</span>
+
+<span class="hljs-built_in">math</span>.<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">144</span>)
+<span class="hljs-built_in">math</span>
+</code></pre>
+<h2 id="api-misc">API: Misc</h2>
+
+<pre><code><span class="hljs-built_in">io</span>.<span class="hljs-built_in">output</span>(<span class="hljs-built_in">io</span>.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;file.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>))
+<span class="hljs-built_in">io</span>.<span class="hljs-built_in">write</span>(x)
+<span class="hljs-built_in">io</span>.<span class="hljs-built_in">close</span>()
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> <span class="hljs-built_in">io</span>.<span class="hljs-built_in">lines</span>(<span class="hljs-string">&quot;file.txt&quot;</span>)
+
+file = <span class="hljs-built_in">assert</span>(<span class="hljs-built_in">io</span>.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;file.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>))
+file:<span class="hljs-built_in">read</span>()
+file:<span class="hljs-built_in">lines</span>()
+file:<span class="hljs-built_in">close</span>()
+</code></pre>
+<h2 id="reference">Reference</h2>
+<p>  <a href="http://www.lua.org/pil/13.html">http://www.lua.org/pil/13.html</a>
+  <a href="http://lua-users.org/wiki/ObjectOrientedProgramming">http://lua-users.org/wiki/ObjectOrientedProgramming</a></p>
+
+</div>
+</body>  
+</html>

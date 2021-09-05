@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>rename cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / rename cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rename.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#installation">Installation</a>, <a href="#regex-substitution">Regex substitution</a>, <a href="#replace-extension">Replace extension</a>, <a href="#options">Options</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="installation">Installation</h3>
+
+<pre><code class="bash">brew install rename
+</code></pre>
+<p>See: <a href="http://plasmasturm.org/code/rename/">http://plasmasturm.org/code/rename/</a></p>
+<h3 id="regex-substitution">Regex substitution</h3>
+
+<pre><code class="bash">rename <span class="hljs-string">&#x27;s/hello/world/&#x27;</span> *.txt
+</code></pre>
+<p>Rename <code>hello.txt</code> to <code>world.txt</code> and so on in <code>*.txt</code>.</p>
+<h3 id="replace-extension">Replace extension</h3>
+
+<pre><code class="bash">rename -s .png .jpg.png *.png
+</code></pre>
+<p>Replace <code>.png</code> with <code>.jpg.png</code> in <code>*.png</code>.</p>
+<h3 id="options">Options</h3>
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-n</code></td>
+<td>Simulation</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>Symlink instead of rename</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Interactive</td>
+</tr>
+</tbody>
+</table>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="http://plasmasturm.org/code/rename/">Rename website</a> <em>(plasmasturm.org)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

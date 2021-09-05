@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Nopt cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Nopt cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\nopt.md" >edit</a>
+  </div>
+  <div class="toc"></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+
+<pre><code class="js"><span class="hljs-keyword">var</span> args = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;nopt&#x27;</span>)({
+  <span class="hljs-attr">foo</span>: [<span class="hljs-title class_">String</span>, <span class="hljs-literal">null</span>],
+  <span class="hljs-attr">size</span>: [<span class="hljs-string">&#x27;big&#x27;</span>, <span class="hljs-string">&#x27;medium&#x27;</span>, <span class="hljs-string">&#x27;small&#x27;</span>],
+  <span class="hljs-attr">many</span>: [<span class="hljs-title class_">String</span>, <span class="hljs-title class_">Array</span>],
+  <span class="hljs-attr">debug</span>: <span class="hljs-title class_">Boolean</span>,
+  <span class="hljs-attr">version</span>: <span class="hljs-title class_">Boolean</span>,
+  <span class="hljs-attr">help</span>: <span class="hljs-title class_">Boolean</span>
+}, {
+  <span class="hljs-attr">h</span>: <span class="hljs-string">&#x27;--help&#x27;</span>,
+  <span class="hljs-attr">v</span>: <span class="hljs-string">&#x27;--version&#x27;</span>
+}, process.<span class="hljs-property">argv</span>);
+
+args == {
+  <span class="hljs-attr">debug</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">version</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;big&#x27;</span>,
+  <span class="hljs-attr">argv</span>: {
+    <span class="hljs-attr">remain</span>: [<span class="hljs-string">&#x27;...&#x27;</span>, <span class="hljs-string">&#x27;...&#x27;</span>],
+    <span class="hljs-attr">cooked</span>: ...,
+    <span class="hljs-attr">original</span>: ...
+  }
+}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">if</span> (args.<span class="hljs-property">help</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>([
+      <span class="hljs-string">&#x27;Usage:&#x27;</span>,
+      <span class="hljs-string">&#x27;  hicat [options] [file]&#x27;</span>,
+      <span class="hljs-string">&#x27;&#x27;</span>,
+      <span class="hljs-string">&#x27;Options:&#x27;</span>,
+      <span class="hljs-string">&#x27;  -h, --help         print usage information&#x27;</span>,
+      <span class="hljs-string">&#x27;  -v, --version      show version info and exit&#x27;</span>,
+  ].<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;\n&#x27;</span>));
+  process.<span class="hljs-title function_">exit</span>(<span class="hljs-number">0</span>);
+}
+
+<span class="hljs-keyword">if</span> (args.<span class="hljs-property">version</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../package.json&#x27;</span>).<span class="hljs-property">version</span>);
+  process.<span class="hljs-title function_">exit</span>(<span class="hljs-number">0</span>);
+}
+</code></pre>
+<p><a href="https://www.npmjs.org/package/nopt">https://www.npmjs.org/package/nopt</a></p>
+
+</div>
+</body>  
+</html>

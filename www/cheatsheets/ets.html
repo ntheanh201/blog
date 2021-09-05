@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Erlang ETS cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Erlang ETS cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ets.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>ETS</b>: <a href="#usage">Usage</a>, <a href="#flags">Flags</a>, <a href="#ordered-sets">Ordered sets</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="ets">ETS</h2>
+<h3 id="usage">Usage</h3>
+
+<pre><code class="elixir">iex&gt; table = <span class="hljs-symbol">:ets</span>.new(<span class="hljs-symbol">:my_table</span>, [])
+     <span class="hljs-number">8211</span>
+</code></pre>
+
+<pre><code class="elixir">iex&gt; <span class="hljs-symbol">:ets</span>.insert(table, )
+iex&gt; <span class="hljs-symbol">:ets</span>.lookup(table, <span class="hljs-symbol">:fruit</span>)
+     []
+</code></pre>
+
+<pre><code class="elixir">iex&gt; <span class="hljs-symbol">:ets</span>.delete(table)
+iex&gt; <span class="hljs-symbol">:ets</span>.delete_all_objects(table)
+</code></pre>
+<h3 id="flags">Flags</h3>
+
+<pre><code class="elixir">iex&gt; table = <span class="hljs-symbol">:ets</span>.new(<span class="hljs-symbol">:my_table</span>, [<span class="hljs-symbol">:set</span>, <span class="hljs-symbol">:protected</span>])
+</code></pre>
+<p>| <code>:set</code> | no duplicate keys (or: <code>:ordered_set</code>, <code>:bag</code>, <code>:duplicate_bag</code>) |
+| <code>:protected</code> | only this process can use it (or: <code>:public</code>, <code>:private</code>) |</p>
+<h3 id="ordered-sets">Ordered sets</h3>
+
+<pre><code class="elixir"><span class="hljs-symbol">:ets</span>.first(table)
+<span class="hljs-symbol">:ets</span>.last(table)
+<span class="hljs-symbol">:ets</span>.<span class="hljs-keyword">next</span>(table, key)
+<span class="hljs-symbol">:ets</span>.prev(table, key)
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://erlang.org/doc/man/ets.html">http://erlang.org/doc/man/ets.html</a></li>
+<li><a href="http://learnyousomeerlang.com/ets">http://learnyousomeerlang.com/ets</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

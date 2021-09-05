@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>zsh cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / zsh cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\zsh.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#expressions">Expressions</a>, <a href="#change-default-shell">Change default shell</a>, <a href="#process-substitution">Process Substitution</a>, <a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="expressions">Expressions</h3>
+
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!!</code></td>
+<td><code>sudo !!</code></td>
+<td>Last command (<code>sudo !!</code>)</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>!*</code></td>
+<td><code>vim !*</code></td>
+<td>Last command&#39;s parameters (<code>vim !*</code>)</td>
+</tr>
+<tr>
+<td><code>!^</code></td>
+<td></td>
+<td>Last command&#39;s first parameter</td>
+</tr>
+<tr>
+<td><code>!$</code></td>
+<td></td>
+<td>Last command&#39;s last parameter</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>!?ls</code> <code>&lt;tab&gt;</code></td>
+<td><code>sudo !?mv</code> <code>&lt;tab&gt;</code></td>
+<td>Command and params of last <code>ls</code> command</td>
+</tr>
+<tr>
+<td><code>!?ls?:*</code> <code>&lt;tab&gt;</code></td>
+<td></td>
+<td>Params of last <code>ls</code> command</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>*(m0)</code></td>
+<td><code>rm *(m0)</code></td>
+<td>Last modified today</td>
+</tr>
+<tr>
+<td><code>*(m-4)</code></td>
+<td></td>
+<td>Last modified &lt;4 days ago</td>
+</tr>
+</tbody>
+</table>
+<h3 id="change-default-shell">Change default shell</h3>
+
+<pre><code class="bash">chsh -s `<span class="hljs-built_in">which</span> zsh`
+</code></pre>
+<h3 id="process-substitution">Process Substitution</h3>
+
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;(COMMAND)</code></td>
+<td><code>grep &quot;needle&quot; &lt;(curl &quot;https://haystack.io&quot;)</code></td>
+<td>Replace argument with <em>named pipe/FIFO</em> (read-only) with command output</td>
+</tr>
+<tr>
+<td><code>=(COMMAND)</code></td>
+<td><code>vim =(curl &quot;https://haystack.io&quot;)</code></td>
+<td>Replace argument with <em>file</em> (writable) containing command output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="also-see">Also see</h3>
+
+<ul>
+<li><a href="./bash">Bash cheatsheet</a></li>
+</ul>
+<p>Zsh is mostly compatible with Bash, so most everything in Bash&#39;s cheatsheet also applies.</p>
+
+</div>
+</body>  
+</html>

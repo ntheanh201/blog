@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Premailer cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Premailer cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\premailer.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#custom-css-properties">Custom CSS properties</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="custom-css-properties">Custom CSS properties</h3>
+<!-- prettier-ignore -->
+
+<pre><code class="css"><span class="hljs-selector-tag">table</span>, <span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-comment">/* Available on table, th and td elements */</span>
+  -premailer-<span class="hljs-attribute">width</span>: <span class="hljs-number">32px</span>;
+}
+
+<span class="hljs-selector-tag">table</span>, <span class="hljs-selector-tag">tr</span>, <span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-comment">/* Available on table, tr, th and td elements */</span>
+  -premailer-<span class="hljs-attribute">height</span>: <span class="hljs-number">32px</span>;
+}
+
+<span class="hljs-selector-tag">table</span> {
+  <span class="hljs-comment">/* Available on table elements */</span>
+  -premailer-cellpadding: <span class="hljs-number">32px</span>;
+  -premailer-cellspacing: <span class="hljs-number">32px</span>;
+}
+</code></pre>
+
+</div>
+</body>  
+</html>

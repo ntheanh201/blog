@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Jekyll cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Jekyll cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\jekyll.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#installation">Installation</a>, <a href="#directories">Directories</a><br>
+<b>Front-matter</b>: <a href="#basic-frontmatter">Basic frontmatter</a>, <a href="#other-frontmatter-stuff">Other frontmatter stuff</a>, <a href="#configuration">Configuration</a><br>
+<b>Markup</b>: <a href="#page-variables">Page variables</a>, <a href="#filters">Filters</a>, <a href="#loops">Loops</a>, <a href="#dates">Dates</a>, <a href="#conditionals">Conditionals</a>, <a href="#case">Case</a>, <a href="#includes-partials-">Includes (partials)</a>, <a href="#comments">Comments</a><br>
+<b>Variables</b>: <a href="#top-level-variables">Top-level variables</a>, <a href="#site">Site</a>, <a href="#page">Page</a><br>
+<b>Filters</b>: <a href="#dates">Dates</a>, <a href="#preprocessors">Preprocessors</a>, <a href="#array-filters">Array filters</a>, <a href="#string-filters">String filters</a>, <a href="#string-filters-jekyll-only-">String filters (Jekyll-only)</a>, <a href="#numbers">Numbers</a><br>
+<b>Paginator</b>: <a href="#paginator-setup">Paginator setup</a>, <a href="#numbers">Numbers</a>, <a href="#iterating-through-posts">Iterating through posts</a>, <a href="#previous-button">Previous button</a><br>
+<b>Blogging</b>: <a href="#paths">Paths</a>, <a href="#image-paths">Image paths</a>, <a href="#drafts">Drafts</a>, <a href="#defining-excerpts">Defining excerpts</a>, <a href="#displaying-excerpts">Displaying excerpts</a>, <a href="#excerpt-separator">Excerpt separator</a>, <a href="#permalinks">Permalinks</a><br>
+<b>More features</b>: <a href="#data">Data</a>, <a href="#collections">Collections</a>, <a href="#code-highlighter">Code highlighter</a><br>
+<b>Integration</b>: <a href="#bundler">Bundler</a>, <a href="#compass">Compass</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="installation">Installation</h3>
+
+<pre><code class="bash"><span class="hljs-comment"># Install the gems</span>
+gem install jekyll bundler
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># Create a new site at `./myblog`</span>
+jekyll new myblog
+<span class="hljs-built_in">cd</span> myblog
+</code></pre>
+
+<pre><code class="bash"><span class="hljs-comment"># Optional: if you&#x27;re targeting github-pages,</span>
+<span class="hljs-comment"># use this Gemfile instead.</span>
+cat &gt; Gemfile &lt;&lt;-<span class="hljs-string">END
+source &#x27;https://rubygems.org&#x27;
+gem &#x27;github-pages&#x27;, group: :jekyll_plugins
+END</span>
+</code></pre>
+
+<pre><code class="bash">bundle <span class="hljs-built_in">exec</span> jekyll serve
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/quickstart/">Jekyll quickstart</a><br>
+See: <a href="https://github.com/github/pages-gem">github/pages-gem</a></p>
+<h3 id="directories">Directories</h3>
+
+<pre><code>./
+├── <span class="hljs-variable">_config</span>.yml
+│
+├── <span class="hljs-variable">_data</span>/
+│   └── ...
+│
+├── <span class="hljs-variable">_drafts</span>/
+│   └── ...
+│
+├── <span class="hljs-variable">_posts</span>/
+│   └── <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">01</span>-hello.md
+│
+├── <span class="hljs-variable">_layouts</span>/
+│   ├── <span class="hljs-keyword">default</span>.html
+│   └── post.html
+│
+├── <span class="hljs-variable">_includes</span>/             - partials
+│   ├── header.html
+│   └── footer.html
+│
+└── <span class="hljs-variable">_site</span>/
+    └── ...
+</code></pre>
+<h2 id="front-matter">Front-matter</h2>
+<h3 id="basic-frontmatter">Basic frontmatter</h3>
+
+<pre><code><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">post</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">Hello!</span> <span class="hljs-string">this</span> <span class="hljs-string">is</span> <span class="hljs-string">my</span> <span class="hljs-string">post.</span>
+</code></pre>
+<p>Attach metadata to a page by adding them on top of the page, delimited by <code>---</code>.
+See: <a href="http://jekyllrb.com/docs/frontmatter/">Front-matter</a></p>
+<h3 id="other-frontmatter-stuff">Other frontmatter stuff</h3>
+
+<pre><code class="yaml"><span class="hljs-attr">permalink:</span> <span class="hljs-string">&#x27;/hello&#x27;</span>
+<span class="hljs-attr">published:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">category:</span> <span class="hljs-string">apple</span>
+<span class="hljs-attr">categories:</span> [<span class="hljs-string">&#x27;html&#x27;</span>, <span class="hljs-string">&#x27;css&#x27;</span>]
+<span class="hljs-attr">tags:</span> [<span class="hljs-string">&#x27;html&#x27;</span>, <span class="hljs-string">&#x27;css&#x27;</span>]
+</code></pre>
+<h3 id="configuration">Configuration</h3>
+<p>In <code>_config.yml</code>:</p>
+
+<pre><code class="yaml"><span class="hljs-attr">source:</span> <span class="hljs-string">.</span>
+<span class="hljs-attr">destination:</span> <span class="hljs-string">_site</span>
+<span class="hljs-attr">exclude:</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Gemfile</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Gemfile.lock</span>
+<span class="hljs-attr">include:</span> [<span class="hljs-string">&#x27;.htaccess&#x27;</span>]
+</code></pre>
+<p>All config keys are optional.
+See: <a href="http://jekyllrb.com/docs/configuration/">Configuration</a></p>
+<h2 id="markup">Markup</h2>
+<h3 id="page-variables">Page variables</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>
+  {{ page.title }}
+<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+</code></pre>
+<h3 id="filters">Filters</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  {{ page.description | truncate_words: 20 }}
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h3 id="loops">Loops</h3>
+
+<pre><code class="html">{% for post in site.posts %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{{ post.url }}&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{ post.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ post.date | date_to_string }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+{% endfor %}
+</code></pre>
+<h3 id="dates">Dates</h3>
+
+<pre><code class="html">{{ page.date | date: &quot;%b %d, %Y&quot; }}
+</code></pre>
+<h3 id="conditionals">Conditionals</h3>
+
+<pre><code class="html">{% if page.image.feature %}
+  ...
+{% elsif xyz %}
+  ...
+{% else %}
+  ...
+{% endif %}
+</code></pre>
+
+<pre><code class="html">{% if page.category == &#x27;React&#x27; %}
+{% if page.category == &#x27;React&#x27; or page.featured %}
+{% if page.tags contains &#x27;Featured&#x27; %}
+</code></pre>
+<h3 id="case">Case</h3>
+
+<pre><code class="html">{% case shipping.title %}
+  {% when &#x27;international&#x27; %}
+     Arriving in 2-3 weeks
+  {% when &#x27;Domestic&#x27; %}
+     Arriving in 2-3 days
+  {% else %}
+     Thank you for your order!
+{% endcase %}
+</code></pre>
+<h3 id="includes-partials-">Includes (partials)</h3>
+
+<pre><code><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">include</span></span> header.html %}</span>
+</code></pre>
+
+<pre><code class="html"><span class="hljs-comment">&lt;!-- Including local vars --&gt;</span>
+{% include header.html page=page %}
+</code></pre>
+<h3 id="comments">Comments</h3>
+
+<pre><code class="html">{% comment %}
+  This is a comment!
+{% endcomment %}
+</code></pre>
+<h2 id="variables">Variables</h2>
+<h3 id="top-level-variables">Top-level variables</h3>
+<p>| <code>{{ site }}</code> | Data from <code>config.yml</code> |
+| <code>{{ page }}</code> | From frontmatter, and page-specific info |
+| <code>{{ content }}</code> | HTML content (use in layouts) |
+| <code>{{ paginator }}</code> | Paginator |</p>
+<p>See: <a href="http://jekyllrb.com/docs/variables/">Variables</a></p>
+<h3 id="site">Site</h3>
+
+<pre><code class="html">{{ site.time }}
+</code></pre>
+<p>| <code>site.time</code> | Current time |
+| <code>site.pages</code> | List of pages |
+| <code>site.posts</code> | List of blog posts |
+| <code>site.related_posts</code> | List of posts related to current |
+| <code>site.categories.CATEGORY</code> | List |
+| <code>site.tags.TAG</code> | List |
+| <code>site.static_files</code> | List |</p>
+<h3 id="page">Page</h3>
+
+<pre><code class="html">{{ page.content }}  - un-rendered content
+{{ page.title }}
+{{ page.excerpt }}  - un-rendered excerpt
+{{ page.url }}
+{{ page.date }}
+{{ page.id }}       - unique id for RSS feeds
+{{ page.categories }}
+{{ page.tags }}
+{{ page.path }}
+{{ page.dir }}
+{{ page.excerpt | remove: &#x27;<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x27; | remove: &#x27;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>&#x27; }}
+{{ page.excerpt | strip_html }}
+</code></pre>
+
+<pre><code class="html"><span class="hljs-comment">&lt;!-- blog pagination: --&gt;</span>
+{{ page.next }}
+{{ page.previous }}
+</code></pre>
+<h2 id="filters">Filters</h2>
+<h3 id="dates">Dates</h3>
+
+<pre><code class="ruby">{{ site.time <span class="hljs-params">| date: &quot;%Y %m %d&quot; }}</span>
+</code></pre>
+<p>| <code>date_to_xmlschema</code> | → <code>2008-11-07T13:07:54-08:00</code> |
+| <code>date_to_rfc822</code> | → <code>Mon, 07 Nov 2008 13:07:54 -0800</code> |
+| <code>date_to_string</code> | → <code>07 Nov 2008</code> |
+| <code>date_to_long_string</code> | → <code>07 November 2008</code> |
+| <code>date:</code> <em>&#39;%Y %m %d&#39;</em> | → <code>2017 Nov  7</code> |</p>
+<h3 id="preprocessors">Preprocessors</h3>
+
+<pre><code class="ruby">{{ page.description <span class="hljs-params">| markdownify }}</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>textilize</code></td>
+<td>Textile</td>
+</tr>
+<tr>
+<td><code>markdownify</code></td>
+<td>Markdown</td>
+</tr>
+<tr>
+<td><code>jsonify</code></td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>sassify</code></td>
+<td>Sass</td>
+</tr>
+<tr>
+<td><code>scssify</code></td>
+<td>SCSS</td>
+</tr>
+<tr>
+<td><code>smartify</code></td>
+<td>Smartypants</td>
+</tr>
+</tbody>
+</table>
+<h3 id="array-filters">Array filters</h3>
+
+<pre><code class="ruby">{{ site.pages <span class="hljs-params">| where: &quot;year&quot;, &quot;2014&quot; }}</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>where:</code> <em>&quot;year&quot;, &quot;2014&quot;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>where_exp:</code> <em>&quot;item&quot;, &quot;item.year &gt;= 2014&quot;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>group_by:</code> <em>&quot;genre&quot;</em></td>
+<td>→ <code>{name, items}</code></td>
+</tr>
+<tr>
+<td><code>group_by_exp:</code> <em>&quot;item&quot;, &quot;item.genre&quot;</em></td>
+<td>→ <code>{name, items}</code></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sort:</code> <em>&#39;author&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>uniq</code></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>first</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>join:</code> <em>&#39;,&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>array_to_sentence_string</code></td>
+<td>→ <code>&quot;X, Y and Z&quot;</code></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>map:</code> <em>&#39;post&#39;</em></td>
+<td>Works like &#39;pluck&#39;</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>push:</code> <em>&#39;xxx&#39;</em></td>
+<td>Adds an item</td>
+</tr>
+</tbody>
+</table>
+<h3 id="string-filters">String filters</h3>
+
+<pre><code class="ruby">{{ page.title <span class="hljs-params">| default: &quot;xxx&quot; }}</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default:</code> <em>&#39;xxx&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>upcase</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>downcase</code></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>remove:</code> <em>&#39;p&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>replace:</code> <em>&#39;super&#39;, &#39;mega&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>remove_first:</code> <em>&#39;p&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>replace_first:</code> <em>&#39;super&#39;, &#39;mega&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>truncate:</code> <em>5</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>truncatewords:</code> <em>20</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>prepend:</code> <em>&#39;Mr. &#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>append:</code> <em>&#39;Jr.&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>camelize</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>capitalize</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>strip_html</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>strip_newlines</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>newlines_to_br</code></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>split:</code> <em>&#39;,&#39;</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>escape</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>escape_once</code></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>slice:</code> <em>-3, 3</em></td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="http://docs.shopify.com/themes/liquid-documentation/filters">String filters</a></p>
+<h3 id="string-filters-jekyll-only-">String filters (Jekyll-only)</h3>
+
+<pre><code class="ruby">{{ page.excerpt <span class="hljs-params">| number_of_words }}</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number_of_words</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>slugify</code></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>xml_escape</code></td>
+<td>→ <code>CDATA</code></td>
+</tr>
+<tr>
+<td><code>cgi_escape</code></td>
+<td>→ <code>foo%2Cbar</code></td>
+</tr>
+<tr>
+<td><code>uri_escape</code></td>
+<td>→ <code>foo,%20bar</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="numbers">Numbers</h3>
+
+<pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">site.posts.size</span> | minus: <span class="hljs-number">2</span> }}</span>
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minus:</code> <em>2</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>plus:</code> <em>2</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>times:</code> <em>2</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>divided_by:</code> <em>2</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>modulo:</code> <em>2</em></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><code>ceil</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>round</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="paginator">Paginator</h2>
+<h3 id="paginator-setup">Paginator setup</h3>
+<p>Add this to <code>_config.yml</code>:</p>
+
+<pre><code class="yml"><span class="hljs-attr">paginate:</span> <span class="hljs-number">5</span>
+<span class="hljs-attr">paginate_path:</span> <span class="hljs-string">&quot;blog/:num&quot;</span>
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/pagination/">Paginator</a></p>
+<h3 id="numbers">Numbers</h3>
+
+<pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.page</span> }}</span><span class="language-xml">         - page number
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.total_posts</span> }}</span><span class="language-xml">
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.total_pages</span> }}</span><span class="language-xml">
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.per_page</span> }}</span>
+</code></pre>
+<h3 id="iterating-through-posts">Iterating through posts</h3>
+
+<pre><code><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">for</span></span> post <span class="hljs-keyword">in</span> paginator.posts %}</span><span class="language-xml"> ... </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endfor</span></span> %}</span>
+</code></pre>
+<h3 id="previous-button">Previous button</h3>
+
+<pre><code><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> paginator.total_pages &gt; 1 %}</span><span class="language-xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> paginator.previous_page %}</span><span class="language-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ paginator.previous_page_path }}</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="language-xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="language-xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span>
+</code></pre>
+
+<pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.next_page</span> }}</span><span class="language-xml">     - page number
+</span><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.next_page_path</span> }}</span>
+</code></pre>
+<h2 id="blogging">Blogging</h2>
+<h3 id="paths">Paths</h3>
+
+<pre><code>_posts/<span class="hljs-built_in">YEAR</span>-<span class="hljs-built_in">MONTH</span>-<span class="hljs-built_in">DAY</span>-title.md
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/posts/">Blogging</a></p>
+<h3 id="image-paths">Image paths</h3>
+
+<pre><code><span class="language-xml">![My helpful screenshot](</span><span class="hljs-template-variable">{{ <span class="hljs-name">site.url</span> }}</span><span class="language-xml">/assets/screenshot.jpg)</span>
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/posts/#including-images-and-resources">Image paths</a></p>
+<h3 id="drafts">Drafts</h3>
+
+<pre><code>vi <span class="hljs-title">_drafts</span>/<span class="hljs-keyword">a</span>-draft-<span class="hljs-built_in">post</span>.md
+jekyll build <span class="hljs-comment">--drafts</span>
+</code></pre>
+<p>Posts in <code>_drafts</code> only show up in development, but not production.
+See: <a href="http://jekyllrb.com/docs/drafts/">Drafts</a></p>
+<h3 id="defining-excerpts">Defining excerpts</h3>
+
+<pre><code><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">My</span> <span class="hljs-string">blog</span> <span class="hljs-string">post</span>
+<span class="hljs-attr">excerpt:</span> <span class="hljs-string">This</span> <span class="hljs-string">post</span> <span class="hljs-string">is</span> <span class="hljs-string">about</span> <span class="hljs-string">cats</span>
+<span class="hljs-meta">---
+</span>
+<span class="hljs-string">Hello,</span> <span class="hljs-string">let&#x27;s</span> <span class="hljs-string">talk</span> <span class="hljs-string">about</span> <span class="hljs-string">cats.</span> <span class="hljs-string">(···)</span>
+</code></pre>
+<p>Put a key <code>excerpt</code> in the frontmatter.
+See: <a href="http://jekyllrb.com/docs/posts/#post-excerpts">Excerpts</a></p>
+<h3 id="displaying-excerpts">Displaying excerpts</h3>
+
+<pre><code class="html">{{ post.excerpt }}
+</code></pre>
+
+<pre><code class="html">{{ post.excerpt | remove: &#x27;<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x27; | remove: &#x27;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>&#x27; }}
+{{ post.excerpt | strip_html }}
+</code></pre>
+<h3 id="excerpt-separator">Excerpt separator</h3>
+
+<pre><code class="html">---
+excerpt_separator: <span class="hljs-comment">&lt;!--more--&gt;</span>
+---
+
+Excerpt here
+<span class="hljs-comment">&lt;!--more--&gt;</span>
+More post body here
+</code></pre>
+<p>Alternatively, you can put excerpts inline in your post by defining <code>excerpt_separator</code>.</p>
+<h3 id="permalinks">Permalinks</h3>
+
+<pre><code># _config.yml
+permalink: date   # <span class="hljs-regexp">/:categories/</span>:year<span class="hljs-regexp">/:month/</span>:day/:title.html
+permalink: pretty # <span class="hljs-regexp">/:categories/</span>:year<span class="hljs-regexp">/:month/</span>:day<span class="hljs-regexp">/:title/</span>
+permalink: none   # <span class="hljs-regexp">/:categories/</span>:title.html
+permalink: <span class="hljs-string">&quot;/:title&quot;</span>
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/permalinks/">Permalinks</a></p>
+<h2 id="more-features">More features</h2>
+<h3 id="data">Data</h3>
+
+<pre><code><span class="hljs-variable">_data</span>/<span class="hljs-built_in">members</span>.yml
+</code></pre>
+
+<pre><code><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">for</span></span> member <span class="hljs-keyword">in</span> site.data.members %}</span><span class="language-xml">
+  ...
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endfor</span></span> %}</span>
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/datafiles/">Data</a></p>
+<h3 id="collections">Collections</h3>
+
+<pre><code class="yml"><span class="hljs-comment"># _config.yml</span>
+<span class="hljs-attr">collections:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">authors</span>
+</code></pre>
+
+<pre><code class="yml"><span class="hljs-comment"># _/authors/a-n-roquelaire.md</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">A.</span> <span class="hljs-string">N.</span> <span class="hljs-string">Roquelaire</span>
+<span class="hljs-attr">real_name:</span> <span class="hljs-string">Anne</span> <span class="hljs-string">Rice</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+
+<pre><code><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">for</span></span> author <span class="hljs-keyword">in</span> site.authors %}</span>
+</code></pre>
+<p>See: <a href="http://jekyllrb.com/docs/collections/">Collections</a></p>
+<h3 id="code-highlighter">Code highlighter</h3>
+
+<pre><code class="html">{% highlight ruby linenos %}
+def show
+  ...
+end
+{% endhighlight %}
+</code></pre>
+<h2 id="integration">Integration</h2>
+<h3 id="bundler">Bundler</h3>
+<p>In <code>_plugins/bundler.rb</code>:</p>
+
+<pre><code class="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&quot;bunder/setup&quot;</span>
+Bundler.<span class="hljs-keyword">require</span> <span class="hljs-symbol">:default</span>
+</code></pre>
+<h3 id="compass">Compass</h3>
+
+<ul>
+<li><a href="https://gist.github.com/parkr/2874934">Compass</a></li>
+<li><a href="https://github.com/matthodan/jekyll-asset-pipeline">Asset pipeline</a></li>
+</ul>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="http://jekyllrb.com/docs/home/">Jekyll docs</a> <em>jekyllrb.com</em></li>
+<li><a href="https://learn.cloudcannon.com/jekyll-cheat-sheet/">CloudCannon Jekyll cheatsheet</a> <em>cloudcannon.com</em></li>
+<li><a href="http://jekyllrb.com/docs/templates/">Jekyll: templates</a> <em>jekyllrb.com</em></li>
+<li><a href="http://docs.shopify.com/themes/liquid-basics/output">Liquid: output</a> <em>shopify.com</em></li>
+<li><a href="http://docs.shopify.com/themes/liquid-basics/logic">Liquid: logic</a> <em>shopify.com</em></li>
+<li><a href="http://docs.shopify.com/themes/liquid-documentation/filters">Liquid: filters</a> <em>shopify.com</em></li>
+<li><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Liquid for designers</a> <em>github.com/Shopify</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

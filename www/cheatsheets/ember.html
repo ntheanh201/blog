@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ember.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Ember.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ember.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#routes">Routes</a>, <a href="#a-route">A route</a>, <a href="#view">View</a>, <a href="#markup">markup</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="routes">Routes</h3>
+
+<pre><code>App.Router.map(function() {
+  <span class="hljs-keyword">this</span>.resource(<span class="hljs-string">&#x27;trips&#x27;</span>, function() {
+      <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;item&#x27;</span>, { path: <span class="hljs-string">&#x27;/:trip_id&#x27;</span> });
+  });
+
+  <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;upcoming&#x27;</span>);
+  <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;about&#x27;</span>, { path: <span class="hljs-string">&#x27;/about&#x27;</span> });
+  <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;schedules&#x27;</span>);
+  <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;history&#x27;</span>);
+  <span class="hljs-keyword">this</span>.route(<span class="hljs-string">&#x27;post&#x27;</span>);
+});
+</code></pre>
+<h3 id="a-route">A route</h3>
+
+<pre><code>App.IndexRoute = Ember.Route.extend({
+  setupController: function(controller) {
+    controller.<span class="hljs-keyword">set</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;my app&#x27;</span>);
+    <span class="hljs-comment">// &lt;h1&gt;{{title}}&lt;/h1&gt;</span>
+  },
+
+  setupController: function(controller, model) {
+    controller.<span class="hljs-keyword">set</span>(<span class="hljs-string">&quot;model&quot;</span>, model);
+    <span class="hljs-keyword">this</span>.controllerFor(<span class="hljs-string">&#x27;topPost&#x27;</span>).<span class="hljs-keyword">set</span>(<span class="hljs-string">&#x27;model&#x27;</span>, model);
+  },
+
+  model: function(params) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.store.find(<span class="hljs-string">&#x27;posts&#x27;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.store.find(<span class="hljs-string">&#x27;post&#x27;</span>, params.post_id);
+  },
+
+  serialize: function(model) {
+    <span class="hljs-comment">// this will make the URL `/posts/foo-post`</span>
+    <span class="hljs-keyword">return</span> { post_slug: model.<span class="hljs-keyword">get</span>(<span class="hljs-string">&#x27;slug&#x27;</span>) };
+  }
+});
+</code></pre>
+<h3 id="view">View</h3>
+
+<pre><code>App.InfoView = Ember.View.extend({
+  templateName: <span class="hljs-string">&#x27;input&#x27;</span>,  <span class="hljs-regexp">/* optional */</span>
+
+  fooName: <span class="hljs-string">&quot;Hello&quot;</span>  <span class="hljs-regexp">/* {{ view.fooName }} */</span>
+
+  click: <span class="hljs-keyword">function</span>(e) {
+    <span class="hljs-string">&quot;I was clicked&quot;</span>;
+  }
+
+});
+</code></pre>
+<h3 id="markup">markup</h3>
+
+<pre><code><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-name"><span class="hljs-built_in">bindAttr</span></span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;avatarURL&quot;</span>}}</span><span class="language-xml"><span class="hljs-tag">&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-name"><span class="hljs-built_in">action</span></span> follow}}</span><span class="language-xml"><span class="hljs-tag">&gt;</span></span>
+</code></pre>
+<p>Value binding:</p>
+
+<pre><code><span class="hljs-template-variable">{{<span class="hljs-name"><span class="hljs-built_in">view</span></span> Ember.TextField <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input block&quot;</span> <span class="hljs-attr">valuebinding</span>=<span class="hljs-string">&quot;emailAddresses&quot;</span>}}</span>
+</code></pre>
+<p>Actions:</p>
+
+<pre><code><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-name"><span class="hljs-built_in">action</span></span> invite emailAddresses}}</span><span class="language-xml"><span class="hljs-tag">&gt;</span>Invite&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-name"><span class="hljs-built_in">action</span></span> set <span class="hljs-string">&quot;isEditingContacts&quot;</span> <span class="hljs-literal">true</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;view&quot;</span>}}</span><span class="language-xml"><span class="hljs-tag"> </span></span>
+</code></pre>
+
+</div>
+</body>  
+</html>

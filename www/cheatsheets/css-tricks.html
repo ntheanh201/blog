@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CSS tricks cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / CSS tricks cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\css-tricks.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#heading-kerning-pairs-and-ligature">Heading kerning pairs and ligature</a>, <a href="#native-like-ios-scrolling">Native-like iOS scrolling</a>, <a href="#gradient-text">Gradient text</a>, <a href="#text-stroke">Text stroke</a>, <a href="#ios-scrolling-prevention">iOS Scrolling prevention</a>, <a href="#uiwebview-optimizations">UIWebView optimizations</a><br>
+<b>Browser hacks</b>: <a href="#disclaimer">Disclaimer</a>, <a href="#mozilla-only">Mozilla-only</a>, <a href="#webkit-only">Webkit-only</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="heading-kerning-pairs-and-ligature">Heading kerning pairs and ligature</h3>
+
+<pre><code class="css"><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span> {
+  <span class="hljs-attribute">text-rendering</span>: optimizeLegibility;
+}
+</code></pre>
+<h3 id="native-like-ios-scrolling">Native-like iOS scrolling</h3>
+
+<pre><code class="css">-webkit-<span class="hljs-attribute">overflow</span>-scrolling: touch;
+<span class="hljs-attribute">overflow-y</span>: auto;
+</code></pre>
+<h3 id="gradient-text">Gradient text</h3>
+
+<pre><code class="css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, <span class="hljs-built_in">from</span>(<span class="hljs-number">#eee</span>), <span class="hljs-built_in">to</span>(<span class="hljs-number">#333</span>));
+-webkit-<span class="hljs-attribute">background-clip</span>: text;
+-webkit-text-fill-<span class="hljs-attribute">color</span>: transparent;
+</code></pre>
+<h3 id="text-stroke">Text stroke</h3>
+
+<pre><code class="css">-webkit-text-stroke: <span class="hljs-number">3px</span> black;
+</code></pre>
+<p>See: <a href="http://www.webkit.org/blog/85/introducing-text-stroke/">Introducing text stroke</a></p>
+<h3 id="ios-scrolling-prevention">iOS Scrolling prevention</h3>
+
+<pre><code class="css">document<span class="hljs-selector-class">.ontouchstart</span> = (e) -&gt;
+  $pane = $(e<span class="hljs-selector-class">.target</span>)<span class="hljs-selector-class">.closest</span>(&#x27;<span class="hljs-selector-class">.scrollable</span>&gt;<span class="hljs-selector-tag">div</span>&#x27;)
+  if $pane<span class="hljs-selector-class">.length</span> is <span class="hljs-number">0</span> or $pane<span class="hljs-selector-attr">[0]</span><span class="hljs-selector-class">.scrollHeight</span> &lt;= $pane<span class="hljs-selector-class">.innerHeight</span>()
+    e<span class="hljs-selector-class">.preventDefault</span>()
+</code></pre>
+
+<pre><code class="scss">%ios-scrollable {
+  &amp;, &gt;<span class="hljs-selector-tag">div</span> {
+    -webkit-<span class="hljs-attribute">overflow</span>-scrolling: touch;
+    <span class="hljs-attribute">overflow</span>: auto;
+  }
+
+  &gt;<span class="hljs-selector-tag">div</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  }
+}
+</code></pre>
+<p>Relevant in iOS6, but maybe not anymore.</p>
+<h3 id="uiwebview-optimizations">UIWebView optimizations</h3>
+
+<pre><code class="css">* {
+  -webkit-tap-highlight-<span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+  -webkit-user-select: none;                <span class="hljs-comment">/* disable text select */</span>
+  -webkit-touch-callout: none;              <span class="hljs-comment">/* disable callout, image save panel (popup) */</span>
+  -webkit-tap-highlight-<span class="hljs-attribute">color</span>: transparent; <span class="hljs-comment">/* &quot;turn off&quot; link highlight */</span>
+}
+
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">outline</span>: <span class="hljs-number">0</span>; // Firefox (remove <span class="hljs-attribute">border</span> on link click)
+}
+</code></pre>
+<p>See: <a href="http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/">http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/</a></p>
+<p>See: <a href="http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/">http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/</a></p>
+<h2 id="browser-hacks">Browser hacks</h2>
+<h3 id="disclaimer">Disclaimer</h3>
+<p>Not recommended, but here they are if you ever need them. Note that vendor
+prefixes may go away eventually.</p>
+<h3 id="mozilla-only">Mozilla-only</h3>
+
+<pre><code class="css"><span class="hljs-keyword">@-moz-document</span> url-prefix() {
+  <span class="hljs-selector-class">.box</span> { <span class="hljs-attribute">color</span>: blue; }
+}
+</code></pre>
+<h3 id="webkit-only">Webkit-only</h3>
+
+<pre><code class="css"><span class="hljs-keyword">@media</span> all <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">1</span>) {
+}
+</code></pre>
+
+</div>
+</body>  
+</html>

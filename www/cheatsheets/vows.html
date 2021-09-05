@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vows cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Vows cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\vows.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#coffeescript-usage">CoffeeScript usage</a>, <a href="#running">Running</a>, <a href="#assertions">Assertions</a>, <a href="#async">Async</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+
+<ul>
+<li><a href="http://vowsjs.org/">Vowsjs.org</a></li>
+</ul>
+<h3 id="coffeescript-usage">CoffeeScript usage</h3>
+
+<pre><code>vows = <span class="hljs-built_in">require</span> <span class="hljs-string">&quot;vows&quot;</span>
+<span class="hljs-built_in">assert</span> = <span class="hljs-built_in">require</span> <span class="hljs-string">&quot;assert&quot;</span>
+
+vows
+  .describe(<span class="hljs-string">&#x27;My tests&#x27;</span>)
+  .addBatch
+    <span class="hljs-string">&#x27;context&#x27;</span>:
+      <span class="hljs-name">topic</span>: <span class="hljs-function">-&gt;</span>
+        <span class="hljs-number">100</span>
+      <span class="hljs-string">&#x27;should work&#x27;</span>: <span class="hljs-function"><span class="hljs-params">(number)</span> -&gt;</span>
+        <span class="hljs-built_in">assert</span>.equal number, <span class="hljs-number">100</span>
+
+  .<span class="hljs-keyword">export</span>(<span class="hljs-built_in">module</span>)
+</code></pre>
+<h3 id="running">Running</h3>
+
+<pre><code>vows <span class="hljs-built_in">test</span>/*-<span class="hljs-built_in">test</span>.* --spec
+</code></pre>
+<h3 id="assertions">Assertions</h3>
+
+<pre><code><span class="hljs-keyword">assert</span>.equal a, b
+<span class="hljs-keyword">assert</span>.notEqual a, b
+<span class="hljs-keyword">assert</span>.strictEqual a, b
+
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">NaN(<span class="hljs-params">number</span>)</span>
+<span class="hljs-keyword">assert</span>.instance<span class="hljs-constructor">Of(<span class="hljs-params">object</span>, <span class="hljs-params">klass</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">Undefined(<span class="hljs-params">object</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">Function(<span class="hljs-params">func</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">Null(<span class="hljs-params">object</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">NotZero(<span class="hljs-params">object</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">Object(<span class="hljs-params">object</span>)</span>
+<span class="hljs-keyword">assert</span>.is<span class="hljs-constructor">String(<span class="hljs-params">object</span>)</span>
+</code></pre>
+<h3 id="async">Async</h3>
+
+<pre><code>.addBatch
+  <span class="hljs-name">topic</span>: <span class="hljs-function">-&gt;</span>
+    doStuff()
+    @callback <span class="hljs-number">2</span>
+  <span class="hljs-string">&#x27;check things&#x27;</span>: <span class="hljs-function"><span class="hljs-params">(n)</span> -&gt;</span>
+    <span class="hljs-built_in">assert</span>.equal <span class="hljs-number">2</span>, n
+</code></pre>
+
+</div>
+</body>  
+</html>

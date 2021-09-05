@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ronn cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Ronn cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\ronn.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Getting started</b>: <a href="#installation">Installation</a>, <a href="#basic-template">Basic template</a><br>
+<b>Formatting tags</b>: <a href="#inline">Inline</a>, <a href="#linking">Linking</a><br>
+<b>Frequently-used sections</b>: <a href="#sections">Sections</a><br>
+<b>Other CLI options</b>: <a href="#options">Options</a><br>
+<a href="#sections">Sections</a><br>
+<b>Using with npm</b>: <a href="#npm-scripts">npm scripts</a>, <a href="#marked-man">marked-man</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="getting-started">Getting started</h2>
+<h3 id="installation">Installation</h3>
+<h4 id="installation">Installation</h4>
+
+<pre><code class="bash">gem install ronn
+</code></pre>
+<h4 id="usage">Usage</h4>
+
+<pre><code class="bash">ronn foo.1.md        <span class="hljs-comment"># creates foo.1.html</span>
+ronn -r foo.1.md     <span class="hljs-comment"># creates foo.1 (--roff)</span>
+ronn -r -h foo.1.md  <span class="hljs-comment"># builds --roff and --html</span>
+ronn -m foo.1.md     <span class="hljs-comment"># view as manpage</span>
+</code></pre>
+<p>Ronn is a Ruby gem.</p>
+<h3 id="basic-template">Basic template</h3>
+
+<pre><code class="markdown"><span class="hljs-section">name(1) -- short, single-sentence description
+=============================================</span>
+
+<span class="hljs-section">## SYNOPSIS</span>
+
+<span class="hljs-code">`name`</span> [<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span></span>...] <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flags</span>&gt;</span></span>
+
+<span class="hljs-section">## DESCRIPTION</span>
+
+A normal paragraph. This can span multiple lines and is terminated with two
+or more line endings just like Markdown.
+
+<span class="hljs-section">## OPTIONS</span>
+
+<span class="hljs-bullet"> *</span> <span class="hljs-code">`-h`</span>, <span class="hljs-code">`--help`</span> :
+   Displays the help screen.
+
+<span class="hljs-bullet"> *</span> <span class="hljs-code">`--version`</span> : 
+   Displays version information.
+
+<span class="hljs-section">## EXAMPLES</span>
+
+Indent examples with 4 spaces.
+
+<span class="hljs-code">    $ ls
+    $ ls -la
+</span>
+<span class="hljs-section">## COPYRIGHT</span>
+
+<span class="hljs-strong">**PROJECTNAME**</span> is copyright (c) 2015, Rico Sta. Cruz. Released under the MIT
+license.
+
+<span class="hljs-section">## SEE ALSO</span>
+
+ronn-format(7), ronn(1)
+</code></pre>
+<h2 id="formatting-tags">Formatting tags</h2>
+<h3 id="inline">Inline</h3>
+<h4 id="bold">Bold</h4>
+
+<pre><code>`code`
+**strong**
+</code></pre>
+<h4 id="underline">Underline</h4>
+
+<pre><code>&lt;variable&gt;
+<span class="hljs-emphasis">_emphasis_</span>
+<span class="hljs-strong">*emphasis*</span>
+</code></pre>
+<h3 id="linking">Linking</h3>
+<h4 id="manual-references">Manual references</h4>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">sh</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">markdown</span><span class="hljs-params">(<span class="hljs-number">7</span>)</span></span>
+</code></pre>
+<h4 id="sections">Sections</h4>
+
+<pre><code><span class="hljs-selector-attr">[STANDARDS]</span><span class="hljs-selector-attr">[]</span>
+<span class="hljs-selector-attr">[SEE ALSO]</span><span class="hljs-selector-attr">[]</span>
+<span class="hljs-selector-attr">[DIFFERENT TEXT]</span><span class="hljs-selector-attr">[#SEE-ALSO]</span>
+</code></pre>
+<h4 id="url-links">URL links</h4>
+
+<pre><code><span class="hljs-selector-attr">[URL link]</span>(<span class="hljs-attribute">http</span>:<span class="hljs-comment">//github.com/rstacruz)</span>
+&lt;<span class="hljs-attribute">http</span>:<span class="hljs-comment">//github.com&gt;</span>
+</code></pre>
+<h2 id="frequently-used-sections">Frequently-used sections</h2>
+<h3 id="sections">Sections</h3>
+
+<ul>
+<li><code>## SYNOPSIS</code></li>
+<li><code>## DESCRIPTION</code></li>
+<li><code>## OPTIONS</code></li>
+<li><code>## SYNTAX</code></li>
+<li><code>## ENVIRONMENT</code></li>
+<li><code>## RETURN VALUES</code></li>
+<li><code>## STANDARDS</code></li>
+<li><code>## SECURITY CONSIDERATIONS</code></li>
+<li><code>## BUGS</code></li>
+<li><code>## HISTORY</code></li>
+<li><code>## AUTHOR</code></li>
+<li><code>## COPYRIGHT</code></li>
+<li><code>## SEE ALSO</code></li>
+</ul>
+<h2 id="other-cli-options">Other CLI options</h2>
+<h3 id="options">Options</h3>
+
+<pre><code class="bash">--pipe                       <span class="hljs-comment"># write to stdout</span>
+--server, -S                 <span class="hljs-comment"># serve in http://localhost:1207</span>
+</code></pre>
+
+<pre><code class="bash">--html, -5                   <span class="hljs-comment"># default</span>
+--fragment, -f               <span class="hljs-comment"># html without header/title/footer</span>
+</code></pre>
+
+<pre><code class="bash">--style=toc,80c              <span class="hljs-comment"># toc (table of contents)</span>
+                             <span class="hljs-comment"># 80c (use 80c instead of 100c)</span>
+                             <span class="hljs-comment"># print (include print stylesheet)</span>
+                             <span class="hljs-comment"># dark</span>
+</code></pre>
+
+<pre><code class="bash">--manual=<span class="hljs-string">&quot;MY MANUAL&quot;</span>         <span class="hljs-comment"># shown on top-center</span>
+--organization=<span class="hljs-string">&quot;RONN 0.7.0&quot;</span>  <span class="hljs-comment"># shown on bottom-left</span>
+--date=<span class="hljs-string">&quot;YYYY-MM-DD&quot;</span>          <span class="hljs-comment"># shown on bottom-center</span>
+</code></pre>
+<h2 id="sections">Sections</h2>
+
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>General commands</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>System calls</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>C standard lib</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Special files (/dev) and drivers</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>File formats</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>Games</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Misc</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>System administration commands and procedures</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="http://www.december.com/unix/ref/mansec.html">Man page sections</a> (december.com).</p>
+<h2 id="using-with-npm">Using with npm</h2>
+<h3 id="npm-scripts">npm scripts</h3>
+<p>Place manual files in <code>man/xxx.1.md</code>, then in package.json:</p>
+
+<pre><code class="json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;prepublish&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm run build-man&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;build-man&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=\&quot;@rstacruz\&quot;; fi&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+<span class="hljs-attr">&quot;directories&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;man&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;man&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="marked-man">marked-man</h3>
+
+<pre><code><span class="hljs-attribute">npm</span> install -g marked-man
+<span class="hljs-attribute">marked</span>-man foo.<span class="hljs-number">1</span>.md &gt; foo.<span class="hljs-number">1</span>
+</code></pre>
+<h4 id="differences">Differences</h4>
+
+<ul>
+<li>No definition lists</li>
+<li>Can&#39;t use <code>&lt;br&gt;</code></li>
+</ul>
+<p>See <a href="https://github.com/kapouer/marked-man">marked-man</a>.</p>
+
+</div>
+</body>  
+</html>

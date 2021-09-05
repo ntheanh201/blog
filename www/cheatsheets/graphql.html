@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>GraphQL cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / GraphQL cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\graphql.md" >edit</a>
+  </div>
+  <div class="toc">
+<a href="#intro">Intro</a><br>
+<b>Queries</b>: <a href="#basic-query">Basic query</a>, <a href="#nesting">Nesting</a>, <a href="#lists">Lists</a>, <a href="#lookups">Lookups</a>, <a href="#aliases">Aliases</a>, <a href="#operation-names-and-variables">Operation names and variables</a>, <a href="#mutations">Mutations</a>, <a href="#multiple-types">Multiple types</a><br>
+<a href="#over-http">Over HTTP</a><br>
+<b>Schema</b>: <a href="#basic-schemas">Basic schemas</a>, <a href="#built-in-types">Built in types</a>, <a href="#mutations">Mutations</a>, <a href="#interfaces">Interfaces</a>, <a href="#enums">Enums</a>, <a href="#unions">Unions</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="intro">Intro</h2>
+<h2 id="queries">Queries</h2>
+<h3 id="basic-query">Basic query</h3>
+
+<pre><code class="js">{ status }
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;available&#x27;</span> }
+</code></pre>
+<h3 id="nesting">Nesting</h3>
+
+<pre><code class="js">{ hero { name height } }
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">hero</span>:
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-number">1.74</span> } }
+</code></pre>
+<h3 id="lists">Lists</h3>
+
+<pre><code class="js">{ friends { name } }
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">friends</span>:
+    [ { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span> },
+      { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Han Solo&quot;</span> },
+      { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;R2D2&quot;</span> } ] }
+</code></pre>
+<p>GraphQL queries look the same for both single items or lists of items.</p>
+<h3 id="lookups">Lookups</h3>
+
+<pre><code class="js">{
+  <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1000&quot;</span></span>) { id name }
+}
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">hero</span>:
+    { <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;1000&quot;</span>,
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span> } }
+</code></pre>
+<h3 id="aliases">Aliases</h3>
+
+<pre><code class="js">{
+  <span class="hljs-attr">luke</span>: <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1000&quot;</span></span>) { name }
+  <span class="hljs-attr">han</span>: <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1001&quot;</span></span>) { name }
+}
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">luke</span>:
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span> },
+    <span class="hljs-attr">han</span>:
+    { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Han Solo&quot;</span> } }
+</code></pre>
+<h3 id="operation-names-and-variables">Operation names and variables</h3>
+<h4 id="query">Query</h4>
+
+<pre><code class="js">query <span class="hljs-title class_">FindHero</span>(<span class="hljs-attr">$id</span>: <span class="hljs-title class_">String</span>!) {
+  <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: $id</span>) { name }
+}
+</code></pre>
+<p>Just to make things less ambiguous. Also, to use variables, you need an operation name.</p>
+<h4 id="variables">Variables</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;1000&#x27;</span> }
+</code></pre>
+<h3 id="mutations">Mutations</h3>
+<h4 id="query">Query</h4>
+
+<pre><code class="js">{ <span class="hljs-title function_">createReview</span>(<span class="hljs-params">$review</span>) { id } }
+</code></pre>
+<h4 id="variables">Variables</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">review</span>: { <span class="hljs-attr">stars</span>: <span class="hljs-number">5</span> } }
+</code></pre>
+<h4 id="-">↓</h4>
+
+<pre><code class="js">{ <span class="hljs-attr">createReview</span>: { <span class="hljs-attr">id</span>: <span class="hljs-number">5291</span> } }
+</code></pre>
+<p>Mutations are just fields that do something when queried.</p>
+<h3 id="multiple-types">Multiple types</h3>
+
+<pre><code class="js">{
+  <span class="hljs-title function_">search</span>(<span class="hljs-params">q: <span class="hljs-string">&quot;john&quot;</span></span>) {
+    id
+    ... on <span class="hljs-title class_">User</span> { name }
+    ... on <span class="hljs-title class_">Comment</span> { body author { name } }
+  }
+}
+</code></pre>
+<p>Great for searching.</p>
+<h2 id="over-http">Over HTTP</h2>
+<h4 id="get">GET</h4>
+
+<pre><code class="js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://myapi/graphql?query={ me { name } }&#x27;</span>)
+</code></pre>
+<h4 id="post">POST</h4>
+
+<pre><code class="js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://myapi/graphql&#x27;</span>, {
+  <span class="hljs-attr">body</span>: <span class="hljs-variable constant_">JSON</span>.<span class="hljs-title function_">stringify</span>({
+    <span class="hljs-attr">query</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
+    <span class="hljs-attr">operationName</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
+    <span class="hljs-attr">variables</span>: { ... }
+  })
+})
+</code></pre>
+<h2 id="schema">Schema</h2>
+<h3 id="basic-schemas">Basic schemas</h3>
+
+<pre><code class="js">type <span class="hljs-title class_">Query</span> {
+  <span class="hljs-attr">me</span>: <span class="hljs-title class_">User</span>
+  <span class="hljs-title function_">users</span>(<span class="hljs-attr">limit</span>: <span class="hljs-title class_">Int</span>): [<span class="hljs-title class_">User</span>]
+}
+
+type <span class="hljs-title class_">User</span> {
+  <span class="hljs-attr">id</span>: <span class="hljs-variable constant_">ID</span>!
+  <span class="hljs-attr">name</span>: <span class="hljs-title class_">String</span>
+}
+</code></pre>
+<p>See: <a href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">sogko/graphql-shorthand-notation-cheat-sheet</a></p>
+<h3 id="built-in-types">Built in types</h3>
+<h4 id="scalar-types">Scalar types</h4>
+<p>| <code>Int</code> | Integer |
+| <code>Float</code> | Float |
+| <code>String</code> | String |
+| <code>Boolean</code> | Boolean |
+| <code>ID</code> | ID |</p>
+<h4 id="type-definitions">Type definitions</h4>
+<p>| <code>scalar</code> | Scalar type |
+| <code>type</code> | Object type |
+| <code>interface</code> | Interface type |
+| <code>union</code> | Union type |
+| <code>enum</code> | Enumerable type |
+| <code>input</code> | Input object type |</p>
+<h4 id="type-modifiers">Type modifiers</h4>
+<p>| <code>String</code> | Nullable string |
+| <code>String!</code> | Required string |
+| <code>[String]</code> | List of strings |
+| <code>[String]!</code> | Required list of strings |
+| <code>[String!]!</code> | Required list of required strings |</p>
+<h3 id="mutations">Mutations</h3>
+
+<pre><code class="js">type <span class="hljs-title class_">Mutation</span> {
+  <span class="hljs-title function_">users</span>(<span class="hljs-attr">params</span>: <span class="hljs-title class_">ListUsersInput</span>) [<span class="hljs-title class_">User</span>]!
+}
+</code></pre>
+<h3 id="interfaces">Interfaces</h3>
+
+<pre><code class="js">interface <span class="hljs-title class_">Entity</span> {
+  <span class="hljs-attr">id</span>: <span class="hljs-variable constant_">ID</span>!
+}
+
+type <span class="hljs-title class_">User</span> implements <span class="hljs-title class_">Entity</span> {
+  <span class="hljs-attr">id</span>: <span class="hljs-variable constant_">ID</span>!
+  <span class="hljs-attr">name</span>: <span class="hljs-title class_">String</span>
+}
+</code></pre>
+<h3 id="enums">Enums</h3>
+
+<pre><code class="js">enum <span class="hljs-variable constant_">DIRECTION</span> {
+  <span class="hljs-variable constant_">LEFT</span>
+  <span class="hljs-variable constant_">RIGHT</span>
+}
+
+type <span class="hljs-title class_">Root</span> {
+  <span class="hljs-attr">direction</span>: <span class="hljs-variable constant_">DIRECTION</span>!
+}
+</code></pre>
+<h3 id="unions">Unions</h3>
+
+<pre><code class="js">type <span class="hljs-title class_">Artist</span> { ··· }
+type <span class="hljs-title class_">Album</span> { ··· }
+
+union <span class="hljs-title class_">Result</span> = <span class="hljs-title class_">Artist</span> | <span class="hljs-title class_">Album</span>
+
+type <span class="hljs-title class_">Query</span> {
+  <span class="hljs-title function_">search</span>(<span class="hljs-attr">q</span>: <span class="hljs-title class_">String</span>) [<span class="hljs-title class_">Result</span>]
+}
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://graphql.org/learn/queries/">http://graphql.org/learn/queries/</a></li>
+<li><a href="http://graphql.org/learn/serving-over-http/">http://graphql.org/learn/serving-over-http/</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Weinre cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Weinre cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\weinre.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#usage">Usage</a>, <a href="#html-to-inject">HTML to inject</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="usage">Usage</h3>
+<h4 id="install-">Install:</h4>
+
+<pre><code>$ npm <span class="hljs-keyword">install</span> -g weinre
+</code></pre>
+<h4 id="start-the-server-">Start the server:</h4>
+
+<pre><code><span class="hljs-symbol">$</span> weinre --boundHost <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>
+<span class="hljs-symbol">$</span> open http:<span class="hljs-comment">//localhost:8080</span>
+</code></pre>
+<h3 id="html-to-inject">HTML to inject</h3>
+<!--prettier-ignore -->
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">!<span class="hljs-keyword">function</span>(<span class="hljs-params">d,s,id</span>){<span class="hljs-keyword">var</span> js,fjs=d.<span class="hljs-title function_">getElementsByTagName</span>(s)[<span class="hljs-number">0</span>];<span class="hljs-keyword">if</span>(!d.<span class="hljs-title function_">getElementById</span>(id)){js=d.<span class="hljs-title function_">createElement</span>(s);js.<span class="hljs-property">id</span>=id;js.<span class="hljs-property">async</span>=<span class="hljs-number">1</span>;js.<span class="hljs-property">src</span>=<span class="hljs-string">&#x27;http://&#x27;</span>+location.<span class="hljs-property">hostname</span>+<span class="hljs-string">&#x27;:8080/target/target-script-min.js#anonymous&#x27;</span>;fjs.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">insertBefore</span>(js,fjs);}}(<span class="hljs-variable language_">document</span>,<span class="hljs-string">&#x27;script&#x27;</span>,<span class="hljs-string">&#x27;weinre&#x27;</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="http://people.apache.org/~pmuellr/weinre/">Weinre</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

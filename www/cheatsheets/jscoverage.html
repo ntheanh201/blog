@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>jscoverage cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / jscoverage cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\jscoverage.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#install">Install</a>, <a href="#package-json">package.json</a>, <a href="#run">Run</a>, <a href="#caveats">Caveats</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="install">Install</h3>
+<h4 id="install-via-npm">Install via npm</h4>
+
+<pre><code class="bash">npm install --save-dev jscoverage
+</code></pre>
+<h4 id="ignore-output">Ignore output</h4>
+
+<pre><code class="bash"><span class="hljs-built_in">echo</span> coverage.html &gt;&gt; .gitignore
+</code></pre>
+<h3 id="package-json">package.json</h3>
+<p>The <code>coverage</code> task injects your source files (<code>lib</code>) with jscoverage hooks, runs <code>mocha -R html-cov</code>, then restores later.</p>
+
+<pre><code class="bash">/* directory */
+<span class="hljs-string">&quot;coverage&quot;</span>: <span class="hljs-string">&quot;mv lib lib~; (jscoverage lib~ lib; mocha -R html-cov &gt; coverage.html); rm -rf lib; mv lib~ lib&quot;</span>
+</code></pre>
+
+<pre><code class="bash">/* single file */
+<span class="hljs-string">&quot;coverage&quot;</span>: <span class="hljs-string">&quot;(cp index.js index.js~; jscoverage index.js; mv index-cov.js index.js; mocha -R html-cov &gt; coverage.html); mv index.js~ index.js&quot;</span>
+</code></pre>
+<h3 id="run">Run</h3>
+
+<pre><code class="bash">npm run coverage
+</code></pre>
+
+<pre><code class="bash">open coverage.html
+</code></pre>
+<h3 id="caveats">Caveats</h3>
+<p>If you&#39;re using jsdom, be sure to expose the <code>window._$jscoverage</code> variable into 
+the <code>global</code> scope.</p>
+
+</div>
+</body>  
+</html>

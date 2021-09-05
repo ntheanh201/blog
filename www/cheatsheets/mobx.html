@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mobx cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Mobx cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\mobx.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#properties">Properties</a>, <a href="#actions">Actions</a>, <a href="#plain-objects">Plain objects</a><br>
+<b>Reactions</b>: <a href="#importing">Importing</a>, <a href="#autorun-">autorun()</a>, <a href="#when-">when()</a>, <a href="#expr-">expr()</a><br>
+<a href="#-modifiers-http-mobxjs-github-io-mobx-refguide-modifiers-html-">Modifiers</a><br>
+<b>React</b>: <a href="#mobx-react">mobx-react</a>, <a href="#functional-components">Functional components</a><br>
+<a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="properties">Properties</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> {observable, computed} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mobx&#x27;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Page</span> {
+  @observable title = <span class="hljs-string">&#x27;&#x27;</span>
+  @observable published = <span class="hljs-literal">false</span>
+  @observable author = <span class="hljs-literal">null</span>
+
+  @computed get authorName () {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">author</span> || <span class="hljs-string">&#x27;Anonymous&#x27;</span>
+  }
+}
+</code></pre>
+<h3 id="actions">Actions</h3>
+
+<pre><code class="js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Page</span> {
+  @action publish () {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">published</span> = <span class="hljs-literal">true</span>
+    <span class="hljs-comment">// do ajax/async here if you like</span>
+  }
+}
+</code></pre>
+<h3 id="plain-objects">Plain objects</h3>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> person = <span class="hljs-title function_">observable</span>({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Ella Fitzgerald&#x27;</span>
+})
+</code></pre>
+
+<pre><code class="js"><span class="hljs-keyword">const</span> temp = <span class="hljs-title function_">observable</span>(<span class="hljs-number">23</span>)
+temp.<span class="hljs-title function_">get</span>()
+temp.<span class="hljs-title function_">set</span>(<span class="hljs-number">25</span>)
+temp.<span class="hljs-title function_">observe</span>(...)
+</code></pre>
+<h2 id="reactions">Reactions</h2>
+<h3 id="importing">Importing</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> {autorun, autorunAsync, when} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mobx&#x27;</span>
+</code></pre>
+<h3 id="autorun-">autorun()</h3>
+
+<pre><code class="js"><span class="hljs-comment">// Runs it, finds out what it accessed, then observe those</span>
+<span class="hljs-title function_">autorun</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(page.<span class="hljs-property">title</span>)
+})
+</code></pre>
+<h3 id="when-">when()</h3>
+
+<pre><code class="js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> {
+  <span class="hljs-title function_">constructor</span> () {
+    <span class="hljs-title function_">when</span>(
+      <span class="hljs-function">() =&gt;</span> !<span class="hljs-variable language_">this</span>.<span class="hljs-property">isVisible</span>,
+      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">doSomething</span>())
+  }
+}
+</code></pre>
+<h3 id="expr-">expr()</h3>
+
+<pre><code class="js"><span class="hljs-comment">// A temporary computed value. Its result is cached.</span>
+render () {
+  <span class="hljs-keyword">const</span> isPublished = <span class="hljs-title function_">expr</span>(<span class="hljs-function">() =&gt;</span> page.<span class="hljs-property">published</span> === <span class="hljs-literal">true</span>)
+  <span class="hljs-keyword">if</span> (isPublished) { ... }
+}
+</code></pre>
+<h2 id="-modifiers-http-mobxjs-github-io-mobx-refguide-modifiers-html-"><a href="http://mobxjs.github.io/mobx/refguide/modifiers.html">Modifiers</a></h2>
+
+<ul>
+<li><code>asMap(obj)</code> - JS map (dynamic keys)</li>
+<li><code>asReference(fn)</code> - don&#39;t observe me</li>
+<li><code>asStructure(obj)</code> - JS object (observe as deepEqual)</li>
+<li><code>asFlat(array)</code> - JS array (observe its children)</li>
+</ul>
+<h2 id="react">React</h2>
+<h3 id="mobx-react">mobx-react</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { observer } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mobx-react&#x27;</span>
+
+@observer
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">PageView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  render () {
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{this.props.page.title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  }
+}
+
+&lt;<span class="hljs-title class_">PageView</span> page={page} /&gt;
+</code></pre>
+<h3 id="functional-components">Functional components</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { observer } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mobx-react&#x27;</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">PageView</span> = <span class="hljs-title function_">observer</span>(<span class="hljs-function">(<span class="hljs-params">{page}</span>) =&gt;</span> {
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{page.title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+})
+
+&lt;<span class="hljs-title class_">PageView</span> page={page} /&gt;
+</code></pre>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/mobxjs/mobx">https://github.com/mobxjs/mobx</a></li>
+</ul>
+
+</div>
+</body>  
+</html>

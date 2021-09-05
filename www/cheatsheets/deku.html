@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Deku v2 cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Deku v2 cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\deku.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#components">Components</a>, <a href="#rendering">Rendering</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="components">Components</h3>
+
+<pre><code class="js"><span class="hljs-comment">/** <span class="hljs-doctag">@jsx</span> element */</span>
+<span class="hljs-keyword">import</span> { element } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;deku&#x27;</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">render</span> ({ props, children, context, path }) {
+  <span class="hljs-comment">// props    = properties object</span>
+  <span class="hljs-comment">// children = children array</span>
+  <span class="hljs-comment">// path     = path to current component (like 0.1.5.2)</span>
+  <span class="hljs-comment">// context  = common properties in all components</span>
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&#x27;App&#x27;</span> <span class="hljs-attr">hidden</span>=<span class="hljs-string">{props.hidden}</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{context.theme.color}</span>&gt;</span>
+      {children}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  }
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onCreate</span> ({ props, dispatch, path }) { ... }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onUpdate</span> ({ props, dispatch, path }) { ... }
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onRemove</span> ({ props, dispatch, path }) { ... }
+<span class="hljs-comment">// actually { children, props, path, context }</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> { render, onCreate, onRemove }
+</code></pre>
+<h3 id="rendering">Rendering</h3>
+
+<pre><code class="js"><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux&#x27;</span>
+<span class="hljs-keyword">import</span> { dom, element } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;deku&#x27;</span>
+
+<span class="hljs-comment">// Create a Redux store to handle all UI actions and side-effects</span>
+<span class="hljs-keyword">let</span> store = <span class="hljs-title function_">createStore</span>(reducer)
+
+<span class="hljs-comment">// Create a renderer that can turn vnodes into real DOM elements</span>
+<span class="hljs-keyword">let</span> render = <span class="hljs-title function_">createRenderer</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>, store.<span class="hljs-property">dispatch</span>)
+
+<span class="hljs-comment">// Update the page and add redux state to the context</span>
+<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyButton</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">MyButton</span>&gt;</span></span>, store.<span class="hljs-title function_">getState</span>())
+</code></pre>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rake cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Rake cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rake.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#basic-syntax">Basic syntax</a>, <a href="#rake-task-with-arguments">Rake task with arguments</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="basic-syntax">Basic syntax</h3>
+
+<pre><code class="rb">namespace <span class="hljs-symbol">:foo</span> <span class="hljs-keyword">do</span>
+  desc <span class="hljs-string">&quot;Description&quot;</span>
+  task <span class="hljs-symbol">:bar</span> <span class="hljs-keyword">do</span>
+    ...
+  <span class="hljs-keyword">end</span>
+
+  task <span class="hljs-symbol">:baz</span> =&gt; <span class="hljs-symbol">:dependency</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">end</span>
+
+  task <span class="hljs-symbol">:baz</span> =&gt; [<span class="hljs-symbol">:dep1</span>, <span class="hljs-symbol">:dep2</span>, <span class="hljs-symbol">:dep3</span>] <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># rake foo:bar</span>
+</code></pre>
+<h3 id="rake-task-with-arguments">Rake task with arguments</h3>
+
+<pre><code class="rb">desc <span class="hljs-string">&quot;Do something&quot;</span>
+task <span class="hljs-symbol">:workit</span>, [<span class="hljs-symbol">:id</span>] =&gt; <span class="hljs-symbol">:environment</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|_, args|</span>
+  id = args[<span class="hljs-symbol">:id</span>]
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># rake workit[234]</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

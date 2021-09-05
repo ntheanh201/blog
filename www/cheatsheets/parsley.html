@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Parsley.js cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Parsley.js cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\parsley.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Parsley</b>: <a href="#installing-via-npm">Installing via NPM</a>, <a href="#enabling">Enabling</a>, <a href="#api">API</a>, <a href="#validators">Validators</a><br>
+<b>Options</b>: <a href="#form-options">Form options</a>, <a href="#field-options">Field options</a>, <a href="#ui-options">UI Options</a><br>
+<b>Examples</b>: <a href="#custom-container">Custom container</a>, <a href="#custom-markup">Custom markup</a>, <a href="#custom-fields">Custom fields</a>, <a href="#custom-validator">Custom validator</a><br>
+<a href="#also-see">Also see</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h2 id="parsley">Parsley</h2>
+<h3 id="installing-via-npm">Installing via NPM</h3>
+
+<pre><code>npm install <span class="hljs-comment">--save parsleyjs</span>
+</code></pre>
+<p><a href="https://www.npmjs.com/package/parsleyjs">parsleyjs</a> is the Parsley form validator. (&#39;parsley&#39; is a different package)</p>
+<h3 id="enabling">Enabling</h3>
+<h4 id="via-html">via HTML</h4>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data-parsley-validate</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- ✗ not preferred --&gt;</span>
+</code></pre>
+<h4 id="via-javascript">via JavaScript</h4>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;#form&#x27;</span>).<span class="hljs-title function_">parsley</span>(<span class="hljs-comment">/* options */</span>)
+</code></pre>
+<p>It&#39;s preferable to explicitly call <code>$.fn.parsley()</code>.</p>
+<h3 id="api">API</h3>
+<h4 id="form">Form</h4>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;#myform&#x27;</span>).<span class="hljs-title function_">parsley</span>()
+  .<span class="hljs-title function_">isValid</span>()  <span class="hljs-comment">// → true | null</span>
+  .<span class="hljs-title function_">validate</span>()
+  .<span class="hljs-title function_">reset</span>()
+  .<span class="hljs-title function_">destroy</span>()
+</code></pre>
+<h4 id="input">Input</h4>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;#myform input&#x27;</span>).<span class="hljs-title function_">parsley</span>()
+  .<span class="hljs-title function_">isValid</span>()
+  .<span class="hljs-title function_">validate</span>() <span class="hljs-comment">// returns errors</span>
+</code></pre>
+<h3 id="validators">Validators</h3>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">...</span>&gt;</span>
+</code></pre>
+<h4 id="required">Required</h4>
+
+<pre><code class="html">  required
+</code></pre>
+<h4 id="types">Types</h4>
+
+<pre><code class="html">  type=&#x27;email&#x27;
+</code></pre>
+
+<pre><code class="html">  type=&#x27;url&#x27;
+  data-parsley-type=&#x27;url&#x27;
+</code></pre>
+<h4 id="length">Length</h4>
+
+<pre><code class="html">  maxlength=&#x27;6&#x27;
+  data-parsley-maxlength=&#x27;6&#x27;
+  minlength=&#x27;10&#x27;
+  data-parsley-minlength=&#x27;10&#x27;
+</code></pre>
+<h4 id="numeric">Numeric</h4>
+
+<pre><code class="html">  pattern=&#x27;\d+&#x27;
+  data-parsley-pattern=&#x27;\d+&#x27;
+</code></pre>
+
+<pre><code class="html">  type=&#x27;number&#x27;
+  data-parsley-type=&#x27;number&#x27;
+  data-parsley-type=&#x27;integer&#x27;
+  data-parsley-type=&#x27;digits&#x27;
+  data-parsley-type=&#x27;alphanum&#x27;
+</code></pre>
+<h4 id="range">Range</h4>
+
+<pre><code class="html">  type=&#x27;range&#x27;
+  data-parsley=range=&#x27;[6, 10]&#x27;
+</code></pre>
+
+<pre><code class="html">  max=&#x27;10&#x27;
+  data-parsley-max=&#x27;10&#x27;
+  min=&#x27;6&#x27;
+  data-parsley-min=&#x27;6&#x27;
+</code></pre>
+<h4 id="checkboxes">Checkboxes</h4>
+
+<pre><code class="html">  data-parsley-mincheck=&#x27;1&#x27;
+  data-parsley-maxcheck=&#x27;3&#x27;
+  data-parsley-check=&#x27;[1, 3]&#x27;
+</code></pre>
+<h4 id="confirmation">Confirmation</h4>
+
+<pre><code class="html">  data-parsley-equalto=&#x27;#confirm&#x27;
+</code></pre>
+<h2 id="options">Options</h2>
+<h3 id="form-options">Form options</h3>
+
+<pre><code class="js"><span class="hljs-comment">// Supported &amp; excluded inputs by default</span>
+  <span class="hljs-attr">inputs</span>: <span class="hljs-string">&#x27;input, textarea, select&#x27;</span>
+  <span class="hljs-attr">excluded</span>: <span class="hljs-string">&#x27;input[type=button], input[type=submit], input[type=reset], input[type=hidden]&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Stop validating field on highest priority failing constraint</span>
+  <span class="hljs-attr">priorityEnabled</span>: <span class="hljs-literal">true</span>
+</code></pre>
+<p>See: <a href="http://parsleyjs.org/doc/annotated-source/defaults.html">Options</a></p>
+<h3 id="field-options">Field options</h3>
+
+<pre><code class="js"><span class="hljs-comment">// identifier used to group together inputs</span>
+<span class="hljs-comment">// (e.g. radio buttons…)</span>
+  <span class="hljs-attr">multiple</span>: <span class="hljs-literal">null</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// identifier (or array of identifiers) used to</span>
+<span class="hljs-comment">// validate only a select group of inputs</span>
+  <span class="hljs-attr">group</span>: <span class="hljs-literal">null</span>
+</code></pre>
+<p>These options are only available for fields.</p>
+<h3 id="ui-options">UI Options</h3>
+
+<pre><code class="js"><span class="hljs-comment">// Enable/disable error messages</span>
+  <span class="hljs-attr">uiEnabled</span>: <span class="hljs-literal">true</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Key events threshold before validation</span>
+  <span class="hljs-attr">validationThreshold</span>: <span class="hljs-number">3</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Focused field on form validation error. ‘first’|’last’|’none’</span>
+  <span class="hljs-attr">focus</span>: <span class="hljs-string">&#x27;first&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// $.Event() that will trigger validation. eg: keyup, change…</span>
+  <span class="hljs-attr">trigger</span>: <span class="hljs-literal">false</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Class that would be added on every failing validation</span>
+<span class="hljs-comment">// Parsley field</span>
+  <span class="hljs-attr">errorClass</span>: <span class="hljs-string">&#x27;parsley-error&#x27;</span>
+  <span class="hljs-attr">successClass</span>: <span class="hljs-string">&#x27;parsley-success&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Return the $element that will receive these above</span>
+<span class="hljs-comment">// success or error classes. Could also be (and given</span>
+<span class="hljs-comment">// directly from DOM) a valid selector like &#x27;#div&#x27;</span>
+  <span class="hljs-attr">classHandler</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">ParsleyField</span>) {}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// Return the $element where errors will be appended.</span>
+<span class="hljs-comment">// Could also be (and given directly from DOM) a valid</span>
+<span class="hljs-comment">// selector like &#x27;#div&#x27;</span>
+  <span class="hljs-attr">errorsContainer</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">ParsleyField</span>) {}
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// ul elem that would receive errors’ list</span>
+  <span class="hljs-attr">errorsWrapper</span>: <span class="hljs-string">&#x27;&lt;ul class=&quot;parsley-errors-list&quot;&gt;&lt;/ul&gt;&#x27;</span>
+</code></pre>
+
+<pre><code class="js"><span class="hljs-comment">// li elem that would receive error message</span>
+  <span class="hljs-attr">errorTemplate</span>: <span class="hljs-string">&#x27;&lt;li&gt;&lt;/li&gt;&#x27;</span>
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="custom-container">Custom container</h3>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;[data-parsley]&#x27;</span>).<span class="hljs-title function_">parsley</span>({
+  errorsContainer (field) {
+    <span class="hljs-keyword">return</span> field.<span class="hljs-property">$element</span>.<span class="hljs-title function_">closest</span>(<span class="hljs-string">&#x27;.block, .control&#x27;</span>)
+  }
+})
+</code></pre>
+<p>Appends the error to the closest <code>.block</code> or <code>.control</code>.</p>
+<h3 id="custom-markup">Custom markup</h3>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;[data-parsley]&#x27;</span>).<span class="hljs-title function_">parsley</span>({
+  <span class="hljs-attr">errorClass</span>: <span class="hljs-string">&#x27;-error&#x27;</span>,
+  <span class="hljs-attr">successClass</span>: <span class="hljs-string">&#x27;-success&#x27;</span>,
+
+  <span class="hljs-attr">errorsWrapper</span>: <span class="hljs-string">&#x27;&lt;ul class=&quot;parsley-error-list&quot;&gt;&lt;/ul&gt;&#x27;</span>,
+  <span class="hljs-attr">errorTemplate</span>: <span class="hljs-string">&#x27;&lt;li class=&quot;parsley-error&quot;&gt;&lt;/li&gt;&#x27;</span>
+})
+</code></pre>
+<p>Uses custom markup.</p>
+<h3 id="custom-fields">Custom fields</h3>
+
+<pre><code class="js">$(<span class="hljs-string">&#x27;[data-parsley]&#x27;</span>).<span class="hljs-title function_">parsley</span>({
+  classHandler (field) {
+    <span class="hljs-keyword">const</span> $parent = field.<span class="hljs-property">$element</span>.<span class="hljs-title function_">closest</span>(<span class="hljs-string">&#x27;.input-group&#x27;</span>)
+    <span class="hljs-keyword">if</span> ($parent.<span class="hljs-property">length</span>) <span class="hljs-keyword">return</span> $parent
+
+    <span class="hljs-keyword">return</span> field.<span class="hljs-property">$element</span>
+  }
+})
+</code></pre>
+<p>Applies the <code>errorClass</code> and <code>successClass</code> to the closest <code>.input-group</code>, if available.</p>
+<h3 id="custom-validator">Custom validator</h3>
+<h4 id="html">HTML</h4>
+
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;text&#x27;</span> <span class="hljs-attr">data-parsley-multiple-of</span>=<span class="hljs-string">&#x27;3&#x27;</span> /&gt;</span>
+</code></pre>
+<h4 id="javascript">JavaScript</h4>
+
+<pre><code class="js"><span class="hljs-variable language_">window</span>.<span class="hljs-property">Parsley</span>
+  .<span class="hljs-title function_">addValidator</span>(<span class="hljs-string">&#x27;multipleOf&#x27;</span>, {
+    <span class="hljs-comment">// string | number | integer | date | regexp | boolean</span>
+    <span class="hljs-attr">requirementType</span>: <span class="hljs-string">&#x27;integer&#x27;</span>,
+
+    <span class="hljs-comment">// validateString | validateDate | validateMultiple</span>
+    validateNumber (value, requirement) {
+      <span class="hljs-keyword">return</span> <span class="hljs-number">0</span> === value % requirement
+    },
+
+    <span class="hljs-attr">messages</span>: {
+      <span class="hljs-attr">en</span>: <span class="hljs-string">&#x27;This value should be a multiple of %s&#x27;</span>
+    }
+  })
+</code></pre>
+<p>See: <a href="http://parsleyjs.org/doc/index.html#custom">Custom validators</a></p>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="http://parsleyjs.org/doc/">Parsley documentation</a> <em>(parsleyjs.org)</em></li>
+</ul>
+
+</div>
+</body>  
+</html>

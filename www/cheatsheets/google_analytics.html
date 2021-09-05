@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Google Analytics cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Google Analytics cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\google_analytics.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#pageview">Pageview</a>, <a href="#track-events">Track events</a>, <a href="#variables">Variables</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="pageview">Pageview</h3>
+
+<pre><code><span class="hljs-regexp">//</span> Analytics.js
+ga(<span class="hljs-string">&#x27;create&#x27;</span>, <span class="hljs-string">&#x27;UA-XXXX-Y&#x27;</span>, <span class="hljs-string">&#x27;auto&#x27;</span>);
+ga(<span class="hljs-string">&#x27;send&#x27;</span>, <span class="hljs-string">&#x27;pageview&#x27;</span>);
+</code></pre>
+<h3 id="track-events">Track events</h3>
+
+<pre><code><span class="hljs-regexp">//</span> ga.js
+<span class="hljs-regexp">//</span> [..., category, action, label, value (int), noninteraction (bool)]
+_gaq.push([<span class="hljs-string">&#x27;_trackEvent&#x27;</span>, <span class="hljs-string">&#x27;Videos&#x27;</span>, <span class="hljs-string">&#x27;Play&#x27;</span>, <span class="hljs-string">&#x27;Birthday video&#x27;</span>, true])
+_gaq.push([<span class="hljs-string">&#x27;_trackEvent&#x27;</span>, <span class="hljs-string">&#x27;Projects&#x27;</span>, <span class="hljs-string">&#x27;Donate&#x27;</span>, <span class="hljs-string">&#x27;Project name&#x27;</span>])
+_gaq.push([<span class="hljs-string">&#x27;_trackEvent&#x27;</span>, <span class="hljs-string">&#x27;Accounts&#x27;</span>, <span class="hljs-string">&#x27;Login&#x27;</span>])
+
+<span class="hljs-regexp">//</span> Analytics.js
+<span class="hljs-regexp">//</span>       ,        ,  category,  action,  label,         value (int)
+ga(<span class="hljs-string">&#x27;send&#x27;</span>, <span class="hljs-string">&#x27;event&#x27;</span>, <span class="hljs-string">&#x27;button&#x27;</span>,   <span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-string">&#x27;nav buttons&#x27;</span>, <span class="hljs-number">4</span>);
+</code></pre>
+<h3 id="variables">Variables</h3>
+
+<pre><code><span class="hljs-regexp">//</span> [..., index, name, value, scope (optional)]
+_gaq.push([<span class="hljs-string">&#x27;_setCustomVar&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;Logged in&#x27;</span>, <span class="hljs-string">&#x27;Yes&#x27;</span>, <span class="hljs-number">2</span>]);
+
+<span class="hljs-regexp">//</span> Scope = <span class="hljs-number">1</span> (visitor), <span class="hljs-number">2</span> (session), <span class="hljs-number">3</span> (page, default)
+</code></pre>
+<p><a href="https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables">https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables</a>
+<a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide</a></p>
+
+</div>
+</body>  
+</html>

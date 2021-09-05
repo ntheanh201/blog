@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Find cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Find cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\find.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#usage">Usage</a>, <a href="#conditions">Conditions</a>, <a href="#access-time-conditions">Access time conditions</a>, <a href="#condition-flow">Condition flow</a>, <a href="#actions">Actions</a>, <a href="#examples">Examples</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="usage">Usage</h3>
+
+<pre><code class="bash">find &lt;path&gt; &lt;conditions&gt; &lt;actions&gt;
+</code></pre>
+<h3 id="conditions">Conditions</h3>
+
+<pre><code class="bash">-name <span class="hljs-string">&quot;*.c&quot;</span>
+</code></pre>
+
+<pre><code class="bash">-user jonathan
+-nouser
+</code></pre>
+
+<pre><code class="bash">-<span class="hljs-built_in">type</span> f            <span class="hljs-comment"># File</span>
+-<span class="hljs-built_in">type</span> d            <span class="hljs-comment"># Directory</span>
+-<span class="hljs-built_in">type</span> l            <span class="hljs-comment"># Symlink</span>
+</code></pre>
+
+<pre><code class="bash">-depth 2           <span class="hljs-comment"># At least 3 levels deep</span>
+-regex PATTERN
+</code></pre>
+
+<pre><code class="bash">-size 8            <span class="hljs-comment"># Exactly 8 512-bit blocks </span>
+-size -128c        <span class="hljs-comment"># Smaller than 128 bytes</span>
+-size 1440k        <span class="hljs-comment"># Exactly 1440KiB</span>
+-size +10M         <span class="hljs-comment"># Larger than 10MiB</span>
+-size +2G          <span class="hljs-comment"># Larger than 2GiB</span>
+</code></pre>
+
+<pre><code class="bash">-newer   file.txt
+-newerm  file.txt        <span class="hljs-comment"># modified newer than file.txt</span>
+-newerX  file.txt        <span class="hljs-comment"># [c]hange, [m]odified, [B]create</span>
+-newerXt <span class="hljs-string">&quot;1 hour ago&quot;</span>    <span class="hljs-comment"># [t]imestamp</span>
+</code></pre>
+<h3 id="access-time-conditions">Access time conditions</h3>
+
+<pre><code class="bash">-atime 0           <span class="hljs-comment"># Last accessed between now and 24 hours ago</span>
+-atime +0          <span class="hljs-comment"># Accessed more than 24 hours ago</span>
+-atime 1           <span class="hljs-comment"># Accessed between 24 and 48 hours ago</span>
+-atime +1          <span class="hljs-comment"># Accessed more than 48 hours ago</span>
+-atime -1          <span class="hljs-comment"># Accessed less than 24 hours ago (same a 0)</span>
+-ctime -6h30m      <span class="hljs-comment"># File status changed within the last 6 hours and 30 minutes</span>
+-mtime +1w         <span class="hljs-comment"># Last modified more than 1 week ago</span>
+</code></pre>
+<p>These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).</p>
+<h3 id="condition-flow">Condition flow</h3>
+
+<pre><code class="bash">\! -name <span class="hljs-string">&quot;*.c&quot;</span>
+\( x -or y \)
+</code></pre>
+<h3 id="actions">Actions</h3>
+
+<pre><code class="bash">-<span class="hljs-built_in">exec</span> rm {} \;
+-<span class="hljs-built_in">print</span>
+-delete
+</code></pre>
+<h3 id="examples">Examples</h3>
+
+<pre><code class="bash">find . -name <span class="hljs-string">&#x27;*.jpg&#x27;</span>
+find . -name <span class="hljs-string">&#x27;*.jpg&#x27;</span> -<span class="hljs-built_in">exec</span> rm {} \;
+</code></pre>
+
+<pre><code class="bash">find . -newerBt <span class="hljs-string">&quot;24 hours ago&quot;</span>
+</code></pre>
+
+<pre><code class="bash">find . -<span class="hljs-built_in">type</span> f -mtime +29 <span class="hljs-comment"># find files modified more than 30 days ago</span>
+</code></pre>
+
+</div>
+</body>  
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Helpers cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Helpers cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rails-helpers.md" >edit</a>
+  </div>
+  <div class="toc">
+<b>Main</b>: <a href="#date">Date</a>, <a href="#numbers">Numbers</a>, <a href="#cache">Cache</a>, <a href="#tags">Tags</a>, <a href="#time-select">Time select</a>, <a href="#time-tag">Time tag</a>, <a href="#files">Files</a>, <a href="#i18n">i18n</a>, <a href="#references">References</a><br></div>
+
+
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+<div id="content">
+<h3 id="date">Date</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">distance_of_time_in_words</span><span class="hljs-params">(Time.now, project.end_date)</span></span> #=&gt; <span class="hljs-number">3</span> hours
+<span class="hljs-function"><span class="hljs-title">distance_of_time_in_words_to_now</span><span class="hljs-params">(project.end_date)</span></span>    #=&gt; <span class="hljs-number">3</span> hours
+
+time_ago_in_words <span class="hljs-number">3</span><span class="hljs-selector-class">.minutes</span><span class="hljs-selector-class">.ago</span> #=&gt; <span class="hljs-string">&quot;3 minutes&quot;</span>
+</code></pre>
+<h3 id="numbers">Numbers</h3>
+
+<pre><code><span class="hljs-attribute">number_to_currency</span> <span class="hljs-number">20</span>.<span class="hljs-number">33</span>
+<span class="hljs-attribute">number_to_currency</span> <span class="hljs-number">20</span>.<span class="hljs-number">33</span>, precision: <span class="hljs-number">0</span>
+<span class="hljs-attribute">number_with_precision</span> <span class="hljs-number">3</span>.<span class="hljs-number">14159</span>, precision: <span class="hljs-number">2</span>
+<span class="hljs-attribute">number_to_percentage</span> <span class="hljs-number">32</span>       #=&gt; <span class="hljs-string">&quot;32%&quot;</span>
+<span class="hljs-attribute">number_with_delimiter</span> <span class="hljs-number">2048</span>    #=&gt; <span class="hljs-string">&quot;2,048&quot;</span>
+<span class="hljs-attribute">number_to_human</span> <span class="hljs-number">12000000</span>      #=&gt; <span class="hljs-string">&quot;12 million&quot;</span>
+<span class="hljs-attribute">number_to_human_size</span> <span class="hljs-number">12000000</span> #=&gt; <span class="hljs-string">&quot;12 MB&quot;</span>
+<span class="hljs-attribute">number_to_phone</span> <span class="hljs-string">&quot;5551234&quot;</span>     #=&gt; <span class="hljs-string">&quot;555-1234&quot;</span>
+</code></pre>
+<h3 id="cache">Cache</h3>
+
+<pre><code>&lt;% cache <span class="hljs-keyword">project</span> <span class="hljs-keyword">do</span> %&gt;
+&lt;% cache [<span class="hljs-keyword">project</span>, current_user] <span class="hljs-keyword">do</span> %&gt;
+
+&lt;% cache_if admin?, <span class="hljs-keyword">project</span> <span class="hljs-keyword">do</span> %&gt;
+&lt;% cache_unless admin?, <span class="hljs-keyword">project</span> <span class="hljs-keyword">do</span> %&gt;
+</code></pre>
+<h3 id="tags">Tags</h3>
+
+<pre><code><span class="hljs-function"><span class="hljs-title">tag</span><span class="hljs-params">(<span class="hljs-string">&quot;br&quot;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">tag</span><span class="hljs-params">(<span class="hljs-string">&quot;img&quot;</span>, src: <span class="hljs-string">&quot;image.jpg&quot;</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">content_tag</span><span class="hljs-params">(:p, <span class="hljs-string">&quot;Hello&quot;</span>)</span></span>
+</code></pre>
+<h3 id="time-select">Time select</h3>
+
+<pre><code><span class="hljs-comment"># Creates a time select tag that, when POSTed, will be stored in the article</span>
+<span class="hljs-comment"># variable in the sunrise attribute.</span>
+<span class="hljs-string">time_select</span> <span class="hljs-string">&quot;article&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;start_time&quot;</span>
+
+<span class="hljs-comment"># All options are optional</span>
+<span class="hljs-string">time_select</span> <span class="hljs-string">&quot;article&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;start_time&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">\</span>
+  <span class="hljs-attr">include_seconds:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">minute_step:</span> <span class="hljs-number">15</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">prompt:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">prompt:</span> { <span class="hljs-attr">hour:</span> <span class="hljs-string">&quot;Choose hr&quot;</span>, <span class="hljs-attr">minute:</span> <span class="hljs-string">&quot;Choose min&quot;</span>, <span class="hljs-attr">second:</span> <span class="hljs-string">&quot;Choose sec&quot;</span> }<span class="hljs-string">,</span>
+  <span class="hljs-attr">ampm:</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-comment"># For dates (all options are optional)</span>
+<span class="hljs-string">date_select</span> <span class="hljs-string">&quot;article&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;written_on&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">\</span>
+  <span class="hljs-attr">start_year:</span> <span class="hljs-number">1995</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">use_month_numbers:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">discard_day:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">include_blank:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
+  <span class="hljs-attr">order:</span> [<span class="hljs-string">:day</span>, <span class="hljs-string">:month</span>, <span class="hljs-string">:year</span>]<span class="hljs-string">,</span>
+  <span class="hljs-attr">default:</span> <span class="hljs-number">3.</span><span class="hljs-string">days.from_now,</span>
+  <span class="hljs-attr">default:</span> { <span class="hljs-attr">day:</span> <span class="hljs-number">20</span> }<span class="hljs-string">,</span>
+  <span class="hljs-attr">prompt:</span> { <span class="hljs-attr">day:</span> <span class="hljs-string">&#x27;Select day&#x27;</span>, <span class="hljs-attr">month:</span> <span class="hljs-string">&#x27;Select month&#x27;</span>, <span class="hljs-attr">year:</span> <span class="hljs-string">&#x27;Select year&#x27;</span> }
+</code></pre>
+<h3 id="time-tag">Time tag</h3>
+
+<pre><code>time_tag Date.today 
+#=&gt; &#x27;&lt;<span class="hljs-built_in">time</span> datetime=<span class="hljs-string">&quot;2010-11-04&quot;</span>&gt;November <span class="hljs-number">04</span>, <span class="hljs-number">2010</span>&lt;%rtime&gt;&#x27;
+
+time_tag <span class="hljs-keyword">Time</span>.now
+#=&gt; &#x27;&lt;<span class="hljs-built_in">time</span> datetime=<span class="hljs-string">&quot;2010-11-04T17:55:45+01:00&quot;</span>&gt;November <span class="hljs-number">04</span>, <span class="hljs-number">2010</span> <span class="hljs-number">17</span>:<span class="hljs-number">55</span>&lt;/<span class="hljs-built_in">time</span>&gt;&#x27;
+
+time_tag Date.yesterday, &#x27;Yesterday&#x27;
+#=&gt; &#x27;&lt;<span class="hljs-built_in">time</span> datetime=<span class="hljs-string">&quot;2010-11-03&quot;</span>&gt;Yesterday&lt;%rtime&gt;&#x27;
+
+time_tag Date.today, pubdate: true
+#=&gt; &#x27;&lt;<span class="hljs-built_in">time</span> datetime=<span class="hljs-string">&quot;2010-11-04&quot;</span> pubdate=<span class="hljs-string">&quot;pubdate&quot;</span>&gt;November <span class="hljs-number">04</span>, <span class="hljs-number">2010</span>&lt;/<span class="hljs-built_in">time</span>&gt;&#x27;
+
+time_tag Date.today, \
+  format: :short_date # (en.<span class="hljs-built_in">time</span>.formats.short_date)
+</code></pre>
+<h3 id="files">Files</h3>
+
+<pre><code><span class="hljs-section">= form_for @post, multipart: true do |f|</span>
+<span class="hljs-code">  = f.file_field :picture</span>
+</code></pre>
+<h3 id="i18n">i18n</h3>
+
+<pre><code>t(<span class="hljs-string">&#x27;folders&#x27;</span>)
+t(<span class="hljs-string">&#x27;folders.save&#x27;</span>)
+
+l(<span class="hljs-built_in">Time</span>.now)
+
+t(<span class="hljs-string">&#x27;x_files&#x27;</span>, <span class="hljs-built_in">count</span>: files.<span class="hljs-built_in">count</span>)
+<span class="hljs-meta"># files:</span>
+<span class="hljs-meta">#    one: <span class="hljs-string">&#x27;one file&#x27;</span></span>
+<span class="hljs-meta">#    other: <span class="hljs-string">&#x27;%{count} files&#x27;</span></span>
+</code></pre>
+<h3 id="references">References</h3>
+
+<pre><code>* http:<span class="hljs-regexp">//</span>api.rubyonrails.org<span class="hljs-regexp">/classes/</span>ActionView/Helpers.html
+</code></pre>
+
+</div>
+</body>  
+</html>
