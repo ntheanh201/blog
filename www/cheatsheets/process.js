@@ -25,8 +25,8 @@ function genHTML(innerHTML, meta) {
 <head>
     <meta charset="utf-8" />
     <title>${name} cheatsheet</title>
-    <link href="main.css" rel="stylesheet" />
-    <script src="main.js"></script>
+    <link href="s/main.css" rel="stylesheet" />
+    <script src="s/main.js"></script>
 </head>
 
 <body onload="start()">
@@ -52,7 +52,7 @@ function genIndexHTML(files) {
 <head>
     <meta charset="utf-8" />
     <title>cheatsheets</title>
-    <link href="main.css" rel="stylesheet" />
+    <link href="s/main.css" rel="stylesheet" />
 </head>
 
 <div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
