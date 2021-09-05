@@ -63,7 +63,7 @@ function genIndexHTML(files) {
 </body>
 </html>
 `;
-  const path = join("gen", "index.html");
+  const path = "index.html";
   Deno.writeTextFileSync(path, s)
 }
 
@@ -513,7 +513,7 @@ function processFiles() {
 
   for (let file of files) {
     const src = join("devhints", file + ".md")
-    const dst = join("gen", file + ".html");
+    const dst = file + ".html";
     processFile(src, dst)
   }
   genIndexHTML(files);
