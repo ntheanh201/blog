@@ -51,7 +51,7 @@ function genIndexHTML(files) {
   <div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
 
   <div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
-    <div><input id="search-input" type="text" x-model="search"></div>
+    <div><input @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
   </div>
 
   <div class="cslist">
