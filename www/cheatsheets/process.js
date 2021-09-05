@@ -168,7 +168,7 @@ function processFile(srcPath, dstPath) {
   <div id="start"></div>
   <div id="wrapped-content"></div>
 `;
-  let s = tocHTML + startHTML + `<div id="content">` + markup.content + `</div>`;
+  let s = tocHTML + startHTML + `<div id="content">` + "\n" + markup.content + "\n" + `</div>`;
   s = genHTML(s, srcPath, markup.meta);
   Deno.writeTextFileSync(dstPath, s)
 }

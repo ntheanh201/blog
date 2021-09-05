@@ -22,6 +22,37 @@ function updateLocationHash(divId) {
     window.location.hash = h;
 }
 
+// for nested headers we want the name be "File manipulation / Reading"
+// instead of just "Reading".
+// we build those once on h3 / h4 elements and store as "data-name" attribute
+function buildHeaderFullNames() {
+    let currH2 = "";
+    let currH3 = "";
+    const parent = elById("#content");
+    for (const el of parent.children) {
+        const tag = el.localName;
+        if (tag === "h2") {
+            currH2 = el.textContent;
+            currH3 = "";
+            continue;
+        }
+        if (tag === "h3") {
+            if (currH2 === "") {
+                currH3 = el.textContent;
+            } else {
+                currH3 = currH2 + " / " + el.textContent;
+            }
+            el.setAttribute("data-name", currH3);
+            continue;
+        }
+
+        if (tag === "h4") {
+            const currH4 = currH3 + " / " + el.textContent;
+            el.setAttribute("data-name", currH4);
+            continue;
+        }
+    }
+}
 
 // for every h2 in #content, wraps it and it's siblings (until next h2)
 // inside div and appends that div to #start
@@ -57,27 +88,32 @@ function groupHeaderElements() {
     }
 }
 
-function bringToFrontDiv(h2Id) {
+function bringToFrontDiv(hdrId) {
+    // remove "first" class from the element that currently has it
     let els = document.getElementsByClassName("first");
     for (let el of els) {
         el.classList.remove("first");
     }
 
-    const divId = h2Id + "-wrap";
+    const divId = hdrId + "-wrap";
     let el = elById(divId);
     el.classList.add("first");
     const startEl = elById("#start");
     el.remove();
     startEl.after(el);
 
-    el = elById(h2Id)
+    el = elById(hdrId)
+    const fullName = el.getAttribute("data-name");
+    if (fullName && fullName !== el.textContent) {
+        el.textContent = fullName;
+    }
     el.classList.add("flash");
     //updateLocationHash(divId);
 }
 
 function bringToFront(target) {
-    const h2Id = target.getAttribute("href");
-    bringToFrontDiv(h2Id);
+    const hdrId = target.getAttribute("href");
+    bringToFrontDiv(hdrId);
 }
 
 function onClick(ev) {
@@ -87,9 +123,7 @@ function onClick(ev) {
 }
 
 function filterList(s) {
-    //console.log("filtering for:", s);
     const els = document.getElementsByClassName("cslist-item");
-    //console.log(els);
     for (const el of els) {
         const v = el.getElementsByTagName("a");
         if (len(v) != 1) {
@@ -105,7 +139,6 @@ function filterList(s) {
     }
     return s;
 }
-
 
 function hookClick() {
     const els = document.getElementsByTagName("a");
@@ -125,6 +158,7 @@ function hookClick() {
     }
 }
 async function start() {
+    buildHeaderFullNames(); // must call before groupHeaderElements()
     groupHeaderElements();
     hookClick();
     const el = document.getElementById("intro");
@@ -135,6 +169,5 @@ async function start() {
 
 async function startIndex() {
     const el = document.getElementById("search-input");
-    console.log(el);
     el.focus();
 }
