@@ -1,22 +1,13 @@
-import { Marked } from "https://deno.land/x/markdown/mod.ts";
-import hljs from "https://jspm.dev/highlight.js@11.0.1";
-//import { default as hljs } from "https://cdn.skypack.dev/highlight.js";
-// import { default as hlJavaScript } from "https://cdn.skypack.dev/highlight.js/lib/languages/javascript";
-import { join } from "https://deno.land/std@0.106.0/path/mod.ts";
-import { DOMParser, Element } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
-
-//console.log(hljs.listLanguages());
-const lng = hljs.getLanguage("javascript");
-//console.log(lng);
-hljs.registerLanguage(lng.name, lng.rawDefinition);
-
 // run as:
 // deno run --allow-read --allow-write .\process.js
 
-//console.log("highlight:");
-//console.log(highlight);
+import { Marked } from "https://deno.land/x/markdown/mod.ts";
+import hljs from "https://jspm.dev/highlight.js@11.0.1";
+import { join } from "https://deno.land/std@0.106.0/path/mod.ts";
+import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
-// hljs.registerLanguage("javascript", hlJavaScript);
+const lng = hljs.getLanguage("javascript");
+hljs.registerLanguage(lng.name, lng.rawDefinition);
 
 function genHTML(innerHTML, meta) {
   let name = meta.title;
@@ -558,5 +549,5 @@ function listDevhints() {
 }
 
 //testCleanup();
-//processFiles();
-listDevhints();
+processFiles();
+//listDevhints();
