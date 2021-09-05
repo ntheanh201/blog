@@ -70,7 +70,7 @@ function groupH2Elements() {
     const groups = [];
     let curr = [];
     for (const el of parent.children) {
-        if (el.localName === "h2") {
+        if (el.localName === "h2" || el.localName === "h3") {
             if (curr.length > 0) {
                 groups.push(curr);
             }
@@ -84,7 +84,6 @@ function groupH2Elements() {
     }
 
     for (const group of groups) {
-
         const div = document.createElement("div");
         div.id = group[0].id + "-wrap";
         div.className = "dvwrap";
@@ -125,6 +124,7 @@ async function start(file, lang, mdconv) {
             permalinke: true,
         });
         md.use(window.markdownitAttrs);
+        md.use(window.markdownItTable);
         const html = md.render(mdTxt);
         const el = elById("#content");
         el.innerHTML = html;
@@ -145,10 +145,10 @@ async function start(file, lang, mdconv) {
     if (mdconv == "markdown-it") {
         const elToc = elById("toc");
         const el2 = elToc.nextSibling;
-        console.log(elToc);
-        console.log(el2);
+        //console.log(elToc);
+        //console.log(el2);
         const elStart = elById("start");
-        console.log(elStart);
+        //console.log(elStart);
         elStart.appendChild(el2);
         
         const elTocWrap = elById("toc-wrap");
@@ -164,4 +164,14 @@ async function startPython() {
 async function startGo() {
     await start("go.md", "go", "markdown-it");
     bringToFrontDiv("hello-world");
+}
+
+async function startBash() {
+    await start("bash.md", "bash", "markdown-it");
+    bringToFrontDiv("intro");
+}
+
+async function start101() {
+    await start("101.md", "javascript", "markdown-it");
+    bringToFrontDiv("intro");
 }

@@ -11,7 +11,12 @@ body {
 
     background-color: white;
 
-    font-family: "PT Serif", serif;
+    /* font-family: "PT Serif", serif; */
+    font-family: sans-serif;
+}
+
+td {
+    padding-right: 1em;
 }
 
 h2 {
@@ -21,6 +26,32 @@ h2 {
 
 .first {
     opacity: 1 !important;
+}
+
+.edit {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+}
+
+.cslist {
+    display:flex;
+    flex-direction: column;
+    flex-direction: row;
+}
+
+.cslist > div {
+    margin-right: 0.5em;
+}
+
+.cslist > div::after {
+    content: "•";
+    color: gray;
+    margin-left: 0.5em;
+}
+
+.cslist > div:last-child::after {
+    content: "";
 }
 
 .toc {
