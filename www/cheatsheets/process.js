@@ -7,8 +7,12 @@ import { join } from "https://deno.land/std@0.106.0/path/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { files } from "./processfiles.js";
 
-const lng = hljs.getLanguage("javascript");
-hljs.registerLanguage(lng.name, lng.rawDefinition);
+function len(o) {
+  if (o && o.length) {
+      return o.length;
+  }
+  return 0;
+}
 
 function genHTML(innerHTML, fileName, meta) {
   let title = meta.title;
@@ -67,8 +71,12 @@ function genIndexHTML(files) {
 function genTocHTML(toc) {
   let html = `<div class="toc">`;
   for (let e of toc) {
+    if (len(e.a) === 0) {
+      // handle a case where e.a is empty
+      html += `\n<a href="#${e.id}">${e.name}</a><br>`
+      continue;
+    }
     let s = `\n<b>${e.name}</b>: `;
-    // TODO: handle a case where e.a is empty
     let i = 0;
     for (let te of e.a) {
       if (i > 0) {
@@ -165,10 +173,9 @@ function processFile(srcPath, dstPath) {
   Deno.writeTextFileSync(dstPath, s)
 }
 
-
 function processFiles() {
   //const files = ["go", "python", "bash", "101"];
-  if (true) {
+  if (false) {
     genIndexHTML(files);
     return;
   }
@@ -187,9 +194,12 @@ function cleanupMarkdown(s) {
   const reg = /{:.*}/g;
   s = s.replace(reg, "");
   s = s.replace("{% raw %}", "")
-  s = s.replace("\n\n", "\n");
-  s = s.replace("\n\n", "\n");
-  s = s.replace("\n\n", "\n");
+  s = s.replace("{% endraw %}", "");
+  let prev = s;
+  while (prev !== s) {
+    prev = s;
+    s = s.replace("\n\n", "\n");
+  }
   return s;
 }
 
