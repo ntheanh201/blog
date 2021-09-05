@@ -1,3 +1,8 @@
+---
+title: Python 2
+category: Python
+---
+
  ## toc
 **Collections**: [List](#list), [Dict](#dictionary), [Set](#set), [Range](#range), [Enumerate](#enumerate), [Named Tuple](#named-tuple), [Iterator](#iterator), [Generator](#generator)<br>
 **Types**: [Types](#types), [String](#string), [Regex](#regex), [Format](#format), [Numbers](#numbers), [Combinatorics](#combinatorics), [Datetime](#datetime)<br>

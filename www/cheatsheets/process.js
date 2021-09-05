@@ -3,7 +3,7 @@
 
 import { Marked } from "https://deno.land/x/markdown/mod.ts";
 import hljs from "https://jspm.dev/highlight.js@11.0.1";
-import { join } from "https://deno.land/std@0.106.0/path/mod.ts";
+import { join, basename } from "https://deno.land/std@0.106.0/path/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { files } from "./processfiles.js";
 
@@ -181,12 +181,25 @@ function processFiles() {
   }
 
   clean();
+
+  const otherFiles = ["python3"];
+  const allFiles = [];
+  files.splice(8);
   for (let file of files) {
-    const src = join("devhints", file + ".md")
-    const dst = file + ".html";
+    let path = join("devhints", file + ".md");
+    allFiles.push(path);
+  }
+  for (let file of otherFiles) {
+    let path = join("other", file + ".md");
+    allFiles.push(path);
+  }
+
+  for (let path of allFiles) {
+    const src = path;
+    const dst = basename(src).replace(".md", ".html");
     processFile(src, dst)
   }
-  genIndexHTML(files);
+  genIndexHTML(allFiles);
 }
 
 function cleanupMarkdown(s) {
