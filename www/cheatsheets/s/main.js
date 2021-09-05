@@ -86,6 +86,27 @@ function onClick(ev) {
     window.scrollTo(0, 0);
 }
 
+function filterList(s) {
+    //console.log("filtering for:", s);
+    const els = document.getElementsByClassName("cslist-item");
+    //console.log(els);
+    for (const el of els) {
+        const v = el.getElementsByTagName("a");
+        if (len(v) != 1) {
+            continue;
+        }
+        const a = v[0];
+        const txt = a.textContent;
+        let disp = txt.includes(s) ? "block" : "none";
+        if (!s || s === "") {
+            disp = "block";
+        }
+        el.style.display = disp;
+    }
+    return s;
+}
+
+
 function hookClick() {
     const els = document.getElementsByTagName("a");
     const n = els.length;
@@ -97,7 +118,7 @@ function hookClick() {
         }
         if (href[0] == "#") {
             el.onclick = onClick;
-        } else {
+        } else if (href.startsWith("http")) {
             // make all external links open in new tab
             el.setAttribute("target", "_blank");
         }
@@ -106,5 +127,14 @@ function hookClick() {
 async function start() {
     groupHeaderElements();
     hookClick();
-    bringToFrontDiv("intro");
+    const el = document.getElementById("intro");
+    if (el) {
+        bringToFrontDiv("intro");
+    }
+}
+
+async function startIndex() {
+    const el = document.getElementById("search-input");
+    console.log(el);
+    el.focus();
 }

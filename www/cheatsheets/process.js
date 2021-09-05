@@ -5,29 +5,28 @@ import { Marked } from "https://deno.land/x/markdown/mod.ts";
 import hljs from "https://jspm.dev/highlight.js@11.0.1";
 import { join } from "https://deno.land/std@0.106.0/path/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { files } from "./processfiles.js";
 
 const lng = hljs.getLanguage("javascript");
 hljs.registerLanguage(lng.name, lng.rawDefinition);
 
-function genHTML(innerHTML, meta) {
-  let name = meta.title;
+function genHTML(innerHTML, fileName, meta) {
+  let title = meta.title;
   return `<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>${name} cheatsheet</title>
-    <link href="s/main.css" rel="stylesheet" />
-    <script src="s/main.js"></script>
+  <meta charset="utf-8" />
+  <title>${title} cheatsheet</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="s/main.js"></script>
 </head>
 
 <body onload="start()">
-    <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${name} cheatsheet</div>
-    <!--
-    <div class="edit">
-        <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/python3.md" target="_blank">edit</a>
-    </div>
-    -->
-    ${innerHTML}
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${title} cheatsheet</div>
+  <div class="edit">
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/${fileName}" >edit</a>
+  </div>
+  ${innerHTML}
 </body>  
 </html>`
 }
@@ -35,22 +34,29 @@ function genHTML(innerHTML, meta) {
 function genIndexHTML(files) {
   let innerHTML = "";
   for (let file of files) {
-    innerHTML += `<div><a href="${file}.html">${file}</a></div>`;
+    innerHTML += `<div class="cslist-item"><a href="${file}.html">${file}</a></div>` + "\n";
   }
   const s = `<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>cheatsheets</title>
-    <link href="s/main.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <title>cheatsheets</title>
+  <link href="s/main.css" rel="stylesheet" />
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="s/main.js"></script>
 </head>
 
-<div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
+<body onload="startIndex()">
+  <div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
 
-<div class="cslist">
-  ${innerHTML}
-</div>
+  <div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
+    <div><input id="search-input" type="text" x-model="search"></div>
+  </div>
+
+  <div class="cslist">
+    ${innerHTML}
+  </div>
 </body>
 </html>
 `;
@@ -133,7 +139,9 @@ function processFile(srcPath, dstPath) {
     tables: true,
     langPrefix: "",
     highlight: (code, lang) => {
-      if (!lang) {
+      const a = ["dosini", "fish", "nohighlight", "csv", "org", "jade", "textile"];
+      const langSupported = lang && a.indexOf(lang) == -1;
+      if (!langSupported) {
         return hljs.highlightAuto(code).value;
       }
 
@@ -153,355 +161,19 @@ function processFile(srcPath, dstPath) {
   <div id="wrapped-content"></div>
 `;
   let s = tocHTML + startHTML + `<div id="content">` + markup.content + `</div>`;
-  s = genHTML(s, markup.meta);
+  s = genHTML(s, srcPath, markup.meta);
   Deno.writeTextFileSync(dstPath, s)
 }
 
+
 function processFiles() {
   //const files = ["go", "python", "bash", "101"];
-  const files = [
-    "101",
-    "absinthe",
-    "activeadmin",
-    "adb",
-    "analytics.js",
-    "analytics",
-    "angularjs",
-    "animated_gif",
-    "ansi",
-    "ansible-examples",
-    "ansible-guide",
-    "ansible-modules",
-    "ansible-roles",
-    "ansible",
-    "appcache",
-    "applescript",
-    "applinks",
-    "arel",
-    "atom",
-    "awesome-redux",
-    "awscli",
-    "backbone",
-    "bash",
-    "blessed",
-    "bluebird",
-    "bolt",
-    "bookshelf",
-    "bootstrap",
-    "browser-sync",
-    "browserify",
-    "bulma",
-    "bundler",
-    "camp",
-    "canvas",
-    "capybara",
-    "cask-index",
-    "chai",
-    "cheatsheet-styles",
-    "chef",
-    "chunky_png",
-    "cidr",
-    "circle",
-    "co",
-    "commander.js",
-    "command_line",
-    "composer",
-    "cordova",
-    "cron",
-    "csharp7",
-    "css-antialias",
-    "css-flexbox",
-    "css-grid",
-    "css-system-font-stack",
-    "css-tricks",
-    "css",
-    "cssnext",
-    "curl",
-    "c_preprocessor",
-    "datetime",
-    "deis",
-    "deku",
-    "deku@1",
-    "devise",
-    "divshot",
-    "do",
-    "docker-compose",
-    "docker",
-    "dockerfile",
-    "dom-range",
-    "dom-selection",
-    "editorconfig",
-    "elixir-metaprogramming",
-    "elixir",
-    "emacs",
-    "ember",
-    "emmet",
-    "enzyme",
-    "enzyme@2",
-    "es6",
-    "ets",
-    "expectjs",
-    "express",
-    "exunit",
-    "factory_bot",
-    "fastify",
-    "ffaker",
-    "ffmpeg",
-    "figlet",
-    "find",
-    "firebase",
-    "firefox",
-    "fish-shell",
-    "flashlight",
-    "flow",
-    "flux",
-    "flynn",
-    "freenode",
-    "frequency-separation-retouching",
-    "gh-pages",
-    "git-branch",
-    "git-extras",
-    "git-log-format",
-    "git-log",
-    "git-revisions",
-    "git-tricks",
-    "gnupg",
-    "go",
-    "goby",
-    "google-webfonts",
-    "google_analytics",
-    "graphql",
-    "gremlins",
-    "gulp",
-    "haml",
-    "handlebars.js",
-    "harvey.js",
-    "heroku",
-    "hledger",
-    "homebrew",
-    "html-email",
-    "html-input",
-    "html-meta",
-    "html-microformats",
-    "html-share",
-    "html",
-    "http-status",
-    "httpie",
-    "ie",
-    "ie_bugs",
-    "imagemagick",
-    "immutable.js",
-    "index",
-    "index@2016",
-    "inkscape",
-    "ios-provision",
-    "jade",
-    "jasmine",
-    "jekyll-github",
-    "jekyll",
-    "jest",
-    "jquery-cdn",
-    "jquery",
-    "js-appcache",
-    "js-array",
-    "js-date",
-    "js-fetch",
-    "js-lazy",
-    "js-model",
-    "js-speech",
-    "jscoverage",
-    "jsdoc",
-    "jshint",
-    "knex",
-    "koa",
-    "kotlin",
-    "kramdown",
-    "layout-thrashing",
-    "ledger-csv",
-    "ledger-examples",
-    "ledger-format",
-    "ledger-periods",
-    "ledger-query",
-    "ledger",
-    "less",
-    "licenses",
-    "linux",
-    "lodash",
-    "lua",
-    "machinist",
-    "macos-mouse-acceleration",
-    "make-assets",
-    "makefile",
-    "man",
-    "markdown",
-    "meow",
-    "meta-tags",
-    "middleman",
-    "minimist",
-    "minitest",
-    "mixpanel",
-    "mobx",
-    "mocha-blanket",
-    "mocha-html",
-    "mocha-tdd",
-    "mocha",
-    "modella",
-    "modernizr",
-    "moment",
-    "mysql",
-    "ncftp",
-    "nock",
-    "nocode",
-    "nodejs-assert",
-    "nodejs-fs",
-    "nodejs-path",
-    "nodejs-process",
-    "nodejs-stream",
-    "nodejs",
-    "nopt",
-    "npm",
-    "org-mode",
-    "osx",
-    "package-json",
-    "package",
-    "pacman",
-    "parsimmon",
-    "parsley",
-    "pass",
-    "passenger",
-    "perl-pie",
-    "ph-food-delivery",
-    "phoenix-conn",
-    "phoenix-ecto",
-    "phoenix-ecto@1.2",
-    "phoenix-ecto@1.3",
-    "phoenix-migrations",
-    "phoenix-routing",
-    "phoenix",
-    "phoenix@1.2",
-    "plantuml",
-    "pm2",
-    "polyfill.io",
-    "postgresql-json",
-    "postgresql",
-    "premailer",
-    "projectionist",
-    "promise",
-    "pry",
-    "psdrb",
-    "pug",
-    "python",
-    "qjs",
-    "qunit",
-    "rack-test",
-    "ractive",
-    "rails-controllers",
-    "rails-forms",
-    "rails-helpers",
-    "rails-i18n",
-    "rails-migrations",
-    "rails-models",
-    "rails-plugins",
-    "rails-routes",
-    "rails-tricks",
-    "rails",
-    "rake",
-    "rbenv",
-    "rdoc",
-    "react-router",
-    "react",
-    "react@0.14",
-    "README",
-    "redux",
-    "regexp",
-    "rename",
-    "resolutions",
-    "rest-api",
-    "riot",
-    "rollup",
-    "ronn",
-    "rspec-rails",
-    "rspec",
-    "rst",
-    "rsync",
-    "rtorrent",
-    "ruby",
-    "ruby21",
-    "rubygems",
-    "sass",
-    "saucelabs",
-    "scp",
-    "screen",
-    "sed",
-    "semver",
-    "sequel",
-    "sequelize",
-    "sh-pipes",
-    "sh",
-    "shelljs",
-    "siege",
-    "simple_form",
-    "sinon-chai",
-    "sinon",
-    "sketch",
-    "slim",
-    "social-images",
-    "spacemacs",
-    "spine",
-    "spreadsheet",
-    "sql-join",
-    "stencil",
-    "stimulus-reflex",
-    "strftime",
-    "stylus",
-    "sublime-text",
-    "superagent",
-    "tabular",
-    "tape",
-    "textile",
-    "tig",
-    "tmux",
-    "tomdoc",
-    "top",
-    "travis",
-    "typescript",
-    "ubuntu",
-    "umdjs",
-    "underscore-string",
-    "unicode",
-    "vagrant",
-    "vagrantfile",
-    "vainglory",
-    "vim-diff",
-    "vim-digraphs",
-    "vim-easyalign",
-    "vim-help",
-    "vim-rails",
-    "vim-unite",
-    "vim",
-    "vimscript-functions",
-    "vimscript-snippets",
-    "vimscript",
-    "virtual-dom",
-    "vows",
-    "vscode",
-    "vue",
-    "vue@1.0.28",
-    "watchexec",
-    "watchman",
-    "web-workers",
-    "webpack",
-    "weechat",
-    "weinre",
-    "xpath",
-    "yaml",
-    "yargs",
-    "yarn",
-    "znc",
-    "zombie",
-    "zsh"
-  ];
+  if (true) {
+    genIndexHTML(files);
+    return;
+  }
 
+  clean();
   for (let file of files) {
     const src = join("devhints", file + ".md")
     const dst = file + ".html";
@@ -514,6 +186,9 @@ function cleanupMarkdown(s) {
   // remove lines like: {: data-line="1"}
   const reg = /{:.*}/g;
   s = s.replace(reg, "");
+  s = s.replace("{% raw %}", "")
+  s = s.replace("\n\n", "\n");
+  s = s.replace("\n\n", "\n");
   s = s.replace("\n\n", "\n");
   return s;
 }
@@ -529,6 +204,14 @@ function testCleanup() {
   console.log("===>");
   const s2 = cleanupMarkdown(s);
   console.log(s2);
+}
+
+function clean() {
+  for (const dirEntry of Deno.readDirSync('devhints')) {
+    if (dirEntry.name.endsWith(".html")) {
+      Deno.removeSync(dirEntry.name);
+    }
+  }
 }
 
 function listDevhints() {

@@ -2,6 +2,7 @@
 title: Chunky PNG
 category: Ruby libraries
 layout: 2017/sheet
+intro: Chunky PNG is a ruby library to read / modify / write PNG files.
 ---
 
 ### Loading
