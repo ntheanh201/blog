@@ -7,6 +7,8 @@ import { join, basename } from "https://deno.land/std@0.106.0/path/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { files } from "./processfiles.js";
 
+// files.splice(3); // minimizes time spent rebuilding
+
 function len(o) {
   if (o && o.length) {
       return o.length;
@@ -14,8 +16,12 @@ function len(o) {
   return 0;
 }
 
-function genHTML(innerHTML, fileName, meta) {
+function genHTML(innerHTML, mdFileName, meta) {
   let title = meta.title;
+  if (!title) {
+    title = basename(mdFileName);
+    title = title.replace(".md", "");
+  }
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -28,17 +34,21 @@ function genHTML(innerHTML, fileName, meta) {
 <body onload="start()">
   <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${title} cheatsheet</div>
   <div class="edit">
-      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/${fileName}" >edit</a>
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/${mdFileName}" >edit</a>
   </div>
   ${innerHTML}
 </body>  
 </html>`
 }
 
-function genIndexHTML(files) {
+function genIndexHTML(dstFiles) {
   let innerHTML = "";
-  for (let file of files) {
-    innerHTML += `<div class="cslist-item"><a href="${file}.html">${file}</a></div>` + "\n";
+  for (let file of dstFiles) {
+    let name = file.replace(".html", "")
+    innerHTML += `<div class="cslist-item">
+   <a href="${file}">${name}</a>
+</div>
+`;
   }
   const s = `<!DOCTYPE html>
 <html>
@@ -182,9 +192,8 @@ function processFiles() {
 
   clean();
 
-  const otherFiles = ["python3"];
+  const otherFiles = ["go", "python3"];
   const allFiles = [];
-  files.splice(8);
   for (let file of files) {
     let path = join("devhints", file + ".md");
     allFiles.push(path);
@@ -194,12 +203,14 @@ function processFiles() {
     allFiles.push(path);
   }
 
+  let dstFiles = [];
   for (let path of allFiles) {
     const src = path;
     const dst = basename(src).replace(".md", ".html");
+    dstFiles.push(dst);
     processFile(src, dst)
   }
-  genIndexHTML(allFiles);
+  genIndexHTML(dstFiles);
 }
 
 function cleanupMarkdown(s) {

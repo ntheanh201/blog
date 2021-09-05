@@ -1,20 +1,11 @@
 ---
-title: Python 2
+title: Python 3
 category: Python
 ---
 
- ## toc
-**Collections**: [List](#list), [Dict](#dictionary), [Set](#set), [Range](#range), [Enumerate](#enumerate), [Named Tuple](#named-tuple), [Iterator](#iterator), [Generator](#generator)<br>
-**Types**: [Types](#types), [String](#string), [Regex](#regex), [Format](#format), [Numbers](#numbers), [Combinatorics](#combinatorics), [Datetime](#datetime)<br>
-**Syntax**: [Arguments](#arguments), [Splat](#splatoperator), [Inline](#inline), [Closure](#closure), [Decorator](#decorator), [Class](#class), [Enum](#enum), [Exceptions](#exceptions)<br>
-**System**: [Print](#print), [Input](#input), [Command Line Arguments](#command-line-arguments), [Open](#open), [Path](#path), [Command Execution](#command-execution)<br>
-**Data**: [CSV](#csv), [JSON](#json), [Pickle](#pickle), [SQLite](#sqlite), [Bytes](#bytes), [Struct](#struct), [Array](#array), [Memory View](#memory-view), [Deque](#deque)<br>
-**Advanced**: [Threading](#threading), [Introspection](#introspection), [Metaprograming](#metaprograming), [Operator](#operator), [Eval](#eval), [Coroutine](#coroutine)<br>
-**Libraries**: [Progress Bar](#progress-bar), [Plot](#plot), [Table](#table), [Curses](#curses), [Logging](#logging), [Scraping](#scraping), [Web](#web), [Profile](#profile), [NumPy](#numpy), [Image](#image), [Audio](#audio)<br>
-[Basic Script Template](#basic-script-template)<br>
-{.toc}
+ ## Collections
 
-## List
+### List
 
 ```python
 <list> = <list>[from_inclusive : to_exclusive : ±step_size]
@@ -50,7 +41,7 @@ index = <list>.index(<el>)     # Returns first index of item.
 <list>.clear()                 # Removes all items.
 ```
 
-## Dictionary
+### Dictionary
 ```python
 <view> = <dict>.keys()                          # Coll. of keys that reflects changes.
 <view> = <dict>.values()                        # Coll. of values that reflects changes.
@@ -86,7 +77,7 @@ Counter({'blue': 3, 'red': 2, 'yellow': 1})
 ('blue', 3)
 ```
 
-## Set
+### Set
 
 ```python
 <set> = set()
@@ -119,7 +110,7 @@ Is hashable, meaning it can be used as a key in a dictionary or as an element in
 <frozenset> = frozenset(<collection>)
 ```
 
-## Range
+### Range
 
 ```python
 <range> = range(to_exclusive)
@@ -132,14 +123,14 @@ from_inclusive = <range>.start
 to_exclusive   = <range>.stop
 ```
 
-## Enumerate
+### Enumerate
 
 ```python
 for i, el in enumerate(<collection> [, i_start]):
     ...
 ```
 
-## Named Tuple
+### Named Tuple
 
 * Tuple is an immutable and hashable list.
 * Named tuple is its subclass with named elements.
@@ -159,7 +150,7 @@ Point(x=1, y=2)
 ('x', 'y')
 ```
 
-## Iterator
+### Iterator
 
 ```python
 from itertools import count, repeat, cycle, chain, islice
@@ -188,7 +179,7 @@ from itertools import count, repeat, cycle, chain, islice
 <iter> = islice(<collection>, from_inclusive, to_exclusive, step_size)
 ```
 
-## Generator
+### Generator
 
 Convenient way to implement the iterator protocol.
 
@@ -205,7 +196,7 @@ def count(start, step):
 (10, 12, 14)
 ```
 
-## Type
+## Types
 
 * Everything is an object.
 * Every object has a type.
@@ -221,7 +212,7 @@ def count(start, step):
 (<class 'str'>, <class 'str'>, <class 'str'>)
 ```
 
-#### Some types do not have builtin names, so they must be imported:
+**Some types do not have builtin names, so they must be imported**:
 ```python
 from types import FunctionType, MethodType, LambdaType, GeneratorType
 ```
@@ -242,7 +233,7 @@ True
 True
 ```
 
-## String
+### String
 
 ```python
 <str>  = <str>.strip()                       # Strips all whitespace characters from both ends.
@@ -282,7 +273,7 @@ True
 (97, 122)
 ```
 
-## Regex
+### Regex
 
 ```python
 import re
@@ -299,7 +290,7 @@ import re
 * Use `r'\1'` or `'\\1'` for backreference.
 * Use `'?'` to make an operator non-greedy.
 
-### Match Object
+#### Match Object
 
 ```python
 <str>   = <Match>.group()   # Whole match.
@@ -309,7 +300,7 @@ import re
 <int>   = <Match>.end()     # Exclusive end index of a match.
 ```
 
-### Special Sequences
+#### Special Sequences
 
 Expressions below hold true for strings that contain only ASCII characters. Use capital letters for negation.
 
@@ -319,7 +310,7 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 '\w' == '[a-zA-Z0-9_]'      # Alphanumeric
 ```
 
-## Format
+### Format
 
 ```python
 <str> = f'{<el_1>}, {<el_2>}'
@@ -336,7 +327,7 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 '187'
 ```
 
-### General Options
+#### General Options
 ```python
 {<el>:<10}       # '<el>      '
 {<el>:>10}       # '      <el>'
@@ -345,7 +336,7 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 {<el>:>0}        # '<el>'
 ```
 
-### String Options
+#### String Options
 
 `'!r'` calls object's repr() method, instead of format(), to get a string.
 
@@ -355,7 +346,7 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 {'abcde':10.3}   # 'abc       '
 ```
 
-### Number Options
+#### Number Options
 ```python
 { 123456:10,}    # '   123,456'
 { 123456:10_}    # '   123_456'
@@ -365,23 +356,23 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 {-123456: }      # '-123456'
 ```
 
-#### Float types:
+**Float types**:
 ```python
 {1.23456:10.3f}  # '     1.235'
 {1.23456:10.3e}  # ' 1.235e+00'
 {1.23456:10.3%}  # '  123.456%'
 ```
 
-#### Int types:
+**Int types**:
 ```python
 {90:c}           # 'Z'
 {90:X}           # '5A'
 {90:b}           # '1011010'
 ```
 
-## Numbers
+### Numbers
 
-### Basic Functions
+#### Basic Functions
 ```python
 <num>  = pow(<num>, <num>)  # Or: <num> ** <num>
 <real> = abs(<num>)
@@ -389,19 +380,19 @@ Expressions below hold true for strings that contain only ASCII characters. Use 
 <real> = round(<real>, ±ndigits)
 ```
 
-### Math
+#### Math
 ```python
 from math import e, pi, inf, nan
 from math import cos, acos, sin, asin, tan, atan, degrees, radians
 from math import log, log10, log2
 ```
 
-### Statistics
+#### Statistics
 ```python
 from statistics import mean, median, variance, pvariance, pstdev
 ```
 
-### Random
+#### Random
 ```python
 from random import random, randint, choice, shuffle
 <float> = random()
@@ -410,7 +401,7 @@ from random import random, randint, choice, shuffle
 shuffle(<list>)
 ```
 
-## Combinatorics
+### Combinatorics
 
 * Every function returns an iterator.
 * If you want to print the iterator, you need to pass it to the list() function!
@@ -450,7 +441,7 @@ from itertools import product, combinations, combinations_with_replacement, perm
  ('c', 'a'), ('c', 'b')]
 ```
 
-## Datetime
+### Datetime
 
 * Module 'datetime' provides 'date' `<D>`, 'time' `<T>`, 'datetime' `<DT>` and 'timedelta' `<TD>` classes. All are immutable and hashable.
 * Time and datetime can be 'aware' `<a>`, meaning they have defined timezone, or 'naive' `<n>`, meaning they don't.
@@ -461,7 +452,7 @@ from datetime import date, time, datetime, timedelta
 from dateutil.tz import UTC, tzlocal, gettz
 ```
 
-### Constructors
+#### Constructors
 
 ```python
 <D>  = date(year, month, day)
@@ -474,14 +465,14 @@ from dateutil.tz import UTC, tzlocal, gettz
 * Use `'<D/DT>.weekday()'` to get the day of the week (Mon == 0).
 * `'fold=1'` means second pass in case of time jumping back for one hour.
 
-### Now
+#### Now
 ```python
 <D/DTn>  = D/DT.today()                     # Current local date or naive datetime.
 <DTn>    = DT.utcnow()                      # Naive datetime from current UTC time.
 <DTa>    = DT.now(<tz>)                     # Aware datetime from current tz time.
 ```
 
-### Timezone
+#### Timezone
 ```python
 <tz>     = UTC                              # UTC timezone. London without DST.
 <tz>     = tzlocal()                        # Local timezone.
@@ -493,7 +484,7 @@ from dateutil.tz import UTC, tzlocal, gettz
 <Ta/DTa> = <T/DT>.replace(tzinfo=<tz>)      # Unconverted object with new timezone.
 ```
 
-### Encode
+#### Encode
 ```python
 <D/T/DT> = D/T/DT.fromisoformat('<iso>')    # Object from ISO string.
 <DT>     = DT.strptime(<str>, '<format>')   # Datetime from str, according to format.
@@ -504,7 +495,7 @@ from dateutil.tz import UTC, tzlocal, gettz
 * ISO strings come in following forms: `'YYYY-MM-DD'`, `'HH:MM:SS.ffffff[±<offset>]'`, or both separated by `'T'`. Offset is formatted as: `'HH:MM'`.
 * On Unix systems Epoch is `'1970-01-01 00:00 UTC'`, `'1970-01-01 01:00 CET'`, ...
 
-### Decode
+#### Decode
 ```python
 <str>    = <D/T/DT>.isoformat()             # ISO string representation.
 <str>    = <D/T/DT>.strftime('<format>')    # Custom string representation.
@@ -512,7 +503,7 @@ from dateutil.tz import UTC, tzlocal, gettz
 <float>  = <DT>.timestamp()                 # Seconds since Epoch in local time or tz.
 ```
 
-### Format
+#### Format
 ```python
 >>> from datetime import datetime
 >>> dt = datetime.strptime('2015-05-14 23:39:00.00 +0200', '%Y-%m-%d %H:%M:%S.%f %z')
@@ -520,30 +511,31 @@ from dateutil.tz import UTC, tzlocal, gettz
 "Thursday, 14th of May '15, 11:39PM UTC+02:00"
 ```
 
-#### Rest of the codes:
+**Rest of the codes**:
 
 * `'a'` - Weekday, abbreviated name.
 * `'b'` - Month, abbreviated name.
 
-## Arguments
+## Syntax
+### Arguments
 
-### Inside Function Call
+#### Inside Function Call
 ```python
 <function>(<positional_args>)                  # f(0, 0)
 <function>(<keyword_args>)                     # f(x=0, y=0)
 <function>(<positional_args>, <keyword_args>)  # f(0, y=0)
 ```
 
-### Inside Function Definition
+#### Inside Function Definition
 ```python
 def f(<nondefault_args>):                      # def f(x, y)
 def f(<default_args>):                         # def f(x=0, y=0)
 def f(<nondefault_args>, <default_args>):      # def f(x, y=0)
 ```
 
-## Splat Operator
+### Splat Operator
 
-### Inside Function Call
+#### Inside Function Call
 
 Splat expands a collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.
 
@@ -553,12 +545,12 @@ kwargs = {'x': 3, 'y': 4, 'z': 5}
 func(*args, **kwargs)
 ```
 
-#### Is the same as:
+**is the same as**:
 ```python
 func(1, 2, x=3, y=4, z=5)
 ```
 
-### Inside Function Definition
+#### Inside Function Definition
 
 Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.
 
@@ -592,7 +584,7 @@ def f(*args, y, **kwargs):     # f(x=1, y=2, z=3) | f(1, y=2, z=3)
 def f(x, *args, z, **kwargs):  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3)
 ```
 
-### Other Uses
+#### Other Uses
 ```python
 <list>  = [*<collection> [, ...]]
 <set>   = {*<collection> [, ...]}
@@ -604,15 +596,15 @@ def f(x, *args, z, **kwargs):  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3
 head, *body, tail = <collection>
 ```
 
-## Inline
+### Inline
 
-### Lambda
+#### Lambda
 ```python
 <function> = lambda: <return_value>
 <function> = lambda <argument_1>, <argument_2>: <return_value>
 ```
 
-### Comprehension
+#### Comprehension
 ```python
 <list> = [i+1 for i in range(10)]         # [1, 2, ..., 10]
 <set>  = {i for i in range(10) if i > 5}  # {6, 7, 8, 9}
@@ -624,7 +616,7 @@ head, *body, tail = <collection>
 out = [i+j for i in range(10) for j in range(10)]
 ```
 
-#### Is the same as:
+**Is the same as**:
 ```python
 out = []
 for i in range(10):
@@ -632,7 +624,7 @@ for i in range(10):
         out.append(i+j)
 ```
 
-### Map, Filter, Reduce
+#### Map, Filter, Reduce
 ```python
 from functools import reduce
 <iter> = map(lambda x: x + 1, range(10))            # (1, 2, ..., 10)
@@ -640,13 +632,13 @@ from functools import reduce
 <int>  = reduce(lambda out, x: out + x, range(10))  # 45
 ```
 
-### Any, All
+#### Any, All
 ```python
 <bool> = any(<collection>)                  # False if empty.
 <bool> = all(el[1] for el in <collection>)  # True if empty.
 ```
 
-### If - Else
+#### If - Else
 ```python
 <expression_if_true> if <condition> else <expression_if_false>
 ```
@@ -676,7 +668,7 @@ creature  = Creature(Point(0, 0), Direction.n)
 ```
 
 
-## Closure
+### Closure
 
 We have a closure in Python when:
 * a nested function references a value of its enclosing function and then
@@ -698,7 +690,7 @@ def get_multiplier(a):
 * If multiple nested functions within enclosing function reference the same value, that value gets shared.
 * To dynamically access function's first free variable use `'<function>.__closure__[0].cell_contents'`.
 
-### Partial
+#### Partial
 ```python
 from functools import partial
 <function> = partial(<function> [, <arg_1>, <arg_2>, ...])
@@ -711,7 +703,7 @@ from functools import partial
 30
 ```
 
-### Nonlocal
+#### Nonlocal
 If variable is being assigned to anywhere in the scope, it is regarded as a local variable, unless it is declared as a 'global' or a 'nonlocal'.
 
 ```python
@@ -730,8 +722,7 @@ def get_counter():
 (1, 2, 3)
 ```
 
-
-## Decorator
+### Decorator
 
 A decorator takes a function, adds some functionality and returns it.
 
@@ -741,7 +732,7 @@ def function_that_gets_passed_to_decorator():
     ...
 ```
 
-### Debugger Example
+#### Debugger Example
 
 Decorator that prints function's name every time it gets called.
 
@@ -762,7 +753,7 @@ def add(x, y):
 * Wraps is a helper decorator that copies metadata of function add() to function out().
 * Without it `'add.__name__'` would return `'out'`.
 
-### LRU Cache
+#### LRU Cache
 
 Decorator that caches function's return values. All function's arguments must be hashable.
 
@@ -776,7 +767,7 @@ def fib(n):
 
 * Recursion depth is limited to 1000 by default. To increase it use `'sys.setrecursionlimit(<depth>)'`.
 
-### Parametrized Decorator
+#### Parametrized Decorator
 
 A decorator that accepts arguments and returns a normal decorator that accepts a function.
 
@@ -798,7 +789,7 @@ def add(x, y):
     return x + y
 ```
 
-## Class
+### Class
 
 ```python
 class <name>:
@@ -815,14 +806,14 @@ class <name>:
         return cls.__name__
 ```
 
-### Constructor Overloading
+#### Constructor Overloading
 ```python
 class <name>:
     def __init__(self, a=None):
         self.a = a
 ```
 
-### Inheritance
+#### Inheritance
 ```python
 class Person:
     def __init__(self, name, age):
@@ -835,7 +826,7 @@ class Employee(Person):
         self.staff_num = staff_num
 ```
 
-### Multiple Inheritance
+#### Multiple Inheritance
 ```python
 class A: pass
 class B: pass
@@ -849,7 +840,7 @@ MRO determines the order in which parent classes are traversed when searching fo
 [<class 'C'>, <class 'A'>, <class 'B'>, <class 'object'>]
 ```
 
-### Copy
+#### Copy
 ```python
 from copy import copy, deepcopy
 <object> = copy(<object>)
@@ -857,11 +848,11 @@ from copy import copy, deepcopy
 ```
 
 
-## Duck Types
+### Duck Types
 
 A duck type is an implicit type that prescribes a set of special methods. Any object that has those methods defined is considered a member of that duck type.
 
-### Comparable
+#### Comparable
 
 * If eq() method is not overridden, it returns `'id(self) == id(other)'`, which is the same as `'self is other'`.
 * That means all objects compare not equal by default.
@@ -877,7 +868,7 @@ class MyComparable:
         return NotImplemented
 ```
 
-### Hashable
+#### Hashable
 
 * Hashable object needs both hash() and eq() methods and its hash value should never change.
 * Hashable objects that compare equal must have the same hash value, meaning default hash() that returns `'id(self)'` will not do.
@@ -898,7 +889,7 @@ class MyHashable:
         return hash(self.a)
 ```
 
-### Collection
+#### Collection
 
 * Methods do not depend on each other, so they can be skipped if not needed.
 * Any object with defined getitem() is considered iterable, even if it lacks iter().
@@ -920,7 +911,7 @@ class MyCollection:
             yield el
 ```
 
-### Callable
+#### Callable
 ```python
 class Counter:
     def __init__(self):
@@ -936,7 +927,7 @@ class Counter:
 (1, 2, 3)
 ```
 
-### Context Manager
+#### Context Manager
 ```python
 class MyOpen():
     def __init__(self, filename):
@@ -956,7 +947,7 @@ class MyOpen():
 Hello World!
 ```
 
-## Enum
+### Enum
 
 ```python
 from enum import Enum, auto
@@ -986,21 +977,21 @@ member_values   = [a.value for a in <enum>]
 random_member   = random.choice(list(<enum>))
 ```
 
-### Inline
+#### Inline
 ```python
 Cutlery = Enum('Cutlery', ['fork', 'knife', 'spoon'])
 Cutlery = Enum('Cutlery', 'fork knife spoon')
 Cutlery = Enum('Cutlery', {'fork': 1, 'knife': 2, 'spoon': 3})
 ```
 
-#### Functions can not be values, so they must be wrapped:
+*Functions can not be values, so they must be wrapped**:
 ```python
 from functools import partial
 LogicOp = Enum('LogicOp', {'AND': partial(lambda l, r: l and r),
                            'OR' : partial(lambda l, r: l or r)})
 ```
 
-## Exceptions
+### Exceptions
 
 ```python
 while True:
@@ -1013,12 +1004,12 @@ while True:
         break
 ```
 
-### Raising Exception
+#### Raising Exception
 ```python
 raise ValueError('A very specific message!')
 ```
 
-### Finally
+#### Finally
 ```python
 >>> try:
 ...     raise KeyboardInterrupt
@@ -1030,7 +1021,9 @@ Traceback (most recent call last):
 KeyboardInterrupt
 ```
 
-## Print
+## System
+
+### Print
 
 ```python
 print(<el_1>, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
@@ -1038,7 +1031,7 @@ print(<el_1>, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
 
 * Use `'file=sys.stderr'` for errors.
 
-### Pretty Print
+#### Pretty Print
 ```python
 >>> from pprint import pprint
 >>> pprint(dir())
@@ -1048,7 +1041,7 @@ print(<el_1>, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
 ```
 
 
-## Input
+### Input
 
 * Reads a line from user input or pipe if present.
 * Trailing newline gets stripped.
@@ -1068,7 +1061,7 @@ while True:
 ```
 
 
-## Command Line Arguments
+### Command Line Arguments
 
 ```python
 import sys
@@ -1076,7 +1069,7 @@ script_name = sys.argv[0]
 arguments   = sys.argv[1:]
 ```
 
-### Argparse
+#### Argparse
 ```python
 from argparse import ArgumentParser, FileType
 p = ArgumentParser(description=<str>)
@@ -1092,7 +1085,7 @@ value = args.<name>
 * Use `'type=FileType(<mode>)'` for files.
 
 
-## Open
+### Open
 
 Opens a file and returns a corresponding file object.
 
@@ -1100,7 +1093,7 @@ Opens a file and returns a corresponding file object.
 <file> = open('<path>', mode='r', encoding=None)
 ```
 
-### Modes
+#### Modes
 
 * `'r'`  - Read (default).
 * `'w'`  - Write (truncate).
@@ -1112,7 +1105,7 @@ Opens a file and returns a corresponding file object.
 * `'t'`  - Text mode (default).
 * `'b'`  - Binary mode.
 
-### File
+#### File
 
 ```python
 <file>.seek(0)                      # Moves to the start of the file.
@@ -1135,7 +1128,7 @@ Opens a file and returns a corresponding file object.
 
 * Methods do not add or strip trailing newlines.
 
-### Read Text from File
+#### Read Text from File
 
 ```python
 def read_file(filename):
@@ -1143,7 +1136,7 @@ def read_file(filename):
         return file.readlines()
 ```
 
-### Write Text to File
+#### Write Text to File
 
 ```python
 def write_to_file(filename, text):
@@ -1151,7 +1144,7 @@ def write_to_file(filename, text):
         file.write(text)
 ```
 
-## Path
+### Path
 
 ```python
 from os import path, listdir
@@ -1167,7 +1160,7 @@ from os import path, listdir
 ['1.gif', 'card.gif']
 ```
 
-### Pathlib
+#### Pathlib
 
 ```python
 from pathlib import Path
@@ -1200,14 +1193,14 @@ cwd    = Path()
 <Path> = <Path>.parent             # Path without final component.
 ```
 
-## Command Execution
+### Command Execution
 
 ```python
 import os
 <str> = os.popen(<command>).read()
 ```
 
-### Subprocess
+#### Subprocess
 ```python
 >>> import subprocess, shlex
 >>> a = subprocess.run(shlex.split('ls -a'), stdout=subprocess.PIPE)
@@ -1217,14 +1210,14 @@ b'.\n..\nfile1.txt\nfile2.txt\n'
 0
 ```
 
-
-## CSV
+## Data
+### CSV
 
 ```python
 import csv
 ```
 
-### Read Rows from CSV File
+#### Read Rows from CSV File
 
 ```python
 def read_csv_file(filename):
@@ -1232,7 +1225,7 @@ def read_csv_file(filename):
         return csv.reader(file, delimiter=';')
 ```
 
-### Write Rows to CSV File
+#### Write Rows to CSV File
 ```python
 def write_to_csv_file(filename, rows):
     with open(filename, 'w', encoding='utf-8') as file:
@@ -1241,7 +1234,7 @@ def write_to_csv_file(filename, rows):
 ```
 
 
-## JSON
+### JSON
 
 ```python
 import json
@@ -1249,7 +1242,7 @@ import json
 <object> = json.loads(<str>)
 ```
 
-### Read Object from JSON File
+#### Read Object from JSON File
 
 ```python
 def read_json_file(filename):
@@ -1257,7 +1250,7 @@ def read_json_file(filename):
         return json.load(file)
 ```
 
-### Write Object to JSON File
+#### Write Object to JSON File
 
 ```python
 def write_to_json_file(filename, an_object):
@@ -1265,7 +1258,7 @@ def write_to_json_file(filename, an_object):
         json.dump(an_object, file, ensure_ascii=False, indent=2)
 ```
 
-## Pickle
+### Pickle
 
 ```python
 import pickle
@@ -1273,21 +1266,21 @@ import pickle
 <object> = pickle.loads(<bytes>)
 ```
 
-### Read Object from File
+#### Read Object from File
 ```python
 def read_pickle_file(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
 ```
 
-### Write Object to File
+#### Write Object to File
 ```python
 def write_to_pickle_file(filename, an_object):
     with open(filename, 'wb') as file:
         pickle.dump(an_object, file)
 ```
 
-## SQLite
+### SQLite
 
 ```python
 import sqlite3
@@ -1296,7 +1289,7 @@ db = sqlite3.connect('<path>')
 db.close()
 ```
 
-### Read
+#### Read
 ```python
 cursor = db.execute('<query>')
 if cursor:
@@ -1304,13 +1297,13 @@ if cursor:
     <list>  = cursor.fetchall()  # Remaining rows.
 ```
 
-### Write
+#### Write
 ```python
 db.execute('<query>')
 db.commit()
 ```
 
-## Bytes
+### Bytes
 
 Bytes object is an immutable sequence of single bytes. Mutable version is called 'bytearray'.
 
@@ -1322,36 +1315,35 @@ Bytes object is an immutable sequence of single bytes. Mutable version is called
 <bytes> = b''.join(<coll_of_bytes>)
 ```
 
-### Encode
+#### Encode
 ```python
 <bytes> = <str>.encode(encoding='utf-8')
 <bytes> = <int>.to_bytes(<length>, byteorder='big|little', signed=False)
 <bytes> = bytes.fromhex('<hex>')
 ```
 
-### Decode
+#### Decode
 ```python
 <str>   = <bytes>.decode(encoding='utf-8')
 <int>   = int.from_bytes(<bytes>, byteorder='big|little', signed=False)
 <hex>   = <bytes>.hex()
 ```
 
-### Read Bytes from File
+#### Read Bytes from File
 ```python
 def read_bytes(filename):
     with open(filename, 'rb') as file:
         return file.read()
 ```
 
-### Write Bytes to File
+#### Write Bytes to File
 ```python
 def write_bytes(filename, bytes_obj):
     with open(filename, 'wb') as file:
         file.write(bytes_obj)
 ```
 
-
-## Struct
+### Struct
 
 * Module that performs conversions between Python values and a C struct, represented as a Python bytes object.
 * Machine’s native type sizes and byte order are used by default.
@@ -1363,7 +1355,7 @@ from struct import pack, unpack, iter_unpack, calcsize
 <tuples> = iter_unpack('<format>', <bytes>)
 ```
 
-### Example
+#### Example
 ```python
 >>> pack('>hhl', 1, 2, 3)
 b'\x00\x01\x00\x02\x00\x00\x00\x03'
@@ -1373,15 +1365,15 @@ b'\x00\x01\x00\x02\x00\x00\x00\x03'
 8
 ```
 
-### Format
+#### Format
 
-#### For standard sizes start format string with:
+For standard sizes start format string with:
 
 * `'='` - native byte order
 * `'<'` - little-endian
 * `'>'` - big-endian
 
-#### Use capital letter for unsigned type. Standard sizes are in brackets:
+Use capital letter for unsigned type. Standard sizes are in brackets:
 * `'x'` - pad byte
 * `'c'` - char (1)
 * `'h'` - short (2)
@@ -1391,8 +1383,7 @@ b'\x00\x01\x00\x02\x00\x00\x00\x03'
 * `'f'` - float (4)
 * `'d'` - double (8)
 
-
-## Array
+### Array
 
 List that can hold only elements of predefined type. Available types are listed above.
 
@@ -1401,8 +1392,7 @@ from array import array
 <array> = array('<typecode>' [, <collection>])
 ```
 
-
-## Memory View
+### Memory View
 
 Used for accessing the internal data of an object that supports the buffer protocol.
 
@@ -1411,8 +1401,7 @@ Used for accessing the internal data of an object that supports the buffer proto
 <memoryview>.release()
 ```
 
-
-## Deque
+### Deque
 
 Thread-safe list with efficient appends and pops from either side. Pronounced "deck".
 
@@ -1431,13 +1420,15 @@ from collections import deque
 <deque>.rotate(n=1)               # Rotates elements to the right.
 ```
 
-## Threading
+## Advanced
+
+### Threading
 
 ```python
 from threading import Thread, RLock
 ```
 
-### Thread
+#### Thread
 
 ```python
 thread = Thread(target=<function>, args=(<first_arg>, ))
@@ -1446,7 +1437,7 @@ thread.start()
 thread.join()
 ```
 
-### Lock
+#### Lock
 ```python
 lock = RLock()
 lock.acquire()
@@ -1454,17 +1445,17 @@ lock.acquire()
 lock.release()
 ```
 
-#### Or:
+Or:
 ```python
 with lock:
     ...
 ```
 
-## Introspection
+### Introspection
 
 Inspecting code at runtime.
 
-### Variables
+#### Variables
 
 ```python
 <list> = dir()      # Names of variables in current scope.
@@ -1472,7 +1463,7 @@ Inspecting code at runtime.
 <dict> = globals()  # Dict of global variables.
 ```
 
-### Attributes
+#### Attributes
 
 ```python
 <dict> = vars(<object>)
@@ -1481,7 +1472,7 @@ value  = getattr(<object>, '<attr_name>')
 setattr(<object>, '<attr_name>', value)
 ```
 
-### Parameters
+#### Parameters
 
 ```python
 from inspect import signature
@@ -1490,11 +1481,11 @@ no_of_params = len(<sig>.parameters)
 param_names  = list(<sig>.parameters.keys())
 ```
 
-## Metaprograming
+### Metaprograming
 
 Code that generates code.
 
-### Type
+#### Type
 
 Type is the root class. If only passed the object it returns its type (class). Otherwise it creates a new class.
 
@@ -1507,7 +1498,7 @@ Type is the root class. If only passed the object it returns its type (class). O
 >>> z = Z()
 ```
 
-### Meta Class
+#### Meta Class
 
 Class that creates class.
 
@@ -1517,7 +1508,7 @@ def my_meta_class(name, parents, attrs):
     return type(name, parents, attrs)
 ```
 
-#### Or:
+Or:
 
 ```python
 class MyMetaClass(type):
@@ -1530,7 +1521,7 @@ class MyMetaClass(type):
 * It receives the same arguments as init(), except for the first one that specifies the desired class of returned instance (`'MyMetaClass'` in our case).
 * New() can also be called directly, usually from a new() method of a child class (`def __new__(cls): return super().__new__(cls)`), in which case init() is not called.
 
-### Metaclass Attribute
+#### Metaclass Attribute
 
 When class is created it checks if it has metaclass defined. If not, it recursively checks if any of his parents has it defined and eventually comes to type().
 
@@ -1544,7 +1535,7 @@ class MyClass(metaclass=MyMetaClass):
 ('abcde', 12345)
 ```
 
-#### Type diagram (str is an instance of type, ...):
+Type diagram (str is an instance of type, ...):
 
 ```text
 +---------+-------------+
@@ -1558,7 +1549,7 @@ class MyClass(metaclass=MyMetaClass):
 +---------+-------------+
 ```
 
-#### Inheritance diagram (str is a subclass of object, ...):
+Inheritance diagram (str is a subclass of object, ...):
 
 ```text
 +---------+-------------+
@@ -1573,7 +1564,7 @@ class MyClass(metaclass=MyMetaClass):
 ```
 
 
-## Operator
+### Operator
 
 ```python
 from operator import add, sub, mul, truediv, floordiv, mod, pow, neg, abs
@@ -1591,9 +1582,7 @@ LogicOp          = enum.Enum('LogicOp', {'AND': op.and_, 'OR' : op.or_})
 last_el          = op.methodcaller('pop')(<list>)
 ```
 
-## Eval
-
-### Basic
+### Eval
 
 ```python
 >>> from ast import literal_eval
@@ -1605,7 +1594,7 @@ last_el          = op.methodcaller('pop')(<list>)
 ValueError: malformed node or string
 ```
 
-### Using Abstract Syntax Trees
+#### Using Abstract Syntax Trees
 
 ```python
 import ast
@@ -1652,13 +1641,13 @@ def eval_node(node):
 ```
 
 
-## Coroutine
+### Coroutine
 
 * Similar to generator, but generator pulls data through the pipe with iteration, while coroutine pushes data into the pipeline with send().
 * Coroutines provide more powerful data routing possibilities than iterators.
 * If you build a collection of simple data processing components, you can glue them together into complex arrangements of pipes, branches, merging, etc.
 
-### Helper Decorator
+#### Helper Decorator
 
 * All coroutines must be "primed" by first calling next().
 * Remembering to call next() is easy to forget.
@@ -1673,7 +1662,7 @@ def coroutine(func):
     return out
 ```
 
-### Pipeline Example
+#### Pipeline Example
 ```python
 def reader(target):
     for i in range(10):
@@ -1695,9 +1684,9 @@ def printer():
 reader(adder(printer()))  # 100, 101, ..., 109
 ```
 
-# Libraries
+## Libraries
 
-## Progress Bar
+### Progress Bar
 
 ```python
 # $ pip3 install tqdm
@@ -1709,7 +1698,7 @@ for i in tqdm(range(100)):
     sleep(0.02)
 ```
 
-## Plot
+### Plot
 
 ```python
 # $ pip3 install matplotlib
@@ -1719,8 +1708,7 @@ pyplot.savefig(<filename>)
 pyplot.show()
 ```
 
-
-## Table
+### Table
 
 #### Prints a CSV file as an ASCII table:
 ```python
@@ -1734,7 +1722,7 @@ with open(<filename>, encoding='utf-8') as file:
     print(table)
 ```
 
-## Curses
+### Curses
 
 ```python
 from curses import wrapper, ascii
@@ -1758,8 +1746,7 @@ if __name__ == '__main__':
     main()
 ```
 
-
-## Logging
+### Logging
 
 ```python
 # $ pip3 install loguru
@@ -1773,7 +1760,7 @@ logger.<level>('A logging message.')
 ```
 * Levels: `'debug'`, `'info'`, `'success'`, `'warning'`, `'error'`, `'critical'`.
 
-### Exceptions
+#### Exceptions
 Error description, stack trace and values of variables are appended automatically.
 
 ```python
@@ -1783,7 +1770,7 @@ except <Exception>:
     logger.exception('An error happened.')
 ```
 
-### Rotation
+#### Rotation
 
 Parameter that sets a condition when a new log file is created.
 
@@ -1795,7 +1782,7 @@ rotation=<int>|<datetime.timedelta>|<datetime.time>|<str>
 * `'<time>'` - Time of day.
 * `'<str>'` - Any of above as a string: `'100 MB'`, `'1 month'`, `'monday at 12:00'`, ...
 
-### Retention
+#### Retention
 Sets a condition which old log files are deleted.
 ```python
 retention=<int>|<datetime.timedelta>|<str>
@@ -1804,8 +1791,7 @@ retention=<int>|<datetime.timedelta>|<str>
 * `'<timedelta>'` - Max age of a file.
 * `'<str>'` - Max age as a string: `'1 week, 3 days'`, `'2 months'`, ...
 
-
-## Scraping
+### Web Scraping
 
 ```python
 # $ pip3 install requests beautifulsoup4
@@ -1822,7 +1808,7 @@ retention=<int>|<datetime.timedelta>|<str>
 ('https://www.python.org/', '3.7.2')
 ```
 
-### Selenium
+#### Selenium
 
 Library for scraping dynamically generated web content.
 
@@ -1837,7 +1823,7 @@ Library for scraping dynamically generated web content.
 '3.7.2'
 ```
 
-## Web
+### Web
 
 ```python
 # $ pip3 install bottle
@@ -1845,27 +1831,27 @@ from bottle import run, route, post, template, request, response
 import json
 ```
 
-### Run
+#### Run
 ```python
 run(host='localhost', port=8080)
 run(host='0.0.0.0', port=80, server='cherrypy')
 ```
 
-### Static Request
+#### Static Request
 ```python
 @route('/img/<image>')
 def send_image(image):
     return static_file(image, 'images/', mimetype='image/png')
 ```
 
-### Dynamic Request
+#### Dynamic Request
 ```python
 @route('/<sport>')
 def send_page(sport):
     return template('<h1>{{title}}</h1>', title=sport)
 ```
 
-### REST Request
+#### REST Request
 ```python
 @post('/odds/<sport>')
 def odds_handler(sport):
@@ -1876,7 +1862,7 @@ def odds_handler(sport):
     return json.dumps([team, home_odds, away_odds])
 ```
 
-#### Test:
+Test:
 ```python
 # $ pip3 install requests
 >>> import requests
@@ -1888,9 +1874,8 @@ def odds_handler(sport):
 ```
 
 
-## Profile
+### Profile
 
-### Basic
 ```python
 from time import time
 start_time = time()  # Seconds since Epoch.
@@ -1898,7 +1883,7 @@ start_time = time()  # Seconds since Epoch.
 duration = time() - start_time
 ```
 
-### High Performance
+#### High Performance
 ```python
 from time import perf_counter as pc
 start_time = pc()    # Seconds since restart.
@@ -1906,7 +1891,7 @@ start_time = pc()    # Seconds since restart.
 duration = pc() - start_time
 ```
 
-### Timing a Snippet
+#### Timing a Snippet
 ```python
 >>> from timeit import timeit
 >>> timeit('"-".join(str(a) for a in range(100))',
@@ -1914,7 +1899,7 @@ duration = pc() - start_time
 0.34986
 ```
 
-### Line Profiler
+#### Line Profiler
 ```python
 # $ pip3 install line_profiler
 @profile
@@ -1924,7 +1909,7 @@ def main():
 main()
 ```
 
-#### Usage:
+Usage:
 ```text
 $ kernprof -lv test.py
 Line #      Hits         Time  Per Hit   % Time  Line Contents
@@ -1935,8 +1920,9 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
      4         1       2994.0   2994.0     72.6      b = {*range(10000)}
 ```
 
-### Call Graph
-#### Generates a PNG image of a call graph with highlighted bottlenecks:
+#### Call Graph
+
+Generates a PNG image of a call graph with highlighted bottlenecks:
 
 ```python
 # $ pip3 install pycallgraph
@@ -1949,8 +1935,7 @@ with PyCallGraph(output=drawer):
     <code_to_be_profiled>
 ```
 
-
-## NumPy
+### NumPy
 
 Array manipulation mini language. Can run up to one hundred times faster than equivalent Python code.
 
@@ -1980,7 +1965,7 @@ indexes = <array>.argmin(axis)
 * Shape is a tuple of dimension sizes.
 * Axis is an index of dimension that gets collapsed. Leftmost dimension has index 0.
 
-### Indexing
+#### Indexing
 ```bash
 <el>       = <2d_array>[0, 0]        # First element.
 <1d_view>  = <2d_array>[0]           # First row.
@@ -2000,7 +1985,7 @@ indexes = <array>.argmin(axis)
 
 * If row and column indexes differ in shape, they are combined with broadcasting.
 
-### Broadcasting
+#### Broadcasting
 
 Broadcasting is a set of rules by which NumPy functions operate on arrays of different sizes and/or dimensions.
 
@@ -2009,23 +1994,24 @@ left  = [[0.1], [0.6], [0.8]]  # Shape: (3, 1)
 right = [ 0.1 ,  0.6 ,  0.8 ]  # Shape: (3)
 ```
 
-#### 1. If array shapes differ in length, left-pad the shorter shape with ones:
+1. If array shapes differ in length, left-pad the shorter shape with ones:
 ```python
 left  = [[0.1], [0.6], [0.8]]  # Shape: (3, 1)
 right = [[0.1 ,  0.6 ,  0.8]]  # Shape: (1, 3) <- !
 ```
 
-#### 2. If any dimensions differ in size, expand the ones that have size 1 by duplicating their elements:
+2. If any dimensions differ in size, expand the ones that have size 1 by duplicating their elements:
 ```python
 left  = [[0.1, 0.1, 0.1], [0.6, 0.6, 0.6], [0.8, 0.8, 0.8]]  # Shape: (3, 3) <- !
 right = [[0.1, 0.6, 0.8], [0.1, 0.6, 0.8], [0.1, 0.6, 0.8]]  # Shape: (3, 3) <- !
 ```
 
-#### 3. If neither non-matching dimension has size 1, rise an error.
+3. If neither non-matching dimension has size 1, rise an error.
 
 
-### Example
-#### For each point returns index of its nearest point (`[0.1, 0.6, 0.8] => [1, 2, 1]`):
+#### Example
+
+For each point returns index of its nearest point (`[0.1, 0.6, 0.8] => [1, 2, 1]`):
 
 ```python
 >>> points = np.array([0.1, 0.6, 0.8])
@@ -2052,15 +2038,14 @@ right = [[0.1, 0.6, 0.8], [0.1, 0.6, 0.8], [0.1, 0.6, 0.8]]  # Shape: (3, 3) <- 
 [1, 2, 1]
 ```
 
-
-## Image
+### Image
 
 ```python
 # $ pip3 install pillow
 from PIL import Image
 ```
 
-#### Creates a PNG image of a rainbow gradient:
+#### Create a PNG image of a rainbow gradient:
 ```python
 width  = 100
 height = 100
@@ -2072,7 +2057,7 @@ img.putdata([(int(a), 255, 255) for a in pixels])
 img.convert(mode='RGB').save('test.png')
 ```
 
-#### Adds noise to a PNG image:
+#### Add noise to a PNG image:
 
 ```python
 from random import randint
@@ -2082,7 +2067,7 @@ img.putdata([(add_noise(h), s, v) for h, s, v in img.getdata()])
 img.convert(mode='RGB').save('test.png')
 ```
 
-### Modes
+Modes
 
 * `'1'` - 1-bit pixels, black and white, stored with one pixel per byte.
 * `'L'` - 8-bit pixels, greyscale.
@@ -2090,14 +2075,14 @@ img.convert(mode='RGB').save('test.png')
 * `'RGBA'` - 4x8-bit pixels, true color with transparency mask.
 * `'HSV'` - 3x8-bit pixels, Hue, Saturation, Value color space.
 
-## Audio
+### Audio
 
 ```python
 import wave
 from struct import pack, iter_unpack
 ```
 
-### Read Frames from WAV File
+#### Read Frames from WAV File
 
 ```python
 def read_wav_file(filename):
@@ -2106,7 +2091,7 @@ def read_wav_file(filename):
         return [a[0] for a in iter_unpack('<h', frames)]
 ```
 
-### Write Frames to WAV File
+#### Write Frames to WAV File
 
 ```python
 def write_to_wav_file(filename, frames_int, mono=True):
@@ -2118,9 +2103,7 @@ def write_to_wav_file(filename, frames_int, mono=True):
         wf.writeframes(b''.join(frames_short))
 ```
 
-### Examples
-
-#### Saves a sine wave to a mono WAV file:
+#### Save a sine wave to a mono WAV file:
 ```python
 from math import pi, sin
 frames_f = (sin(i * 2 * pi * 440 / 44100) for i in range(100000))
@@ -2128,7 +2111,7 @@ frames_i = (int(a * 30000) for a in frames_f)
 write_to_wav_file('test.wav', frames_i)
 ```
 
-#### Adds noise to a mono WAV file:
+#### Add noise to a mono WAV file:
 
 ```python
 from random import randint
@@ -2137,7 +2120,7 @@ frames_i  = (add_noise(a) for a in read_wav_file('test.wav'))
 write_to_wav_file('test.wav', frames_i)
 ```
 
-#### Plays Popcorn:
+#### Play Popcorn:
 
 ```python
 # $ pip3 install simpleaudio
@@ -2157,7 +2140,7 @@ frames_b  = b''.join(struct.pack('<h', int(a * 30000)) for a in frames_i)
 simpleaudio.play_buffer(frames_b, 1, 2, F)
 ```
 
-## Basic Script Template
+## Intro
 
 ```python
 #!/usr/bin/env python3

@@ -13,24 +13,24 @@
       <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\101.md" >edit</a>
   </div>
   <div class="toc">
-<b>Main</b>: <a href="#usage">Usage</a>, <a href="#type-checking">Type checking</a><br>
+<b>Main</b>: <a href="#intro">Intro</a>, <a href="#type-checking">Type checking</a><br>
 <b>Objects</b>: <a href="#example">Example</a>, <a href="#getting">Getting</a>, <a href="#setting">Setting</a>, <a href="#deleting">Deleting</a>, <a href="#keypath-check">Keypath check</a>, <a href="#get-values">Get values</a><br>
 <b>Functions</b>: <a href="#simple-functions">Simple functions</a>, <a href="#composition">Composition</a>, <a href="#and-or">And/or</a>, <a href="#converge">Converge</a><br>
 <b>Arrays</b>: <a href="#finding">Finding</a>, <a href="#grouping">Grouping</a><br>
-<b>Examples</b>: <a href="#function-composition">Function composition</a><br>
-<a href="#reference">Reference</a><br></div>
+<b>Examples</b>: <a href="#function-composition">Function composition</a><br></div>
 
 
   <div id="start"></div>
   <div id="wrapped-content"></div>
 <div id="content">
-<h3 id="usage">Usage</h3>
+<h2 id="main">Main</h2>
+<h3 id="intro">Intro</h3>
+<p><a href="https://www.npmjs.com/package/101">101</a> is a JavaScript library for dealing with immutable data in a functional manner.</p>
 
 <pre><code class="js"><span class="hljs-keyword">const</span> isObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;101/isObject&#x27;</span>)
 <span class="hljs-title function_">isObject</span>({}) <span class="hljs-comment">// → true</span>
 </code></pre>
 <p>Every function is exposed as a module.</p>
-<p>See: <a href="https://github.com/tjmehta/101">101</a></p>
 <h3 id="type-checking">Type checking</h3>
 
 <pre><code class="js"><span class="hljs-title function_">isObject</span>({})
@@ -199,11 +199,6 @@
 
 doStuffForce = <span class="hljs-title function_">curry</span>(<span class="hljs-title function_">flip</span>(doStuff))({ <span class="hljs-attr">force</span>: <span class="hljs-literal">true</span> })
 </code></pre>
-<h2 id="reference">Reference</h2>
-
-<ul>
-<li><a href="https://github.com/tjmehta/101">https://github.com/tjmehta/101</a></li>
-</ul>
 
 </div>
 </body>  

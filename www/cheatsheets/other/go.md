@@ -1,12 +1,7 @@
-## toc
+## Introduction
+### Intro
 
-**Introduction**: [Hello World](#hello-world), [Go Modules](#go-modules), [Go CLI Commands](#go-cli-commands)<br>
-**Basic**: [Basic Types](#basic-types), [Variables](#variables), [Operators](#operators), [Conditional Statement](#conditional-statements), [Loops](#loops), [Arrays](#arrays), [Functions](#functions)<br>
-**Advanced**: [Structs](#structs), [Maps](#maps), [Pointers](#pointers), [Methods and Interfaces](#methods-and-interfaces), [Errors](#errors), [Testing](#testing), [Concurrency](#concurrency)<br>
-**Standard Libs**: [fmt](#package-fmt), [os](#package-os)
-{.toc}
-
-## Hello World
+Save this as `main.go`:
 
 ```go
 package main
@@ -18,7 +13,9 @@ func main() {
 }
 ```
 
-## Go CLI Commands
+Run with: `go run main.go`
+
+### Go CLI Commands
 
 ```bash
 # Compile & Run code
@@ -57,7 +54,7 @@ $ go env
 $ go version
 ```
 
-## Go Modules
+### Go Modules
 
 * Go projects are called **modules**
 * Each module has one or more **packages**
@@ -74,7 +71,8 @@ Tip: By convention, modules names has the follow structure: `domain.com/user/mod
 
 Example: `github.com/spf13/cobra`
 
-## Basic Types
+## Basic
+### Basic Types
 
 |    Type    |               Set of Values                |                    Values                     |
 | :--------: | :----------------------------------------: | :-------------------------------------------: |
@@ -96,7 +94,7 @@ Example: `github.com/spf13/cobra`
 |    byte    |                sets of bits                |                alias for uint8                |
 |    rune    |             Unicode characters             |                alias for int32                |
 
-## Variables
+### Variables
 
 ```go
 // Declaration
@@ -134,9 +132,10 @@ int(i) // 1
 const pi = 3.1415
 ```
 
-## Operators
+### Operators
 
-Arithmetic Operators
+**Arithmetic Operators**:
+
 | Symbol | Operation | Valid Types |
 |:---------:|:-------------:|:-------------:|
 | `+` | Sum | integers, floats, complex values, strings |
@@ -151,7 +150,8 @@ Arithmetic Operators
 | `<<` | Left shift | integer << unsigned integer |
 | `>>` | Right shift | integer >> unsigned integer |
 
-Comparison Operators
+**Comparison Operators**:
+
 | Symbol | Operation |
 |:---------:|:-------------:|
 | `==` | Equal |
@@ -161,14 +161,15 @@ Comparison Operators
 | `>` | Greater |
 | `>=` | Greater or equal |
 
-Logical Operators
+**Logical Operators**:
+
 | Symbol | Operation |
 |:---------:|:-------------:|
 | `&&` | Conditional AND |
 | `||` | Conditional OR |
 | `!` | NOT |
 
-## Conditional Statements
+### Conditional Statements
 
 ```go
 // If / Else
@@ -227,7 +228,7 @@ switch {
 }
 ```
 
-## Loops
+### Loops
 
 ```go
 // Golang only has the for loop
@@ -249,7 +250,7 @@ for {
 }
 ```
 
-## Arrays
+### Arrays
 
 ```go
 // Declaration with specified size
@@ -311,7 +312,7 @@ for _, value := range slice {
 }
 ```
 
-## Functions
+### Functions
 
 ```go
 // Functions acts as a scoped block of code
@@ -396,7 +397,9 @@ calculator(45) // 48
 calculator(12) // 60
 ```
 
-## Structs
+## Advanced
+
+### Structs
 
 Structs are a way to arrange data in specific formats.
 
@@ -421,7 +424,7 @@ person3.Name // ""
 person3.Age // 0
 ```
 
-## Maps
+### Maps
 
 Maps are data structures that holds values assigneds to a key.
 
@@ -449,7 +452,7 @@ ok // false
 value // ""
 ```
 
-## Pointers
+### Pointers
 
 Pointers are a direct reference to a memory address that some variable or value is being stored.
 
@@ -481,7 +484,7 @@ s.X // 3
 
 Obs: Unlike C, Go doesn't have pointer arithmetics.
 
-## Methods and Interfaces
+### Methods and Interfaces
 
 Go doesn't have classes. But you can implement methods, interfaces and almost everything contained in OOP, but in what gophers call "Go Way"
 
@@ -516,7 +519,7 @@ func (car *Car) Accelerate() {
 }
 ```
 
-## Errors
+### Errors
 
 Go doesn't support `throw`, `try`, `catch` and other common error handling structures. Here, we use `error` package to build possible errors as a returning parameter in functions
 
@@ -540,7 +543,7 @@ b // nil
 errorB // Error("Parameter text is empty")
 ```
 
-## Testing
+### Testing
 
 Go has a built-in library to unit testing. In a separate file you insert tests for functionalities of a file and run `go test package` to run all tests of the actual package or `go test path` to run a specific test file.
 
@@ -566,7 +569,7 @@ func TestSum(t *testing.T) {
 }
 ```
 
-## Concurrency
+### Concurrency
 
 One of the main parts that make Go attractive is its form to handle with concurrency. Different than parallelism, where tasks can be separated in many cores that the machine processor have, in concurrency we have routines that are more lightweight than threads and can run asynchronously, with memory sharing and in a single core.
 
@@ -715,9 +718,11 @@ for value := range channel {
 */
 ```
 
-## Package `fmt`
+## Standard libs
 
-[official docs](https://pkg.go.dev/fmt){target=_blank}
+### fmt
+
+**Important**: [Printf](https://pkg.go.dev/fmt#Printf), [Errorf](https://pkg.go.dev/fmt#MErrorf), [Sprintf](https://pkg.go.dev/fmt#Sprintf), [official docs](https://pkg.go.dev/fmt)
 
 ```go
 import "fmt"
@@ -727,9 +732,20 @@ fmt.Errorf("User %d not found", 123) // Print a formatted error
 s := fmt.Sprintf("Boolean: %v\n", true) // format to a string
 ```
 
-## Package `os`
+### os
 
-[official docs](https://pkg.go.dev/os){target=_blank}
+**Important**: [Chdir](https://pkg.go.dev/os#Chdir), [Mkdir](https://pkg.go.dev/os#Mkdir), [MkdirAll](https://pkg.go.dev/os#MkdirAll), [ReadFile](https://pkg.go.dev/os#ReadFile), [Remove](https://pkg.go.dev/os#Remove), [RemoveAll](https://pkg.go.dev/os#RemoveAll), [Rename](https://pkg.go.dev/os#Rename), [WriteFile](https://pkg.go.dev/os#WriteFile), [official docs](https://pkg.go.dev/os)
 
-**Important functions**: [Chdir](https://pkg.go.dev/os#Chdir){target=_blank}, [Mkdir](https://pkg.go.dev/os#Mkdir){target=_blank}, [MkdirAll](https://pkg.go.dev/os#MkdirAll){target=_blank}, [ReadFile](https://pkg.go.dev/os#ReadFile){target=_blank}, [Remove](https://pkg.go.dev/os#Remove){target=_blank}, [RemoveAll](https://pkg.go.dev/os#RemoveAll){target=_blank}, [Rename](https://pkg.go.dev/os#Rename){target=_blank}, [WriteFile](https://pkg.go.dev/os#WriteFile){target=_blank}
-{.toc}
+```go
+import "os"
+
+err := os.Mkdir("dir", 0755)
+err = os.RemoveAll("dir")
+
+d := []byte("my data")
+err = os.WriteFile("file.txt", d, 0644)
+
+d, err = os.ReadFile("file.txt")
+fmt.Printf("Content of file.txt:\n%s\n", string(d))
+
+```

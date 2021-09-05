@@ -13,37 +13,40 @@
       <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\bash.md" >edit</a>
   </div>
   <div class="toc">
-<b>Getting started</b>: <a href="#introduction">Introduction</a>, <a href="#example">Example</a>, <a href="#variables">Variables</a>, <a href="#string-quotes">String quotes</a>, <a href="#shell-execution">Shell execution</a>, <a href="#conditional-execution">Conditional execution</a>, <a href="#functions">Functions</a>, <a href="#conditionals">Conditionals</a>, <a href="#strict-mode">Strict mode</a>, <a href="#brace-expansion">Brace expansion</a><br>
+<b>Basics</b>: <a href="#intro">Intro</a>, <a href="#variables">Variables</a>, <a href="#string-quotes">String quotes</a>, <a href="#shell-execution">Shell execution</a>, <a href="#conditional-execution">Conditional execution</a>, <a href="#functions">Functions</a>, <a href="#conditionals">Conditionals</a>, <a href="#strict-mode">Strict mode</a>, <a href="#brace-expansion">Brace expansion</a><br>
 <b>Parameter expansions</b>: <a href="#basics">Basics</a>, <a href="#substitution">Substitution</a>, <a href="#comments">Comments</a>, <a href="#substrings">Substrings</a>, <a href="#length">Length</a>, <a href="#manipulation">Manipulation</a>, <a href="#default-values">Default values</a><br>
 <b>Loops</b>: <a href="#basic-for-loop">Basic for loop</a>, <a href="#c-like-for-loop">C-like for loop</a>, <a href="#ranges">Ranges</a>, <a href="#reading-lines">Reading lines</a>, <a href="#forever">Forever</a><br>
-<b>Functions</b>: <a href="#defining-functions">Defining functions</a>, <a href="#returning-values">Returning values</a>, <a href="#raising-errors">Raising errors</a>, <a href="#arguments">Arguments</a><br>
-<b>Conditionals</b>: <a href="#conditions">Conditions</a>, <a href="#file-conditions">File conditions</a>, <a href="#example">Example</a><br>
-<b>Arrays</b>: <a href="#defining-arrays">Defining arrays</a>, <a href="#working-with-arrays">Working with arrays</a>, <a href="#operations">Operations</a>, <a href="#iteration">Iteration</a><br>
-<b>Dictionaries</b>: <a href="#defining">Defining</a>, <a href="#working-with-dictionaries">Working with dictionaries</a>, <a href="#iteration">Iteration</a><br>
+<b>Functions</b>: <a href="#define-function">Define function</a>, <a href="#returning-values">Returning values</a>, <a href="#raising-errors">Raising errors</a>, <a href="#arguments">Arguments</a><br>
+<b>Conditionals</b>: <a href="#conditions">Conditions</a>, <a href="#file-conditions">File conditions</a>, <a href="#examples">Examples</a><br>
+<b>Arrays</b>: <a href="#define-an-array">Define an array</a>, <a href="#work-with-arrays">Work with arrays</a>, <a href="#operations">Operations</a>, <a href="#iteration">Iteration</a><br>
+<b>Dictionaries</b>: <a href="#define-dict">Define dict</a>, <a href="#work-with-dict">Work with dict</a>, <a href="#iterate-dict">Iterate dict</a><br>
 <b>Options</b>: <a href="#options">Options</a>, <a href="#glob-options">Glob options</a><br>
 <b>History</b>: <a href="#commands">Commands</a>, <a href="#expansions">Expansions</a>, <a href="#operations">Operations</a>, <a href="#slices">Slices</a><br>
-<b>Miscellaneous</b>: <a href="#numeric-calculations">Numeric calculations</a>, <a href="#subshells">Subshells</a>, <a href="#redirection">Redirection</a>, <a href="#inspecting-commands">Inspecting commands</a>, <a href="#trap-errors">Trap errors</a>, <a href="#case-switch">Case/switch</a>, <a href="#source-relative">Source relative</a>, <a href="#printf">printf</a>, <a href="#directory-of-script">Directory of script</a>, <a href="#getting-options">Getting options</a>, <a href="#heredoc">Heredoc</a>, <a href="#reading-input">Reading input</a>, <a href="#special-variables">Special variables</a>, <a href="#go-to-previous-directory">Go to previous directory</a>, <a href="#check-for-command-s-result">Check for command's result</a>, <a href="#grep-check">Grep check</a><br>
-<a href="#also-see">Also see</a><br></div>
+<b>Miscellaneous</b>: <a href="#numeric-calculations">Numeric calculations</a>, <a href="#subshells">Subshells</a>, <a href="#redirection">Redirection</a>, <a href="#inspecting-commands">Inspecting commands</a>, <a href="#trap-errors">Trap errors</a>, <a href="#case-switch">Case/switch</a>, <a href="#source-relative">Source relative</a>, <a href="#printf">printf</a>, <a href="#directory-of-script">Directory of script</a>, <a href="#getting-options">Getting options</a>, <a href="#heredoc">Heredoc</a>, <a href="#reading-input">Reading input</a>, <a href="#special-variables">Special variables</a>, <a href="#go-to-previous-directory">Go to previous directory</a>, <a href="#check-for-command-s-result">Check for command's result</a>, <a href="#grep-check">Grep check</a><br></div>
 
 
   <div id="start"></div>
   <div id="wrapped-content"></div>
 <div id="content">
-<h2 id="getting-started">Getting started</h2>
-<h3 id="introduction">Introduction</h3>
-<p>This is a quick reference to getting started with Bash scripting.</p>
-
-<ul>
-<li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
-<li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
-</ul>
-<h3 id="example">Example</h3>
+<h2 id="basics">Basics</h2>
+<h3 id="intro">Intro</h3>
+<p>Basic bash script:</p>
 
 <pre><code class="bash"><span class="hljs-meta">#!/usr/bin/env bash</span>
+<span class="hljs-built_in">set</span> -euo pipefail
 
 NAME=<span class="hljs-string">&quot;John&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello <span class="hljs-variable">$NAME</span>!&quot;</span>
 </code></pre>
+<p>Other Bash resources:</p>
+
+<ul>
+<li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
+<li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
+<li><a href="http://wiki.bash-hackers.org/">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>
+<li><a href="http://wiki.bash-hackers.org/syntax/shellvars">Shell vars</a> <em>(bash-hackers.org)</em></li>
+<li><a href="https://www.shellcheck.net/">ShellCheck</a> <em>(shellcheck.net)</em></li>
+</ul>
 <h3 id="variables">Variables</h3>
 
 <pre><code class="bash">NAME=<span class="hljs-string">&quot;John&quot;</span>
@@ -343,7 +346,7 @@ STR=<span class="hljs-string">&quot;hello world!&quot;</span>
 <span class="hljs-keyword">done</span>
 </code></pre>
 <h2 id="functions">Functions</h2>
-<h3 id="defining-functions">Defining functions</h3>
+<h3 id="define-function">Define function</h3>
 
 <pre><code class="bash"><span class="hljs-function"><span class="hljs-title">myfunc</span></span>() {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;hello <span class="hljs-variable">$1</span>&quot;</span>
@@ -584,7 +587,7 @@ Otherwise, they do exactly the same thing (arguments as separate strings).</p>
 </tr>
 </tbody>
 </table>
-<h3 id="example">Example</h3>
+<h3 id="examples">Examples</h3>
 
 <pre><code class="bash"><span class="hljs-comment"># String</span>
 <span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$string</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
@@ -620,7 +623,7 @@ Otherwise, they do exactly the same thing (arguments as separate strings).</p>
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <h2 id="arrays">Arrays</h2>
-<h3 id="defining-arrays">Defining arrays</h3>
+<h3 id="define-an-array">Define an array</h3>
 
 <pre><code class="bash">Fruits=(<span class="hljs-string">&#x27;Apple&#x27;</span> <span class="hljs-string">&#x27;Banana&#x27;</span> <span class="hljs-string">&#x27;Orange&#x27;</span>)
 </code></pre>
@@ -629,7 +632,7 @@ Otherwise, they do exactly the same thing (arguments as separate strings).</p>
 Fruits[1]=<span class="hljs-string">&quot;Banana&quot;</span>
 Fruits[2]=<span class="hljs-string">&quot;Orange&quot;</span>
 </code></pre>
-<h3 id="working-with-arrays">Working with arrays</h3>
+<h3 id="work-with-arrays">Work with arrays</h3>
 
 <pre><code class="bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">${Fruits[0]}</span>           <span class="hljs-comment"># Element #0</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">${Fruits[-1]}</span>          <span class="hljs-comment"># Last element</span>
@@ -657,7 +660,7 @@ lines=(`cat <span class="hljs-string">&quot;logfile&quot;</span>`)              
 <span class="hljs-keyword">done</span>
 </code></pre>
 <h2 id="dictionaries">Dictionaries</h2>
-<h3 id="defining">Defining</h3>
+<h3 id="define-dict">Define dict</h3>
 
 <pre><code class="bash"><span class="hljs-built_in">declare</span> -A sounds
 </code></pre>
@@ -668,7 +671,7 @@ sounds[bird]=<span class="hljs-string">&quot;tweet&quot;</span>
 sounds[wolf]=<span class="hljs-string">&quot;howl&quot;</span>
 </code></pre>
 <p>Declares <code>sound</code> as a Dictionary object (aka associative array).</p>
-<h3 id="working-with-dictionaries">Working with dictionaries</h3>
+<h3 id="work-with-dict">Work with dict</h3>
 
 <pre><code class="bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">${sounds[dog]}</span> <span class="hljs-comment"># Dog&#x27;s sound</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">${sounds[@]}</span>   <span class="hljs-comment"># All values</span>
@@ -676,7 +679,7 @@ sounds[wolf]=<span class="hljs-string">&quot;howl&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-variable">${#sounds[@]}</span>  <span class="hljs-comment"># Number of elements</span>
 <span class="hljs-built_in">unset</span> sounds[dog]   <span class="hljs-comment"># Delete dog</span>
 </code></pre>
-<h3 id="iteration">Iteration</h3>
+<h3 id="iterate-dict">Iterate dict</h3>
 <h4 id="iterate-over-values">Iterate over values</h4>
 
 <pre><code class="bash"><span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${sounds[@]}</span>&quot;</span>; <span class="hljs-keyword">do</span>
@@ -980,15 +983,6 @@ END</span>
   <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;You appear to have typed &#x27;foo&#x27; in the past&quot;</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<h2 id="also-see">Also see</h2>
-
-<ul>
-<li><a href="http://wiki.bash-hackers.org/">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>
-<li><a href="http://wiki.bash-hackers.org/syntax/shellvars">Shell vars</a> <em>(bash-hackers.org)</em></li>
-<li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
-<li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
-<li><a href="https://www.shellcheck.net/">ShellCheck</a> <em>(shellcheck.net)</em></li>
-</ul>
 
 </div>
 </body>  

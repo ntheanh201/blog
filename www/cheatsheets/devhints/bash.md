@@ -14,26 +14,28 @@ keywords:
   - Command substitution
 ---
 
-Getting started
----------------
+## Basics
 {: .-three-column}
 
-### Introduction
+### Intro
 {: .-intro}
 
-This is a quick reference to getting started with Bash scripting.
-
-- [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-- [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-
-### Example
-
+Basic bash script:
 ```bash
 #!/usr/bin/env bash
+set -euo pipefail
 
 NAME="John"
 echo "Hello $NAME!"
 ```
+
+Other Bash resources:
+
+* [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
+* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+* [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
+* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
+* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
 
 ### Variables
 
@@ -293,7 +295,7 @@ Functions
 ---------
 {: .-three-column}
 
-### Defining functions
+### Define function
 
 ```bash
 myfunc() {
@@ -356,8 +358,7 @@ Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-Conditionals
-------------
+## Conditionals
 {: .-three-column}
 
 ### Conditions
@@ -409,7 +410,7 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
 | `[[ FILE1 -ef FILE2 ]]` | Same files              |
 
-### Example
+### Examples
 
 ```bash
 # String
@@ -454,7 +455,7 @@ fi
 Arrays
 ------
 
-### Defining arrays
+### Define an array
 
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
@@ -466,7 +467,7 @@ Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
 
-### Working with arrays
+### Work with arrays
 
 ```bash
 echo ${Fruits[0]}           # Element #0
@@ -503,7 +504,7 @@ Dictionaries
 ------------
 {: .-three-column}
 
-### Defining
+### Define dict
 
 ```bash
 declare -A sounds
@@ -518,7 +519,7 @@ sounds[wolf]="howl"
 
 Declares `sound` as a Dictionary object (aka associative array).
 
-### Working with dictionaries
+### Work with dict
 
 ```bash
 echo ${sounds[dog]} # Dog's sound
@@ -528,7 +529,7 @@ echo ${#sounds[@]}  # Number of elements
 unset sounds[dog]   # Delete dog
 ```
 
-### Iteration
+### Iterate dict
 
 #### Iterate over values
 
@@ -546,8 +547,7 @@ for key in "${!sounds[@]}"; do
 done
 ```
 
-Options
--------
+## Options
 
 ### Options
 
@@ -788,12 +788,3 @@ if grep -q 'foo' ~/.bash_history; then
   echo "You appear to have typed 'foo' in the past"
 fi
 ```
-
-## Also see
-{: .-one-column}
-
-* [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
-* [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_
-* [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-* [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
-* [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
