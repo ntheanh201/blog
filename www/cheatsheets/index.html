@@ -13,17 +13,14 @@
   <div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
 
   <div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
-    <div>320 cheatsheets: <input placeholder="'/' to search" @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
+    <div>316 cheatsheets: <input placeholder="'/' to search" @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
   </div>
 
   <div class="index-toc">
     
-<div class="index-toc-item with-bull"><a href="101.html">101</a></div>
-<div class="index-toc-item with-bull"><a href="absinthe.html">Absinthe</a></div>
+<div class="index-toc-item with-bull"><a href="101v2.html">101</a></div>
 <div class="index-toc-item with-bull"><a href="activeadmin.html">ActiveAdmin</a></div>
 <div class="index-toc-item with-bull"><a href="adb.html">adb (Android Debug Bridge)</a></div>
-<div class="index-toc-item with-bull"><a href="analytics.html">Analytics libraries</a></div>
-<div class="index-toc-item with-bull"><a href="angularjs.html">Angular.js</a></div>
 <div class="index-toc-item with-bull"><a href="animated_gif.html">Animated GIFs</a></div>
 <div class="index-toc-item with-bull"><a href="ansi.html">Ansi codes</a></div>
 <div class="index-toc-item with-bull"><a href="ansible.html">Ansible</a></div>
@@ -128,7 +125,6 @@
 <div class="index-toc-item with-bull"><a href="go.html">go</a></div>
 <div class="index-toc-item with-bull"><a href="goby.html">Goby</a></div>
 <div class="index-toc-item with-bull"><a href="google_analytics.html">Google Analytics</a></div>
-<div class="index-toc-item with-bull"><a href="analytics.js.html">Google Analytics's analytics.js</a></div>
 <div class="index-toc-item with-bull"><a href="google-webfonts.html">Google Webfonts</a></div>
 <div class="index-toc-item with-bull"><a href="graphql.html">GraphQL</a></div>
 <div class="index-toc-item with-bull"><a href="gremlins.html">Gremlins.js</a></div>
@@ -211,7 +207,6 @@
 <div class="index-toc-item with-bull"><a href="org-mode.html">Org Mode</a></div>
 <div class="index-toc-item with-bull"><a href="osx.html">OS X</a></div>
 <div class="index-toc-item with-bull"><a href="package-json.html">package.json</a></div>
-<div class="index-toc-item with-bull"><a href="package.html">package.json</a></div>
 <div class="index-toc-item with-bull"><a href="pacman.html">Pacman</a></div>
 <div class="index-toc-item with-bull"><a href="parsimmon.html">Parsimmon</a></div>
 <div class="index-toc-item with-bull"><a href="parsley.html">Parsley.js</a></div>
@@ -295,6 +290,7 @@
 <div class="index-toc-item with-bull"><a href="stylus.html">Stylus</a></div>
 <div class="index-toc-item with-bull"><a href="sublime-text.html">Sublime Text</a></div>
 <div class="index-toc-item with-bull"><a href="superagent.html">Superagent</a></div>
+<div class="index-toc-item with-bull"><a href="svelte.html">Svelte</a></div>
 <div class="index-toc-item with-bull"><a href="tabular.html">Tabular</a></div>
 <div class="index-toc-item with-bull"><a href="tape.html">Tape</a></div>
 <div class="index-toc-item with-bull"><a href="textile.html">Textile</a></div>
@@ -344,8 +340,6 @@
 <div class="with-bull"><a href="graphql.html">GraphQL</a></div>
 <div class="with-bull"><a href="http-status.html">HTTP Status</a></div>
 <div class="with-bull"><a href="rest-api.html">RESTful API</a></div></div><div class="index-toc"><div> <b>Analytics</b>:&nbsp;</div>
-<div class="with-bull"><a href="analytics.html">Analytics libraries</a></div>
-<div class="with-bull"><a href="analytics.js.html">Google Analytics's analytics.js</a></div>
 <div class="with-bull"><a href="mixpanel.html">Mixpanel</a></div></div><div class="index-toc"><div> <b>Ansible</b>:&nbsp;</div>
 <div class="with-bull"><a href="ansible.html">Ansible</a></div>
 <div class="with-bull"><a href="ansible-examples.html">Ansible examples</a></div>
@@ -451,9 +445,7 @@
 <div class="with-bull"><a href="ie_bugs.html">Legacy IE bugs</a></div>
 <div class="with-bull"><a href="html-microformats.html">Microformats</a></div>
 <div class="with-bull"><a href="html-share.html">Share links</a></div>
-<div class="with-bull"><a href="xpath.html">Xpath</a></div></div><div class="index-toc"><div> <b>Hidden</b>:&nbsp;</div>
-<div class="with-bull"><a href="absinthe.html">Absinthe</a></div>
-<div class="with-bull"><a href="package.html">package.json</a></div></div><div class="index-toc"><div> <b>Java & JVM</b>:&nbsp;</div>
+<div class="with-bull"><a href="xpath.html">Xpath</a></div></div><div class="index-toc"><div> <b>Java & JVM</b>:&nbsp;</div>
 <div class="with-bull"><a href="kotlin.html">Kotlin</a></div></div><div class="index-toc"><div> <b>JavaScript</b>:&nbsp;</div>
 <div class="with-bull"><a href="js-appcache.html">applicationCache</a></div>
 <div class="with-bull"><a href="canvas.html">Canvas</a></div>
@@ -470,8 +462,7 @@
 <div class="with-bull"><a href="promise.html">Promises</a></div>
 <div class="with-bull"><a href="vue.html">Vue.js</a></div>
 <div class="with-bull"><a href="web-workers.html">Web workers</a></div></div><div class="index-toc"><div> <b>JavaScript libraries</b>:&nbsp;</div>
-<div class="with-bull"><a href="101.html">101</a></div>
-<div class="with-bull"><a href="angularjs.html">Angular.js</a></div>
+<div class="with-bull"><a href="101v2.html">101</a></div>
 <div class="with-bull"><a href="backbone.html">Backbone.js</a></div>
 <div class="with-bull"><a href="blessed.html">Blessed</a></div>
 <div class="with-bull"><a href="bluebird.html">bluebird.js</a></div>
@@ -531,6 +522,7 @@
 <div class="with-bull"><a href="spine.html">Spine</a></div>
 <div class="with-bull"><a href="stencil.html">Stencil</a></div>
 <div class="with-bull"><a href="superagent.html">Superagent</a></div>
+<div class="with-bull"><a href="svelte.html">Svelte</a></div>
 <div class="with-bull"><a href="tape.html">Tape</a></div>
 <div class="with-bull"><a href="typescript.html">TypeScript</a></div>
 <div class="with-bull"><a href="underscore-string.html">Underscore-string</a></div>

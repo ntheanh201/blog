@@ -648,18 +648,7 @@ from functools import reduce
 ['zero', 1, 'zero', 3]
 ```
 
-### Namedtuple, Enum, Dataclass
-```python
-from collections import namedtuple
-Point     = namedtuple('Point', 'x y')
-point     = Point(0, 0)
-```
-
-```python
-from enum import Enum
-Direction = Enum('Direction', 'n e s w')
-Cutlery   = Enum('Cutlery', {'fork': 1, 'knife': 2, 'spoon': 3})
-```
+### Dataclass
 
 ```python
 from dataclasses import make_dataclass

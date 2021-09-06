@@ -1,11 +1,13 @@
 ---
 title: Animated GIFs
 category: CLI
-layout: 2017/sheet
 ---
 
-## Animated GIFs
-{: .-one-column}
+## Main
+
+### Intro
+
+How to create animaged GIFs.
 
 ### Convert MP4 to GIF
 

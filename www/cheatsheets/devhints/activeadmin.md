@@ -4,6 +4,12 @@ category: Ruby
 layout: 2017/sheet
 ---
 
+## Main
+
+### Intro
+
+[ActiveAdmin](https://activeadmin.info/documentation.html) is a framework for creating administration style interfaces. It abstracts common business application patterns to make it simple for developers to implement beautiful and elegant interfaces with very little effort.
+
 ### Listing scopes
 
 Allows you to filter listings by a certain scope.

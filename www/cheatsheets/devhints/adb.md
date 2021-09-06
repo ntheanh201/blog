@@ -8,7 +8,8 @@ authors:
 updated: 2018-03-06
 ---
 
-### Device Basics
+## Main
+### Basics
 
 | Command                           | Description                                 |
 | ---                               | ---                                         |

@@ -15,7 +15,7 @@
   <div class="toc">
 <b>Collections</b>: <a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#counter">Counter</a>, <a href="#set">Set</a>, <a href="#frozenset">Frozenset</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#named-tuple">Named Tuple</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a><br>
 <b>Types</b>: <a href="#abc">ABC</a>, <a href="#string">String</a>, <a href="#char">Char</a>, <a href="#regex">Regex</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a><br>
-<b>Syntax</b>: <a href="#arguments">Arguments</a>, <a href="#splat-operator">Splat Operator</a>, <a href="#inline">Inline</a>, <a href="#namedtuple-enum-dataclass">Namedtuple, Enum, Dataclass</a>, <a href="#closure">Closure</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#duck-types">Duck Types</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Exceptions</a><br>
+<b>Syntax</b>: <a href="#arguments">Arguments</a>, <a href="#splat-operator">Splat Operator</a>, <a href="#inline">Inline</a>, <a href="#dataclass">Dataclass</a>, <a href="#closure">Closure</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#duck-types">Duck Types</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Exceptions</a><br>
 <b>System</b>: <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#command-line-arguments">Command Line Arguments</a>, <a href="#open">Open</a>, <a href="#path">Path</a>, <a href="#command-execution">Command Execution</a><br>
 <b>Data</b>: <a href="#csv">CSV</a>, <a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memory-view">Memory View</a>, <a href="#deque">Deque</a><br>
 <b>Advanced</b>: <a href="#threading">Threading</a>, <a href="#introspection">Introspection</a>, <a href="#metaprograming">Metaprograming</a>, <a href="#operator">Operator</a>, <a href="#eval">Eval</a>, <a href="#coroutine">Coroutine</a><br>
@@ -569,17 +569,7 @@ func(*args, **kwargs)
 <pre><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>[a <span class="hljs-keyword">if</span> a <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;zero&#x27;</span> <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>)]
 [<span class="hljs-string">&#x27;zero&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;zero&#x27;</span>, <span class="hljs-number">3</span>]
 </code></pre>
-<h3 id="namedtuple-enum-dataclass">Namedtuple, Enum, Dataclass</h3>
-
-<pre><code class="python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
-Point     = namedtuple(<span class="hljs-string">&#x27;Point&#x27;</span>, <span class="hljs-string">&#x27;x y&#x27;</span>)
-point     = Point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
-</code></pre>
-
-<pre><code class="python"><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum
-Direction = Enum(<span class="hljs-string">&#x27;Direction&#x27;</span>, <span class="hljs-string">&#x27;n e s w&#x27;</span>)
-Cutlery   = Enum(<span class="hljs-string">&#x27;Cutlery&#x27;</span>, {<span class="hljs-string">&#x27;fork&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;knife&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;spoon&#x27;</span>: <span class="hljs-number">3</span>})
-</code></pre>
+<h3 id="dataclass">Dataclass</h3>
 
 <pre><code class="python"><span class="hljs-keyword">from</span> dataclasses <span class="hljs-keyword">import</span> make_data<span class="hljs-keyword">class</span>
 <span class="hljs-title class_">Creature</span>  = make_dataclass(<span class="hljs-string">&#x27;Creature&#x27;</span>, [<span class="hljs-string">&#x27;location&#x27;</span>, <span class="hljs-string">&#x27;direction&#x27;</span>])

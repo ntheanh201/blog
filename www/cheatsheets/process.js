@@ -290,7 +290,7 @@ function processFile(srcPath, dstPath) {
 function processFiles() {
   clean();
 
-  const otherFiles = ["go", "python3"];
+  const otherFiles = ["go", "python3", "101v2", "svelte"];
   const allFiles = [];
   for (let file of devhintsFiles) {
     let path = join("devhints", file + ".md");

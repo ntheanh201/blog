@@ -1,13 +1,11 @@
 ---
 title: Ansi codes
 category: CLI
-layout: 2017/sheet
-intro: |
-  Quick reference to ANSI color codes.
 ---
 
-### Format
+### Intro
 
+The format of an ANSI color code is:
 ```
 \033[#m
 ```

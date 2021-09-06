@@ -161,9 +161,12 @@ async function start() {
     buildHeaderFullNames(); // must call before groupHeaderElements()
     groupHeaderElements();
     hookClick();
-    const el = document.getElementById("intro");
-    if (el) {
-        bringToFrontDiv("intro");
+    for (const id of ["intro", "basics"]) {
+        const el = document.getElementById(id);
+        if (el) {
+            bringToFrontDiv(id);
+            return;
+        }    
     }
 }
 
