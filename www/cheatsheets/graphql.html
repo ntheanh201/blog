@@ -16,7 +16,7 @@
 <a href="#intro">Intro</a><br>
 <b>Queries</b>: <a href="#basic-query">Basic query</a>, <a href="#nesting">Nesting</a>, <a href="#lists">Lists</a>, <a href="#lookups">Lookups</a>, <a href="#aliases">Aliases</a>, <a href="#operation-names-and-variables">Operation names and variables</a>, <a href="#mutations">Mutations</a>, <a href="#multiple-types">Multiple types</a><br>
 <a href="#over-http">Over HTTP</a><br>
-<b>Schema</b>: <a href="#basic-schemas">Basic schemas</a>, <a href="#built-in-types">Built in types</a>, <a href="#mutations">Mutations</a>, <a href="#interfaces">Interfaces</a>, <a href="#enums">Enums</a>, <a href="#unions">Unions</a><br>
+<b>Schema</b>: <a href="#basic-schemas">Basic schemas</a>, <a href="#built-in-types">Built in types</a>, <a href="#mutations1">Mutations</a>, <a href="#interfaces">Interfaces</a>, <a href="#enums">Enums</a>, <a href="#unions">Unions</a><br>
 <a href="#references">References</a><br></div>
 
 
@@ -37,7 +37,7 @@
 
 <pre><code class="js">{ hero { name height } }
 </code></pre>
-<h4 id="-">↓</h4>
+<h4 id="-1">↓</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">hero</span>:
     { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span>,
@@ -47,7 +47,7 @@
 
 <pre><code class="js">{ friends { name } }
 </code></pre>
-<h4 id="-">↓</h4>
+<h4 id="-11">↓</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">friends</span>:
     [ { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span> },
@@ -61,7 +61,7 @@
   <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1000&quot;</span></span>) { id name }
 }
 </code></pre>
-<h4 id="-">↓</h4>
+<h4 id="-111">↓</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">hero</span>:
     { <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;1000&quot;</span>,
@@ -74,7 +74,7 @@
   <span class="hljs-attr">han</span>: <span class="hljs-title function_">hero</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1001&quot;</span></span>) { name }
 }
 </code></pre>
-<h4 id="-">↓</h4>
+<h4 id="-1111">↓</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">luke</span>:
     { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Luke Skywalker&quot;</span> },
@@ -94,15 +94,15 @@
 <pre><code class="js">{ <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;1000&#x27;</span> }
 </code></pre>
 <h3 id="mutations">Mutations</h3>
-<h4 id="query">Query</h4>
+<h4 id="query1">Query</h4>
 
 <pre><code class="js">{ <span class="hljs-title function_">createReview</span>(<span class="hljs-params">$review</span>) { id } }
 </code></pre>
-<h4 id="variables">Variables</h4>
+<h4 id="variables1">Variables</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">review</span>: { <span class="hljs-attr">stars</span>: <span class="hljs-number">5</span> } }
 </code></pre>
-<h4 id="-">↓</h4>
+<h4 id="-11111">↓</h4>
 
 <pre><code class="js">{ <span class="hljs-attr">createReview</span>: { <span class="hljs-attr">id</span>: <span class="hljs-number">5291</span> } }
 </code></pre>
@@ -167,7 +167,7 @@ type <span class="hljs-title class_">User</span> {
 | <code>[String]</code> | List of strings |
 | <code>[String]!</code> | Required list of strings |
 | <code>[String!]!</code> | Required list of required strings |</p>
-<h3 id="mutations">Mutations</h3>
+<h3 id="mutations1">Mutations</h3>
 
 <pre><code class="js">type <span class="hljs-title class_">Mutation</span> {
   <span class="hljs-title function_">users</span>(<span class="hljs-attr">params</span>: <span class="hljs-title class_">ListUsersInput</span>) [<span class="hljs-title class_">User</span>]!

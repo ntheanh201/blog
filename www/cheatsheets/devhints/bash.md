@@ -243,7 +243,7 @@ Loops
 -----
 {: .-three-column}
 
-### Basic for loop
+### Basics
 
 ```bash
 for i in /etc/rc.*; do
@@ -452,10 +452,9 @@ if [[ -e "file.txt" ]]; then
 fi
 ```
 
-Arrays
-------
+## Arrays
 
-### Define an array
+### Basics
 
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
@@ -466,8 +465,6 @@ Fruits[0]="Apple"
 Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
-
-### Work with arrays
 
 ```bash
 echo ${Fruits[0]}           # Element #0
@@ -500,11 +497,10 @@ for i in "${arrayName[@]}"; do
 done
 ```
 
-Dictionaries
-------------
+## Dictionaries
 {: .-three-column}
 
-### Define dict
+### Basics
 
 ```bash
 declare -A sounds
@@ -519,8 +515,6 @@ sounds[wolf]="howl"
 
 Declares `sound` as a Dictionary object (aka associative array).
 
-### Work with dict
-
 ```bash
 echo ${sounds[dog]} # Dog's sound
 echo ${sounds[@]}   # All values
@@ -529,7 +523,7 @@ echo ${#sounds[@]}  # Number of elements
 unset sounds[dog]   # Delete dog
 ```
 
-### Iterate dict
+### Iteration
 
 #### Iterate over values
 
@@ -549,7 +543,7 @@ done
 
 ## Options
 
-### Options
+### Basics
 
 ```bash
 set -o noclobber  # Avoid overlay files (echo "hi" > foo)

@@ -15,7 +15,7 @@
   <div class="toc">
 <b>Main</b>: <a href="#binding-events">Binding events</a>, <a href="#unbinding-events">Unbinding events</a>, <a href="#events">Events</a>, <a href="#list-of-events">List of events</a><br>
 <b>Views</b>: <a href="#defining">Defining</a>, <a href="#instantiating">Instantiating</a>, <a href="#methods">Methods</a><br>
-<b>Models</b>: <a href="#defining">Defining</a>, <a href="#instantiating">Instantiating</a>, <a href="#methods">Methods</a>, <a href="#validation">Validation</a>, <a href="#custom-urls">Custom URLs</a><br>
+<b>Models</b>: <a href="#defining1">Defining</a>, <a href="#instantiating1">Instantiating</a>, <a href="#methods1">Methods</a>, <a href="#validation">Validation</a>, <a href="#custom-urls">Custom URLs</a><br>
 <a href="#references">References</a><br></div>
 
 
@@ -137,7 +137,7 @@ view.$(<span class="hljs-string">&#x27;input&#x27;</span>)
 view.<span class="hljs-title function_">undelegateEvents</span>()
 </code></pre>
 <h2 id="models">Models</h2>
-<h3 id="defining">Defining</h3>
+<h3 id="defining1">Defining</h3>
 
 <pre><code class="js"><span class="hljs-comment">// All attributes are optional</span>
 <span class="hljs-keyword">var</span> <span class="hljs-title class_">Model</span> = <span class="hljs-title class_">Backbone</span>.<span class="hljs-property">Model</span>.<span class="hljs-title function_">extend</span>({
@@ -148,14 +148,14 @@ view.<span class="hljs-title function_">undelegateEvents</span>()
   <span class="hljs-attr">parse</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) { ··· }
 })
 </code></pre>
-<h3 id="instantiating">Instantiating</h3>
+<h3 id="instantiating1">Instantiating</h3>
 
 <pre><code class="js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Lolita&#x27;</span>, <span class="hljs-attr">author</span>: <span class="hljs-string">&#x27;Nabokov&#x27;</span> })
 </code></pre>
 
 <pre><code class="js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Model</span>({ <span class="hljs-attr">collection</span>: ··· })
 </code></pre>
-<h3 id="methods">Methods</h3>
+<h3 id="methods1">Methods</h3>
 
 <pre><code class="js">obj.<span class="hljs-property">id</span>
 obj.<span class="hljs-property">cid</span>   <span class="hljs-comment">// → &#x27;c38&#x27; (client-side ID)</span>

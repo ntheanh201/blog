@@ -17,7 +17,7 @@
 <b>Routes</b>: <a href="#writing-routes">Writing routes</a>, <a href="#shorthand-declarations">Shorthand declarations</a>, <a href="#async-await">Async/await</a><br>
 <b>Request/reply</b>: <a href="#request">Request</a>, <a href="#reply">Reply</a>, <a href="#json-schema">JSON schema</a><br>
 <b>Plugins</b>: <a href="#with-function">With function</a>, <a href="#multiple">Multiple</a>, <a href="#register-with-prefix">Register with prefix</a>, <a href="#helmet">Helmet</a>, <a href="#fastify-plugin">fastify-plugin</a>, <a href="#decorators">Decorators</a><br>
-<b>Middleware</b>: <a href="#middleware">Middleware</a><br>
+<b>Middleware</b>: <a href="#middleware1">Middleware</a><br>
 <b>Template rendering</b>: <a href="#point-of-view">point-of-view</a>, <a href="#options">Options</a><br></div>
 
 
@@ -157,7 +157,7 @@ reply.<span class="hljs-property">sent</span> <span class="hljs-comment">// → 
 </code></pre>
 <p>By defining a JSON schema, you get validation and improved performance.</p>
 <p>See: <a href="https://github.com/fastify/fastify/blob/master/docs/Validation-And-Serialization.md">Validation and serialization</a></p>
-<h2 id="plugins">Plugins</h2>
+<h2 id="plugins1">Plugins</h2>
 <h3 id="with-function">With function</h3>
 
 <pre><code class="js">fastify.<span class="hljs-title function_">register</span>(
@@ -165,7 +165,7 @@ reply.<span class="hljs-property">sent</span> <span class="hljs-comment">// → 
   <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> { <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err }
 )
 </code></pre>
-<h4 id="route-js">route.js</h4>
+<h4 id="route-js1">route.js</h4>
 
 <pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-function">(<span class="hljs-params">fastify, options, next</span>) =&gt;</span> {
   fastify.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/&#x27;</span>, ···)
@@ -213,7 +213,7 @@ fastify.<span class="hljs-title function_">register</span>(helmet)
 <p>See: <a href="https://github.com/fastify/fastify-plugin">fastify-plugin</a></p>
 <h3 id="decorators">Decorators</h3>
 <h2 id="middleware">Middleware</h2>
-<h3 id="middleware">Middleware</h3>
+<h3 id="middleware1">Middleware</h3>
 
 <pre><code class="js">fastify.<span class="hljs-title function_">use</span>(<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;cors&#x27;</span>)())
 fastify.<span class="hljs-title function_">use</span>(<span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;dns-prefetch-control&#x27;</span>)())

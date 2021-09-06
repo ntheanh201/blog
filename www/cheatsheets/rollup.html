@@ -60,7 +60,7 @@
 </table>
 <p>You may need to use <code>./node_modules/.bin/rollup</code> as a command if you did not install rollup globally.</p>
 <h3 id="multiple-outputs">Multiple outputs</h3>
-<h4 id="rollup-config-js">rollup.config.js</h4>
+<h4 id="rollup-config-js1">rollup.config.js</h4>
 
 <pre><code class="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [
   {
@@ -84,11 +84,11 @@
 <p>This creates <code>main.js</code> and <code>vendor.js</code>.</p>
 <h2 id="using-plugins">Using plugins</h2>
 <h3 id="plugins">Plugins</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal1">Terminal</h4>
 
 <pre><code class="bash">npm install -D @rollup/plugin-json
 </code></pre>
-<h4 id="rollup-config-js">rollup.config.js</h4>
+<h4 id="rollup-config-js11">rollup.config.js</h4>
 
 <pre><code class="js"><span class="hljs-keyword">import</span> json <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-json&#x27;</span>
 
@@ -102,11 +102,11 @@
 }
 </code></pre>
 <h3 id="npm-packages">npm packages</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal11">Terminal</h4>
 
 <pre><code class="bash">npm install -D @rollup/plugin-node-resolve
 </code></pre>
-<h4 id="rollup-config-js">rollup.config.js</h4>
+<h4 id="rollup-config-js111">rollup.config.js</h4>
 
 <pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
 
@@ -121,11 +121,11 @@
 </code></pre>
 <p>When you run a npm run build, no warning is emitted and contains the imported modules.</p>
 <h3 id="peer-dependencies">Peer dependencies</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal111">Terminal</h4>
 
 <pre><code class="bash">npm install -D @rollup/plugin-node-resolve
 </code></pre>
-<h4 id="rollup-config-js">rollup.config.js</h4>
+<h4 id="rollup-config-js1111">rollup.config.js</h4>
 
 <pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
 
@@ -146,11 +146,11 @@
 }
 </code></pre>
 <h3 id="babel">Babel</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal1111">Terminal</h4>
 
 <pre><code class="bash">npm install -D rollup-plugin-babel
 </code></pre>
-<h4 id="rollup-config-js">rollup.config.js</h4>
+<h4 id="rollup-config-js11111">rollup.config.js</h4>
 
 <pre><code class="js"><span class="hljs-keyword">import</span> resolve <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-node-resolve&#x27;</span>
 <span class="hljs-keyword">import</span> babel <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rollup-plugin-babel&#x27;</span>

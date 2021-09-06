@@ -450,7 +450,7 @@ shuffle(&lt;<span class="hljs-built_in">list</span>&gt;)
 &lt;<span class="hljs-built_in">int</span>&gt;    = &lt;D/DT&gt;.toordinal()               <span class="hljs-comment"># Days since Christ, ignoring time and tz.</span>
 &lt;<span class="hljs-built_in">float</span>&gt;  = &lt;DT&gt;.timestamp()                 <span class="hljs-comment"># Seconds since Epoch in local time or tz.</span>
 </code></pre>
-<h4 id="format">Format</h4>
+<h4 id="format1">Format</h4>
 
 <pre><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
 <span class="hljs-meta">&gt;&gt;&gt; </span>dt = datetime.strptime(<span class="hljs-string">&#x27;2015-05-14 23:39:00.00 +0200&#x27;</span>, <span class="hljs-string">&#x27;%Y-%m-%d %H:%M:%S.%f %z&#x27;</span>)
@@ -478,7 +478,7 @@ shuffle(&lt;<span class="hljs-built_in">list</span>&gt;)
 <span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">&lt;nondefault_args&gt;, &lt;default_args&gt;</span>):      <span class="hljs-comment"># def f(x, y=0)</span>
 </code></pre>
 <h3 id="splat-operator">Splat Operator</h3>
-<h4 id="inside-function-call">Inside Function Call</h4>
+<h4 id="inside-function-call1">Inside Function Call</h4>
 <p>Splat expands a collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.</p>
 
 <pre><code class="python">args   = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
@@ -489,7 +489,7 @@ func(*args, **kwargs)
 
 <pre><code class="python">func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, x=<span class="hljs-number">3</span>, y=<span class="hljs-number">4</span>, z=<span class="hljs-number">5</span>)
 </code></pre>
-<h4 id="inside-function-definition">Inside Function Definition</h4>
+<h4 id="inside-function-definition1">Inside Function Definition</h4>
 <p>Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.</p>
 
 <pre><code class="python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">*a</span>):
@@ -864,7 +864,7 @@ member_names    = [a.name <span class="hljs-keyword">for</span> a <span class="h
 member_values   = [a.value <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> &lt;enum&gt;]
 random_member   = random.choice(<span class="hljs-built_in">list</span>(&lt;enum&gt;))
 </code></pre>
-<h4 id="inline">Inline</h4>
+<h4 id="inline1">Inline</h4>
 
 <pre><code class="python">Cutlery = Enum(<span class="hljs-string">&#x27;Cutlery&#x27;</span>, [<span class="hljs-string">&#x27;fork&#x27;</span>, <span class="hljs-string">&#x27;knife&#x27;</span>, <span class="hljs-string">&#x27;spoon&#x27;</span>])
 Cutlery = Enum(<span class="hljs-string">&#x27;Cutlery&#x27;</span>, <span class="hljs-string">&#x27;fork knife spoon&#x27;</span>)
@@ -1146,13 +1146,13 @@ db.commit()
 &lt;ints&gt;  = <span class="hljs-built_in">list</span>(&lt;<span class="hljs-built_in">bytes</span>&gt;)
 &lt;<span class="hljs-built_in">bytes</span>&gt; = <span class="hljs-string">b&#x27;&#x27;</span>.join(&lt;coll_of_bytes&gt;)
 </code></pre>
-<h4 id="encode">Encode</h4>
+<h4 id="encode1">Encode</h4>
 
 <pre><code class="python">&lt;<span class="hljs-built_in">bytes</span>&gt; = &lt;<span class="hljs-built_in">str</span>&gt;.encode(encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)
 &lt;<span class="hljs-built_in">bytes</span>&gt; = &lt;<span class="hljs-built_in">int</span>&gt;.to_bytes(&lt;length&gt;, byteorder=<span class="hljs-string">&#x27;big|little&#x27;</span>, signed=<span class="hljs-literal">False</span>)
 &lt;<span class="hljs-built_in">bytes</span>&gt; = <span class="hljs-built_in">bytes</span>.fromhex(<span class="hljs-string">&#x27;&lt;hex&gt;&#x27;</span>)
 </code></pre>
-<h4 id="decode">Decode</h4>
+<h4 id="decode1">Decode</h4>
 
 <pre><code class="python">&lt;<span class="hljs-built_in">str</span>&gt;   = &lt;<span class="hljs-built_in">bytes</span>&gt;.decode(encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)
 &lt;<span class="hljs-built_in">int</span>&gt;   = <span class="hljs-built_in">int</span>.from_bytes(&lt;<span class="hljs-built_in">bytes</span>&gt;, byteorder=<span class="hljs-string">&#x27;big|little&#x27;</span>, signed=<span class="hljs-literal">False</span>)
@@ -1191,7 +1191,7 @@ db.commit()
 <span class="hljs-meta">&gt;&gt;&gt; </span>calcsize(<span class="hljs-string">&#x27;&gt;hhl&#x27;</span>)
 <span class="hljs-number">8</span>
 </code></pre>
-<h4 id="format">Format</h4>
+<h4 id="format11">Format</h4>
 <p>For standard sizes start format string with:</p>
 
 <ul>
@@ -1526,7 +1526,7 @@ logger.&lt;level&gt;(<span class="hljs-string">&#x27;A logging message.&#x27;</s
 <ul>
 <li>Levels: <code>&#39;debug&#39;</code>, <code>&#39;info&#39;</code>, <code>&#39;success&#39;</code>, <code>&#39;warning&#39;</code>, <code>&#39;error&#39;</code>, <code>&#39;critical&#39;</code>.</li>
 </ul>
-<h4 id="exceptions">Exceptions</h4>
+<h4 id="exceptions1">Exceptions</h4>
 <p>Error description, stack trace and values of variables are appended automatically.</p>
 
 <pre><code class="python"><span class="hljs-keyword">try</span>:
@@ -1747,7 +1747,7 @@ right = [[<span class="hljs-number">0.1</span>, <span class="hljs-number">0.6</s
 <li><p>If neither non-matching dimension has size 1, rise an error.</p>
 </li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example1">Example</h4>
 <p>For each point returns index of its nearest point (<code>[0.1, 0.6, 0.8] =&gt; [1, 2, 1]</code>):</p>
 
 <pre><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>points = np.array([<span class="hljs-number">0.1</span>, <span class="hljs-number">0.6</span>, <span class="hljs-number">0.8</span>])

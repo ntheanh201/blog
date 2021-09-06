@@ -24,7 +24,7 @@
 <b>Enum</b>: <a href="#usage">Usage</a>, <a href="#map-reduce">Map/reduce</a><br>
 <b>Tuple</b>: <a href="#tuples">Tuples</a>, <a href="#keyword-lists">Keyword lists</a><br>
 <b>Functions</b>: <a href="#lambdas">Lambdas</a>, <a href="#-syntax">& syntax</a>, <a href="#running">Running</a>, <a href="#function-heads">Function heads</a><br>
-<b>Structs</b>: <a href="#structs">Structs</a><br>
+<b>Structs</b>: <a href="#structs1">Structs</a><br>
 <b>Protocols</b>: <a href="#defining-protocols">Defining protocols</a>, <a href="#any">Any</a>, <a href="#examples">Examples</a><br>
 <b>Comprehensions</b>: <a href="#for">For</a>, <a href="#conditions">Conditions</a>, <a href="#complex">Complex</a><br>
 <b>Misc</b>: <a href="#metaprogramming">Metaprogramming</a>, <a href="#regexp">Regexp</a>, <a href="#sigils">Sigils</a>, <a href="#type-specs">Type specs</a>, <a href="#behaviours">Behaviours</a><br>
@@ -499,7 +499,7 @@ list[<span class="hljs-symbol">:name</span>]
 list = [{<span class="hljs-string">&quot;size&quot;</span>, <span class="hljs-number">2</span>}, {<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;shoe&quot;</span>}]
 List.keyfind(list, <span class="hljs-string">&quot;size&quot;</span>, 0)  <span class="hljs-comment"># → {&quot;size&quot;, 2}</span>
 </code></pre>
-<h2 id="functions">Functions</h2>
+<h2 id="functions1">Functions</h2>
 <h3 id="lambdas">Lambdas</h3>
 
 <pre><code class="elixir">square = <span class="hljs-keyword">fn</span> n -&gt; n*n <span class="hljs-keyword">end</span>
@@ -525,7 +525,7 @@ apply(<span class="hljs-keyword">module</span>, fun, args)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">join</span></span>(a, b) <span class="hljs-symbol">do:</span> a &lt;&gt; b
 </code></pre>
 <h2 id="structs">Structs</h2>
-<h3 id="structs">Structs</h3>
+<h3 id="structs1">Structs</h3>
 
 <pre><code class="elixir"><span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">User</span></span> <span class="hljs-keyword">do</span>
   defstruct <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-symbol">age:</span> <span class="hljs-keyword">nil</span>

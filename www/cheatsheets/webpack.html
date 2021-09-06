@@ -42,7 +42,7 @@
 | <code>webpack -- --watch</code> | compile continuously</p>
 <p>This compiles <code>src/app.js</code> into <code>public/app.js</code>. (Note: you may need to use <code>./node_modules/.bin/webpack</code> as a command if you&#39;re not invoking Webpack via npm scripts.)</p>
 <h3 id="multiple-files">Multiple files</h3>
-<h4 id="webpack-config-js">webpack.config.js</h4>
+<h4 id="webpack-config-js1">webpack.config.js</h4>
 
 <pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
   <span class="hljs-attr">entry</span>: {
@@ -58,14 +58,14 @@
 <p>This creates <code>app.js</code> and <code>vendor.js</code>.</p>
 <h2 id="loaders">Loaders</h2>
 <h3 id="babel">Babel</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal1">Terminal</h4>
 
 <pre><code class="bash">npm install --save-dev \
   babel-loader \
   babel-preset-env \
   babel-preset-react
 </code></pre>
-<h4 id="webpack-config-js">webpack.config.js</h4>
+<h4 id="webpack-config-js11">webpack.config.js</h4>
 
 <pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
   ···
@@ -89,13 +89,13 @@
 </code></pre>
 <p>Adds support for <a href="http://babeljs.io">Babel</a>.</p>
 <h3 id="css">CSS</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal11">Terminal</h4>
 
 <pre><code class="bash">npm install --save-dev \
   css-loader \
   style-loader
 </code></pre>
-<h4 id="webpack-config-js">webpack.config.js</h4>
+<h4 id="webpack-config-js111">webpack.config.js</h4>
 
 <pre><code class="js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
   ···
@@ -120,13 +120,13 @@
 </code></pre>
 <p>This allows you to use CSS inside your JavaScript. This packages your CSS inside your JavaScript bundle.</p>
 <h3 id="postcss">PostCSS</h3>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal111">Terminal</h4>
 
 <pre><code><span class="hljs-built_in">npm</span> install --save-dev <span class="hljs-string">\</span>
   postcss-loader <span class="hljs-string">\</span>
   postcss-cssnext
 </code></pre>
-<h4 id="webpack-config-js">webpack.config.js</h4>
+<h4 id="webpack-config-js1111">webpack.config.js</h4>
 
 <pre><code class="js">···
 <span class="hljs-comment">// Inside module.rules[]:</span>
@@ -157,7 +157,7 @@
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<h4 id="terminal">Terminal</h4>
+<h4 id="terminal1111">Terminal</h4>
 
 <pre><code class="bash">npm install --save-dev \
   webpack-dev-server

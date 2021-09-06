@@ -84,13 +84,13 @@
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>This defines a type <code>:post</code>, which is used by the resolver.</p>
-<h2 id="schema">Schema</h2>
+<h2 id="schema1">Schema</h2>
 <h3 id="query-arguments">Query arguments</h3>
 <h4 id="graphql-query">GraphQL query</h4>
 
 <pre><code>{ <span class="hljs-title function_">user</span>(<span class="hljs-params">id: <span class="hljs-string">&quot;1&quot;</span></span>) { ··· } }
 </code></pre>
-<h4 id="web-schema-ex">web/schema.ex</h4>
+<h4 id="web-schema-ex1">web/schema.ex</h4>
 
 <pre><code class="elixir">query <span class="hljs-keyword">do</span>
   field <span class="hljs-symbol">:user</span>, <span class="hljs-symbol">type:</span> <span class="hljs-symbol">:user</span> <span class="hljs-keyword">do</span>
@@ -99,7 +99,7 @@
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h4 id="resolver">Resolver</h4>
+<h4 id="resolver1">Resolver</h4>
 
 <pre><code class="elixir"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span></span>(%{<span class="hljs-symbol">id:</span> id} = args, _info) <span class="hljs-keyword">do</span>
   ···
@@ -107,7 +107,7 @@
 </code></pre>
 <p>See: <a href="http://absinthe-graphql.org/tutorial/query-arguments/">Query arguments</a></p>
 <h3 id="mutations">Mutations</h3>
-<h4 id="graphql-query">GraphQL query</h4>
+<h4 id="graphql-query1">GraphQL query</h4>
 
 <pre><code>{
   mutation <span class="hljs-title class_">CreatePost</span> {
@@ -115,7 +115,7 @@
   }
 }
 </code></pre>
-<h4 id="web-schema-ex">web/schema.ex</h4>
+<h4 id="web-schema-ex11">web/schema.ex</h4>
 
 <pre><code class="elixir">mutation <span class="hljs-keyword">do</span>
   <span class="hljs-variable">@desc</span> <span class="hljs-string">&quot;Create a post&quot;</span>

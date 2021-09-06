@@ -21,7 +21,7 @@
 <b>Literal</b>: <a href="#keyword">Keyword</a>, <a href="#string-literal">String literal</a>, <a href="#symbol-literal">Symbol literal</a>, <a href="#numeric-literal">Numeric literal</a>, <a href="#array-literal">Array literal</a>, <a href="#hash-literal">Hash literal</a>, <a href="#range-literal">Range literal</a>, <a href="#boolean-and-nil-">Boolean and nil</a><br>
 <b>Operator</b>: <a href="#arithmetic-logical-assignment-operators">Arithmetic/logical/assignment operators</a>, <a href="#other-operators">Other operators</a>, <a href="#delimiter">Delimiter</a>, <a href="#string-interpolation-to-be-implemented-">String interpolation (to be implemented)</a>, <a href="#comment">Comment</a>, <a href="#i-o">I/O</a><br>
 <b>Flow control</b>: <a href="#-if-else-elsif-">if, else, elsif</a>, <a href="#break">Break</a>, <a href="#case">Case</a>, <a href="#while">While</a>, <a href="#rescue">Rescue</a><br>
-<b>Block</b>: <a href="#block">Block</a>, <a href="#-yield-">yield</a>, <a href="#block-object-and-call-">Block object and call</a>, <a href="#passing-a-block">Passing a block</a>, <a href="#passing-a-block-with-block-arguments">Passing a block with block arguments</a>, <a href="#special-get_block-keyword">Special get_block keyword</a>, <a href="#closure">Closure</a><br>
+<b>Block</b>: <a href="#block1">Block</a>, <a href="#-yield-">yield</a>, <a href="#block-object-and-call-">Block object and call</a>, <a href="#passing-a-block">Passing a block</a>, <a href="#passing-a-block-with-block-arguments">Passing a block with block arguments</a>, <a href="#special-get_block-keyword">Special get_block keyword</a>, <a href="#closure">Closure</a><br>
 <b>Native class (Primary)</b>: <a href="#-object-">Object</a>, <a href="#-class-">Class</a>, <a href="#-string-">String</a>, <a href="#-integer-">Integer</a>, <a href="#-array-">Array</a>, <a href="#-hash-">Hash</a>, <a href="#-range-">Range</a>, <a href="#-block-">Block</a><br>
 <b>Native class (secondary)</b>: <a href="#-float-">Float</a>, <a href="#-decimal-">Decimal</a>, <a href="#-regexp-">Regexp</a>, <a href="#-matchdata-">MatchData</a>, <a href="#-file-">File</a><br>
 <b>Native class (Golang-oriented)</b>: <a href="#-gomap-">GoMap</a>, <a href="#-channel-">Channel</a><br>
@@ -562,7 +562,7 @@ foo <span class="hljs-number">20</span>
 <h3 id="rescue">Rescue</h3>
 <p>Under construction. Join <a href="https://github.com/goby-lang/goby/issues/605">#605</a>.</p>
 <h2 id="block">Block</h2>
-<h3 id="block">Block</h3>
+<h3 id="block1">Block</h3>
 
 <pre><code class="ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-symbol">ary:</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span></span>
   ary.each <span class="hljs-keyword">do</span> <span class="hljs-params">|s|</span>      <span class="hljs-comment"># start of the block with |block variable|</span>

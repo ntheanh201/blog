@@ -16,7 +16,7 @@
 <b>Manage images</b>: <a href="#-docker-build-">docker build</a>, <a href="#-docker-run-">docker run</a><br>
 <b>Manage containers</b>: <a href="#-docker-create-">docker create</a>, <a href="#-docker-exec-">docker exec</a>, <a href="#-docker-start-">docker start</a>, <a href="#-docker-ps-">docker ps</a>, <a href="#-docker-logs-">docker logs</a><br>
 <b>Images</b>: <a href="#-docker-images-">docker images</a>, <a href="#-docker-rmi-">docker rmi</a><br>
-<b>Clean up</b>: <a href="#clean-all">Clean all</a>, <a href="#containers">Containers</a>, <a href="#images">Images</a>, <a href="#volumes">Volumes</a><br>
+<b>Clean up</b>: <a href="#clean-all">Clean all</a>, <a href="#containers">Containers</a>, <a href="#images1">Images</a>, <a href="#volumes">Volumes</a><br>
 <a href="#also-see">Also see</a><br></div>
 
 
@@ -56,7 +56,7 @@
   <span class="hljs-string">-v,</span> <span class="hljs-string">--volume</span> <span class="hljs-string">`pwd`:/app</span>    <span class="hljs-comment"># mount (absolute paths needed)</span>
   <span class="hljs-string">-e,</span> <span class="hljs-string">--env</span> <span class="hljs-string">NAME=hello</span>       <span class="hljs-comment"># env vars</span>
 </code></pre>
-<h4 id="example">Example</h4>
+<h4 id="example1">Example</h4>
 
 <pre><code>$ docker <span class="hljs-built_in">create</span> <span class="hljs-comment">--name app_redis_1 \</span>
   <span class="hljs-comment">--expose 6379 \</span>
@@ -70,7 +70,7 @@
   <span class="hljs-string">-i,</span> <span class="hljs-string">--interactive</span>   <span class="hljs-comment"># stdin</span>
   <span class="hljs-string">-t,</span> <span class="hljs-string">--tty</span>           <span class="hljs-comment"># interactive</span>
 </code></pre>
-<h4 id="example">Example</h4>
+<h4 id="example11">Example</h4>
 
 <pre><code><span class="hljs-meta">$ </span><span class="language-bash">docker <span class="hljs-built_in">exec</span> app_web_1 tail logs/development.log</span>
 <span class="hljs-meta">$ </span><span class="language-bash">docker <span class="hljs-built_in">exec</span> -t -i app_web_1 rails c</span>
@@ -134,7 +134,7 @@ docker stop $(docker ps -a -q)
 <span class="hljs-comment"># Delete stopped containers</span>
 docker container prune
 </code></pre>
-<h3 id="images">Images</h3>
+<h3 id="images1">Images</h3>
 
 <pre><code class="sh">docker image prune [-a]
 </code></pre>

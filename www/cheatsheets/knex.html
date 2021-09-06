@@ -16,8 +16,8 @@
 <b>Getting started</b>: <a href="#connect">Connect</a>, <a href="#create-table">Create table</a>, <a href="#select">Select</a>, <a href="#insert">Insert</a>, <a href="#update">Update</a>, <a href="#migrations">Migrations</a>, <a href="#seeds">Seeds</a><br>
 <b>Connect</b>: <a href="#libraries">Libraries</a>, <a href="#connect-via-host">Connect via host</a>, <a href="#connect-via-url">Connect via URL</a>, <a href="#connect-via-sqlite">Connect via Sqlite</a><br>
 <b>Select</b>: <a href="#where">Where</a>, <a href="#join">Join</a>, <a href="#others">Others</a>, <a href="#etc">Etc</a><br>
-<b>Schema</b>: <a href="#create-table">Create table</a>, <a href="#alter-table">Alter table</a>, <a href="#other-methods">Other methods</a><br>
-<b>Modifying</b>: <a href="#insert">Insert</a>, <a href="#update">Update</a>, <a href="#delete">Delete</a><br>
+<b>Schema</b>: <a href="#create-table1">Create table</a>, <a href="#alter-table">Alter table</a>, <a href="#other-methods">Other methods</a><br>
+<b>Modifying</b>: <a href="#insert1">Insert</a>, <a href="#update1">Update</a>, <a href="#delete">Delete</a><br>
 <b>Migrations</b>: <a href="#setting-up">Setting up</a><br></div>
 
 
@@ -80,7 +80,7 @@ knex seed:run <span class="hljs-comment"># Runs all seed files</span>
 knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a specific seed file</span>
 </code></pre>
 <p>See: <a href="http://knexjs.org/#Seeds">Seeds</a></p>
-<h2 id="connect">Connect</h2>
+<h2 id="connect1">Connect</h2>
 <h3 id="libraries">Libraries</h3>
 <p>| <code>pg</code> | PostgreSQL |
 | <code>mysql</code> | MySQL or MariaDB |
@@ -118,14 +118,14 @@ knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a sp
   <span class="hljs-attr">connection</span>: { <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;./mydb.sqlite&#x27;</span> }
 })
 </code></pre>
-<h2 id="select">Select</h2>
+<h2 id="select1">Select</h2>
 <h3 id="where">Where</h3>
 
 <pre><code class="js">knex
   .<span class="hljs-title function_">from</span>(<span class="hljs-string">&#x27;books&#x27;</span>)
   .<span class="hljs-title function_">select</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;author&#x27;</span>, <span class="hljs-string">&#x27;year&#x27;</span>)
 </code></pre>
-<h4 id="where">Where</h4>
+<h4 id="where1">Where</h4>
 
 <pre><code class="js">  .<span class="hljs-title function_">where</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>)
   .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> })
@@ -264,7 +264,7 @@ knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a sp
 </code></pre>
 <p>See: <a href="http://knexjs.org/#Builder">Query builder</a></p>
 <h2 id="schema">Schema</h2>
-<h3 id="create-table">Create table</h3>
+<h3 id="create-table1">Create table</h3>
 
 <pre><code class="js">knex.<span class="hljs-property">schema</span>.<span class="hljs-title function_">createTable</span>(<span class="hljs-string">&#x27;accounts&#x27;</span>, <span class="hljs-function"><span class="hljs-params">table</span> =&gt;</span> {
 </code></pre>
@@ -340,7 +340,7 @@ knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a sp
 </code></pre>
 <p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
 <h2 id="modifying">Modifying</h2>
-<h3 id="insert">Insert</h3>
+<h3 id="insert1">Insert</h3>
 
 <pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
 </code></pre>
@@ -356,7 +356,7 @@ knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a sp
   ])
 </code></pre>
 <p>See: <a href="http://knexjs.org/#Builder-insert">Insert</a></p>
-<h3 id="update">Update</h3>
+<h3 id="update1">Update</h3>
 
 <pre><code class="js"><span class="hljs-title function_">knex</span>(<span class="hljs-string">&#x27;users&#x27;</span>)
   .<span class="hljs-title function_">where</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> })
@@ -370,7 +370,7 @@ knex seed:run --specific=seed-filename.js <span class="hljs-comment"># Runs a sp
   .<span class="hljs-title function_">del</span>()
 </code></pre>
 <p>See: <a href="http://knexjs.org/#Builder-del">Delete</a></p>
-<h2 id="migrations">Migrations</h2>
+<h2 id="migrations1">Migrations</h2>
 <h3 id="setting-up">Setting up</h3>
 <h4 id="create-knexfile-js">Create knexfile.js</h4>
 

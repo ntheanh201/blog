@@ -1,4 +1,4 @@
-export const files = [
+export let files = [
   "101",
   "absinthe",
   "activeadmin",
@@ -13,7 +13,7 @@ export const files = [
   "ansible-modules",
   "ansible-roles",
   "ansible",
-  "appcache",
+  //"appcache",
   "applescript",
   "applinks",
   "arel",
@@ -36,7 +36,7 @@ export const files = [
   "capybara",
   "cask-index",
   "chai",
-  "cheatsheet-styles",
+  //"cheatsheet-styles",
   "chef",
   "chunky_png",
   "cidr",
@@ -105,7 +105,7 @@ export const files = [
   "git-revisions",
   "git-tricks",
   "gnupg",
-  "go",
+  //"go",
   "goby",
   "google-webfonts",
   "google_analytics",

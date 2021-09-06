@@ -17,8 +17,8 @@
 <b>Front-matter</b>: <a href="#basic-frontmatter">Basic frontmatter</a>, <a href="#other-frontmatter-stuff">Other frontmatter stuff</a>, <a href="#configuration">Configuration</a><br>
 <b>Markup</b>: <a href="#page-variables">Page variables</a>, <a href="#filters">Filters</a>, <a href="#loops">Loops</a>, <a href="#dates">Dates</a>, <a href="#conditionals">Conditionals</a>, <a href="#case">Case</a>, <a href="#includes-partials-">Includes (partials)</a>, <a href="#comments">Comments</a><br>
 <b>Variables</b>: <a href="#top-level-variables">Top-level variables</a>, <a href="#site">Site</a>, <a href="#page">Page</a><br>
-<b>Filters</b>: <a href="#dates">Dates</a>, <a href="#preprocessors">Preprocessors</a>, <a href="#array-filters">Array filters</a>, <a href="#string-filters">String filters</a>, <a href="#string-filters-jekyll-only-">String filters (Jekyll-only)</a>, <a href="#numbers">Numbers</a><br>
-<b>Paginator</b>: <a href="#paginator-setup">Paginator setup</a>, <a href="#numbers">Numbers</a>, <a href="#iterating-through-posts">Iterating through posts</a>, <a href="#previous-button">Previous button</a><br>
+<b>Filters</b>: <a href="#dates1">Dates</a>, <a href="#preprocessors">Preprocessors</a>, <a href="#array-filters">Array filters</a>, <a href="#string-filters">String filters</a>, <a href="#string-filters-jekyll-only-">String filters (Jekyll-only)</a>, <a href="#numbers">Numbers</a><br>
+<b>Paginator</b>: <a href="#paginator-setup">Paginator setup</a>, <a href="#numbers1">Numbers</a>, <a href="#iterating-through-posts">Iterating through posts</a>, <a href="#previous-button">Previous button</a><br>
 <b>Blogging</b>: <a href="#paths">Paths</a>, <a href="#image-paths">Image paths</a>, <a href="#drafts">Drafts</a>, <a href="#defining-excerpts">Defining excerpts</a>, <a href="#displaying-excerpts">Displaying excerpts</a>, <a href="#excerpt-separator">Excerpt separator</a>, <a href="#permalinks">Permalinks</a><br>
 <b>More features</b>: <a href="#data">Data</a>, <a href="#collections">Collections</a>, <a href="#code-highlighter">Code highlighter</a><br>
 <b>Integration</b>: <a href="#bundler">Bundler</a>, <a href="#compass">Compass</a><br>
@@ -211,8 +211,8 @@ See: <a href="http://jekyllrb.com/docs/configuration/">Configuration</a></p>
 {{ page.next }}
 {{ page.previous }}
 </code></pre>
-<h2 id="filters">Filters</h2>
-<h3 id="dates">Dates</h3>
+<h2 id="filters1">Filters</h2>
+<h3 id="dates1">Dates</h3>
 
 <pre><code class="ruby">{{ site.time <span class="hljs-params">| date: &quot;%Y %m %d&quot; }}</span>
 </code></pre>
@@ -579,7 +579,7 @@ See: <a href="http://jekyllrb.com/docs/configuration/">Configuration</a></p>
 <span class="hljs-attr">paginate_path:</span> <span class="hljs-string">&quot;blog/:num&quot;</span>
 </code></pre>
 <p>See: <a href="http://jekyllrb.com/docs/pagination/">Paginator</a></p>
-<h3 id="numbers">Numbers</h3>
+<h3 id="numbers1">Numbers</h3>
 
 <pre><code><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.page</span> }}</span><span class="language-xml">         - page number
 </span><span class="hljs-template-variable">{{ <span class="hljs-name">paginator.total_posts</span> }}</span><span class="language-xml">

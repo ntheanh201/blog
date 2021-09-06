@@ -1,13 +1,39 @@
 // run as:
 // deno run --allow-read --allow-write .\process.js
 
-import { Marked } from "https://deno.land/x/markdown/mod.ts";
+import { Marked, Renderer } from "https://deno.land/x/markdown/mod.ts";
 import hljs from "https://jspm.dev/highlight.js@11.0.1";
 import { join, basename } from "https://deno.land/std@0.106.0/path/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { files } from "./processfiles.js";
 
-// files.splice(3); // minimizes time spent rebuilding
+let devhintsFiles = files;
+let regenIndex = true;
+
+if (false) {
+  //devhintsFiles.splice(3); // minimizes time spent rebuilding
+  devhintsFiles = ["bash"];
+  regenIndex = false;
+}
+
+class MyRenderer extends Renderer
+{
+  constructor() {
+    super();
+    // keep track of ids so that can generate unique ids
+    this.ids = {};
+  }
+  heading(text, level, raw) {
+    let id = this.options.headerPrefix + raw.toLowerCase().replace(/[^\w]+/g, '-');
+
+    while (this.ids[id]) {
+      //console.log("dup id:", id);
+      id += "1"
+    }
+    this.ids[id] = true;
+    return `<h${level} id="${id}">${text}</h${level}>\n`;
+  }
+}
 
 function len(o) {
   if (o && o.length) {
@@ -41,15 +67,91 @@ function genHTML(innerHTML, mdFileName, meta) {
 </html>`
 }
 
-function genIndexHTML(dstFiles) {
-  let innerHTML = "";
-  for (let file of dstFiles) {
-    let name = file.replace(".html", "")
-    innerHTML += `<div class="cslist-item">
-   <a href="${file}">${name}</a>
-</div>
-`;
+/*
+meta: {
+  pathHTML:
+  pathMd:
+  // those are optional
+  title:
+  category:
+
+  tags: [tag1, tag2]
+  layout:
+  updated:
+  keywords:
+  weight:
+  intro:
+}
+*/
+function genIndexHTML(metas) {
+  if (!regenIndex) {
+    return;
   }
+  //console.log("metas:", metas);
+
+  // ensure meta.title is always set and a string (because yml metadata is int when it looks like a number)
+  for (let meta of metas) {
+    if (!meta.title) {
+      let file = meta.pathHTML;
+      meta.title = file.replace(".html", "")
+    } else {
+      if (typeof(meta.title) !== "string") {
+        console.log("meta.title:", meta.title);
+        meta.title = meta.title.toString();
+      }
+    }
+  }
+
+  // sort by title
+  function cmpByTitle(m1, m2) {
+    let t1 = m1.title.toLowerCase();
+    let t2 = m2.title.toLowerCase();
+    if (t1 < t2) {
+      return -1;
+    }
+    if (t1 > t2) {
+      return 1;
+    }
+    return 0;
+  }
+  metas.sort(cmpByTitle)
+
+  let byCat = {};
+  for (let meta of metas) {
+    let cat = meta.category;
+    if (!cat) {
+      continue;
+    }
+    let a = byCat[cat] || [];
+    a.push(meta);
+    byCat[cat] = a;
+  }
+
+  let tocHTML = "";
+  for (let meta of metas) {
+    tocHTML += `
+<div class="index-toc-item with-bull"><a href="${meta.pathHTML}">${meta.title}</a></div>`;
+  }
+
+  // build toc for categories
+  let catsHTML = "";
+  let categories = Object.keys(byCat);
+  categories.sort();
+  for (let category of categories) {
+    let catMetas = byCat[category];
+    //console.log(cat, catMetas);
+    let catHTML = `<div class="index-toc">`;
+    catHTML += `<div> <b>${category}</b>:&nbsp;</div>`;
+    for (let meta of catMetas) {
+      catHTML += `
+<div class="with-bull"><a href="${meta.pathHTML}">${meta.title}</a></div>`;
+    }
+    catHTML += `</div>`
+    catsHTML += catHTML;
+  }
+  //console.log(`${len(keys)} categories`);
+
+  let nCheatsheets = len(metas);
   const s = `<!DOCTYPE html>
 <html>
 
@@ -65,12 +167,14 @@ function genIndexHTML(dstFiles) {
   <div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
 
   <div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
-    <div><input @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
+    <div>${nCheatsheets} cheatsheets: <input placeholder="'/' to search" @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
   </div>
 
-  <div class="cslist">
-    ${innerHTML}
+  <div class="index-toc">
+    ${tocHTML}
   </div>
+  <div class="by-topic"><center>By topic:</center></div>
+  ${catsHTML}
 </body>
 </html>
 `;
@@ -149,13 +253,12 @@ function buildToc(s) {
 
 function processFile(srcPath, dstPath) {
   console.log(`Processing ${srcPath} => ${dstPath}`);
-  //const decoder = new TextDecoder("utf-8");
-  //const markdown = decoder.decode(await Deno.readFile(srcPath));
   let markdown = Deno.readTextFileSync(srcPath);
   Marked.setOptions({
     gfm: true,
     tables: true,
     langPrefix: "",
+    renderer: new MyRenderer(),
     highlight: (code, lang) => {
       const a = ["dosini", "fish", "nohighlight", "csv", "org", "jade", "textile"];
       const langSupported = lang && a.indexOf(lang) == -1;
@@ -181,20 +284,16 @@ function processFile(srcPath, dstPath) {
   let s = tocHTML + startHTML + `<div id="content">` + "\n" + markup.content + "\n" + `</div>`;
   s = genHTML(s, srcPath, markup.meta);
   Deno.writeTextFileSync(dstPath, s)
+  return markup.meta;
 }
 
 function processFiles() {
   //const files = ["go", "python", "bash", "101"];
-  if (false) {
-    genIndexHTML(files);
-    return;
-  }
-
   clean();
 
   const otherFiles = ["go", "python3"];
   const allFiles = [];
-  for (let file of files) {
+  for (let file of devhintsFiles) {
     let path = join("devhints", file + ".md");
     allFiles.push(path);
   }
@@ -204,13 +303,20 @@ function processFiles() {
   }
 
   let dstFiles = [];
+  let metas = [];
   for (let path of allFiles) {
     const src = path;
     const dst = basename(src).replace(".md", ".html");
     dstFiles.push(dst);
-    processFile(src, dst)
+    let meta =  processFile(src, dst)
+    if (!meta) {
+      meta = {};
+    }
+    meta.pathHTML = dst
+    meta.pathMd = src
+    metas.push(meta);
   }
-  genIndexHTML(dstFiles);
+  genIndexHTML(metas);
 }
 
 function cleanupMarkdown(s) {

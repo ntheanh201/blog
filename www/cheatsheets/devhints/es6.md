@@ -9,6 +9,11 @@ intro: |
   A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
 ---
 
+## Main
+Overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.
+
+### Intro
+
 ### Block scoping
 
 #### Let

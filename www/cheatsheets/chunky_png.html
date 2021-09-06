@@ -33,7 +33,7 @@ image = ChunkyPNG::Image.from_io(io)
 
 <pre><code class="ruby">image.save(<span class="hljs-string">&#x27;filename.png&#x27;</span>)
 </code></pre>
-<h4 id="alternate-ways">Alternate ways</h4>
+<h4 id="alternate-ways1">Alternate ways</h4>
 
 <pre><code class="ruby">File.open(<span class="hljs-string">&#x27;newfile.png&#x27;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>) { <span class="hljs-params">|io|</span> image.write(io) }
 binary_string = image.to_blob

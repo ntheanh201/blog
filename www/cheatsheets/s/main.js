@@ -123,7 +123,7 @@ function onClick(ev) {
 }
 
 function filterList(s) {
-    const els = document.getElementsByClassName("cslist-item");
+    const els = document.getElementsByClassName("index-toc-item");
     for (const el of els) {
         const v = el.getElementsByTagName("a");
         if (len(v) != 1) {
@@ -167,7 +167,17 @@ async function start() {
     }
 }
 
-async function startIndex() {
+function focusSearch() {
     const el = document.getElementById("search-input");
     el.focus();
+}
+
+async function startIndex() {
+    document.addEventListener('keydown', (event) => {
+        if (event.key == '/') {
+            focusSearch();
+            event.preventDefault();
+        }
+    });
+    focusSearch();
 }

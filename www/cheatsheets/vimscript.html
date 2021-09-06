@@ -15,18 +15,18 @@
   <div class="toc">
 <b>Main</b>: <a href="#start-hacking">Start hacking</a>, <a href="#learn-by-example">Learn by example</a><br>
 <b>Variables</b>: <a href="#defining">Defining</a>, <a href="#variable-prefixes">Variable prefixes</a>, <a href="#other-prefixes">Other prefixes</a>, <a href="#vim-options">Vim options</a>, <a href="#operators">Operators</a><br>
-<b>Strings</b>: <a href="#strings">Strings</a>, <a href="#string-functions">String functions</a><br>
-<b>Functions</b>: <a href="#functions">Functions</a>, <a href="#namespacing">Namespacing</a>, <a href="#calling-functions">Calling functions</a>, <a href="#consuming-return-values">Consuming return values</a>, <a href="#abortable">Abortable</a>, <a href="#var-arguments">Var arguments</a><br>
+<b>Strings</b>: <a href="#strings1">Strings</a>, <a href="#string-functions">String functions</a><br>
+<b>Functions</b>: <a href="#functions1">Functions</a>, <a href="#namespacing">Namespacing</a>, <a href="#calling-functions">Calling functions</a>, <a href="#consuming-return-values">Consuming return values</a>, <a href="#abortable">Abortable</a>, <a href="#var-arguments">Var arguments</a><br>
 <a href="#loops">Loops</a><br>
-<b>Custom commands</b>: <a href="#custom-commands">Custom commands</a>, <a href="#commands-calling-functions">Commands calling functions</a>, <a href="#commands-with-arguments">Commands with arguments</a><br>
-<b>Flow</b>: <a href="#conditionals">Conditionals</a>, <a href="#truthiness">Truthiness</a>, <a href="#operators">Operators</a>, <a href="#strings">Strings</a>, <a href="#identity-operators">Identity operators</a>, <a href="#regexp-matches">Regexp matches</a>, <a href="#single-line">Single line</a>, <a href="#boolean-logic">Boolean logic</a><br>
-<b>Lists</b>: <a href="#lists">Lists</a>, <a href="#functions">Functions</a>, <a href="#concatenation">Concatenation</a>, <a href="#sublists">Sublists</a>, <a href="#push">Push</a>, <a href="#map">Map</a><br>
-<b>Dictionaries</b>: <a href="#dictionaries">Dictionaries</a>, <a href="#using-dictionaries">Using dictionaries</a>, <a href="#iteration">Iteration</a>, <a href="#prefixes">Prefixes</a>, <a href="#extending">Extending</a><br>
+<b>Custom commands</b>: <a href="#custom-commands1">Custom commands</a>, <a href="#commands-calling-functions">Commands calling functions</a>, <a href="#commands-with-arguments">Commands with arguments</a><br>
+<b>Flow</b>: <a href="#conditionals">Conditionals</a>, <a href="#truthiness">Truthiness</a>, <a href="#operators1">Operators</a>, <a href="#strings11">Strings</a>, <a href="#identity-operators">Identity operators</a>, <a href="#regexp-matches">Regexp matches</a>, <a href="#single-line">Single line</a>, <a href="#boolean-logic">Boolean logic</a><br>
+<b>Lists</b>: <a href="#lists1">Lists</a>, <a href="#functions11">Functions</a>, <a href="#concatenation">Concatenation</a>, <a href="#sublists">Sublists</a>, <a href="#push">Push</a>, <a href="#map">Map</a><br>
+<b>Dictionaries</b>: <a href="#dictionaries1">Dictionaries</a>, <a href="#using-dictionaries">Using dictionaries</a>, <a href="#iteration">Iteration</a>, <a href="#prefixes">Prefixes</a>, <a href="#extending">Extending</a><br>
 <a href="#casting">Casting</a><br>
-<b>Numbers</b>: <a href="#numbers">Numbers</a>, <a href="#floats">Floats</a>, <a href="#arithmetic">Arithmetic</a>, <a href="#math-functions">Math functions</a><br>
+<b>Numbers</b>: <a href="#numbers1">Numbers</a>, <a href="#floats">Floats</a>, <a href="#arithmetic">Arithmetic</a>, <a href="#math-functions">Math functions</a><br>
 <b>Vim-isms</b>: <a href="#execute-a-command">Execute a command</a>, <a href="#running-keystrokes">Running keystrokes</a>, <a href="#getting-filenames">Getting filenames</a>, <a href="#silencing">Silencing</a>, <a href="#echo">Echo</a>, <a href="#settings">Settings</a>, <a href="#prompts">Prompts</a>, <a href="#built-ins">Built-ins</a><br>
 <b>Mapping</b>: <a href="#mapping-commands">Mapping commands</a>, <a href="#explanation">Explanation</a>, <a href="#arguments">Arguments</a><br>
-<b>Syntax</b>: <a href="#highlights">Highlights</a>, <a href="#filetype-detection">Filetype detection</a>, <a href="#conceal">Conceal</a>, <a href="#region-conceal">Region conceal</a>, <a href="#syntax">Syntax</a>, <a href="#include-guards">Include guards</a><br></div>
+<b>Syntax</b>: <a href="#highlights">Highlights</a>, <a href="#filetype-detection">Filetype detection</a>, <a href="#conceal">Conceal</a>, <a href="#region-conceal">Region conceal</a>, <a href="#syntax1">Syntax</a>, <a href="#include-guards">Include guards</a><br></div>
 
 
   <div id="start"></div>
@@ -94,7 +94,7 @@
 <span class="hljs-keyword">let</span> var .= <span class="hljs-string">&#x27;string&#x27;</span>   <span class="hljs-comment">&quot; concat</span>
 </code></pre>
 <h2 id="strings">Strings</h2>
-<h3 id="strings">Strings</h3>
+<h3 id="strings1">Strings</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;String&quot;</span>
 <span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;String with \n newline&quot;</span>
@@ -123,7 +123,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/26.html">St
 <p>Also see <code>:help functions</code>
 See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/27.html">String functions</a></p>
 <h2 id="functions">Functions</h2>
-<h3 id="functions">Functions</h3>
+<h3 id="functions1">Functions</h3>
 
 <pre><code class="vim"><span class="hljs-comment">&quot; prefix with s: for local script-only functions</span>
 <span class="hljs-keyword">function!</span> <span class="hljs-title">s</span>:Initialize<span class="hljs-params">(cmd, args)</span>
@@ -181,7 +181,7 @@ infect(<span class="hljs-string">&#x27;jake&#x27;</span>, <span class="hljs-stri
 <span class="hljs-keyword">endwhile</span>
 </code></pre>
 <h2 id="custom-commands">Custom commands</h2>
-<h3 id="custom-commands">Custom commands</h3>
+<h3 id="custom-commands1">Custom commands</h3>
 
 <pre><code class="vim">command! Save :<span class="hljs-keyword">set</span> <span class="hljs-keyword">fo</span>=want tw=<span class="hljs-number">80</span> nowrap
 </code></pre>
@@ -256,7 +256,7 @@ infect(<span class="hljs-string">&#x27;jake&#x27;</span>, <span class="hljs-stri
 </code></pre>
 <p>No booleans. <code>0</code> is false, <code>1</code> is true.
 See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/21.html">Truthiness</a></p>
-<h3 id="operators">Operators</h3>
+<h3 id="operators1">Operators</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">if</span> <span class="hljs-number">3</span> &gt; <span class="hljs-number">2</span>
 <span class="hljs-keyword">if</span> <span class="hljs-keyword">a</span> &amp;&amp; <span class="hljs-keyword">b</span>
@@ -265,7 +265,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/21.html">Tr
 </code></pre>
 <p>See <code>:help expression-syntax</code>.
 See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/22.html">Operators</a></p>
-<h3 id="strings">Strings</h3>
+<h3 id="strings11">Strings</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">if</span> name ==# <span class="hljs-string">&#x27;John&#x27;</span>     <span class="hljs-comment">&quot; case-sensitive</span>
 <span class="hljs-keyword">if</span> name ==? <span class="hljs-string">&#x27;John&#x27;</span>     <span class="hljs-comment">&quot; case-insensitive</span>
@@ -299,7 +299,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/22.html">Op
 <span class="hljs-keyword">endif</span>
 </code></pre>
 <h2 id="lists">Lists</h2>
-<h3 id="lists">Lists</h3>
+<h3 id="lists1">Lists</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">let</span> mylist = [<span class="hljs-number">1</span>, two, <span class="hljs-number">3</span>, <span class="hljs-string">&quot;four&quot;</span>]
 
@@ -310,7 +310,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/22.html">Op
 <span class="hljs-keyword">let</span> second = <span class="hljs-built_in">get</span>(mylist, <span class="hljs-number">1</span>)
 <span class="hljs-keyword">let</span> second = <span class="hljs-built_in">get</span>(mylist, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;NONE&quot;</span>)
 </code></pre>
-<h3 id="functions">Functions</h3>
+<h3 id="functions11">Functions</h3>
 
 <pre><code class="vim"><span class="hljs-built_in">len</span>(mylist)
 <span class="hljs-built_in">empty</span>(mylist)
@@ -343,7 +343,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/22.html">Op
 <span class="hljs-keyword">call</span> <span class="hljs-built_in">filter</span>(<span class="hljs-keyword">files</span>, <span class="hljs-string">&#x27;v:val != &quot;&quot;&#x27;</span>)
 </code></pre>
 <h2 id="dictionaries">Dictionaries</h2>
-<h3 id="dictionaries">Dictionaries</h3>
+<h3 id="dictionaries1">Dictionaries</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">let</span> colors = {
   \ <span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-string">&quot;red&quot;</span>,
@@ -399,7 +399,7 @@ See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/22.html">Op
 <span class="hljs-built_in">float2nr</span>(<span class="hljs-string">&quot;3.14&quot;</span>)
 </code></pre>
 <h2 id="numbers">Numbers</h2>
-<h3 id="numbers">Numbers</h3>
+<h3 id="numbers1">Numbers</h3>
 
 <pre><code class="vim"><span class="hljs-keyword">let</span> <span class="hljs-keyword">int</span> = <span class="hljs-number">1000</span>
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">int</span> = <span class="hljs-number">0</span>xff
@@ -550,7 +550,7 @@ syn <span class="hljs-keyword">match</span> newLine <span class="hljs-string">&q
 <span class="hljs-keyword">hi</span> inBold <span class="hljs-keyword">gui</span>=bold
 <span class="hljs-keyword">hi</span> bTag guifg=blue
 </code></pre>
-<h3 id="syntax">Syntax</h3>
+<h3 id="syntax1">Syntax</h3>
 
 <pre><code class="vim">syn <span class="hljs-keyword">match</span> :name <span class="hljs-string">&quot;:regex&quot;</span> :flags
 

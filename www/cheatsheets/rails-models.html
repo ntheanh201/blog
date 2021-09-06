@@ -13,20 +13,20 @@
       <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\rails-models.md" >edit</a>
   </div>
   <div class="toc">
-<b>Generating</b>: <a href="#generating">Generating</a><br>
+<b>Generating</b>: <a href="#generating1">Generating</a><br>
 <b>Using models</b>: <a href="#query-methods">Query methods</a>, <a href="#advanced-query-methods">Advanced query methods</a>, <a href="#finder-methods">Finder methods</a>, <a href="#persistence">Persistence</a>, <a href="#attribute-assignment">Attribute Assignment</a>, <a href="#dirty">Dirty</a>, <a href="#validations">Validations</a>, <a href="#calculations">Calculations</a>, <a href="#dynamic-attribute-based-finders">Dynamic attribute-based finders</a><br>
-<b>Associations</b>: <a href="#associations">Associations</a>, <a href="#has-many">Has many</a>, <a href="#belongs-to">belongs to</a>, <a href="#many-to-many">Many-to-many</a>, <a href="#many-to-many-habtm-">Many-to-many (HABTM)</a>, <a href="#polymorphic-associations">Polymorphic associations</a><br>
-<b>Validation</b>: <a href="#validation">Validation</a>, <a href="#custom-validations">Custom validations</a>, <a href="#errors">Errors</a><br>
+<b>Associations</b>: <a href="#associations1">Associations</a>, <a href="#has-many">Has many</a>, <a href="#belongs-to">belongs to</a>, <a href="#many-to-many">Many-to-many</a>, <a href="#many-to-many-habtm-">Many-to-many (HABTM)</a>, <a href="#polymorphic-associations">Polymorphic associations</a><br>
+<b>Validation</b>: <a href="#validation1">Validation</a>, <a href="#custom-validations">Custom validations</a>, <a href="#errors">Errors</a><br>
 <b>Other API</b>: <a href="#callbacks">Callbacks</a>, <a href="#mass-updates">Mass updates</a>, <a href="#joining">Joining</a>, <a href="#where-interpolation">Where interpolation</a>, <a href="#serialize">Serialize</a><br>
 <b>Other tricks</b>: <a href="#overriding-accessors">Overriding accessors</a><br>
-<a href="#callbacks">Callbacks</a><br></div>
+<a href="#callbacks1">Callbacks</a><br></div>
 
 
   <div id="start"></div>
   <div id="wrapped-content"></div>
 <div id="content">
 <h2 id="generating">Generating</h2>
-<h3 id="generating">Generating</h3>
+<h3 id="generating1">Generating</h3>
 
 <pre><code><span class="hljs-symbol">$</span> rails g <span class="hljs-keyword">model</span> User
 </code></pre>
@@ -197,7 +197,7 @@ Person.find_by_name!(name)
 Person.scoped_by_user_name
 </code></pre>
 <h2 id="associations">Associations</h2>
-<h3 id="associations">Associations</h3>
+<h3 id="associations1">Associations</h3>
 
 <ul>
 <li><code>belongs_to</code></li>
@@ -296,7 +296,7 @@ has_and_belongs_to_many <span class="hljs-symbol">:active_projects</span>, <span
 <span class="hljs-keyword">end</span>
 </code></pre>
 <h2 id="validation">Validation</h2>
-<h3 id="validation">Validation</h3>
+<h3 id="validation1">Validation</h3>
 
 <pre><code class="ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> &lt; ActiveRecord::Base</span>
 </code></pre>
@@ -475,7 +475,7 @@ User.find(user.id).preferences
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>See: <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">http://api.rubyonrails.org/classes/ActiveRecord/Base.html</a></p>
-<h2 id="callbacks">Callbacks</h2>
+<h2 id="callbacks1">Callbacks</h2>
 
 <ul>
 <li>after_create</li>

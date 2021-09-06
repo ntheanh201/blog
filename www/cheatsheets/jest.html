@@ -14,9 +14,9 @@
   </div>
   <div class="toc">
 <b>Testing</b>: <a href="#quick-start">Quick start</a>, <a href="#writing-tests">Writing tests</a>, <a href="#bdd-syntax">BDD syntax</a>, <a href="#setup">Setup</a>, <a href="#focusing-tests">Focusing tests</a>, <a href="#skipping-tests">Skipping tests</a>, <a href="#optional-flags">Optional flags</a><br>
-<b>Expect</b>: <a href="#basic-expectations">Basic expectations</a>, <a href="#snapshots">Snapshots</a>, <a href="#errors">Errors</a>, <a href="#booleans">Booleans</a>, <a href="#numbers">Numbers</a>, <a href="#objects">Objects</a>, <a href="#objects">Objects</a>, <a href="#strings">Strings</a>, <a href="#others">Others</a><br>
-<b>More features</b>: <a href="#asynchronous-tests">Asynchronous tests</a>, <a href="#snapshots">Snapshots</a>, <a href="#react-test-renderer">React test renderer</a>, <a href="#timers">Timers</a><br>
-<b>Mock functions</b>: <a href="#mock-functions">Mock functions</a>, <a href="#assertions">Assertions</a>, <a href="#instances">Instances</a>, <a href="#calls">Calls</a>, <a href="#return-values">Return values</a>, <a href="#mock-implementations">Mock implementations</a><br>
+<b>Expect</b>: <a href="#basic-expectations">Basic expectations</a>, <a href="#snapshots">Snapshots</a>, <a href="#errors">Errors</a>, <a href="#booleans">Booleans</a>, <a href="#numbers">Numbers</a>, <a href="#objects">Objects</a>, <a href="#objects1">Objects</a>, <a href="#strings">Strings</a>, <a href="#others">Others</a><br>
+<b>More features</b>: <a href="#asynchronous-tests">Asynchronous tests</a>, <a href="#snapshots1">Snapshots</a>, <a href="#react-test-renderer">React test renderer</a>, <a href="#timers">Timers</a><br>
+<b>Mock functions</b>: <a href="#mock-functions1">Mock functions</a>, <a href="#assertions">Assertions</a>, <a href="#instances">Instances</a>, <a href="#calls">Calls</a>, <a href="#return-values">Return values</a>, <a href="#mock-implementations">Mock implementations</a><br>
 <a href="#references">References</a><br></div>
 
 
@@ -154,7 +154,7 @@ See: <a href="https://jestjs.io/docs/en/snapshot-testing#inline-snapshots">Inlin
   .<span class="hljs-title function_">toMatchObject</span>(object)
   .<span class="hljs-title function_">toHaveProperty</span>(keyPath, value)
 </code></pre>
-<h3 id="objects">Objects</h3>
+<h3 id="objects1">Objects</h3>
 
 <pre><code class="js"><span class="hljs-title function_">expect</span>(value)
   .<span class="hljs-title function_">toContain</span>(item)
@@ -191,7 +191,7 @@ expect.<span class="hljs-title function_">assertions</span>(<span class="hljs-nu
 </code></pre>
 <p>Return promises, or use async/await.
 See: <a href="http://facebook.github.io/jest/docs/en/tutorial-async.html">Async tutorial</a></p>
-<h3 id="snapshots">Snapshots</h3>
+<h3 id="snapshots1">Snapshots</h3>
 
 <pre><code class="jsx"><span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;works&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
   <span class="hljs-keyword">const</span> output = <span class="hljs-title function_">something</span>()
@@ -228,7 +228,7 @@ See: <a href="http://facebook.github.io/jest/docs/en/tutorial-react-native.html#
 </code></pre>
 <p>See: <a href="http://facebook.github.io/jest/docs/en/timer-mocks.html">Timer Mocks</a></p>
 <h2 id="mock-functions">Mock functions</h2>
-<h3 id="mock-functions">Mock functions</h3>
+<h3 id="mock-functions1">Mock functions</h3>
 
 <pre><code class="js"><span class="hljs-keyword">const</span> fn = jest.<span class="hljs-title function_">fn</span>()
 </code></pre>
