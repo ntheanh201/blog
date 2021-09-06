@@ -24,9 +24,9 @@ $ brew install tig --HEAD
 $ sudo apt install tig
 ```
 
-Not available for windows/
+Not available for windows.
 
-### Invocation
+**Invocation**:
 
 | Command             | Description                                  |
 | ------------------- | -------------------------------------------- |
