@@ -6,7 +6,13 @@ updated: 2018-11-16
 weight: -3
 ---
 
-### Installing
+## Main
+
+### Intro
+
+[Tig](https://jonas.github.io/tig/) is a text-mode interface for Git.
+
+To install:
 
 ```bash
 # MacOS + Homebrew
@@ -17,6 +23,8 @@ $ brew install tig --HEAD
 # Ubuntu
 $ sudo apt install tig
 ```
+
+Not available for windows/
 
 ### Invocation
 
@@ -40,6 +48,8 @@ You can substitute `git log` → `tig`.
 
 ### Switching views
 
+| Key | Command |
+| --- | ------- |
 | `m` | Main view |
 | `s` | Status |
 | `t` | Tree (files) |
@@ -50,8 +60,8 @@ You can substitute `git log` → `tig`.
 
 ### All views
 
-| Shortcut | Description             |
-| ---      | ---                     |
+| Shortcut | Description |
+| --- | --- |
 | `j`  `k` | Up/down                 |
 | `J`  `K` | Next/previous           |
 | ---      | ---                     |
@@ -66,14 +76,18 @@ You can substitute `git log` → `tig`.
 
 ### `m` - Main view
 
-| `D` | Toggle date display modes   |
-| `A` | Toggle author display modes |
-| `X` | Toggle commit sha           |
-| `C` | Cherry pick a commit        |
+| Shortcut | Description |
+| --- | --- |
+| `D`      | Toggle date display modes   |
+| `A`      | Toggle author display modes |
+| `X`      | Toggle commit sha           |
+| `C`      | Cherry pick a commit        |
 {: .-shortcuts}
 
 ### `s` - Status view
 
+| Shortcut | Description |
+| --- | --- |
 | `u`     | Stage/unstage file or chunk        |
 | `!`     | Revert file or chunk               |
 | `C`     | Commit                             |
@@ -84,10 +98,14 @@ You can substitute `git log` → `tig`.
 
 ### `h` - Branch view
 
+| Shortcut | Description |
+| --- | --- |
 | `i` | Change sort header |
 {: .-shortcuts}
 
 ### `h` - Blame view
 
+| Shortcut | Description |
+| --- | --- |
 | `,` | Parent commit |
 {: .-shortcuts}

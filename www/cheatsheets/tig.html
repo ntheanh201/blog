@@ -10,17 +10,20 @@
 <body onload="start()">
   <div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / Tig cheatsheet</div>
   <div class="edit">
-      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints\tig.md" >edit</a>
+      <a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/devhints/tig.md" >edit</a>
   </div>
   <div class="toc">
-<b>Main</b>: <a href="#installing">Installing</a>, <a href="#invocation">Invocation</a><br>
+<b>Main</b>: <a href="#intro">Intro</a>, <a href="#invocation">Invocation</a><br>
 <b>Shortcut keys</b>: <a href="#switching-views">Switching views</a>, <a href="#all-views">All views</a>, <a href="#-m-main-view">m - Main view</a>, <a href="#-s-status-view">s - Status view</a>, <a href="#-h-branch-view">h - Branch view</a>, <a href="#-h-blame-view">h - Blame view</a><br></div>
 
 
   <div id="start"></div>
   <div id="wrapped-content"></div>
 <div id="content">
-<h3 id="installing">Installing</h3>
+<h2 id="main">Main</h2>
+<h3 id="intro">Intro</h3>
+<p><a href="https://jonas.github.io/tig/">Tig</a> is a text-mode interface for Git.</p>
+<p>To install:</p>
 
 <pre><code class="bash"><span class="hljs-comment"># MacOS + Homebrew</span>
 $ brew install tig --HEAD
@@ -29,6 +32,7 @@ $ brew install tig --HEAD
 <pre><code class="bash"><span class="hljs-comment"># Ubuntu</span>
 $ sudo apt install tig
 </code></pre>
+<p>Not available for windows/</p>
 <h3 id="invocation">Invocation</h3>
 
 <table>
@@ -84,12 +88,41 @@ $ sudo apt install tig
 <p>You can substitute <code>git log</code> → <code>tig</code>.</p>
 <h2 id="shortcut-keys">Shortcut keys</h2>
 <h3 id="switching-views">Switching views</h3>
-<p>| <code>m</code> | Main view |
-| <code>s</code> | Status |
-| <code>t</code> | Tree (files) |
-| <code>y</code> | Stash view |
-| <code>g</code> | Grep |
-| <code>h</code> | Help |</p>
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>m</code></td>
+<td>Main view</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>Tree (files)</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>Stash view</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>Grep</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>Help</td>
+</tr>
+</tbody>
+</table>
 <h3 id="all-views">All views</h3>
 
 <table>
@@ -143,21 +176,101 @@ $ sudo apt install tig
 </tbody>
 </table>
 <h3 id="-m-main-view"><code>m</code> - Main view</h3>
-<p>| <code>D</code> | Toggle date display modes   |
-| <code>A</code> | Toggle author display modes |
-| <code>X</code> | Toggle commit sha           |
-| <code>C</code> | Cherry pick a commit        |</p>
+
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>D</code></td>
+<td>Toggle date display modes</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>Toggle author display modes</td>
+</tr>
+<tr>
+<td><code>X</code></td>
+<td>Toggle commit sha</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Cherry pick a commit</td>
+</tr>
+</tbody>
+</table>
 <h3 id="-s-status-view"><code>s</code> - Status view</h3>
-<p>| <code>u</code>     | Stage/unstage file or chunk        |
-| <code>!</code>     | Revert file or chunk               |
-| <code>C</code>     | Commit                             |
-| <code>M</code>     | Merge                              |
-| <code>1</code>     | Stage line                         |
-| <code>[</code> <code>]</code> | Increase/decrease the diff context |</p>
+
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>u</code></td>
+<td>Stage/unstage file or chunk</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Revert file or chunk</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Commit</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>Merge</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Stage line</td>
+</tr>
+<tr>
+<td><code>[</code> <code>]</code></td>
+<td>Increase/decrease the diff context</td>
+</tr>
+</tbody>
+</table>
 <h3 id="-h-branch-view"><code>h</code> - Branch view</h3>
-<p>| <code>i</code> | Change sort header |</p>
+
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i</code></td>
+<td>Change sort header</td>
+</tr>
+</tbody>
+</table>
 <h3 id="-h-blame-view"><code>h</code> - Blame view</h3>
-<p>| <code>,</code> | Parent commit |</p>
+
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>,</code></td>
+<td>Parent commit</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </body>  
