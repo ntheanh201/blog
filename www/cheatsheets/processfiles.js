@@ -228,7 +228,7 @@ export let files = [
   "pry",
   "psdrb",
   "pug",
-  "python",
+  //"python",
   "qjs",
   "qunit",
   "rack-test",

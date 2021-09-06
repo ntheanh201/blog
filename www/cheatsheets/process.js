@@ -288,7 +288,6 @@ function processFile(srcPath, dstPath) {
 }
 
 function processFiles() {
-  //const files = ["go", "python", "bash", "101"];
   clean();
 
   const otherFiles = ["go", "python3"];

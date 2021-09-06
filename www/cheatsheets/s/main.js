@@ -123,6 +123,7 @@ function onClick(ev) {
 }
 
 function filterList(s) {
+    s = s.toLowerCase();
     const els = document.getElementsByClassName("index-toc-item");
     for (const el of els) {
         const v = el.getElementsByTagName("a");
@@ -130,12 +131,11 @@ function filterList(s) {
             continue;
         }
         const a = v[0];
-        const txt = a.textContent;
-        let disp = txt.includes(s) ? "block" : "none";
-        if (!s || s === "") {
-            disp = "block";
-        }
-        el.style.display = disp;
+        const txt = a.textContent.toLowerCase();
+        let show = !s || s === "" || txt.includes(s);
+        // hide / show the div containing this <a> element
+        el.style.display = show ? "block": "none";
+        //el.style.visibility = show ? "visible" : "collapse";
     }
     return s;
 }
