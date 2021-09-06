@@ -17,7 +17,7 @@ git log v2.0..master       # reachable from *master* but not *v2.0*
 git log v2.0...master      # reachable from *master* and *v2.0*, but not both
 ```
 
-See [gitrevisions](./git-revisions).
+See [gitrevisions](./git-revisions.html).
 
 ### Basic filters
 
@@ -96,8 +96,8 @@ git log -- app/file.rb          # only file
     --pretty="format:%H"
 ```
 
-See: [Git log format cheatsheet](./git-log-format)
+See: [Git log format cheatsheet](./git-log-format.html)
 
 ## Also see
 
-- [Git log format cheatsheet](./git-log-format)
+- [Git log format cheatsheet](./git-log-format.html)

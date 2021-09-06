@@ -76,7 +76,7 @@ create table(:documents) do
 end
 ```
 
-[Ecto migrations cheatsheet](./phoenix-migrations)
+[Ecto migrations cheatsheet](./phoenix-migrations.html)
 {: .-crosslink}
 
 ### Routing
@@ -94,7 +94,7 @@ user_post_path(conn, :index, 17)     # → /users/17/posts
 user_post_path(conn, :show, 17, 12)  # → /users/17/posts/12
 ```
 
-[Phoenix routing cheatsheet](./phoenix-routing)
+[Phoenix routing cheatsheet](./phoenix-routing.html)
 {: .-crosslink}
 
 ### Conn
@@ -118,7 +118,7 @@ conn
 |> render(MyApp.ErrorView, "404.html")
 ```
 
-[Phoenix conn cheatsheet](./phoenix-conn)
+[Phoenix conn cheatsheet](./phoenix-conn.html)
 {: .-crosslink}
 
 ### Ecto
@@ -132,7 +132,7 @@ $ mix phx.gen.html \
     age:integer
 ```
 
-[Ecto cheatsheet](./phoenix-ecto)
+[Ecto cheatsheet](./phoenix-ecto.html)
 {: .-crosslink}
 
 ### Also see

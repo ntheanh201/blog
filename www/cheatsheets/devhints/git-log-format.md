@@ -111,4 +111,4 @@ See the next tables on format variables.
 
 ## Also see
 
-- [Git log cheatsheet](./git-log)
+- [Git log cheatsheet](./git-log.html)

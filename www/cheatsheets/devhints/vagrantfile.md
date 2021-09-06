@@ -124,4 +124,4 @@ end
 
 ## Also see
 
-* [Vagrant cheatsheet](./vagrant)
+* [Vagrant cheatsheet](./vagrant.html)

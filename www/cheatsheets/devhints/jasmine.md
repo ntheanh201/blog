@@ -202,5 +202,5 @@ expect('click').toHaveBeenTriggeredOn($('#some_element'))
 ## References
 {: .-one-column}
 
-* Also see the [Jest cheatsheet](./jest). Jest uses Jasmine, and therefore has similar API.
+* Also see the [Jest cheatsheet](./jest.html). Jest uses Jasmine, and therefore has similar API.
 * <https://jasmine.github.io>

@@ -357,6 +357,5 @@ Also see
 * [Vue Router](https://router.vuejs.org/) _(router.vuejs.org)_
 * [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) _(chrome.google.com)_
 * [Nuxt.js](https://nuxtjs.org/) _(nuxtjs.org)_
-* [Vue.js v1.0.28 cheatsheet](vue@1.0.28/) _Legacy version_
 
 {%endraw%}

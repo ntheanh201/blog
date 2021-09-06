@@ -41,4 +41,4 @@ vagrant destroy    # !!
 ### Also see
 
 * [Vagrant website](http://vagrantup.com) _(vagrantup.com)_
-* [Vagrantfile cheatsheet](./vagrantfile)
+* [Vagrantfile cheatsheet](./vagrantfile.html)

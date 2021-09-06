@@ -52,7 +52,7 @@ Highlighted lines are required.
 "optionalDependencies": { ··· },
 ```
 
-See [Semver cheatsheet](./semver) for explanation of version ranges.
+See [Semver cheatsheet](./semver.html) for explanation of version ranges.
 
 ### Scripts
 

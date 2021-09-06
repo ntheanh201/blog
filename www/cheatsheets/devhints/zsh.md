@@ -37,6 +37,6 @@ chsh -s `which zsh`
 
 ### Also see
 
-- [Bash cheatsheet](./bash)
+- [Bash cheatsheet](./bash.html)
 
 Zsh is mostly compatible with Bash, so most everything in Bash's cheatsheet also applies.

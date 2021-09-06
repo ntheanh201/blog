@@ -12,7 +12,7 @@ mixpanel.people.set({ $email: 'hi@gmail.com' });
 mixpanel.register({ age: 28, gender: 'male' }); /* set common properties */
 ```
 
-[mixpanel](./mixpanel)
+[mixpanel](./mixpanel.html)
 {: .-crosslink}
 
 ### Google Analytics's analytics.js
@@ -27,5 +27,5 @@ ga('send', 'pageview');
 ga('send', 'pageview', { 'dimension15': 'My custom dimension' });
 ```
 
-[analytics.js](./analytics.js)
+[analytics.js](./analytics.js.html)
 {: .-crosslink}
