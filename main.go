@@ -151,6 +151,7 @@ func main() {
 		flgCiBuild         bool
 		flgImportNotionOne string
 		flgProfile         string
+		flgCheatsheet      bool
 	)
 
 	{
@@ -166,6 +167,7 @@ func main() {
 		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
 		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
 		flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
+		flag.BoolVar(&flgCheatsheet, "cheatsheet", false, "generate html from cheatsheets")
 		flag.Parse()
 	}
 
@@ -209,6 +211,11 @@ func main() {
 		}
 		pprof.StartCPUProfile(f)
 		defer pprof.StopCPUProfile()
+	}
+
+	if flgCheatsheet {
+		cheatsheets()
+		return
 	}
 
 	if flgCiDaily {

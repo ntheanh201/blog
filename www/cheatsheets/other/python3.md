@@ -596,7 +596,7 @@ def f(x, *args, z, **kwargs):  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3
 head, *body, tail = <collection>
 ```
 
-### Inline
+### Lambda comprehension
 
 #### Lambda
 ```python
