@@ -17,6 +17,14 @@ type cheatsheet struct {
 	name string // unique name from file name, without
 }
 
+func csBuildToc(parser *parser.Parser, md []byte) {
+	doc := parser.Parse(md)
+	logf("%#v\n", doc)
+}
+
+// TODO: more work needed:
+// - parse YAML metadata and remove from markdown
+// - generate toc
 func csMdToHTML(md []byte, defaultLang string) []byte {
 	extensions := parser.NoIntraEmphasis |
 		parser.Tables |
@@ -26,6 +34,8 @@ func csMdToHTML(md []byte, defaultLang string) []byte {
 		parser.SpaceHeadings |
 		parser.NoEmptyLineBeforeBlock
 	parser := parser.NewWithExtensions(extensions)
+
+	csBuildToc(parser, md)
 
 	htmlFlags := mdhtml.Smartypants |
 		mdhtml.SmartypantsFractions |
