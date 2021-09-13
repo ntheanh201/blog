@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"path/filepath"
 	"strings"
 )
@@ -207,4 +208,10 @@ func toTrimmedLines(d []byte) []string {
 		}
 	}
 	return lines[:i]
+}
+
+func readFileMust(path string) []byte {
+	d, err := ioutil.ReadFile(path)
+	must(err)
+	return d
 }

@@ -1,18 +1,15 @@
 package main
 
 import (
-	"bytes"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"sync"
 
-	"github.com/kjk/u"
-	"github.com/yuin/goldmark"
-	"github.com/yuin/goldmark/extension"
-	"github.com/yuin/goldmark/parser"
-	"github.com/yuin/goldmark/renderer/html"
+	"github.com/gomarkdown/markdown"
+	mdhtml "github.com/gomarkdown/markdown/html"
+	"github.com/gomarkdown/markdown/parser"
 )
 
 type cheatsheet struct {
@@ -20,20 +17,26 @@ type cheatsheet struct {
 	name string // unique name from file name, without
 }
 
-func csMdToHTML(d []byte) []byte {
-	md := goldmark.New(
-		goldmark.WithExtensions(extension.GFM),
-		goldmark.WithParserOptions(
-			parser.WithAutoHeadingID(),
-		),
-		goldmark.WithRendererOptions(
-			html.WithHardWraps(),
-		),
-	)
-	var buf bytes.Buffer
-	err := md.Convert(d, &buf)
-	must(err)
-	return buf.Bytes()
+func csMdToHTML(md []byte, defaultLang string) []byte {
+	extensions := parser.NoIntraEmphasis |
+		parser.Tables |
+		parser.FencedCode |
+		parser.Autolink |
+		parser.Strikethrough |
+		parser.SpaceHeadings |
+		parser.NoEmptyLineBeforeBlock
+	parser := parser.NewWithExtensions(extensions)
+
+	htmlFlags := mdhtml.Smartypants |
+		mdhtml.SmartypantsFractions |
+		mdhtml.SmartypantsDashes |
+		mdhtml.SmartypantsLatexDashes
+	htmlOpts := mdhtml.RendererOptions{
+		Flags:          htmlFlags,
+		RenderNodeHook: makeRenderHookCodeBlock(defaultLang),
+	}
+	renderer := mdhtml.NewRenderer(htmlOpts)
+	return markdown.ToHTML(md, parser, renderer)
 }
 
 func cheatsheets() {
@@ -90,8 +93,8 @@ func cheatsheets() {
 		wg.Add(1)
 		sem <- true
 		go func(cs *cheatsheet) {
-			d := u.ReadFileMust(cs.path)
-			html := csMdToHTML(d)
+			d := readFileMust(cs.path)
+			html := csMdToHTML(d, "")
 			logf("Processed %s, html size: %d\n", cs.path, len(html))
 			wg.Done()
 			<-sem

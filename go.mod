@@ -17,6 +17,5 @@ require (
 	github.com/sony/sonyflake v1.0.0
 	github.com/stretchr/testify v1.3.0
 	github.com/thomas11/atomgenerator v0.0.0-20140514140532-0b3b01da14a4
-	github.com/yuin/goldmark v1.4.0
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
