@@ -285,3 +285,15 @@ func openBrowser(url string) {
 		log.Fatal(err)
 	}
 }
+
+func formatSize(n int64) string {
+	sizes := []int64{1024 * 1024 * 1024, 1024 * 1024, 1024}
+	suffixes := []string{"GB", "MB", "kB"}
+	for i, size := range sizes {
+		if n >= size {
+			s := fmt.Sprintf("%.2f", float64(n)/float64(size))
+			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
+		}
+	}
+	return fmt.Sprintf("%d bytes", n)
+}

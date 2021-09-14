@@ -75,28 +75,18 @@ func userHomeDirMust() string {
 }
 ```
 
-## humanizeSize
+## formatSize
 
 ```go
-func humanizeSize(i int64) string {
-	const (
-		kb = 1024
-		mb = kb * 1024
-		gb = mb * 1024
-	)
-	fs := func(n int64, d float64, size string) string {
-		s := fmt.Sprintf("%.2f", float64(n)/d)
-		return strings.TrimSuffix(s, ".00") + " " + size
-	}
+func formatSize(n int64) string {
+	sizes := []int64{1024*1024*1024, 1024*1024, 1024}
+	suffixes := []string{"GB", "MB", "kB"}
 
-	if i > gb {
-		return fs(i, gb, "GB")
-	}
-	if i > mb {
-		return fs(i, mb, "MB")
-	}
-	if i > kb {
-		return fs(i, kb, "kB")
+	for i, size := range sizes {
+		if n >= size {
+			s := fmt.Sprintf("%.2f", float64(n)/float64(size))
+			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
+		}
 	}
 	return fmt.Sprintf("%d bytes", i)
 }

@@ -212,11 +212,7 @@ func csGenHTML(cs *cheatSheet) {
 	// on windows mdFileName is a windows-style path so change to unix/url style
 	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
 	res = strings.Replace(res, "${mdFileName}", mdFileName, -1)
-	title := cs.meta["title"]
-	if title == "" {
-		title = cs.fileNameBase
-	}
-	res = strings.Replace(res, "${title}", title, -1)
+	res = strings.Replace(res, "${title}", cs.title, -1)
 	cs.html = []byte(res)
 	//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
@@ -232,6 +228,7 @@ type cheatSheet struct {
 	md         []byte
 	meta       map[string]string
 	html       []byte
+	title      string
 }
 
 func extractCheatSheetMetadata(cs *cheatSheet) {
@@ -276,29 +273,24 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 			lastName = name
 		}
 	}
+	cs.title = cs.meta["title"]
+	if cs.title == "" {
+		cs.title = cs.fileNameBase
+	}
 }
 
 func processCheatSheet(cs *cheatSheet) {
-	logf("processCheatSheet: '%s'\n", cs.mdPath)
+	//logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
 	extractCheatSheetMetadata(cs)
 	csGenHTML(cs)
 }
 
 func genIndexHTML(cheatsheets []*cheatSheet) string {
-	for _, cs := range cheatsheets {
-		title := cs.meta["title"]
-		if title == "" {
-			cs.meta["title"] = cs.fileNameBase
-		}
-	}
-
 	// sort by title
 	sort.Slice(cheatsheets, func(i, j int) bool {
-		cs1 := cheatsheets[i]
-		cs2 := cheatsheets[j]
-		t1 := strings.ToLower(cs1.meta["title"])
-		t2 := strings.ToLower(cs2.meta["title"])
+		t1 := strings.ToLower(cheatsheets[i].title)
+		t2 := strings.ToLower(cheatsheets[j].title)
 		return t1 < t2
 	})
 
@@ -313,10 +305,9 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 
 	tocHTML := ""
 	for _, cs := range cheatsheets {
-		title := cs.meta["title"]
 		s := `
 <div class="index-toc-item with-bull"><a href="${pathHTML}">${title}</a></div>`
-		s = strings.Replace(s, "${title}", title, -1)
+		s = strings.Replace(s, "${title}", cs.title, -1)
 		s = strings.Replace(s, "${pathHTML}", cs.pathHTML, -1)
 		tocHTML += s
 	}
@@ -465,7 +456,6 @@ func cheatsheets() {
 		}(cs)
 	}
 	wg.Wait()
-
 	// upload to instantpreview.dev
 	files := map[string][]byte{}
 	sDir := filepath.Join("www", "cheatsheets", "s")
@@ -490,7 +480,8 @@ func cheatsheets() {
 		files[name] = d
 	}
 	files["index.html"] = []byte(genIndexHTML(cheatsheets))
+
 	uri := uploadFilesToInstantPreviewMust(files)
-	logf("uploaded %d cheatsheets under: %s\n", len(cheatsheets), uri)
 	openBrowser(uri)
+
 }

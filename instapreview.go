@@ -42,5 +42,7 @@ func uploadFilesToInstantPreviewMust(files map[string][]byte) string {
 	must(err)
 	res, err := httpPost(uri, zipData)
 	must(err)
-	return string(res)
+	uri = string(res)
+	logf("uploaded %d files under: %s, zip file size: %s\n", len(files), uri, formatSize(int64(len(zipData))))
+	return uri
 }
