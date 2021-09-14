@@ -196,8 +196,8 @@ func csGenHTML(cs *cheatSheet) {
 <head>
 	<meta charset="utf-8" />
 	<title>${title} cheatsheet</title>
-	<link href="s/main.css" rel="stylesheet" />
-	<script src="s/main.js"></script>
+	<link href="s/cheatsheet.css" rel="stylesheet" />
+	<script src="s/cheatsheet.js"></script>
 </head>
 
 <body onload="start()">
@@ -341,9 +341,9 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 <head>
 	<meta charset="utf-8" />
 	<title>cheatsheets</title>
-	<link href="s/main.css" rel="stylesheet" />
+	<link href="s/cheatsheet.css" rel="stylesheet" />
 	<script src="//unpkg.com/alpinejs" defer></script>
-	<script src="s/main.js"></script>
+	<script src="s/cheatsheet.js"></script>
 </head>
 
 <body onload="startIndex()">
@@ -458,15 +458,15 @@ func genCheatSheetFiles() map[string][]byte {
 	}
 	wg.Wait()
 	files := map[string][]byte{}
-	sDir := filepath.Join("cheatsheets", "s")
+	sDir := "cheatsheets"
 	{
-		path := filepath.Join(sDir, "main.js")
-		name := filepath.Join("s", "main.js")
+		path := filepath.Join(sDir, "cheatsheet.js")
+		name := filepath.Join("s", "cheatsheet.js")
 		files[name] = readFileMust(path)
 	}
 	{
-		path := filepath.Join(sDir, "main.css")
-		name := filepath.Join("s", "main.css")
+		path := filepath.Join(sDir, "cheatsheet.css")
+		name := filepath.Join("s", "cheatsheet.css")
 		files[name] = readFileMust(path)
 	}
 	for _, cs := range cheatsheets {
