@@ -365,6 +365,11 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 	<div class="index-toc">
 		${tocHTML}
 	</div>
+
+  <div class="index-toc" id="random-cs" style="margin-top: 1em">
+  Random node:&nbsp;
+  </div>
+
 	<div class="by-topic"><center>By topic:</center></div>
 	${catsHTML}
 </body>

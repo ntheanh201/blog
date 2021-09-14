@@ -122,6 +122,10 @@ function onClick(ev) {
     window.scrollTo(0, 0);
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 function filterList(s) {
     s = s.toLowerCase();
     const els = document.getElementsByClassName("index-toc-item");
@@ -138,6 +142,13 @@ function filterList(s) {
         //el.style.visibility = show ? "visible" : "collapse";
     }
     return s;
+}
+
+function showRandomCheatsheetA() {
+    const els = document.getElementsByClassName("index-toc-item");
+    const idx = getRandomInt(len(els));
+    const el = document.getElementById("random-cs");
+    el.appendChild(els[idx].cloneNode(true));
 }
 
 function hookClick() {
@@ -182,5 +193,6 @@ async function startIndex() {
             event.preventDefault();
         }
     });
+    showRandomCheatsheetA();
     focusSearch();
 }
