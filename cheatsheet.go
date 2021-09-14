@@ -308,9 +308,7 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 		if cat == "" {
 			continue
 		}
-		a := byCat[cat]
-		a = append(a, cs)
-		byCat[cat] = a
+		byCat[cat] = append(byCat[cat], cs)
 	}
 
 	tocHTML := ""
@@ -323,12 +321,13 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 		tocHTML += s
 	}
 
+	// build toc for categories
+	catsHTML := ""
 	categories := []string{}
 	for cat := range byCat {
 		categories = append(categories, cat)
 	}
 	sort.Strings(categories)
-	catsHTML := ""
 	for _, category := range categories {
 		catMetas := byCat[category]
 		catHTML := `<div class="index-toc">`
@@ -339,10 +338,11 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 			s = strings.Replace(s, "${pathHTML}", meta.pathHTML, -1)
 			s = strings.Replace(s, "${title}", meta.meta["title"], -1)
 			catHTML += s
-			catHTML += `</div>`
-			catsHTML += catHTML
 		}
+		catHTML += `</div>`
+		catsHTML += catHTML
 	}
+
 	nCheatsheets := strconv.Itoa(len(cheatsheets))
 	s := `<!DOCTYPE html>
 <html>
