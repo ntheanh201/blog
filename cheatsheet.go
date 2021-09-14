@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -46,17 +47,41 @@ func csGenHTML(cs *cheatSheet) {
 }
 
 type cheatSheet struct {
-	mdPath     string
-	name       string // unique name from file name, without extension
-	htmlPath   string
-	mdWithMeta []byte
-	md         []byte
-	meta       map[string]string
-	html       []byte
+	fileNameBase string // unique name from file name, without extension
+	mdPath       string
+	htmlPath     string
+	mdWithMeta   []byte
+	md           []byte
+	meta         map[string]string
+	html         []byte
 }
 
 func extractCheatSheetMetadata(cs *cheatSheet) {
-
+	md := normalizeNewlines(cs.mdWithMeta)
+	lines := strings.Split(string(md), "\n")
+	// skip empty lines at the beginning
+	for len(lines[0]) == 0 {
+		lines = lines[1:]
+	}
+	if lines[0] != "---" {
+		// no metadata
+		cs.md = []byte(strings.Join(lines, "\n"))
+		return
+	}
+	metaLines := []string{}
+	lines = lines[1:]
+	for lines[0] != "---" {
+		metaLines = append(metaLines, lines[0])
+		lines = lines[1:]
+	}
+	lines = lines[1:]
+	cs.md = []byte(strings.Join(lines, "\n"))
+	logf("meta for '%s':\n%s\n", cs.mdPath, strings.Join(metaLines, "\n"))
+	for _, line := range metaLines {
+		parts := strings.SplitN(line, ":", 2)
+		name := parts[0]
+		cs.meta[name] = strings.TrimSpace(parts[1])
+	}
 }
 
 func processCheatSheet(cs *cheatSheet) {
@@ -79,12 +104,15 @@ func cheatsheets() {
 			if filepath.Ext(name) != ".md" {
 				continue
 			}
+			if name != "go" {
+				continue
+			}
 			path := filepath.Join(dir, name)
 			name = strings.Split(name, ".")[0]
 			cs := &cheatSheet{
-				mdPath: path,
-				name:   name,
-				meta:   map[string]string{},
+				mdPath:       path,
+				fileNameBase: name,
+				meta:         map[string]string{},
 			}
 			cheatsheets = append(cheatsheets, cs)
 		}
@@ -95,9 +123,22 @@ func cheatsheets() {
 	dir = filepath.Join("www", "cheatsheets", "other")
 	readFromDir(dir)
 
-	// TODO: uniquify names
+	{
+		// uniquify names
+		taken := map[string]bool{}
+		for _, cs := range cheatsheets {
+			name := cs.fileNameBase
+			n := 0
+			for taken[name] {
+				n++
+				name = fmt.Sprintf("%s%d", cs.fileNameBase, n)
+			}
+			cs.fileNameBase = name
+		}
+	}
+
 	for _, cs := range cheatsheets {
-		cs.htmlPath = filepath.Join("www", "cheatsheets", cs.name+".html")
+		cs.htmlPath = filepath.Join("www", "cheatsheets", cs.fileNameBase+".html")
 	}
 
 	logf("%d cheatsheets\n", len(cheatsheets))
@@ -114,4 +155,30 @@ func cheatsheets() {
 		}(cs)
 	}
 	wg.Wait()
+
+	// upload to instantpreview.dev
+	files := map[string][]byte{}
+	sDir := filepath.Join("www", "cheatsheets", "s")
+	{
+		path := filepath.Join(sDir, "main.js")
+		name := filepath.Join("s", "main.js")
+		files[name] = readFileMust(path)
+	}
+	{
+		path := filepath.Join(sDir, "main.css")
+		name := filepath.Join("s", "main.css")
+		files[name] = readFileMust(path)
+	}
+	{
+		path := filepath.Join("www", "cheatsheets", "index.html")
+		name := "index.html"
+		files[name] = readFileMust(path)
+	}
+	for _, cs := range cheatsheets {
+		d := cs.html
+		name := filepath.Base(cs.htmlPath)
+		files[name] = d
+	}
+	uri := uploadFilesToInstantPreviewMust(files)
+	logf("uploaded %d cheatsheets under: %s\n", len(cheatsheets), uri)
 }
