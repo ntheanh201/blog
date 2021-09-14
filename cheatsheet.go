@@ -29,9 +29,13 @@ func newCsMarkdownParser() *parser.Parser {
 }
 
 type tocNode struct {
-	heading   *ast.Heading
-	children  []*ast.Heading
+	heading *ast.Heading
+	content string
+	level   int
+
+	children  []*tocNode // level of child is > our level
 	nSiblings int
+	parent    *tocNode
 }
 
 func csBuildToc(md []byte) string {
@@ -54,6 +58,8 @@ func csBuildToc(md []byte) string {
 
 	var currHeading *ast.Heading
 	var currHeadingContent string
+	var toc []*tocNode
+	var currToc *tocNode
 	ast.WalkFunc(doc, func(node ast.Node, entering bool) ast.WalkStatus {
 		switch v := node.(type) {
 		case *ast.Heading:
@@ -61,18 +67,37 @@ func csBuildToc(md []byte) string {
 				currHeading = v
 			} else {
 				currHeading.HeadingID = makeUniqueID(currHeading.HeadingID)
-				logf("h%d #%s %s\n", currHeading.Level, currHeading.HeadingID, currHeadingContent)
+				tn := &tocNode{
+					heading: currHeading,
+					content: currHeadingContent,
+					level:   currHeading.Level,
+				}
+				toc = append(toc, tn)
+				currToc = tn
 				currHeading = nil
 				currHeadingContent = ""
+				//headingLevel := currHeading.Level
 			}
 		case *ast.Text:
 			// the only child of ast.Heading is ast.Text (I think)
-			if currHeading != nil {
+			if currHeading != nil && entering {
 				currHeadingContent = string(v.Literal)
+			} else {
+				if entering && currToc != nil {
+					currToc.nSiblings++
+				}
+			}
+		default:
+			if entering && currToc != nil {
+				currToc.nSiblings++
 			}
 		}
 		return ast.GoToNext
 	})
+	for _, tn := range toc {
+		logf("h%d #%s %s %d siblings\n", tn.level, tn.heading.HeadingID, tn.content, tn.nSiblings)
+	}
+
 	return ""
 }
 
