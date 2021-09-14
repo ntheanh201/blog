@@ -722,7 +722,7 @@ func unzipToDir(zipPath string, destDir string) error {
 }
 ```
 
-## httpGET
+## httpGet
 
 ```go
 // can be used for http.Get() requests with better timeouts. New one must be created
