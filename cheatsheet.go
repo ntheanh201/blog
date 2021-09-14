@@ -4,44 +4,79 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 	"sync"
 
 	"github.com/gomarkdown/markdown"
-	mdhtml "github.com/gomarkdown/markdown/html"
+	"github.com/gomarkdown/markdown/ast"
 	"github.com/gomarkdown/markdown/parser"
 )
 
-func csBuildToc(parser *parser.Parser, md []byte) {
-	doc := parser.Parse(md)
-	logf("%#v\n", doc)
-}
-
-// TODO: more work needed:
-// - parse YAML metadata and remove from markdown
-// - generate toc
-func csGenHTML(cs *cheatSheet) {
+func newCsMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
 		parser.Tables |
 		parser.FencedCode |
 		parser.Autolink |
 		parser.Strikethrough |
 		parser.SpaceHeadings |
+		parser.AutoHeadingIDs |
+		parser.HeadingIDs |
 		parser.NoEmptyLineBeforeBlock
-	parser := parser.NewWithExtensions(extensions)
+	return parser.NewWithExtensions(extensions)
+}
 
-	csBuildToc(parser, cs.md)
-
-	htmlFlags := mdhtml.Smartypants |
-		mdhtml.SmartypantsFractions |
-		mdhtml.SmartypantsDashes |
-		mdhtml.SmartypantsLatexDashes
-	htmlOpts := mdhtml.RendererOptions{
-		Flags:          htmlFlags,
-		RenderNodeHook: makeRenderHookCodeBlock(""),
+func makeUniqueID(taken map[string]bool, id string) string {
+	curr := id
+	n := 0
+	for taken[curr] {
+		n++
+		curr = fmt.Sprintf("%s%d", id, n)
 	}
-	renderer := mdhtml.NewRenderer(htmlOpts)
+	taken[curr] = true
+	return curr
+}
+
+type tocNode struct {
+	heading   *ast.Heading
+	children  []*ast.Heading
+	nSiblings int
+}
+
+func csBuildToc(md []byte) {
+	logf("csBuildToc: printing heading, len(md): %d\n", len(md))
+	parser := newCsMarkdownParser()
+	doc := parser.Parse(md)
+	//ast.Print(os.Stdout, doc)
+
+	var currHeading *ast.Heading
+	var currHeadingContent string
+	taken := map[string]bool{}
+	ast.WalkFunc(doc, func(node ast.Node, entering bool) ast.WalkStatus {
+		switch v := node.(type) {
+		case *ast.Heading:
+			if entering {
+				currHeading = v
+			} else {
+				currHeading.HeadingID = makeUniqueID(taken, currHeading.HeadingID)
+				logf("h%d #%s %s\n", currHeading.Level, currHeading.HeadingID, currHeadingContent)
+				currHeading = nil
+				currHeadingContent = ""
+			}
+		case *ast.Text:
+			// the only child of ast.Heading is ast.Text (I think)
+			if currHeading != nil {
+				currHeadingContent = string(v.Literal)
+			}
+		}
+		return ast.GoToNext
+	})
+}
+
+func csGenHTML(cs *cheatSheet) {
+	logf("csGenHTML: for '%s'\n", cs.mdPath)
+	csBuildToc(cs.md)
+	parser := newMarkdownParser()
+	renderer := newMarkdownHTMLRenderer("")
 	cs.html = markdown.ToHTML(cs.md, parser, renderer)
 	logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
@@ -104,14 +139,16 @@ func cheatsheets() {
 			if filepath.Ext(name) != ".md" {
 				continue
 			}
+			mdPath := filepath.Join(dir, name)
+			name = strings.Split(name, ".")[0]
 			if name != "go" {
+				//logf("%s ", name)
 				continue
 			}
-			path := filepath.Join(dir, name)
-			name = strings.Split(name, ".")[0]
+			logf("%s\n", mdPath)
 			cs := &cheatSheet{
-				mdPath:       path,
 				fileNameBase: name,
+				mdPath:       mdPath,
 				meta:         map[string]string{},
 			}
 			cheatsheets = append(cheatsheets, cs)
@@ -143,7 +180,8 @@ func cheatsheets() {
 
 	logf("%d cheatsheets\n", len(cheatsheets))
 
-	sem := make(chan bool, runtime.NumCPU())
+	//sem := make(chan bool, runtime.NumCPU())
+	sem := make(chan bool, 1)
 	var wg sync.WaitGroup
 	for _, cs := range cheatsheets {
 		wg.Add(1)

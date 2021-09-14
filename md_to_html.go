@@ -68,7 +68,7 @@ func makeRenderHookCodeBlock(defaultLang string) mdhtml.RenderNodeFunc {
 	}
 }
 
-func markdownToUnsafeHTML(md []byte, defaultLang string) []byte {
+func newMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
 		parser.Tables |
 		parser.FencedCode |
@@ -76,8 +76,10 @@ func markdownToUnsafeHTML(md []byte, defaultLang string) []byte {
 		parser.Strikethrough |
 		parser.SpaceHeadings |
 		parser.NoEmptyLineBeforeBlock
-	parser := parser.NewWithExtensions(extensions)
+	return parser.NewWithExtensions(extensions)
+}
 
+func newMarkdownHTMLRenderer(defaultLang string) *mdhtml.Renderer {
 	htmlFlags := mdhtml.Smartypants |
 		mdhtml.SmartypantsFractions |
 		mdhtml.SmartypantsDashes |
@@ -86,12 +88,14 @@ func markdownToUnsafeHTML(md []byte, defaultLang string) []byte {
 		Flags:          htmlFlags,
 		RenderNodeHook: makeRenderHookCodeBlock(defaultLang),
 	}
-	renderer := mdhtml.NewRenderer(htmlOpts)
-	return markdown.ToHTML(md, parser, renderer)
+	return mdhtml.NewRenderer(htmlOpts)
 }
 
-func markdownToHTML(d []byte, defaultLang string) string {
-	unsafe := markdownToUnsafeHTML(d, defaultLang)
+func markdownToHTML(md []byte, defaultLang string) string {
+	parser := newMarkdownParser()
+	renderer := newMarkdownHTMLRenderer(defaultLang)
+	unsafe := markdown.ToHTML(md, parser, renderer)
+
 	policy := bluemonday.UGCPolicy()
 	policy.AllowStyling()
 	policy.RequireNoFollowOnFullyQualifiedLinks(false)
