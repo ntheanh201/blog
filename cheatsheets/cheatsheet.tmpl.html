@@ -1,21 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8" />
-	<title>${title} cheatsheet</title>
-	<link href="s/cheatsheet.css" rel="stylesheet" />
-	<script src="s/cheatsheet.js"></script>
+  <meta charset="utf-8" />
+  <title>${title} cheatsheet</title>
+  <link href="s/cheatsheet.css" rel="stylesheet" />
+  <script src="s/cheatsheet.js"></script>
+  <script>
+    function doSearch(s) {
+      consoel.log(s);
+    }
+    function updateLocationHash(divId) {
+      if (true) {
+        window.location.hash = divId;
+        return;
+      }
+      let h = window.location.hash;
+      if (len(h) == 0) {
+        h = divId;
+      } else {
+        h = divId + ";" + h.substr(1);
+      }
+      window.location.hash = h;
+    }
+
+    function bringToFrontDiv(hdrId) {
+      // remove "first" class from the element that currently has it
+      let els = document.getElementsByClassName("first");
+      for (let el of els) {
+        el.classList.remove("first");
+      }
+
+      const divId = hdrId + "-wrap";
+      let el = elById(divId);
+      el.classList.add("first");
+      const startEl = elById("#start");
+      el.remove();
+      startEl.after(el);
+
+      el = elById(hdrId)
+      const fullName = el.getAttribute("data-name");
+      if (fullName && fullName !== el.textContent) {
+        el.textContent = fullName;
+      }
+      el.classList.add("flash");
+      // TODO: doesn't work well because scrolls the content badly
+      //updateLocationHash(divId);
+    }
+
+    function bringToFront(target) {
+      const hdrId = target.getAttribute("href");
+      bringToFrontDiv(hdrId);
+    }
+
+    function onClick(ev) {
+      ev.preventDefault();
+      bringToFront(ev.target);
+      window.scrollTo(0, 0);
+    }
+
+    function hookClick() {
+      const els = document.getElementsByTagName("a");
+      const n = els.length;
+      for (let i = 0; i < n; i++) {
+        const el = els.item(i);
+        const href = el.getAttribute("href");
+        if (!href) {
+          continue;
+        }
+        if (href[0] == "#") {
+          el.onclick = onClick;
+        } else if (href.startsWith("http")) {
+          // make all external links open in new tab
+          el.setAttribute("target", "_blank");
+        }
+      }
+    }
+
+    async function start() {
+      buildHeaderFullNames(); // must call before groupHeaderElements()
+      groupHeaderElements();
+      hookClick();
+      for (const id of ["intro", "basics"]) {
+        const el = document.getElementById(id);
+        if (el) {
+          bringToFrontDiv(id);
+          return;
+        }
+      }
+      document.addEventListener('keydown', (event) => {
+        if (event.key == '/') {
+          focusSearch();
+          event.preventDefault();
+        }
+      });
+      focusSearch();
+    }
+  </script>
+  <style>
+    .topnav {
+      margin: 0.5em 0;
+      padding: 0 4px;
+    }
+  </style>
 </head>
 
 <body onload="start()">
-	<div class="breadcrumbs">
-	  <a href="/">Home</a>
-		<div>&nbsp;/&nbsp;</div>
-		<a href="index.html">cheatsheets</a>
-		<div>&nbsp;/&nbsp;{{.Title}} cheatsheet</div>
-		<div style="flex-grow: 1"></div>
-		<a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{.MdFileName}}">edit</a>
-</div>
-	{{.InnerHTML}}
-</body>  
+  <div class="flex flex-row align-center topnav">
+    <a href="/">Home</a>
+    <div>&nbsp;/&nbsp;</div>
+    <a href="index.html">cheatsheets</a>
+    <div>&nbsp;/&nbsp;{{.Title}} cheatsheet</div>
+    <div class="flex-grow"></div>
+    <input x-init="$watch('search', val => { doSearch(val);})" x-data="{ search: '' }" type="text"
+      @keyup.escape="search=''" x-model="search" id="cs-search-input" style="width: 32em;" placeholder="'/' to search">
+    <div class="flex-grow"></div>
+    <a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{.MdFileName}}">edit</a>
+  </div>
+  {{.InnerHTML}}
+</body>
+
 </html>

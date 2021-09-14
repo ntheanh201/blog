@@ -12,16 +12,6 @@ function elById(id) {
     return document.getElementById(id);
 }
 
-function updateLocationHash(divId) {
-    let h = window.location.hash;
-    if (len(h) == 0) {
-        h = divId;
-    } else {
-        h = divId + ";" + h.substr(1);
-    }
-    window.location.hash = h;
-}
-
 // for nested headers we want the name be "File manipulation / Reading"
 // instead of just "Reading".
 // we build those once on h3 / h4 elements and store as "data-name" attribute
@@ -88,111 +78,12 @@ function groupHeaderElements() {
     }
 }
 
-function bringToFrontDiv(hdrId) {
-    // remove "first" class from the element that currently has it
-    let els = document.getElementsByClassName("first");
-    for (let el of els) {
-        el.classList.remove("first");
-    }
-
-    const divId = hdrId + "-wrap";
-    let el = elById(divId);
-    el.classList.add("first");
-    const startEl = elById("#start");
-    el.remove();
-    startEl.after(el);
-
-    el = elById(hdrId)
-    const fullName = el.getAttribute("data-name");
-    if (fullName && fullName !== el.textContent) {
-        el.textContent = fullName;
-    }
-    el.classList.add("flash");
-    //updateLocationHash(divId);
-}
-
-function bringToFront(target) {
-    const hdrId = target.getAttribute("href");
-    bringToFrontDiv(hdrId);
-}
-
-function onClick(ev) {
-    ev.preventDefault();
-    bringToFront(ev.target);
-    window.scrollTo(0, 0);
-}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
-
-function filterList(s) {
-    s = s.toLowerCase();
-    const els = document.getElementsByClassName("index-toc-item");
-    for (const el of els) {
-        const v = el.getElementsByTagName("a");
-        if (len(v) != 1) {
-            continue;
-        }
-        const a = v[0];
-        const txt = a.textContent.toLowerCase();
-        let show = !s || s === "" || txt.includes(s);
-        // hide / show the div containing this <a> element
-        el.style.display = show ? "block": "none";
-        //el.style.visibility = show ? "visible" : "collapse";
-    }
-    return s;
-}
-
-function showRandomCheatsheetA() {
-    const els = document.getElementsByClassName("index-toc-item");
-    const idx = getRandomInt(len(els));
-    const el = document.getElementById("random-cs");
-    el.appendChild(els[idx].cloneNode(true));
-}
-
-function hookClick() {
-    const els = document.getElementsByTagName("a");
-    const n = els.length;
-    for (let i = 0; i < n; i++) {
-        const el = els.item(i);
-        const href = el.getAttribute("href");
-        if (!href) {
-            continue;
-        }
-        if (href[0] == "#") {
-            el.onclick = onClick;
-        } else if (href.startsWith("http")) {
-            // make all external links open in new tab
-            el.setAttribute("target", "_blank");
-        }
-    }
-}
-async function start() {
-    buildHeaderFullNames(); // must call before groupHeaderElements()
-    groupHeaderElements();
-    hookClick();
-    for (const id of ["intro", "basics"]) {
-        const el = document.getElementById(id);
-        if (el) {
-            bringToFrontDiv(id);
-            return;
-        }    
-    }
 }
 
 function focusSearch() {
     const el = document.getElementById("cs-search-input");
     el.focus();
-}
-
-async function startIndex() {
-    document.addEventListener('keydown', (event) => {
-        if (event.key == '/') {
-            focusSearch();
-            event.preventDefault();
-        }
-    });
-    showRandomCheatsheetA();
-    focusSearch();
 }
