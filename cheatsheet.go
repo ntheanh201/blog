@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"sort"
 	"strconv"
@@ -32,14 +33,43 @@ type tocNode struct {
 	heading *ast.Heading
 	content string
 	level   int
+	id      string
 
 	children  []*tocNode // level of child is > our level
 	nSiblings int
-	parent    *tocNode
+	//parent    *tocNode
+}
+
+func genTocHTML(toc []*tocNode) string {
+	html := `<div class="toc">`
+	for _, e := range toc {
+		if len(e.children) == 0 {
+			s := "\n" + `<a href="#${id}">${name}</a><br>`
+			s = strings.Replace(s, "${id}", e.id, -1)
+			s = strings.Replace(s, "${name}", e.content, -1)
+			html += s
+			continue
+		}
+		s := "\n" + `<b>${name}</b>: `
+		s = strings.Replace(s, "${name}", e.content, -1)
+		for i, te := range e.children {
+			if i > 0 {
+				s += ", "
+			}
+			tmp := `<a href="#${te[1]}">${te[0]}</a>`
+			tmp = strings.Replace(tmp, "${te[1]}", te.id, -1)
+			tmp = strings.Replace(tmp, "${te[0]}", te.content, -1)
+			s += tmp
+		}
+		s += "<br>"
+		html += s
+	}
+	html += "</div>\n\n"
+	return html
 }
 
 func csBuildToc(md []byte) string {
-	logf("csBuildToc: printing heading, len(md): %d\n", len(md))
+	//logf("csBuildToc: printing heading, len(md): %d\n", len(md))
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
 	//ast.Print(os.Stdout, doc)
@@ -70,6 +100,7 @@ func csBuildToc(md []byte) string {
 				tn := &tocNode{
 					heading: currHeading,
 					content: currHeadingContent,
+					id:      currHeading.HeadingID,
 					level:   currHeading.Level,
 				}
 				toc = append(toc, tn)
@@ -94,18 +125,49 @@ func csBuildToc(md []byte) string {
 		}
 		return ast.GoToNext
 	})
-	for _, tn := range toc {
-		logf("h%d #%s %s %d siblings\n", tn.level, tn.heading.HeadingID, tn.content, tn.nSiblings)
+
+	if false {
+		for _, tn := range toc {
+			logf("h%d #%s %s %d siblings\n", tn.level, tn.heading.HeadingID, tn.content, tn.nSiblings)
+		}
 	}
 
-	return ""
+	allHeaders := toc
+	toc = nil
+	var curr *tocNode
+	for _, node := range allHeaders {
+		if !(node.level == 2 || node.level == 3) {
+			continue
+		}
+		if node.level == 2 {
+			curr = node
+			toc = append(toc, curr)
+			continue
+		}
+		// must be h3
+		if curr == nil {
+			curr = &tocNode{
+				content: "Main",
+				id:      "main",
+			}
+			toc = append(toc, curr)
+		}
+		curr.children = append(curr.children, node)
+	}
+	return genTocHTML(toc)
+}
+
+var reg *regexp.Regexp
+
+func init() {
+	reg = regexp.MustCompile(`{:.*}`)
 }
 
 func cleanupMarkdown(md []byte) []byte {
 	s := string(md)
+	// TODO: implement support of this in markdown parser
 	// remove lines like: {: data-line="1"}
-	//const reg = /{:.*}/g;
-	//s = s.replace(reg, "");
+	s = reg.ReplaceAllString(s, "")
 	s = strings.Replace(s, "{% raw %}", "", -1)
 	s = strings.Replace(s, "{% endraw %}", "", -1)
 	prev := s
@@ -117,7 +179,7 @@ func cleanupMarkdown(md []byte) []byte {
 }
 
 func csGenHTML(cs *cheatSheet) {
-	logf("csGenHTML: for '%s'\n", cs.mdPath)
+	//logf("csGenHTML: for '%s'\n", cs.mdPath)
 	md := cleanupMarkdown(cs.md)
 	parser := newCsMarkdownParser()
 	renderer := newMarkdownHTMLRenderer("")
@@ -156,7 +218,7 @@ func csGenHTML(cs *cheatSheet) {
 	}
 	res = strings.Replace(res, "${title}", title, -1)
 	cs.html = []byte(res)
-	logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
+	//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
 
 type cheatSheet struct {
@@ -192,15 +254,32 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 	}
 	lines = lines[1:]
 	cs.md = []byte(strings.Join(lines, "\n"))
-	logf("meta for '%s':\n%s\n", cs.mdPath, strings.Join(metaLines, "\n"))
+	//logf("meta for '%s':\n%s\n", cs.mdPath, strings.Join(metaLines, "\n"))
+	lastName := ""
 	for _, line := range metaLines {
 		parts := strings.SplitN(line, ":", 2)
-		name := parts[0]
-		cs.meta[name] = strings.TrimSpace(parts[1])
+		if len(parts) == 1 {
+			s := strings.TrimSpace(parts[0])
+			s = strings.Trim(s, `"`)
+			v := cs.meta[lastName]
+			if len(v) > 0 {
+				v = v + "\n"
+			}
+			v += s
+			cs.meta[lastName] = v
+		} else {
+			name := parts[0]
+			s := strings.TrimSpace(parts[1])
+			s = strings.Trim(s, `"`)
+			s = strings.TrimLeft(s, "|")
+			cs.meta[name] = s
+			lastName = name
+		}
 	}
 }
 
 func processCheatSheet(cs *cheatSheet) {
+	logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
 	extractCheatSheetMetadata(cs)
 	csGenHTML(cs)
@@ -300,7 +379,16 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 func cheatsheets() {
 	cheatsheets := []*cheatSheet{}
 
-	readFromDir := func(subDir string) {
+	isBlacklisted := func(s string, a []string) bool {
+		for _, s2 := range a {
+			if s == s2 {
+				return true
+			}
+		}
+		return false
+	}
+
+	readFromDir := func(subDir string, blacklist []string) {
 		dir := filepath.Join("www", "cheatsheets", subDir)
 		files, err := os.ReadDir(dir)
 		must(err)
@@ -313,7 +401,10 @@ func cheatsheets() {
 				continue
 			}
 			baseName := strings.Split(name, ".")[0]
-			if baseName != "go" {
+			if isBlacklisted(baseName, blacklist) {
+				continue
+			}
+			if false && baseName != "go" {
 				//logf("%s ", baseName)
 				continue
 			}
@@ -323,13 +414,15 @@ func cheatsheets() {
 				mdFileName:   filepath.Join(subDir, name),
 				meta:         map[string]string{},
 			}
-			logf("%s\n", cs.mdPath)
+			//logf("%s\n", cs.mdPath)
 			cheatsheets = append(cheatsheets, cs)
 		}
 	}
 
-	readFromDir("devhints")
-	readFromDir("other")
+	blacklist := []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
+	readFromDir("devhints", blacklist)
+	readFromDir("other", nil)
 
 	{
 		// uniquify names
@@ -341,6 +434,7 @@ func cheatsheets() {
 				n++
 				name = fmt.Sprintf("%s%d", cs.fileNameBase, n)
 			}
+			taken[name] = true
 			cs.fileNameBase = name
 		}
 	}
@@ -352,7 +446,9 @@ func cheatsheets() {
 
 	logf("%d cheatsheets\n", len(cheatsheets))
 
-	sem := make(chan bool, runtime.NumCPU())
+	nThreads := runtime.NumCPU()
+	//nThreads = 1
+	sem := make(chan bool, nThreads)
 	var wg sync.WaitGroup
 	for _, cs := range cheatsheets {
 		wg.Add(1)
