@@ -103,7 +103,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 
 func wwwPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
-	path := filepath.Join(htmlDir, fileName)
+	path := filepath.Join(generatedHTMLDir, fileName)
 	u.CreateDirForFileMust(path)
 	return path
 }
@@ -227,7 +227,7 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 
 func copyImages() {
 	srcDir := filepath.Join("notion_cache", "files")
-	dstDir := filepath.Join(htmlDir, "img")
+	dstDir := filepath.Join(generatedHTMLDir, "img")
 	u.DirCopyRecurMust(dstDir, srcDir, nil)
 }
 
@@ -449,7 +449,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 }
 
 func generateHTML(store *Articles) {
-	outDir := htmlDir
+	outDir := generatedHTMLDir
 	logf("generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
 	recreateDir(outDir)
 

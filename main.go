@@ -19,7 +19,7 @@ import (
 )
 
 var (
-	htmlDir = "www_generated" // directory where we generate html files
+	generatedHTMLDir = "www_generated" // directory where we generate html files
 
 	analyticsURL    = `` // empty to disable
 	analytics404URL = `` // empty to disable
@@ -120,7 +120,7 @@ func preview() {
 		runWranglerDev()
 		return
 	}
-	runSirv("www_generated")
+	runSirv(generatedHTMLDir)
 }
 
 var (
