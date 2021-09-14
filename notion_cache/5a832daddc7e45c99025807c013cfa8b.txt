@@ -1,4 +1,4 @@
-9981 noahttpcache
+9929 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+110
@@ -10,7 +10,7 @@ Body:+110
     }
   ]
 }
-Response:+9782
+Response:+9730
 {
   "recordMapWithRoles": {
     "block": {
@@ -91,7 +91,7 @@ Response:+9782
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631297520000,
+          "last_edited_time": 1631555340000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -99,7 +99,7 @@ Response:+9782
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 145
+          "version": 146
         }
       },
       "6f70163e-a5b8-4ba9-928a-faa2e45d1f51": {
@@ -199,7 +199,6 @@ Response:+9782
           "last_edited_time": 1631261940000,
           "name": "Main",
           "pages": [
-            "72d98807-e8a9-421d-ade4-60f139580e80",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -223,7 +222,7 @@ Response:+9782
             }
           ],
           "plan_type": "personal",
-          "version": 335
+          "version": 336
         }
       }
     }
@@ -250,7 +249,7 @@ Response:+9782
         "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1631297520000,
+        "last_edited_time": 1631555340000,
         "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
         "parent_table": "block",
         "properties": {
@@ -258,12 +257,12 @@ Response:+9782
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "page",
-        "version": 145
+        "version": 146
       }
     }
   ]
 }
-50356 noahttpcache
+50304 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadPageChunk
 Body:+152
@@ -276,7 +275,7 @@ Body:+152
   },
   "verticalColumns": false
 }
-Response:+50116
+Response:+50064
 {
   "cursor": {
     "stack": []
@@ -841,7 +840,7 @@ Response:+50116
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631297520000,
+          "last_edited_time": 1631555340000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -849,7 +848,7 @@ Response:+50116
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 145
+          "version": 146
         }
       },
       "5f2fac9f-b0f5-47d5-93f4-8077af81ec5e": {
@@ -1494,7 +1493,6 @@ Response:+50116
           "last_edited_time": 1631261940000,
           "name": "Main",
           "pages": [
-            "72d98807-e8a9-421d-ade4-60f139580e80",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -1518,13 +1516,13 @@ Response:+50116
             }
           ],
           "plan_type": "personal",
-          "version": 335
+          "version": 336
         }
       }
     }
   }
 }
-167056 noahttpcache
+167000 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/getRecordValues
 Body:+3454
@@ -1688,7 +1686,7 @@ Body:+3454
     }
   ]
 }
-Response:+163510
+Response:+163454
 {
   "recordMapWithRoles": {
     "block": {
@@ -1824,7 +1822,7 @@ Response:+163510
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095540000,
+          "last_edited_time": 1631555340000,
           "parent_id": "93d8f491-4d5f-488d-9187-9c8a6ea7f12d",
           "parent_table": "block",
           "properties": {
@@ -1836,13 +1834,13 @@ Response:+163510
                 [["a", "https://gist.github.com/hyg/9c4afcd91fe24316cbf0"]]
               ],
               [
-                "\nfunc openBrowser(url string) {\n\tvar err error\n\n\tswitch runtime.GOOS {\n\tcase \"linux\":\n\t\terr = exec.Command(\"xdg-open\", url).Start()\n\tcase \"windows\":\n\t\terr = exec.Command(\"rundll32\", \"url.dll,FileProtocolHandler\", url).Start()\n\tcase \"darwin\":\n\t\terr = exec.Command(\"open\", url).Start()\n\tdefault:\n\t\terr = fmt.Errorf(\"unsupported platform\")\n\t}\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n}"
+                "\nfunc openBrowser(url string) {\n\tvar err error\n\n\tswitch runtime.GOOS {\n\tcase \"linux\":\n\t\terr = exec.Command(\"xdg-open\", url).Start()\n\tcase \"windows\":\n\t\terr = exec.Command(\"rundll32\", \"url.dll,FileProtocolHandler\", url).Start()\n\tcase \"darwin\":\n\t\terr = exec.Command(\"open\", url).Start()\n\tdefault:\n\t\terr = fmt.Errorf(\"unsupported platform\")\n\t}\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}"
               ]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "code",
-          "version": 26
+          "version": 28
         }
       },
       "221a4fb7-8cb6-4bce-bd55-14a5a788b160": {
@@ -2477,7 +2475,7 @@ Response:+163510
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631297520000,
+          "last_edited_time": 1631555340000,
           "parent_id": "6f70163e-a5b8-4ba9-928a-faa2e45d1f51",
           "parent_table": "block",
           "properties": {
@@ -2485,7 +2483,7 @@ Response:+163510
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 145
+          "version": 146
         }
       },
       "5ef2afb4-0d64-47c7-907f-4b7c5313c396": {
@@ -4050,7 +4048,6 @@ Response:+163510
           "last_edited_time": 1631261940000,
           "name": "Main",
           "pages": [
-            "72d98807-e8a9-421d-ade4-60f139580e80",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -4074,7 +4071,7 @@ Response:+163510
             }
           ],
           "plan_type": "personal",
-          "version": 335
+          "version": 336
         }
       }
     }
@@ -4092,7 +4089,7 @@ Response:+163510
         "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
         "last_edited_by_table": "notion_user",
-        "last_edited_time": 1630095540000,
+        "last_edited_time": 1631555340000,
         "parent_id": "93d8f491-4d5f-488d-9187-9c8a6ea7f12d",
         "parent_table": "block",
         "properties": {
@@ -4104,13 +4101,13 @@ Response:+163510
               [["a", "https://gist.github.com/hyg/9c4afcd91fe24316cbf0"]]
             ],
             [
-              "\nfunc openBrowser(url string) {\n\tvar err error\n\n\tswitch runtime.GOOS {\n\tcase \"linux\":\n\t\terr = exec.Command(\"xdg-open\", url).Start()\n\tcase \"windows\":\n\t\terr = exec.Command(\"rundll32\", \"url.dll,FileProtocolHandler\", url).Start()\n\tcase \"darwin\":\n\t\terr = exec.Command(\"open\", url).Start()\n\tdefault:\n\t\terr = fmt.Errorf(\"unsupported platform\")\n\t}\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n}"
+              "\nfunc openBrowser(url string) {\n\tvar err error\n\n\tswitch runtime.GOOS {\n\tcase \"linux\":\n\t\terr = exec.Command(\"xdg-open\", url).Start()\n\tcase \"windows\":\n\t\terr = exec.Command(\"rundll32\", \"url.dll,FileProtocolHandler\", url).Start()\n\tcase \"darwin\":\n\t\terr = exec.Command(\"open\", url).Start()\n\tdefault:\n\t\terr = fmt.Errorf(\"unsupported platform\")\n\t}\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}"
             ]
           ]
         },
         "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
         "type": "code",
-        "version": 26
+        "version": 28
       }
     },
     {
