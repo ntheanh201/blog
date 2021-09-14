@@ -5,9 +5,12 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net"
 	"net/http"
+	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -262,4 +265,23 @@ func httpPost(uri string, body []byte) ([]byte, error) {
 		return nil, fmt.Errorf("'%s': status code not 200 (%d)", uri, resp.StatusCode)
 	}
 	return ioutil.ReadAll(resp.Body)
+}
+
+// from https://gist.github.com/hyg/9c4afcd91fe24316cbf0
+func openBrowser(url string) {
+	var err error
+
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", url).Start()
+	case "windows":
+		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
+	case "darwin":
+		err = exec.Command("open", url).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
 }

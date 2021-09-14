@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
+	"sort"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -31,7 +34,7 @@ type tocNode struct {
 	nSiblings int
 }
 
-func csBuildToc(md []byte) {
+func csBuildToc(md []byte) string {
 	logf("csBuildToc: printing heading, len(md): %d\n", len(md))
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
@@ -70,25 +73,78 @@ func csBuildToc(md []byte) {
 		}
 		return ast.GoToNext
 	})
+	return ""
+}
+
+func cleanupMarkdown(md []byte) []byte {
+	s := string(md)
+	// remove lines like: {: data-line="1"}
+	//const reg = /{:.*}/g;
+	//s = s.replace(reg, "");
+	s = strings.Replace(s, "{% raw %}", "", -1)
+	s = strings.Replace(s, "{% endraw %}", "", -1)
+	prev := s
+	for prev != s {
+		prev = s
+		s = strings.Replace(s, "\n\n", "\n", -1)
+	}
+	return []byte(s)
 }
 
 func csGenHTML(cs *cheatSheet) {
 	logf("csGenHTML: for '%s'\n", cs.mdPath)
-	csBuildToc(cs.md)
+	md := cleanupMarkdown(cs.md)
 	parser := newMarkdownParser()
 	renderer := newMarkdownHTMLRenderer("")
-	cs.html = markdown.ToHTML(cs.md, parser, renderer)
+	tocHTML := csBuildToc(md)
+	content := string(markdown.ToHTML(md, parser, renderer))
+	startHTML := `
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+`
+	innerHTML := tocHTML + startHTML + `<div id="content">` + "\n" + content + "\n" + `</div>`
+
+	res := `<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>${title} cheatsheet</title>
+	<link href="s/main.css" rel="stylesheet" />
+	<script src="s/main.js"></script>
+</head>
+
+<body onload="start()">
+	<div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${title} cheatsheet</div>
+	<div class="edit">
+			<a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/${mdFileName}" >edit</a>
+	</div>
+	${innerHTML}
+</body>  
+</html>`
+	res = strings.Replace(res, "${innerHTML}", string(innerHTML), -1)
+	// on windows mdFileName is a windows-style path so change to unix/url style
+	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
+	res = strings.Replace(res, "${mdFileName}", mdFileName, -1)
+	title := cs.meta["title"]
+	if title == "" {
+		title = cs.fileNameBase
+	}
+	res = strings.Replace(res, "${title}", title, -1)
+	cs.html = []byte(res)
 	logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
 
 type cheatSheet struct {
 	fileNameBase string // unique name from file name, without extension
+	mdFileName   string // path relative to www/cheatsheet directory
 	mdPath       string
-	htmlPath     string
-	mdWithMeta   []byte
-	md           []byte
-	meta         map[string]string
-	html         []byte
+	htmlFullPath string
+	// TODO: rename htmlFileName
+	pathHTML   string // path relative to www/cheatsheet directory
+	mdWithMeta []byte
+	md         []byte
+	meta       map[string]string
+	html       []byte
 }
 
 func extractCheatSheetMetadata(cs *cheatSheet) {
@@ -125,10 +181,102 @@ func processCheatSheet(cs *cheatSheet) {
 	csGenHTML(cs)
 }
 
+func genIndexHTML(cheatsheets []*cheatSheet) string {
+	for _, cs := range cheatsheets {
+		title := cs.meta["title"]
+		if title == "" {
+			cs.meta["title"] = cs.fileNameBase
+		}
+	}
+
+	// sort by title
+	sort.Slice(cheatsheets, func(i, j int) bool {
+		cs1 := cheatsheets[i]
+		cs2 := cheatsheets[j]
+		t1 := strings.ToLower(cs1.meta["title"])
+		t2 := strings.ToLower(cs2.meta["title"])
+		return t1 < t2
+	})
+
+	byCat := map[string][]*cheatSheet{}
+	for _, cs := range cheatsheets {
+		cat := cs.meta["category"]
+		if cat == "" {
+			continue
+		}
+		a := byCat[cat]
+		a = append(a, cs)
+		byCat[cat] = a
+	}
+
+	tocHTML := ""
+	for _, cs := range cheatsheets {
+		title := cs.meta["title"]
+		s := `
+<div class="index-toc-item with-bull"><a href="${pathHTML}">${title}</a></div>`
+		s = strings.Replace(s, "${title}", title, -1)
+		s = strings.Replace(s, "${pathHTML}", cs.pathHTML, -1)
+		tocHTML += s
+	}
+
+	categories := []string{}
+	for cat := range byCat {
+		categories = append(categories, cat)
+	}
+	sort.Strings(categories)
+	catsHTML := ""
+	for _, category := range categories {
+		catMetas := byCat[category]
+		catHTML := `<div class="index-toc">`
+		catHTML += strings.Replace(`<div> <b>${category}</b>:&nbsp;</div>`, "${category}", category, -1)
+		for _, meta := range catMetas {
+			s := `
+<div class="with-bull"><a href="${pathHTML}">${title}</a></div>`
+			s = strings.Replace(s, "${pathHTML}", meta.pathHTML, -1)
+			s = strings.Replace(s, "${title}", meta.meta["title"], -1)
+			catHTML += s
+			catHTML += `</div>`
+			catsHTML += catHTML
+		}
+	}
+	nCheatsheets := strconv.Itoa(len(cheatsheets))
+	s := `<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>cheatsheets</title>
+	<link href="s/main.css" rel="stylesheet" />
+	<script src="//unpkg.com/alpinejs" defer></script>
+	<script src="s/main.js"></script>
+</head>
+
+<body onload="startIndex()">
+	<div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
+
+	<div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
+		<div>${nCheatsheets} cheatsheets: <input placeholder="'/' to search" @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
+	</div>
+
+	<div class="index-toc">
+		${tocHTML}
+	</div>
+	<div class="by-topic"><center>By topic:</center></div>
+	${catsHTML}
+</body>
+</html>
+`
+	s = strings.Replace(s, "${tocHTML}", tocHTML, -1)
+	s = strings.Replace(s, "${nCheatsheets}", nCheatsheets, -1)
+	s = strings.Replace(s, "${catsHTML}", catsHTML, -1)
+	return s
+}
+
 func cheatsheets() {
 	cheatsheets := []*cheatSheet{}
 
-	readFromDir := func(dir string) {
+	readFromDir := func(subDir string) {
+		dir := filepath.Join("www", "cheatsheets", subDir)
 		files, err := os.ReadDir(dir)
 		must(err)
 		for _, f := range files {
@@ -139,26 +287,24 @@ func cheatsheets() {
 			if filepath.Ext(name) != ".md" {
 				continue
 			}
-			mdPath := filepath.Join(dir, name)
-			name = strings.Split(name, ".")[0]
-			if name != "go" {
-				//logf("%s ", name)
+			baseName := strings.Split(name, ".")[0]
+			if baseName != "go" {
+				//logf("%s ", baseName)
 				continue
 			}
-			logf("%s\n", mdPath)
 			cs := &cheatSheet{
-				fileNameBase: name,
-				mdPath:       mdPath,
+				fileNameBase: baseName,
+				mdPath:       filepath.Join(dir, name),
+				mdFileName:   filepath.Join(subDir, name),
 				meta:         map[string]string{},
 			}
+			logf("%s\n", cs.mdPath)
 			cheatsheets = append(cheatsheets, cs)
 		}
 	}
 
-	dir := filepath.Join("www", "cheatsheets", "devhints")
-	readFromDir(dir)
-	dir = filepath.Join("www", "cheatsheets", "other")
-	readFromDir(dir)
+	readFromDir("devhints")
+	readFromDir("other")
 
 	{
 		// uniquify names
@@ -175,13 +321,13 @@ func cheatsheets() {
 	}
 
 	for _, cs := range cheatsheets {
-		cs.htmlPath = filepath.Join("www", "cheatsheets", cs.fileNameBase+".html")
+		cs.pathHTML = cs.fileNameBase + ".html"
+		cs.htmlFullPath = filepath.Join("www", "cheatsheets", cs.pathHTML)
 	}
 
 	logf("%d cheatsheets\n", len(cheatsheets))
 
-	//sem := make(chan bool, runtime.NumCPU())
-	sem := make(chan bool, 1)
+	sem := make(chan bool, runtime.NumCPU())
 	var wg sync.WaitGroup
 	for _, cs := range cheatsheets {
 		wg.Add(1)
@@ -214,9 +360,11 @@ func cheatsheets() {
 	}
 	for _, cs := range cheatsheets {
 		d := cs.html
-		name := filepath.Base(cs.htmlPath)
+		name := filepath.Base(cs.htmlFullPath)
 		files[name] = d
 	}
+	files["index.html"] = []byte(genIndexHTML(cheatsheets))
 	uri := uploadFilesToInstantPreviewMust(files)
 	logf("uploaded %d cheatsheets under: %s\n", len(cheatsheets), uri)
+	openBrowser(uri)
 }
