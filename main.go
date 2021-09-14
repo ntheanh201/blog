@@ -23,10 +23,6 @@ var (
 
 	analyticsURL    = `` // empty to disable
 	analytics404URL = `` // empty to disable
-	//analyticsURL = `http://localhost:8333/a/a.js?localhost` // for local testing
-	//analytics404URL = `http://localhost:8333/a/a.js?localhost&404` // for local testing
-	//analyticsURL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost`
-	//analytics404URL = `https://analytics-w5yuy.ondigitalocean.app/a/a.js?localhost&404`
 
 	flgVerbose bool
 	flgNoCache bool
@@ -214,7 +210,7 @@ func main() {
 	}
 
 	if flgCheatsheet {
-		cheatsheets()
+		previewCheatSheets()
 		return
 	}
 

@@ -15,11 +15,6 @@ var (
 	mdOutWhitelist = make(map[string]bool)
 )
 
-func isMarkdownFile(path string) bool {
-	path = strings.ToLower(path)
-	return strings.HasSuffix(path, ".md")
-}
-
 func getFilesRecur(dir string, shouldInclude func(s string) bool) ([]string, error) {
 	var res []string
 	dirsToVisit := []string{dir}
@@ -112,7 +107,14 @@ func findMdTemplate(mdFile string) string {
 }
 
 func regenMd() {
-	mdFiles, err := getFilesRecur("www", isMarkdownFile)
+	allowFile := func(path string) bool {
+		path = strings.ToLower(path)
+		if strings.Contains(path, "cheatsheets") {
+			return false
+		}
+		return strings.HasSuffix(path, ".md")
+	}
+	mdFiles, err := getFilesRecur("www", allowFile)
 	must(err)
 	for _, mdFile := range mdFiles {
 		htmlFile := replaceExt(mdFile, ".html")

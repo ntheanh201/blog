@@ -203,7 +203,7 @@ func csGenHTML(cs *cheatSheet) {
 <body onload="start()">
 	<div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${title} cheatsheet</div>
 	<div class="edit">
-			<a href="https://github.com/kjk/blog/blob/master/www/cheatsheets/${mdFileName}" >edit</a>
+			<a href="https://github.com/kjk/blog/blob/master/cheatsheets/${mdFileName}" >edit</a>
 	</div>
 	${innerHTML}
 </body>  
@@ -372,12 +372,13 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 	return s
 }
 
-func cheatsheets() {
+func genCheatSheetFiles() map[string][]byte {
 	cheatsheets := []*cheatSheet{}
 
 	isBlacklisted := func(s string, a []string) bool {
+		s = strings.ToLower(s)
 		for _, s2 := range a {
-			if s == s2 {
+			if s == strings.ToLower(s2) {
 				return true
 			}
 		}
@@ -385,7 +386,7 @@ func cheatsheets() {
 	}
 
 	readFromDir := func(subDir string, blacklist []string) {
-		dir := filepath.Join("www", "cheatsheets", subDir)
+		dir := filepath.Join("cheatsheets", subDir)
 		files, err := os.ReadDir(dir)
 		must(err)
 		for _, f := range files {
@@ -415,7 +416,7 @@ func cheatsheets() {
 		}
 	}
 
-	blacklist := []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+	blacklist := []string{"101", "101v2", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
 	readFromDir("devhints", blacklist)
 	readFromDir("other", nil)
@@ -437,7 +438,7 @@ func cheatsheets() {
 
 	for _, cs := range cheatsheets {
 		cs.pathHTML = cs.fileNameBase + ".html"
-		cs.htmlFullPath = filepath.Join("www", "cheatsheets", cs.pathHTML)
+		cs.htmlFullPath = filepath.Join("cheatsheets", cs.pathHTML)
 	}
 
 	logf("%d cheatsheets\n", len(cheatsheets))
@@ -456,9 +457,8 @@ func cheatsheets() {
 		}(cs)
 	}
 	wg.Wait()
-	// upload to instantpreview.dev
 	files := map[string][]byte{}
-	sDir := filepath.Join("www", "cheatsheets", "s")
+	sDir := filepath.Join("cheatsheets", "s")
 	{
 		path := filepath.Join(sDir, "main.js")
 		name := filepath.Join("s", "main.js")
@@ -469,19 +469,25 @@ func cheatsheets() {
 		name := filepath.Join("s", "main.css")
 		files[name] = readFileMust(path)
 	}
-	{
-		path := filepath.Join("www", "cheatsheets", "index.html")
-		name := "index.html"
-		files[name] = readFileMust(path)
-	}
 	for _, cs := range cheatsheets {
 		d := cs.html
 		name := filepath.Base(cs.htmlFullPath)
 		files[name] = d
 	}
 	files["index.html"] = []byte(genIndexHTML(cheatsheets))
+	return files
+}
 
+func previewCheatSheets() {
+	files := genCheatSheetFiles()
 	uri := uploadFilesToInstantPreviewMust(files)
 	openBrowser(uri)
+}
 
+func genCheatSheets(outDir string) {
+	files := genCheatSheetFiles()
+	for fileName, d := range files {
+		path := filepath.Join("cheatsheets", fileName)
+		wwwWriteFile(path, d)
+	}
 }
