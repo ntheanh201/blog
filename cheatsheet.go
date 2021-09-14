@@ -201,10 +201,14 @@ func csGenHTML(cs *cheatSheet) {
 </head>
 
 <body onload="start()">
-	<div class="breadcrumbs"><a href="/">Home</a> / <a href="index.html">cheatsheets</a> / ${title} cheatsheet</div>
-	<div class="edit">
-			<a href="https://github.com/kjk/blog/blob/master/cheatsheets/${mdFileName}" >edit</a>
-	</div>
+	<div class="breadcrumbs">
+	  <a href="/">Home</a>
+		<div>&nbsp;/&nbsp;</div>
+		<a href="index.html">cheatsheets</a>
+		<div>&nbsp;/&nbsp;${title} cheatsheet</div>
+		<div style="flex-grow: 1"></div>
+		<a href="https://github.com/kjk/blog/blob/master/cheatsheets/${mdFileName}">edit</a>
+</div>
 	${innerHTML}
 </body>  
 </html>`
@@ -399,6 +403,7 @@ func genCheatSheetFiles() map[string][]byte {
 			}
 			baseName := strings.Split(name, ".")[0]
 			if isBlacklisted(baseName, blacklist) {
+				logf("blacklisted %s\n", f.Name())
 				continue
 			}
 			if false && baseName != "go" {
@@ -416,10 +421,10 @@ func genCheatSheetFiles() map[string][]byte {
 		}
 	}
 
-	blacklist := []string{"101", "101v2", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+	blacklist := []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
 	readFromDir("devhints", blacklist)
-	readFromDir("other", nil)
+	readFromDir("other", []string{"101v2"})
 
 	{
 		// uniquify names

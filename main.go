@@ -58,6 +58,7 @@ func analytics404HTML() template.HTML {
 }
 
 func rebuildAll(d *notionapi.CachingClient) *Articles {
+	os.RemoveAll(generatedHTMLDir)
 	regenMd()
 	loadTemplates()
 	articles := loadArticles(d)
@@ -101,8 +102,9 @@ func runSirv(dir string) {
 func hasWranglerConfig() bool {
 	homeDir, err := os.UserHomeDir()
 	panicIfErr(err)
-	wranglerConfigPath := filepath.Join(homeDir, "config", "default.toml")
+	wranglerConfigPath := filepath.Join(homeDir, ".wrangler", "config", "default.toml")
 	if _, err := os.Stat(wranglerConfigPath); err == nil {
+		logf("hasWranglerConfig: yes\n")
 		return true
 	}
 	apiKey := strings.TrimSpace(os.Getenv("CLOUDFLARE_API_TOKEN"))
@@ -301,6 +303,7 @@ func main() {
 	}
 
 	if flgDeployDev {
+		panicIf(!hasWranglerConfig(), "no wrangler config!")
 		cachingPolicy = notionapi.PolicyCacheOnly
 		cc := getNotionCachingClient()
 		rebuildAll(cc)
@@ -311,6 +314,7 @@ func main() {
 	}
 
 	if flgDeployProd {
+		panicIf(!hasWranglerConfig(), "no wrangler config!")
 		cachingPolicy = notionapi.PolicyCacheOnly
 		cc := getNotionCachingClient()
 		rebuildAll(cc)
