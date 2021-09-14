@@ -36,16 +36,6 @@ h2 {
   right: 1em;
 }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 1em;
-}
-
-#search-input {
-  width: 32em;
-}
 
 .bull {
   color: gray;
@@ -148,6 +138,7 @@ pre.prettyprint {
   animation: temphilight 1.7s 1;
 }
 
+
 @keyframes temphilight {
   0% {
     background-color: transparent;
@@ -173,6 +164,23 @@ a, a:visited {
 a:hover {
   background-color: lightblue;
 }
+
+/* ------------ mini tailwind -------------------- */
+
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.align-center {
+  align-items: center;
+}
+
+/* ---------------------- chroma syntax highlighting ------------------- */
 
 pre.chroma {
   display: block;

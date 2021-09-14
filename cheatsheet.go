@@ -16,6 +16,8 @@ import (
 	"github.com/gomarkdown/markdown/parser"
 )
 
+const csDir = "cheatsheets"
+
 func newCsMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
 		parser.Tables |
@@ -191,43 +193,23 @@ func csGenHTML(cs *cheatSheet) {
 `
 	innerHTML := tocHTML + startHTML + `<div id="content">` + "\n" + content + "\n" + `</div>`
 
-	res := `<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>${title} cheatsheet</title>
-	<link href="s/cheatsheet.css" rel="stylesheet" />
-	<script src="s/cheatsheet.js"></script>
-</head>
-
-<body onload="start()">
-	<div class="breadcrumbs">
-	  <a href="/">Home</a>
-		<div>&nbsp;/&nbsp;</div>
-		<a href="index.html">cheatsheets</a>
-		<div>&nbsp;/&nbsp;${title} cheatsheet</div>
-		<div style="flex-grow: 1"></div>
-		<a href="https://github.com/kjk/blog/blob/master/cheatsheets/${mdFileName}">edit</a>
-</div>
-	${innerHTML}
-</body>  
-</html>`
-	res = strings.Replace(res, "${innerHTML}", string(innerHTML), -1)
+	res := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
+	res = strings.Replace(res, "{{.InnerHTML}}", string(innerHTML), -1)
 	// on windows mdFileName is a windows-style path so change to unix/url style
 	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
-	res = strings.Replace(res, "${mdFileName}", mdFileName, -1)
-	res = strings.Replace(res, "${title}", cs.title, -1)
+	res = strings.Replace(res, "{{.MdFileName}}", mdFileName, -1)
+	res = strings.Replace(res, "{{.Title}}", cs.title, -1)
 	cs.html = []byte(res)
 	//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
 
 type cheatSheet struct {
 	fileNameBase string // unique name from file name, without extension
-	mdFileName   string // path relative to www/cheatsheet directory
+	mdFileName   string // path relative to www/cheatsheets directory
 	mdPath       string
 	htmlFullPath string
 	// TODO: rename htmlFileName
-	pathHTML   string // path relative to www/cheatsheet directory
+	pathHTML   string // path relative to www/cheatsheets directory
 	mdWithMeta []byte
 	md         []byte
 	meta       map[string]string
@@ -339,40 +321,10 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 	}
 
 	nCheatsheets := strconv.Itoa(len(cheatsheets))
-	s := `<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8" />
-	<title>cheatsheets</title>
-	<link href="s/cheatsheet.css" rel="stylesheet" />
-	<script src="//unpkg.com/alpinejs" defer></script>
-	<script src="s/cheatsheet.js"></script>
-</head>
-
-<body onload="startIndex()">
-	<div class="breadcrumbs"><a href="/">Home</a> / cheatsheets</div>
-
-	<div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="input-wrapper">
-		<div>${nCheatsheets} cheatsheets: <input placeholder="'/' to search" @keyup.escape="search=''" id="search-input" type="text" x-model="search"></div>
-	</div>
-
-	<div class="index-toc">
-		${tocHTML}
-	</div>
-
-  <div class="index-toc" id="random-cs" style="margin-top: 1em">
-  Random node:&nbsp;
-  </div>
-
-	<div class="by-topic"><center>By topic:</center></div>
-	${catsHTML}
-</body>
-</html>
-`
-	s = strings.Replace(s, "${tocHTML}", tocHTML, -1)
-	s = strings.Replace(s, "${nCheatsheets}", nCheatsheets, -1)
-	s = strings.Replace(s, "${catsHTML}", catsHTML, -1)
+	s := string(readFileMust(filepath.Join(csDir, "index.tmpl.html")))
+	s = strings.Replace(s, "{{.TocHTML}}", tocHTML, -1)
+	s = strings.Replace(s, "{{.CheatsheetsCount}}", nCheatsheets, -1)
+	s = strings.Replace(s, "{{.CatsHTML}}", catsHTML, -1)
 	return s
 }
 
@@ -390,7 +342,7 @@ func genCheatSheetFiles() map[string][]byte {
 	}
 
 	readFromDir := func(subDir string, blacklist []string) {
-		dir := filepath.Join("cheatsheets", subDir)
+		dir := filepath.Join(csDir, subDir)
 		files, err := os.ReadDir(dir)
 		must(err)
 		for _, f := range files {
@@ -443,7 +395,7 @@ func genCheatSheetFiles() map[string][]byte {
 
 	for _, cs := range cheatsheets {
 		cs.pathHTML = cs.fileNameBase + ".html"
-		cs.htmlFullPath = filepath.Join("cheatsheets", cs.pathHTML)
+		cs.htmlFullPath = filepath.Join(csDir, cs.pathHTML)
 	}
 
 	logf("%d cheatsheets\n", len(cheatsheets))
@@ -463,14 +415,13 @@ func genCheatSheetFiles() map[string][]byte {
 	}
 	wg.Wait()
 	files := map[string][]byte{}
-	sDir := "cheatsheets"
 	{
-		path := filepath.Join(sDir, "cheatsheet.js")
+		path := filepath.Join(csDir, "cheatsheet.js")
 		name := filepath.Join("s", "cheatsheet.js")
 		files[name] = readFileMust(path)
 	}
 	{
-		path := filepath.Join(sDir, "cheatsheet.css")
+		path := filepath.Join(csDir, "cheatsheet.css")
 		name := filepath.Join("s", "cheatsheet.css")
 		files[name] = readFileMust(path)
 	}

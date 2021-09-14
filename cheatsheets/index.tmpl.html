@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>cheatsheets</title>
+  <link href="s/cheatsheet.css" rel="stylesheet" />
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="s/cheatsheet.js"></script>
+  <style>
+    .topnav {
+      margin: 0.5em 0;
+      padding: 0 4px;
+      padding-bottom: 1em;
+    }
+
+    #cs-search-input {
+      width: 32em;
+    }
+  </style>
+</head>
+
+<body onload="startIndex()">
+  <div class="flex flex-row align-center topnav">
+    <a href="/">Home</a>
+    <div>&nbsp;/ cheatsheets</div>
+    <div class="flex-grow"></div>
+    <div x-init="$watch('search', val => { filterList(val);})" x-data="{ search: '' }" class="flex flex-row align-center">
+      <div style="font-size: 90%">{{.CheatsheetsCount}} cheatsheets:&nbsp;</div>
+      <input placeholder="'/' to search" @keyup.escape="search=''" id="cs-search-input" type="text" x-model="search">
+    </div>
+    <div class="flex-grow"></div>
+  </div>
+
+  <div class="index-toc">
+    {{.TocHTML}}
+  </div>
+
+  <div class="index-toc" id="random-cs" style="margin-top: 1em">
+    Random node:&nbsp;
+  </div>
+
+  <div class="by-topic">
+    <center>By topic:</center>
+  </div>
+  {{.CatsHTML}}
+</body>
+
+</html>

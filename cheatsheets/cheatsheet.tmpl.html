@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>${title} cheatsheet</title>
+	<link href="s/cheatsheet.css" rel="stylesheet" />
+	<script src="s/cheatsheet.js"></script>
+</head>
+
+<body onload="start()">
+	<div class="breadcrumbs">
+	  <a href="/">Home</a>
+		<div>&nbsp;/&nbsp;</div>
+		<a href="index.html">cheatsheets</a>
+		<div>&nbsp;/&nbsp;{{.Title}} cheatsheet</div>
+		<div style="flex-grow: 1"></div>
+		<a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{.MdFileName}}">edit</a>
+</div>
+	{{.InnerHTML}}
+</body>  
+</html>

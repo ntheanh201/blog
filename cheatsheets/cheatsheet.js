@@ -182,7 +182,7 @@ async function start() {
 }
 
 function focusSearch() {
-    const el = document.getElementById("search-input");
+    const el = document.getElementById("cs-search-input");
     el.focus();
 }
 
