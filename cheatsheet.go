@@ -119,7 +119,7 @@ func cleanupMarkdown(md []byte) []byte {
 func csGenHTML(cs *cheatSheet) {
 	logf("csGenHTML: for '%s'\n", cs.mdPath)
 	md := cleanupMarkdown(cs.md)
-	parser := newMarkdownParser()
+	parser := newCsMarkdownParser()
 	renderer := newMarkdownHTMLRenderer("")
 	tocHTML := csBuildToc(md)
 	content := string(markdown.ToHTML(md, parser, renderer))
