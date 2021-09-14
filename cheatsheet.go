@@ -25,17 +25,6 @@ func newCsMarkdownParser() *parser.Parser {
 	return parser.NewWithExtensions(extensions)
 }
 
-func makeUniqueID(taken map[string]bool, id string) string {
-	curr := id
-	n := 0
-	for taken[curr] {
-		n++
-		curr = fmt.Sprintf("%s%d", id, n)
-	}
-	taken[curr] = true
-	return curr
-}
-
 type tocNode struct {
 	heading   *ast.Heading
 	children  []*ast.Heading
@@ -48,16 +37,27 @@ func csBuildToc(md []byte) {
 	doc := parser.Parse(md)
 	//ast.Print(os.Stdout, doc)
 
+	taken := map[string]bool{}
+	makeUniqueID := func(id string) string {
+		curr := id
+		n := 0
+		for taken[curr] {
+			n++
+			curr = fmt.Sprintf("%s%d", id, n)
+		}
+		taken[curr] = true
+		return curr
+	}
+
 	var currHeading *ast.Heading
 	var currHeadingContent string
-	taken := map[string]bool{}
 	ast.WalkFunc(doc, func(node ast.Node, entering bool) ast.WalkStatus {
 		switch v := node.(type) {
 		case *ast.Heading:
 			if entering {
 				currHeading = v
 			} else {
-				currHeading.HeadingID = makeUniqueID(taken, currHeading.HeadingID)
+				currHeading.HeadingID = makeUniqueID(currHeading.HeadingID)
 				logf("h%d #%s %s\n", currHeading.Level, currHeading.HeadingID, currHeadingContent)
 				currHeading = nil
 				currHeadingContent = ""
