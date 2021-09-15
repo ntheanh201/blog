@@ -286,9 +286,9 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 	tocHTML := ""
 	for _, cs := range cheatsheets {
 		s := `
-<div class="index-toc-item with-bull"><a href="${pathHTML}">${title}</a></div>`
-		s = strings.Replace(s, "${title}", cs.title, -1)
-		s = strings.Replace(s, "${pathHTML}", cs.pathHTML, -1)
+<div class="index-toc-item with-bull"><a href="{{.PathHTML}}">{{.Title}}</a></div>`
+		s = strings.Replace(s, "{{.Title}}", cs.title, -1)
+		s = strings.Replace(s, "{{.PathHTML}}", cs.pathHTML, -1)
 		tocHTML += s
 	}
 
@@ -302,12 +302,12 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 	for _, category := range categories {
 		catMetas := byCat[category]
 		catHTML := `<div class="index-toc">`
-		catHTML += strings.Replace(`<div> <b>${category}</b>:&nbsp;</div>`, "${category}", category, -1)
-		for _, meta := range catMetas {
+		catHTML += strings.Replace(`<div> <b>{{.Category}}</b>:&nbsp;</div>`, "{{.Category}}", category, -1)
+		for _, cs := range catMetas {
 			s := `
-<div class="with-bull"><a href="${pathHTML}">${title}</a></div>`
-			s = strings.Replace(s, "${pathHTML}", meta.pathHTML, -1)
-			s = strings.Replace(s, "${title}", meta.meta["title"], -1)
+<div class="with-bull"><a href="{{.PathHTML}}">{{.Title}}</a></div>`
+			s = strings.Replace(s, "{{.PathHTML}}", cs.pathHTML, -1)
+			s = strings.Replace(s, "{{.Title}}", cs.title, -1)
 			catHTML += s
 		}
 		catHTML += `</div>`
