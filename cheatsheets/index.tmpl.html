@@ -62,10 +62,10 @@
     <a href="/">Home</a>
     <div>&nbsp;/ cheatsheets</div>
     <div class="flex-grow"></div>
-    <div x-init="$watch('search', val => { doSearch(val);})" x-data="{ search: '' }"
+    <div x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})" 
       class="flex flex-row align-center">
       <div style="font-size: 90%">{{.CheatsheetsCount}} cheatsheets:&nbsp;</div>
-      <input placeholder="'/' to search" @keyup.escape="search=''" id="cs-search-input" type="text" x-model="search">
+      <input x-model="search" @keyup.escape="search=''" id="cs-search-input" placeholder="'/' to search" type="text">
     </div>
     <div class="flex-grow"></div>
   </div>
@@ -81,7 +81,9 @@
   <div class="by-topic">
     <center>By topic:</center>
   </div>
+
   {{.CatsHTML}}
+
 </body>
 
 </html>

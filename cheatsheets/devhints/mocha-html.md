@@ -3,6 +3,8 @@ title: Mocha HTML
 category: JavaScript libraries
 ---
 
+# Intro
+
 This is a mocha template that loads js/css from cdn.
 
 ```html

@@ -18,6 +18,9 @@ import (
 
 const csDir = "cheatsheets"
 
+// if true, only generates a subset, for faster turn-around
+const limitCheatsheets = true
+
 func newCsMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
 		parser.Tables |
@@ -32,14 +35,15 @@ func newCsMarkdownParser() *parser.Parser {
 }
 
 type tocNode struct {
-	heading *ast.Heading
+	heading *ast.Heading // not set if synthesized
+
 	content string
 	level   int
 	id      string
 
-	children  []*tocNode // level of child is > our level
 	nSiblings int
-	//parent    *tocNode
+
+	children []*tocNode // level of child is > our level
 }
 
 func genTocHTML(toc []*tocNode) string {
@@ -56,7 +60,7 @@ func genTocHTML(toc []*tocNode) string {
 		s = strings.Replace(s, "${name}", e.content, -1)
 		for i, te := range e.children {
 			if i > 0 {
-				s += ", "
+				s += ", \n"
 			}
 			tmp := `<a href="#${te[1]}">${te[0]}</a>`
 			tmp = strings.Replace(tmp, "${te[1]}", te.id, -1)
@@ -66,12 +70,12 @@ func genTocHTML(toc []*tocNode) string {
 		s += "<br>"
 		html += s
 	}
-	html += "</div>\n\n"
+	html += "\n</div>\n"
 	return html
 }
 
 func csBuildToc(md []byte, path string) string {
-	//logf("csBuildToc: printing heading, len(md): %d\n", len(md))
+	//logf("csBuildToc: %s\n", path)
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
 	//ast.Print(os.Stdout, doc)
@@ -84,7 +88,7 @@ func csBuildToc(md []byte, path string) string {
 
 	var currHeading *ast.Heading
 	var currHeadingContent string
-	var toc []*tocNode
+	var allHeaders []*tocNode
 	var currToc *tocNode
 	ast.WalkFunc(doc, func(node ast.Node, entering bool) ast.WalkStatus {
 		switch v := node.(type) {
@@ -99,7 +103,7 @@ func csBuildToc(md []byte, path string) string {
 					id:      currHeading.HeadingID,
 					level:   currHeading.Level,
 				}
-				toc = append(toc, tn)
+				allHeaders = append(allHeaders, tn)
 				currToc = tn
 				currHeading = nil
 				currHeadingContent = ""
@@ -123,34 +127,108 @@ func csBuildToc(md []byte, path string) string {
 	})
 
 	if false {
-		for _, tn := range toc {
+		for _, tn := range allHeaders {
 			logf("h%d #%s %s %d siblings\n", tn.level, tn.heading.HeadingID, tn.content, tn.nSiblings)
 		}
 	}
 
-	allHeaders := toc
-	toc = nil
-	var curr *tocNode
-	for _, node := range allHeaders {
-		if !(node.level == 2 || node.level == 3) {
-			continue
-		}
-		if node.level == 2 {
-			curr = node
-			toc = append(toc, curr)
-			continue
-		}
-		// must be h3
-		if curr == nil {
-			curr = &tocNode{
-				content: "Main",
-				id:      "main",
+	buildTocOld := func() []*tocNode {
+		toc := []*tocNode{}
+		var curr *tocNode
+		for _, node := range allHeaders {
+			if !(node.level == 2 || node.level == 3) {
+				continue
 			}
-			toc = append(toc, curr)
+			if node.level == 2 {
+				curr = node
+				toc = append(toc, curr)
+				continue
+			}
+			// must be h3
+			if curr == nil {
+				curr = &tocNode{
+					content: "Main",
+					id:      "main",
+				}
+				toc = append(toc, curr)
+			}
+			curr.children = append(curr.children, node)
 		}
-		curr.children = append(curr.children, node)
+		return toc
 	}
-	return genTocHTML(toc)
+	cloneNode := func(n *tocNode) *tocNode {
+		// clone but without children
+		return &tocNode{
+			heading:   n.heading,
+			content:   n.content,
+			level:     n.level,
+			id:        n.id,
+			nSiblings: n.nSiblings,
+		}
+	}
+
+	buildToc := func() []*tocNode {
+		first := cloneNode(allHeaders[0])
+		toc := []*tocNode{first}
+		stack := []*tocNode{first}
+		for _, node := range allHeaders[1:] {
+			node = cloneNode(node)
+			stackLastIdx := len(stack) - 1
+			curr := stack[stackLastIdx]
+			currLevel := curr.level
+			nodeLevel := node.level
+			if nodeLevel > currLevel {
+				// this is a child
+				// TODO: should synthesize if we skip more than 1 level?
+				curr.children = append(curr.children, node)
+			} else if nodeLevel == currLevel {
+				// this is a sibling, make current and attach to
+				stack[stackLastIdx] = node
+				if stackLastIdx > 0 {
+					parent := stack[stackLastIdx-1]
+					parent.children = append(parent.children, node)
+				} else {
+					toc = append(toc, node)
+				}
+			} else {
+				stack = stack[:stackLastIdx]
+				stackLastIdx--
+				// TODO: possibly must go down several levels
+				if stackLastIdx > 0 {
+					stack[stackLastIdx] = node
+					parent := stack[stackLastIdx-1]
+					parent.children = append(parent.children, node)
+				} else {
+					toc = append(toc, node)
+					stack = []*tocNode{node}
+				}
+			}
+		}
+		return toc
+	}
+	toc := buildTocOld()
+	toc2 := buildToc()
+	if false {
+		printToc(toc, 0)
+		printToc(toc2, 0)
+	}
+	return genTocHTML(toc2)
+}
+
+func printToc(nodes []*tocNode, indent int) {
+	indentStr := func(indent int) string {
+		return "                               "[:indent*2]
+	}
+	hdrStr := func(level int) string {
+		return "#################"[:level]
+	}
+
+	for _, n := range nodes {
+		s := indentStr(indent)
+		hdr := hdrStr(n.level)
+		logf("%s%s %s\n", s, hdr, n.content)
+		printToc(n.children, indent+1)
+	}
 }
 
 var reg *regexp.Regexp
@@ -172,29 +250,6 @@ func cleanupMarkdown(md []byte) []byte {
 		s = strings.Replace(s, "\n\n", "\n", -1)
 	}
 	return []byte(s)
-}
-
-func csGenHTML(cs *cheatSheet) {
-	//logf("csGenHTML: for '%s'\n", cs.mdPath)
-	md := cleanupMarkdown(cs.md)
-	parser := newCsMarkdownParser()
-	renderer := newMarkdownHTMLRenderer("")
-	tocHTML := csBuildToc(md, cs.mdPath)
-	content := string(markdown.ToHTML(md, parser, renderer))
-	startHTML := `
-  <div id="start"></div>
-  <div id="wrapped-content"></div>
-`
-	innerHTML := tocHTML + startHTML + `<div id="content">` + "\n" + content + "\n" + `</div>`
-
-	res := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
-	res = strings.Replace(res, "{{.InnerHTML}}", string(innerHTML), -1)
-	// on windows mdFileName is a windows-style path so change to unix/url style
-	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
-	res = strings.Replace(res, "{{.MdFileName}}", mdFileName, -1)
-	res = strings.Replace(res, "{{.Title}}", cs.title, -1)
-	cs.html = []byte(res)
-	//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
 
 type cheatSheet struct {
@@ -263,6 +318,30 @@ func processCheatSheet(cs *cheatSheet) {
 	//logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
 	extractCheatSheetMetadata(cs)
+
+	csGenHTML := func(cs *cheatSheet) {
+		//logf("csGenHTML: for '%s'\n", cs.mdPath)
+		md := cleanupMarkdown(cs.md)
+		parser := newCsMarkdownParser()
+		renderer := newMarkdownHTMLRenderer("")
+		tocHTML := csBuildToc(md, cs.mdPath)
+		content := string(markdown.ToHTML(md, parser, renderer))
+		startHTML := `
+<div id="start"></div>
+<div id="wrapped-content"></div>
+`
+		innerHTML := tocHTML + startHTML + `<div id="content">` + "\n\n" + content + "\n" + `</div>`
+
+		res := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
+		res = strings.Replace(res, "{{.InnerHTML}}", string(innerHTML), -1)
+		// on windows mdFileName is a windows-style path so change to unix/url style
+		mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
+		res = strings.Replace(res, "{{.MdFileName}}", mdFileName, -1)
+		res = strings.Replace(res, "{{.Title}}", cs.title, -1)
+		cs.html = []byte(res)
+		//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
+	}
+
 	csGenHTML(cs)
 }
 
@@ -335,7 +414,20 @@ func genCheatSheetFiles() map[string][]byte {
 		return false
 	}
 
-	readFromDir := func(subDir string, blacklist []string) {
+	isWhitelisted := func(s string, a []string) bool {
+		if a == nil {
+			return true
+		}
+		s = strings.ToLower(s)
+		for _, s2 := range a {
+			if s == strings.ToLower(s2) {
+				return true
+			}
+		}
+		return false
+	}
+
+	readFromDir := func(subDir string, blacklist []string, whitelist []string) {
 		dir := filepath.Join(csDir, subDir)
 		files, err := os.ReadDir(dir)
 		must(err)
@@ -349,11 +441,11 @@ func genCheatSheetFiles() map[string][]byte {
 			}
 			baseName := strings.Split(name, ".")[0]
 			if isBlacklisted(baseName, blacklist) {
-				logf("blacklisted %s\n", f.Name())
+				//logf("blacklisted %s\n", f.Name())
 				continue
 			}
-			if false && baseName != "go" {
-				//logf("%s ", baseName)
+			if !isWhitelisted(baseName, whitelist) {
+				//logf("!whitelisted %s\n", f.Name())
 				continue
 			}
 			cs := &cheatSheet{
@@ -369,8 +461,14 @@ func genCheatSheetFiles() map[string][]byte {
 
 	blacklist := []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
-	readFromDir("devhints", blacklist)
-	readFromDir("other", []string{"101v2"})
+
+	if limitCheatsheets {
+		readFromDir("devhints", blacklist, []string{})
+		readFromDir("other", []string{"101v2"}, []string{"go", "go-snippets"})
+	} else {
+		readFromDir("devhints", blacklist, nil)
+		readFromDir("other", []string{"101v2"}, nil)
+	}
 
 	{
 		// uniquify names
@@ -395,7 +493,7 @@ func genCheatSheetFiles() map[string][]byte {
 	logf("%d cheatsheets\n", len(cheatsheets))
 
 	nThreads := runtime.NumCPU()
-	//nThreads = 1
+	//nThreads := 1
 	sem := make(chan bool, nThreads)
 	var wg sync.WaitGroup
 	for _, cs := range cheatsheets {

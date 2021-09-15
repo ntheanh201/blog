@@ -5,11 +5,14 @@
   <meta charset="utf-8" />
   <title>{{.Title}} cheatsheet</title>
   <link href="s/cheatsheet.css" rel="stylesheet" />
+  <script src="//unpkg.com/alpinejs" defer></script>
   <script src="s/cheatsheet.js"></script>
   <script>
     function doSearch(s) {
-      consoel.log(s);
+      s = s.toLowerCase();
+      //console.log("search:", s);
     }
+
     function updateLocationHash(divId) {
       if (true) {
         window.location.hash = divId;
@@ -81,23 +84,28 @@
       buildHeaderFullNames(); // must call before groupHeaderElements()
       groupHeaderElements();
       hookClick();
-      for (const id of ["intro", "basics"]) {
-        const el = document.getElementById(id);
-        if (el) {
-          bringToFrontDiv(id);
-          return;
+      function showIntro() {
+        for (const id of ["intro", "basics"]) {
+          const el = document.getElementById(id);
+          if (el) {
+            bringToFrontDiv(id);
+            return;
+          }
         }
       }
+      showIntro();
       document.addEventListener('keydown', (event) => {
         if (event.key == '/') {
           focusSearch();
           event.preventDefault();
         }
       });
-      focusSearch();
     }
   </script>
   <style>
+    h1 {
+      font-size: 1.7em;
+    }
     .topnav {
       margin: 0.5em 0;
       padding: 0 4px;
@@ -112,12 +120,16 @@
     <a href="index.html">cheatsheets</a>
     <div>&nbsp;/&nbsp;{{.Title}} cheatsheet</div>
     <div class="flex-grow"></div>
-    <input x-init="$watch('search', val => { doSearch(val);})" x-data="{ search: '' }" type="text"
-      @keyup.escape="search=''" x-model="search" id="cs-search-input" style="width: 32em;" placeholder="'/' to search">
+    <div x-data="{ search: '' }"  x-init="$watch('search', val => { doSearch(val);})">
+      <input  x-model="search" @keyup.escape="search=''"
+      id="cs-search-input" type="text" placeholder="'/' to search"  style="width: 32em;">
+    </div>
     <div class="flex-grow"></div>
     <a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{.MdFileName}}">edit</a>
   </div>
+
   {{.InnerHTML}}
+
 </body>
 
 </html>

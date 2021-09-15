@@ -16,11 +16,17 @@ function elById(id) {
 // instead of just "Reading".
 // we build those once on h3 / h4 elements and store as "data-name" attribute
 function buildHeaderFullNames() {
+    let currH1 = "";
     let currH2 = "";
     let currH3 = "";
     const parent = elById("#content");
     for (const el of parent.children) {
         const tag = el.localName;
+        if (tag == "h1") {
+            currH1 = el.textContent;
+            currH2 = "";
+            continue;
+        }
         if (tag === "h2") {
             currH2 = el.textContent;
             currH3 = "";
@@ -51,7 +57,8 @@ function groupHeaderElements() {
     const groups = [];
     let curr = [];
     for (const el of parent.children) {
-        if (el.localName === "h2" || el.localName === "h3") {
+        const isHdr = ["h1", "h2", "h3", "h4"].includes(el.localName);
+        if (isHdr) {
             if (curr.length > 0) {
                 groups.push(curr);
             }

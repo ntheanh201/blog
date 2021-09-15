@@ -5,125 +5,12 @@ category: Go
 
 # Intro
 
-This is a collection of Go code snippets that I use often in my programs.
+A collection of Go code snippets that I use often in my programs.
 
-Meant for copy & paste.
+If function name ends with `Must`, it will panic on error.
+This is ok for short scripts but not for long-running programs.
 
-## must
-
-```go
-func must(err error) {
-	if err != nil {
-		panic(err.Error())
-	}
-}
-```
-
-## panicIf
-
-```go
-func panicIf(cond bool, arg ...interface{}) {
-	if !cond {
-		return
-	}
-	s := "condition failed"
-	if len(arg) > 0 {
-		s = fmt.Sprintf("%s", arg[0])
-		if len(arg) > 1 {
-			s = fmt.Sprintf(s, arg[1:]...)
-		}
-	}
-	panic(s)
-}
-```
-
-## logf
-
-```go
-func logf(s string, arg ...interface{}) {
-	if len(arg) > 0 {
-		s = fmt.Sprintf(s, arg...)
-	}
-	fmt.Print(s)
-}```
-
-## logIfErr
-
-```go
-func logIfErr(err error) {
-	if err != nil {
-		logf(err.Error())
-	}
-}
-```
-
-## isWindows
-
-```go
-func isWindows() bool {
-	return strings.Contains(runtime.GOOS, "windows")
-}
-```
-
-## userHomeDirMust
-
-```go
-func userHomeDirMust() string {
-	s, err := os.UserHomeDir()
-	must(err)
-	return s
-}
-```
-
-## formatSize
-
-```go
-func formatSize(n int64) string {
-	sizes := []int64{1024*1024*1024, 1024*1024, 1024}
-	suffixes := []string{"GB", "MB", "kB"}
-
-	for i, size := range sizes {
-		if n >= size {
-			s := fmt.Sprintf("%.2f", float64(n)/float64(size))
-			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
-		}
-	}
-	return fmt.Sprintf("%d bytes", i)
-}
-```
-
-## non-blocking channel send
-
-```go
-// if ch if full we will not block, thanks to default case
-select {
-case ch <- value:
-default:
-}
-```
-
-## openBrowser
-
-```go
-// from https://gist.github.com/hyg/9c4afcd91fe24316cbf0
-func openBrowser(url string) {
-	var err error
-
-	switch runtime.GOOS {
-	case "linux":
-		err = exec.Command("xdg-open", url).Start()
-	case "windows":
-		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
-	case "darwin":
-		err = exec.Command("open", url).Start()
-	default:
-		err = fmt.Errorf("unsupported platform")
-	}
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-```
+# Strings
 
 ## normalizeNewLines
 
@@ -137,13 +24,13 @@ func normalizeNewlines(d []byte) []byte {
 }
 ```
 
+
 ## bytesRemoveFirstLine
 
 ```go
 // return first line of d and the rest
 func bytesRemoveFirstLine(d []byte) (string, []byte) {
 	idx := bytes.IndexByte(d, 10)
-	//u.PanicIf(-1 == idx)
 	if -1 == idx {
 		return string(d), nil
 	}
@@ -186,7 +73,493 @@ func stringInSlice(a []string, toCheck string) bool {
 		}
 	}
 	return false
-}```
+}
+```
+
+# Files
+
+## pathExists
+
+```go
+func pathExists(path string) bool {
+	_, err := os.Lstat(path)
+	return err == nil
+}
+```
+
+## fileExists
+
+```go
+func dirExists(path string) bool {
+	st, err := os.Lstat(path)
+	return err == nil && !st.IsDir() && st.IsRegular()
+}
+```
+
+## dirExists
+
+```go
+func dirExists(path string) bool {
+	st, err := os.Lstat(path)
+	return err == nil && st.IsDir()
+}
+```
+
+## getFileSize
+
+```go
+func getFileSize(path string) int64 {
+	st, err := os.Lstat(path)
+	if err == nil {
+		return st.Size()
+	}
+	return -1
+}
+```
+
+## copyFile
+
+Copy file, ensures to create a destination directory.
+
+```go
+func copyFile(dst string, src string) error {
+	err := os.MkdirAll(filepath.Dir(dst), 0755)
+	if err != nil {
+		return err
+	}
+	fin, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer fin.Close()
+	fout, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+
+	_, err = io.Copy(fout, fin)
+	err2 := fout.Close()
+	if err != nil || err2 != nil {
+		os.Remove(dst)
+	}
+
+	return err
+}
+```
+
+## createDirForFile
+
+```go
+func createDirForFile(path string) error {
+	return os.MkdirAll(filepath.Dir(path), 0755)
+}
+```
+
+## readGzippedFile
+
+```go
+func readGzippedFile(path string) ([]byte, error) {
+	file, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+	gr, err := gzip.NewReader(file)
+	if err != nil {
+		return nil, err
+	}
+	defer gr.Close()
+	return ioutil.ReadAll(gr)
+}
+```
+
+## readFileLines
+
+```go
+func readFileLines(filePath string) ([]string, error) {
+    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)
+    if err != nil {
+        return nil, err
+    }
+    defer file.Close()
+    scanner := bufio.NewScanner(file)
+    res := make([]string, 0)
+    for scanner.Scan() {
+        line := scanner.Bytes()
+        res = append(res, string(line))
+    }
+    if err = scanner.Err(); err != nil {
+        return nil, err
+    }
+    return res, nil
+}
+```
+
+## sha1HexOfFile
+
+```go
+func sha1OfFile(path string) ([]byte, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		//fmt.Printf("os.Open(%s) failed with %s\n", path, err.Error())
+		return nil, err
+	}
+	defer f.Close()
+	h := sha1.New()
+	_, err = io.Copy(h, f)
+	if err != nil {
+		//fmt.Printf("io.Copy() failed with %s\n", err.Error())
+		return nil, err
+	}
+	return h.Sum(nil), nil
+}
+
+func sha1HexOfFile(path string) (string, error) {
+	sha1, err := sha1OfFile(path)
+	if err != nil {
+		return "", err
+	}
+	return fmt.Sprintf("%x", sha1), nil
+}
+```
+
+## unzipToDir
+
+```go
+func recreateDir(dir string) error {
+	err := os.RemoveAll(dir)
+	if err != nil {
+		return err
+	}
+	return os.MkdirAll(dir, 0755)
+}
+
+func createDirForFile(path string) error {
+	dir := filepath.Dir(path)
+	return os.MkdirAll(dir, 0755)
+}
+
+func unzipFile(f *zip.File, dstPath string) error {
+	r, err := f.Open()
+	if err != nil {
+		return err
+	}
+	defer r.Close()
+
+	err = createDirForFile(dstPath)
+	if err != nil {
+		return err
+	}
+
+	w, err := os.Create(dstPath)
+	if err != nil {
+		return err
+	}
+	_, err = io.Copy(w, r)
+	if err != nil {
+		w.Close()
+		os.Remove(dstPath)
+		return err
+	}
+	err = w.Close()
+	if err != nil {
+		os.Remove(dstPath)
+		return err
+	}
+	return nil
+}
+
+func unzipToDir(zipPath string, destDir string) error {
+	st, err := os.Stat(zipPath)
+	if err != nil {
+		return err
+	}
+	fileSize := st.Size()
+	f, err := os.Open(zipPath)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	zr, err := zip.NewReader(f, fileSize)
+	if err != nil {
+		return err
+	}
+	err = recreateDir(destDir)
+	if err != nil {
+		return err
+	}
+
+	for _, fi := range zr.File {
+		if fi.FileInfo().IsDir() {
+			continue
+		}
+		destPath := filepath.Join(destDir, fi.Name)
+		err = unzipFile(fi, destPath)
+		if err != nil {
+			os.RemoveAll(destDir)
+			return err
+		}
+	}
+	return nil
+}
+```
+
+# HTTP
+
+## httpGet
+
+```go
+// can be used for http.Get() requests with better timeouts. New one must be created
+// for each Get() request
+func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
+	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
+		return func(netw, addr string) (net.Conn, error) {
+			conn, err := net.DialTimeout(netw, addr, cTimeout)
+			if err != nil {
+				return nil, err
+			}
+			conn.SetDeadline(time.Now().Add(rwTimeout))
+			return conn, nil
+		}
+	}
+
+	return &http.Client{
+		Transport: &http.Transport{
+			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
+			Proxy: http.ProxyFromEnvironment,
+		},
+	}
+}
+
+func httpGet(url string) ([]byte, error) {
+    // default timeout for http.Get() is really long, so dial it down
+    // for both connection and read/write timeouts
+    timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
+    resp, err := timeoutClient.Get(url)
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()
+    if resp.StatusCode != 200 {
+        return nil, errors.New(fmt.Sprintf("'%s': status code not 200 (%d)", url, resp.StatusCode))
+    }
+    return ioutil.ReadAll(resp.Body)
+}
+```
+
+## httpPost
+
+```go
+func httpPost(uri string, body []byte) ([]byte, error) {
+	// default timeout for http.Get() is really long, so dial it down
+	// for both connection and read/write timeouts
+	timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
+	resp, err := timeoutClient.Post(uri, "", bytes.NewBuffer(body))
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("'%s': status code not 200 (%d)", uri, resp.StatusCode)
+	}
+	return ioutil.ReadAll(resp.Body)
+}
+
+// can be used for http.Get() requests with better timeouts. New one must be created
+// for each Get() request
+func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
+	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
+		return func(netw, addr string) (net.Conn, error) {
+			conn, err := net.DialTimeout(netw, addr, cTimeout)
+			if err != nil {
+				return nil, err
+			}
+			conn.SetDeadline(time.Now().Add(rwTimeout))
+			return conn, nil
+		}
+	}
+
+	return &http.Client{
+		Transport: &http.Transport{
+			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
+			Proxy: http.ProxyFromEnvironment,
+		},
+	}
+}
+```
+
+## httpPostMultiPart
+
+```go
+func httpPostMultiPart(uri string, files map[string]string) ([]byte, error) {
+	contentType, body, err := createMultiPartForm(files)
+	if err != nil {
+		return nil, err
+	}
+	// default timeout for http.Get() is really long, so dial it down
+	// for both connection and read/write timeouts
+	timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
+	resp, err := timeoutClient.Post(uri, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("'%s': status code not 200 (%d)", uri, resp.StatusCode)
+	}
+	return ioutil.ReadAll(resp.Body)
+}
+
+func createMultiPartForm(form map[string]string) (string, io.Reader, error) {
+	body := new(bytes.Buffer)
+	mp := multipart.NewWriter(body)
+	defer mp.Close()
+	for key, val := range form {
+		if strings.HasPrefix(val, "@") {
+			val = val[1:]
+			file, err := os.Open(val)
+			if err != nil {
+				return "", nil, err
+			}
+			defer file.Close()
+			part, err := mp.CreateFormFile(key, val)
+			if err != nil {
+				return "", nil, err
+			}
+			io.Copy(part, file)
+		} else {
+			mp.WriteField(key, val)
+		}
+	}
+	return mp.FormDataContentType(), body, nil
+}
+
+// can be used for http.Get() requests with better timeouts. New one must be created
+// for each Get() request
+func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
+	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
+		return func(netw, addr string) (net.Conn, error) {
+			conn, err := net.DialTimeout(netw, addr, cTimeout)
+			if err != nil {
+				return nil, err
+			}
+			conn.SetDeadline(time.Now().Add(rwTimeout))
+			return conn, nil
+		}
+	}
+
+	return &http.Client{
+		Transport: &http.Transport{
+			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
+			Proxy: http.ProxyFromEnvironment,
+		},
+	}
+}
+```
+
+
+# Misc
+
+## must
+
+```go
+func must(err error) {
+	if err != nil {
+		panic(err.Error())
+	}
+}
+```
+
+## panicIf
+
+```go
+func panicIf(cond bool, arg ...interface{}) {
+	if !cond {
+		return
+	}
+	s := "condition failed"
+	if len(arg) > 0 {
+		s = fmt.Sprintf("%s", arg[0])
+		if len(arg) > 1 {
+			s = fmt.Sprintf(s, arg[1:]...)
+		}
+	}
+	panic(s)
+}
+```
+
+## logf
+
+```go
+func logf(s string, arg ...interface{}) {
+	if len(arg) > 0 {
+		s = fmt.Sprintf(s, arg...)
+	}
+	fmt.Print(s)
+}
+```
+
+## logIfErr
+
+```go
+func logIfErr(err error) {
+	if err != nil {
+		logf(err.Error())
+	}
+}
+```
+
+## isWindows
+
+```go
+func isWindows() bool {
+	return strings.Contains(runtime.GOOS, "windows")
+}
+```
+
+## userHomeDirMust
+
+```go
+func userHomeDirMust() string {
+	s, err := os.UserHomeDir()
+	must(err)
+	return s
+}
+```
+
+## non-blocking channel send
+
+```go
+// if ch if full we will not block, thanks to default case
+select {
+case ch <- value:
+default:
+}
+```
+
+## openBrowser
+
+```go
+// from https://gist.github.com/hyg/9c4afcd91fe24316cbf0
+func openBrowser(url string) {
+	var err error
+
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", url).Start()
+	case "windows":
+		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
+	case "darwin":
+		err = exec.Command("open", url).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+```
 
 ## ProgressEstimator
 
@@ -347,6 +720,23 @@ func mimeTypeFromFileName(path string) string {
 }
 ```
 
+## formatSize
+
+```go
+func formatSize(n int64) string {
+	sizes := []int64{1024*1024*1024, 1024*1024, 1024}
+	suffixes := []string{"GB", "MB", "kB"}
+
+	for i, size := range sizes {
+		if n >= size {
+			s := fmt.Sprintf("%.2f", float64(n)/float64(size))
+			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
+		}
+	}
+	return fmt.Sprintf("%d bytes", i)
+}
+```
+
 ## formatDuration
 
 ```go
@@ -387,44 +777,10 @@ func formatDuration(d time.Duration) string {
 }
 ```
 
-## pathExists
-
-```go
-func pathExists(path string) bool {
-	_, err := os.Lstat(path)
-	return err == nil
-}
-```
-
-## fileExists
-
-```go
-func dirExists(path string) bool {
-	st, err := os.Lstat(path)
-	return err == nil && !st.IsDir() && st.IsRegular()
-}```
-
-## dirExists
-
-```go
-func dirExists(path string) bool {
-	st, err := os.Lstat(path)
-	return err == nil && st.IsDir()
-}```
-
-## getFileSize
-
-```go
-func getFileSize(path string) int64 {
-	st, err := os.Lstat(path)
-	if err == nil {
-		return st.Size()
-	}
-	return -1
-}
-```
 
 ## expandTildeInPath
+
+Given "~/foo", will replace "~" with home directory.
 
 ```go
 func expandTildeInPath(s string) string {
@@ -437,62 +793,6 @@ func expandTildeInPath(s string) string {
 }
 ```
 
-## copyFile
-
-```go
-func copyFile(dstPath, srcPath string) error {
-	d, err := os.ReadFile(srcPath)
-	if err != nil {
-		return err
-	}
-	err = os.MkdirAll(filepath.Dir(dstPath), 0755)
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(dstPath, d, 0644)
-}
-```
-
-## copyFileMoreEfficient
-
-```go
-func mkdirForFile(filePath string) error {
-	dir := filepath.Dir(filePath)
-	return os.MkdirAll(dir, 0755)
-}
-
-func copyFileMoreEfficient(dst string, src string) error {
-	err := mkdirForFile(dst)
-	if err != nil {
-		return err
-	}
-	fin, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-	defer fin.Close()
-	fout, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-
-	_, err = io.Copy(fout, fin)
-	err2 := fout.Close()
-	if err != nil || err2 != nil {
-		os.Remove(dst)
-	}
-
-	return err
-}
-```
-
-## createDirForFile
-
-```go
-func createDirForFile(path string) error {
-	return os.MkdirAll(filepath.Dir(path), 0755)
-}
-```
 
 ## runCmdMust
 
@@ -503,7 +803,7 @@ func fmtCmdShort(cmd exec.Cmd) string {
 }
 
 func runCmdMust(cmd *exec.Cmd) string {
-	fmt.Printf("> %s\n", fmtCmdShort(*cmd))
+	logf("> %s\n", fmtCmdShort(*cmd))
 	canCapture := (cmd.Stdout == nil) && (cmd.Stderr == nil)
 	if canCapture {
 		out, err := cmd.CombinedOutput()
@@ -535,406 +835,6 @@ func runCmdLogged(cmd *exec.Cmd) error {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
-}
-```
-
-## readGzippedFile
-
-```go
-func readGzippedFile(path string) ([]byte, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-	gr, err := gzip.NewReader(file)
-	if err != nil {
-		return nil, err
-	}
-	defer gr.Close()
-	return ioutil.ReadAll(gr)
-}
-```
-
-## GzippedReadCloser
-
-```go
-// GzippedReadCloser is a io.ReadCloser for a gzip file
-type GzippedReadCloser struct {
-	f *os.File
-	r io.Reader
-}
-
-// Close closes a reader
-func (rc *GzippedReadCloser) Close() error {
-	return rc.f.Close()
-}
-
-// Read reads data from a reader
-func (rc *GzippedReadCloser) Read(d []byte) (int, error) {
-	return rc.r.Read(d)
-}
-
-func openGzipped(path string) (io.ReadCloser, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	r, err := gzip.NewReader(f)
-	if err != nil {
-		return nil, err
-	}
-	rc := &GzippedReadCloser{
-		f: f,
-		r: r,
-	}
-	return rc, nil
-}
-
-func readGzipped(path string) ([]byte, error) {
-	rc, err := openGzipped(path)
-	if err != nil {
-		return nil, err
-	}
-	defer rc.Close()
-	d, err := ioutil.ReadAll(rc)
-	if err != nil {
-		return nil, err
-	}
-	return d, nil
-}
-```
-
-## readLinesUsingScanner
-
-```go
-func readLinesUsingScanner(filePath string) ([]string, error) {
-    file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)
-    if err != nil {
-        return nil, err
-    }
-    defer file.Close()
-    scanner := bufio.NewScanner(file)
-    res := make([]string, 0)
-    for scanner.Scan() {
-        line := scanner.Bytes()
-        res = append(res, string(line))
-    }
-    if err = scanner.Err(); err != nil {
-        return nil, err
-    }
-    return res, nil
-}
-```
-
-## readLinesWithSplit
-
-```go
-func readLinesWithSplit(path string) ([]string, error) {
-	d, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-	s := string(d)
-	res := strings.Split(s, "\n")
-	return res, nil
-}
-```
-
-## unzipToDir
-```go
-func recreateDir(dir string) error {
-	err := os.RemoveAll(dir)
-	if err != nil {
-		return err
-	}
-	return os.MkdirAll(dir, 0755)
-}
-
-func createDirForFile(path string) error {
-	dir := filepath.Dir(path)
-	return os.MkdirAll(dir, 0755)
-}
-
-func unzipFile(f *zip.File, dstPath string) error {
-	r, err := f.Open()
-	if err != nil {
-		return err
-	}
-	defer r.Close()
-
-	err = createDirForFile(dstPath)
-	if err != nil {
-		return err
-	}
-
-	w, err := os.Create(dstPath)
-	if err != nil {
-		return err
-	}
-	_, err = io.Copy(w, r)
-	if err != nil {
-		w.Close()
-		os.Remove(dstPath)
-		return err
-	}
-	err = w.Close()
-	if err != nil {
-		os.Remove(dstPath)
-		return err
-	}
-	return nil
-}
-
-func unzipToDir(zipPath string, destDir string) error {
-	st, err := os.Stat(zipPath)
-	if err != nil {
-		return err
-	}
-	fileSize := st.Size()
-	f, err := os.Open(zipPath)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	zr, err := zip.NewReader(f, fileSize)
-	if err != nil {
-		return err
-	}
-	err = recreateDir(destDir)
-	if err != nil {
-		return err
-	}
-
-	for _, fi := range zr.File {
-		if fi.FileInfo().IsDir() {
-			continue
-		}
-		destPath := filepath.Join(destDir, fi.Name)
-		err = unzipFile(fi, destPath)
-		if err != nil {
-			os.RemoveAll(destDir)
-			return err
-		}
-	}
-	return nil
-}
-```
-
-## httpGet
-
-```go
-// can be used for http.Get() requests with better timeouts. New one must be created
-// for each Get() request
-func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
-	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
-		return func(netw, addr string) (net.Conn, error) {
-			conn, err := net.DialTimeout(netw, addr, cTimeout)
-			if err != nil {
-				return nil, err
-			}
-			conn.SetDeadline(time.Now().Add(rwTimeout))
-			return conn, nil
-		}
-	}
-
-	return &http.Client{
-		Transport: &http.Transport{
-			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
-			Proxy: http.ProxyFromEnvironment,
-		},
-	}
-}
-
-func httpGet(url string) ([]byte, error) {
-    // default timeout for http.Get() is really long, so dial it down
-    // for both connection and read/write timeouts
-    timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
-    resp, err := timeoutClient.Get(url)
-    if err != nil {
-        return nil, err
-    }
-    defer resp.Body.Close()
-    if resp.StatusCode != 200 {
-        return nil, errors.New(fmt.Sprintf("'%s': status code not 200 (%d)", url, resp.StatusCode))
-    }
-    return ioutil.ReadAll(resp.Body)
-}
-```
-
-## httpPost
-
-```go
-func httpPost(uri string, body []byte) ([]byte, error) {
-	// default timeout for http.Get() is really long, so dial it down
-	// for both connection and read/write timeouts
-	timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
-	resp, err := timeoutClient.Post(uri, "", bytes.NewBuffer(body))
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != 200 {
-		return nil, fmt.Errorf("'%s': status code not 200 (%d)", uri, resp.StatusCode)
-	}
-	return ioutil.ReadAll(resp.Body)
-}
-
-// can be used for http.Get() requests with better timeouts. New one must be created
-// for each Get() request
-func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
-	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
-		return func(netw, addr string) (net.Conn, error) {
-			conn, err := net.DialTimeout(netw, addr, cTimeout)
-			if err != nil {
-				return nil, err
-			}
-			conn.SetDeadline(time.Now().Add(rwTimeout))
-			return conn, nil
-		}
-	}
-
-	return &http.Client{
-		Transport: &http.Transport{
-			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
-			Proxy: http.ProxyFromEnvironment,
-		},
-	}
-}
-```
-
-## httpPostMultiPart
-
-```go
-func httpPostMultiPart(uri string, files map[string]string) ([]byte, error) {
-	contentType, body, err := createMultiPartForm(files)
-	if err != nil {
-		return nil, err
-	}
-	// default timeout for http.Get() is really long, so dial it down
-	// for both connection and read/write timeouts
-	timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
-	resp, err := timeoutClient.Post(uri, contentType, body)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != 200 {
-		return nil, fmt.Errorf("'%s': status code not 200 (%d)", uri, resp.StatusCode)
-	}
-	return ioutil.ReadAll(resp.Body)
-}
-
-func createMultiPartForm(form map[string]string) (string, io.Reader, error) {
-	body := new(bytes.Buffer)
-	mp := multipart.NewWriter(body)
-	defer mp.Close()
-	for key, val := range form {
-		if strings.HasPrefix(val, "@") {
-			val = val[1:]
-			file, err := os.Open(val)
-			if err != nil {
-				return "", nil, err
-			}
-			defer file.Close()
-			part, err := mp.CreateFormFile(key, val)
-			if err != nil {
-				return "", nil, err
-			}
-			io.Copy(part, file)
-		} else {
-			mp.WriteField(key, val)
-		}
-	}
-	return mp.FormDataContentType(), body, nil
-}
-
-// can be used for http.Get() requests with better timeouts. New one must be created
-// for each Get() request
-func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
-	timeoutDialer := func(cTimeout time.Duration, rwTimeout time.Duration) func(net, addr string) (c net.Conn, err error) {
-		return func(netw, addr string) (net.Conn, error) {
-			conn, err := net.DialTimeout(netw, addr, cTimeout)
-			if err != nil {
-				return nil, err
-			}
-			conn.SetDeadline(time.Now().Add(rwTimeout))
-			return conn, nil
-		}
-	}
-
-	return &http.Client{
-		Transport: &http.Transport{
-			Dial:  timeoutDialer(connectTimeout, readWriteTimeout),
-			Proxy: http.ProxyFromEnvironment,
-		},
-	}
-}
-```
-
-## set / get firestore document
-
-```go
-func panicIfErr(err error) {
-	if err != nil {
-		panic(err.Error())
-	}
-}
-
-type Foo struct {
-	Str     string   `json:"str"`
-	Str2    string   `json:"str-2" firestore:"str-2"`
-	StrArr  []string `json:"strarr"`
-	StrArr2 []string `json:"str-arr" firestore:"str-arr"`
-}
-
-func dbTestSetGet() {
-	db, ctx := getDB()
-	d := map[string]interface{}{
-		"str":     "string value str",
-		"str-2":   "string value str-2",
-		"strarr":  []string{"string", "array", "for", "strarr"},
-		"str-arr": []string{"string", "array", "for", "str-arr"},
-	}
-	_, err := db.Collection("foo").Doc("bar").Set(ctx, d)
-	panicIfErr(err)
-	doc, err := db.Collection("foo").Doc("bar").Get(ctx)
-	panicIfErr(err)
-	data := doc.Data()
-	fmt.Printf("Data: %#v\n", data)
-	var foo Foo
-	err = doc.DataTo(&foo)
-	panicIfErr(err)
-	fmt.Printf("foo: %#v\n", foo)
-}
-```
-
-## sha1OfFile, sha1HexOfFile
-
-```go
-func sha1OfFile(path string) ([]byte, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		//fmt.Printf("os.Open(%s) failed with %s\n", path, err.Error())
-		return nil, err
-	}
-	defer f.Close()
-	h := sha1.New()
-	_, err = io.Copy(h, f)
-	if err != nil {
-		//fmt.Printf("io.Copy() failed with %s\n", err.Error())
-		return nil, err
-	}
-	return h.Sum(nil), nil
-}
-
-func sha1HexOfFile(path string) (string, error) {
-	sha1, err := sha1OfFile(path)
-	if err != nil {
-		return "", err
-	}
-	return fmt.Sprintf("%x", sha1), nil
 }
 ```
 
