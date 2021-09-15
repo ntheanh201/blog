@@ -70,22 +70,16 @@ func genTocHTML(toc []*tocNode) string {
 	return html
 }
 
-func csBuildToc(md []byte) string {
+func csBuildToc(md []byte, path string) string {
 	//logf("csBuildToc: printing heading, len(md): %d\n", len(md))
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
 	//ast.Print(os.Stdout, doc)
 
 	taken := map[string]bool{}
-	makeUniqueID := func(id string) string {
-		curr := id
-		n := 0
-		for taken[curr] {
-			n++
-			curr = fmt.Sprintf("%s%d", id, n)
-		}
-		taken[curr] = true
-		return curr
+	ensureUniqueID := func(id string) {
+		panicIf(taken[id], "duplicate heading id '%s' in '%s'", id, path)
+		taken[id] = true
 	}
 
 	var currHeading *ast.Heading
@@ -98,7 +92,7 @@ func csBuildToc(md []byte) string {
 			if entering {
 				currHeading = v
 			} else {
-				currHeading.HeadingID = makeUniqueID(currHeading.HeadingID)
+				ensureUniqueID(currHeading.HeadingID)
 				tn := &tocNode{
 					heading: currHeading,
 					content: currHeadingContent,
@@ -185,7 +179,7 @@ func csGenHTML(cs *cheatSheet) {
 	md := cleanupMarkdown(cs.md)
 	parser := newCsMarkdownParser()
 	renderer := newMarkdownHTMLRenderer("")
-	tocHTML := csBuildToc(md)
+	tocHTML := csBuildToc(md, cs.mdPath)
 	content := string(markdown.ToHTML(md, parser, renderer))
 	startHTML := `
   <div id="start"></div>

@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/u"
 )
 
 var (
@@ -174,7 +173,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
-		u.PanicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
+		panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
 		article := notionPageToArticle(d, page)
 		if article.urlOverride != "" {
 			logvf("url override: %s => %s\n", article.urlOverride, article.ID)

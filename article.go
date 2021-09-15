@@ -279,7 +279,7 @@ func (a *Article) setCollectionMust(val string) {
 		// ignore
 		return
 	}
-	u.PanicIf(collectionURL == "", "'%s' is not a known collection", val)
+	panicIf(collectionURL == "", "'%s' is not a known collection", val)
 	a.Collection = val
 	a.CollectionURL = collectionURL
 
@@ -290,7 +290,7 @@ func (a *Article) setHeaderImageMust(val string) {
 		val = "/" + val
 	}
 	path := filepath.Join("www", val)
-	u.PanicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
+	panicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
 	//uri := getHostURL() + val
 	// logf("Found HeaderImageURL: %s\n", uri)
 	uri := val
