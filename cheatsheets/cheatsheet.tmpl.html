@@ -96,7 +96,9 @@
       showIntro();
       document.addEventListener('keydown', (event) => {
         if (event.key == '/') {
-          focusSearch();
+          const el = document.getElementById("cs-search-input");
+          el.value = "";
+          el.focus();
           event.preventDefault();
         }
       });

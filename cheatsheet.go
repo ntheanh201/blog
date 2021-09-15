@@ -19,7 +19,7 @@ import (
 const csDir = "cheatsheets"
 
 // if true, only generates a subset, for faster turn-around
-const limitCheatsheets = true
+const limitCheatsheets = false
 
 func newCsMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
