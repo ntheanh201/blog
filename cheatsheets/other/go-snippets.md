@@ -7,6 +7,18 @@ category: Go
 
 ## normalizeNewLines
 
+Convert Windows (CRLF) and Mac (CF) newlines to Unix (LF)
+
+```go
+func normalizeNewlines(s string) string {
+	// replace CR LF (windows) with LF (unix)
+	s = strings.Replace(s, string([]byte{13, 10}), "\n", -1)
+	// replace CF (mac) with LF (unix)
+	s = strings.Replace(s, string([]byte{13}), "\n", -1)
+	return s
+}
+```
+
 ```go
 func normalizeNewlines(d []byte) []byte {
 	// replace CR LF (windows) with LF (unix)
@@ -654,52 +666,41 @@ func (pe *ProgressEstimator) Skip() ProgressEstimatorData {
 }
 ```
 
-## Debouncer
+## makeDebounced
 
 ```go
-// Debouncer runs a given function, debounced
-type Debouncer struct {
-    currDebounceID *int32
+// returns a function that will de-bounce f for a given interval
+func makeDebounced(d time.Duration, f func()) func() {
+	var lastTimer *time.Timer
+	return func() {
+		if lastTimer != nil {
+			lastTimer.Stop()
+		}
+		lastTimer = time.AfterFunc(d, f)
+	}
 }
+```
 
-// NewDebouncer creates a new Debouncer
-func NewDebouncer() *Debouncer {
-    return &Debouncer{}
-}
+Here's how to use:
+```go
+func testDebounce() {
+	n := 1
+	f := func() {
+		fmt.Printf("de-bounced function called, n: %d\n", n)
+	}
 
-func (d *Debouncer) debounce(f func(), timeout time.Duration) {
-    if d.currDebounceID != nil {
-        // stop currently scheduled function
-        v := atomic.AddInt32(d.currDebounceID, 1)
-        d.currDebounceID = nil
-        if v > 1 {
-            // it was already executed
-            return
-        }
-    }
+	df := makeDebounced(time.Millisecond*200, f)
+	df() // should not print 1 becase it's debunced for 200ms
+			 // and we call it again after 100ms
+	time.Sleep(time.Millisecond * 100)
+	n++; df() // should not print 2
+	time.Sleep(time.Millisecond * 100)
+	n++; df() // should print 3
+	time.Sleep(time.Millisecond * 250)
 
-    d.currDebounceID = new(int32)
-    go func(f func(), timeout time.Duration, debounceID *int32) {
-        for {
-            select {
-            case <-time.After(timeout):
-                v := atomic.AddInt32(debounceID, 1)
-                // if v != 1, it was cancelled
-                if v == 1 {
-                    f()
-                }
-            }
-        }
-    }(f, timeout, d.currDebounceID)
-}
-
-var articleLoadDebouncer *Debouncer
-
-func reloadArticlesDelayed() {
-    if articleLoadDebouncer == nil {
-        articleLoadDebouncer = NewDebouncer()
-    }
-    articleLoadDebouncer.debounce(loadArticles, time.Second)
+	// it can execute multiple times
+	n++; df() // should print 4
+	time.Sleep(time.Millisecond * 250)
 }
 ```
 
@@ -750,7 +751,7 @@ func formatSize(n int64) string {
 			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
 		}
 	}
-	return fmt.Sprintf("%d bytes", i)
+	return fmt.Sprintf("%d bytes", n)
 }
 ```
 
