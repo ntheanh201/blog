@@ -3,13 +3,6 @@ title: Go Snippets
 category: Go
 ---
 
-# Intro
-
-A collection of Go code snippets that I use often in my programs.
-
-If function name ends with `Must`, it will panic on error.
-This is ok for short scripts but not for long-running programs.
-
 # Strings
 
 ## normalizeNewLines
@@ -65,10 +58,12 @@ func sliceRemoveDuplicateStrings(a []string) []string {
 
 ## stringInSlice
 
+Return true if a string `toCheck` exists in string slice `a`.
+
 ```go
-func stringInSlice(a []string, toCheck string) bool {
+func stringInSlice(a []string, toFind string) bool {
 	for _, s := range a {
-		if s == toCheck {
+		if s == toFind {
 			return true
 		}
 	}
@@ -80,6 +75,8 @@ func stringInSlice(a []string, toCheck string) bool {
 
 ## pathExists
 
+Returns true if path exists.
+
 ```go
 func pathExists(path string) bool {
 	_, err := os.Lstat(path)
@@ -88,6 +85,8 @@ func pathExists(path string) bool {
 ```
 
 ## fileExists
+
+Returns true if path exists and is a regular file.
 
 ```go
 func dirExists(path string) bool {
@@ -98,6 +97,8 @@ func dirExists(path string) bool {
 
 ## dirExists
 
+Returns true if path exists and is a directory.
+
 ```go
 func dirExists(path string) bool {
 	st, err := os.Lstat(path)
@@ -106,6 +107,9 @@ func dirExists(path string) bool {
 ```
 
 ## getFileSize
+
+Returns size of the file or `-1` if file doesn't exist. Sometimes checking
+for `-1` is easier than checking for error.
 
 ```go
 func getFileSize(path string) int64 {
@@ -149,6 +153,8 @@ func copyFile(dst string, src string) error {
 
 ## createDirForFile
 
+Creates a directory for a given file.
+
 ```go
 func createDirForFile(path string) error {
 	return os.MkdirAll(filepath.Dir(path), 0755)
@@ -156,6 +162,8 @@ func createDirForFile(path string) error {
 ```
 
 ## readGzippedFile
+
+Reads a gzip-compressed file (typically .gz)
 
 ```go
 func readGzippedFile(path string) ([]byte, error) {
@@ -174,6 +182,8 @@ func readGzippedFile(path string) ([]byte, error) {
 ```
 
 ## readFileLines
+
+Reads file content as array of lines.
 
 ```go
 func readFileLines(filePath string) ([]string, error) {
@@ -197,18 +207,18 @@ func readFileLines(filePath string) ([]string, error) {
 
 ## sha1HexOfFile
 
+Returns sha1 of the file content in hex form.
+
 ```go
 func sha1OfFile(path string) ([]byte, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		//fmt.Printf("os.Open(%s) failed with %s\n", path, err.Error())
 		return nil, err
 	}
 	defer f.Close()
 	h := sha1.New()
 	_, err = io.Copy(h, f)
 	if err != nil {
-		//fmt.Printf("io.Copy() failed with %s\n", err.Error())
 		return nil, err
 	}
 	return h.Sum(nil), nil
@@ -224,6 +234,8 @@ func sha1HexOfFile(path string) (string, error) {
 ```
 
 ## unzipToDir
+
+Unzips a file to a directory.
 
 ```go
 func recreateDir(dir string) error {
@@ -309,7 +321,24 @@ func unzipToDir(zipPath string, destDir string) error {
 
 ## httpGet
 
+Download the content of URL.
+
 ```go
+func httpGet(url string) ([]byte, error) {
+    // default timeout for http.Get() is really long, so dial it down
+    // for both connection and read/write timeouts
+    timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
+    resp, err := timeoutClient.Get(url)
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()
+    if resp.StatusCode != 200 {
+        return nil, errors.New(fmt.Sprintf("'%s': status code not 200 (%d)", url, resp.StatusCode))
+    }
+    return ioutil.ReadAll(resp.Body)
+}
+
 // can be used for http.Get() requests with better timeouts. New one must be created
 // for each Get() request
 func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Duration) *http.Client {
@@ -332,23 +361,11 @@ func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Durati
 	}
 }
 
-func httpGet(url string) ([]byte, error) {
-    // default timeout for http.Get() is really long, so dial it down
-    // for both connection and read/write timeouts
-    timeoutClient := newTimeoutClient(time.Second*120, time.Second*120)
-    resp, err := timeoutClient.Get(url)
-    if err != nil {
-        return nil, err
-    }
-    defer resp.Body.Close()
-    if resp.StatusCode != 200 {
-        return nil, errors.New(fmt.Sprintf("'%s': status code not 200 (%d)", url, resp.StatusCode))
-    }
-    return ioutil.ReadAll(resp.Body)
-}
 ```
 
 ## httpPost
+
+Sends `body` data as POST request. This sends raw data. Use [httpPostMultiPart](#httppostmultipart) if you want to send as multipart encoding.
 
 ```go
 func httpPost(uri string, body []byte) ([]byte, error) {
@@ -864,3 +881,10 @@ func cdUpDir(dirName string) {
 	}
 }
 ```
+
+## Intro
+
+A collection of Go code snippets that I use often in my programs.
+
+If function name ends with `Must`, it will panic on error.
+This is ok for short scripts but not for long-running programs.
