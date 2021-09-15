@@ -8,6 +8,36 @@
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="s/cheatsheet.js"></script>
   <script>
+    // [[text, id], ...]
+    let searchIndex = [];
+
+    function isHdrEl(el) {
+      return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
+    }
+
+    function isSiblingHeader(el) {
+      const nextEl = el.nextElementSibling;
+      return !nextEl || isHdrEl(nextEl);
+    }
+
+    function buildSearchIndex() {
+      console.log("buildSearchIndex");
+      const parent = elById("#content");
+      for (const el of parent.children) {
+        if (!isHdrEl(el)) {
+          continue;
+        }
+        if (isSiblingHeader(el)) {
+          //console.log(`skipping ${el.textContent}`);
+          continue;
+        }
+        const txt = el.textContent;
+        const id = el.id;
+        searchIndex.push([txt, id]);
+        //console.log(`${txt} #${id}`);
+      }
+    }
+
     function doSearch(s) {
       s = s.toLowerCase();
       //console.log("search:", s);
@@ -126,8 +156,7 @@
       const groups = [];
       let curr = [];
       for (const el of parent.children) {
-        const isHdr = ["h1", "h2", "h3", "h4"].includes(el.localName);
-        if (isHdr) {
+        if (isHdrEl(el)) {
           if (curr.length > 0) {
             groups.push(curr);
           }
@@ -155,7 +184,10 @@
     }
 
     async function start() {
-      buildHeaderFullNames(); // must call before groupHeaderElements()
+      // those 2 must call before groupHeaderElements()
+      buildSearchIndex();
+      buildHeaderFullNames();
+
       groupHeaderElements();
       hookClick();
       function showIntro() {
