@@ -85,6 +85,21 @@ func stringInSlice(a []string, toFind string) bool {
 
 # Files
 
+## expandTildeInPath
+
+Given `~/foo`, will replace `~` with home directory.
+
+```go
+func expandTildeInPath(s string) string {
+	if strings.HasPrefix(s, "~") {
+		dir, err := os.UserHomeDir()
+		must(err)
+		return dir + s[1:]
+	}
+	return s
+}
+```
+
 ## pathExists
 
 Returns true if path exists.
@@ -165,7 +180,7 @@ func copyFile(dst string, src string) error {
 
 ## createDirForFile
 
-Creates a directory for a given file.
+When you create a file in a directory that doesn't exist, it fails. This creates a directory for a file.
 
 ```go
 func createDirForFile(path string) error {
@@ -518,16 +533,27 @@ func panicIf(cond bool, arg ...interface{}) {
 }
 ```
 
+## ctx
+A shortcut for `context.Background()`. Otherwise using [logf](#logf) would be annoying.
+
+```go
+func ctx() context.Context {
+    return context.Background()
+}
+```
+
 ## logf
 
 ```go
-func logf(s string, arg ...interface{}) {
+func logf(ctx context.Context, s string, arg ...interface{}) {
 	if len(arg) > 0 {
 		s = fmt.Sprintf(s, arg...)
 	}
 	fmt.Print(s)
 }
 ```
+
+In this implementation `ctx` is unused but I have implementation that uses it and I prefer to have the same function in all my code to make re-use of code easier.
 
 ## logIfErr
 
@@ -795,21 +821,6 @@ func formatDuration(d time.Duration) string {
 }
 ```
 
-
-## expandTildeInPath
-
-Given "~/foo", will replace "~" with home directory.
-
-```go
-func expandTildeInPath(s string) string {
-	if strings.HasPrefix(s, "~") {
-		dir, err := os.UserHomeDir()
-		must(err)
-		return dir + s[1:]
-	}
-	return s
-}
-```
 
 
 ## runCmdMust
