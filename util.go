@@ -281,7 +281,7 @@ func dirToLF(dir string) {
 		d2 := normalizeNewlines(d)
 		if !bytes.Equal(d, d2) {
 			logf(path + "\n")
-			//must(ioutil.WriteFile(path, d2, 0644))
+			must(ioutil.WriteFile(path, d2, 0644))
 		}
 		return nil
 	})
