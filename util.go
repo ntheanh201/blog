@@ -4,6 +4,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io/fs"
 	"io/ioutil"
 	"log"
 	"os/exec"
@@ -257,4 +258,31 @@ func formatSize(n int64) string {
 		}
 	}
 	return fmt.Sprintf("%d bytes", n)
+}
+
+func dirToLF(dir string) {
+	filepath.WalkDir(dir, func(path string, e fs.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if e.IsDir() || !e.Type().IsRegular() {
+			return nil
+		}
+		ext := strings.ToLower(filepath.Ext(path))
+		shouldProcess := false
+		switch ext {
+		case ".md":
+			shouldProcess = true
+		}
+		if !shouldProcess {
+			return nil
+		}
+		d := readFileMust(path)
+		d2 := normalizeNewlines(d)
+		if !bytes.Equal(d, d2) {
+			logf(path + "\n")
+			//must(ioutil.WriteFile(path, d2, 0644))
+		}
+		return nil
+	})
 }

@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/alecthomas/chroma v0.9.2
+	github.com/aymerick/raymond v2.0.2+incompatible // indirect
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20210915014305-45041d584aa8
 	github.com/json-iterator/go v1.1.12 // indirect

@@ -11,6 +11,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/aymerick/raymond"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/ast"
 	"github.com/gomarkdown/markdown/parser"
@@ -18,8 +19,21 @@ import (
 
 const csDir = "cheatsheets"
 
-// if true, only generates a subset, for faster turn-around
-const limitCheatsheets = false
+var (
+	limitCheatsheets  = false
+	whitelistDevhings = []string{}
+	whitelistOther    = []string{"go", "python3"}
+
+	blacklist = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
+)
+
+func init() {
+	if !limitCheatsheets {
+		whitelistDevhings = nil
+		whitelistOther = nil
+	}
+}
 
 func newCsMarkdownParser() *parser.Parser {
 	extensions := parser.NoIntraEmphasis |
@@ -37,41 +51,34 @@ func newCsMarkdownParser() *parser.Parser {
 type tocNode struct {
 	heading *ast.Heading // not set if synthesized
 
-	content string
-	level   int
-	id      string
+	Content string
+	Level   int
+	ID      string
 
-	nSiblings int
+	SiblingsCount int
 
-	children []*tocNode // level of child is > our level
+	Children []*tocNode // level of child is > our level
 }
 
 func genTocHTML(toc []*tocNode) string {
-	html := `<div class="toc">`
-	for _, e := range toc {
-		if len(e.children) == 0 {
-			s := "\n" + `<a href="#${id}">${name}</a><br>`
-			s = strings.Replace(s, "${id}", e.id, -1)
-			s = strings.Replace(s, "${name}", e.content, -1)
-			html += s
-			continue
-		}
-		s := "\n" + `<b>${name}</b>: `
-		s = strings.Replace(s, "${name}", e.content, -1)
-		for i, te := range e.children {
-			if i > 0 {
-				s += ", \n"
-			}
-			tmp := `<a href="#${te[1]}">${te[0]}</a>`
-			tmp = strings.Replace(tmp, "${te[1]}", te.id, -1)
-			tmp = strings.Replace(tmp, "${te[0]}", te.content, -1)
-			s += tmp
-		}
-		s += "<br>"
-		html += s
+	tocTpl := `<div class="toc">
+{{#each toc}}
+	{{#if children}}
+		<b>{{content}}:</b>
+		{{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.id}}">{{this.content}}</a>{{/each}}
+		<br>
+	{{else}}
+		<a href="{{id}}">{{content}}</a><br>
+	{{/if}}
+{{/each}}
+</div>`
+
+	ctx := map[string]interface{}{
+		"toc": toc,
 	}
-	html += "\n</div>\n"
-	return html
+	out := raymond.MustRender(tocTpl, ctx)
+
+	return out
 }
 
 func csBuildToc(md []byte, path string) string {
@@ -99,9 +106,9 @@ func csBuildToc(md []byte, path string) string {
 				ensureUniqueID(currHeading.HeadingID)
 				tn := &tocNode{
 					heading: currHeading,
-					content: currHeadingContent,
-					id:      currHeading.HeadingID,
-					level:   currHeading.Level,
+					Content: currHeadingContent,
+					ID:      currHeading.HeadingID,
+					Level:   currHeading.Level,
 				}
 				allHeaders = append(allHeaders, tn)
 				currToc = tn
@@ -115,12 +122,12 @@ func csBuildToc(md []byte, path string) string {
 				currHeadingContent = string(v.Literal)
 			} else {
 				if entering && currToc != nil {
-					currToc.nSiblings++
+					currToc.SiblingsCount++
 				}
 			}
 		default:
 			if entering && currToc != nil {
-				currToc.nSiblings++
+				currToc.SiblingsCount++
 			}
 		}
 		return ast.GoToNext
@@ -128,7 +135,7 @@ func csBuildToc(md []byte, path string) string {
 
 	if false {
 		for _, tn := range allHeaders {
-			logf("h%d #%s %s %d siblings\n", tn.level, tn.heading.HeadingID, tn.content, tn.nSiblings)
+			logf("h%d #%s %s %d siblings\n", tn.Level, tn.heading.HeadingID, tn.Content, tn.SiblingsCount)
 		}
 	}
 
@@ -136,10 +143,10 @@ func csBuildToc(md []byte, path string) string {
 		toc := []*tocNode{}
 		var curr *tocNode
 		for _, node := range allHeaders {
-			if !(node.level == 2 || node.level == 3) {
+			if !(node.Level == 2 || node.Level == 3) {
 				continue
 			}
-			if node.level == 2 {
+			if node.Level == 2 {
 				curr = node
 				toc = append(toc, curr)
 				continue
@@ -147,23 +154,23 @@ func csBuildToc(md []byte, path string) string {
 			// must be h3
 			if curr == nil {
 				curr = &tocNode{
-					content: "Main",
-					id:      "main",
+					Content: "Main",
+					ID:      "main",
 				}
 				toc = append(toc, curr)
 			}
-			curr.children = append(curr.children, node)
+			curr.Children = append(curr.Children, node)
 		}
 		return toc
 	}
 	cloneNode := func(n *tocNode) *tocNode {
 		// clone but without children
 		return &tocNode{
-			heading:   n.heading,
-			content:   n.content,
-			level:     n.level,
-			id:        n.id,
-			nSiblings: n.nSiblings,
+			heading:       n.heading,
+			Content:       n.Content,
+			Level:         n.Level,
+			ID:            n.ID,
+			SiblingsCount: n.SiblingsCount,
 		}
 	}
 
@@ -175,18 +182,18 @@ func csBuildToc(md []byte, path string) string {
 			node = cloneNode(node)
 			stackLastIdx := len(stack) - 1
 			curr := stack[stackLastIdx]
-			currLevel := curr.level
-			nodeLevel := node.level
+			currLevel := curr.Level
+			nodeLevel := node.Level
 			if nodeLevel > currLevel {
 				// this is a child
 				// TODO: should synthesize if we skip more than 1 level?
-				curr.children = append(curr.children, node)
+				curr.Children = append(curr.Children, node)
 			} else if nodeLevel == currLevel {
 				// this is a sibling, make current and attach to
 				stack[stackLastIdx] = node
 				if stackLastIdx > 0 {
 					parent := stack[stackLastIdx-1]
-					parent.children = append(parent.children, node)
+					parent.Children = append(parent.Children, node)
 				} else {
 					toc = append(toc, node)
 				}
@@ -197,7 +204,7 @@ func csBuildToc(md []byte, path string) string {
 				if stackLastIdx > 0 {
 					stack[stackLastIdx] = node
 					parent := stack[stackLastIdx-1]
-					parent.children = append(parent.children, node)
+					parent.Children = append(parent.Children, node)
 				} else {
 					toc = append(toc, node)
 					stack = []*tocNode{node}
@@ -225,9 +232,9 @@ func printToc(nodes []*tocNode, indent int) {
 
 	for _, n := range nodes {
 		s := indentStr(indent)
-		hdr := hdrStr(n.level)
-		logf("%s%s %s\n", s, hdr, n.content)
-		printToc(n.children, indent+1)
+		hdr := hdrStr(n.Level)
+		logf("%s%s %s\n", s, hdr, n.Content)
+		printToc(n.Children, indent+1)
 	}
 }
 
@@ -459,16 +466,8 @@ func genCheatSheetFiles() map[string][]byte {
 		}
 	}
 
-	blacklist := []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
-		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
-
-	if limitCheatsheets {
-		readFromDir("devhints", blacklist, []string{})
-		readFromDir("other", []string{"101v2"}, []string{"go", "go-snippets"})
-	} else {
-		readFromDir("devhints", blacklist, nil)
-		readFromDir("other", []string{"101v2"}, nil)
-	}
+	readFromDir("devhints", blacklist, whitelistDevhings)
+	readFromDir("other", []string{"101v2"}, whitelistOther)
 
 	{
 		// uniquify names

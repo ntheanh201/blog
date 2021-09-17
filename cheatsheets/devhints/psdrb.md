@@ -6,6 +6,11 @@ intro: |
   [PSD.rb](https://github.com/layervault/psd.rb) parses Photoshop documents in Ruby.
 ---
 
+### Intro
+
+[psd.rb](https://github.com/layervault/psd.rb) _(github.com)_ is a Ruby library to manipulate
+Photoshop PSD files.
+
 ### Opening
 
 ```ruby
@@ -106,7 +111,3 @@ node.mask["left"]
 node.mask["bottom"]
 node.mask["right"]
 ```
-
-### Reference
-
- * [layervault/psd.rb](https://github.com/layervault/psd.rb) _(github.com)_

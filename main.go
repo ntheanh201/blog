@@ -175,6 +175,11 @@ func main() {
 	}()
 
 	if false {
+		dirToLF(".")
+		return
+	}
+
+	if false {
 		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
