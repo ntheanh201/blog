@@ -7,7 +7,6 @@ import (
 	"regexp"
 	"runtime"
 	"sort"
-	"strconv"
 	"strings"
 	"sync"
 
@@ -232,12 +231,12 @@ type cheatSheet struct {
 	mdPath       string
 	htmlFullPath string
 	// TODO: rename htmlFileName
-	pathHTML   string // path relative to www/cheatsheets directory
+	PathHTML   string // path relative to www/cheatsheets directory
 	mdWithMeta []byte
 	md         []byte
 	meta       map[string]string
 	html       []byte
-	title      string
+	Title      string
 }
 
 func extractCheatSheetMetadata(cs *cheatSheet) {
@@ -282,9 +281,9 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 			lastName = name
 		}
 	}
-	cs.title = cs.meta["title"]
-	if cs.title == "" {
-		cs.title = cs.fileNameBase
+	cs.Title = cs.meta["title"]
+	if cs.Title == "" {
+		cs.Title = cs.fileNameBase
 	}
 }
 
@@ -318,7 +317,7 @@ func processCheatSheet(cs *cheatSheet) {
 
 	ctx := map[string]interface{}{
 		"toc":        toc,
-		"title":      cs.title,
+		"title":      cs.Title,
 		"mdFileName": mdFileName,
 		"content":    content,
 	}
@@ -330,8 +329,8 @@ func processCheatSheet(cs *cheatSheet) {
 func genIndexHTML(cheatsheets []*cheatSheet) string {
 	// sort by title
 	sort.Slice(cheatsheets, func(i, j int) bool {
-		t1 := strings.ToLower(cheatsheets[i].title)
-		t2 := strings.ToLower(cheatsheets[j].title)
+		t1 := strings.ToLower(cheatsheets[i].Title)
+		t2 := strings.ToLower(cheatsheets[j].Title)
 		return t1 < t2
 	})
 
@@ -344,42 +343,28 @@ func genIndexHTML(cheatsheets []*cheatSheet) string {
 		byCat[cat] = append(byCat[cat], cs)
 	}
 
-	tocHTML := ""
-	for _, cs := range cheatsheets {
-		s := `
-<div class="index-toc-item with-bull"><a href="{{.PathHTML}}">{{.Title}}</a></div>`
-		s = strings.Replace(s, "{{.Title}}", cs.title, -1)
-		s = strings.Replace(s, "{{.PathHTML}}", cs.pathHTML, -1)
-		tocHTML += s
-	}
-
 	// build toc for categories
-	catsHTML := ""
 	categories := []string{}
 	for cat := range byCat {
 		categories = append(categories, cat)
 	}
 	sort.Strings(categories)
+	cats := []map[string]interface{}{}
 	for _, category := range categories {
+		v := map[string]interface{}{}
+		v["category"] = category
 		catMetas := byCat[category]
-		catHTML := `<div class="index-toc">`
-		catHTML += strings.Replace(`<div> <b>{{.Category}}</b>:&nbsp;</div>`, "{{.Category}}", category, -1)
-		for _, cs := range catMetas {
-			s := `
-<div class="with-bull"><a href="{{.PathHTML}}">{{.Title}}</a></div>`
-			s = strings.Replace(s, "{{.PathHTML}}", cs.pathHTML, -1)
-			s = strings.Replace(s, "{{.Title}}", cs.title, -1)
-			catHTML += s
-		}
-		catHTML += `</div>`
-		catsHTML += catHTML
+		v["cheatsheets"] = catMetas
+		cats = append(cats, v)
 	}
 
-	nCheatsheets := strconv.Itoa(len(cheatsheets))
-	s := string(readFileMust(filepath.Join(csDir, "index.tmpl.html")))
-	s = strings.Replace(s, "{{.TocHTML}}", tocHTML, -1)
-	s = strings.Replace(s, "{{.CheatsheetsCount}}", nCheatsheets, -1)
-	s = strings.Replace(s, "{{.CatsHTML}}", catsHTML, -1)
+	tpl := string(readFileMust(filepath.Join(csDir, "index.tmpl.html")))
+	ctx := map[string]interface{}{
+		"cheatsheets":      cheatsheets,
+		"CheatsheetsCount": len(cheatsheets),
+		"categories":       cats,
+	}
+	s := raymond.MustRender(tpl, ctx)
 	return s
 }
 
@@ -460,8 +445,8 @@ func genCheatSheetFiles() map[string][]byte {
 	}
 
 	for _, cs := range cheatsheets {
-		cs.pathHTML = cs.fileNameBase + ".html"
-		cs.htmlFullPath = filepath.Join(csDir, cs.pathHTML)
+		cs.PathHTML = cs.fileNameBase + ".html"
+		cs.htmlFullPath = filepath.Join(csDir, cs.PathHTML)
 	}
 
 	logf("%d cheatsheets\n", len(cheatsheets))

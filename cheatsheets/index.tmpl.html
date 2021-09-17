@@ -64,14 +64,16 @@
     <div class="flex-grow"></div>
     <div x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})" 
       class="flex flex-row align-center">
-      <div style="font-size: 90%">{{.CheatsheetsCount}} cheatsheets:&nbsp;</div>
+      <div style="font-size: 90%">{{CheatsheetsCount}} cheatsheets:&nbsp;</div>
       <input x-model="search" @keyup.escape="search=''" id="cs-search-input" placeholder="'/' to search" type="text">
     </div>
     <div class="flex-grow"></div>
   </div>
 
   <div class="index-toc">
-    {{.TocHTML}}
+    {{#each cheatsheets}}
+    <div class="index-toc-item with-bull"><a href="{{PathHTML}}">{{Title}}</a></div>
+    {{/each}}
   </div>
 
   <div class="index-toc" id="random-cs" style="margin-top: 1em">
@@ -82,7 +84,14 @@
     <center>By topic:</center>
   </div>
 
-  {{.CatsHTML}}
+  {{#each categories}}
+  <div class="index-toc">
+    <div> <b>{{category}}</b>:&nbsp;</div>
+    {{#each cheatsheets}}
+      <div class="with-bull"><a href="{{PathHTML}}">{{Title}}</a></div>
+    {{/each}}
+  </div>
+  {{/each}}
 
 </body>
 
