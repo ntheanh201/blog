@@ -271,7 +271,7 @@ func dirToLF(dir string) {
 		ext := strings.ToLower(filepath.Ext(path))
 		shouldProcess := false
 		switch ext {
-		case ".js", ".css", ".html":
+		case ".js", ".css", ".html", ".md", ".txt", ".go":
 			shouldProcess = true
 		}
 		if !shouldProcess {
