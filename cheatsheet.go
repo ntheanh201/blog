@@ -300,56 +300,31 @@ type tocNode struct {
 	Children []*tocNode // level of child is > our level
 }
 
-func genTocHTML(toc []*tocNode) string {
-	tocTpl := `<div class="toc">
-{{#each toc}}
-	{{#if children}}
-		<b>{{content}}:</b>
-		{{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.id}}">{{this.content}}</a>{{/each}}
-		<br>
-	{{else}}
-		<a href="{{id}}">{{content}}</a><br>
-	{{/if}}
-{{/each}}
-</div>`
-
-	ctx := map[string]interface{}{
-		"toc": toc,
-	}
-	out := raymond.MustRender(tocTpl, ctx)
-	return out
-}
-
 func processCheatSheet(cs *cheatSheet) {
 	//logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
 	extractCheatSheetMetadata(cs)
 
-	csGenHTML := func(cs *cheatSheet) {
-		//logf("csGenHTML: for '%s'\n", cs.mdPath)
-		md := cleanupMarkdown(cs.md)
-		parser := newCsMarkdownParser()
-		renderer := newMarkdownHTMLRenderer("")
-		content := string(markdown.ToHTML(md, parser, renderer))
-		toc := csBuildToc(md, cs.mdPath)
-		tocHTML := genTocHTML(toc)
-		startHTML := `
-<div id="start"></div>
-<div id="wrapped-content"></div>
-`
-		innerHTML := tocHTML + startHTML + `<div id="content">` + "\n\n" + content + "\n" + `</div>`
+	//logf("csGenHTML: for '%s'\n", cs.mdPath)
+	md := cleanupMarkdown(cs.md)
+	parser := newCsMarkdownParser()
+	renderer := newMarkdownHTMLRenderer("")
+	content := string(markdown.ToHTML(md, parser, renderer))
+	toc := csBuildToc(md, cs.mdPath)
+	tpl := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
 
-		res := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
-		res = strings.Replace(res, "{{.InnerHTML}}", string(innerHTML), -1)
-		// on windows mdFileName is a windows-style path so change to unix/url style
-		mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
-		res = strings.Replace(res, "{{.MdFileName}}", mdFileName, -1)
-		res = strings.Replace(res, "{{.Title}}", cs.title, -1)
-		cs.html = []byte(res)
-		//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
+	// on windows mdFileName is a windows-style path so change to unix/url style
+	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
+
+	ctx := map[string]interface{}{
+		"toc":        toc,
+		"title":      cs.title,
+		"mdFileName": mdFileName,
+		"content":    content,
 	}
+	cs.html = []byte(raymond.MustRender(tpl, ctx))
 
-	csGenHTML(cs)
+	//logf("Processed %s, html size: %d\n", cs.mdPath, len(cs.html))
 }
 
 func genIndexHTML(cheatsheets []*cheatSheet) string {

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>{{.Title}} cheatsheet</title>
+  <title>{{title}} cheatsheet</title>
   <link href="s/cheatsheet.css" rel="stylesheet" />
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="s/cheatsheet.js"></script>
@@ -233,18 +233,35 @@
     <a href="/">Home</a>
     <div>&nbsp;/&nbsp;</div>
     <a href="index.html">cheatsheets</a>
-    <div>&nbsp;/&nbsp;{{.Title}} cheatsheet</div>
+    <div>&nbsp;/&nbsp;{{title}} cheatsheet</div>
     <div class="flex-grow"></div>
     <div x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})">
       <input x-model="search" @keyup.escape="search=''" id="cs-search-input" type="text" placeholder="'/' to search"
         style="width: 32em;">
     </div>
     <div class="flex-grow"></div>
-    <a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{.MdFileName}}">edit</a>
+    <a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{mdFileName}}">edit</a>
   </div>
 
-  {{.InnerHTML}}
+  <div class="toc">
+    {{#each toc}}
+      {{#if children}}
+      <b>{{content}}:</b>
+      {{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
+      {{else}}
+      <a href="{{id}}">{{content}}</a><br>
+      {{/if}}
+    {{/each}}
+  </div>
 
+  <div id="start"></div>
+  <div id="wrapped-content"></div>
+
+  <div id="content">
+
+  {{{content}}}
+
+  </div> 
 </body>
 
 </html>
