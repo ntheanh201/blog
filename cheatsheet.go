@@ -19,7 +19,7 @@ import (
 const csDir = "cheatsheets"
 
 var (
-	limitCheatsheets = true
+	limitCheatsheets = false
 
 	whitelistDevhings = []string{}
 	whitelistOther    = []string{"python3"} // {"go", "python3"}
