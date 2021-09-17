@@ -8,7 +8,7 @@ weight: -1
 
 ## Web workers
 
-#### Client
+### Client
 
 ```js
 var worker = new Worker('worker.js')
@@ -22,7 +22,7 @@ worker.postMessage('hello!')
 
 Messages can be anything that can be serialized into JSON (objects, arrays, strings, numbers, booleans). See: [structured clone](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
 
-#### Worker
+### Worker
 
 ```js
 self.onmessage = function (message) {

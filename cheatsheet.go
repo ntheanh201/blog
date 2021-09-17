@@ -129,6 +129,7 @@ func csBuildToc(md []byte, path string) []*tocNode {
 			if nodeLevel > currLevel {
 				// this is a child
 				// TODO: should synthesize if we skip more than 1 level?
+				panicIf(nodeLevel-currLevel > 1, "skipping more than 1 level in %s, '%s'", path, node.Content)
 				curr.Children = append(curr.Children, node)
 				stack = append(stack, node)
 				curr = node

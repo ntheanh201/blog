@@ -49,13 +49,13 @@ function add (a: number, b: number) { ... }
 
 ## Type assertions
 
-#### Variables
+### Variables
 ```ts
 let len: number = (input as string).length
 let len: number = (<string> input).length  /* not allowed in JSX */
 ```
 
-#### Functions
+### Functions
 ```ts
 function object(this: {a: number, b: number}, a: number, b: number) {
   this.a = a;
@@ -148,7 +148,7 @@ class Point {
 }
 ```
 
-#### Inheritance
+### Inheritance
 
 ```ts
 class Point {...}
@@ -160,7 +160,7 @@ interface Colored {...}
 class Pixel extends Point implements Colored {...}
 ```
 
-#### Short fields initialisation
+### Short fields initialisation
 
 ```ts
 class Point {
@@ -172,7 +172,7 @@ class Point {
 }
 ```
 
-#### Fields which do not require initialisation
+### Fields which do not require initialisation
 ```ts
 class Point {
   public someUselessValue!: number;

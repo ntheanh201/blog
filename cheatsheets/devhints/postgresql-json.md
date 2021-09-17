@@ -77,21 +77,21 @@ Only available in PostgreSQL 9.5+.
 
 ## Functions
 
-#### fn(json) → json
+### fn(json) → json
 
 ```sql
 jsonb_set(data, '{path}', value)
 jsonb_strip_nulls(data)
 ```
 
-#### fn(···) → json
+### fn(···) → json
 
 ```sql
 to_json("Hello"::text)
 array_to_json('{1,2}'::int[])
 ```
 
-#### Iteration
+### Iteration
 
 ```sql
 SELECT * from json_each('{"a":1, "b":2}')

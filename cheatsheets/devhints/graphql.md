@@ -145,17 +145,15 @@ Mutations are just fields that do something when queried.
 
 Great for searching.
 
+## Over HTTP
 
-Over HTTP
----------
-
-#### GET
+### GET
 
 ```js
 fetch('http://myapi/graphql?query={ me { name } }')
 ```
 
-#### POST
+### POST
 
 ```js
 fetch('http://myapi/graphql', {
@@ -167,8 +165,7 @@ fetch('http://myapi/graphql', {
 })
 ```
 
-Schema
-------
+## Schema
 {: .-three-column}
 
 ### Basic schemas
