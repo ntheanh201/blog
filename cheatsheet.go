@@ -19,7 +19,7 @@ import (
 const csDir = "cheatsheets"
 
 var (
-	limitCheatsheets = false
+	limitCheatsheets = true
 
 	whitelistDevhings = []string{}
 	whitelistOther    = []string{"python3"} // {"go", "python3"}
@@ -48,11 +48,9 @@ func newCsMarkdownParser() *parser.Parser {
 	return parser.NewWithExtensions(extensions)
 }
 
-func csBuildToc(md []byte, path string) []*tocNode {
+func csBuildToc(doc ast.Node, path string) []*tocNode {
 	//logf("csBuildToc: %s\n", path)
-	parser := newCsMarkdownParser()
-	doc := parser.Parse(md)
-	//ast.t(os.Stdout, doc)
+	//ast.Print(os.Stdout, doc)
 
 	taken := map[string]bool{}
 	ensureUniqueID := func(id string) {
@@ -281,6 +279,92 @@ type tocNode struct {
 	SiblingsCount int
 
 	Children []*tocNode // level of child is > our level
+
+	tocHTML      []byte
+	tocHTMLBlock *ast.HTMLBlock
+	seen         bool
+}
+
+func genTocHTML(node *tocNode, level int) {
+	nChildren := len(node.Children)
+	if level >= 2 && nChildren > 0 {
+		s := `<div class="toc-mini">`
+		for i, c := range node.Children {
+			s += fmt.Sprintf(`<a href="#%s">%s</a>`, c.ID, c.Content)
+			if i < nChildren-1 {
+				s += `<span class="tmb">&bull;</span>`
+			}
+		}
+		s += `</div>`
+		//logf("genTocHTML: generating for %s '%s'\n", node.ID, s)
+		node.tocHTML = []byte(s)
+		node.tocHTMLBlock = &ast.HTMLBlock{Leaf: ast.Leaf{Literal: []byte(s)}}
+	}
+	for _, c := range node.Children {
+		genTocHTML(c, level+1)
+	}
+}
+
+func findTocNodeForHeading(toc []*tocNode, h *ast.Heading) *tocNode {
+	for _, n := range toc {
+		if n.heading == h {
+			return n
+		}
+		// deapth first search
+		if c := findTocNodeForHeading(n.Children, h); c != nil {
+			return c
+		}
+	}
+	return nil
+}
+
+// for 2nd+ level headings we need to create a toc-mini pointing to its children
+func insertAutoToc(doc ast.Node, toc []*tocNode) {
+
+	for _, n := range toc {
+		genTocHTML(n, 1)
+	}
+
+	// doc is ast.Document, all ast.Heading are direct childre
+	// we fish out the ast.Heading and insert tocHTMLBlock after ast.Heading
+	onceMore := true
+	for onceMore {
+		onceMore = false
+		a := doc.GetChildren()
+		for i, n := range a {
+			hn, ok := n.(*ast.Heading)
+			if !ok {
+				continue
+			}
+			tn := findTocNodeForHeading(toc, hn)
+			if tn == nil || tn.seen {
+				continue
+			}
+			tn.seen = true
+			if tn.tocHTMLBlock != nil {
+				//logf("inserting toc for heading %s\n", hn.HeadingID)
+				insertAstNodeChild(doc, tn.tocHTMLBlock, i+1)
+				tn.tocHTMLBlock = nil
+				// re-do from beginning if modified
+				onceMore = true
+			}
+		}
+	}
+
+}
+
+// insertAstNodeChild appends child to children of parent
+// It panics if either node is nil.
+func insertAstNodeChild(parent ast.Node, child ast.Node, i int) {
+	//ast.RemoveFromTree(child)
+	child.SetParent(parent)
+	a := parent.GetChildren()
+	if i >= len(a) {
+		a = append(a, child)
+	} else {
+		a = append(a[:i], append([]ast.Node{child}, a[i:]...)...)
+	}
+	parent.SetChildren(a)
 }
 
 func processCheatSheet(cs *cheatSheet) {
@@ -291,9 +375,15 @@ func processCheatSheet(cs *cheatSheet) {
 	//logf("csGenHTML: for '%s'\n", cs.mdPath)
 	md := cleanupMarkdown(cs.md)
 	parser := newCsMarkdownParser()
+
+	doc := markdown.Parse(md, parser)
+	toc := csBuildToc(doc, cs.mdPath)
+
+	insertAutoToc(doc, toc)
+	//ast.Print(os.Stdout, doc)
 	renderer := newMarkdownHTMLRenderer("")
-	content := string(markdown.ToHTML(md, parser, renderer))
-	toc := csBuildToc(md, cs.mdPath)
+	mdHTML := string(markdown.Render(doc, renderer))
+
 	tpl := string(readFileMust(filepath.Join(csDir, "cheatsheet.tmpl.html")))
 
 	// on windows mdFileName is a windows-style path so change to unix/url style
@@ -303,7 +393,7 @@ func processCheatSheet(cs *cheatSheet) {
 		"toc":        toc,
 		"title":      cs.Title,
 		"mdFileName": mdFileName,
-		"content":    content,
+		"content":    mdHTML,
 	}
 	cs.html = []byte(raymond.MustRender(tpl, ctx))
 

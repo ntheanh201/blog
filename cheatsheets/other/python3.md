@@ -2152,3 +2152,7 @@ if __name__ == '__main__':
     main()
 
 ```
+
+## Another one [Intro](#intro) &bull; [Play Popcorn](#play-popcorn)
+
+<div class="toc"> <a href="#intro">Intro 2</a> &bull; <a href="#play-popcorn">Play Popcorn 2</a></div>
