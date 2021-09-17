@@ -48,40 +48,7 @@ func newCsMarkdownParser() *parser.Parser {
 	return parser.NewWithExtensions(extensions)
 }
 
-type tocNode struct {
-	heading *ast.Heading // not set if synthesized
-
-	Content string
-	Level   int
-	ID      string
-
-	SiblingsCount int
-
-	Children []*tocNode // level of child is > our level
-}
-
-func genTocHTML(toc []*tocNode) string {
-	tocTpl := `<div class="toc">
-{{#each toc}}
-	{{#if children}}
-		<b>{{content}}:</b>
-		{{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.id}}">{{this.content}}</a>{{/each}}
-		<br>
-	{{else}}
-		<a href="{{id}}">{{content}}</a><br>
-	{{/if}}
-{{/each}}
-</div>`
-
-	ctx := map[string]interface{}{
-		"toc": toc,
-	}
-	out := raymond.MustRender(tocTpl, ctx)
-
-	return out
-}
-
-func csBuildToc(md []byte, path string) string {
+func csBuildToc(md []byte, path string) []*tocNode {
 	//logf("csBuildToc: %s\n", path)
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
@@ -219,7 +186,7 @@ func csBuildToc(md []byte, path string) string {
 		printToc(toc, 0)
 		printToc(toc2, 0)
 	}
-	return genTocHTML(toc2)
+	return toc2
 }
 
 func printToc(nodes []*tocNode, indent int) {
@@ -321,6 +288,38 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 	}
 }
 
+type tocNode struct {
+	heading *ast.Heading // not set if synthesized
+
+	Content string
+	Level   int
+	ID      string
+
+	SiblingsCount int
+
+	Children []*tocNode // level of child is > our level
+}
+
+func genTocHTML(toc []*tocNode) string {
+	tocTpl := `<div class="toc">
+{{#each toc}}
+	{{#if children}}
+		<b>{{content}}:</b>
+		{{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.id}}">{{this.content}}</a>{{/each}}
+		<br>
+	{{else}}
+		<a href="{{id}}">{{content}}</a><br>
+	{{/if}}
+{{/each}}
+</div>`
+
+	ctx := map[string]interface{}{
+		"toc": toc,
+	}
+	out := raymond.MustRender(tocTpl, ctx)
+	return out
+}
+
 func processCheatSheet(cs *cheatSheet) {
 	//logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
@@ -331,8 +330,9 @@ func processCheatSheet(cs *cheatSheet) {
 		md := cleanupMarkdown(cs.md)
 		parser := newCsMarkdownParser()
 		renderer := newMarkdownHTMLRenderer("")
-		tocHTML := csBuildToc(md, cs.mdPath)
 		content := string(markdown.ToHTML(md, parser, renderer))
+		toc := csBuildToc(md, cs.mdPath)
+		tocHTML := genTocHTML(toc)
 		startHTML := `
 <div id="start"></div>
 <div id="wrapped-content"></div>

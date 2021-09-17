@@ -3,7 +3,7 @@ title: Python 3
 category: Python
 ---
 
- ## Collections
+## Collections
 
 ### List
 
