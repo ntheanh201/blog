@@ -19,9 +19,10 @@ import (
 const csDir = "cheatsheets"
 
 var (
-	limitCheatsheets  = false
+	limitCheatsheets = false
+
 	whitelistDevhings = []string{}
-	whitelistOther    = []string{"go", "python3"}
+	whitelistOther    = []string{"python3"} // {"go", "python3"}
 
 	blacklist = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
@@ -51,7 +52,7 @@ func csBuildToc(md []byte, path string) []*tocNode {
 	//logf("csBuildToc: %s\n", path)
 	parser := newCsMarkdownParser()
 	doc := parser.Parse(md)
-	//ast.Print(os.Stdout, doc)
+	//ast.t(os.Stdout, doc)
 
 	taken := map[string]bool{}
 	ensureUniqueID := func(id string) {
@@ -104,31 +105,6 @@ func csBuildToc(md []byte, path string) []*tocNode {
 			logf("h%d #%s %s %d siblings\n", tn.Level, tn.heading.HeadingID, tn.Content, tn.SiblingsCount)
 		}
 	}
-
-	buildTocOld := func() []*tocNode {
-		toc := []*tocNode{}
-		var curr *tocNode
-		for _, node := range allHeaders {
-			if !(node.Level == 2 || node.Level == 3) {
-				continue
-			}
-			if node.Level == 2 {
-				curr = node
-				toc = append(toc, curr)
-				continue
-			}
-			// must be h3
-			if curr == nil {
-				curr = &tocNode{
-					Content: "Main",
-					ID:      "main",
-				}
-				toc = append(toc, curr)
-			}
-			curr.Children = append(curr.Children, node)
-		}
-		return toc
-	}
 	cloneNode := func(n *tocNode) *tocNode {
 		// clone but without children
 		return &tocNode{
@@ -154,6 +130,8 @@ func csBuildToc(md []byte, path string) []*tocNode {
 				// this is a child
 				// TODO: should synthesize if we skip more than 1 level?
 				curr.Children = append(curr.Children, node)
+				stack = append(stack, node)
+				curr = node
 			} else if nodeLevel == currLevel {
 				// this is a sibling, make current and attach to
 				stack[stackLastIdx] = node
@@ -164,33 +142,38 @@ func csBuildToc(md []byte, path string) []*tocNode {
 					toc = append(toc, node)
 				}
 			} else {
-				stack = stack[:stackLastIdx]
-				stackLastIdx--
-				// TODO: possibly must go down several levels
-				if stackLastIdx > 0 {
-					stack[stackLastIdx] = node
-					parent := stack[stackLastIdx-1]
-					parent.Children = append(parent.Children, node)
-				} else {
-					toc = append(toc, node)
-					stack = []*tocNode{node}
+				// nodeLevel < currLevel
+				for stackLastIdx > 0 {
+					if stackLastIdx == 1 {
+						toc = append(toc, node)
+						stack = []*tocNode{node}
+						stackLastIdx = 0
+					} else {
+						stack = stack[:stackLastIdx]
+						stackLastIdx--
+						curr = stack[stackLastIdx]
+						if curr.Level == nodeLevel {
+							stack[stackLastIdx] = node
+							parent := stack[stackLastIdx-1]
+							parent.Children = append(parent.Children, node)
+							stackLastIdx = 0
+						}
+					}
 				}
 			}
 		}
 		return toc
 	}
-	toc := buildTocOld()
-	toc2 := buildToc()
+	toc := buildToc()
 	if false {
 		printToc(toc, 0)
-		printToc(toc2, 0)
 	}
-	return toc2
+	return toc
 }
 
 func printToc(nodes []*tocNode, indent int) {
 	indentStr := func(indent int) string {
-		return "                               "[:indent*2]
+		return "............................"[:indent]
 	}
 	hdrStr := func(level int) string {
 		return "#################"[:level]

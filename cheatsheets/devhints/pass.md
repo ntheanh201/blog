@@ -4,10 +4,19 @@ layout: 2017/sheet
 category: CLI
 ---
 
-Reference
----------
+# Topics
 
-### Create
+## Intro
+[pass](https://passwordstore.org) is a command-line unix password maanger.
+
+Passwords are stored in ~/.password-store
+
+Summary:
+* `pass init "password for storage"` : set up
+* `pass` : list all passwords
+* `pass insert twitter` : add password 
+
+## Create
 
 ```sh
 $ pass init [-p] <gpg-id>
@@ -16,14 +25,14 @@ $ pass git remote add origin <your.git:repository>
 $ pass git push -u --all
 ```
 
-### Store
+## Store
 
 ```sh
 $ pass insert [-m] twitter.com/rsc
 $ pass generate [-n] twitter.com/rsc length
 ```
 
-### Retrieve
+## Retrieve
 
 ```sh
 $ pass ls twitter.com/
@@ -31,13 +40,13 @@ $ pass show twitter.com/rsc
 $ pass -c twitter.com/rsc
 ```
 
-### Search
+## Search
 
 ```sh
 $ pass find twitter.com
 ```
 
-### Management
+## Management
 
 ```sh
 $ pass mv twitter.com twitter.com/rsc
@@ -49,13 +58,9 @@ $ pass cp twitter.com/rsc twitter.com/ricosc
 $ pass edit twitter.com/rsc
 ```
 
-### Synchronize
+## Synchronize
 
 ```sh
 $ pass git push
 $ pass git pull
 ```
-
-## References
-
-* <https://passwordstore.org>
