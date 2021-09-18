@@ -38,17 +38,6 @@
       }
     }
 
-    function doSearch(s) {
-      s = s.toLowerCase();
-      //console.log("search:", s);
-      let filtered = [];
-      for (const el of searchIndex) {
-        if (el[1].includes(s)) {
-          filtered.push(el);
-        }
-      }
-    }
-
     function updateLocationHash(divId) {
       if (true) {
         window.location.hash = divId;
@@ -87,14 +76,17 @@
       //updateLocationHash(divId);
     }
 
-    function bringToFront(target) {
-      const hdrId = target.getAttribute("href");
-      bringToFrontDiv(hdrId);
-    }
-
     function onClick(ev) {
       ev.preventDefault();
-      bringToFront(ev.target);
+      const hdrId = target.getAttribute("href");
+      bringToFrontDiv(hdrId);
+      window.scrollTo(0, 0);
+    }
+
+    function searchItemClicked(toSelectID) {
+      console.log(`search item clicked: '${toSelectID}'`)
+      //ev.preventDefault();
+      bringToFrontDiv(toSelectID);
       window.scrollTo(0, 0);
     }
 
@@ -178,7 +170,7 @@
       for (const group of groups) {
         const div = document.createElement("div");
         div.id = group[0].id + "-wrap";
-        div.className = "dvwrap";
+        div.className = "dvwrap box";
 
         for (const el of group) {
           div.appendChild(el);
@@ -215,6 +207,20 @@
         }
       });
     }
+
+    function doSearch(s) {
+      s = s.toLowerCase();
+      //console.log("search:", s);
+      let els = document.getElementsByClassName("si");
+      for (const el of els) {
+        const txt = el.textContent.toLowerCase();
+        if (txt.includes(s)) {
+          el.classList.remove("hidden");
+        } else {
+          el.classList.add("hidden")
+        }
+      }
+    }
   </script>
   <style>
     h1 {
@@ -235,22 +241,28 @@
     <a href="index.html">cheatsheets</a>
     <div>&nbsp;/&nbsp;{{title}} cheatsheet</div>
     <div class="flex-grow"></div>
-    <div x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})">
+    <div class="relative" x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})">
       <input x-model="search" @keyup.escape="search=''" id="cs-search-input" type="text" placeholder="'/' to search"
-        style="width: 32em;">
+        class="relative" style="width: 32em;">
+      <div class="overlay"></div>
+      <div class="box p-0 absolute w-full bg-white search-results-wrap">
+        {{#each tocflat}}
+        <div class="si sil{{TocLevel}}" onclick="searchItemClicked('{{ID}}')" data-hid="{{ID}}">{{content}}</div>
+        {{/each}}
+      </div>
     </div>
     <div class="flex-grow"></div>
     <a href="https://github.com/kjk/blog/blob/master/cheatsheets/{{mdFileName}}">edit</a>
   </div>
 
-  <div class="toc">
+  <div class="toc box">
     {{#each toc}}
-      {{#if children}}
-      <b>{{content}}:</b>
-      {{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
-      {{else}}
-      <a href="{{id}}">{{content}}</a><br>
-      {{/if}}
+    {{#if children}}
+    <b>{{content}}:</b>
+    {{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
+    {{else}}
+    <a href="{{id}}">{{content}}</a><br>
+    {{/if}}
     {{/each}}
   </div>
 
@@ -259,9 +271,9 @@
 
   <div id="content">
 
-  {{{content}}}
+    {{{content}}}
 
-  </div> 
+  </div>
 </body>
 
 </html>

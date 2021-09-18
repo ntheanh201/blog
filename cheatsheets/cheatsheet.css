@@ -3,9 +3,9 @@
 */
 
 body {
-  /* margin: 0 1em; */
+  /* margin: 0 1rem; */
   margin: 0;
-  padding: 0 1em;
+  padding: 0 1rem;
   /* background-color: white; */
   /* font-family: "PT Serif", serif; */
   font-family: sans-serif;
@@ -14,12 +14,12 @@ body {
 }
 
 td {
-  padding-right: 1em;
+  padding-right: 1rem;
 }
 
 h2 {
-  margin-block-start: 0.23em;
-  margin-block-end: 0.23em;
+  margin-block-start: 0.23rem;
+  margin-block-end: 0.23rem;
 }
 
 #selected {
@@ -32,16 +32,16 @@ h2 {
 
 .edit {
   position: absolute;
-  top: 0.5em;
-  right: 1em;
+  top: 0.5rem;
+  right: 1rem;
 }
 
 
 .bull {
   color: gray;
   /*
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     */
 }
 
@@ -54,13 +54,13 @@ h2 {
 }
 
 .index-toc>div.with-bull {
-  margin-right: 0.5em;
+  margin-right: 0.5rem;
 }
 
 .index-toc>div.with-bull::after {
   content: "•";
   color: gray;
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }
 
 .index-toc>div.with-bull:last-child::after {
@@ -68,13 +68,13 @@ h2 {
 }
 
 .by-topic {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: bold;
 }
 
 .start {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .toc-mini {
@@ -84,8 +84,26 @@ h2 {
 /* toc mini bull */
 .tmb {
   color: gray;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.box {
+  background-color: white;
+  border: 1px solid #ffffff;
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 30%);
+  margin-bottom: 1rem;
+  padding: 0.5em 0.5rem;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .toc {
@@ -96,22 +114,55 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 9;
-
-  background-color: white;
-  border: 1px solid #ffffff;
-  box-shadow: 1px 1px 5px rgb(0 0 0 / 30%);
-  margin-bottom: 1em;
-  padding: 0.5em 0.5em;
 }
 
 .dvwrap {
   font-size: 90%;
+}
 
-  background-color: white;
-  border: 1px solid #ffffff;
-  box-shadow: 1px 1px 5px rgb(0 0 0 / 30%);
-  margin-bottom: 1em;
-  padding: 0.5em 0.5em;
+.search-results-wrap {
+  z-index: 19; /* bigger than toc */
+  top: 1.5rem;
+  left: -3px; /* no idea why */
+  max-height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 90%;
+  min-height: 4rem;
+}
+
+/* search item */
+.si {
+  padding-right: 0.5rem;
+}
+.si:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+/* search item level 1 */
+.sil0 {
+  padding-left: 0.5rem;
+}
+
+.sil1 {
+  padding-left: 1rem;
+}
+
+.sil2 {
+  padding-left: 1.5rem;
+}
+
+.sil3 {
+  padding-left: 2rem;
+}
+
+.sil4 {
+  padding-left: 2.5rem;
+}
+
+.sil5 {
+  padding-left: 3rem;
 }
 
 pre, code {
@@ -130,8 +181,8 @@ pre.prettyprint, code.prettyprint {
 
 pre.prettyprint {
   width: 90%;
-  margin: 0.5em;
-  padding: 1em;
+  margin: 0.5rem;
+  padding: 1rem;
   white-space: pre-wrap;
 }
 
@@ -182,12 +233,52 @@ a:hover {
   align-items: center;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
 /* ---------------------- chroma syntax highlighting ------------------- */
 
 pre.chroma {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 0.5rem;
   background-color: #fdfdfd;
   color: #657b83;
   border: 1px solid #e5e5e5;
@@ -240,16 +331,16 @@ pre.chroma {
 /* LineNumbersTable */
 
 .chroma .lnt {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
+  margin-right: 0.4rem;
+  padding: 0 0.4em 0 0.4rem;
   display: block;
 }
 
 /* LineNumbers */
 
 .chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
+  margin-right: 0.4rem;
+  padding: 0 0.4em 0 0.4rem;
 }
 
 /* Keyword */

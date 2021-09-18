@@ -70,10 +70,10 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 			} else {
 				ensureUniqueID(currHeading.HeadingID)
 				tn := &tocNode{
-					heading: currHeading,
-					Content: currHeadingContent,
-					ID:      currHeading.HeadingID,
-					Level:   currHeading.Level,
+					heading:      currHeading,
+					Content:      currHeadingContent,
+					ID:           currHeading.HeadingID,
+					HeadingLevel: currHeading.Level,
 				}
 				allHeaders = append(allHeaders, tn)
 				currToc = tn
@@ -100,7 +100,7 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 
 	if false {
 		for _, tn := range allHeaders {
-			logf("h%d #%s %s %d siblings\n", tn.Level, tn.heading.HeadingID, tn.Content, tn.SiblingsCount)
+			logf("h%d #%s %s %d siblings\n", tn.HeadingLevel, tn.heading.HeadingID, tn.Content, tn.SiblingsCount)
 		}
 	}
 	cloneNode := func(n *tocNode) *tocNode {
@@ -108,7 +108,7 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 		return &tocNode{
 			heading:       n.heading,
 			Content:       n.Content,
-			Level:         n.Level,
+			HeadingLevel:  n.HeadingLevel,
 			ID:            n.ID,
 			SiblingsCount: n.SiblingsCount,
 		}
@@ -122,8 +122,8 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 			node = cloneNode(node)
 			stackLastIdx := len(stack) - 1
 			curr := stack[stackLastIdx]
-			currLevel := curr.Level
-			nodeLevel := node.Level
+			currLevel := curr.HeadingLevel
+			nodeLevel := node.HeadingLevel
 			if nodeLevel > currLevel {
 				// this is a child
 				// TODO: should synthesize if we skip more than 1 level?
@@ -151,7 +151,7 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 						stack = stack[:stackLastIdx]
 						stackLastIdx--
 						curr = stack[stackLastIdx]
-						if curr.Level == nodeLevel {
+						if curr.HeadingLevel == nodeLevel {
 							stack[stackLastIdx] = node
 							parent := stack[stackLastIdx-1]
 							parent.Children = append(parent.Children, node)
@@ -180,7 +180,7 @@ func printToc(nodes []*tocNode, indent int) {
 
 	for _, n := range nodes {
 		s := indentStr(indent)
-		hdr := hdrStr(n.Level)
+		hdr := hdrStr(n.HeadingLevel)
 		logf("%s%s %s\n", s, hdr, n.Content)
 		printToc(n.Children, indent+1)
 	}
@@ -272,9 +272,10 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 type tocNode struct {
 	heading *ast.Heading // not set if synthesized
 
-	Content string
-	Level   int
-	ID      string
+	Content      string
+	HeadingLevel int
+	TocLevel     int
+	ID           string
 
 	SiblingsCount int
 
@@ -287,7 +288,12 @@ type tocNode struct {
 
 func genTocHTML(node *tocNode, level int) {
 	nChildren := len(node.Children)
-	if level >= 2 && nChildren > 0 {
+	buildToc := func() {
+		shouldBuild := ((level > 2) || (node.SiblingsCount == 0))
+		if nChildren == 0 || !shouldBuild {
+			return
+		}
+
 		s := `<div class="toc-mini">`
 		for i, c := range node.Children {
 			s += fmt.Sprintf(`<a href="#%s">%s</a>`, c.ID, c.Content)
@@ -300,6 +306,8 @@ func genTocHTML(node *tocNode, level int) {
 		node.tocHTML = []byte(s)
 		node.tocHTMLBlock = &ast.HTMLBlock{Leaf: ast.Leaf{Literal: []byte(s)}}
 	}
+	buildToc()
+
 	for _, c := range node.Children {
 		genTocHTML(c, level+1)
 	}
@@ -367,6 +375,17 @@ func insertAstNodeChild(parent ast.Node, child ast.Node, i int) {
 	parent.SetChildren(a)
 }
 
+func buildFlatToc(toc []*tocNode, tocLevel int) []*tocNode {
+	res := []*tocNode{}
+	for _, n := range toc {
+		n.TocLevel = tocLevel
+		res = append(res, n)
+		sub := buildFlatToc(n.Children, tocLevel+1)
+		res = append(res, sub...)
+	}
+	return res
+}
+
 func processCheatSheet(cs *cheatSheet) {
 	//logf("processCheatSheet: '%s'\n", cs.mdPath)
 	cs.mdWithMeta = readFileMust(cs.mdPath)
@@ -378,6 +397,7 @@ func processCheatSheet(cs *cheatSheet) {
 
 	doc := markdown.Parse(md, parser)
 	toc := csBuildToc(doc, cs.mdPath)
+	tocFlat := buildFlatToc(toc, 0)
 
 	insertAutoToc(doc, toc)
 	//ast.Print(os.Stdout, doc)
@@ -391,6 +411,7 @@ func processCheatSheet(cs *cheatSheet) {
 
 	ctx := map[string]interface{}{
 		"toc":        toc,
+		"tocflat":    tocFlat,
 		"title":      cs.Title,
 		"mdFileName": mdFileName,
 		"content":    mdHTML,
