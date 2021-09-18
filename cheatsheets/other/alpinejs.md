@@ -36,7 +36,7 @@ To include Alpine.js in your HTML:
 </div>
 ```
 
-## Scope
+### Scope
 
 Properties defined in an `x-data` directive are available to all element children. Even ones inside other, nested `x-data` components.
 

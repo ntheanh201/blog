@@ -15,23 +15,6 @@
       return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
     }
 
-    function buildSearchIndex() {
-      //console.log("buildSearchIndex");
-      const parent = elById("#content");
-      for (const el of parent.children) {
-        if (!isHdrEl(el)) {
-          continue;
-        }
-        if (isSiblingHeader(el)) {
-          //console.log(`skipping ${el.textContent}`);
-          continue;
-        }
-        const txt = el.getAttribute("data-name");
-        const id = el.id;
-        searchIndex.push([txt, txt.toLowerCase(), id]);
-        //console.log(`${txt} #${id}`);
-      }
-    }
     function isSiblingHeader(el) {
       const nextEl = el.nextElementSibling;
       return !nextEl || isHdrEl(nextEl);
@@ -109,7 +92,6 @@
 
     // for nested headers we want the name be "File manipulation / Reading"
     // instead of just "Reading".
-    // we build those once on h{1-4} elements and store as "data-name" attribute
     function buildHeaderFullNames() {
       let currH1 = "";
       let currH2 = "";
@@ -131,7 +113,13 @@
         if (!isHdrEl(el)) {
           continue;
         }
-        el.setAttribute("data-name", el.textContent);
+        if (!isSiblingHeader(el)) {
+          //console.log(`skipping ${el.textContent}`);
+          const txt = el.textContent;
+          const id = el.id;
+          searchIndex.push([txt, txt.toLowerCase(), id]);
+        }
+
         const tag = el.localName;
         if (tag == "h1") {
           currH1 = a(el.textContent, el.id);
@@ -144,13 +132,11 @@
         }
         if (tag === "h3") {
           currH3 = appendBreadcrumb(currH2, a(el.textContent, el.id));
-          //el.setAttribute("data-name", currH3);
           el.innerHTML = currH3;
           continue;
         }
         if (tag === "h4") {
           const currH4 = appendBreadcrumb(currH3, a(el.textContent, el.id));
-          //el.setAttribute("data-name", currH4);
           el.innerHTML = currH4;
           continue;
         }
@@ -194,7 +180,6 @@
     async function start() {
       // must call before groupHeaderElements()
       buildHeaderFullNames();
-      buildSearchIndex();
 
       groupHeaderElements();
       hookClick();
@@ -424,7 +409,7 @@
     {{#each toc}}
     {{#if children}}
     <b>{{content}}:</b>
-    {{#each children}}{{#if @index}}, {{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
+    {{#each children}}{{#if @index}}<span class="bull">&bull;</span>{{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
     {{else}}
     <a href="{{id}}">{{content}}</a><br>
     {{/if}}
