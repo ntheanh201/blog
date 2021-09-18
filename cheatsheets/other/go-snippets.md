@@ -7,28 +7,33 @@ category: Go
 
 ## normalizeNewLines
 
-Convert Windows (CRLF) and Mac (CF) newlines to Unix (LF)
-
-```go
-func normalizeNewlines(s string) string {
-	// replace CR LF (windows) with LF (unix)
-	s = strings.Replace(s, string([]byte{13, 10}), "\n", -1)
-	// replace CF (mac) with LF (unix)
-	s = strings.Replace(s, string([]byte{13}), "\n", -1)
-	return s
-}
-```
+Convert Windows (CRLF) and Mac (CF) newlines to Unix (LF). Optimized for speed,
+modifies d in-place.
 
 ```go
 func normalizeNewlines(d []byte) []byte {
-	// replace CR LF (windows) with LF (unix)
-	d = bytes.Replace(d, []byte{13, 10}, []byte{10}, -1)
-	// replace CF (mac) with LF (unix)
-	d = bytes.Replace(d, []byte{13}, []byte{10}, -1)
-	return d
+	wi := 0
+	n := len(d)
+	for i := 0; i < n; i++ {
+		c := d[i]
+		// 13 is CR
+		if c != 13 {
+			d[wi] = c
+			wi++
+			continue
+		}
+		// replace CR (mac / win) with LF (unix)
+		d[wi] = 10
+		wi++
+		if i < n-1 && d[i+1] == 10 {
+			// this was CRLF, so skip the LF
+			i++
+		}
+
+	}
+	return d[:wi]
 }
 ```
-
 
 ## bytesRemoveFirstLine
 
