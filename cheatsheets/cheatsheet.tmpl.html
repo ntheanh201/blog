@@ -8,10 +8,31 @@
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="s/cheatsheet.js"></script>
   <script>
+    // [[text, text.toLowerCase(), id], ...]
+    let searchIndex = [];
+    let gSearch = null;
+
     function isHdrEl(el) {
       return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
     }
 
+    function buildSearchIndex() {
+      console.log("buildSearchIndex");
+      const parent = elById("#content");
+      for (const el of parent.children) {
+        if (!isHdrEl(el)) {
+          continue;
+        }
+        if (isSiblingHeader(el)) {
+          //console.log(`skipping ${el.textContent}`);
+          continue;
+        }
+        const txt = el.textContent;
+        const id = el.id;
+        searchIndex.push([txt, txt.toLowerCase(), id]);
+        //console.log(`${txt} #${id}`);
+      }
+    }
     function isSiblingHeader(el) {
       const nextEl = el.nextElementSibling;
       return !nextEl || isHdrEl(nextEl);
@@ -62,11 +83,14 @@
       window.scrollTo(0, 0);
     }
 
-    function searchItemClicked(toSelectID) {
+    function searchItemClicked(result) {
+      const toSelectID = result[2];
       console.log(`search item clicked: '${toSelectID}'`)
       //ev.preventDefault();
       bringToFrontDiv(toSelectID);
       window.scrollTo(0, 0);
+      gSearch.show = false;
+      gSearch.results = [];
     }
 
     function hookClick() {
@@ -163,6 +187,7 @@
     async function start() {
       // must call before groupHeaderElements()
       buildHeaderFullNames();
+      buildSearchIndex();
 
       groupHeaderElements();
       hookClick();
@@ -178,26 +203,31 @@
       showIntro();
       document.addEventListener('keydown', (event) => {
         if (event.key == '/') {
+          event.preventDefault();
           const el = document.getElementById("cs-search-input");
           el.value = "";
           el.focus();
-          event.preventDefault();
+          if (gSearch !== null) {
+            gSearch.results = searchIndex;
+            gSearch.show = true;
+          }
         }
       });
     }
 
-    function doSearch(s) {
-      s = s.toLowerCase();
-      //console.log("search:", s);
-      let els = document.getElementsByClassName("si");
-      for (const el of els) {
-        const txt = el.textContent.toLowerCase();
-        if (txt.includes(s)) {
-          el.classList.remove("hidden");
-        } else {
-          el.classList.add("hidden")
+    function doSearch(search) {
+      console.log("search:", search);
+      let term = search.term.toLowerCase();
+      let results = [];
+      for (const el of searchIndex) {
+        if (el[1].includes(term)) {
+          results.push(el);
         }
       }
+      search.results = results;
+      search.resultsCount = len(results);
+      search.selectedIdx = -1;
+      console.log(`results: ${len(results)}`);
     }
   </script>
   <style>
@@ -209,6 +239,33 @@
       margin: 0.5em 0;
       padding: 0 4px;
     }
+
+    .search-results-wrap {
+      z-index: 19;
+      /* bigger than toc */
+      top: 2rem;
+
+      width: 74vw;
+      left: 13vw;
+      right: 13vw;
+
+      max-height: 40vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      font-size: 90%;
+      min-height: 4rem;
+      position: absolute;
+    }
+
+    /* search item */
+    .si {
+      padding-right: 0.5rem;
+    }
+
+    .si:hover {
+      background-color: #fafafa;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -219,14 +276,21 @@
     <a href="index.html">cheatsheets</a>
     <div>&nbsp;/&nbsp;{{title}} cheatsheet</div>
     <div class="flex-grow"></div>
-    <div x-cloak class="relative" x-data="{ search: '', show: false }" x-init="$watch('search', val => { doSearch(val); show = val != ''})">
-      <input x-model="search" @keyup.escape="search=''" id="cs-search-input" type="text" placeholder="'/' to search"
-        class="relative" style="width: 32em;">
-      <div x-show="show" class="overlay"></div>
-      <div x-show="show" class="box p-0 absolute w-full bg-white search-results-wrap">
-        {{#each tocflat}}
-        <div class="si sil{{TocLevel}}" onclick="searchItemClicked('{{ID}}')" data-hid="{{ID}}">{{content}}</div>
-        {{/each}}
+    <div x-cloak class="relative" x-data="{ search: {
+      term: '',
+      results: [],
+      resultsCount: 0,
+      selectedIdx: -1,
+      show: false
+     } }" x-init="gSearch = search; $watch('search.term', val => { doSearch(search) })">
+      <input x-model="search.term" @keyup.escape="search.term=''; search.show=false" id="cs-search-input" type="text"
+        placeholder="'/' to search" class="relative" style="width: 32em;">
+      <div x-show="search.show" class="overlay">
+        <div class="box p-0 bg-white search-results-wrap">
+          <template x-for="result in search.results">
+            <div class="si" x-on:click.prevent="searchItemClicked(result)" x-html="result[0]"></div>
+          </template>
+        </div>
       </div>
     </div>
     <div class="flex-grow"></div>

@@ -289,7 +289,7 @@ type tocNode struct {
 func genTocHTML(node *tocNode, level int) {
 	nChildren := len(node.Children)
 	buildToc := func() {
-		shouldBuild := ((level > 2) || (node.SiblingsCount == 0))
+		shouldBuild := ((level >= 2) || (node.SiblingsCount == 0))
 		if nChildren == 0 || !shouldBuild {
 			return
 		}
@@ -397,7 +397,7 @@ func processCheatSheet(cs *cheatSheet) {
 
 	doc := markdown.Parse(md, parser)
 	toc := csBuildToc(doc, cs.mdPath)
-	tocFlat := buildFlatToc(toc, 0)
+	//tocFlat := buildFlatToc(toc, 0)
 
 	insertAutoToc(doc, toc)
 	//ast.Print(os.Stdout, doc)
@@ -410,8 +410,8 @@ func processCheatSheet(cs *cheatSheet) {
 	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
 
 	ctx := map[string]interface{}{
-		"toc":        toc,
-		"tocflat":    tocFlat,
+		"toc": toc,
+		//"tocflat":    tocFlat,
 		"title":      cs.Title,
 		"mdFileName": mdFileName,
 		"content":    mdHTML,
