@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"compress/flate"
 	"io"
+	"time"
 )
 
 // upload to instantpreview.dev
@@ -37,12 +38,14 @@ func zipCreateFromContent(files map[string][]byte) ([]byte, error) {
 }
 
 func uploadFilesToInstantPreviewMust(files map[string][]byte) string {
+	timeStart := time.Now()
 	uri := "https://instantpreview.dev/upload"
 	zipData, err := zipCreateFromContent(files)
 	must(err)
 	res, err := httpPost(uri, zipData)
 	must(err)
 	uri = string(res)
-	logf("uploaded %d files under: %s, zip file size: %s\n", len(files), uri, formatSize(int64(len(zipData))))
+	sizeStr := formatSize(int64(len(zipData)))
+	logf("uploaded %d files under: %s, zip file size: %s in: %s\n", len(files), uri, sizeStr, time.Since(timeStart))
 	return uri
 }

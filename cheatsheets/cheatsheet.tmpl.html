@@ -10,14 +10,13 @@
   <script>
     // [[text, text.toLowerCase(), id], ...]
     let searchIndex = [];
-    let gSearch = null;
 
     function isHdrEl(el) {
       return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
     }
 
     function buildSearchIndex() {
-      console.log("buildSearchIndex");
+      //console.log("buildSearchIndex");
       const parent = elById("#content");
       for (const el of parent.children) {
         if (!isHdrEl(el)) {
@@ -83,14 +82,14 @@
       window.scrollTo(0, 0);
     }
 
-    function searchItemClicked(result) {
-      const toSelectID = result[2];
-      console.log(`search item clicked: '${toSelectID}'`)
+    function searchItemClicked(search, result) {
+      const id = result[2];
+      console.log(`search item clicked: '${id}'`)
       //ev.preventDefault();
-      bringToFrontDiv(toSelectID);
+      bringToFrontDiv(id);
       window.scrollTo(0, 0);
-      gSearch.show = false;
-      gSearch.results = [];
+      search.show = false;
+      search.results = [];
     }
 
     function hookClick() {
@@ -204,30 +203,106 @@
       document.addEventListener('keydown', (event) => {
         if (event.key == '/') {
           event.preventDefault();
+          event.stopPropagation();
           const el = document.getElementById("cs-search-input");
           el.value = "";
           el.focus();
-          if (gSearch !== null) {
-            gSearch.results = searchIndex;
-            gSearch.show = true;
-          }
         }
       });
     }
 
+    function searchFocused(search) {
+      //console.log("showing everything");
+      let results = [];
+      for (const el of searchIndex) {
+        const a = [el[0], [], el[2]]
+        results.push(a);
+      }
+      search.results = results;
+      search.selectedIdx = 0;
+      search.show = true;
+    }
+
     function doSearch(search) {
-      console.log("search:", search);
+      //console.log("search:", search);
       let term = search.term.toLowerCase();
       let results = [];
       for (const el of searchIndex) {
-        if (el[1].includes(term)) {
-          results.push(el);
+        const idx = el[1].indexOf(term);
+        if (idx !== -1) {
+          const a = [el[0], [[idx, len(term)]], el[2]]
+          results.push(a);
         }
       }
       search.results = results;
-      search.resultsCount = len(results);
+      search.selectedIdx = 0;
+      search.show = len(term) > 0;
+      //console.log("doSearch: results:", results, `len: ${search.results.length}`);
+    }
+
+    function searchKeyDown(search, ev) {
+      //console.log("searchKeyDown:", search);
+      let idx = search.selectedIdx;
+      const results = search.results;
+      if (isEnter(ev)) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        //console.log(`searchKeyDown: idx: ${idx}`);
+        if (idx >= 0 && idx < len(results)) {
+          const el = results[idx];
+          const id = el[2];
+          //console.log(`searchKeyDown: id: ${id}`);
+          bringToFrontDiv(id);
+          search.term = "";
+          search.result = [];
+          search.selectedIdx = -1;
+          search.show = false;
+        }
+        return;
+      }
+      const n = dir(ev);
+      if (n === 0) {
+        return;
+      }
+      ev.stopPropagation();
+      ev.preventDefault();
+      idx += n;
+      if (idx < 0) {
+        idx = 0;
+      }
+      const lastIdx = results.length - 1;
+      if (idx > lastIdx) {
+        idx = lastIdx;
+      }
+      search.selectedIdx = idx;
+    }
+
+    function cancelSearch(search) {
+      //console.log("cancelSearch", search);
+      const el = document.getElementById("cs-search-input");
+      el.value = "";
+      el.blur();
+      //search.term = '';
+      search.results = [];
       search.selectedIdx = -1;
-      console.log(`results: ${len(results)}`);
+      search.show = false;
+    }
+
+    function ensureVisible(el, visible) {
+      //console.log(el, visible);
+      if (visible) {
+        el.scrollIntoView(false);
+      }
+    }
+
+    function emptyResults(search) {
+      const empty = len(search.results) == 0;
+      //console.log("emptyResults:", empty);
+      return empty;
+    }
+
+    function noResults(search) {
+      return `no results for '${search.term}'`;
     }
   </script>
   <style>
@@ -249,12 +324,18 @@
       left: 13vw;
       right: 13vw;
 
-      max-height: 40vh;
-      overflow-y: scroll;
-      overflow-x: hidden;
       font-size: 90%;
       min-height: 4rem;
-      position: absolute;
+      position: fixed;
+    }
+
+    .results {
+      max-height: 40vh;
+      padding: 4px 8px;
+      line-height: 1.3em;
+      /* cursor: pointer; */
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     /* search item */
@@ -266,6 +347,27 @@
       background-color: #fafafa;
       cursor: pointer;
     }
+
+    .help {
+      color: #717274;
+      background-color: #f9f9f9;
+      padding: 8px 8px;
+      font-size: 0.7em;
+      padding-left: 10px;
+    }
+
+    .no-results {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      /* background-color: #dddddd; */
+      text-align: center;
+    }
+
+    .selected {
+      background-color: #f4f4f4;
+    }
   </style>
 </head>
 
@@ -276,20 +378,33 @@
     <a href="index.html">cheatsheets</a>
     <div>&nbsp;/&nbsp;{{title}} cheatsheet</div>
     <div class="flex-grow"></div>
-    <div x-cloak class="relative" x-data="{ search: {
+    <div x-cloak class="relative" x-on:keydown="searchKeyDown(search, $event)" x-data="{ search: {
       term: '',
       results: [],
-      resultsCount: 0,
       selectedIdx: -1,
       show: false
-     } }" x-init="gSearch = search; $watch('search.term', val => { doSearch(search) })">
-      <input x-model="search.term" @keyup.escape="search.term=''; search.show=false" id="cs-search-input" type="text"
-        placeholder="'/' to search" class="relative" style="width: 32em;">
-      <div x-show="search.show" class="overlay">
+     } }" x-init="$watch('search.term', val => { doSearch(search) })">
+      <input x-model="search.term" x-on:focus="searchFocused(search)" @keyup.escape="cancelSearch(search)"
+        id="cs-search-input" type="text" placeholder="'/' to search" class="relative" style="width: 32em;">
+      <div x-show="search.show" class="overlay" x-on:click="cancelSearch(search)">
         <div class="box p-0 bg-white search-results-wrap">
-          <template x-for="result in search.results">
-            <div class="si" x-on:click.prevent="searchItemClicked(result)" x-html="result[0]"></div>
-          </template>
+          <div class="results">
+
+            <template x-if="emptyResults(search)">
+              <div class="no-results" x-text="noResults(search)"></div>
+            </template>
+
+            <template x-for="(result, index) in search.results" :key="result[2]">
+              <div :class="index == search.selectedIdx ? 'selected' : ''" class="si"
+                x-on:click.prevent="searchItemClicked(search, result)"
+                x-html="hilightSearchResult(result[0], result[1])"
+                x-effect="ensureVisible($el, index == search.selectedIdx)"></div>
+            </template>
+          </div>
+          <div class="help">
+            &uarr; &darr; to navigate &nbsp;&nbsp;&nbsp; &crarr; to select
+            &nbsp;&nbsp;&nbsp; Esc to close
+          </div>
         </div>
       </div>
     </div>
