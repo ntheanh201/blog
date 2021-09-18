@@ -26,7 +26,7 @@
           //console.log(`skipping ${el.textContent}`);
           continue;
         }
-        const txt = el.textContent;
+        const txt = el.getAttribute("data-name");
         const id = el.id;
         searchIndex.push([txt, txt.toLowerCase(), id]);
         //console.log(`${txt} #${id}`);
@@ -66,10 +66,6 @@
       startEl.after(el);
 
       el = elById(hdrId)
-      const fullName = el.getAttribute("data-name");
-      if (fullName && fullName !== el.textContent) {
-        el.textContent = fullName;
-      }
       el.classList.add("flash");
       // TODO: doesn't work well because scrolls the content badly
       //updateLocationHash(divId);
@@ -110,40 +106,52 @@
       }
     }
 
-    function appendBreadcrumb(s1, s2) {
-      if (!s1) {
-        return s2;
-      }
-      return s1 + " / " + s2;
-    }
 
     // for nested headers we want the name be "File manipulation / Reading"
     // instead of just "Reading".
-    // we build those once on h3 / h4 elements and store as "data-name" attribute
+    // we build those once on h{1-4} elements and store as "data-name" attribute
     function buildHeaderFullNames() {
       let currH1 = "";
       let currH2 = "";
       let currH3 = "";
       const parent = elById("#content");
+
+      function a(s, id) {
+        console.log(s, id);
+        return `<a href="#${id}" onclick="onLinkClick(even)">${s}</a>`;
+      }
+      function appendBreadcrumb(s1, s2) {
+        if (!s1) {
+          return s2;
+        }
+        return s1 + " / " + s2;
+      }
+
       for (const el of parent.children) {
+        if (!isHdrEl(el)) {
+          continue;
+        }
+        el.setAttribute("data-name", el.textContent);
         const tag = el.localName;
         if (tag == "h1") {
-          currH1 = el.textContent;
+          currH1 = a(el.textContent, el.id);
           continue;
         }
         if (tag === "h2") {
-          currH2 = appendBreadcrumb(currH1, el.textContent);
-          el.setAttribute("data-name", currH2);
+          currH2 = appendBreadcrumb(currH1, a(el.textContent, el.id));
+          el.innerHTML = currH2;
           continue;
         }
         if (tag === "h3") {
-          currH3 = appendBreadcrumb(currH2, el.textContent);
-          el.setAttribute("data-name", currH3);
+          currH3 = appendBreadcrumb(currH2, a(el.textContent, el.id));
+          //el.setAttribute("data-name", currH3);
+          el.innerHTML = currH3;
           continue;
         }
         if (tag === "h4") {
-          const currH4 = appendBreadcrumb(currH3, el.textContent);
-          el.setAttribute("data-name", currH4);
+          const currH4 = appendBreadcrumb(currH3, a(el.textContent, el.id));
+          //el.setAttribute("data-name", currH4);
+          el.innerHTML = currH4;
           continue;
         }
       }
