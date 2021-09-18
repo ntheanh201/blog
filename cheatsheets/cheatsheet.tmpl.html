@@ -8,9 +8,6 @@
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="s/cheatsheet.js"></script>
   <script>
-    // [[text, text.toLowerCase(), id], ...]
-    let searchIndex = [];
-
     function isHdrEl(el) {
       return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
     }
@@ -18,24 +15,6 @@
     function isSiblingHeader(el) {
       const nextEl = el.nextElementSibling;
       return !nextEl || isHdrEl(nextEl);
-    }
-
-    function buildSearchIndex() {
-      console.log("buildSearchIndex");
-      const parent = elById("#content");
-      for (const el of parent.children) {
-        if (!isHdrEl(el)) {
-          continue;
-        }
-        if (isSiblingHeader(el)) {
-          //console.log(`skipping ${el.textContent}`);
-          continue;
-        }
-        const txt = el.textContent;
-        const id = el.id;
-        searchIndex.push([txt, txt.toLowerCase(), id]);
-        //console.log(`${txt} #${id}`);
-      }
     }
 
     function updateLocationHash(divId) {
@@ -76,9 +55,9 @@
       //updateLocationHash(divId);
     }
 
-    function onClick(ev) {
+    function onLinkClick(ev) {
       ev.preventDefault();
-      const hdrId = target.getAttribute("href");
+      const hdrId = ev.target.getAttribute("href");
       bringToFrontDiv(hdrId);
       window.scrollTo(0, 0);
     }
@@ -100,7 +79,7 @@
           continue;
         }
         if (href[0] == "#") {
-          el.onclick = onClick;
+          el.onclick = onLinkClick;
         } else if (href.startsWith("http")) {
           // make all external links open in new tab
           el.setAttribute("target", "_blank");
@@ -182,8 +161,7 @@
     }
 
     async function start() {
-      // those 2 must call before groupHeaderElements()
-      buildSearchIndex();
+      // must call before groupHeaderElements()
       buildHeaderFullNames();
 
       groupHeaderElements();
@@ -241,11 +219,11 @@
     <a href="index.html">cheatsheets</a>
     <div>&nbsp;/&nbsp;{{title}} cheatsheet</div>
     <div class="flex-grow"></div>
-    <div class="relative" x-data="{ search: '' }" x-init="$watch('search', val => { doSearch(val);})">
+    <div x-cloak class="relative" x-data="{ search: '', show: false }" x-init="$watch('search', val => { doSearch(val); show = val != ''})">
       <input x-model="search" @keyup.escape="search=''" id="cs-search-input" type="text" placeholder="'/' to search"
         class="relative" style="width: 32em;">
-      <div class="overlay"></div>
-      <div class="box p-0 absolute w-full bg-white search-results-wrap">
+      <div x-show="show" class="overlay"></div>
+      <div x-show="show" class="box p-0 absolute w-full bg-white search-results-wrap">
         {{#each tocflat}}
         <div class="si sil{{TocLevel}}" onclick="searchItemClicked('{{ID}}')" data-hid="{{ID}}">{{content}}</div>
         {{/each}}
