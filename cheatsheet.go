@@ -161,6 +161,13 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 				}
 			}
 		}
+		// remove intro if at the top level
+		for i, node := range toc {
+			if node.ID == "intro" && len(node.Children) == 0 {
+				toc = append(toc[:i], toc[i+1:]...)
+				return toc
+			}
+		}
 		return toc
 	}
 	toc := buildToc()
@@ -358,7 +365,6 @@ func insertAutoToc(doc ast.Node, toc []*tocNode) {
 			}
 		}
 	}
-
 }
 
 // insertAstNodeChild appends child to children of parent

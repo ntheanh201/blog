@@ -3,6 +3,30 @@ title: Python 3
 category: Python
 ---
 
+## Intro
+
+```python
+#!/usr/bin/env python3
+from collections import namedtuple
+from enum import Enum
+import re
+import sys
+
+
+def main():
+    pass
+
+
+def read_file(filename):
+    with open(filename, encoding='utf-8') as file:
+        return file.readlines()
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
 ## Collections
 
 ### List
@@ -2127,29 +2151,5 @@ get_note  = lambda note: get_wave(*parse_n(note)) if note else get_pause(0.125)
 frames_i  = chain.from_iterable(get_note(n) for n in f'{P1}{P1}{P2}'.split(','))
 frames_b  = b''.join(struct.pack('<h', int(a * 30000)) for a in frames_i)
 simpleaudio.play_buffer(frames_b, 1, 2, F)
-```
-
-## Intro
-
-```python
-#!/usr/bin/env python3
-from collections import namedtuple
-from enum import Enum
-import re
-import sys
-
-
-def main():
-    pass
-
-
-def read_file(filename):
-    with open(filename, encoding='utf-8') as file:
-        return file.readlines()
-
-
-if __name__ == '__main__':
-    main()
-
 ```
 
