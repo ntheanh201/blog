@@ -22,16 +22,13 @@ var (
 	limitCheatsheets = false
 
 	whitelistDevhings = []string{}
-	whitelistOther    = []string{"python3"} // {"go", "python3"}
-
-	blacklist = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+	blacklist         = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
 )
 
 func init() {
 	if !limitCheatsheets {
 		whitelistDevhings = nil
-		whitelistOther = nil
 	}
 }
 
@@ -528,7 +525,7 @@ func genCheatSheetFiles() map[string][]byte {
 	}
 
 	readFromDir("devhints", blacklist, whitelistDevhings)
-	readFromDir("other", []string{"101v2"}, whitelistOther)
+	readFromDir("good", nil, nil)
 
 	{
 		// uniquify names

@@ -1,6 +1,6 @@
 ---
 title: Raymond
-category: Go Library
+category: Go
 ---
 
 ## Basics
