@@ -21,28 +21,27 @@
     }
 
     function updateLocationHash(divId) {
-      if (true) {
-        window.location.hash = divId;
-        return;
+      if (divId[0] == '#') {
+        divId = divId.substr(1);
       }
-      let h = window.location.hash;
-      if (len(h) == 0) {
-        h = divId;
-      } else {
-        h = divId + ";" + h.substr(1);
-      }
-      window.location.hash = h;
+      divId = divId.replace("-wrap", "");
+      console.log("updateLocationHash:", divId);
+      history.pushState({}, "", location.pathname + "?" + divId)
     }
 
     function bringToFrontDiv(hdrId) {
+      const divId = hdrId + "-wrap";
+      let el = elById(divId);
+      if (!el) {
+        return;
+      }
+
       // remove "first" class from the element that currently has it
       let els = document.getElementsByClassName("first");
       for (let el of els) {
         el.classList.remove("first");
       }
 
-      const divId = hdrId + "-wrap";
-      let el = elById(divId);
       el.classList.add("first");
       const startEl = elById("#start");
       el.remove();
@@ -50,8 +49,7 @@
 
       el = elById(hdrId)
       el.classList.add("flash");
-      // TODO: doesn't work well because scrolls the content badly
-      //updateLocationHash(divId);
+      updateLocationHash(divId);
     }
 
     function onLinkClick(ev) {
@@ -183,8 +181,9 @@
 
       groupHeaderElements();
       hookClick();
-      function showIntro() {
-        for (const id of ["intro", "basics"]) {
+
+      function showIntro(a) {
+        for (const id of a) {
           const el = document.getElementById(id);
           if (el) {
             bringToFrontDiv(id);
@@ -192,7 +191,17 @@
           }
         }
       }
-      showIntro();
+
+      let ids = [];
+      // try to focus "foo" from "?foo"
+      let id = window.location.search;
+      if (id[0] === '?') {
+        id = id.substr(1);
+        ids.push(id);
+      }
+      ids.push("intro"); ids.push("basics");
+      showIntro(ids);
+
       document.addEventListener('keydown', (event) => {
         if (event.key == '/') {
           event.preventDefault();
