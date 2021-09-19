@@ -415,14 +415,24 @@
   </div>
 
   <div class="toc box">
-    {{#each toc}}
-    {{#if children}}
-    <b>{{content}}:</b>
-    {{#each children}}{{#if @index}}<span class="bull">&bull;</span>{{/if}}<a href="#{{this.ID}}">{{this.content}}</a>{{/each}} <br>
-    {{else}}
-    <a href="{{id}}">{{content}}</a><br>
-    {{/if}}
-    {{/each}}
+    <table>
+      {{#each toc}}
+      {{#if children}}
+      <tr>
+        <td><b>{{content}}</b></td>
+        <td>
+          {{#each children}}{{#if @index}}<span class="bull">&bull;</span>{{/if}}<a
+            href="#{{this.ID}}">{{this.content}}</a>{{/each}}
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td><a href="{{id}}">{{content}}</a><br></td>
+        <td></td>
+      </tr>
+      {{/if}}
+      {{/each}}
+    </table>
   </div>
 
   <div id="start"></div>
