@@ -35,20 +35,6 @@ func normalizeNewlines(d []byte) []byte {
 }
 ```
 
-## bytesRemoveFirstLine
-
-```go
-// return first line of d and the rest
-func bytesRemoveFirstLine(d []byte) (string, []byte) {
-	idx := bytes.IndexByte(d, 10)
-	if -1 == idx {
-		return string(d), nil
-	}
-	l := d[:idx]
-	return string(l), d[idx+1:]
-}
-```
-
 ## sliceRmoveDuplicateStrings
 
 ```go

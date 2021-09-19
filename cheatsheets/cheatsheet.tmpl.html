@@ -419,9 +419,9 @@
       {{#each toc}}
       {{#if children}}
       <tr>
-        <td><b>{{content}}</b></td>
-        <td>
-          {{#each children}}{{#if @index}}<span class="bull">&bull;</span>{{/if}}<a
+        <td valign="top"><b>{{content}}</b></td>
+        <td valign="top">
+          {{#each children}}{{#if @index}}<span class="bull"> &bull; </span>{{/if}}<a
             href="#{{this.ID}}">{{this.content}}</a>{{/each}}
         </td>
       </tr>
