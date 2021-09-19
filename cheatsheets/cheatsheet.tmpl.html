@@ -9,7 +9,9 @@
   <script src="s/cheatsheet.js"></script>
   <script>
     // [[text, text.toLowerCase(), id], ...]
-    let searchIndex = [];
+    //let searchIndex = [];
+
+    let searchIndex = {{{ searchIndexStatic }}};
 
     function isHdrEl(el) {
       return el && ["h1", "h2", "h3", "h4"].includes(el.localName);
@@ -25,7 +27,7 @@
         divId = divId.substr(1);
       }
       divId = divId.replace("-wrap", "");
-      console.log("updateLocationHash:", divId);
+      //console.log("updateLocationHash:", divId);
       history.pushState({}, "", location.pathname + "?" + divId)
     }
 
@@ -97,7 +99,7 @@
       const parent = elById("#content");
 
       function a(s, id) {
-        console.log(s, id);
+        //console.log(s, id);
         return `<a href="#${id}" onclick="onLinkClick(even)">${s}</a>`;
       }
       function appendBreadcrumb(s1, s2) {
@@ -111,12 +113,14 @@
         if (!isHdrEl(el)) {
           continue;
         }
+        /*
         if (!isSiblingHeader(el)) {
           //console.log(`skipping ${el.textContent}`);
           const txt = el.textContent;
           const id = el.id;
           searchIndex.push([txt, txt.toLowerCase(), id]);
         }
+        */
 
         const tag = el.localName;
         if (tag == "h1") {
@@ -217,7 +221,7 @@
       //console.log("showing everything");
       let results = [];
       for (const el of searchIndex) {
-        const a = [el[0], [], el[2]]
+        const a = [el[0], [], el[2], el[3]];
         results.push(a);
       }
       search.results = results;
@@ -232,7 +236,7 @@
       for (const el of searchIndex) {
         const idx = el[1].indexOf(term);
         if (idx !== -1) {
-          const a = [el[0], [[idx, len(term)]], el[2]]
+          const a = [el[0], [[idx, len(term)]], el[2], el[3]];
           results.push(a);
         }
       }
@@ -306,6 +310,15 @@
     function noResults(search) {
       return `no results for '${search.term}'`;
     }
+
+    function clsSearchItem(si, isSelected) {
+      const lvl = si[3];
+      let cls = `si sil${lvl}`;
+      if (isSelected) {
+        cls += " selected";
+      }
+      return cls;
+    }
   </script>
   <style>
     h1 {
@@ -343,6 +356,31 @@
     /* search item */
     .si {
       padding-right: 0.5rem;
+    }
+
+    /* search item level 1 */
+    .sil0 {
+      padding-left: 0.5rem;
+    }
+
+    .sil1 {
+      padding-left: 1rem;
+    }
+
+    .sil2 {
+      padding-left: 1.5rem;
+    }
+
+    .sil3 {
+      padding-left: 2rem;
+    }
+
+    .sil4 {
+      padding-left: 2.5rem;
+    }
+
+    .sil5 {
+      padding-left: 3rem;
     }
 
     .si:hover {
@@ -397,7 +435,8 @@
             </template>
 
             <template x-for="(result, index) in search.results" :key="result[2]">
-              <div :class="index == search.selectedIdx ? 'selected' : ''" class="si"
+              <div class="si"
+                :class="clsSearchItem(result, index == search.selectedIdx)"
                 x-on:click.prevent="searchItemClicked(search, result)"
                 x-html="hilightSearchResult(result[0], result[1])"
                 x-effect="ensureVisible($el, index == search.selectedIdx)"></div>

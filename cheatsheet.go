@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -19,16 +20,16 @@ import (
 const csDir = "cheatsheets"
 
 var (
-	limitCheatsheets = false
+	limitCheatsheets = true
 
-	whitelistDevhings = []string{}
-	blacklist         = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
+	whitelist = []string{"python3", "go"}
+	blacklist = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
 		"ledger-query", "ledger", "package", "phoenix-ecto@1.2", "phoenix-ecto@1.3", "phoenix@1.2", "python", "react@0.14", "README", "vue@1.0.28"}
 )
 
 func init() {
 	if !limitCheatsheets {
-		whitelistDevhings = nil
+		whitelist = nil
 	}
 }
 
@@ -400,7 +401,15 @@ func processCheatSheet(cs *cheatSheet) {
 
 	doc := markdown.Parse(md, parser)
 	toc := csBuildToc(doc, cs.mdPath)
-	//tocFlat := buildFlatToc(toc, 0)
+	tocFlat := buildFlatToc(toc, 0)
+
+	// [[text, text.toLowerCase(), id, tocLevel], ...]
+	searchIndex := [][]interface{}{}
+	for _, toc := range tocFlat {
+		s := toc.Content
+		v := []interface{}{s, strings.ToLower(s), toc.ID, toc.TocLevel}
+		searchIndex = append(searchIndex, v)
+	}
 
 	insertAutoToc(doc, toc)
 	//ast.Print(os.Stdout, doc)
@@ -412,12 +421,16 @@ func processCheatSheet(cs *cheatSheet) {
 	// on windows mdFileName is a windows-style path so change to unix/url style
 	mdFileName := strings.Replace(cs.mdFileName, `\`, "/", -1)
 
+	searchIndexJSON, err := json.Marshal(searchIndex)
+	must(err)
+
 	ctx := map[string]interface{}{
 		"toc": toc,
 		//"tocflat":    tocFlat,
-		"title":      cs.Title,
-		"mdFileName": mdFileName,
-		"content":    mdHTML,
+		"title":             cs.Title,
+		"mdFileName":        mdFileName,
+		"content":           mdHTML,
+		"searchIndexStatic": string(searchIndexJSON),
 	}
 	cs.html = []byte(raymond.MustRender(tpl, ctx))
 
@@ -524,8 +537,8 @@ func genCheatSheetFiles() map[string][]byte {
 		}
 	}
 
-	readFromDir("devhints", blacklist, whitelistDevhings)
-	readFromDir("good", nil, nil)
+	readFromDir("devhints", blacklist, whitelist)
+	readFromDir("good", nil, whitelist)
 
 	{
 		// uniquify names
