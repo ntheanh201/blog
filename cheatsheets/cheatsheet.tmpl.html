@@ -54,6 +54,13 @@
       updateLocationHash(divId);
     }
 
+    function onDataLinkClick(ev) {
+      ev.preventDefault();
+      const hdrId = ev.target.getAttribute("data-link");
+      bringToFrontDiv(hdrId);
+      window.scrollTo(0, 0);
+    }
+
     function onLinkClick(ev) {
       ev.preventDefault();
       const hdrId = ev.target.getAttribute("href");
@@ -72,10 +79,8 @@
     }
 
     function hookClick() {
-      const els = document.getElementsByTagName("a");
-      const n = els.length;
-      for (let i = 0; i < n; i++) {
-        const el = els.item(i);
+      let els = document.getElementsByTagName("a");
+      for (let el of els) {
         const href = el.getAttribute("href");
         if (!href) {
           continue;
@@ -87,8 +92,18 @@
           el.setAttribute("target", "_blank");
         }
       }
-    }
 
+      els = document.querySelectorAll("[data-link]");
+      console.log("hookClikc: els:", els);
+      for (let el of els) {
+        const id = el.getAttribute("data-link");
+        if (!id) {
+          console.log("missing id");
+          continue;
+        }
+        el.onclick = onDataLinkClick;
+      }
+    }
 
     // for nested headers we want the name be "File manipulation / Reading"
     // instead of just "Reading".
@@ -408,6 +423,55 @@
     .selected {
       background-color: #f4f4f4;
     }
+
+    .toc2 {
+      font-size: 11pt;
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      line-height: 1.3em;
+    }
+
+    .cols {
+      column-count: auto;
+      /* column-width: 150px; */
+      column-width: 9rem;
+    }
+
+    .toc2-h {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #880000;
+      font-weight: bold;
+      background-color: lightyellow !important;
+    }
+
+    .toc2-h:hover {
+      background-color: yellow !important;
+      cursor: pointer;
+    }
+
+    .toc2-l {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: blue;
+    }
+
+    .toc2-l:hover {
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .bgcol1 {
+      /* background-color: #f9f9f9; */
+      /* border-bottom: 1px solid #f0f0f0; */
+    }
+
+    .bgcol2 {
+      /* background-color: white; */
+    }
   </style>
 </head>
 
@@ -435,8 +499,7 @@
             </template>
 
             <template x-for="(result, index) in search.results" :key="result[2]">
-              <div class="si"
-                :class="clsSearchItem(result, index == search.selectedIdx)"
+              <div class="si" :class="clsSearchItem(result, index == search.selectedIdx)"
                 x-on:click.prevent="searchItemClicked(search, result)"
                 x-html="hilightSearchResult(result[0], result[1])"
                 x-effect="ensureVisible($el, index == search.selectedIdx)"></div>
@@ -450,28 +513,21 @@
       </div>
     </div>
     <div class="flex-grow"></div>
-    <a style="font-size: 10pt" href="https://github.com/kjk/blog/edit/master/cheatsheets/{{mdFileName}}">suggest edit</a>
+    <a style="font-size: 10pt" href="https://github.com/kjk/blog/edit/master/cheatsheets/{{mdFileName}}">suggest
+      edit</a>
   </div>
 
-  <div class="toc box">
-    <table>
-      {{#each toc}}
-      {{#if children}}
-      <tr>
-        <td valign="top"><b>{{content}}</b></td>
-        <td valign="top">
-          {{#each children}}{{#if @index}}<span class="bull"> &bull; </span>{{/if}}<a
-            href="#{{this.ID}}">{{this.content}}</a>{{/each}}
-        </td>
-      </tr>
-      {{else}}
-      <tr>
-        <td><a href="#{{this.ID}}">{{this.content}}</a><br></td>
-        <td></td>
-      </tr>
-      {{/if}}
-      {{/each}}
-    </table>
+  <div class="toc2 cols box">
+    {{#each toc}}
+    {{#if children}}
+    <div class="toc2-h {{class}}" data-link="{{ID}}">{{content}}</div>
+    {{#each children}}
+    <div class="toc2-l {{class}}" data-link="{{ID}}">{{content}}</div>
+    {{/each}}
+    {{else}}
+    <div class="toc2-l {{class}}" data-link="{{ID}}">{{content}}</div>
+    {{/if}}
+    {{/each}}
   </div>
 
   <div id="start"></div>

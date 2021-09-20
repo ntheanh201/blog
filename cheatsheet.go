@@ -109,6 +109,7 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 			HeadingLevel:  n.HeadingLevel,
 			ID:            n.ID,
 			SiblingsCount: n.SiblingsCount,
+			Class:         n.Class,
 		}
 	}
 
@@ -171,6 +172,18 @@ func csBuildToc(doc ast.Node, path string) []*tocNode {
 	toc := buildToc()
 	if false {
 		printToc(toc, 0)
+	}
+
+	// set alternating colors clas
+	for i, node := range toc {
+		cls := "bgcol1"
+		if i%2 == 1 {
+			cls = "bgcol2"
+		}
+		node.Class = cls
+		for _, c := range node.Children {
+			c.Class = cls
+		}
 	}
 	return toc
 }
@@ -283,6 +296,7 @@ type tocNode struct {
 	HeadingLevel int
 	TocLevel     int
 	ID           string
+	Class        string
 
 	SiblingsCount int
 
