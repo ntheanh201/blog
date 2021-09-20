@@ -787,17 +787,16 @@ func main() {
 ```
 
 ## Testing
+Go has a built-in support for testign. Test functions must be named   `Test*(t *testing.T)` and placed in `*_test.go` files.
 
-File `main.go` with function to be tested:
+Example: file `main.go` with function `Sum` to be tested:
 ```go
 func Sum(x, y int) int {
     return x + y
 }
 ```
 
-Test functions go into `*_test.go` files, must be of form `Test*(t *testing.T)`.
-
-`main_test.go` with a test function:
+File `main_test.go` with `TestSum` function testing `Sum`:
 
 ```go
 import ( 
@@ -818,7 +817,7 @@ func TestSum(t *testing.T) {
 
 Running tests:
 * `go test` : run all tests in current package (directory)
-*  `go test ./...` :  run tests in current package and all sub-packages).
+*  `go test ./...` :  run tests in current package and all sub-packages)
 
 ## Go CLI
 
