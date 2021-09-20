@@ -261,6 +261,8 @@ func extractCheatSheetMetadata(cs *cheatSheet) {
 			cs.meta[lastName] = v
 		} else {
 			name := parts[0]
+			name = strings.TrimSpace(name)
+			name = strings.ToLower(name)
 			s := strings.TrimSpace(parts[1])
 			s = strings.Trim(s, `"`)
 			s = strings.TrimLeft(s, "|")
