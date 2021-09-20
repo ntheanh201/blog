@@ -20,7 +20,7 @@ import (
 const csDir = "cheatsheets"
 
 var (
-	limitCheatsheets = true
+	limitCheatsheets = false
 
 	whitelist = []string{"python3", "go"}
 	blacklist = []string{"101", "absinthe", "analytics.js", "analytics", "angularjs", "appcache", "cheatsheet-styles", "deku@1", "enzyme@2", "figlet", "firefox", "go", "index", "index@2016", "ledger-csv", "ledger-examples", "ledger-format", "ledger-periods",
