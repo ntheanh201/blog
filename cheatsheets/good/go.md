@@ -738,6 +738,13 @@ func doOperation(item string) {
 A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. The goroutine calls `wg.Done()` when it finishes.
 See: [WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
 
+## Race detector
+
+Running code concurrently introduces a new class of bugs: modyfing memory from multiple goroutines. This is known as a data race.
+
+To catch data races, build with `-race` flag (i.e. `go build -race` or `go run -race`).
+
+This compiles the code with additional instrumentation that detects data races and aborts the program when that happens (so that you can fix the bug that caused data race).
 
 # Advanced
 
