@@ -3,6 +3,81 @@ title: Go Snippets
 category: Go
 ---
 
+# Basics
+
+## Intro
+
+A collection of Go code snippets that I use often in my programs.
+
+## must
+
+```go
+func must(err error) {
+	if err != nil {
+		panic(err.Error())
+	}
+}
+```
+
+## panicIf
+
+```go
+func panicIf(cond bool, arg ...interface{}) {
+	if !cond {
+		return
+	}
+	s := "condition failed"
+	if len(arg) > 0 {
+		s = fmt.Sprintf("%s", arg[0])
+		if len(arg) > 1 {
+			s = fmt.Sprintf(s, arg[1:]...)
+		}
+	}
+	panic(s)
+}
+```
+
+## ctx
+A shortcut for `context.Background()`. Otherwise using [logf](#logf) would be annoying.
+
+```go
+func ctx() context.Context {
+    return context.Background()
+}
+```
+
+## logf
+
+```go
+func logf(ctx context.Context, s string, arg ...interface{}) {
+	if len(arg) > 0 {
+		s = fmt.Sprintf(s, arg...)
+	}
+	fmt.Print(s)
+}
+```
+
+In this implementation `ctx` is unused but I have implementation that uses it and I prefer to have the same function in all my code to make re-use of code easier.
+
+## logIfErr
+
+```go
+func logIfErr(err error) {
+	if err != nil {
+		logf(err.Error())
+	}
+}
+```
+
+## isWindows
+
+```go
+func isWindows() bool {
+	return strings.Contains(runtime.GOOS, "windows")
+}
+```
+
+
 # Strings
 
 ## normalizeNewLines
@@ -496,74 +571,6 @@ func newTimeoutClient(connectTimeout time.Duration, readWriteTimeout time.Durati
 
 # Misc
 
-## must
-
-```go
-func must(err error) {
-	if err != nil {
-		panic(err.Error())
-	}
-}
-```
-
-## panicIf
-
-```go
-func panicIf(cond bool, arg ...interface{}) {
-	if !cond {
-		return
-	}
-	s := "condition failed"
-	if len(arg) > 0 {
-		s = fmt.Sprintf("%s", arg[0])
-		if len(arg) > 1 {
-			s = fmt.Sprintf(s, arg[1:]...)
-		}
-	}
-	panic(s)
-}
-```
-
-## ctx
-A shortcut for `context.Background()`. Otherwise using [logf](#logf) would be annoying.
-
-```go
-func ctx() context.Context {
-    return context.Background()
-}
-```
-
-## logf
-
-```go
-func logf(ctx context.Context, s string, arg ...interface{}) {
-	if len(arg) > 0 {
-		s = fmt.Sprintf(s, arg...)
-	}
-	fmt.Print(s)
-}
-```
-
-In this implementation `ctx` is unused but I have implementation that uses it and I prefer to have the same function in all my code to make re-use of code easier.
-
-## logIfErr
-
-```go
-func logIfErr(err error) {
-	if err != nil {
-		logf(err.Error())
-	}
-}
-```
-
-## isWindows
-
-```go
-func isWindows() bool {
-	return strings.Contains(runtime.GOOS, "windows")
-}
-```
-
 ## userHomeDirMust
 
 ```go
@@ -684,6 +691,8 @@ func (pe *ProgressEstimator) Skip() ProgressEstimatorData {
 ```
 
 ## makeDebounced
+
+Debouncing is rate limiting for calling functions. Call `makeDebounced` with a function and a timeout. It'll return a debouncing function. Calling deboucing function will execute the original function after a timeout. If you call debouncing function before timeout expires, it'll extend the timeout.
 
 ```go
 // returns a function that will de-bounce f for a given interval
@@ -884,10 +893,3 @@ func cdUpDir(dirName string) {
 	}
 }
 ```
-
-## Intro
-
-A collection of Go code snippets that I use often in my programs.
-
-If function name ends with `Must`, it will panic on error.
-This is ok for short scripts but not for long-running programs.
