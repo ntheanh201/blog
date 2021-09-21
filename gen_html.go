@@ -489,7 +489,6 @@ func generateHTML(store *Articles) {
 	gen404(nil, nil)
 
 	genToolGenerateUniqueID(store, nil)
-	genCheatSheets(outDir)
 
 	// /ping
 	wwwWriteFile("/ping", []byte("pong"))
