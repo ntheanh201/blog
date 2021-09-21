@@ -177,16 +177,20 @@ func pathExists(path string) bool {
 }
 ```
 
+[os.Lstat](https://pkg.go.dev/os#Lstat)
+
 ## fileExists
 
 Returns true if path exists and is a regular file.
 
 ```go
-func dirExists(path string) bool {
-	st, err := os.Lstat(path)
-	return err == nil && !st.IsDir() && st.IsRegular()
+func fileExists(path string) bool {
+	st, err := os.Lstat(path)
+	return err == nil && st.Mode().IsRegular()
 }
 ```
+
+[os.Lstat](https://pkg.go.dev/os#Lstat)
 
 ## dirExists
 
@@ -198,6 +202,8 @@ func dirExists(path string) bool {
 	return err == nil && st.IsDir()
 }
 ```
+
+[os.Lstat](https://pkg.go.dev/os#Lstat)
 
 ## getFileSize
 
@@ -213,6 +219,8 @@ func getFileSize(path string) int64 {
 	return -1
 }
 ```
+
+[os.Lstat](https://pkg.go.dev/os#Lstat)
 
 ## copyFile
 
@@ -243,6 +251,8 @@ func copyFile(dst string, src string) error {
 	return err
 }
 ```
+
+Uses: [os.Remove](https://pkg.go.dev/os#Remove), [os.MkdirAll](https://pkg.go.dev/os#MkdirAll), [os.Open](https://pkg.go.dev/os#Open), [os.Create](https://pkg.go.dev/os#Create)
 
 ## createDirForFile
 
