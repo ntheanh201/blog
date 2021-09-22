@@ -104,7 +104,7 @@ func hasWranglerConfig() bool {
 	panicIfErr(err)
 	wranglerConfigPath := filepath.Join(homeDir, ".wrangler", "config", "default.toml")
 	if _, err := os.Stat(wranglerConfigPath); err == nil {
-		logf("hasWranglerConfig: yes\n")
+		logf(ctx(), "hasWranglerConfig: yes\n")
 		return true
 	}
 	apiKey := strings.TrimSpace(os.Getenv("CLOUDFLARE_API_TOKEN"))
@@ -169,7 +169,7 @@ func main() {
 
 	timeStart := time.Now()
 	defer func() {
-		logf("finished in %s\n", time.Since(timeStart))
+		logf(ctx(), "finished in %s\n", time.Since(timeStart))
 	}()
 
 	if false {
@@ -205,7 +205,7 @@ func main() {
 	}
 
 	if flgProfile != "" {
-		logf("staring cpu profile in file '%s'\n", flgProfile)
+		logf(ctx(), "staring cpu profile in file '%s'\n", flgProfile)
 		f, err := os.Create(flgProfile)
 		if err != nil {
 			log.Fatal(err)
@@ -238,7 +238,7 @@ func main() {
 			s := u.RunCmdMust(cmd)
 			if strings.Contains(s, "nothing to commit, working tree clean") {
 				// nothing changed so nothing else to do
-				logf("Nothing changed, skipping deploy")
+				logf(ctx(), "Nothing changed, skipping deploy")
 				return
 			}
 		}
@@ -343,7 +343,7 @@ func getNotionCachingClient() *notionapi.CachingClient {
 	}
 	token := os.Getenv("NOTION_TOKEN")
 	if token == "" && cachingPolicy != notionapi.PolicyCacheOnly {
-		logf("must set NOTION_TOKEN env variable\n")
+		logf(ctx(), "must set NOTION_TOKEN env variable\n")
 		os.Exit(1)
 	}
 	// TODO: verify token still valid, somehow

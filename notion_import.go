@@ -16,7 +16,7 @@ var imgFiles []os.FileInfo
 func rmFile(path string) {
 	err := os.Remove(path)
 	if err != nil {
-		logf("os.Remove(%s) failed with %s\n", path, err)
+		logf(ctx(), "os.Remove(%s) failed with %s\n", path, err)
 	}
 }
 
@@ -29,6 +29,6 @@ func rmCached(pageID string) {
 func loadPageAsArticle(d *notionapi.CachingClient, pageID string) *Article {
 	page, err := d.DownloadPage(pageID)
 	must(err)
-	logf("Downloaded %s %s\n", pageID, page.Root().Title)
+	logf(ctx(), "Downloaded %s %s\n", pageID, page.Root().Title)
 	return notionPageToArticle(d, page)
 }

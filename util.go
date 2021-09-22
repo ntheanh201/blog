@@ -3,10 +3,12 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"io/fs"
 	"io/ioutil"
 	"log"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
@@ -41,6 +43,10 @@ func panicIfErr(err error, args ...interface{}) {
 	panic(s)
 }
 
+func ctx() context.Context {
+	return context.Background()
+}
+
 func must(err error) {
 	if err != nil {
 		panic(err)
@@ -49,7 +55,7 @@ func must(err error) {
 
 func logIfError(err error) {
 	if err != nil {
-		logf("%s\n", err)
+		logf(ctx(), "%s\n", err)
 	}
 }
 
@@ -280,9 +286,18 @@ func dirToLF(dir string) {
 		d := readFileMust(path)
 		d2 := normalizeNewlines(d)
 		if !bytes.Equal(d, d2) {
-			logf(path + "\n")
+			logf(ctx(), path+"\n")
 			must(ioutil.WriteFile(path, d2, 0644))
 		}
 		return nil
 	})
+}
+
+func createDirForFile(path string) error {
+	return os.MkdirAll(filepath.Dir(path), 0755)
+}
+
+func fileExists(path string) bool {
+	st, err := os.Lstat(path)
+	return err == nil && st.Mode().IsRegular()
 }

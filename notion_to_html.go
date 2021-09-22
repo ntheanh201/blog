@@ -45,9 +45,9 @@ func (c *Converter) getURLAndTitleForBlock(block *notionapi.Block) (string, stri
 	article := c.idToArticle(id)
 	if article == nil {
 		title := block.Title
-		logf("No article for id %s %s\n", id, title)
+		logf(ctx(), "No article for id %s %s\n", id, title)
 		pageURL := "https://notion.so/" + notionapi.ToNoDashID(c.page.ID)
-		logf("Link from page: %s\n", pageURL)
+		logf(ctx(), "Link from page: %s\n", pageURL)
 		url := "/article/" + id + "/" + urlify(title)
 		return url, title
 	}
@@ -234,7 +234,7 @@ func (c *Converter) GenereateHTML() []byte {
 }
 
 func notionToHTML(client *notionapi.CachingClient, article *Article, articles *Articles) ([]byte, []*ImageMapping) {
-	//logf("notionToHTML: %s\n", notionapi.ToNoDashID(article.ID))
+	//logf(ctx(), "notionToHTML: %s\n", notionapi.ToNoDashID(article.ID))
 	c := NewHTMLConverter(client, article)
 	if articles != nil {
 		c.idToArticle = func(id string) *Article {

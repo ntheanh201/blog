@@ -110,7 +110,7 @@ func wwwPath(fileName string) string {
 
 func wwwWriteFile(fileName string, d []byte) {
 	path := wwwPath(fileName)
-	//logf("%s\n", path)
+	//logf(ctx(), "%s\n", path)
 	ioutil.WriteFile(path, d, 0644)
 }
 
@@ -450,7 +450,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 
 func generateHTML(store *Articles) {
 	outDir := generatedHTMLDir
-	logf("generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
+	logf(ctx(), "generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
 	recreateDir(outDir)
 
 	skipTmplFiles := func(path string) bool {
@@ -458,7 +458,7 @@ func generateHTML(store *Articles) {
 	}
 
 	copied := u.DirCopyRecurMust(outDir, "www", skipTmplFiles)
-	logf("Copied %d files\n", len(copied))
+	logf(ctx(), "Copied %d files\n", len(copied))
 
 	addAllRedirects(store)
 

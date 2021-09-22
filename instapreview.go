@@ -46,6 +46,6 @@ func uploadFilesToInstantPreviewMust(files map[string][]byte) string {
 	must(err)
 	uri = string(res)
 	sizeStr := formatSize(int64(len(zipData)))
-	logf("uploaded %d files under: %s, zip file size: %s in: %s\n", len(files), uri, sizeStr, time.Since(timeStart))
+	logf(ctx(), "uploaded %d files under: %s, zip file size: %s in: %s\n", len(files), uri, sizeStr, time.Since(timeStart))
 	return uri
 }

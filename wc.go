@@ -12,7 +12,7 @@ func doLineCount() int {
 	stats := u.NewLineStats()
 	err := stats.CalcInDir(".", allFiles, true)
 	if err != nil {
-		logf("doWordCount: stats.wcInDir() failed with '%s'\n", err)
+		logf(ctx(), "doWordCount: stats.wcInDir() failed with '%s'\n", err)
 		return 1
 	}
 	u.PrintLineStats(stats)

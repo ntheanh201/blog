@@ -292,7 +292,7 @@ func (a *Article) setHeaderImageMust(val string) {
 	path := filepath.Join("www", val)
 	panicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
 	//uri := getHostURL() + val
-	// logf("Found HeaderImageURL: %s\n", uri)
+	// logf(ctx(), "Found HeaderImageURL: %s\n", uri)
 	uri := val
 	a.HeaderImageURL = uri
 }
@@ -327,7 +327,7 @@ func (a *Article) maybeParseGallery(block *notionapi.Block, nBlock int, blocks [
 	}
 
 	if len(imageBlocks) < 2 {
-		logf("Found #gallery followed by %d image blocks (should be at least 2). Page id: %s, #gallery block id: %s\n", len(imageBlocks), a.page.ID, block.ID)
+		logf(ctx(), "Found #gallery followed by %d image blocks (should be at least 2). Page id: %s, #gallery block id: %s\n", len(imageBlocks), a.page.ID, block.ID)
 		return false
 	}
 	var urls []string
@@ -494,12 +494,12 @@ func (a *Article) processBlocks(blocks []*notionapi.Block) {
 			link := block.Source
 			resp, err := a.notionClient.DownloadFile(link, block)
 			if err != nil {
-				logf("genImage: DownloadFile('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
+				logf(ctx(), "genImage: DownloadFile('%s') from page https://notion.so/%s failed with '%s'\n", link, normalizeID(a.page.ID), err)
 				a.notionClient.DownloadFile(link, block)
 				must(err)
 			}
 			if !resp.FromCache {
-				logf("genImage: DownloadFile('%s') from page https://notion.so/%s\n", link, normalizeID(a.page.ID))
+				logf(ctx(), "genImage: DownloadFile('%s') from page https://notion.so/%s\n", link, normalizeID(a.page.ID))
 			}
 			path := resp.CacheFilePath
 			relURL := "/img/" + filepath.Base(path)
@@ -524,16 +524,16 @@ func findImageMapping(images []*ImageMapping, link string) *ImageMapping {
 			return im
 		}
 	}
-	logf("Didn't find image with link '%s'\n", link)
-	logf("Available images:\n")
+	logf(ctx(), "Didn't find image with link '%s'\n", link)
+	logf(ctx(), "Available images:\n")
 	for _, im := range images {
-		logf("  link: %s, relativeURL: %s, path: %s\n", im.link, im.relativeURL, im.path)
+		logf(ctx(), "  link: %s, relativeURL: %s, path: %s\n", im.link, im.relativeURL, im.path)
 	}
 	return nil
 }
 
 func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Article {
-	//logf("extractMetadata: %s-%s, %d blocks\n", title, id, len(blocks))
+	//logf(ctx(), "extractMetadata: %s-%s, %d blocks\n", title, id, len(blocks))
 	// metadata blocks are always at the beginning. They are TypeText blocks and
 	// have only one plain string as content
 	root := page.Root()

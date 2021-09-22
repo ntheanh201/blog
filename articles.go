@@ -134,7 +134,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	{
 		timeStart := time.Now()
 		d.PreLoadCache()
-		logf("d.PreLoadCache() finished in %s\n", time.Since(timeStart))
+		logf(ctx(), "d.PreLoadCache() finished in %s\n", time.Since(timeStart))
 	}
 
 	res := &Articles{}
@@ -148,11 +148,11 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 		nReq++
 		dur := time.Since(timeStart)
 		if !di.FromCache {
-			logf("DL    %s %d, total time: %s\n", di.Page.ID, nReq, dur)
+			logf(ctx(), "DL    %s %d, total time: %s\n", di.Page.ID, nReq, dur)
 		} else {
 			nFromCache++
 			if nFromCache == 1 || nFromCache%16 == 0 {
-				logf("CACHE %s %d, total time: %s\n", di.Page.ID, nReq, dur)
+				logf(ctx(), "CACHE %s %d, total time: %s\n", di.Page.ID, nReq, dur)
 			}
 		}
 		return nil

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 )
@@ -29,11 +30,11 @@ func logError(err error) {
 	if err != nil {
 		return
 	}
-	logf("%s", err.Error())
+	logf(ctx(), "%s", err.Error())
 }
 */
 
-func logf(format string, args ...interface{}) {
+func logf(ctx context.Context, format string, args ...interface{}) {
 	s := fmt.Sprintf(format, args...)
 	if logFile != nil {
 		fmt.Fprint(logFile, s)
@@ -56,5 +57,5 @@ func logTemp(format string, args ...interface{}) {
 	if !doTempLog {
 		return
 	}
-	logf(format, args...)
+	logf(ctx(), format, args...)
 }
