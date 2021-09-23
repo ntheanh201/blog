@@ -14,9 +14,7 @@ var (
 
 func loadTemplates() {
 	pattern := filepath.Join("www", "tmpl", "*.tmpl.html")
-	var err error
-	templates, err = template.ParseGlob(pattern)
-	must(err)
+	templates = template.Must(template.ParseGlob(pattern))
 }
 
 func execTemplateToFile(path string, templateName string, model interface{}) error {
@@ -28,7 +26,7 @@ func execTemplateToFile(path string, templateName string, model interface{}) err
 }
 
 func execTemplateToWriter(name string, data interface{}, w io.Writer) error {
-	loadTemplates()
+	loadTemplates() // TODO: only reload when changed
 	return templates.ExecuteTemplate(w, name, data)
 }
 

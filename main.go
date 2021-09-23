@@ -149,9 +149,11 @@ func main() {
 		flgCiBuild         bool
 		flgImportNotionOne string
 		flgProfile         string
+		flgRun             bool
 	)
 
 	{
+		flag.BoolVar(&flgRun, "run", false, "run web server locally")
 		flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
@@ -193,6 +195,11 @@ func main() {
 
 	openLog()
 	defer closeLog()
+
+	if flgRun {
+		doRun()
+		return
+	}
 
 	if flgWc {
 		doLineCount()

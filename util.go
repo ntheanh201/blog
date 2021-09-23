@@ -301,3 +301,11 @@ func fileExists(path string) bool {
 	st, err := os.Lstat(path)
 	return err == nil && st.Mode().IsRegular()
 }
+
+func getFileSize(path string) int64 {
+	st, err := os.Lstat(path)
+	if err == nil {
+		return st.Size()
+	}
+	return -1
+}
