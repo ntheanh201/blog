@@ -147,6 +147,8 @@ func main() {
 		logf(ctx(), "finished in %s\n", time.Since(timeStart))
 	}()
 
+	u.CdUpDir("blog")
+
 	if false {
 		dirToLF(".")
 		return
