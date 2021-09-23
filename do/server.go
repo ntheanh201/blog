@@ -1,10 +1,8 @@
 package main
 
 import (
-	"io/fs"
 	"net/http"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 
@@ -16,16 +14,6 @@ var (
 	allTagURLS  []string // first item is tag, second is its url
 	articleURLS []string // the order is the same as allArticles.articles
 )
-
-func serveFile(w http.ResponseWriter, r *http.Request, path string) {
-	if r == nil {
-		d := readFileMust(path)
-		_, err := w.Write(d)
-		must(err)
-		return
-	}
-	http.ServeFile(w, r, path)
-}
 
 func tryServeFile(uri string, dir string) func(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimPrefix(uri, "/")
@@ -153,26 +141,6 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	return nil
 }
 
-func getURLSForFiles(startDir string, urlPrefix string) []string {
-	var res []string
-	filepath.WalkDir(startDir, func(filePath string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return nil
-		}
-		if !d.Type().IsRegular() {
-			return nil
-		}
-		dir := strings.TrimPrefix(filePath, startDir)
-		dir = filepath.ToSlash(dir)
-		dir = strings.TrimPrefix(dir, "/")
-		uri := path.Join(urlPrefix, dir)
-		//logf("getURLSForFiles: dir: '%s'\n", dir)
-		res = append(res, uri)
-		return nil
-	})
-	return res
-}
-
 func serverURLS() []string {
 	files := []string{
 		"/index.html",
@@ -186,9 +154,6 @@ func serverURLS() []string {
 		"/404.html",
 		"/software/index.html",
 	}
-	// TODO: filter out templates etc.
-	files = append(files, getURLSForFiles("www", "/")...)
-	files = append(files, getURLSForFiles(filepath.Join("notion_cache", "files"), "/img")...)
 	files = append(files, articleURLS...)
 	return files
 }
@@ -198,8 +163,12 @@ func makeDynamicServer() *ServerConfig {
 
 	serveAll := NewDynamicHandler(serverGet, serverURLS)
 
+	// TODO: filter out templates etc.
+	serveWWW := NewDirHandler("www", "/", nil)
+	serveNotionImages := NewDirHandler(filepath.Join("notion_cache", "files"), "/img", nil)
+
 	server := &ServerConfig{
-		Handlers:  []Handler{serveAll},
+		Handlers:  []Handler{serveWWW, serveNotionImages, serveAll},
 		CleanURLS: true,
 	}
 

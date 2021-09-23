@@ -1,4 +1,4 @@
-module do
+module github.com/kjk/blog/do
 
 go 1.16
 

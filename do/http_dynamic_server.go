@@ -6,30 +6,27 @@ import (
 	"compress/flate"
 	"fmt"
 	"io"
+	"io/fs"
 	"net/http"
 	"os"
 	"os/signal"
+	"path"
 	"path/filepath"
 	"strings"
 	"syscall"
 	"time"
 )
 
+type HandlerFunc = func(w http.ResponseWriter, r *http.Request)
+
 // Handler represents one or more urls and their content
 type Handler interface {
 	// returns a handler for this url
 	// if nil, doesn't handle this url
-	Get(url string) func(w http.ResponseWriter, r *http.Request)
+	Get(url string) HandlerFunc
 	// get all urls handled by this Handler
 	// useful for e.g. saving a static copy to disk
 	URLS() []string
-}
-
-type FileHandler struct {
-	// Path on disk for this file
-	Path string
-	// list of urls that this file matches
-	URL []string
 }
 
 // FileWriter implements http.ResponseWriter interface for writing to a file
@@ -49,19 +46,34 @@ func (w *FileWriter) WriteHeader(statusCode int) {
 	// no-op
 }
 
-func (h *FileHandler) Get(url string) func(w http.ResponseWriter, r *http.Request) {
+type FileHandler struct {
+	// Path on disk for this file
+	Path string
+	// list of urls that this file matches
+	URL []string
+}
+
+func serveFile(w http.ResponseWriter, r *http.Request, path string) {
+	if r == nil {
+		d := readFileMust(path)
+		_, err := w.Write(d)
+		must(err)
+		return
+	}
+	http.ServeFile(w, r, path)
+}
+
+func makeServeFile(path string) HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		serveFile(w, r, path)
+	}
+}
+
+func (h *FileHandler) Get(url string) HandlerFunc {
 	for _, u := range h.URL {
 		// urls are case-insensitive
 		if strings.EqualFold(u, url) {
-			return func(w http.ResponseWriter, r *http.Request) {
-				if r == nil {
-					d := readFileMust(h.Path)
-					_, err := w.Write(d)
-					must(err)
-				} else {
-					http.ServeFile(w, r, h.Path)
-				}
-			}
+			return makeServeFile(h.Path)
 		}
 	}
 	return nil
@@ -80,6 +92,61 @@ func NewFileHandler(path string, url string, urls ...string) *FileHandler {
 	}
 	res.URL = append(res.URL, urls...)
 	return res
+}
+
+type DirHandler struct {
+	Dir       string
+	URLPrefix string
+
+	URL   []string
+	paths []string // same order as URL
+}
+
+func (h *DirHandler) Get(url string) func(w http.ResponseWriter, r *http.Request) {
+	for i, u := range h.URL {
+		// urls are case-insensitive
+		if strings.EqualFold(u, url) {
+			return makeServeFile(h.paths[i])
+		}
+	}
+	return nil
+}
+
+func (h *DirHandler) URLS() []string {
+	return h.URL
+}
+
+func getURLSForFiles(startDir string, urlPrefix string, acceptFile func(string) bool) (urls []string, paths []string) {
+	filepath.WalkDir(startDir, func(filePath string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if !d.Type().IsRegular() {
+			return nil
+		}
+		if acceptFile != nil && !acceptFile(filePath) {
+			return nil
+		}
+		dir := strings.TrimPrefix(filePath, startDir)
+		dir = filepath.ToSlash(dir)
+		dir = strings.TrimPrefix(dir, "/")
+		uri := path.Join(urlPrefix, dir)
+		//logf("getURLSForFiles: dir: '%s'\n", dir)
+		urls = append(urls, uri)
+		paths = append(paths, filePath)
+		return nil
+	})
+	return
+}
+
+func NewDirHandler(dir string, urlPrefix string, acceptFile func(string) bool) *DirHandler {
+	urls, paths := getURLSForFiles(dir, urlPrefix, acceptFile)
+	return &DirHandler{
+		Dir:       dir,
+		URLPrefix: urlPrefix,
+		URL:       urls,
+		paths:     paths,
+	}
 }
 
 type DynamicHandler struct {
