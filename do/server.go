@@ -216,7 +216,7 @@ func makeDynamicServer() *ServerConfig {
 		}
 	}
 	for tag := range tags {
-		tagURL := "/tag/" + tag // TODO: URL-escape?
+		tagURL := "/tag/" + tag + ".html" // TODO: URL-escape?
 		allTagURLS = append(allTagURLS, tag, tagURL)
 	}
 	for _, article := range store.articles {
