@@ -143,8 +143,8 @@ func StartServer(server *ServerConfig) func() {
 	mux := &http.ServeMux{}
 	handleAll := func(w http.ResponseWriter, r *http.Request) {
 		uri := r.URL.Path
-		if uri == "/" {
-			uri = "/index.html"
+		if strings.HasSuffix(uri, "/") {
+			uri += "index.htmL"
 		}
 		trySend := func(uri string) bool {
 			for _, h := range server.Handlers {

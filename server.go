@@ -1,7 +1,9 @@
 package main
 
 import (
+	"io/fs"
 	"net/http"
+	"path"
 	"path/filepath"
 	"strings"
 )
@@ -41,6 +43,12 @@ func serveImage(uri string) func(w http.ResponseWriter, r *http.Request) {
 	return tryServeFile(uri, dir)
 }
 
+func serveStartHTML(w http.ResponseWriter, r *http.Request) {
+	if r != nil {
+		w.Header().Add("Content-Type", "text/html")
+		w.WriteHeader(http.StatusOK) // 200
+	}
+}
 func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	if strings.HasPrefix(uri, "/img/") {
 		return serveImage(uri)
@@ -52,20 +60,26 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	case "/index.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genIndex")
-			if r != nil {
-				w.Header().Add("Content-Type", "text/html")
-				w.WriteHeader(http.StatusOK) // 200
-			}
+			serveStartHTML(w, r)
 			genIndex(allArticles, w)
 		}
 	case "/archives.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
-			if r != nil {
-				w.Header().Add("Content-Type", "text/html")
-				w.WriteHeader(http.StatusOK) // 200
-			}
+			serveStartHTML(w, r)
 			writeArticlesArchiveForTag(allArticles, "", w)
+		}
+	case "/book/go-cookbook.html":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genGoCookbook")
+			serveStartHTML(w, r)
+			genGoCookbook(allArticles, w)
+		}
+	case "/changelog.html":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genChangelog")
+			serveStartHTML(w, r)
+			genChangelog(allArticles, w)
 		}
 	}
 	for i := 0; i < len(allTagURLS); i += 2 {
@@ -85,9 +99,28 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	return nil
 }
 
+func getURLSForFiles(startDir string, urlPrefix string) []string {
+	var res []string
+	filepath.WalkDir(startDir, func(filePath string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if !d.Type().IsRegular() {
+			return nil
+		}
+		dir := strings.TrimPrefix(filePath, startDir)
+		uri := path.Join(urlPrefix, dir, d.Name())
+		res = append(res, uri)
+		return nil
+	})
+	return res
+}
+
 func serverURLS() []string {
-	files := []string{"/index.html", "/archives.html"}
-	// TODO: add all files from "www" directory and "notion_cache/files"
+	files := []string{"/index.html", "/archives.html", "/book/go-cookbook.html", "/changelog.html"}
+	// TODO: filter out templates etc.
+	files = append(files, getURLSForFiles("www", "/")...)
+	files = append(files, getURLSForFiles(filepath.Join("notion_cache", "files"), "/img")...)
 	return files
 }
 
@@ -118,9 +151,21 @@ func doRun() {
 		allTagURLS = append(allTagURLS, tag, tagURL)
 	}
 	/*
-		regenMd()
-		readRedirects(articles)
-		generateHTML(articles)
+			regenMd()
+			readRedirects(articles)
+
+		genAtom(store, nil)
+		genAtomAll(store, nil)
+
+		{
+			// /blog/ and /kb/ are only for redirects, we only handle /article/ at this point
+			logvf("%d articles\n", len(store.idToPage))
+			for _, article := range store.articles {
+				genArticle(article, nil)
+			}
+		}
+
+			//generateHTML(articles)
 	*/
 
 	waitSignal := StartServer(server)

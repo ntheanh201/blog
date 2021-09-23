@@ -1,6 +1,6 @@
 module github.com/kjk/blog
 
-go 1.14
+go 1.16
 
 require (
 	github.com/alecthomas/chroma v0.9.2

@@ -184,7 +184,7 @@ func main() {
 	}
 
 	// for those commands we only want to use cache
-	if flgPreview || flgRebuildHTML || flgCiBuild {
+	if flgPreview || flgRebuildHTML || flgCiBuild || flgRun {
 		cachingPolicy = notionapi.PolicyCacheOnly
 	}
 
