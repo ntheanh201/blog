@@ -44,14 +44,18 @@ func serveImage(uri string) func(w http.ResponseWriter, r *http.Request) {
 	return tryServeFile(uri, dir)
 }
 
-func serveStartHTML(w http.ResponseWriter, r *http.Request) {
-	if r != nil {
-		w.Header().Add("Content-Type", "text/html")
-		w.WriteHeader(http.StatusOK) // 200
+func serveStart(w http.ResponseWriter, r *http.Request, uri string) {
+	if r == nil {
+		return
 	}
+	ct := mimeTypeFromFileName(uri)
+	w.Header().Add("Content-Type", ct)
+	w.WriteHeader(http.StatusOK) // 200
 }
+
 func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	logf(ctx(), "serverGet: '%s'\n", uri)
+	store := allArticles
 	if strings.HasPrefix(uri, "/img/") {
 		return serveImage(uri)
 	}
@@ -62,26 +66,59 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	case "/index.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genIndex")
-			serveStartHTML(w, r)
-			genIndex(allArticles, w)
+			serveStart(w, r, uri)
+			genIndex(store, w)
 		}
 	case "/archives.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
-			serveStartHTML(w, r)
-			writeArticlesArchiveForTag(allArticles, "", w)
+			serveStart(w, r, uri)
+			writeArticlesArchiveForTag(store, "", w)
 		}
-	case "/book/go-cookbook.html":
+	case "/book/go-cookbook.html", "/articles/go-cookbook.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genGoCookbook")
-			serveStartHTML(w, r)
-			genGoCookbook(allArticles, w)
+			serveStart(w, r, uri)
+			genGoCookbook(store, w)
 		}
 	case "/changelog.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genChangelog")
-			serveStartHTML(w, r)
-			genChangelog(allArticles, w)
+			serveStart(w, r, uri)
+			genChangelog(store, w)
+		}
+	case "/sitemap.xml":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
+			d, err := genSiteMap(store, "https://blog.kowalczyk.info")
+			must(err)
+			serveStart(w, r, uri)
+			_, err = w.Write(d)
+			must(err)
+		}
+	case "/atom.xml":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
+			d, err := genAtomXML(store, true)
+			must(err)
+			serveStart(w, r, uri)
+			_, err = w.Write(d)
+			must(err)
+		}
+	case "/atom-all.xml":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
+			d, err := genAtomXML(store, false)
+			must(err)
+			serveStart(w, r, uri)
+			_, err = w.Write(d)
+			must(err)
+		}
+	case "/404.html":
+		return func(w http.ResponseWriter, r *http.Request) {
+			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "gen404")
+			serveStart(w, r, uri)
+			gen404(store, w)
 		}
 	}
 
@@ -92,22 +129,20 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 			article := allArticles.articles[i]
 			return func(w http.ResponseWriter, r *http.Request) {
 				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genArticle")
-				serveStartHTML(w, r)
+				serveStart(w, r, uri)
 				genArticle(article, w)
 			}
 		}
 	}
 
-	for i := 0; i < len(allTagURLS); i += 2 {
+	n = len(allTagURLS)
+	for i := 0; i < n; i += 2 {
 		tagURL := allTagURLS[i+1]
 		if uri == tagURL {
 			tag := allTagURLS[i]
 			return func(w http.ResponseWriter, r *http.Request) {
 				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
-				if r != nil {
-					w.Header().Add("Content-Type", "text/html")
-					w.WriteHeader(http.StatusOK) // 200
-				}
+				serveStart(w, r, uri)
 				writeArticlesArchiveForTag(allArticles, tag, w)
 			}
 		}
@@ -133,7 +168,17 @@ func getURLSForFiles(startDir string, urlPrefix string) []string {
 }
 
 func serverURLS() []string {
-	files := []string{"/index.html", "/archives.html", "/book/go-cookbook.html", "/changelog.html"}
+	files := []string{
+		"/index.html",
+		"/archives.html",
+		"/book/go-cookbook.html",
+		"/articles/go-cookbook.html",
+		"/changelog.html",
+		"/sitemap.xml",
+		"/atom.xml",
+		"/atom-all.xml",
+		"404.html",
+	}
 	// TODO: filter out templates etc.
 	files = append(files, getURLSForFiles("www", "/")...)
 	files = append(files, getURLSForFiles(filepath.Join("notion_cache", "files"), "/img")...)
@@ -174,9 +219,6 @@ func doRun() {
 	/*
 		regenMd()
 		readRedirects(articles)
-
-		genAtom(store, nil)
-		genAtomAll(store, nil)
 	*/
 
 	waitSignal := StartServer(server)

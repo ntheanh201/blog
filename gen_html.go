@@ -26,7 +26,6 @@ import (
 
 func addAllRedirects(store *Articles) {
 	addStaticRedirects()
-	addRewrite("/favicon.ico", "/static/favicon.ico")
 	//addRewrite("/book/", "/static/documents.html")
 	//addTempRedirect("/book/*", "/article/:splat")
 	addTempRedirect("/software/sumatrapdf*", "https://www.sumatrapdfreader.org/:splat")
@@ -36,7 +35,6 @@ func addAllRedirects(store *Articles) {
 	addTempRedirect("/static/documents.html", "/documents.html")
 	addTempRedirect("/software/index.html", "/software/")
 
-	addRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
 	addRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
 
 	for _, article := range store.articles {

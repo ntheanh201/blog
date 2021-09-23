@@ -1,6 +1,9 @@
 package main
 
 import (
+	"archive/zip"
+	"bytes"
+	"compress/flate"
 	"fmt"
 	"io"
 	"net/http"
@@ -119,6 +122,55 @@ func WriteServerFilesToDir(dir string, handlers []Handler) {
 			logf(ctx(), "WriteServerFilesToDir: '%s' of size %s\n", path, sizeStr)
 		}
 	}
+}
+
+func zipWriteContent(zw *zip.Writer, files map[string][]byte) error {
+	for name, data := range files {
+		fw, err := zw.Create(name)
+		if err != nil {
+			return err
+		}
+		_, err = fw.Write(data)
+		if err != nil {
+			return err
+		}
+	}
+	return zw.Close()
+}
+
+func zipCreateFromContent(files map[string][]byte) ([]byte, error) {
+	var buf bytes.Buffer
+	zw := zip.NewWriter(&buf)
+	zw.RegisterCompressor(zip.Deflate, func(out io.Writer) (io.WriteCloser, error) {
+		return flate.NewWriter(out, flate.BestCompression)
+	})
+	err := zipWriteContent(zw, files)
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+func WriteServerFilesToZip(handlers []Handler) ([]byte, error) {
+	files := map[string][]byte{}
+	for _, h := range handlers {
+		urls := h.URLS()
+		for _, uri := range urls {
+			path := strings.TrimPrefix(uri, "/")
+			var buf bytes.Buffer
+			fw := &FileWriter{
+				w: &buf,
+			}
+			serve := h.Get(uri)
+			panicIf(serve == nil, "must have a handler for '%s'", uri)
+			serve(fw, nil)
+			d := buf.Bytes()
+			files[path] = d
+			sizeStr := formatSize(int64(len(d)))
+			logf(ctx(), "WriteServerFilesZip: '%s' of size %s\n", path, sizeStr)
+		}
+	}
+	return zipCreateFromContent(files)
 }
 
 // ServerConfig represents all files known to the server

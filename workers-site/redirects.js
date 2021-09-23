@@ -52,7 +52,6 @@ const redirects = {
   "/static/software.html": ["/software/index.html", 302],
   "/static/krzysztof.html": ["/resume.html", 302],
   "/static/resume.html": ["/resume.html", 302],
-  "/favicon.ico": ["/static/favicon.ico", 200],
   "/software/sumatrapdf*": ["https://www.sumatrapdfreader.org/:splat", 302],
   "/articles/": ["/documents.html", 302],
   "/articles/index.html": ["/documents.html", 302],
