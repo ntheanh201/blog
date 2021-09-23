@@ -11,6 +11,7 @@ import (
 var (
 	allArticles *Articles
 	allTagURLS  []string // first item is tag, second is its url
+	articleURLS []string // the order is the same as allArticles.articles
 )
 
 func serveFile(w http.ResponseWriter, r *http.Request, path string) {
@@ -50,6 +51,7 @@ func serveStartHTML(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
+	logf(ctx(), "serverGet: '%s'\n", uri)
 	if strings.HasPrefix(uri, "/img/") {
 		return serveImage(uri)
 	}
@@ -82,6 +84,20 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 			genChangelog(allArticles, w)
 		}
 	}
+
+	n := len(articleURLS)
+	uriLC := strings.ToLower(uri)
+	for i := 0; i < n; i++ {
+		if uriLC == articleURLS[i] {
+			article := allArticles.articles[i]
+			return func(w http.ResponseWriter, r *http.Request) {
+				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genArticle")
+				serveStartHTML(w, r)
+				genArticle(article, w)
+			}
+		}
+	}
+
 	for i := 0; i < len(allTagURLS); i += 2 {
 		tagURL := allTagURLS[i+1]
 		if uri == tagURL {
@@ -121,6 +137,7 @@ func serverURLS() []string {
 	// TODO: filter out templates etc.
 	files = append(files, getURLSForFiles("www", "/")...)
 	files = append(files, getURLSForFiles(filepath.Join("notion_cache", "files"), "/img")...)
+	files = append(files, articleURLS...)
 	return files
 }
 
@@ -150,22 +167,16 @@ func doRun() {
 		tagURL := "/tag/" + tag // TODO: URL-escape?
 		allTagURLS = append(allTagURLS, tag, tagURL)
 	}
+	for _, article := range store.articles {
+		articleURLS = append(articleURLS, article.URL())
+	}
+
 	/*
-			regenMd()
-			readRedirects(articles)
+		regenMd()
+		readRedirects(articles)
 
 		genAtom(store, nil)
 		genAtomAll(store, nil)
-
-		{
-			// /blog/ and /kb/ are only for redirects, we only handle /article/ at this point
-			logvf("%d articles\n", len(store.idToPage))
-			for _, article := range store.articles {
-				genArticle(article, nil)
-			}
-		}
-
-			//generateHTML(articles)
 	*/
 
 	waitSignal := StartServer(server)
