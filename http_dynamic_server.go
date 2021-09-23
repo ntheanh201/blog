@@ -125,6 +125,7 @@ func WriteServerFilesToDir(dir string, handlers []Handler) {
 type ServerConfig struct {
 	Handlers  []Handler
 	CleanURLS bool
+	Port      int
 }
 
 // returns function that will wait for SIGTERM signal (e.g. Ctrl-C) and
@@ -132,6 +133,9 @@ type ServerConfig struct {
 func StartServer(server *ServerConfig) func() {
 	panicIf(server == nil, "must provide files")
 	httpPort := 8080
+	if server.Port != 0 {
+		httpPort = server.Port
+	}
 	httpAddr := fmt.Sprintf(":%d", httpPort)
 	if isWindows() {
 		httpAddr = "localhost" + httpAddr
