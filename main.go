@@ -80,25 +80,6 @@ func runWranglerDev() {
 	logIfError(err)
 }
 
-func runSirv(dir string) {
-	err := exec.Command("sirv", "--version").Run()
-	if err != nil {
-		err = exec.Command("npm", "i", "-g", "sirv-cli").Run()
-		panicIfErr(err)
-	}
-	// on codespace they detect the port automatically
-	if isWindows() {
-		go func() {
-			time.Sleep(time.Second * 1)
-			u.OpenBrowser("http://localhost:5000")
-		}()
-	}
-	cmd := exec.Command("sirv", dir)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Run()
-}
-
 func hasWranglerConfig() bool {
 	homeDir, err := os.UserHomeDir()
 	panicIfErr(err)
@@ -117,14 +98,6 @@ func hasWranglerConfig() bool {
 	return true
 }
 
-func preview() {
-	if isWindows() || hasWranglerConfig() {
-		runWranglerDev()
-		return
-	}
-	runSirv(generatedHTMLDir)
-}
-
 var (
 	cachingPolicy = notionapi.PolicyDownloadNewer
 )
@@ -138,9 +111,10 @@ func recreateDir(dir string) {
 
 func main() {
 	var (
+		flgPreviewWrangler bool
+		flgPreviewServer   bool
 		flgDeployDev       bool
 		flgDeployProd      bool
-		flgPreview         bool
 		flgWc              bool
 		flgImportNotion    bool
 		flgRebuildHTML     bool
@@ -149,23 +123,22 @@ func main() {
 		flgCiBuild         bool
 		flgImportNotionOne string
 		flgProfile         string
-		flgRun             bool
 	)
 
 	{
-		flag.BoolVar(&flgRun, "run", false, "run web server locally")
-		flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
+		// flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
 		flag.BoolVar(&flgDeployDev, "deploy-dev", false, "deploy to https://blog.kjk.workers.dev/")
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
-		flag.BoolVar(&flgPreview, "preview", false, "runs caddy and opens a browser for preview")
+		flag.BoolVar(&flgPreviewServer, "preview-server", false, "preview with web server running locally")
+		flag.BoolVar(&flgPreviewWrangler, "preview-wrangler", false, "preview with wrangler")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
-		flag.BoolVar(&flgRebuildHTML, "rebuild-html", false, "rebuild html in www_generated/ directory")
+		flag.BoolVar(&flgRebuildHTML, "rebuild", false, "rebuild html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
 		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
 		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
-		flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
+		//flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
 		flag.Parse()
 	}
 
@@ -184,20 +157,20 @@ func main() {
 	}
 
 	// for those commands we only want to use cache
-	if flgPreview || flgRebuildHTML || flgCiBuild || flgRun {
+	if flgPreviewWrangler || flgRebuildHTML || flgCiBuild || flgPreviewServer {
 		cachingPolicy = notionapi.PolicyCacheOnly
 	}
 
 	if false {
-		flgPreview = true
+		flgPreviewWrangler = true
 		cachingPolicy = notionapi.PolicyDownloadNewer
 	}
 
 	openLog()
 	defer closeLog()
 
-	if flgRun {
-		doRun()
+	if flgPreviewServer {
+		runServer()
 		return
 	}
 
@@ -287,15 +260,10 @@ func main() {
 		return
 	}
 
-	if flgImportNotion || flgRebuildHTML {
-		// the difference is in different caching policy
-		if flgImportNotion {
-			cachingPolicy = notionapi.PolicyDownloadNewer
-		} else if flgRebuildHTML {
-			cachingPolicy = notionapi.PolicyCacheOnly
-		}
-		d := getNotionCachingClient()
-		rebuildAll(d)
+	if flgImportNotion {
+		cachingPolicy = notionapi.PolicyDownloadNewer
+		cc := getNotionCachingClient()
+		_ = loadArticles(cc)
 		return
 	}
 
@@ -329,14 +297,27 @@ func main() {
 		return
 	}
 
-	if flgPreview {
+	if flgCiBuild {
 		cachingPolicy = notionapi.PolicyCacheOnly
-		cc := getNotionCachingClient()
-		rebuildAll(cc)
-		preview()
+		genHTMLServer(generatedHTMLDir)
 		return
 	}
 
+	if flgRebuildHTML {
+		cachingPolicy = notionapi.PolicyCacheOnly
+		genHTMLServer(generatedHTMLDir)
+		return
+	}
+
+	if flgPreviewWrangler {
+		genHTMLServer(generatedHTMLDir)
+		if isWindows() || hasWranglerConfig() {
+			runWranglerDev()
+			return
+		}
+		runServer()
+		return
+	}
 	flag.Usage()
 }
 

@@ -3,9 +3,12 @@ package main
 import (
 	"io/fs"
 	"net/http"
+	"os"
 	"path"
 	"path/filepath"
 	"strings"
+
+	"github.com/kjk/notionapi"
 )
 
 var (
@@ -123,9 +126,9 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	}
 
 	n := len(articleURLS)
-	uriLC := strings.ToLower(uri)
+	//uriLC := strings.ToLower(uri)
 	for i := 0; i < n; i++ {
-		if uriLC == articleURLS[i] {
+		if uri == articleURLS[i] {
 			article := allArticles.articles[i]
 			return func(w http.ResponseWriter, r *http.Request) {
 				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genArticle")
@@ -160,7 +163,10 @@ func getURLSForFiles(startDir string, urlPrefix string) []string {
 			return nil
 		}
 		dir := strings.TrimPrefix(filePath, startDir)
-		uri := path.Join(urlPrefix, dir, d.Name())
+		dir = filepath.ToSlash(dir)
+		dir = strings.TrimPrefix(dir, "/")
+		uri := path.Join(urlPrefix, dir)
+		//logf("getURLSForFiles: dir: '%s'\n", dir)
 		res = append(res, uri)
 		return nil
 	})
@@ -177,7 +183,8 @@ func serverURLS() []string {
 		"/sitemap.xml",
 		"/atom.xml",
 		"/atom-all.xml",
-		"404.html",
+		"/404.html",
+		"/software/index.html",
 	}
 	// TODO: filter out templates etc.
 	files = append(files, getURLSForFiles("www", "/")...)
@@ -186,8 +193,8 @@ func serverURLS() []string {
 	return files
 }
 
-func doRun() {
-	logf(ctx(), "doRun\n")
+func makeDynamicServer() *ServerConfig {
+	loadTemplates()
 
 	serveAll := NewDynamicHandler(serverGet, serverURLS)
 
@@ -196,7 +203,7 @@ func doRun() {
 		CleanURLS: true,
 	}
 
-	loadTemplates()
+	cachingPolicy = notionapi.PolicyCacheOnly
 	cc := getNotionCachingClient()
 	allArticles = loadArticles(cc)
 	logf(ctx(), "got %d articless\n", len(allArticles.articles))
@@ -213,14 +220,25 @@ func doRun() {
 		allTagURLS = append(allTagURLS, tag, tagURL)
 	}
 	for _, article := range store.articles {
-		articleURLS = append(articleURLS, article.URL())
+		uri := article.URL() // TODO: change in the metadata
+		if uri == "/software/" {
+			uri = "/software/index.html"
+		}
+		articleURLS = append(articleURLS, uri)
 	}
+	return server
+}
 
-	/*
-		regenMd()
-		readRedirects(articles)
-	*/
+func genHTMLServer(dir string) {
+	os.RemoveAll(generatedHTMLDir)
+	server := makeDynamicServer()
+	WriteServerFilesToDir(generatedHTMLDir, server.Handlers)
+}
 
+func runServer() {
+	logf(ctx(), "runServer\n")
+
+	server := makeDynamicServer()
 	waitSignal := StartServer(server)
 	waitSignal()
 }

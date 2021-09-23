@@ -82,11 +82,5 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 	err = os.Chdir(generatedHTMLDir)
 	must(err)
 
-	/*
-		go func() {
-			time.Sleep(time.Second * 1)
-			u.OpenBrowser("http://localhost:2015")
-		}()
-	*/
-	runSirv(generatedHTMLDir)
+	runServer()
 }
