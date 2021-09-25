@@ -59,6 +59,10 @@ func logIfError(err error) {
 	}
 }
 
+func isWindows() bool {
+	return strings.Contains(runtime.GOOS, "windows")
+}
+
 // whitelisted characters valid in url
 func validateRune(c rune) byte {
 	if c >= 'a' && c <= 'z' {

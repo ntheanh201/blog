@@ -9,7 +9,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"runtime/pprof"
 	"strings"
 	"time"
@@ -321,10 +320,6 @@ func main() {
 		return
 	}
 	flag.Usage()
-}
-
-func isWindows() bool {
-	return strings.Contains(runtime.GOOS, "windows")
 }
 
 func getNotionCachingClient() *notionapi.CachingClient {
