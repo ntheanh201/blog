@@ -5,8 +5,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/kjk/notionapi"
 )
 
 var (
@@ -23,7 +21,7 @@ func tryServeFile(uri string, dir string) func(w http.ResponseWriter, r *http.Re
 		serveFile(w, r, path)
 	}
 	if fileExists(path) {
-		logf(ctx(), "tryServeFile: will serve '%s' with '%s'\n", uri, path)
+		//logf(ctx(), "tryServeFile: will serve '%s' with '%s'\n", uri, path)
 		return send
 	}
 	return nil
@@ -45,7 +43,7 @@ func serveStart(w http.ResponseWriter, r *http.Request, uri string) {
 }
 
 func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
-	logf(ctx(), "serverGet: '%s'\n", uri)
+	//logf(ctx(), "serverGet: '%s'\n", uri)
 	store := allArticles
 	if strings.HasPrefix(uri, "/img/") {
 		return serveImage(uri)
@@ -56,31 +54,31 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	switch uri {
 	case "/index.html":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genIndex")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genIndex")
 			serveStart(w, r, uri)
 			genIndex(store, w)
 		}
 	case "/archives.html":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
 			serveStart(w, r, uri)
 			writeArticlesArchiveForTag(store, "", w)
 		}
 	case "/book/go-cookbook.html", "/articles/go-cookbook.html":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genGoCookbook")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genGoCookbook")
 			serveStart(w, r, uri)
 			genGoCookbook(store, w)
 		}
 	case "/changelog.html":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genChangelog")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genChangelog")
 			serveStart(w, r, uri)
 			genChangelog(store, w)
 		}
 	case "/sitemap.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
 			d, err := genSiteMap(store, "https://blog.kowalczyk.info")
 			must(err)
 			serveStart(w, r, uri)
@@ -89,7 +87,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		}
 	case "/atom.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
 			d, err := genAtomXML(store, true)
 			must(err)
 			serveStart(w, r, uri)
@@ -98,7 +96,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		}
 	case "/atom-all.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
 			d, err := genAtomXML(store, false)
 			must(err)
 			serveStart(w, r, uri)
@@ -107,7 +105,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		}
 	case "/404.html":
 		return func(w http.ResponseWriter, r *http.Request) {
-			logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "gen404")
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "gen404")
 			serveStart(w, r, uri)
 			gen404(store, w)
 		}
@@ -119,7 +117,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		if uri == articleURLS[i] {
 			article := allArticles.articles[i]
 			return func(w http.ResponseWriter, r *http.Request) {
-				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genArticle")
+				//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genArticle")
 				serveStart(w, r, uri)
 				genArticle(article, w)
 			}
@@ -132,7 +130,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		if uri == tagURL {
 			tag := allTagURLS[i]
 			return func(w http.ResponseWriter, r *http.Request) {
-				logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
+				//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "writeArticlesArchiveForTag")
 				serveStart(w, r, uri)
 				writeArticlesArchiveForTag(allArticles, tag, w)
 			}
@@ -172,7 +170,6 @@ func makeDynamicServer() *ServerConfig {
 		CleanURLS: true,
 	}
 
-	cachingPolicy = notionapi.PolicyCacheOnly
 	cc := getNotionCachingClient()
 	allArticles = loadArticles(cc)
 	logf(ctx(), "got %d articless\n", len(allArticles.articles))
@@ -189,10 +186,7 @@ func makeDynamicServer() *ServerConfig {
 		allTagURLS = append(allTagURLS, tag, tagURL)
 	}
 	for _, article := range store.articles {
-		uri := article.URL() // TODO: change in the metadata
-		if uri == "/software/" {
-			uri = "/software/index.html"
-		}
+		uri := article.URL()
 		articleURLS = append(articleURLS, uri)
 	}
 	return server
@@ -200,6 +194,7 @@ func makeDynamicServer() *ServerConfig {
 
 func genHTMLServer(dir string) {
 	os.RemoveAll(generatedHTMLDir)
+	regenMd()
 	server := makeDynamicServer()
 	WriteServerFilesToDir(generatedHTMLDir, server.Handlers)
 }

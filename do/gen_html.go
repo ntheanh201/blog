@@ -446,6 +446,7 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
 }
 
+/*
 func generateHTML(store *Articles) {
 	outDir := generatedHTMLDir
 	logf(ctx(), "generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
@@ -488,10 +489,8 @@ func generateHTML(store *Articles) {
 
 	genToolGenerateUniqueID(store, nil)
 
-	// /ping
-	wwwWriteFile("/ping", []byte("pong"))
-
 	// no longer care about /worklog
 
 	writeRedirects()
 }
+*/

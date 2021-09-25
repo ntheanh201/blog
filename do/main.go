@@ -56,16 +56,6 @@ func analytics404HTML() template.HTML {
 	return template.HTML(html)
 }
 
-func rebuildAll(d *notionapi.CachingClient) *Articles {
-	os.RemoveAll(generatedHTMLDir)
-	regenMd()
-	loadTemplates()
-	articles := loadArticles(d)
-	readRedirects(articles)
-	generateHTML(articles)
-	return articles
-}
-
 func runWranglerDev() {
 	err := exec.Command("wrangler", "--version").Run()
 	if err != nil {
@@ -212,8 +202,8 @@ func main() {
 		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
 		panicIf(os.Getenv("CF_ACCOUNT_ID") == "", "CF_ACCOUNT_ID env variable missing")
 		panicIf(os.Getenv("CF_API_TOKEN") == "", "CF_API_TOKEN env variable missing")
-		d := getNotionCachingClient()
-		rebuildAll(d)
+		cachingPolicy = notionapi.PolicyCacheOnly
+		genHTMLServer(generatedHTMLDir)
 		{
 			cmd = exec.Command("git", "status")
 			s := u.RunCmdMust(cmd)
@@ -279,8 +269,7 @@ func main() {
 	if flgDeployDev {
 		panicIf(!hasWranglerConfig(), "no wrangler config!")
 		cachingPolicy = notionapi.PolicyCacheOnly
-		cc := getNotionCachingClient()
-		rebuildAll(cc)
+		genHTMLServer(generatedHTMLDir)
 		cmd := exec.Command("wrangler", "publish")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kjk.workers.dev/")
@@ -290,8 +279,7 @@ func main() {
 	if flgDeployProd {
 		panicIf(!hasWranglerConfig(), "no wrangler config!")
 		cachingPolicy = notionapi.PolicyCacheOnly
-		cc := getNotionCachingClient()
-		rebuildAll(cc)
+		genHTMLServer(generatedHTMLDir)
 		cmd := exec.Command("wrangler", "publish", "-e", "production")
 		u.RunCmdLoggedMust(cmd)
 		u.OpenBrowser("https://blog.kowalczyk.info")
