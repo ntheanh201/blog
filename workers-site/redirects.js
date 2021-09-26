@@ -2,6 +2,7 @@ const redirects = {
   "/index.html": ["/", 302],
   "/blog": ["/", 302],
   "/blog/": ["/", 302],
+  "/cheatsheets/": ["https://www.referenceguide.dev/", 302],
   "/kb/serialization-in-c#.html": ["/article/Serialization-in-C.html", 302],
   "/extremeoptimizations": ["/extremeoptimizations/index.html", 302],
   "/extremeoptimizations/": ["/extremeoptimizations/index.html", 302],
