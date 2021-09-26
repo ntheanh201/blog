@@ -170,9 +170,12 @@ func NewDynamicHandler(matches func(string) func(http.ResponseWriter, *http.Requ
 }
 
 func WriteServerFilesToDir(dir string, handlers []Handler) {
+	nFiles := 0
+	timeStart := time.Now()
 	for _, h := range handlers {
 		urls := h.URLS()
 		for _, uri := range urls {
+			nFiles++
 			path := filepath.Join(dir, uri)
 			must(createDirForFile(path))
 			f, err := os.Create(path)
@@ -185,10 +188,13 @@ func WriteServerFilesToDir(dir string, handlers []Handler) {
 			serve(fw, nil)
 			err = f.Close()
 			must(err)
-			sizeStr := formatSize(getFileSize(path))
-			logf(ctx(), "WriteServerFilesToDir: '%s' of size %s\n", path, sizeStr)
+			if false {
+				sizeStr := formatSize(getFileSize(path))
+				logf(ctx(), "WriteServerFilesToDir: '%s' of size %s\n", path, sizeStr)
+			}
 		}
 	}
+	logf(ctx(), "WriteServerFilesToDir: wrote %d files in %s\n", nFiles, time.Since(timeStart))
 }
 
 func zipWriteContent(zw *zip.Writer, files map[string][]byte) error {

@@ -51,6 +51,11 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	if serve := tryServeFile(uri, "www"); serve != nil {
 		return serve
 	}
+	writeData := func(w http.ResponseWriter, d []byte, err error) {
+		must(err)
+		_, err = w.Write(d)
+		must(err)
+	}
 	switch uri {
 	case "/index.html":
 		return func(w http.ResponseWriter, r *http.Request) {
@@ -79,29 +84,29 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 	case "/sitemap.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
-			d, err := genSiteMap(store, "https://blog.kowalczyk.info")
-			must(err)
 			serveStart(w, r, uri)
-			_, err = w.Write(d)
-			must(err)
+			d, err := genSiteMap(store, "https://blog.kowalczyk.info")
+			writeData(w, d, err)
 		}
 	case "/atom.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
-			d, err := genAtomXML(store, true)
-			must(err)
 			serveStart(w, r, uri)
-			_, err = w.Write(d)
-			must(err)
+			d, err := genAtomXML(store, true)
+			writeData(w, d, err)
 		}
 	case "/atom-all.xml":
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
-			d, err := genAtomXML(store, false)
-			must(err)
 			serveStart(w, r, uri)
-			_, err = w.Write(d)
-			must(err)
+			d, err := genAtomXML(store, false)
+			writeData(w, d, err)
+		}
+	case "/tools/generate-unique-id.html":
+		return func(w http.ResponseWriter, r *http.Request) {
+			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
+			serveStart(w, r, uri)
+			genToolGenerateUniqueID(store, w)
 		}
 	case "/404.html":
 		return func(w http.ResponseWriter, r *http.Request) {
@@ -151,6 +156,7 @@ func serverURLS() []string {
 		"/atom-all.xml",
 		"/404.html",
 		"/software/index.html",
+		"/tools/generate-unique-id.html",
 	}
 	files = append(files, articleURLS...)
 	return files
