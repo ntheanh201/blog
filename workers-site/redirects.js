@@ -13,6 +13,7 @@ const redirects = {
   "/feed": ["/atom.xml", 302],
   "/feeds": ["/atom.xml", 302],
   "/rss": ["/atom.xml", 302],
+  "/tools/generate-unique-id": ["/tools/generate-unique-id.html", 200],
   "/feedburner.xml": ["/atom.xml", 302],
   "/articles/cocoa-objectivec-reference.html": ["/articles/cocoa-reference.html", 302],
   "/forum_sumatra": ["https://forum.sumatrapdfreader.org/", 302],
