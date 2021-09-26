@@ -40,17 +40,21 @@ function getRedirectInfo(path) {
   if (a) {
     return a;
   }
-  // /article/:id/* => /article/:id.html
 
-  if (!path.startsWith("/article/")) {
+  // /article/:id/${title} => /article/:id/${title}.html
+  if (path.endsWith(".html") || !path.startsWith("/article/")) {
     return null;
   }
+
+  // "/article/abbbcb44f6fd4ba5bdb04b3970180958/tesla-facts"
+  // =>
+  // ['', 'article', 'abbbcb44f6fd4ba5bdb04b3970180958', 'tesla-facts']
   const parts = path.split("/");
   if (parts.length !== 4) {
     return null;
   }
-  const id = parts[2];
-  const newURL =  "/article/" + id + ".html";
+  const newURL =  path + ".html";
+  console.log("getRedirectInfo: ", path, "=>", newURL);
   return [newURL, 200];
 }
 
