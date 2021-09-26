@@ -54,7 +54,7 @@ func (a *Articles) getBlogNotHidden() []*Article {
 	return a.blogNotHidden
 }
 
-func buildArticleNavigation(article *Article, isRootPage func(string) bool, idToBlock map[string]*notionapi.Block) {
+func buildArticleNavigation(article *Article, isRootPage func(string) bool, idToBlock map[string]*notionapi.Block, idToArticle map[string]*Article) {
 	// some already have path (e.g. those that belong to a collection)
 	if len(article.Paths) > 0 {
 		return
@@ -75,7 +75,9 @@ func buildArticleNavigation(article *Article, isRootPage func(string) bool, idTo
 			continue
 		}
 		title := block.Title
-		uri := "/article/" + normalizeID(block.ID) + "/" + urlify(title)
+		id := normalizeID(block.ID)
+		articleForBlock := idToArticle[id]
+		uri := articleForBlock.URL()
 		path := URLPath{
 			Name: title,
 			URL:  uri,
@@ -126,7 +128,7 @@ func buildArticlesNavigation(articles *Articles) {
 	}
 
 	for _, article := range articles.articles {
-		buildArticleNavigation(article, isRoot, idToBlock)
+		buildArticleNavigation(article, isRoot, idToBlock, articles.idToArticle)
 	}
 }
 

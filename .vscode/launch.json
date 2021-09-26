@@ -5,21 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "gen cheatsheets",
-      "type": "go",
-      "request": "launch",
-      "mode": "auto",
-      "program": "${fileDirname}",
-      "args": ["-cheatsheet"]
-    },
-    {
       "name": "Preview",
       "type": "go",
       "request": "launch",
       "mode": "auto",
       "program": "${fileDirname}",
       "env": {},
-      "args": ["-preview"]
+      "args": ["-preview-server"]
     },
     {
       "name": "Import notion",

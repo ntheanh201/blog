@@ -167,6 +167,7 @@ func makeDynamicServer() *ServerConfig {
 
 	server := &ServerConfig{
 		Handlers:  []Handler{serveWWW, serveNotionImages, serveAll},
+		Port:      9001,
 		CleanURLS: true,
 	}
 
