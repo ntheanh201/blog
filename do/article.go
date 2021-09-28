@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/u"
 )
 
 // for Article.Status
@@ -259,7 +258,7 @@ func (a *Article) SetID(v string) {
 	a.ID = strings.TrimSpace(v)
 	id, err := strconv.Atoi(a.ID)
 	if err == nil {
-		a.ID = u.EncodeBase64(id)
+		a.ID = encodeBase64(id)
 	}
 }
 
@@ -290,7 +289,7 @@ func (a *Article) setHeaderImageMust(val string) {
 		val = "/" + val
 	}
 	path := filepath.Join("www", val)
-	panicIf(!u.FileExists(path), "File '%s' for @header-image doesn't exist", path)
+	panicIf(!fileExists(path), "File '%s' for @header-image doesn't exist", path)
 	//uri := getHostURL() + val
 	// logf(ctx(), "Found HeaderImageURL: %s\n", uri)
 	uri := val

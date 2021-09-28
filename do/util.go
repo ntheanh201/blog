@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"io"
 	"io/fs"
 	"io/ioutil"
 	"log"
@@ -301,9 +302,19 @@ func createDirForFile(path string) error {
 	return os.MkdirAll(filepath.Dir(path), 0755)
 }
 
+func pathExists(path string) bool {
+	_, err := os.Lstat(path)
+	return err == nil
+}
+
 func fileExists(path string) bool {
 	st, err := os.Lstat(path)
 	return err == nil && st.Mode().IsRegular()
+}
+
+func dirExists(path string) bool {
+	st, err := os.Lstat(path)
+	return err == nil && st.IsDir()
 }
 
 func getFileSize(path string) int64 {
@@ -342,4 +353,135 @@ func mimeTypeFromFileName(path string) string {
 	}
 	// if not given, default to this
 	return "application/octet-stream"
+}
+
+func normalizeNewlinesInPlace(d []byte) []byte {
+	wi := 0
+	n := len(d)
+	for i := 0; i < n; i++ {
+		c := d[i]
+		// 13 is CR
+		if c != 13 {
+			d[wi] = c
+			wi++
+			continue
+		}
+		// replace CR (mac / win) with LF (unix)
+		d[wi] = 10
+		wi++
+		if i < n-1 && d[i+1] == 10 {
+			// this was CRLF, so skip the LF
+			i++
+		}
+
+	}
+	return d[:wi]
+}
+
+func copyFile(dst string, src string) error {
+	err := os.MkdirAll(filepath.Dir(dst), 0755)
+	if err != nil {
+		return err
+	}
+	fin, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer fin.Close()
+	fout, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+
+	_, err = io.Copy(fout, fin)
+	err2 := fout.Close()
+	if err != nil || err2 != nil {
+		os.Remove(dst)
+	}
+
+	return err
+}
+
+const base64Chars = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+// encodeBase64 encodes n as base64
+func encodeBase64(n int) string {
+	var buf [16]byte
+	size := 0
+	for {
+		buf[size] = base64Chars[n%36]
+		size++
+		if n < 36 {
+			break
+		}
+		n /= 36
+	}
+	end := size - 1
+	for i := 0; i < end; i++ {
+		b := buf[i]
+		buf[i] = buf[end]
+		buf[end] = b
+		end--
+	}
+	return string(buf[:size])
+}
+
+func currDirAbsMust() string {
+	dir, err := filepath.Abs(".")
+	must(err)
+	return dir
+}
+
+// we are executed for do/ directory so top dir is parent dir
+func cdUpDir(dirName string) {
+	startDir := currDirAbsMust()
+	dir := startDir
+	for {
+		// we're already in top directory
+		if filepath.Base(dir) == dirName && dirExists(dir) {
+			err := os.Chdir(dir)
+			must(err)
+			return
+		}
+		parentDir := filepath.Dir(dir)
+		panicIf(dir == parentDir, "invalid startDir: '%s', dir: '%s'", startDir, dir)
+		dir = parentDir
+	}
+}
+
+func fmtCmdShort(cmd exec.Cmd) string {
+	cmd.Path = filepath.Base(cmd.Path)
+	return cmd.String()
+}
+
+// RunCmdLoggedMust runs a command and returns its stdout
+// Shows output as it happens
+func runCmdLoggedMust(cmd *exec.Cmd) string {
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return runCmdMust(cmd)
+}
+
+func runCmdMust(cmd *exec.Cmd) string {
+	logf(ctx(), "> %s\n", fmtCmdShort(*cmd))
+	canCapture := (cmd.Stdout == nil) && (cmd.Stderr == nil)
+	if canCapture {
+		out, err := cmd.CombinedOutput()
+		if err == nil {
+			if len(out) > 0 {
+				logf(ctx(), "Output:\n%s\n", string(out))
+			}
+			return string(out)
+		}
+		logf(ctx(), "cmd '%s' failed with '%s'. Output:\n%s\n", cmd, err, string(out))
+		must(err)
+		return string(out)
+	}
+	err := cmd.Run()
+	if err == nil {
+		return ""
+	}
+	logf(ctx(), "cmd '%s' failed with '%s'\n", cmd, err)
+	must(err)
+	return ""
 }

@@ -12,8 +12,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kjk/u"
-
 	"github.com/chilts/sid"
 	"github.com/kjk/betterguid"
 	"github.com/oklog/ulid"
@@ -102,7 +100,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 func wwwPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
 	path := filepath.Join(generatedHTMLDir, fileName)
-	u.CreateDirForFileMust(path)
+	must(createDirForFile(path))
 	return path
 }
 
@@ -223,12 +221,6 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 	return execTemplate(path, "archive.tmpl.html", model, w)
 }
 
-func copyImages() {
-	srcDir := filepath.Join("notion_cache", "files")
-	dstDir := filepath.Join(generatedHTMLDir, "img")
-	u.DirCopyRecurMust(dstDir, srcDir, nil)
-}
-
 func genIndex(store *Articles, w io.Writer) error {
 	// /
 	articles := store.getBlogNotHidden()
@@ -298,54 +290,6 @@ func gen404(store *Articles, w io.Writer) error {
 		AnalyticsHTML: analytics404HTML(),
 	}
 	return execTemplate("/404.html", "404.tmpl.html", model, w)
-}
-
-func genPerTagArchives(store *Articles) {
-	// tag/<tagname>
-	tags := map[string]struct{}{}
-	for _, article := range store.getBlogNotHidden() {
-		for _, tag := range article.Tags {
-			tags[tag] = struct{}{}
-		}
-	}
-	for tag := range tags {
-		writeArticlesArchiveForTag(store, tag, nil)
-	}
-}
-
-func genArchives(store *Articles, w io.Writer) error {
-	// /archives.html
-	return writeArticlesArchiveForTag(store, "", w)
-}
-
-func writeFileOrWriter(path string, data []byte, w io.Writer) error {
-	if w != nil {
-		_, err := w.Write(data)
-		return err
-	}
-	wwwWriteFile(path, data)
-	return nil
-}
-
-func genSitemap(store *Articles, w io.Writer) error {
-	// /sitemap.xml
-	data, err := genSiteMap(store, "https://blog.kowalczyk.info")
-	must(err)
-	return writeFileOrWriter("/sitemap.xml", data, w)
-}
-
-func genAtom(store *Articles, w io.Writer) error {
-	// /atom.xml
-	d, err := genAtomXML(store, true)
-	must(err)
-	return writeFileOrWriter("/atom.xml", d, w)
-}
-
-func genAtomAll(store *Articles, w io.Writer) error {
-	// /atom-all.xml
-	d, err := genAtomXML(store, false)
-	must(err)
-	return writeFileOrWriter("/atom-all.xml", d, w)
 }
 
 func genArticle(article *Article, w io.Writer) error {
@@ -445,52 +389,3 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	addRewrite("/tools/generate-unique-id", path)
 	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
 }
-
-/*
-func generateHTML(store *Articles) {
-	outDir := generatedHTMLDir
-	logf(ctx(), "generateHTML: %d articles in directory %s\n", len(store.articles), outDir)
-	recreateDir(outDir)
-
-	skipTmplFiles := func(path string) bool {
-		return !strings.Contains(path, ".tmpl.")
-	}
-
-	copied := u.DirCopyRecurMust(outDir, "www", skipTmplFiles)
-	logf(ctx(), "Copied %d files\n", len(copied))
-
-	addAllRedirects(store)
-
-	copyImages()
-
-	genIndex(store, nil)
-
-	genGoCookbook(store, nil)
-	// genWindowsProgramming(store, nil)
-
-	genChangelog(store, nil)
-
-	genAtom(store, nil)
-	genAtomAll(store, nil)
-
-	{
-		// /blog/ and /kb/ are only for redirects, we only handle /article/ at this point
-		logvf("%d articles\n", len(store.idToPage))
-		for _, article := range store.articles {
-			genArticle(article, nil)
-		}
-	}
-
-	genArchives(store, nil)
-	genPerTagArchives(store)
-
-	genSitemap(store, nil)
-	gen404(nil, nil)
-
-	genToolGenerateUniqueID(store, nil)
-
-	// no longer care about /worklog
-
-	writeRedirects()
-}
-*/

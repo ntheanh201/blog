@@ -7,13 +7,12 @@ import (
 	"path/filepath"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/u"
 )
 
 func copyCSS() {
 	src := filepath.Join("www", "css", "main.css")
 	dst := filepath.Join(generatedHTMLDir, "main.css")
-	u.CopyFileMust(dst, src)
+	must(copyFile(dst, src))
 }
 
 func createDestDir() {

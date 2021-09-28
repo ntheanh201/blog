@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	_ "net/url"
 	"os"
@@ -14,7 +15,6 @@ import (
 	"time"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/u"
 )
 
 var (
@@ -81,9 +81,9 @@ func hasWranglerConfig() bool {
 	if apiKey == "" {
 		return false
 	}
-	u.CreateDirForFileMust(wranglerConfigPath)
+	must(createDirForFile(wranglerConfigPath))
 	toml := fmt.Sprintf(`api_token = "%s"`+"\n", apiKey)
-	u.WriteFileMust(wranglerConfigPath, []byte(toml))
+	must(ioutil.WriteFile(wranglerConfigPath, []byte(toml), 0644))
 	return true
 }
 
@@ -91,27 +91,20 @@ var (
 	cachingPolicy = notionapi.PolicyDownloadNewer
 )
 
-func recreateDir(dir string) {
-	err := os.RemoveAll(dir)
-	must(err)
-	err = os.MkdirAll(dir, 0755)
-	must(err)
-}
-
 func main() {
 	var (
-		flgPreviewWrangler bool
-		flgPreviewServer   bool
-		flgDeployDev       bool
-		flgDeployProd      bool
-		flgWc              bool
-		flgImportNotion    bool
-		flgRebuildHTML     bool
-		flgDiff            bool
-		flgCiDaily         bool
-		flgCiBuild         bool
-		flgImportNotionOne string
-		flgProfile         string
+		flgPreviewWrangler  bool
+		flgPreviewServer    bool
+		flgPreviewInstaPrev bool
+		flgDeployDev        bool
+		flgDeployProd       bool
+		flgImportNotion     bool
+		flgRebuildHTML      bool
+		flgDiff             bool
+		flgCiDaily          bool
+		flgCiBuild          bool
+		flgImportNotionOne  string
+		flgProfile          string
 	)
 
 	{
@@ -122,6 +115,7 @@ func main() {
 		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
 		flag.BoolVar(&flgPreviewServer, "preview-server", false, "preview with web server running locally")
 		flag.BoolVar(&flgPreviewWrangler, "preview-wrangler", false, "preview with wrangler")
+		flag.BoolVar(&flgPreviewInstaPrev, "preview-insta", false, "preview with instant preview")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.BoolVar(&flgRebuildHTML, "rebuild", false, "rebuild html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
@@ -136,7 +130,7 @@ func main() {
 		logf(ctx(), "finished in %s\n", time.Since(timeStart))
 	}()
 
-	u.CdUpDir("blog")
+	cdUpDir("blog")
 
 	if false {
 		dirToLF(".")
@@ -165,11 +159,6 @@ func main() {
 		return
 	}
 
-	if flgWc {
-		doLineCount()
-		return
-	}
-
 	if flgDiff {
 		winmergeDiffPreview()
 		return
@@ -191,7 +180,7 @@ func main() {
 		{
 			// not sure if needed
 			cmd = exec.Command("git", "checkout", "master")
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 		}
 
 		// once a day re-download everything from Notion from scratch
@@ -206,7 +195,7 @@ func main() {
 		genHTMLServer(generatedHTMLDir)
 		{
 			cmd = exec.Command("git", "status")
-			s := u.RunCmdMust(cmd)
+			s := runCmdMust(cmd)
 			if strings.Contains(s, "nothing to commit, working tree clean") {
 				// nothing changed so nothing else to do
 				logf(ctx(), "Nothing changed, skipping deploy")
@@ -216,37 +205,37 @@ func main() {
 		{
 			// not sure if this is needed on GitHub CI
 			cmd = exec.Command("git", "config", "--global", "user.email", "kkowalczyk@gmail.com")
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 			cmd = exec.Command("git", "config", "--global", "user.name", "Krzysztof Kowalczyk")
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 			/*
 				cmd = exec.Command("git", "config", "--global", "github.user", "kjk")
-				u.RunCmdLoggedMust(cmd)
+				runCmdLoggedMust(cmd)
 				cmd = exec.Command("git", "config", "--global", "github.token", ghToken)
-				u.RunCmdLoggedMust(cmd)
+				runCmdLoggedMust(cmd)
 			*/
 
 			cmd = exec.Command("git", "add", "notion_cache")
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 			nowStr := time.Now().Format("2006-01-02")
 			commitMsg := "ci: update from notion on " + nowStr
 			cmd = exec.Command("git", "commit", "-am", commitMsg)
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 
 			if false {
 				// TODO: do I need to be so specific or can I just do "git push"?
 				s := strings.Replace("https://${GITHUB_TOKEN}@github.com/kjk/blog.git", "${GITHUB_TOKEN}", ghToken, -1)
 				cmd = exec.Command("git", "push", s, "master")
-				u.RunCmdLoggedMust(cmd)
+				runCmdLoggedMust(cmd)
 			} else {
 				cmd = exec.Command("git", "push")
-				u.RunCmdLoggedMust(cmd)
+				runCmdLoggedMust(cmd)
 			}
 		}
 
 		{
 			cmd = exec.Command("wrangler", "publish")
-			u.RunCmdLoggedMust(cmd)
+			runCmdLoggedMust(cmd)
 		}
 		return
 	}
@@ -271,8 +260,8 @@ func main() {
 		cachingPolicy = notionapi.PolicyCacheOnly
 		genHTMLServer(generatedHTMLDir)
 		cmd := exec.Command("wrangler", "publish")
-		u.RunCmdLoggedMust(cmd)
-		u.OpenBrowser("https://blog.kjk.workers.dev/")
+		runCmdLoggedMust(cmd)
+		openBrowser("https://blog.kjk.workers.dev/")
 		return
 	}
 
@@ -281,8 +270,8 @@ func main() {
 		cachingPolicy = notionapi.PolicyCacheOnly
 		genHTMLServer(generatedHTMLDir)
 		cmd := exec.Command("wrangler", "publish", "-e", "production")
-		u.RunCmdLoggedMust(cmd)
-		u.OpenBrowser("https://blog.kowalczyk.info")
+		runCmdLoggedMust(cmd)
+		openBrowser("https://blog.kowalczyk.info")
 		return
 	}
 
@@ -298,6 +287,14 @@ func main() {
 		return
 	}
 
+	if flgPreviewInstaPrev {
+		server := makeDynamicServer()
+		uri := uploadServerToInstantPreviewMust(server.Handlers)
+		logf(ctx(), "uploaded to '%s'\n", uri)
+		openBrowser(uri)
+		return
+	}
+
 	if flgPreviewWrangler {
 		genHTMLServer(generatedHTMLDir)
 		if isWindows() || hasWranglerConfig() {
@@ -307,6 +304,7 @@ func main() {
 		runServer()
 		return
 	}
+
 	flag.Usage()
 }
 

@@ -7,8 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/kjk/u"
 )
 
 var (
@@ -44,7 +42,7 @@ func getFilesRecur(dir string, shouldInclude func(s string) bool) ([]string, err
 
 func parseMd(d []byte) ([]byte, map[string]string) {
 	meta := make(map[string]string)
-	d = u.NormalizeNewlines(d)
+	d = normalizeNewlines(d)
 	lines := bytes.Split(d, []byte{10})
 	for len(lines) > 0 {
 		l := lines[0]

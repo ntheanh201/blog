@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-
-	"github.com/kjk/u"
 )
 
 var articleRedirectsTxt = `3|article/Diet.html
@@ -600,7 +598,7 @@ func readRedirects(store *Articles) {
 		url := strings.TrimSpace(parts[1])
 		idNum, err := strconv.Atoi(idStr)
 		panicIf(err != nil, "malformed line in article_redirects.txt. Line:\n%s\nError: %s\n", l, err)
-		id := u.EncodeBase64(idNum)
+		id := encodeBase64(idNum)
 		a := store.idToArticle[id]
 		if a != nil {
 			articleRedirects[url] = id
