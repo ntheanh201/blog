@@ -107,19 +107,17 @@
       If you want to send a quick message, anonymously:
     </p>
 
-    <form name="contactme" netlify>
+    <form action="https://formsubmit.co/kkowalczyk@gmail.com" method="POST">
       <textarea name="message" id="msg-for-chris"></textarea>
       <div class="optemail" style="font-size: 85%; color: gray; margin-left: 2px; margin-bottom: 4px;">
         Optional: your email if you want me to get back to you:
       </div>
       <input type="email" name="email" style="width: 100%" />
+      <input type="text" name="_honey" style="display:none">
       <p>
         <button type="submit" class="btn">
           Send message to Chris
         </button>
-      </p>
-      <p>
-        <div data-netlify-recaptcha></div>
       </p>
     </form>
 
