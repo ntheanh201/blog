@@ -14,7 +14,7 @@ func uploadFilesToInstantPreviewMust(files map[string][]byte) string {
 
 func uploadZipToInstantPreviewMust(zipData []byte) string {
 	timeStart := time.Now()
-	uri := "https://instantpreview.dev/upload"
+	uri := "https://www.instantpreview.dev/upload"
 	res, err := httpPost(uri, zipData)
 	must(err)
 	uri = string(res)
