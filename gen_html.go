@@ -204,18 +204,16 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 	}
 
 	model := struct {
-		AnalyticsHTML template.HTML
-		Article       *Article
-		PostsCount    int
-		Tag           string
-		Years         []Year
-		Tags          []*TagInfo
+		Article    *Article
+		PostsCount int
+		Tag        string
+		Years      []Year
+		Tags       []*TagInfo
 	}{
-		AnalyticsHTML: analyticsHTML(),
-		PostsCount:    len(articles),
-		Years:         buildYearsFromArticles(articles),
-		Tag:           tag,
-		Tags:          buildTags(articles),
+		PostsCount: len(articles),
+		Years:      buildYearsFromArticles(articles),
+		Tag:        tag,
+		Tags:       buildTags(articles),
 	}
 
 	return execTemplate(path, "archive.tmpl.html", model, w)
@@ -230,17 +228,15 @@ func genIndex(store *Articles, w io.Writer) error {
 	articleCount := len(articles)
 	websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
-		AnalyticsHTML template.HTML
-		Article       *Article
-		Articles      []*Article
-		ArticleCount  int
-		WebsiteHTML   template.HTML
+		Article      *Article
+		Articles     []*Article
+		ArticleCount int
+		WebsiteHTML  template.HTML
 	}{
-		AnalyticsHTML: analyticsHTML(),
-		Article:       nil, // always nil
-		ArticleCount:  articleCount,
-		Articles:      articles,
-		WebsiteHTML:   websiteIndexPage.HTMLBody,
+		Article:      nil, // always nil
+		ArticleCount: articleCount,
+		Articles:     articles,
+		WebsiteHTML:  websiteIndexPage.HTMLBody,
 	}
 	return execTemplate("/index.html", "mainpage.tmpl.html", model, w)
 }
@@ -271,13 +267,11 @@ func genChangelog(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		AnalyticsHTML template.HTML
-		Article       *Article
-		Articles      []*Article
+		Article  *Article
+		Articles []*Article
 	}{
-		AnalyticsHTML: analyticsHTML(),
-		Article:       nil, // always nil
-		Articles:      articles,
+		Article:  nil, // always nil
+		Articles: articles,
 	}
 	return execTemplate("/changelog.html", "changelog.tmpl.html", model, w)
 }
@@ -285,17 +279,13 @@ func genChangelog(store *Articles, w io.Writer) error {
 func gen404(store *Articles, w io.Writer) error {
 	// store is not used
 	model := struct {
-		AnalyticsHTML template.HTML
-	}{
-		AnalyticsHTML: analytics404HTML(),
-	}
+	}{}
 	return execTemplate("/404.html", "404.tmpl.html", model, w)
 }
 
 func genArticle(article *Article, w io.Writer) error {
 	canonicalURL := getHostURL() + article.URL()
 	model := struct {
-		AnalyticsHTML    template.HTML
 		Article          *Article
 		CanonicalURL     string
 		CoverImage       string
@@ -308,7 +298,6 @@ func genArticle(article *Article, w io.Writer) error {
 		FacebookShareURL string
 		LinkedInShareURL string
 	}{
-		AnalyticsHTML:    analyticsHTML(),
 		Article:          article,
 		CanonicalURL:     canonicalURL,
 		CoverImage:       article.HeaderImageURL,
@@ -330,10 +319,7 @@ func genArticle(article *Article, w io.Writer) error {
 func genGoCookbook(store *Articles, w io.Writer) error {
 	// url: /book/go-cookbook.html
 	model := struct {
-		AnalyticsHTML template.HTML
-	}{
-		AnalyticsHTML: analyticsHTML(),
-	}
+	}{}
 	return execTemplate("/book/go-cookbook.html", "go-cookbook.tmpl.html", model, w)
 }
 
@@ -365,23 +351,21 @@ func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
 	}
 
 	model := struct {
-		AnalyticsHTML template.HTML
-		Xid           string
-		Ksuid         string
-		Ulid          string
-		BetterGUID    string
-		Sonyflake     string
-		Sid           string
-		UUIDv4        string
+		Xid        string
+		Ksuid      string
+		Ulid       string
+		BetterGUID string
+		Sonyflake  string
+		Sid        string
+		UUIDv4     string
 	}{
-		AnalyticsHTML: analyticsHTML(),
-		Xid:           idXid.String(),
-		Ksuid:         idKsuid.String(),
-		Ulid:          idUlid.String(),
-		BetterGUID:    betterGUID,
-		Sonyflake:     sfidstr,
-		Sid:           sid.Id(),
-		UUIDv4:        uuid.String(),
+		Xid:        idXid.String(),
+		Ksuid:      idKsuid.String(),
+		Ulid:       idUlid.String(),
+		BetterGUID: betterGUID,
+		Sonyflake:  sfidstr,
+		Sid:        sid.Id(),
+		UUIDv4:     uuid.String(),
 	}
 
 	// make sure /tools/generate-unique-id is served as html

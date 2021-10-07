@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"html/template"
 	"io/ioutil"
 	"log"
 	_ "net/url"
@@ -20,9 +19,6 @@ import (
 var (
 	generatedHTMLDir = "www_generated" // directory where we generate html files
 
-	analyticsURL    = `` // empty to disable
-	analytics404URL = `` // empty to disable
-
 	flgVerbose bool
 	flgNoCache bool
 )
@@ -38,22 +34,6 @@ type RequestCacheEntry struct {
 type Cache struct {
 	Path    string
 	Entries []*RequestCacheEntry
-}
-
-func analyticsHTML() template.HTML {
-	if analyticsURL == "" {
-		return template.HTML("")
-	}
-	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analyticsURL + `"></script>`
-	return template.HTML(html)
-}
-
-func analytics404HTML() template.HTML {
-	if analytics404URL == "" {
-		return template.HTML("")
-	}
-	html := `<script defer data-domain="blog.kowalczyk.info" src="` + analytics404URL + `"></script>`
-	return template.HTML(html)
 }
 
 func runWranglerDev() {
