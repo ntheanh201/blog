@@ -165,6 +165,11 @@ func serverURLS() []string {
 		"/tools/generate-unique-id.html",
 	}
 	files = append(files, articleURLS...)
+	n := len(allTagURLS)
+	for i := 0; i < n; i += 2 {
+		tagURL := allTagURLS[i+1]
+		files = append(files, tagURL)
+	}
 	return files
 }
 
