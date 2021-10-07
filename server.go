@@ -208,8 +208,19 @@ func makeDynamicServer() *server.Server {
 func genHTMLServer(dir string) {
 	os.RemoveAll(dirWwwGenerated)
 	regenMd()
-	server := makeDynamicServer()
-	WriteServerFilesToDir(dirWwwGenerated, server.Handlers)
+	srv := makeDynamicServer()
+	nFiles := 0
+	totalSize := int64(0)
+	onWritten := func(path string, d []byte) {
+		fsize := int64(len(d))
+		totalSize += fsize
+		sizeStr := formatSize(fsize)
+		if nFiles%256 == 0 {
+			logf(ctx(), "generateStatic: file %d '%s' of size %s\n", nFiles+1, path, sizeStr)
+		}
+		nFiles++
+	}
+	server.WriteServerFilesToDir(dirWwwGenerated, srv.Handlers, onWritten)
 }
 
 func runServer() {
