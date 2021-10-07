@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"strings"
@@ -645,6 +646,7 @@ func addStaticRedirects() {
 }
 
 func addArticleRedirects(store *Articles) {
+	readRedirects(store)
 	for from, articleID := range articleRedirects {
 		from = "/" + from
 		article := store.idToArticle[articleID]
@@ -666,4 +668,27 @@ func writeRedirects() {
 		buf.WriteString(s)
 	}
 	wwwWriteFile("_redirects", buf.Bytes())
+}
+
+type redirectInfo struct {
+	URL  string
+	Code int
+}
+
+func readRedirectsJSON() map[string]redirectInfo {
+	res := map[string]redirectInfo{}
+	d := readFileMust("redirects.json")
+	var js map[string]interface{}
+	must(json.Unmarshal(d, &js))
+	for k, v := range js {
+		a := v.([]interface{})
+		uri := a[0].(string)
+		code := (int)(a[1].(float64))
+		ri := redirectInfo{
+			URL:  uri,
+			Code: code,
+		}
+		res[k] = ri
+	}
+	return res
 }

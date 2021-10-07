@@ -270,6 +270,8 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		httpAddr = "localhost" + httpAddr
 	}
 
+	redirects := readRedirectsJSON()
+
 	mainHandler := func(w http.ResponseWriter, r *http.Request) {
 		//logf(ctx(), "mainHandler: '%s'\n", r.RequestURI)
 		timeStart := time.Now()
@@ -311,10 +313,12 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			return
 		}
 
-		serve, _ := srv.FindHandler(uri)
-		if serve == nil {
-			http.NotFound(&cw, r)
-			return
+		serve, is404 := srv.FindHandler(uri)
+		if serve != nil && is404 {
+			if ri, ok := redirects[uri]; ok {
+				http.Redirect(&cw, r, ri.URL, ri.Code)
+				return
+			}
 		}
 		if serve != nil {
 			serve(&cw, r)
