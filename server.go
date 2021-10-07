@@ -281,7 +281,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				http.Error(w, fmt.Sprintf("Error: %v", r), http.StatusInternalServerError)
 				logHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
 			} else {
-				logHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
+				logHTTPReq(r, cw.StatusCode, 0, time.Since(timeStart))
 			}
 		}()
 		uri := r.URL.Path
