@@ -2,7 +2,7 @@ function byId(id) {
   return document.getElementById(id);
 }
 
-var serverBase = "https://onlinetools-mna9v.ondigitalocean.app";
+var serverBase = location.origin;
 
 var monacoURLBase =
   "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.25.2/min/vs";

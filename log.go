@@ -5,6 +5,10 @@ import (
 	"fmt"
 )
 
+var (
+	logVerbose = false
+)
+
 func logf(ctx context.Context, s string, args ...interface{}) {
 	if len(args) > 0 {
 		s = fmt.Sprintf(s, args...)
@@ -21,6 +25,10 @@ func logerrf(ctx context.Context, format string, args ...interface{}) {
 }
 
 func logvf(s string, args ...interface{}) {
+	if !logVerbose {
+		return
+	}
+
 	if len(args) > 0 {
 		s = fmt.Sprintf(s, args...)
 	}
