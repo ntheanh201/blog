@@ -3,50 +3,28 @@ package main
 import (
 	"context"
 	"fmt"
-	"os"
 )
 
-var (
-	logFile *os.File
-)
-
-func openLog() {
-	var err error
-	logFile, err = os.Create("log.txt")
-	must(err)
-}
-
-func closeLog() {
-	if logFile == nil {
-		return
-	}
-	logFile.Close()
-	logFile = nil
-}
-
-/*
-// TODO: should take additional format and args for optional message
-func logError(err error) {
-	if err != nil {
-		return
-	}
-	logf(ctx(), "%s", err.Error())
-}
-*/
-
-func logf(ctx context.Context, format string, args ...interface{}) {
-	s := fmt.Sprintf(format, args...)
-	if logFile != nil {
-		fmt.Fprint(logFile, s)
+func logf(ctx context.Context, s string, args ...interface{}) {
+	if len(args) > 0 {
+		s = fmt.Sprintf(s, args...)
 	}
 	fmt.Print(s)
 }
 
-func logvf(format string, args ...interface{}) {
-	s := fmt.Sprintf(format, args...)
-	if logFile != nil {
-		fmt.Fprint(logFile, s)
+func logerrf(ctx context.Context, format string, args ...interface{}) {
+	s := format
+	if len(args) > 0 {
+		s = fmt.Sprintf(format, args...)
 	}
+	fmt.Printf("Error: %s", s)
+}
+
+func logvf(s string, args ...interface{}) {
+	if len(args) > 0 {
+		s = fmt.Sprintf(s, args...)
+	}
+	fmt.Print(s)
 }
 
 var (

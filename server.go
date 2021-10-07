@@ -1,10 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
+	"os/signal"
 	"path/filepath"
 	"strings"
+	"syscall"
+	"time"
+
+	"github.com/kjk/cheatsheets/pkg/server"
 )
 
 var (
@@ -18,7 +24,7 @@ func tryServeFile(uri string, dir string) func(w http.ResponseWriter, r *http.Re
 	path := filepath.Join(dir, name)
 	send := func(w http.ResponseWriter, r *http.Request) {
 		logf(ctx(), "tryServeFile: serving '%s' with '%s'\n", uri, path)
-		serveFile(w, r, path)
+		serveFileMust(w, r, path)
 	}
 	if fileExists(path) {
 		//logf(ctx(), "tryServeFile: will serve '%s' with '%s'\n", uri, path)
@@ -162,18 +168,18 @@ func serverURLS() []string {
 	return files
 }
 
-func makeDynamicServer() *ServerConfig {
+func makeDynamicServer() *server.Server {
 	loadTemplates()
 
-	serveAll := NewDynamicHandler(serverGet, serverURLS)
+	serveAll := server.NewDynamicHandler(serverGet, serverURLS)
 
 	// TODO: filter out templates etc.
-	serveWWW := NewDirHandler("www", "/", nil)
-	serveNotionImages := NewDirHandler(filepath.Join("notion_cache", "files"), "/img", nil)
+	serveWWW := server.NewDirHandler("www", "/", nil)
+	serveNotionImages := server.NewDirHandler(filepath.Join("notion_cache", "files"), "/img", nil)
 
-	server := &ServerConfig{
-		Handlers:  []Handler{serveWWW, serveNotionImages, serveAll},
-		Port:      9001,
+	server := &server.Server{
+		Handlers:  []server.Handler{serveWWW, serveNotionImages, serveAll},
+		Port:      httpPort,
 		CleanURLS: true,
 	}
 
@@ -200,10 +206,10 @@ func makeDynamicServer() *ServerConfig {
 }
 
 func genHTMLServer(dir string) {
-	os.RemoveAll(generatedHTMLDir)
+	os.RemoveAll(dirWwwGenerated)
 	regenMd()
 	server := makeDynamicServer()
-	WriteServerFilesToDir(generatedHTMLDir, server.Handlers)
+	WriteServerFilesToDir(dirWwwGenerated, server.Handlers)
 }
 
 func runServer() {
@@ -212,4 +218,122 @@ func runServer() {
 	server := makeDynamicServer()
 	waitSignal := StartServer(server)
 	waitSignal()
+}
+
+func runServerProd() {
+	panicIf(!dirExists(dirWwwGenerated))
+	h := server.NewDirHandler(dirWwwGenerated, "/", nil)
+	logf(ctx(), "runServerProd starting, hasSpacesCreds: %v, %d urls\n", hasSpacesCreds(), len(h.URLS()))
+	srv := &server.Server{
+		Handlers:  []server.Handler{h},
+		CleanURLS: true,
+		Port:      httpPort,
+	}
+	closeHTTPLog := openHTTPLog()
+	defer closeHTTPLog() // TODO: this actually doesn't take in prod
+	httpSrv := MakeHTTPServer(srv)
+	logf(ctx(), "Starting server on http://%s'\n", httpSrv.Addr)
+	if isWindows() {
+		openBrowser(fmt.Sprintf("http://%s", httpSrv.Addr))
+	}
+	err := httpSrv.ListenAndServe()
+	logf(ctx(), "runServerProd: httpSrv.ListenAndServe() returned '%s'\n", err)
+}
+
+func MakeHTTPServer(srv *server.Server) *http.Server {
+	panicIf(srv == nil, "must provide srv")
+	httpPort := 8080
+	if srv.Port != 0 {
+		httpPort = srv.Port
+	}
+	httpAddr := fmt.Sprintf(":%d", httpPort)
+	if isWindows() {
+		httpAddr = "localhost" + httpAddr
+	}
+
+	mainHandler := func(w http.ResponseWriter, r *http.Request) {
+		//logf(ctx(), "mainHandler: '%s'\n", r.RequestURI)
+		timeStart := time.Now()
+		defer func() {
+			if p := recover(); p != nil {
+				logf(ctx(), "mainHandler: panicked with with %v\n", p)
+				http.Error(w, fmt.Sprintf("Error: %v", r), http.StatusInternalServerError)
+				logHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
+				panic(p)
+			}
+		}()
+		uri := r.URL.Path
+		serve, _ := srv.FindHandler(uri)
+		if serve == nil {
+			http.NotFound(w, r)
+			logHTTPReq(r, http.StatusNotFound, 0, time.Since(timeStart))
+			return
+		}
+		if serve != nil {
+			cw := server.CapturingResponseWriter{ResponseWriter: w}
+			serve(&cw, r)
+			logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
+			return
+		}
+		http.NotFound(w, r)
+		logHTTPReq(r, http.StatusNotFound, 0, time.Since(timeStart))
+	}
+
+	httpSrv := &http.Server{
+		ReadTimeout:  120 * time.Second,
+		WriteTimeout: 120 * time.Second,
+		IdleTimeout:  120 * time.Second, // introduced in Go 1.8
+		Handler:      http.HandlerFunc(mainHandler),
+	}
+	httpSrv.Addr = httpAddr
+	return httpSrv
+}
+
+// returns function that will wait for SIGTERM signal (e.g. Ctrl-C) and
+// shutdown the server
+func StartHTTPServer(httpSrv *http.Server) func() {
+	logf(ctx(), "Starting server on http://%s'\n", httpSrv.Addr)
+	if isWindows() {
+		openBrowser(fmt.Sprintf("http://%s", httpSrv.Addr))
+	}
+
+	chServerClosed := make(chan bool, 1)
+	go func() {
+		err := httpSrv.ListenAndServe()
+		// mute error caused by Shutdown()
+		if err == http.ErrServerClosed {
+			err = nil
+		}
+		must(err)
+		logf(ctx(), "trying to shutdown HTTP server\n")
+		chServerClosed <- true
+	}()
+
+	return func() {
+		c := make(chan os.Signal, 2)
+		signal.Notify(c, os.Interrupt /* SIGINT */, syscall.SIGTERM)
+
+		sig := <-c
+		logf(ctx(), "Got signal %s\n", sig)
+
+		if httpSrv != nil {
+			go func() {
+				// Shutdown() needs a non-nil context
+				_ = httpSrv.Shutdown(ctx())
+			}()
+			select {
+			case <-chServerClosed:
+				// do nothing
+				logf(ctx(), "server shutdown cleanly\n")
+			case <-time.After(time.Second * 5):
+				// timeout
+				logf(ctx(), "server killed due to shutdown timeout\n")
+			}
+		}
+	}
+}
+
+func StartServer(srv *server.Server) func() {
+	httpSrv := MakeHTTPServer(srv)
+	return StartHTTPServer(httpSrv)
 }

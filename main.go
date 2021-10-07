@@ -2,13 +2,10 @@ package main
 
 import (
 	"flag"
-	"fmt"
-	"io/ioutil"
 	"log"
 	_ "net/url"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"runtime/pprof"
 	"strings"
 	"time"
@@ -17,7 +14,8 @@ import (
 )
 
 var (
-	generatedHTMLDir = "www_generated" // directory where we generate html files
+	dirWwwGenerated = "www_generated" // directory where we generate html files
+	httpPort        = 9044
 
 	flgVerbose bool
 	flgNoCache bool
@@ -36,70 +34,31 @@ type Cache struct {
 	Entries []*RequestCacheEntry
 }
 
-func runWranglerDev() {
-	err := exec.Command("wrangler", "--version").Run()
-	if err != nil {
-		err = exec.Command("npm", "i", "-g", "@cloudflare/wrangler").Run()
-		panicIfErr(err)
-	}
-	cmd := exec.Command("wrangler", "dev")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err = cmd.Run()
-	logIfError(err)
-}
-
-func hasWranglerConfig() bool {
-	homeDir, err := os.UserHomeDir()
-	panicIfErr(err)
-	wranglerConfigPath := filepath.Join(homeDir, ".wrangler", "config", "default.toml")
-	if _, err := os.Stat(wranglerConfigPath); err == nil {
-		logf(ctx(), "hasWranglerConfig: yes\n")
-		return true
-	}
-	apiKey := strings.TrimSpace(os.Getenv("CLOUDFLARE_API_TOKEN"))
-	if apiKey == "" {
-		return false
-	}
-	must(createDirForFile(wranglerConfigPath))
-	toml := fmt.Sprintf(`api_token = "%s"`+"\n", apiKey)
-	must(ioutil.WriteFile(wranglerConfigPath, []byte(toml), 0644))
-	return true
-}
-
 var (
 	cachingPolicy = notionapi.PolicyDownloadNewer
 )
 
 func main() {
 	var (
-		flgPreviewWrangler  bool
-		flgPreviewServer    bool
-		flgPreviewInstaPrev bool
-		flgDeployDev        bool
-		flgDeployProd       bool
-		flgImportNotion     bool
-		flgRebuildHTML      bool
-		flgDiff             bool
-		flgCiDaily          bool
-		flgCiBuild          bool
-		flgImportNotionOne  string
-		flgProfile          string
+		flgRun             bool
+		flgRunProd         bool
+		flgImportNotion    bool
+		flgGen             bool
+		flgDiff            bool
+		flgCiDaily         bool
+		flgImportNotionOne string
+		flgProfile         string
 	)
 
 	{
 		// flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
-		flag.BoolVar(&flgDeployDev, "deploy-dev", false, "deploy to https://blog.kjk.workers.dev/")
-		flag.BoolVar(&flgDeployProd, "deploy-prod", false, "deploy to https://blog.kowalczyk.info")
-		flag.BoolVar(&flgPreviewServer, "preview-server", false, "preview with web server running locally")
-		flag.BoolVar(&flgPreviewWrangler, "preview-wrangler", false, "preview with wrangler")
-		flag.BoolVar(&flgPreviewInstaPrev, "preview-insta", false, "preview with instant preview")
+		flag.BoolVar(&flgRun, "run", false, "run server locally")
+		flag.BoolVar(&flgRunProd, "run-prod", false, "run server in production")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
-		flag.BoolVar(&flgRebuildHTML, "rebuild", false, "rebuild html in www_generated/ directory")
+		flag.BoolVar(&flgGen, "gen", false, "gen html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
-		flag.BoolVar(&flgCiBuild, "ci-build", false, "runs on GitHub CI for every checkin")
 		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
 		//flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
 		flag.Parse()
@@ -122,20 +81,17 @@ func main() {
 	}
 
 	// for those commands we only want to use cache
-	if flgPreviewWrangler || flgRebuildHTML || flgCiBuild || flgPreviewServer {
+	if flgGen || flgRun {
 		cachingPolicy = notionapi.PolicyCacheOnly
 	}
 
-	if false {
-		flgPreviewWrangler = true
-		cachingPolicy = notionapi.PolicyDownloadNewer
+	if flgRun {
+		runServer()
+		return
 	}
 
-	openLog()
-	defer closeLog()
-
-	if flgPreviewServer {
-		runServer()
+	if flgRunProd {
+		runServerProd()
 		return
 	}
 
@@ -169,10 +125,8 @@ func main() {
 		ghToken := os.Getenv("GITHUB_TOKEN")
 		panicIf(ghToken == "", "GITHUB_TOKEN env variable missing")
 		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
-		panicIf(os.Getenv("CF_ACCOUNT_ID") == "", "CF_ACCOUNT_ID env variable missing")
-		panicIf(os.Getenv("CF_API_TOKEN") == "", "CF_API_TOKEN env variable missing")
 		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(generatedHTMLDir)
+		genHTMLServer(dirWwwGenerated)
 		{
 			cmd = exec.Command("git", "status")
 			s := runCmdMust(cmd)
@@ -212,11 +166,6 @@ func main() {
 				runCmdLoggedMust(cmd)
 			}
 		}
-
-		{
-			cmd = exec.Command("wrangler", "publish")
-			runCmdLoggedMust(cmd)
-		}
 		return
 	}
 
@@ -235,53 +184,9 @@ func main() {
 		return
 	}
 
-	if flgDeployDev {
-		panicIf(!hasWranglerConfig(), "no wrangler config!")
+	if flgGen {
 		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(generatedHTMLDir)
-		cmd := exec.Command("wrangler", "publish")
-		runCmdLoggedMust(cmd)
-		openBrowser("https://blog.kjk.workers.dev/")
-		return
-	}
-
-	if flgDeployProd {
-		panicIf(!hasWranglerConfig(), "no wrangler config!")
-		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(generatedHTMLDir)
-		cmd := exec.Command("wrangler", "publish", "-e", "production")
-		runCmdLoggedMust(cmd)
-		openBrowser("https://blog.kowalczyk.info")
-		return
-	}
-
-	if flgCiBuild {
-		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(generatedHTMLDir)
-		return
-	}
-
-	if flgRebuildHTML {
-		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(generatedHTMLDir)
-		return
-	}
-
-	if flgPreviewInstaPrev {
-		server := makeDynamicServer()
-		uri := uploadServerToInstantPreviewMust(server.Handlers)
-		logf(ctx(), "uploaded to '%s'\n", uri)
-		openBrowser(uri)
-		return
-	}
-
-	if flgPreviewWrangler {
-		genHTMLServer(generatedHTMLDir)
-		if isWindows() || hasWranglerConfig() {
-			runWranglerDev()
-			return
-		}
-		runServer()
+		genHTMLServer(dirWwwGenerated)
 		return
 	}
 

@@ -4,12 +4,16 @@ go 1.16
 
 require (
 	github.com/alecthomas/chroma v0.9.2
+	github.com/andybalholm/brotli v1.0.3
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
+	github.com/kjk/cheatsheets v0.0.0-20211007041003-9642d6885c89
 	github.com/kjk/notionapi v0.0.0-20210902233546-6e6cd02e3310
+	github.com/kjk/siser v0.0.0-20210621233355-17e67ed4384f
 	github.com/microcosm-cc/bluemonday v1.0.15
+	github.com/minio/minio-go/v7 v7.0.14
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/xid v1.3.0
 	github.com/satori/go.uuid v1.2.0

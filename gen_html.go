@@ -99,7 +99,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 
 func wwwPath(fileName string) string {
 	fileName = strings.TrimLeft(fileName, "/")
-	path := filepath.Join(generatedHTMLDir, fileName)
+	path := filepath.Join(dirWwwGenerated, fileName)
 	must(createDirForFile(path))
 	return path
 }

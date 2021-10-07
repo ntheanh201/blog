@@ -11,12 +11,12 @@ import (
 
 func copyCSS() {
 	src := filepath.Join("www", "css", "main.css")
-	dst := filepath.Join(generatedHTMLDir, "main.css")
+	dst := filepath.Join(dirWwwGenerated, "main.css")
 	must(copyFile(dst, src))
 }
 
 func createDestDir() {
-	err := os.MkdirAll(generatedHTMLDir, 0755)
+	err := os.MkdirAll(dirWwwGenerated, 0755)
 	must(err)
 }
 
@@ -73,12 +73,12 @@ func testNotionToHTMLOnePage(d *notionapi.CachingClient, id string) {
 	data := buf.Bytes()
 	data = bytes.Replace(data, []byte("/css/main.css"), []byte("/main.css"), -1)
 
-	path := filepath.Join(generatedHTMLDir, "index.html")
+	path := filepath.Join(dirWwwGenerated, "index.html")
 	err = ioutil.WriteFile(path, data, 0644)
 	must(err)
 	copyCSS()
 
-	err = os.Chdir(generatedHTMLDir)
+	err = os.Chdir(dirWwwGenerated)
 	must(err)
 
 	runServer()
