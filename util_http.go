@@ -240,6 +240,15 @@ func httpOkWithJSON(w http.ResponseWriter, r *http.Request, v interface{}) {
 	httpOkBytesWithContentType(w, r, "application/json", b)
 }
 
+func httpOkWithJSONCompact(w http.ResponseWriter, r *http.Request, v interface{}) {
+	b, err := json.Marshal(v)
+	if err != nil {
+		// should never happen
+		logerrf(nil, "json.MarshalIndent() failed with %q\n", err)
+	}
+	httpOkBytesWithContentType(w, r, "application/json", b)
+}
+
 func httpOkWithXML(w http.ResponseWriter, r *http.Request, v interface{}) {
 	b, err := xml.MarshalIndent(v, "", "\t")
 	if err != nil {

@@ -14,6 +14,7 @@ require (
 	github.com/kjk/siser v0.0.0-20210621233355-17e67ed4384f
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.15
+	github.com/miku/zek v0.1.16
 	github.com/minio/md5-simd v1.1.2 // indirect
 	github.com/minio/minio-go/v7 v7.0.14
 	github.com/minio/sha256-simd v1.0.0 // indirect
