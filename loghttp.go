@@ -214,11 +214,8 @@ func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 		case ".css", ".js", ".ico", ".png", ".jpg", ".jpeg", ".avif":
 			return false
 		}
-		if strings.HasPrefix(uri, "/ping") {
-			// our internal health monitoring endpoint
-			return false
-		}
-		return true
+		// our internal health monitoring endpoint is called frequently
+		return !strings.HasPrefix(uri, "/ping")
 	}
 	if !shouldLogURL() {
 		return
