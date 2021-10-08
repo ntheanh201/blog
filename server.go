@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kjk/cheatsheets/pkg/server"
+	"github.com/kjk/common/server"
 )
 
 var (
@@ -304,7 +304,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		cw := server.CapturingResponseWriter{ResponseWriter: w}
 
 		tryServeRedirect := func(uri string) bool {
-			if tryServeBadClient(&cw, r) {
+			if server.TryServeBadClient(&cw, r) {
 				return true
 			}
 
