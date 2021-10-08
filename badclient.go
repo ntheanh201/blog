@@ -28,6 +28,7 @@ var (
 		"/wp-includes/wlwmanifest.xml",
 		"/xmlrpc.php",
 		"/wp-admin",
+		"/wp-content/",
 	}
 	badClientsRandomData []byte
 )

@@ -17,6 +17,17 @@ var (
 	articleURLS []string // the order is the same as allArticles.articles
 )
 
+func logHTTPReqShort(r *http.Request, code int, size int64, dur time.Duration) {
+	if strings.HasPrefix(r.URL.Path, "/ping") {
+		return
+	}
+	logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
+	ref := r.Header.Get("Referer")
+	if ref != "" {
+		logf(ctx(), "ref: %s \n", ref)
+	}
+}
+
 func tryServeFile(uri string, dir string) func(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimPrefix(uri, "/")
 	path := filepath.Join(dir, name)
@@ -281,9 +292,11 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			if p := recover(); p != nil {
 				logf(ctx(), "mainHandler: panicked with with %v\n", p)
 				http.Error(w, fmt.Sprintf("Error: %v", r), http.StatusInternalServerError)
+				logHTTPReqShort(r, http.StatusInternalServerError, 0, time.Since(timeStart))
 				logHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
 			} else {
 				logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
+				logHTTPReqShort(r, cw.StatusCode, cw.Size, time.Since(timeStart))
 			}
 		}()
 		uri := r.URL.Path

@@ -202,24 +202,26 @@ func recWriteNonEmpty(rec *siser.Record, k, v string) {
 
 func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 	uri := r.URL.Path
-	if !strings.HasPrefix(uri, "/ping") {
-		logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
-	}
-
-	shouldLogURL := func() bool {
-		// we don't want to do deatiled logging for all files, to make
-		// the log files smaller
-		ext := strings.ToLower(filepath.Ext(uri))
-		switch ext {
-		case ".css", ".js", ".ico", ".png", ".jpg", ".jpeg", ".avif":
-			return false
-		}
-		// our internal health monitoring endpoint is called frequently
-		return !strings.HasPrefix(uri, "/ping")
-	}
-	if !shouldLogURL() {
+	if strings.HasPrefix(uri, "/ping") {
+		// our internal health monitoring endpoint is called frequently, don't log
 		return
 	}
+
+	/*
+		shouldLogURL := func() bool {
+			// we don't want to do deatiled logging for all files, to make
+			// the log files smaller
+			ext := strings.ToLower(filepath.Ext(uri))
+			switch ext {
+			case ".css", ".js", ".ico", ".png", ".jpg", ".jpeg", ".avif":
+				return false
+			}
+			return true
+		}
+		if !shouldLogURL() {
+			return
+		}
+	*/
 
 	httpLogMu.Lock()
 	defer httpLogMu.Unlock()
@@ -237,12 +239,22 @@ func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 	durMicro := int64(dur / time.Microsecond)
 	rec.Write("durmicro", strconv.FormatInt(durMicro, 10))
 
-	for k, v := range r.Header {
-		if !shouldLogHeader(k) {
-			continue
+	skipLoggingHeaders := func() bool {
+		ref := r.Header.Get("Referer")
+		if ref == "" {
+			return false
 		}
-		if len(v) > 0 && len(v[0]) > 0 {
-			rec.Write(k, v[0])
+		return false
+	}
+
+	if !skipLoggingHeaders(r) {
+		for k, v := range r.Header {
+			if !shouldLogHeader(k) {
+				continue
+			}
+			if len(v) > 0 && len(v[0]) > 0 {
+				rec.Write(k, v[0])
+			}
 		}
 	}
 
