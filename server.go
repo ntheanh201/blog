@@ -264,8 +264,8 @@ func runServerProd() {
 		CleanURLS: true,
 		Port:      httpPort,
 	}
-	closeHTTPLog := openHTTPLog()
-	defer closeHTTPLog() // TODO: this actually doesn't take in prod
+	closeHTTPLog := OpenHTTPLog("blog")
+	defer closeHTTPLog()
 	httpSrv := makeHTTPServer(srv)
 	logf(ctx(), "Starting server on http://%s'\n", httpSrv.Addr)
 	if isWindows() {
@@ -298,9 +298,9 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				logf(ctx(), "mainHandler: panicked with with %v\n", p)
 				http.Error(w, fmt.Sprintf("Error: %v", r), http.StatusInternalServerError)
 				logHTTPReqShort(r, http.StatusInternalServerError, 0, time.Since(timeStart))
-				logHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
+				LogHTTPReq(r, http.StatusInternalServerError, 0, time.Since(timeStart))
 			} else {
-				logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
+				LogHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
 				logHTTPReqShort(r, cw.StatusCode, cw.Size, time.Since(timeStart))
 			}
 		}()

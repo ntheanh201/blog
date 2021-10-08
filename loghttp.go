@@ -24,7 +24,7 @@ var (
 	httpLogSiser  *siser.Writer
 	httpLogRec    siser.Record
 	httpLogMu     sync.Mutex
-	httpLogApp    = "progbooks"
+	httpLogApp    = ""
 )
 
 func getLogsDir() string {
@@ -146,7 +146,8 @@ func NewLogHourly(dir string, didClose func(path string, didRotate bool)) (*file
 	return filerotate.New(&config)
 }
 
-func openHTTPLog() func() {
+func OpenHTTPLog(app string) func() {
+	panicIf(app == "")
 	dir := getLogsDir()
 
 	logFile, err := NewLogHourly(dir, didRotateHTTPLog)
@@ -200,28 +201,12 @@ func recWriteNonEmpty(rec *siser.Record, k, v string) {
 	}
 }
 
-func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
+func LogHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 	uri := r.URL.Path
 	if strings.HasPrefix(uri, "/ping") {
 		// our internal health monitoring endpoint is called frequently, don't log
 		return
 	}
-
-	/*
-		shouldLogURL := func() bool {
-			// we don't want to do deatiled logging for all files, to make
-			// the log files smaller
-			ext := strings.ToLower(filepath.Ext(uri))
-			switch ext {
-			case ".css", ".js", ".ico", ".png", ".jpg", ".jpeg", ".avif":
-				return false
-			}
-			return true
-		}
-		if !shouldLogURL() {
-			return
-		}
-	*/
 
 	httpLogMu.Lock()
 	defer httpLogMu.Unlock()
