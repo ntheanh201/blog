@@ -21,7 +21,12 @@ func logHTTPReqShort(r *http.Request, code int, size int64, dur time.Duration) {
 	if strings.HasPrefix(r.URL.Path, "/ping") {
 		return
 	}
-	logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
+	if code >= 400 {
+		// make 400 stand out more in logs
+		logf(ctx(), "%s %d %s %s in %s\n", "   ", code, r.RequestURI, formatSize(size), dur)
+	} else {
+		logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
+	}
 	ref := r.Header.Get("Referer")
 	if ref != "" && !strings.Contains(ref, r.Host) {
 		logf(ctx(), "ref: %s \n", ref)
