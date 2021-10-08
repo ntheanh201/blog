@@ -288,6 +288,10 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		}()
 		uri := r.URL.Path
 
+		if tryServeBadClient(&cw, r) {
+			return
+		}
+
 		if strings.HasPrefix(uri, "/cheatsheets/") {
 			redirectURL := "https://referenceguide.dev" + strings.Replace(uri, "/cheatsheets/", "/cheatsheet/", -1)
 			http.Redirect(&cw, r, redirectURL, http.StatusTemporaryRedirect)
