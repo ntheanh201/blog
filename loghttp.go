@@ -247,7 +247,7 @@ func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 		return false
 	}
 
-	if !skipLoggingHeaders(r) {
+	if !skipLoggingHeaders() {
 		for k, v := range r.Header {
 			if !shouldLogHeader(k) {
 				continue
