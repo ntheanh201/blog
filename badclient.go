@@ -22,6 +22,7 @@ var (
 		"/admin/controller/extension/extension/": true,
 		"/sites/default/files/":                  true,
 		"/.well-known/":                          true,
+		"/.env":                                  true,
 	}
 	badClientsContains = []string{
 		"/wp-login.php",
