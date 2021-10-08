@@ -190,6 +190,9 @@ func serveRelativeFile(w http.ResponseWriter, r *http.Request, relativePath stri
 func serveTemplate(w http.ResponseWriter, r *http.Request, relativePath string, data interface{}) {
 	path := filepath.Join("www", relativePath)
 	if !pathExists(path) {
+		path = filepath.Join("www", "tools", relativePath)
+	}
+	if !pathExists(path) {
 		http.NotFound(w, r)
 		return
 	}

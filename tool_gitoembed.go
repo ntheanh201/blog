@@ -123,7 +123,7 @@ func handleGitOembedIndex(w http.ResponseWriter, r *http.Request) {
 
 // /gitoembed/widget?url=${GITURL}&nolines&theme=${theme}
 // to test:
-// http://127.0.0.1:8508/gitoembed/widget?https://github.com/essentialbooks/books/blob/master/books/go/0200-panic-and-recover/recover_from_panic.go?theme=github
+// http://127.0.0.1:8508/gitoembed/widget?https://github.com/kjk/programming-books.io/blob/master/books/go/0200-panic-and-recover/recover_from_panic.go?theme=github
 func handleGitOembedWidget(w http.ResponseWriter, r *http.Request) {
 
 	args := parseOembedQuery(r.URL)

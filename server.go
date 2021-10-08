@@ -293,6 +293,21 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		timeStart := time.Now()
 		cw := server.CapturingResponseWriter{ResponseWriter: w}
 
+		tryServeRedirect := func(uri string) bool {
+			if tryServeBadClient(&cw, r) {
+				return true
+			}
+			if tryServeArticleRedirect(srv, &cw, r) {
+				return true
+			}
+
+			if ri, ok := redirects[uri]; ok {
+				http.Redirect(&cw, r, ri.URL, ri.Code)
+				return true
+			}
+			return false
+		}
+
 		defer func() {
 			if p := recover(); p != nil {
 				logf(ctx(), "mainHandler: panicked with with %v\n", p)
@@ -306,7 +321,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		}()
 		uri := r.URL.Path
 
-		if tryServeBadClient(&cw, r) {
+		if tryServeRedirect(uri) {
 			return
 		}
 
@@ -341,16 +356,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			return
 		}
 
-		serve, is404 := srv.FindHandler(uri)
-		if serve != nil && is404 {
-			if ri, ok := redirects[uri]; ok {
-				http.Redirect(&cw, r, ri.URL, ri.Code)
-				return
-			}
-			if tryServeArticleRedirect(srv, &cw, r) {
-				return
-			}
-		}
+		serve, _ := srv.FindHandler(uri)
 		if serve != nil {
 			serve(&cw, r)
 			return
