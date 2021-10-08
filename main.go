@@ -59,7 +59,7 @@ func main() {
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.BoolVar(&flgGen, "gen", false, "gen html in www_generated/ directory")
 		//flag.BoolVar(&flgDiff, "diff", false, "preview diff using winmerge")
-		flag.BoolVar(&flgCiDaily, "ci-daily", false, "runs once a day on GitHub CI")
+		flag.BoolVar(&flgCiDaily, "ci-update-from-notion", false, "incrementally update from notion")
 		//flag.StringVar(&flgProfile, "profile", "", "name of file to save cpu profiling info")
 		flag.Parse()
 	}
