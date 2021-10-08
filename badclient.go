@@ -23,6 +23,12 @@ var (
 		"/sites/default/files/":                  true,
 		"/.well-known/":                          true,
 	}
+	badClientsContains = []string{
+		"/wp-login.php",
+		"/wp-includes/wlwmanifest.xml",
+		"/xmlrpc.php",
+		"/wp-admin",
+	}
 	badClientsRandomData []byte
 )
 
@@ -43,10 +49,7 @@ func tryServeBadClient(w http.ResponseWriter, r *http.Request) bool {
 		if badClients[uri] {
 			return true
 		}
-		if strings.HasPrefix(uri, "/wp-admin") {
-			return true
-		}
-		for _, s := range []string{"/wp-includes/wlwmanifest.xml", "/xmlrpc.php"} {
+		for _, s := range badClientsContains {
 			if strings.Contains(uri, s) {
 				return true
 			}
