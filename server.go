@@ -342,12 +342,11 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		}()
 		uri := r.URL.Path
 
-		if tryServeRedirect(uri) {
-			return
-		}
-
 		if strings.HasPrefix(uri, "/cheatsheets/") {
 			redirectURL := "https://referenceguide.dev" + strings.Replace(uri, "/cheatsheets/", "/cheatsheet/", -1)
+			if uri == "/cheatsheets/" {
+				redirectURL = "https://referenceguide.dev"
+			}
 			http.Redirect(&cw, r, redirectURL, http.StatusTemporaryRedirect)
 			return
 		}
@@ -377,8 +376,13 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			return
 		}
 
-		serve, _ := srv.FindHandler(uri)
+		serve, is404 := srv.FindHandler(uri)
 		if serve != nil {
+			if is404 {
+				if tryServeRedirect(uri) {
+					return
+				}
+			}
 			serve(&cw, r)
 			return
 		}
