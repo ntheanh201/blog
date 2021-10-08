@@ -275,6 +275,16 @@ func runServerProd() {
 	logf(ctx(), "runServerProd: httpSrv.ListenAndServe() returned '%s'\n", err)
 }
 
+var (
+	prefixRedirects = []string{
+		"/software/sumatrapdf/free", "https://www.sumatrapdfreader.org/free-pdf-reader",
+		"/software/sumatrapdf/download", "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+		"/software/sumatra", "https://www.sumatrapdfreader.org/free-pdf-reader",
+		"/software/sumatrapdf/settings", "https://www.sumatrapdfreader.org/settings/settings",
+		"/software/sumatrapdf/prerel", "https://www.sumatrapdfreader.org/prerelease",
+	}
+)
+
 func makeHTTPServer(srv *server.Server) *http.Server {
 	panicIf(srv == nil, "must provide srv")
 	httpPort := 8080
@@ -297,14 +307,25 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			if tryServeBadClient(&cw, r) {
 				return true
 			}
-			if tryServeArticleRedirect(srv, &cw, r) {
-				return true
-			}
 
 			if ri, ok := redirects[uri]; ok {
 				http.Redirect(&cw, r, ri.URL, ri.Code)
 				return true
 			}
+
+			for i := 0; i < len(prefixRedirects); i += 2 {
+				prefix := prefixRedirects[i]
+				if strings.HasPrefix(uri, prefix) {
+					redirectURL := prefixRedirects[i+1]
+					http.Redirect(&cw, r, redirectURL, http.StatusTemporaryRedirect)
+					return true
+				}
+			}
+
+			if tryServeArticleRedirect(srv, &cw, r) {
+				return true
+			}
+
 			return false
 		}
 
