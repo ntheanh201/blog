@@ -28,7 +28,7 @@ func logHTTPReqShort(r *http.Request, code int, size int64, dur time.Duration) {
 		logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
 	}
 	ref := r.Header.Get("Referer")
-	if ref != "" && !strings.Contains(ref, r.Host) {
+	if ref != "" && !strings.Contains(ref, r.Host) && strings.Contains(ref, "presstige.io") {
 		logf(ctx(), "ref: %s \n", ref)
 	}
 }
