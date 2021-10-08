@@ -77,6 +77,11 @@ func main() {
 	}
 
 	if false {
+		optimizeAllImages([]string{"notion_cache", "www"})
+		return
+	}
+
+	if false {
 		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
 	}
 
