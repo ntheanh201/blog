@@ -239,12 +239,14 @@ func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 	durMicro := int64(dur / time.Microsecond)
 	rec.Write("durmicro", strconv.FormatInt(durMicro, 10))
 
+	// to minimize logging, we don't log headers if this is
+	// self-referal
 	skipLoggingHeaders := func() bool {
 		ref := r.Header.Get("Referer")
 		if ref == "" {
 			return false
 		}
-		return false
+		return strings.Contains(ref, r.Host)
 	}
 
 	if !skipLoggingHeaders() {

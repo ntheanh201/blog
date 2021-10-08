@@ -23,7 +23,7 @@ func logHTTPReqShort(r *http.Request, code int, size int64, dur time.Duration) {
 	}
 	logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
 	ref := r.Header.Get("Referer")
-	if ref != "" {
+	if ref != "" && !strings.Contains(ref, r.Host) {
 		logf(ctx(), "ref: %s \n", ref)
 	}
 }
@@ -342,6 +342,9 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				http.Redirect(&cw, r, ri.URL, ri.Code)
 				return
 			}
+			if tryServeArticleRedirect(srv, &cw, r) {
+				return
+			}
 		}
 		if serve != nil {
 			serve(&cw, r)
@@ -358,4 +361,31 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 	}
 	httpSrv.Addr = httpAddr
 	return httpSrv
+}
+
+// /article/h/first-release-of-dbhero---a-gui-database-client.html
+// should match the file under /article/h/
+func tryServeArticleRedirect(srv *server.Server, w http.ResponseWriter, r *http.Request) bool {
+	uri := r.URL.Path
+	// logf(ctx(), "tryServeArticleRedirect: '%s'\n", uri)
+	if !strings.HasPrefix(uri, "/article/") {
+		return false
+	}
+	rest := strings.TrimPrefix(uri, "/article/")
+	idx := strings.Index(rest, "/")
+	if idx == -1 {
+		return false
+	}
+	uriPrefix := "/article/" + rest[:idx+1]
+	// logf(ctx(), "tryServeArticleRedirect: uriPrefix: '%s'\n", uriPrefix)
+	for _, h := range srv.Handlers {
+		for _, uri := range h.URLS() {
+			if strings.HasPrefix(uri, uriPrefix) {
+				http.Redirect(w, r, uri, http.StatusTemporaryRedirect)
+				// logf(ctx(), "tryServeArticleRedirect: did redirect to: '%s'\n", uri)
+				return true
+			}
+		}
+	}
+	return false
 }
