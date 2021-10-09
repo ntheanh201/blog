@@ -9,7 +9,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/common v0.0.0-20211009035813-b4ad925149dc
+	github.com/kjk/common v0.0.0-20211009040353-eed800bc6e22
 	github.com/kjk/notionapi v0.0.0-20210902233546-6e6cd02e3310
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.15

@@ -11,6 +11,7 @@ import (
 	"github.com/alecthomas/chroma/formatters/html"
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
+	"github.com/kjk/common/httputil"
 )
 
 var validThemes = []string{"abap", "algol", "algol_nu", "arduino", "autumn", "borland", "bw", "colorful", "dracula", "emacs", "friendly", "fruity", "github", "igor", "lovelace", "manni", "monokai", "monokailight", "murphy", "native", "paraiso-dark", "paraiso-light", "pastie", "perldoc", "pygments", "rainbow_dash", "rrt", "solarized-dark", "solarized-dark256", "solarized-light", "swapoff", "tango", "trac", "vim", "vs", "xcode"}
@@ -69,7 +70,7 @@ func testCodeHighlight() {
 	rawURL := getGitHubRawURL("https://github.com/essentialbooks/books/blob/master/books/go/0010-getting-started/hello_world.go")
 	fmt.Printf("rawURL: %s\n", rawURL)
 	timeStart := time.Now()
-	d, err := httpGet(rawURL)
+	d, err := httputil.Get(rawURL)
 	dur := time.Since(timeStart)
 	if err != nil {
 		logerrf(ctx(), "Failed to download %s. Time: %s. Error: %s\n", rawURL, dur, err)

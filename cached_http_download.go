@@ -3,6 +3,8 @@ package main
 import (
 	"sync"
 	"time"
+
+	"github.com/kjk/common/httputil"
 )
 
 // TODO: remember and use e-tag for re-downloads
@@ -63,7 +65,7 @@ func (c *HTTPDownloadCache) Download(uri string) ([]byte, bool, error) {
 		return e.data, true, nil
 	}
 
-	d, err := httpGet(uri)
+	d, err := httputil.Get(uri)
 	if err != nil {
 		return nil, false, err
 	}

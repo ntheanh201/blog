@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/kjk/common/httputil"
 	"github.com/miku/zek"
 )
 
@@ -26,7 +27,7 @@ func handleXMLToGoDownloadXML(w http.ResponseWriter, r *http.Request) {
 		httpOkWithJSONCompact(w, r, rsp)
 		return
 	}
-	d, err := httpGet(uri)
+	d, err := httputil.Get(uri)
 	if err != nil {
 		rsp.Error = err.Error()
 		httpOkWithJSONCompact(w, r, rsp)

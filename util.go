@@ -28,8 +28,9 @@ var (
 	normalizeNewlines = u.NormalizeNewlines
 	openBrowser       = u.OpenBrowser
 	capitalize        = u.Capitalize
-	copyFile          = u.CopyFile
-	urlify            = u.Slug
+	//copyFile             = u.CopyFile
+	urlify               = u.Slug
+	mimeTypeFromFileName = u.MimeTypeFromFileName
 )
 
 func ctx() context.Context {
