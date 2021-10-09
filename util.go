@@ -4,64 +4,35 @@ package main
 import (
 	"bytes"
 	"context"
-	"fmt"
-	"io"
 	"io/fs"
 	"io/ioutil"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
+
+	"github.com/kjk/common/u"
 )
 
-func panicIf(cond bool, args ...interface{}) {
-	if !cond {
-		return
-	}
-	s := "condition failed"
-	if len(args) > 0 {
-		s = fmt.Sprintf("%s", args[0])
-		if len(args) > 1 {
-			s = fmt.Sprintf(s, args[1:]...)
-		}
-	}
-	panic(s)
-}
-
-func panicIfErr(err error, args ...interface{}) {
-	if err == nil {
-		return
-	}
-	s := err.Error()
-	if len(args) > 0 {
-		s = fmt.Sprintf("%s", args[0])
-		if len(args) > 1 {
-			s = fmt.Sprintf(s, args[1:]...)
-		}
-	}
-	panic(s)
-}
+var (
+	must              = u.Must
+	panicIf           = u.PanicIf
+	panicIfErr        = u.PanicIfErr
+	fileExists        = u.FileExists
+	pathExists        = u.PathExists
+	dirExists         = u.DirExists
+	getFileSize       = u.FileSize
+	perc              = u.Percent
+	formatSize        = u.FormatSize
+	isWindows         = u.IsWindows
+	normalizeNewlines = u.NormalizeNewlines
+	openBrowser       = u.OpenBrowser
+	capitalize        = u.Capitalize
+	copyFile          = u.CopyFile
+)
 
 func ctx() context.Context {
 	return context.Background()
-}
-
-func must(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func logIfError(err error) {
-	if err != nil {
-		logf(ctx(), "%s\n", err)
-	}
-}
-
-func isWindows() bool {
-	return strings.Contains(runtime.GOOS, "windows")
 }
 
 // whitelisted characters valid in url
@@ -203,23 +174,6 @@ func replaceExt(fileName, newExt string) string {
 	return s + newExt
 }
 
-// foo => Foo, BAR => Bar etc.
-func capitalize(s string) string {
-	if len(s) == 0 {
-		return s
-	}
-	s = strings.ToLower(s)
-	return strings.ToUpper(s[0:1]) + s[1:]
-}
-
-func normalizeNewlines(d []byte) []byte {
-	// replace CR LF (windows) with LF (unix)
-	d = bytes.Replace(d, []byte{13, 10}, []byte{10}, -1)
-	// replace CF (mac) with LF (unix)
-	d = bytes.Replace(d, []byte{13}, []byte{10}, -1)
-	return d
-}
-
 func toTrimmedLines(d []byte) []string {
 	lines := strings.Split(string(d), "\n")
 	i := 0
@@ -238,37 +192,6 @@ func readFileMust(path string) []byte {
 	d, err := ioutil.ReadFile(path)
 	must(err)
 	return d
-}
-
-// from https://gist.github.com/hyg/9c4afcd91fe24316cbf0
-func openBrowser(url string) {
-	var err error
-
-	switch runtime.GOOS {
-	case "linux":
-		err = exec.Command("xdg-open", url).Start()
-	case "windows":
-		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
-	case "darwin":
-		err = exec.Command("open", url).Start()
-	default:
-		err = fmt.Errorf("unsupported platform")
-	}
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
-func formatSize(n int64) string {
-	sizes := []int64{1024 * 1024 * 1024, 1024 * 1024, 1024}
-	suffixes := []string{"GB", "MB", "kB"}
-	for i, size := range sizes {
-		if n >= size {
-			s := fmt.Sprintf("%.2f", float64(n)/float64(size))
-			return strings.TrimSuffix(s, ".00") + " " + suffixes[i]
-		}
-	}
-	return fmt.Sprintf("%d bytes", n)
 }
 
 func dirToLF(dir string) {
@@ -300,76 +223,6 @@ func dirToLF(dir string) {
 
 func createDirForFile(path string) error {
 	return os.MkdirAll(filepath.Dir(path), 0755)
-}
-
-func pathExists(path string) bool {
-	_, err := os.Lstat(path)
-	return err == nil
-}
-
-func fileExists(path string) bool {
-	st, err := os.Lstat(path)
-	return err == nil && st.Mode().IsRegular()
-}
-
-func dirExists(path string) bool {
-	st, err := os.Lstat(path)
-	return err == nil && st.IsDir()
-}
-
-func getFileSize(path string) int64 {
-	st, err := os.Lstat(path)
-	if err == nil {
-		return st.Size()
-	}
-	return -1
-}
-
-func normalizeNewlinesInPlace(d []byte) []byte {
-	wi := 0
-	n := len(d)
-	for i := 0; i < n; i++ {
-		c := d[i]
-		// 13 is CR
-		if c != 13 {
-			d[wi] = c
-			wi++
-			continue
-		}
-		// replace CR (mac / win) with LF (unix)
-		d[wi] = 10
-		wi++
-		if i < n-1 && d[i+1] == 10 {
-			// this was CRLF, so skip the LF
-			i++
-		}
-
-	}
-	return d[:wi]
-}
-
-func copyFile(dst string, src string) error {
-	err := os.MkdirAll(filepath.Dir(dst), 0755)
-	if err != nil {
-		return err
-	}
-	fin, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-	defer fin.Close()
-	fout, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-
-	_, err = io.Copy(fout, fin)
-	err2 := fout.Close()
-	if err != nil || err2 != nil {
-		os.Remove(dst)
-	}
-
-	return err
 }
 
 const base64Chars = "0123456789abcdefghijklmnopqrstuvwxyz"
@@ -454,8 +307,4 @@ func runCmdMust(cmd *exec.Cmd) string {
 	logf(ctx(), "cmd '%s' failed with '%s'\n", cmd, err)
 	must(err)
 	return ""
-}
-
-func perc(total, sub int64) float64 {
-	return float64(sub) * 100 / float64(total)
 }

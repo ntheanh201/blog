@@ -322,11 +322,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				}
 			}
 
-			if tryServeArticleRedirect(srv, &cw, r) {
-				return true
-			}
-
-			return false
+			return tryServeArticleRedirect(srv, &cw, r)
 		}
 
 		defer func() {
