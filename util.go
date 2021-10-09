@@ -15,20 +15,20 @@ import (
 )
 
 var (
-	must              = u.Must
-	panicIf           = u.PanicIf
-	panicIfErr        = u.PanicIfErr
-	fileExists        = u.FileExists
-	pathExists        = u.PathExists
-	dirExists         = u.DirExists
-	getFileSize       = u.FileSize
-	perc              = u.Percent
-	formatSize        = u.FormatSize
-	isWindows         = u.IsWindows
-	normalizeNewlines = u.NormalizeNewlines
-	openBrowser       = u.OpenBrowser
-	capitalize        = u.Capitalize
-	//copyFile             = u.CopyFile
+	must                 = u.Must
+	panicIf              = u.PanicIf
+	panicIfErr           = u.PanicIfErr
+	fileExists           = u.FileExists
+	pathExists           = u.PathExists
+	dirExists            = u.DirExists
+	getFileSize          = u.FileSize
+	perc                 = u.Percent
+	formatSize           = u.FormatSize
+	isWindows            = u.IsWindows
+	normalizeNewlines    = u.NormalizeNewlines
+	openBrowser          = u.OpenBrowser
+	capitalize           = u.Capitalize
+	copyFile             = u.CopyFile
 	urlify               = u.Slug
 	mimeTypeFromFileName = u.MimeTypeFromFileName
 )
