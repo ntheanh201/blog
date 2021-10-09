@@ -17,22 +17,6 @@ var (
 	articleURLS []string // the order is the same as allArticles.articles
 )
 
-func logHTTPReqShort(r *http.Request, code int, size int64, dur time.Duration) {
-	if strings.HasPrefix(r.URL.Path, "/ping") {
-		return
-	}
-	if code >= 400 {
-		// make 400 stand out more in logs
-		logf(ctx(), "%s %d %s %s in %s\n", "   ", code, r.RequestURI, formatSize(size), dur)
-	} else {
-		logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
-	}
-	ref := r.Header.Get("Referer")
-	if ref != "" && !strings.Contains(ref, r.Host) && strings.Contains(ref, "presstige.io") {
-		logf(ctx(), "ref: %s \n", ref)
-	}
-}
-
 func tryServeFile(uri string, dir string) func(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimPrefix(uri, "/")
 	path := filepath.Join(dir, name)
@@ -246,6 +230,10 @@ func runServer() {
 	logf(ctx(), "runServer\n")
 
 	srv := makeDynamicServer()
+
+	closeHTTPLog := OpenHTTPLog("blog")
+	defer closeHTTPLog()
+
 	httpSrv := makeHTTPServer(srv)
 	logf(ctx(), "Starting server on http://%s'\n", httpSrv.Addr)
 	if isWindows() {
@@ -264,8 +252,10 @@ func runServerProd() {
 		CleanURLS: true,
 		Port:      httpPort,
 	}
+
 	closeHTTPLog := OpenHTTPLog("blog")
 	defer closeHTTPLog()
+
 	httpSrv := makeHTTPServer(srv)
 	logf(ctx(), "Starting server on http://%s'\n", httpSrv.Addr)
 	if isWindows() {

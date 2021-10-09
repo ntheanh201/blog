@@ -22,7 +22,6 @@ var (
 	pathExists           = u.PathExists
 	dirExists            = u.DirExists
 	getFileSize          = u.FileSize
-	perc                 = u.Percent
 	formatSize           = u.FormatSize
 	isWindows            = u.IsWindows
 	normalizeNewlines    = u.NormalizeNewlines
@@ -37,30 +36,6 @@ func ctx() context.Context {
 	return context.Background()
 }
 
-func trimEmptyLines(a []string) []string {
-	var res []string
-
-	// remove empty lines from beginning and duplicated empty lines
-	prevWasEmpty := true
-	for _, s := range a {
-		currIsEmpty := (len(s) == 0)
-		if currIsEmpty && prevWasEmpty {
-			continue
-		}
-		res = append(res, s)
-		prevWasEmpty = currIsEmpty
-	}
-	// remove empty lines from end
-	for len(res) > 0 {
-		lastIdx := len(res) - 1
-		if len(res[lastIdx]) != 0 {
-			break
-		}
-		res = res[:lastIdx]
-	}
-	return res
-}
-
 func findWordEnd(s string, start int) int {
 	for i := start; i < len(s); i++ {
 		c := s[i]
@@ -69,47 +44,6 @@ func findWordEnd(s string, start int) int {
 		}
 	}
 	return -1
-}
-
-// remove #tag from start and end
-func removeHashTags(s string) (string, []string) {
-	var tags []string
-	defer func() {
-		for i, tag := range tags {
-			tags[i] = strings.ToLower(tag)
-		}
-	}()
-
-	// remove hashtags from start
-	for strings.HasPrefix(s, "#") {
-		idx := findWordEnd(s, 0)
-		if idx == -1 {
-			tags = append(tags, s[1:])
-			return "", tags
-		}
-		tags = append(tags, s[1:idx-1])
-		s = strings.TrimLeft(s[idx:], " ")
-	}
-
-	// remove hashtags from end
-	s = strings.TrimRight(s, " ")
-	for {
-		idx := strings.LastIndex(s, "#")
-		if idx == -1 {
-			return s, tags
-		}
-		// tag from the end must not have space after it
-		if -1 != findWordEnd(s, idx) {
-			return s, tags
-		}
-		// tag from the end must start at the beginning of line
-		// or be proceded by space
-		if idx > 0 && s[idx-1] != ' ' {
-			return s, tags
-		}
-		tags = append(tags, s[idx+1:])
-		s = strings.TrimRight(s[:idx], " ")
-	}
 }
 
 func replaceExt(fileName, newExt string) string {
