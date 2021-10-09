@@ -252,7 +252,7 @@ func runServer() {
 		openBrowser(fmt.Sprintf("http://%s", httpSrv.Addr))
 	}
 	err := httpSrv.ListenAndServe()
-	logf(ctx(), "runServerProd: httpSrv.ListenAndServe() returned '%s'\n", err)
+	logf(ctx(), "runServer: httpSrv.ListenAndServe() returned '%s'\n", err)
 }
 
 func runServerProd() {

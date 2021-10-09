@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/kjk/common/assert"
 )
 
 func TestGitHubRawURL(t *testing.T) {
