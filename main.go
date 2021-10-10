@@ -78,7 +78,7 @@ func main() {
 	}
 
 	if false {
-		optimizeAllImages([]string{"notion_cache", "www"})
+		optimizeImages("notion_cache", "www")
 		return
 	}
 

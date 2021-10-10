@@ -1,101 +1,83 @@
 package main
 
 import (
-	"io/ioutil"
+	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"sync"
-	"time"
+
+	"github.com/kjk/common/u"
 )
 
-var (
-	imgoptSem        chan bool
-	imgoptWg         sync.WaitGroup
-	imgoptProcessed  int
-	imgoptOptimized  int
-	imgoptSizeBefore int64
-	imgoptSizeAFter  int64
-	imgoptMu         sync.Mutex
-)
+func optimizeImages(dirs ...string) {
+	var (
+		sem              = make(chan bool, runtime.NumCPU()+1)
+		wg               sync.WaitGroup
+		nProcessed       int
+		nOptimized       int
+		imgoptSizeBefore int64
+		sizeAFter        int64
+		imgoptMu         sync.Mutex
+	)
 
-// run optipng in parallel
-func optimizeWithOptipng(path string) {
-	logf(ctx(), "Optimizing '%s'\n", path)
-	sizeBefore := getFileSize(path)
-	cmd := exec.Command("optipng", "-o5", path)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err := cmd.Run()
-	if err != nil {
-		// it's ok if fails. some jpeg images are saved as .png
-		// which trips it
-		logf(ctx(), "optipng failed with '%s'\n", err)
-		return
+	optimizeWithOptipng := func(path string) {
+		logf(ctx(), "Optimizing '%s'\n", path)
+		sizeBefore := u.FileSize(path)
+		cmd := exec.Command("optipng", "-o5", path)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		err := cmd.Run()
+		if err != nil {
+			// it's ok if fails. some jpeg images are saved as .png
+			// which trips it
+			logf(ctx(), "optipng failed with '%s'\n", err)
+		}
+		sizeAfter := u.FileSize(path)
+		panicIf(sizeBefore == -1 || sizeAfter == -1)
+
+		imgoptMu.Lock()
+		defer imgoptMu.Unlock()
+		nProcessed++
+		if sizeBefore != sizeAfter {
+			nOptimized++
+		}
+		sizeAFter += sizeAfter
+		imgoptSizeBefore += sizeBefore
 	}
-	sizeAfter := getFileSize(path)
-	panicIf(sizeBefore == -1 || sizeAfter == -1)
 
-	imgoptMu.Lock()
-	defer imgoptMu.Unlock()
-	imgoptProcessed++
-	if sizeBefore != sizeAfter {
-		imgoptOptimized++
+	maybeOptimizeImage := func(path string) {
+		ext := filepath.Ext(path)
+		ext = strings.ToLower(ext)
+		switch ext {
+		// TODO: for .gif requires -snip
+		case ".png", ".tiff", ".tif", "bmp":
+			wg.Add(1)
+			// run optipng in parallel
+			go func() {
+				sem <- true
+				optimizeWithOptipng(path)
+				<-sem
+				wg.Done()
+			}()
+		}
 	}
-	imgoptSizeAFter += sizeAfter
-	imgoptSizeBefore += sizeBefore
-}
-
-func maybeOptimizeImage(path string) {
-	ext := filepath.Ext(path)
-	ext = strings.ToLower(ext)
-	switch ext {
-	// TODO: for .gif requires -snip
-	case ".png", ".tiff", ".tif", "bmp":
-		imgoptWg.Add(1)
-		go func() {
-			imgoptSem <- true
-			optimizeWithOptipng(path)
-			<-imgoptSem
-			imgoptWg.Done()
-		}()
-	}
-}
-
-func optimizeAllImages(dirsToVisit []string) {
-	imgoptSem = make(chan bool, runtime.NumCPU()+1)
-
-	timeStart := time.Now()
-	defer func() {
-		logf(ctx(), "optimizeAllImages: took %s\n", time.Since(timeStart))
-	}()
 
 	// verify we have optipng installed
 	cmd := exec.Command("optipng", "-h")
 	err := cmd.Run()
 	panicIf(err != nil, "optipng is not installed")
 
-	for len(dirsToVisit) > 0 {
-		dir := dirsToVisit[0]
-		dirsToVisit = dirsToVisit[1:]
-		files, err := ioutil.ReadDir(dir)
-		must(err)
-		for _, f := range files {
-			name := f.Name()
-			path := filepath.Join(dir, name)
-			if f.IsDir() {
-				if name == "www" || name == "covers" || name == "tmpl" {
-					// assume already optimized
-				} else {
-					dirsToVisit = append(dirsToVisit, path)
-				}
-				continue
+	for _, dir := range dirs {
+		filepath.WalkDir(dir, func(path string, e fs.DirEntry, err error) error {
+			if err == nil && e.Type().IsRegular() {
+				maybeOptimizeImage(path)
 			}
-			maybeOptimizeImage(path)
-		}
+			return nil
+		})
 	}
-	imgoptWg.Wait()
-	logf(ctx(), "optimizeAllImages: processed %d, optimized %d, %s => %s\n", imgoptProcessed, imgoptOptimized, formatSize(imgoptSizeBefore), formatSize(imgoptSizeAFter))
+	wg.Wait()
+	logf(ctx(), "optimizeAllImages: processed %d, optimized %d, %s => %s\n", nProcessed, nOptimized, formatSize(imgoptSizeBefore), formatSize(sizeAFter))
 }
