@@ -36,16 +36,6 @@ func ctx() context.Context {
 	return context.Background()
 }
 
-func findWordEnd(s string, start int) int {
-	for i := start; i < len(s); i++ {
-		c := s[i]
-		if c == ' ' {
-			return i + 1
-		}
-	}
-	return -1
-}
-
 func replaceExt(fileName, newExt string) string {
 	ext := filepath.Ext(fileName)
 	if ext == "" {
@@ -54,20 +44,6 @@ func replaceExt(fileName, newExt string) string {
 	n := len(fileName)
 	s := fileName[:n-len(ext)]
 	return s + newExt
-}
-
-func toTrimmedLines(d []byte) []string {
-	lines := strings.Split(string(d), "\n")
-	i := 0
-	for _, l := range lines {
-		l = strings.TrimSpace(l)
-		// remove empty lines
-		if len(l) > 0 {
-			lines[i] = l
-			i++
-		}
-	}
-	return lines[:i]
 }
 
 func readFileMust(path string) []byte {
