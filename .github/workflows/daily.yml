@@ -20,4 +20,5 @@ jobs:
       - name: incrementally update from notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: go run . -ci-update-from-notion
