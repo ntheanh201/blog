@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/kjk/common/u"
 	"github.com/kjk/notionapi"
 )
 
@@ -101,7 +102,7 @@ func main() {
 	}
 
 	if flgDiff {
-		winmergeDiffPreview()
+		u.WinmergeDiffPreview()
 		return
 	}
 
