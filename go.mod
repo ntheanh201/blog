@@ -8,7 +8,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/common v0.0.0-20211010065540-f673b38ae5b1
+	github.com/kjk/common v0.0.0-20211010082736-d33cbaeed6af
 	github.com/kjk/minio v0.0.0-20211009054212-7bcee50d3b76
 	github.com/kjk/notionapi v0.0.0-20211010053511-fd912b6c5bbc
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
