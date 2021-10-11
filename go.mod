@@ -6,11 +6,10 @@ require (
 	github.com/alecthomas/chroma v0.9.2
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
-	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/common v0.0.0-20211010084043-5385b43e602c
-	github.com/kjk/minio v0.0.0-20211010093503-e01d88eaa466
-	github.com/kjk/notionapi v0.0.0-20211010053511-fd912b6c5bbc
+	github.com/kjk/common v0.0.0-20211011030640-9a49165185b8
+	github.com/kjk/minio v0.0.0-20211010094250-8a269ea577a2
+	github.com/kjk/notionapi v0.0.0-20211011024205-bee79a04d105
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.15
 	github.com/miku/zek v0.1.16
