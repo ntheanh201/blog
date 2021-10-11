@@ -9,7 +9,7 @@ require (
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/kjk/common v0.0.0-20211011030640-9a49165185b8
 	github.com/kjk/minio v0.0.0-20211010094250-8a269ea577a2
-	github.com/kjk/notionapi v0.0.0-20211011024205-bee79a04d105
+	github.com/kjk/notionapi v0.0.0-20211011041705-67e75173f199
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.15
 	github.com/miku/zek v0.1.16
