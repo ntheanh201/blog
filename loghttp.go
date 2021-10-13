@@ -47,7 +47,7 @@ func uploadCompressedHTTPLog(app, path string) {
 		return
 	}
 	remotePath += ".br"
-	_, err := mc.UploadFileBrotliCompressedPublic(remotePath, path)
+	_, err := mc.UploadFileBrotliCompressed(remotePath, path, true)
 	if err != nil {
 		logerrf(ctx(), "uploadCompressedHTTPLog: minioUploadFilePublic() failed with '%s'\n", err)
 		return
