@@ -20,10 +20,6 @@ type Converter struct {
 	r *tohtml.Converter
 }
 
-func (c *Converter) maybeGetID(block *notionapi.Block) string {
-	return notionapi.ToNoDashID(block.ID)
-}
-
 // change https://www.notion.so/Advanced-web-spidering-with-Puppeteer-ea07db1b9bff415ab180b0525f3898f6
 // =>
 // /article/${id}

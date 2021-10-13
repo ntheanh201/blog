@@ -21,13 +21,11 @@ var (
 	fileExists           = u.FileExists
 	pathExists           = u.PathExists
 	dirExists            = u.DirExists
-	getFileSize          = u.FileSize
 	formatSize           = u.FormatSize
 	isWindows            = u.IsWindows
 	normalizeNewlines    = u.NormalizeNewlines
 	openBrowser          = u.OpenBrowser
 	capitalize           = u.Capitalize
-	copyFile             = u.CopyFile
 	urlify               = u.Slug
 	mimeTypeFromFileName = u.MimeTypeFromFileName
 )

@@ -20,6 +20,9 @@ var (
 
 	flgVerbose bool
 	flgNoCache bool
+
+	cacheDir      = "notion_cache"
+	cachingPolicy = notionapi.PolicyDownloadNewer
 )
 
 type RequestCacheEntry struct {
@@ -34,10 +37,6 @@ type Cache struct {
 	Path    string
 	Entries []*RequestCacheEntry
 }
-
-var (
-	cachingPolicy = notionapi.PolicyDownloadNewer
-)
 
 func main() {
 	var (

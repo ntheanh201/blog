@@ -22,29 +22,6 @@ import (
 	atom "github.com/thomas11/atomgenerator"
 )
 
-func addAllRedirects(store *Articles) {
-	addStaticRedirects()
-	//addRewrite("/book/", "/static/documents.html")
-	//addTempRedirect("/book/*", "/article/:splat")
-	addTempRedirect("/software/sumatrapdf*", "https://www.sumatrapdfreader.org/:splat")
-
-	addTempRedirect("/articles/", "/documents.html")
-	addTempRedirect("/articles/index.html", "/documents.html")
-	addTempRedirect("/static/documents.html", "/documents.html")
-	addTempRedirect("/software/index.html", "/software/")
-
-	addRewrite("/articles/go-cookbook.html", "/book/go-cookbook.html")
-
-	for _, article := range store.articles {
-		if article.urlOverride != "" {
-			path := fmt.Sprintf("/article/%s.html", article.ID)
-			addRewrite(article.urlOverride, path)
-		}
-	}
-
-	addArticleRedirects(store)
-}
-
 func copyAndSortArticles(articles []*Article) []*Article {
 	n := len(articles)
 	res := make([]*Article, n)
