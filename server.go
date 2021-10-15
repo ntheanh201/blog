@@ -293,6 +293,14 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		timeStart := time.Now()
 		cw := server.CapturingResponseWriter{ResponseWriter: w}
 
+		defer func() {
+			if p := recover(); p != nil {
+				logf(ctx(), "mainHandler: panicked with with %v\n", p)
+				http.Error(&cw, fmt.Sprintf("Error: %v", p), http.StatusInternalServerError)
+			}
+			logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
+		}()
+
 		tryServeRedirect := func(uri string) bool {
 			if server.TryServeBadClient(&cw, r) {
 				return true
@@ -315,13 +323,6 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			return tryServeArticleRedirect(srv, &cw, r)
 		}
 
-		defer func() {
-			if p := recover(); p != nil {
-				logf(ctx(), "mainHandler: panicked with with %v\n", p)
-				http.Error(&cw, fmt.Sprintf("Error: %v", r), http.StatusInternalServerError)
-			}
-			logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
-		}()
 		uri := r.URL.Path
 
 		if strings.HasPrefix(uri, "/cheatsheets/") {
