@@ -25,9 +25,10 @@ func logHTTPReq(r *http.Request, code int, size int64, dur time.Duration) {
 	} else {
 		logf(ctx(), "%s %d %s %s in %s\n", r.Method, code, r.RequestURI, formatSize(size), dur)
 	}
-	ref := r.Header.Get("Referer")
-	if ref != "" && !strings.Contains(ref, r.Host) {
-		logf(ctx(), "ref: %s \n", ref)
+
+	// no need to log redirects
+	if code >= 300 && code < 400 {
+		return
 	}
 
 	err := httpLogger.LogReq(r, code, size, dur)
