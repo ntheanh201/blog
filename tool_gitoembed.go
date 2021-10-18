@@ -186,7 +186,7 @@ func handleGitOembedWidget(w http.ResponseWriter, r *http.Request) {
 		Body:           template.HTML(buf.Bytes()),
 		FileName:       fileName,
 		OriginalURL:    githubURL,
-		ServiceURL:     baseURL + "/gitoembed/",
+		ServiceURL:     baseURL + "/tools/gitoembed/",
 	}
 	path := filepath.Join("gitoembed", "oembed.tmpl.html")
 	serveTemplate(w, r, path, data)
