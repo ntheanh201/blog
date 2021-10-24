@@ -7,7 +7,7 @@ require (
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/common v0.0.0-20211018090256-79c7312f3fbd
+	github.com/kjk/common v0.0.0-20211020103012-b781efcaf6f0
 	github.com/kjk/minio v0.0.0-20211013035615-2f0045e113c0
 	github.com/kjk/notionapi v0.0.0-20211011041705-67e75173f199
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
