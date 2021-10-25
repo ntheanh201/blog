@@ -7,7 +7,7 @@ require (
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/gomarkdown/markdown v0.0.0-20210918233619-6c1113f12c4a
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
-	github.com/kjk/common v0.0.0-20211020103012-b781efcaf6f0
+	github.com/kjk/common v0.0.0-20211025174433-60e080f4fc74
 	github.com/kjk/minio v0.0.0-20211013035615-2f0045e113c0
 	github.com/kjk/notionapi v0.0.0-20211011041705-67e75173f199
 	github.com/klauspost/compress v1.13.6 // indirect
@@ -25,7 +25,7 @@ require (
 	github.com/thomas11/atomgenerator v0.0.0-20140514140532-0b3b01da14a4
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/net v0.0.0-20211020060615-d418f374d309 // indirect
-	golang.org/x/sys v0.0.0-20211023085530-d6a326fbbf70 // indirect
+	golang.org/x/sys v0.0.0-20211025112917-711f33c9992c // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/ini.v1 v1.63.2 // indirect
 )
