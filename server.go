@@ -307,6 +307,15 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				return true
 			}
 
+			// noticed those urls in logs
+			if strings.HasPrefix(uri, "/blog.kowalczyk.info/") {
+				newURI := strings.TrimPrefix(uri, "/blog.kowalczyk.info")
+				ref := r.Header.Get("Referer")
+				logf(ctx(), "redirecting '%s' => '%s', referer: '%s'\n", uri, newURI, ref)
+				http.Redirect(&cw, r, newURI, http.StatusTemporaryRedirect)
+				return true
+			}
+
 			if ri, ok := redirects[uri]; ok {
 				http.Redirect(&cw, r, ri.URL, ri.Code)
 				return true
