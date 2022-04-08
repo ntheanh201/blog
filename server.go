@@ -292,18 +292,20 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 	mainHandler := func(w http.ResponseWriter, r *http.Request) {
 		//logf(ctx(), "mainHandler: '%s'\n", r.RequestURI)
 		timeStart := time.Now()
-		cw := httputil.CapturingResponseWriter{ResponseWriter: w}
+		cw := &httputil.CapturingResponseWriter{ResponseWriter: w}
+		w = cw
 
 		defer func() {
 			if p := recover(); p != nil {
 				logf(ctx(), "mainHandler: panicked with with %v\n", p)
-				http.Error(&cw, fmt.Sprintf("Error: %v", p), http.StatusInternalServerError)
+				http.Error(w, fmt.Sprintf("Error: %v", p), http.StatusInternalServerError)
+				return
 			}
 			logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
 		}()
 
 		tryServeRedirect := func(uri string) bool {
-			if server.TryServeBadClient(&cw, r) {
+			if server.TryServeBadClient(w, r) {
 				return true
 			}
 
@@ -312,12 +314,12 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				newURI := strings.TrimPrefix(uri, "/blog.kowalczyk.info")
 				ref := r.Header.Get("Referer")
 				logf(ctx(), "redirecting '%s' => '%s', referer: '%s'\n", uri, newURI, ref)
-				http.Redirect(&cw, r, newURI, http.StatusTemporaryRedirect)
+				http.Redirect(w, r, newURI, http.StatusTemporaryRedirect)
 				return true
 			}
 
 			if ri, ok := redirects[uri]; ok {
-				http.Redirect(&cw, r, ri.URL, ri.Code)
+				http.Redirect(w, r, ri.URL, ri.Code)
 				return true
 			}
 
@@ -325,12 +327,12 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 				prefix := prefixRedirects[i]
 				if strings.HasPrefix(uri, prefix) {
 					redirectURL := prefixRedirects[i+1]
-					http.Redirect(&cw, r, redirectURL, http.StatusTemporaryRedirect)
+					http.Redirect(w, r, redirectURL, http.StatusTemporaryRedirect)
 					return true
 				}
 			}
 
-			return tryServeArticleRedirect(srv, &cw, r)
+			return tryServeArticleRedirect(srv, w, r)
 		}
 
 		uri := r.URL.Path
@@ -340,32 +342,32 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			if uri == "/cheatsheets/" {
 				redirectURL = "https://referenceguide.dev"
 			}
-			http.Redirect(&cw, r, redirectURL, http.StatusTemporaryRedirect)
+			http.Redirect(w, r, redirectURL, http.StatusTemporaryRedirect)
 			return
 		}
 
 		if strings.HasPrefix(uri, "/gitoembed") {
 			if uri == "/gitoembed/widget" {
-				handleGitOembedWidget(&cw, r)
+				handleGitOembedWidget(w, r)
 				return
 			}
 			if uri == "/gitoembed/oembed" {
-				handleGitOembedOembed(&cw, r)
+				handleGitOembedOembed(w, r)
 				return
 			}
-			handleGitOembedIndex(&cw, r)
+			handleGitOembedIndex(w, r)
 			return
 		}
 
 		if strings.HasPrefix(uri, "/xmltogo") {
 			if uri == "/xmltogo/dlxml" {
-				handleXMLToGoDownloadXML(&cw, r)
+				handleXMLToGoDownloadXML(w, r)
 			}
 			if uri == "/xmltogo/convert" {
-				handleXMLToGoConvert(&cw, r)
+				handleXMLToGoConvert(w, r)
 				return
 			}
-			handleXMLToGoIndex(&cw, r)
+			handleXMLToGoIndex(w, r)
 			return
 		}
 
@@ -376,10 +378,10 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 					return
 				}
 			}
-			serve(&cw, r)
+			serve(w, r)
 			return
 		}
-		http.NotFound(&cw, r)
+		http.NotFound(w, r)
 	}
 
 	httpSrv := &http.Server{
