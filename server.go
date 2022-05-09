@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kjk/common/httputil"
+	"github.com/felixge/httpsnoop"
 	"github.com/kjk/common/server"
 )
 
@@ -291,18 +291,6 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 
 	mainHandler := func(w http.ResponseWriter, r *http.Request) {
 		//logf(ctx(), "mainHandler: '%s'\n", r.RequestURI)
-		timeStart := time.Now()
-		cw := &httputil.CapturingResponseWriter{ResponseWriter: w}
-		w = cw
-
-		defer func() {
-			if p := recover(); p != nil {
-				logf(ctx(), "mainHandler: panicked with with %v\n", p)
-				http.Error(w, fmt.Sprintf("Error: %v", p), http.StatusInternalServerError)
-				return
-			}
-			logHTTPReq(r, cw.StatusCode, cw.Size, time.Since(timeStart))
-		}()
 
 		tryServeRedirect := func(uri string) bool {
 			if server.TryServeBadClient(w, r) {
@@ -384,11 +372,24 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		http.NotFound(w, r)
 	}
 
+	handlerWithMetrics := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		m := httpsnoop.CaptureMetrics(http.HandlerFunc(mainHandler), w, r)
+		defer func() {
+			if p := recover(); p != nil {
+				logf(ctx(), "mainHandler: panicked with with %v\n", p)
+				errStr := fmt.Sprintf("Error: %v", p)
+				http.Error(w, errStr, http.StatusInternalServerError)
+				return
+			}
+			logHTTPReq(r, m.Code, m.Written, m.Duration)
+		}()
+	})
+
 	httpSrv := &http.Server{
 		ReadTimeout:  120 * time.Second,
 		WriteTimeout: 120 * time.Second,
 		IdleTimeout:  120 * time.Second, // introduced in Go 1.8
-		Handler:      http.HandlerFunc(mainHandler),
+		Handler:      handlerWithMetrics,
 	}
 	httpSrv.Addr = httpAddr
 	return httpSrv
