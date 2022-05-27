@@ -293,7 +293,7 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 		//logf(ctx(), "mainHandler: '%s'\n", r.RequestURI)
 
 		tryServeRedirect := func(uri string) bool {
-			if server.TryServeBadClient(w, r) {
+			if server.TryServeBadClient(w, r, nil) {
 				return true
 			}
 
