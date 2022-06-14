@@ -117,6 +117,12 @@ func main() {
 
 	if flgCiDaily {
 		var cmd *exec.Cmd
+		// once a day re-download everything from Notion from scratch
+		// checkin if files changed
+		// and deploy to cloudflare if changed
+		ghToken := os.Getenv("GITHUB_TOKEN")
+		panicIf(ghToken == "", "GITHUB_TOKEN env variable missing")
+		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
 
 		{
 			// not sure if needed
@@ -124,14 +130,9 @@ func main() {
 			runCmdLoggedMust(cmd)
 		}
 
-		// once a day re-download everything from Notion from scratch
-		// checkin if files changed
-		// and deploy to cloudflare if changed
-		ghToken := os.Getenv("GITHUB_TOKEN")
-		panicIf(ghToken == "", "GITHUB_TOKEN env variable missing")
-		panicIf(os.Getenv("NOTION_TOKEN") == "", "NOTION_TOKEN env variable missing")
-		cachingPolicy = notionapi.PolicyCacheOnly
-		genHTMLServer(dirWwwGenerated)
+		cachingPolicy = notionapi.PolicyDownloadNewer
+		cc := getNotionCachingClient()
+		_ = loadArticles(cc)
 		{
 			cmd = exec.Command("git", "status")
 			s := runCmdMust(cmd)
