@@ -1,4 +1,4 @@
-9664 noahttpcache
+9872 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/syncRecordValues
 Body:+162
@@ -13,7 +13,7 @@ Body:+162
     }
   ]
 }
-Response:+9412
+Response:+9620
 {
   "recordMap": {
     "block": {
@@ -22,7 +22,11 @@ Response:+9412
         "value": {
           "alive": true,
           "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
             "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
             "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
             "7118e4a0-4689-4435-811e-c74f1ec01dad",
             "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
@@ -184,7 +188,7 @@ Response:+9412
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
+          "last_edited_time": 1656537120000,
           "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
           "parent_table": "block",
           "properties": {
@@ -194,13 +198,13 @@ Response:+9412
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 168
+          "version": 174
         }
       }
     }
   }
 }
-81865 noahttpcache
+56721 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+166
@@ -215,27 +219,20 @@ Body:+166
   },
   "verticalColumns": false
 }
-Response:+81605
+Response:+56461
 {
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 47,
+          "index": 30,
           "table": "block"
         }
       ],
       [
         {
-          "id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "index": 3,
-          "table": "block"
-        }
-      ],
-      [
-        {
-          "id": "fc904a28-771f-4003-9269-3b4547ea9f64",
+          "id": "bdfe56bd-6230-434c-8147-16a52796125d",
           "index": 0,
           "table": "block"
         }
@@ -277,35 +274,6 @@ Response:+81605
           "version": 3
         }
       },
-      "0cb3815a-ec11-40df-bcbb-74b02ae947b5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "07bcd7cd-fdf8-402f-9d09-ec54953fa208",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493537,
-          "format": {
-            "copied_from_pointer": {
-              "id": "07bcd7cd-fdf8-402f-9d09-ec54953fa208",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "0cb3815a-ec11-40df-bcbb-74b02ae947b5",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Here are other people’s pages:"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "0f31efd5-35ec-4ea3-9284-1fff16a7037c": {
         "role": "editor",
         "value": {
@@ -334,37 +302,6 @@ Response:+81605
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
-          "version": 3
-        }
-      },
-      "1032e839-0492-419d-87cf-0d77d8563544": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "82178f51-82ff-4312-8652-5a4a693cb36e",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500758,
-          "format": {
-            "copied_from_pointer": {
-              "id": "82178f51-82ff-4312-8652-5a4a693cb36e",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "1032e839-0492-419d-87cf-0d77d8563544",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Oops, I did it again. It’s getting recursive in here."]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
           "version": 3
         }
       },
@@ -420,35 +357,6 @@ Response:+81605
           "version": 5
         }
       },
-      "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "ff09401c-dad7-4feb-b39a-707d27094720",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500757,
-          "format": {
-            "copied_from_pointer": {
-              "id": "ff09401c-dad7-4feb-b39a-707d27094720",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["That’s luck."]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "21efd5ad-ea38-4dc4-bbb0-4f0728206035": {
         "role": "editor",
         "value": {
@@ -480,40 +388,6 @@ Response:+81605
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 3
-        }
-      },
-      "24a8c516-e886-47c5-ae9c-dbc1bc889e06": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "aea75866-5f6b-4ad3-b3b8-d609aa4d119c",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493537,
-          "format": {
-            "copied_from_pointer": {
-              "id": "aea75866-5f6b-4ad3-b3b8-d609aa4d119c",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "24a8c516-e886-47c5-ae9c-dbc1bc889e06",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "https://www.johndcook.com/blog/contact/",
-                [["a", "https://www.johndcook.com/blog/contact/"]]
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 4
         }
       },
       "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
@@ -590,35 +464,6 @@ Response:+81605
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 30
-        }
-      },
-      "2f62b3ec-1ef1-4327-8c13-a19d921d81b3": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "e291ecd3-94e8-4f94-bc91-060f33e2cccc",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500759,
-          "format": {
-            "copied_from_pointer": {
-              "id": "e291ecd3-94e8-4f94-bc91-060f33e2cccc",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "2f62b3ec-1ef1-4327-8c13-a19d921d81b3",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "parent_table": "block",
-          "properties": {
-            "title": [["your Twitter profile"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
         }
       },
       "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
@@ -741,41 +586,6 @@ Response:+81605
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "sub_header",
-          "version": 3
-        }
-      },
-      "435c2318-b8d6-4df7-a018-91d858f0512f": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "8ed82685-7b54-43e5-a296-3d1af9f1dc47",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500758,
-          "format": {
-            "copied_from_pointer": {
-              "id": "8ed82685-7b54-43e5-a296-3d1af9f1dc47",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "435c2318-b8d6-4df7-a018-91d858f0512f",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Did you notice how few paragraphs above I mentioned "],
-              ["Filerion", [["a", "https://filerion.com/"]]],
-              [
-                ", a web-based file manager for online storage like Dropbox and S3? "
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
           "version": 3
         }
       },
@@ -1117,39 +927,6 @@ Response:+81605
           "version": 423
         }
       },
-      "5951db13-3450-4f19-aaaa-0ec0c56494f8": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "4914858b-defe-4f4a-9adf-e11ff862f418",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500758,
-          "format": {
-            "copied_from_pointer": {
-              "id": "4914858b-defe-4f4a-9adf-e11ff862f418",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "5951db13-3450-4f19-aaaa-0ec0c56494f8",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Most of the things will not lead to job offers but all you need is one job to make this worthwhile."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "62dff1a2-9771-4639-b379-c56a92cfd89f": {
         "role": "editor",
         "value": {
@@ -1176,39 +953,6 @@ Response:+81605
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
-          "version": 3
-        }
-      },
-      "644b9a95-e309-449b-a8e4-dc18a6ce231e": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "10ee4b7b-77c2-44c8-ad3a-dfd6ddf4ec37",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500758,
-          "format": {
-            "copied_from_pointer": {
-              "id": "10ee4b7b-77c2-44c8-ad3a-dfd6ddf4ec37",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "644b9a95-e309-449b-a8e4-dc18a6ce231e",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Here are few ideas for increasing luck surface area or programmers looking for a freelance job:"
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
           "version": 3
         }
       },
@@ -1241,39 +985,6 @@ Response:+81605
               ["Filerion", [["a", "https://filerion.com/"]]],
               [
                 ", a web-based file manager for online storage like Dropbox and S3."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "088e15ae-7d18-44ac-b28e-280b94c2a505",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493537,
-          "format": {
-            "copied_from_pointer": {
-              "id": "088e15ae-7d18-44ac-b28e-280b94c2a505",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Antonio created more than enough stuff to show that he is a capable developer. He should create a similar web page pitching himself as a web or React or Mac developer."
               ]
             ]
           },
@@ -1412,39 +1123,6 @@ Response:+81605
           "version": 3
         }
       },
-      "74890996-7ea2-4c80-be0c-28aa17208e58": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "56626526-ea7b-4384-a2f6-b76b6e8d20f5",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500758,
-          "format": {
-            "copied_from_pointer": {
-              "id": "56626526-ea7b-4384-a2f6-b76b6e8d20f5",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "74890996-7ea2-4c80-be0c-28aa17208e58",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Listen to Wayne Gretzky: you miss 100% of the shots you don't take."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "748ac5fd-aa03-45f5-a1e7-96d0a283a01d": {
         "role": "editor",
         "value": {
@@ -1539,6 +1217,1341 @@ Response:+81605
             "title": [
               [
                 "I’m claiming that you get 80% of value from having a decent page in the first place. The remaining 20% would be in refining your pitch."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "971d1bf4-7d9f-4089-9460-20e6f9523193": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "e867f7e9-e9e8-49d6-b9f2-ecc137fe5b70",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493536,
+          "format": {
+            "copied_from_pointer": {
+              "id": "e867f7e9-e9e8-49d6-b9f2-ecc137fe5b70",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "971d1bf4-7d9f-4089-9460-20e6f9523193",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["social proof (list of well-known companies I worked at)"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "a668eb30-161e-4337-8753-634c84b4951b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "bf53ef78-be00-4a7d-8521-cf6fd3b18fe8",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493536,
+          "format": {
+            "copied_from_pointer": {
+              "id": "bf53ef78-be00-4a7d-8521-cf6fd3b18fe8",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "a668eb30-161e-4337-8753-634c84b4951b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["The important basics of such page:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "afc4042a-f79b-472e-ace7-792080325a03": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "9b8e023c-4066-4d8f-8089-6dfa67af1da3",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493536,
+          "format": {
+            "copied_from_pointer": {
+              "id": "9b8e023c-4066-4d8f-8089-6dfa67af1da3",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "afc4042a-f79b-472e-ace7-792080325a03",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["my time zone because it’s important in remote work"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "b358ca0d-2a33-4cec-b24e-494b21ea76d0": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "567686f7-cab2-4414-9a3e-67bbf11fd0b8",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493535,
+          "format": {
+            "copied_from_pointer": {
+              "id": "567686f7-cab2-4414-9a3e-67bbf11fd0b8",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "b358ca0d-2a33-4cec-b24e-494b21ea76d0",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["When I was looking for a job, I was promoting "],
+              [
+                "I’m a Go consultant for hire",
+                [["a", "https://blog.kowalczyk.info/goconsultantforhire.html"]]
+              ],
+              [" page."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "bdfe56bd-6230-434c-8147-16a52796125d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "e82b501b-ef8c-4112-ab58-7257eff2713d",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493536,
+          "format": {
+            "copied_from_pointer": {
+              "id": "e82b501b-ef8c-4112-ab58-7257eff2713d",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "bdfe56bd-6230-434c-8147-16a52796125d",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["and a photo for that human connection"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "d6ebc350-2f8b-4b53-b05e-2e64224f52cd": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "46749330-a662-4bcb-88a6-1b9365536f08",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493535,
+          "format": {
+            "copied_from_pointer": {
+              "id": "46749330-a662-4bcb-88a6-1b9365536f08",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "d6ebc350-2f8b-4b53-b05e-2e64224f52cd",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "A potential employer should be able to learn about what you offer, at what price and why you’re the right person for their job."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "d78374fe-10ca-4f6a-9ca2-7569d61d5f43": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "13c3ed43-c6fa-47db-a3f2-265cdfb8743e",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536483126,
+          "format": {
+            "copied_from_pointer": {
+              "id": "13c3ed43-c6fa-47db-a3f2-265cdfb8743e",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["First a caveat: it only works if you are a good programmer."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "dec938c8-d018-482f-aa56-d6cf753dc0c0": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "e0b61285-e18f-48b9-916e-a48087ab8072",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536483127,
+          "format": {
+            "copied_from_pointer": {
+              "id": "e0b61285-e18f-48b9-916e-a48087ab8072",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "dec938c8-d018-482f-aa56-d6cf753dc0c0",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "A developer writing good code with proven ability to ship products should be in high demand."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "eb27d38e-8266-4fa4-b954-0f37168c5f4f": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "a6fa1dcd-d800-48c0-9c5b-882d456a7d6e",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536483127,
+          "format": {
+            "copied_from_pointer": {
+              "id": "a6fa1dcd-d800-48c0-9c5b-882d456a7d6e",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "eb27d38e-8266-4fa4-b954-0f37168c5f4f",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "He created 3 non-trivial Mac OS apps, written in web technologies / React and packaged with Electron."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "8a622723-3f3d-4487-911b-6fa5b8e07e4d",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493535,
+          "format": {
+            "copied_from_pointer": {
+              "id": "8a622723-3f3d-4487-911b-6fa5b8e07e4d",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "I believe that many capable people don’t succeed as much as they could not because they fail to do something brilliant but because they fail the basics."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "1d2300a9-f1b9-483c-9887-9552f2acd036",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536483127,
+          "format": {
+            "copied_from_pointer": {
+              "id": "1d2300a9-f1b9-483c-9887-9552f2acd036",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["His code looks good. "]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      }
+    },
+    "space": {
+      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
+        "role": "editor",
+        "value": {
+          "beta_enabled": false,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1537253154666,
+          "disable_export": false,
+          "disable_guests": false,
+          "disable_move_to_space": false,
+          "disable_public_access": false,
+          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
+          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "invite_link_enabled": false,
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1652978220000,
+          "name": "Main",
+          "pages": [
+            "381f674e-a6ce-4131-9d98-90967b1d3c14",
+            "581f70b2-4002-4e31-a140-46f50934535d",
+            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
+            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
+            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
+            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
+            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
+            "f75e0224-3821-4f6d-b879-e54a79bef338",
+            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
+            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
+            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
+            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
+            "bd92f136-bc09-4316-97b0-ac8f7a674961",
+            "55542511-1762-4f73-b4a5-790fd0c1daec",
+            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
+          ],
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            }
+          ],
+          "plan_type": "personal",
+          "version": 346
+        }
+      }
+    }
+  }
+}
+57628 noahttpcache
+Method: POST
+URL: https://www.notion.so/api/v3/loadCachedPageChunk
+Body:+455
+{
+  "page": {
+    "id": "4682085a-f50b-41f8-8460-593d21db6182"
+  },
+  "chunkNumber": 1,
+  "limit": 30,
+  "cursor": {
+    "stack": [
+      [
+        {
+          "id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "index": 30,
+          "table": "block"
+        }
+      ],
+      [
+        {
+          "id": "bdfe56bd-6230-434c-8147-16a52796125d",
+          "index": 0,
+          "table": "block"
+        }
+      ]
+    ]
+  },
+  "verticalColumns": false
+}
+Response:+57079
+{
+  "cursor": {
+    "stack": [
+      [
+        {
+          "id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "index": 52,
+          "table": "block"
+        }
+      ],
+      [
+        {
+          "id": "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
+          "index": 1,
+          "table": "block"
+        }
+      ],
+      [
+        {
+          "id": "bdb76d94-e228-468c-bba9-4d5217801385",
+          "index": 0,
+          "table": "block"
+        }
+      ]
+    ]
+  },
+  "recordMap": {
+    "block": {
+      "04ccc32b-6295-4a85-8d3a-3c4cb9123b0e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "6eb84852-ceff-444d-8287-8c7dda709281",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "6eb84852-ceff-444d-8287-8c7dda709281",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "04ccc32b-6295-4a85-8d3a-3c4cb9123b0e",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_table": "block",
+          "properties": {
+            "title": [["your linkedin profile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "0cb3815a-ec11-40df-bcbb-74b02ae947b5": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "07bcd7cd-fdf8-402f-9d09-ec54953fa208",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493537,
+          "format": {
+            "copied_from_pointer": {
+              "id": "07bcd7cd-fdf8-402f-9d09-ec54953fa208",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "0cb3815a-ec11-40df-bcbb-74b02ae947b5",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Here are other people’s pages:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "0d5de8c0-aec9-489c-862a-0c75fdfe4b20": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "4103f1b9-a09c-4611-bd54-7903b3055731",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "4103f1b9-a09c-4611-bd54-7903b3055731",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "0d5de8c0-aec9-489c-862a-0c75fdfe4b20",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_table": "block",
+          "properties": {
+            "title": [["your reddit profile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "1032e839-0492-419d-87cf-0d77d8563544": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "82178f51-82ff-4312-8652-5a4a693cb36e",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500758,
+          "format": {
+            "copied_from_pointer": {
+              "id": "82178f51-82ff-4312-8652-5a4a693cb36e",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "1032e839-0492-419d-87cf-0d77d8563544",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Oops, I did it again. It’s getting recursive in here."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "ff09401c-dad7-4feb-b39a-707d27094720",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500757,
+          "format": {
+            "copied_from_pointer": {
+              "id": "ff09401c-dad7-4feb-b39a-707d27094720",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["That’s luck."]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "21efd5ad-ea38-4dc4-bbb0-4f0728206035": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "b261e310-fe44-4646-ada0-c61c87407f80",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493536,
+          "format": {
+            "copied_from_pointer": {
+              "id": "b261e310-fe44-4646-ada0-c61c87407f80",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "21efd5ad-ea38-4dc4-bbb0-4f0728206035",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "provide proof that you’re good at it. In my case I linked to my past writing about Go, my open source Go libraries and a Go contract I successfully completed"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "24a8c516-e886-47c5-ae9c-dbc1bc889e06": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "aea75866-5f6b-4ad3-b3b8-d609aa4d119c",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493537,
+          "format": {
+            "copied_from_pointer": {
+              "id": "aea75866-5f6b-4ad3-b3b8-d609aa4d119c",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "24a8c516-e886-47c5-ae9c-dbc1bc889e06",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "https://www.johndcook.com/blog/contact/",
+                [["a", "https://www.johndcook.com/blog/contact/"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 4
+        }
+      },
+      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
+            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
+            "7495260a-1daa-4611-8858-ad2e049e77e6",
+            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
+            "8dd9c2c0-4130-47c5-89a3-21b1ccba7129",
+            "4b1f9201-1813-4009-9b69-8246857ea98d",
+            "3a6ae619-0bdf-49be-88ef-4e73b3445a0d",
+            "e00e89c3-841e-4f8c-8c76-9a78b8a90b47",
+            "71571247-8e8d-4dba-b6b7-c140c8f5e76e",
+            "123e3429-1243-49e7-ba60-df0912cfa1b7",
+            "de13a71a-392f-488b-9352-b300b3ed722d",
+            "a62973da-ec67-4e31-b827-908636f1e522",
+            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
+            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
+            "4d625835-41be-43c9-b94b-a87da9feeee7",
+            "ed25f870-79cc-4b0b-9080-460e062053e4",
+            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c",
+            "67ae62b1-8760-4e3f-bd20-846303f84dc5",
+            "3a1779d4-86b4-4747-aa92-a0f20f099953",
+            "8ff5980e-e9b4-4a8f-b513-1268e7c47303",
+            "99982171-8c60-4eb5-93cb-eba9ad0920bc",
+            "ab5c864a-8ccd-4d8a-a10a-b30f5d89c0e9"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530921610129,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1629099420000,
+          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "parent_table": "block",
+          "properties": {
+            "title": [["Words written by me"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 297
+        }
+      },
+      "27a53e51-ea78-44c4-bf4c-48099c8e1151": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "4682085a-f50b-41f8-8460-593d21db6182",
+            "96a4706e-c8e4-4bc4-b0ba-fda2d9ba502f"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1649810460000,
+          "id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
+          "parent_table": "block",
+          "properties": {
+            "title": [["2022 (2)"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "toggle",
+          "version": 30
+        }
+      },
+      "2f62b3ec-1ef1-4327-8c13-a19d921d81b3": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "e291ecd3-94e8-4f94-bc91-060f33e2cccc",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "e291ecd3-94e8-4f94-bc91-060f33e2cccc",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "2f62b3ec-1ef1-4327-8c13-a19d921d81b3",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_table": "block",
+          "properties": {
+            "title": [["your Twitter profile"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "27a53e51-ea78-44c4-bf4c-48099c8e1151",
+            "50845d2e-2137-4f69-8c95-5391326a7f92",
+            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
+            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
+            "56757391-fba8-45bc-8551-262f3c9f81f2",
+            "20614047-3601-4b54-bd82-edd8b58e6b43",
+            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
+            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
+            "981d650d-2df1-4162-a739-d788c628cdcf",
+            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
+            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
+            "b059308f-5cc3-43fb-af19-9c71ae359418",
+            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
+            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
+            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
+            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
+            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
+            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
+            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
+            "7e948259-8dd7-4bf7-8f03-a7833279f444",
+            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1530157233456,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
+          "parent_table": "block",
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            }
+          ],
+          "properties": {
+            "title": [["blog posts"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 1987
+        }
+      },
+      "3c84623e-87ee-4c59-9b84-b00a8870e51e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "60a1caf9-c93b-4272-a38d-c399a7130b10",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "60a1caf9-c93b-4272-a38d-c399a7130b10",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "3c84623e-87ee-4c59-9b84-b00a8870e51e",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_table": "block",
+          "properties": {
+            "title": [["a footnote on every page on your website"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "3d952890-4a3e-4eb5-b3b2-fc4795116c02": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "4a7dbe6c-c19b-4b90-a625-e361b5c1d4c7",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "4a7dbe6c-c19b-4b90-a625-e361b5c1d4c7",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "3d952890-4a3e-4eb5-b3b2-fc4795116c02",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_table": "block",
+          "properties": {
+            "title": [["readme of every open source project you publish"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "435c2318-b8d6-4df7-a018-91d858f0512f": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "8ed82685-7b54-43e5-a296-3d1af9f1dc47",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500758,
+          "format": {
+            "copied_from_pointer": {
+              "id": "8ed82685-7b54-43e5-a296-3d1af9f1dc47",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "435c2318-b8d6-4df7-a018-91d858f0512f",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Did you notice how few paragraphs above I mentioned "],
+              ["Filerion", [["a", "https://filerion.com/"]]],
+              [
+                ", a web-based file manager for online storage like Dropbox and S3? "
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "4682085a-f50b-41f8-8460-593d21db6182": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
+            "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
+            "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
+            "7118e4a0-4689-4435-811e-c74f1ec01dad",
+            "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
+            "4967d524-d0ae-4493-badd-2e537c08b966",
+            "eb27d38e-8266-4fa4-b954-0f37168c5f4f",
+            "6c0579bc-ded4-4110-a398-78f9ba1a5e7a",
+            "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23",
+            "4f0271f4-44aa-4d32-ac2c-eb3920b3da46",
+            "dec938c8-d018-482f-aa56-d6cf753dc0c0",
+            "50dade00-eb69-41f7-a693-cef58c406c2c",
+            "139889bb-9808-43f4-a7fc-5aee25e247b7",
+            "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1",
+            "3818afff-8e83-418c-a101-e40a66218248",
+            "3a303f74-bed9-40a9-a91a-58bef485df18",
+            "743ef725-af8e-4f25-84c1-654ec24307db",
+            "d6ebc350-2f8b-4b53-b05e-2e64224f52cd",
+            "035c4c07-3180-4ec5-8f78-70f67dbcc36d",
+            "65b2461f-df0b-4cee-bdfe-01be68cff1a2",
+            "b358ca0d-2a33-4cec-b24e-494b21ea76d0",
+            "1264b193-65cd-4447-911b-6262a064a45a",
+            "7f0f3dca-597f-47ab-99f3-ed0d04f724e9",
+            "a668eb30-161e-4337-8753-634c84b4951b",
+            "748ac5fd-aa03-45f5-a1e7-96d0a283a01d",
+            "62dff1a2-9771-4639-b379-c56a92cfd89f",
+            "0f31efd5-35ec-4ea3-9284-1fff16a7037c",
+            "21efd5ad-ea38-4dc4-bbb0-4f0728206035",
+            "971d1bf4-7d9f-4089-9460-20e6f9523193",
+            "afc4042a-f79b-472e-ace7-792080325a03",
+            "bdfe56bd-6230-434c-8147-16a52796125d",
+            "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8",
+            "0cb3815a-ec11-40df-bcbb-74b02ae947b5",
+            "24a8c516-e886-47c5-ae9c-dbc1bc889e06",
+            "b2cee2d4-c404-4573-961a-b648e5bed7fb",
+            "e031a358-8909-4af5-89d7-c3b8fa546ac8",
+            "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c",
+            "a1d34439-dc0c-403d-857b-427b6bb46880",
+            "9b0cb374-2188-4436-9e12-b1fa379086b9",
+            "435c2318-b8d6-4df7-a018-91d858f0512f",
+            "d1945b93-1655-4041-abcb-e22160b2bd0f",
+            "1032e839-0492-419d-87cf-0d77d8563544",
+            "d1247156-90ae-4649-bd97-0bca3f0b9e7b",
+            "5951db13-3450-4f19-aaaa-0ec0c56494f8",
+            "74890996-7ea2-4c80-be0c-28aa17208e58",
+            "644b9a95-e309-449b-a8e4-dc18a6ce231e",
+            "82ceaba0-7932-4907-a3b2-5510e1154865",
+            "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+            "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
+            "6f358c9f-3c32-4201-b55d-6c2ff1b1c4ac",
+            "33e24613-6d8c-4bfd-8408-501d21730675",
+            "da2be9a0-42f4-471b-af3a-2b3271cc9292",
+            "74220611-cd9f-439d-86d4-aea8955e4df7",
+            "40cec0ae-2aba-4c9f-9dd1-bd0d0a59c824",
+            "6b8b95a5-c40c-4d08-903a-0ff43526a89e",
+            "9c4f8cfd-8e6d-4ff4-8a35-6eea078a1697",
+            "e502f34c-9df0-469d-be93-139356c8a146",
+            "0590d1fe-128d-4078-9407-0bb2fba1f95e",
+            "af9d7d7c-2d59-4bd2-9cba-c805f5200c86",
+            "e477df68-5b8f-4a80-9549-02e5db630085",
+            "cea8a320-2d8a-45c2-8bfb-7438310c474d",
+            "19dbb979-1399-4710-b763-fcb684b4ea1f",
+            "b78008d3-c28f-4207-a2d5-ec65ac3de4ac",
+            "43ffe9b5-ed56-443a-8813-e778fa7d7fe9",
+            "e3b870f6-4ea7-4725-bf41-41bb2428fc0c",
+            "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+            "284f90d9-69fc-4b24-a402-aeac3535a025",
+            "53835599-0a55-4c09-8047-d00c21520951",
+            "46baf00f-c02c-46e3-a53b-aedc90da56ca",
+            "29b8ad2f-f96d-41fd-95c3-6016cba1c492",
+            "d3a01d25-f26f-491e-873f-a6611e008501",
+            "7cb98fc3-9b03-4e37-92dc-19f6f55e0648",
+            "7ee9abc0-2652-4e3a-abcc-9ed41067e583",
+            "d016dc58-b9be-4fc4-ab04-78d6c75a23f3",
+            "9cb365af-62de-4204-9261-e508d7998901",
+            "2971c325-f6cc-4dfd-a1e6-86e70d87ce36",
+            "c84a0b86-d01d-4aab-a5ca-c8119c2560a3",
+            "d558e950-067e-4f6a-bd4e-1ef49e526408",
+            "79811dc2-dc14-4be6-8e14-6f2cb5256475",
+            "08d6e618-df4a-45fa-a6fd-483be50b6190",
+            "7bcbe1e0-d87d-4c35-89f5-cae90e59eb9f",
+            "bcd86855-59d1-47d3-b12b-86134929f9f8",
+            "f4804eff-13d2-430b-98c9-d529326d5492",
+            "0d3c8f96-4ee4-432c-b4c2-ca298ed201a1",
+            "b29e921b-b9c6-4cb4-8418-6f2572c1f0f2",
+            "8f77627b-b32e-464a-877f-e2a4b4033cf5",
+            "d367d11d-271a-449d-b6f5-af0da002d25a",
+            "603797d6-af0f-4586-a0df-f4c660c1db4e",
+            "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6",
+            "a4744c77-02a1-49e7-8adc-e7f6eb463f87",
+            "0ff913ac-55ef-4882-8f9d-1afd2a79727a",
+            "8bcfa2c6-dcc1-4063-a3be-7af66923c057",
+            "f81da6bc-072f-4469-bc33-bc5149a01d7a",
+            "e7e0228a-7f92-4f5d-a231-782a69e425af",
+            "1c7b075a-607d-4e4e-b33e-d62d4468a95e",
+            "2bebe7ee-48a4-438a-b1cc-0cf088d310b2",
+            "1bacc86c-4a12-4587-8af9-b4b0159b4af3",
+            "93012a30-08ba-40ce-8f92-cab3bcaa0559",
+            "46f0dbe4-1395-4492-a0a0-2bff8b66930e",
+            "327d0746-545e-4dbb-b8a2-64e3d0db7300",
+            "2ed67dd8-ef29-4fa6-afe5-4aaad9851fe2",
+            "acef3c82-de61-4c86-ab3b-51416c5e57f5",
+            "8e4e4c64-d01c-4753-8814-899410651f8e",
+            "749380d0-1571-4fe0-ba4a-710ae7009162",
+            "446b0406-7efa-4775-b75b-0b854ff4a074",
+            "fe42e63b-4809-4f57-87bb-20acdd89d195",
+            "0c731ecc-d816-474d-8042-6f6cbf329308",
+            "2d4c26a9-e63d-41d7-8616-a28c6edd00ba",
+            "ef280263-20bd-4217-93e3-fe9c83a51b5f",
+            "630a9068-b9f0-41ab-a228-045a5882014f",
+            "b1796aa3-8647-4541-a6b5-4a4e04c907cf",
+            "e09b1679-444a-4abe-8e77-8e6d38eb4a20",
+            "4771c8de-2228-4711-bec3-e910f420e9fa",
+            "1c8b6994-e543-4e94-bfc6-5771b7cd7d7c",
+            "ca4bef1f-2bf8-4b7a-b524-53e28e3f2a03",
+            "57f84134-5dbb-4c65-9152-e3e32aa30df1",
+            "a2001433-f778-4c16-b1cc-4e6d7bfe8710",
+            "7685a339-3b9f-4900-91a9-e66cdf37619f",
+            "e13c8bd1-875f-4b91-ab38-8c78740d8abd",
+            "aae25774-a8df-43fe-ba99-6b82b107a027",
+            "f0403007-8bf8-4e8e-ac11-ff2f8602a81d",
+            "fed007ee-8968-4f1a-a5cd-e1358e2c20da",
+            "d5a79cc2-1515-460f-9fea-4c1f482fbe28",
+            "c3e712f2-af69-4c8a-96d3-77104bec4658",
+            "e628929e-d77d-46ba-9301-fe4522630786",
+            "fbcc3d22-368f-45ff-bf3c-6c834753a6cc",
+            "9afacfcb-d4f7-417c-b8b1-2635601ef7a9",
+            "e0125b39-ede0-44b5-8f80-aa9f68f465ff",
+            "0cadeb6c-fb57-46b3-9d10-c541a1c5fb78",
+            "66d4ec39-0d2e-481c-9b99-fb7a32a4bf46",
+            "cb85e92f-67d6-4d93-ac1f-8b3159ff08c3",
+            "307a882c-484c-4e40-98dc-943cff3f7dd8",
+            "c3260b77-6be3-4fd2-bc70-72368d21f34d",
+            "f56bf111-ff5c-4584-a832-b26d91cb4529",
+            "5c9215f0-4f31-4b48-af77-326a5fca3eb0",
+            "f70a263a-5e6f-4c91-8ab6-f91003ed9f03",
+            "987fd825-f275-4beb-b34d-e0cd4ead32be",
+            "32faaa46-424e-4889-bc73-4d3b916d63df",
+            "dc0012f4-38d6-4cdb-8e17-f6aff19e2ddf",
+            "63adef13-f8d5-48eb-bd0e-5401fc6b65b6",
+            "528a1873-8af2-4e7a-8291-b424431c319c",
+            "f68be883-fa35-4cdd-b827-d6014e2eb93f",
+            "6ead407d-7a23-4c2c-800c-37dc9d56ae03",
+            "1ce77172-dd1b-4956-8fbe-8ccbc0360112",
+            "81ccc666-4e8b-4b5e-b4cf-0b8cc2ed1b0c",
+            "4faabb9a-37ab-4c99-adfc-66f9c22e854e",
+            "0ce02e8d-2dd2-478a-997a-44b4f7c82c1f",
+            "4c461c05-085e-4fcf-88d1-924cafe3896c",
+            "1a0ab418-aa90-4046-aba5-5607c8ecfddc",
+            "3a4208de-ac28-4e94-be86-9c3426f87333",
+            "1b756a85-b804-4aae-9939-342dfd9a0e67"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536463281,
+          "file_ids": ["c3919dd1-770d-4c58-9da7-b44723c39a9a"],
+          "format": {
+            "page_cover": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3919dd1-770d-4c58-9da7-b44723c39a9a/header-40.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220629%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220629T210332Z&X-Amz-Expires=86400&X-Amz-Signature=a866acece34b3a22b6a21dcfdfaf7170cd1d0f5988e19646a20b25a7d46bf0ef&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22header-40.jpg%22&x-id=GetObject",
+            "page_cover_position": 0.5
+          },
+          "id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656537120000,
+          "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Find programming work by increasing luck surface area"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 174
+        }
+      },
+      "568a0cc6-50e4-471c-aa0c-3da7e1140f4a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": ["bdb76d94-e228-468c-bba9-4d5217801385"],
+          "copied_from": "721a2338-104a-4e39-8d66-7bb25f15a748",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500759,
+          "format": {
+            "copied_from_pointer": {
+              "id": "721a2338-104a-4e39-8d66-7bb25f15a748",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "if appropriate, in your social comments. Every week there’s a HN discussion about terrible hiring practices in software. I’m sure you could make non-spammy comments that includes “BTW: if you’re looking for a expert X programmer, I’m available <link to your hire me web page>”"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "08e19004-306b-413a-ba6e-0e86a10fec7a",
+            "623523b6-7e15-48a0-b525-749d6921465c",
+            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
+            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
+            "4da97980-9fb6-45cb-886a-51c656751d35",
+            "aea20e01-890c-4874-ae08-4557d7789195",
+            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
+            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
+            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
+            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
+            "c5210d90-4251-437b-95d8-87da49bd8706",
+            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
+            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
+            "03ece883-f7df-4ce7-8596-73d04811479e",
+            "f5144c42-a3e5-4e47-9466-2c8ecdc0bcb6",
+            "30da6655-040f-47e6-93f8-e66eacd308c1"
+          ],
+          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1528059171080,
+          "format": {
+            "page_full_width": true,
+            "page_small_text": true
+          },
+          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
+          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141640000,
+          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "parent_table": "space",
+          "permissions": [
+            {
+              "role": "editor",
+              "type": "user_permission",
+              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
+            },
+            {
+              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
+              "role": {
+                "read_content": true
+              },
+              "type": "bot_permission"
+            }
+          ],
+          "properties": {
+            "title": [["Website"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "page",
+          "version": 423
+        }
+      },
+      "5951db13-3450-4f19-aaaa-0ec0c56494f8": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "4914858b-defe-4f4a-9adf-e11ff862f418",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500758,
+          "format": {
+            "copied_from_pointer": {
+              "id": "4914858b-defe-4f4a-9adf-e11ff862f418",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "5951db13-3450-4f19-aaaa-0ec0c56494f8",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Most of the things will not lead to job offers but all you need is one job to make this worthwhile."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "644b9a95-e309-449b-a8e4-dc18a6ce231e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "10ee4b7b-77c2-44c8-ad3a-dfd6ddf4ec37",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500758,
+          "format": {
+            "copied_from_pointer": {
+              "id": "10ee4b7b-77c2-44c8-ad3a-dfd6ddf4ec37",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "644b9a95-e309-449b-a8e4-dc18a6ce231e",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Here are few ideas for increasing luck surface area or programmers looking for a freelance job:"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "088e15ae-7d18-44ac-b28e-280b94c2a505",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536493537,
+          "format": {
+            "copied_from_pointer": {
+              "id": "088e15ae-7d18-44ac-b28e-280b94c2a505",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Antonio created more than enough stuff to show that he is a capable developer. He should create a similar web page pitching himself as a web or React or Mac developer."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "74890996-7ea2-4c80-be0c-28aa17208e58": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "56626526-ea7b-4384-a2f6-b76b6e8d20f5",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500758,
+          "format": {
+            "copied_from_pointer": {
+              "id": "56626526-ea7b-4384-a2f6-b76b6e8d20f5",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "74890996-7ea2-4c80-be0c-28aa17208e58",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Listen to Wayne Gretzky: you miss 100% of the shots you don't take."
               ]
             ]
           },
@@ -1722,35 +2735,6 @@ Response:+81605
           "version": 3
         }
       },
-      "a668eb30-161e-4337-8753-634c84b4951b": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "bf53ef78-be00-4a7d-8521-cf6fd3b18fe8",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493536,
-          "format": {
-            "copied_from_pointer": {
-              "id": "bf53ef78-be00-4a7d-8521-cf6fd3b18fe8",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "a668eb30-161e-4337-8753-634c84b4951b",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["The important basics of such page:"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "afc4042a-f79b-472e-ace7-792080325a03": {
         "role": "editor",
         "value": {
@@ -1801,40 +2785,37 @@ Response:+81605
           "version": 5
         }
       },
-      "b358ca0d-2a33-4cec-b24e-494b21ea76d0": {
+      "bdb76d94-e228-468c-bba9-4d5217801385": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "567686f7-cab2-4414-9a3e-67bbf11fd0b8",
+          "copied_from": "43b48f9c-6311-4493-aa12-b5ce630d3454",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536493535,
+          "created_time": 1656536500759,
           "format": {
             "copied_from_pointer": {
-              "id": "567686f7-cab2-4414-9a3e-67bbf11fd0b8",
+              "id": "43b48f9c-6311-4493-aa12-b5ce630d3454",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "b358ca0d-2a33-4cec-b24e-494b21ea76d0",
+          "id": "bdb76d94-e228-468c-bba9-4d5217801385",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_id": "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
           "parent_table": "block",
           "properties": {
             "title": [
-              ["When I was looking for a job, I was promoting "],
               [
-                "I’m a Go consultant for hire",
-                [["a", "https://blog.kowalczyk.info/goconsultantforhire.html"]]
-              ],
-              [" page."]
+                "all that is low probability but also low effort and it does increase your luck surface area"
+              ]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
+          "type": "bulleted_list",
+          "version": 2
         }
       },
       "bdfe56bd-6230-434c-8147-16a52796125d": {
@@ -1963,103 +2944,6 @@ Response:+81605
           "version": 3
         }
       },
-      "d6ebc350-2f8b-4b53-b05e-2e64224f52cd": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "46749330-a662-4bcb-88a6-1b9365536f08",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493535,
-          "format": {
-            "copied_from_pointer": {
-              "id": "46749330-a662-4bcb-88a6-1b9365536f08",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "d6ebc350-2f8b-4b53-b05e-2e64224f52cd",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "A potential employer should be able to learn about what you offer, at what price and why you’re the right person for their job."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "d78374fe-10ca-4f6a-9ca2-7569d61d5f43": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "13c3ed43-c6fa-47db-a3f2-265cdfb8743e",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536483126,
-          "format": {
-            "copied_from_pointer": {
-              "id": "13c3ed43-c6fa-47db-a3f2-265cdfb8743e",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["First a caveat: it only works if you are a good programmer."]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "dec938c8-d018-482f-aa56-d6cf753dc0c0": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "e0b61285-e18f-48b9-916e-a48087ab8072",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536483127,
-          "format": {
-            "copied_from_pointer": {
-              "id": "e0b61285-e18f-48b9-916e-a48087ab8072",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "dec938c8-d018-482f-aa56-d6cf753dc0c0",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "A developer writing good code with proven ability to ship products should be in high demand."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "e031a358-8909-4af5-89d7-c3b8fa546ac8": {
         "role": "editor",
         "value": {
@@ -2087,101 +2971,6 @@ Response:+81605
                 "You went to a React meetup, started a conversation with a random person. You talked about your React project, that random person needed a React developer and you got a contract gig out of that conversation."
               ]
             ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "eb27d38e-8266-4fa4-b954-0f37168c5f4f": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "a6fa1dcd-d800-48c0-9c5b-882d456a7d6e",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536483127,
-          "format": {
-            "copied_from_pointer": {
-              "id": "a6fa1dcd-d800-48c0-9c5b-882d456a7d6e",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "eb27d38e-8266-4fa4-b954-0f37168c5f4f",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "He created 3 non-trivial Mac OS apps, written in web technologies / React and packaged with Electron."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "8a622723-3f3d-4487-911b-6fa5b8e07e4d",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536493535,
-          "format": {
-            "copied_from_pointer": {
-              "id": "8a622723-3f3d-4487-911b-6fa5b8e07e4d",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "I believe that many capable people don’t succeed as much as they could not because they fail to do something brilliant but because they fail the basics."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "1d2300a9-f1b9-483c-9887-9552f2acd036",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536483127,
-          "format": {
-            "copied_from_pointer": {
-              "id": "1d2300a9-f1b9-483c-9887-9552f2acd036",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["His code looks good. "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -2269,7 +3058,7 @@ Response:+81605
     }
   }
 }
-59458 noahttpcache
+59893 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+597
@@ -2277,27 +3066,27 @@ Body:+597
   "page": {
     "id": "4682085a-f50b-41f8-8460-593d21db6182"
   },
-  "chunkNumber": 1,
+  "chunkNumber": 2,
   "limit": 30,
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 47,
+          "index": 52,
           "table": "block"
         }
       ],
       [
         {
-          "id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "index": 3,
+          "id": "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
+          "index": 1,
           "table": "block"
         }
       ],
       [
         {
-          "id": "fc904a28-771f-4003-9269-3b4547ea9f64",
+          "id": "bdb76d94-e228-468c-bba9-4d5217801385",
           "index": 0,
           "table": "block"
         }
@@ -2306,20 +3095,20 @@ Body:+597
   },
   "verticalColumns": false
 }
-Response:+58767
+Response:+59202
 {
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 64,
+          "index": 70,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e3b870f6-4ea7-4725-bf41-41bb2428fc0c",
+          "id": "284f90d9-69fc-4b24-a402-aeac3535a025",
           "index": 0,
           "table": "block"
         }
@@ -2328,35 +3117,6 @@ Response:+58767
   },
   "recordMap": {
     "block": {
-      "04ccc32b-6295-4a85-8d3a-3c4cb9123b0e": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "6eb84852-ceff-444d-8287-8c7dda709281",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500759,
-          "format": {
-            "copied_from_pointer": {
-              "id": "6eb84852-ceff-444d-8287-8c7dda709281",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "04ccc32b-6295-4a85-8d3a-3c4cb9123b0e",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "parent_table": "block",
-          "properties": {
-            "title": [["your linkedin profile"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
-        }
-      },
       "0590d1fe-128d-4078-9407-0bb2fba1f95e": {
         "role": "editor",
         "value": {
@@ -2409,35 +3169,6 @@ Response:+58767
           "parent_table": "block",
           "properties": {
             "title": [["every jobs site and forum"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
-        }
-      },
-      "0d5de8c0-aec9-489c-862a-0c75fdfe4b20": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "4103f1b9-a09c-4611-bd54-7903b3055731",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500759,
-          "format": {
-            "copied_from_pointer": {
-              "id": "4103f1b9-a09c-4611-bd54-7903b3055731",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "0d5de8c0-aec9-489c-862a-0c75fdfe4b20",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "parent_table": "block",
-          "properties": {
-            "title": [["your reddit profile"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -2551,6 +3282,44 @@ Response:+58767
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "toggle",
           "version": 30
+        }
+      },
+      "284f90d9-69fc-4b24-a402-aeac3535a025": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "182a8c43-31af-431a-b9b1-8d958ce0dea6",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500762,
+          "format": {
+            "copied_from_pointer": {
+              "id": "182a8c43-31af-431a-b9b1-8d958ce0dea6",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "284f90d9-69fc-4b24-a402-aeac3535a025",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["I used to write articles about Go and "],
+              [
+                "promote them on r/golang",
+                [["a", "https://www.reddit.com/user/kjk/?sort=top"]]
+              ],
+              [
+                ". Some of them would end up on Hacker News even without me submitting them."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
         }
       },
       "287cd4fe-e1d3-4349-99f4-985150b0facf": {
@@ -2732,64 +3501,6 @@ Response:+58767
           "version": 3
         }
       },
-      "3c84623e-87ee-4c59-9b84-b00a8870e51e": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "60a1caf9-c93b-4272-a38d-c399a7130b10",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500759,
-          "format": {
-            "copied_from_pointer": {
-              "id": "60a1caf9-c93b-4272-a38d-c399a7130b10",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "3c84623e-87ee-4c59-9b84-b00a8870e51e",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "parent_table": "block",
-          "properties": {
-            "title": [["a footnote on every page on your website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
-        }
-      },
-      "3d952890-4a3e-4eb5-b3b2-fc4795116c02": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "4a7dbe6c-c19b-4b90-a625-e361b5c1d4c7",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500759,
-          "format": {
-            "copied_from_pointer": {
-              "id": "4a7dbe6c-c19b-4b90-a625-e361b5c1d4c7",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "3d952890-4a3e-4eb5-b3b2-fc4795116c02",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-          "parent_table": "block",
-          "properties": {
-            "title": [["readme of every open source project you publish"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
-        }
-      },
       "40cec0ae-2aba-4c9f-9dd1-bd0d0a59c824": {
         "role": "editor",
         "value": {
@@ -2857,7 +3568,11 @@ Response:+58767
         "value": {
           "alive": true,
           "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
             "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
             "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
             "7118e4a0-4689-4435-811e-c74f1ec01dad",
             "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
@@ -3019,7 +3734,7 @@ Response:+58767
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
+          "last_edited_time": 1656537120000,
           "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
           "parent_table": "block",
           "properties": {
@@ -3029,7 +3744,7 @@ Response:+58767
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 168
+          "version": 174
         }
       },
       "481dc546-f2f2-42a8-9dc5-9e784de14aa5": {
@@ -3055,6 +3770,39 @@ Response:+58767
           "parent_table": "block",
           "properties": {
             "title": [["fiverr"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
+      "4880157c-3826-43f0-8851-43a14e1cba40": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "74924232-6e8a-4a8c-9636-17b1c8d38718",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500761,
+          "format": {
+            "copied_from_pointer": {
+              "id": "74924232-6e8a-4a8c-9636-17b1c8d38718",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "4880157c-3826-43f0-8851-43a14e1cba40",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "the article must create value. Self promotion can only be a cherry on top, not the sundae"
+              ]
+            ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -3288,45 +4036,38 @@ Response:+58767
           "version": 3
         }
       },
-      "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b": {
+      "9d64481a-1a00-4935-bafb-2b6b2cf02e73": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
-            "cc69d134-f32d-4915-9ddb-0b62be76cb5c",
-            "2f62b3ec-1ef1-4327-8c13-a19d921d81b3",
-            "fc904a28-771f-4003-9269-3b4547ea9f64",
-            "04ccc32b-6295-4a85-8d3a-3c4cb9123b0e",
-            "0d5de8c0-aec9-489c-862a-0c75fdfe4b20",
-            "3c84623e-87ee-4c59-9b84-b00a8870e51e",
-            "3d952890-4a3e-4eb5-b3b2-fc4795116c02"
+            "f4a2e9c9-8678-4dd3-8588-52759ddb4156",
+            "4880157c-3826-43f0-8851-43a14e1cba40",
+            "eb557414-f2fb-4355-b467-66b9a99c78cc",
+            "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5"
           ],
-          "copied_from": "a4454561-6980-4f3f-9b8e-d267c0237838",
+          "copied_from": "e6796f2c-c3d4-46f1-bcb6-94149a25747f",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500759,
+          "created_time": 1656536500761,
           "format": {
             "copied_from_pointer": {
-              "id": "a4454561-6980-4f3f-9b8e-d267c0237838",
+              "id": "e6796f2c-c3d4-46f1-bcb6-94149a25747f",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
           "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
           "parent_table": "block",
           "properties": {
-            "title": [
-              [
-                "put your pitch in every place that allows it. Just a short “Hire me for X. <link to hire me web page>”. \nWhere to put it?"
-              ]
-            ]
+            "title": [["The process is:"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
+          "type": "text",
           "version": 3
         }
       },
@@ -3357,6 +4098,35 @@ Response:+58767
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 3
+        }
+      },
+      "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "9f145161-a584-4687-8b5b-f689144fcd46",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500761,
+          "format": {
+            "copied_from_pointer": {
+              "id": "9f145161-a584-4687-8b5b-f689144fcd46",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+          "parent_table": "block",
+          "properties": {
+            "title": [["promote on relevant forums and websites"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
         }
       },
       "b729f83e-f0b7-46ce-90f0-419147a9d752": {
@@ -3650,6 +4420,35 @@ Response:+58767
           "version": 3
         }
       },
+      "eb557414-f2fb-4355-b467-66b9a99c78cc": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "eca68b75-5f10-41c0-a1e0-addb3e08e462",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500761,
+          "format": {
+            "copied_from_pointer": {
+              "id": "eca68b75-5f10-41c0-a1e0-addb3e08e462",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "eb557414-f2fb-4355-b467-66b9a99c78cc",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+          "parent_table": "block",
+          "properties": {
+            "title": [["tweet about it"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 2
+        }
+      },
       "f1d6c31b-752a-4860-8a2e-38c424d80441": {
         "role": "editor",
         "value": {
@@ -3679,29 +4478,33 @@ Response:+58767
           "version": 2
         }
       },
-      "fc904a28-771f-4003-9269-3b4547ea9f64": {
+      "f4a2e9c9-8678-4dd3-8588-52759ddb4156": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "e53278d3-f51a-4145-aeb6-c2f93085f47e",
+          "copied_from": "99806fb4-7576-4086-9619-5441426d4c0e",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500759,
+          "created_time": 1656536500761,
           "format": {
             "copied_from_pointer": {
-              "id": "e53278d3-f51a-4145-aeb6-c2f93085f47e",
+              "id": "99806fb4-7576-4086-9619-5441426d4c0e",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "fc904a28-771f-4003-9269-3b4547ea9f64",
+          "id": "f4a2e9c9-8678-4dd3-8588-52759ddb4156",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
-          "parent_id": "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
+          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
           "parent_table": "block",
           "properties": {
-            "title": [["your GitHub profile"]]
+            "title": [
+              ["write an article and publish on your website (or medium or "],
+              ["dev.to", [["a", "http://dev.to"]]],
+              [" or all the above)"]
+            ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
@@ -3760,7 +4563,7 @@ Response:+58767
     }
   }
 }
-59828 noahttpcache
+59985 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+455
@@ -3768,20 +4571,20 @@ Body:+455
   "page": {
     "id": "4682085a-f50b-41f8-8460-593d21db6182"
   },
-  "chunkNumber": 2,
+  "chunkNumber": 3,
   "limit": 30,
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 64,
+          "index": 70,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e3b870f6-4ea7-4725-bf41-41bb2428fc0c",
+          "id": "284f90d9-69fc-4b24-a402-aeac3535a025",
           "index": 0,
           "table": "block"
         }
@@ -3790,20 +4593,20 @@ Body:+455
   },
   "verticalColumns": false
 }
-Response:+59279
+Response:+59436
 {
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 88,
+          "index": 98,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6",
+          "id": "1c7b075a-607d-4e4e-b33e-d62d4468a95e",
           "index": 0,
           "table": "block"
         }
@@ -3875,6 +4678,72 @@ Response:+59279
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "0ff913ac-55ef-4882-8f9d-1afd2a79727a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "0a67eb5a-df39-4f38-893e-f2986fa279d3",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500764,
+          "format": {
+            "copied_from_pointer": {
+              "id": "0a67eb5a-df39-4f38-893e-f2986fa279d3",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "0ff913ac-55ef-4882-8f9d-1afd2a79727a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "There’s an infinite number of useful articles, open source packages or online tools that you can create."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "1c7b075a-607d-4e4e-b33e-d62d4468a95e": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "b380a2db-c9c6-49ab-8b9a-51925f224d06",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500765,
+          "format": {
+            "copied_from_pointer": {
+              "id": "b380a2db-c9c6-49ab-8b9a-51925f224d06",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "1c7b075a-607d-4e4e-b33e-d62d4468a95e",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "A decent goal would be to write and promote one article per week."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
           "version": 3
         }
       },
@@ -4123,7 +4992,11 @@ Response:+59279
         "value": {
           "alive": true,
           "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
             "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
             "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
             "7118e4a0-4689-4435-811e-c74f1ec01dad",
             "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
@@ -4285,7 +5158,7 @@ Response:+59279
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
+          "last_edited_time": 1656537120000,
           "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
           "parent_table": "block",
           "properties": {
@@ -4295,7 +5168,7 @@ Response:+59279
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 168
+          "version": 174
         }
       },
       "46baf00f-c02c-46e3-a53b-aedc90da56ca": {
@@ -4329,39 +5202,6 @@ Response:+59279
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 3
-        }
-      },
-      "4880157c-3826-43f0-8851-43a14e1cba40": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "74924232-6e8a-4a8c-9636-17b1c8d38718",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500761,
-          "format": {
-            "copied_from_pointer": {
-              "id": "74924232-6e8a-4a8c-9636-17b1c8d38718",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "4880157c-3826-43f0-8851-43a14e1cba40",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "the article must create value. Self promotion can only be a cherry on top, not the sundae"
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
         }
       },
       "53835599-0a55-4c09-8047-d00c21520951": {
@@ -4611,6 +5451,39 @@ Response:+59279
           "version": 3
         }
       },
+      "8bcfa2c6-dcc1-4063-a3be-7af66923c057": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "2565fb6e-3e64-4be5-ad5c-2e39897598bf",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500764,
+          "format": {
+            "copied_from_pointer": {
+              "id": "2565fb6e-3e64-4be5-ad5c-2e39897598bf",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "8bcfa2c6-dcc1-4063-a3be-7af66923c057",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "The only limit to how many leads you can generate using this process is the number of hours you’re willing to spend."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
       "8f77627b-b32e-464a-877f-e2a4b4033cf5": {
         "role": "editor",
         "value": {
@@ -4673,41 +5546,6 @@ Response:+59279
           "version": 3
         }
       },
-      "9d64481a-1a00-4935-bafb-2b6b2cf02e73": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "f4a2e9c9-8678-4dd3-8588-52759ddb4156",
-            "4880157c-3826-43f0-8851-43a14e1cba40",
-            "eb557414-f2fb-4355-b467-66b9a99c78cc",
-            "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5"
-          ],
-          "copied_from": "e6796f2c-c3d4-46f1-bcb6-94149a25747f",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500761,
-          "format": {
-            "copied_from_pointer": {
-              "id": "e6796f2c-c3d4-46f1-bcb6-94149a25747f",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["The process is:"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "a0d8b59d-10c9-41a5-9fb3-0c37bc54a543": {
         "role": "editor",
         "value": {
@@ -4748,6 +5586,39 @@ Response:+59279
           "version": 2
         }
       },
+      "a4744c77-02a1-49e7-8adc-e7f6eb463f87": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "5fc3640a-8fc1-4a03-81ac-1278acfcafd2",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500764,
+          "format": {
+            "copied_from_pointer": {
+              "id": "5fc3640a-8fc1-4a03-81ac-1278acfcafd2",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "a4744c77-02a1-49e7-8adc-e7f6eb463f87",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Notice that this is now a process: a set of actions you can repeat over and over again."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
       "b29e921b-b9c6-4cb4-8418-6f2572c1f0f2": {
         "role": "editor",
         "value": {
@@ -4775,35 +5646,6 @@ Response:+59279
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 3
-        }
-      },
-      "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "9f145161-a584-4687-8b5b-f689144fcd46",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500761,
-          "format": {
-            "copied_from_pointer": {
-              "id": "9f145161-a584-4687-8b5b-f689144fcd46",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "b3d84ad3-8941-43e5-bbaa-2467b80eb1a5",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
-          "parent_table": "block",
-          "properties": {
-            "title": [["promote on relevant forums and websites"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
         }
       },
       "bcd86855-59d1-47d3-b12b-86134929f9f8": {
@@ -4990,39 +5832,6 @@ Response:+59279
           "version": 3
         }
       },
-      "e3b870f6-4ea7-4725-bf41-41bb2428fc0c": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "55c3b5da-a994-449b-b680-30f8911a0552",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500761,
-          "format": {
-            "copied_from_pointer": {
-              "id": "55c3b5da-a994-449b-b680-30f8911a0552",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "e3b870f6-4ea7-4725-bf41-41bb2428fc0c",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Write articles on technologies you’re an expert on and promote them on relevant social media. "
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6": {
         "role": "editor",
         "value": {
@@ -5090,33 +5899,37 @@ Response:+59279
           "version": 2
         }
       },
-      "eb557414-f2fb-4355-b467-66b9a99c78cc": {
+      "e7e0228a-7f92-4f5d-a231-782a69e425af": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "eca68b75-5f10-41c0-a1e0-addb3e08e462",
+          "copied_from": "b944fb2a-d80e-4e8d-b65e-0b29bb56630c",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500761,
+          "created_time": 1656536500765,
           "format": {
             "copied_from_pointer": {
-              "id": "eca68b75-5f10-41c0-a1e0-addb3e08e462",
+              "id": "b944fb2a-d80e-4e8d-b65e-0b29bb56630c",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "eb557414-f2fb-4355-b467-66b9a99c78cc",
+          "id": "e7e0228a-7f92-4f5d-a231-782a69e425af",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
-          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
           "parent_table": "block",
           "properties": {
-            "title": [["tweet about it"]]
+            "title": [
+              [
+                "Set aside a certain number of hours per week dedicated to marketing yourself."
+              ]
+            ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
+          "type": "text",
+          "version": 3
         }
       },
       "f4804eff-13d2-430b-98c9-d529326d5492": {
@@ -5171,37 +5984,33 @@ Response:+59279
           "version": 3
         }
       },
-      "f4a2e9c9-8678-4dd3-8588-52759ddb4156": {
+      "f81da6bc-072f-4469-bc33-bc5149a01d7a": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "99806fb4-7576-4086-9619-5441426d4c0e",
+          "copied_from": "b2abaa5f-5d62-4245-adf4-8a47a3fd8bd3",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500761,
+          "created_time": 1656536500764,
           "format": {
             "copied_from_pointer": {
-              "id": "99806fb4-7576-4086-9619-5441426d4c0e",
+              "id": "b2abaa5f-5d62-4245-adf4-8a47a3fd8bd3",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "f4a2e9c9-8678-4dd3-8588-52759ddb4156",
+          "id": "f81da6bc-072f-4469-bc33-bc5149a01d7a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
-          "parent_id": "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
           "parent_table": "block",
           "properties": {
-            "title": [
-              ["write an article and publish on your website (or medium or "],
-              ["dev.to", [["a", "http://dev.to"]]],
-              [" or all the above)"]
-            ]
+            "title": [["Don’t do it just once. "]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 2
+          "type": "text",
+          "version": 3
         }
       }
     },
@@ -5256,7 +6065,7 @@ Response:+59279
     }
   }
 }
-58982 noahttpcache
+59202 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+455
@@ -5264,20 +6073,20 @@ Body:+455
   "page": {
     "id": "4682085a-f50b-41f8-8460-593d21db6182"
   },
-  "chunkNumber": 3,
+  "chunkNumber": 4,
   "limit": 30,
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 88,
+          "index": 98,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6",
+          "id": "1c7b075a-607d-4e4e-b33e-d62d4468a95e",
           "index": 0,
           "table": "block"
         }
@@ -5286,20 +6095,20 @@ Body:+455
   },
   "verticalColumns": false
 }
-Response:+58433
+Response:+58653
 {
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 118,
+          "index": 128,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e13c8bd1-875f-4b91-ab38-8c78740d8abd",
+          "id": "e628929e-d77d-46ba-9301-fe4522630786",
           "index": 0,
           "table": "block"
         }
@@ -5333,39 +6142,6 @@ Response:+58433
             "title": [
               [
                 "How do we solve them? Mostly by formulating the right question and entering it, verbatim, into a search engine."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "0ff913ac-55ef-4882-8f9d-1afd2a79727a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "0a67eb5a-df39-4f38-893e-f2986fa279d3",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500764,
-          "format": {
-            "copied_from_pointer": {
-              "id": "0a67eb5a-df39-4f38-893e-f2986fa279d3",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "0ff913ac-55ef-4882-8f9d-1afd2a79727a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "There’s an infinite number of useful articles, open source packages or online tools that you can create."
               ]
             ]
           },
@@ -5766,7 +6542,11 @@ Response:+58433
         "value": {
           "alive": true,
           "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
             "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
             "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
             "7118e4a0-4689-4435-811e-c74f1ec01dad",
             "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
@@ -5928,7 +6708,7 @@ Response:+58433
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
+          "last_edited_time": 1656537120000,
           "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
           "parent_table": "block",
           "properties": {
@@ -5938,7 +6718,7 @@ Response:+58433
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 168
+          "version": 174
         }
       },
       "46f0dbe4-1395-4492-a0a0-2bff8b66930e": {
@@ -6198,39 +6978,6 @@ Response:+58433
           "version": 3
         }
       },
-      "8bcfa2c6-dcc1-4063-a3be-7af66923c057": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "2565fb6e-3e64-4be5-ad5c-2e39897598bf",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500764,
-          "format": {
-            "copied_from_pointer": {
-              "id": "2565fb6e-3e64-4be5-ad5c-2e39897598bf",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "8bcfa2c6-dcc1-4063-a3be-7af66923c057",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "The only limit to how many leads you can generate using this process is the number of hours you’re willing to spend."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "8e4e4c64-d01c-4753-8814-899410651f8e": {
         "role": "editor",
         "value": {
@@ -6330,22 +7077,22 @@ Response:+58433
           "version": 3
         }
       },
-      "a4744c77-02a1-49e7-8adc-e7f6eb463f87": {
+      "aae25774-a8df-43fe-ba99-6b82b107a027": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "5fc3640a-8fc1-4a03-81ac-1278acfcafd2",
+          "copied_from": "c52df90c-1558-4e31-9e9d-c87533987e6d",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500764,
+          "created_time": 1656536500768,
           "format": {
             "copied_from_pointer": {
-              "id": "5fc3640a-8fc1-4a03-81ac-1278acfcafd2",
+              "id": "c52df90c-1558-4e31-9e9d-c87533987e6d",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "a4744c77-02a1-49e7-8adc-e7f6eb463f87",
+          "id": "aae25774-a8df-43fe-ba99-6b82b107a027",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
@@ -6354,7 +7101,7 @@ Response:+58433
           "properties": {
             "title": [
               [
-                "Notice that this is now a process: a set of actions you can repeat over and over again."
+                "This is just a sampling of possible questions related to getting a job as a freelancer / contractor / consultant."
               ]
             ]
           },
@@ -6429,6 +7176,39 @@ Response:+58433
           "version": 3
         }
       },
+      "c3e712f2-af69-4c8a-96d3-77104bec4658": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "7c615891-3e16-4291-9814-cd71665289c9",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500768,
+          "format": {
+            "copied_from_pointer": {
+              "id": "7c615891-3e16-4291-9814-cd71665289c9",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "c3e712f2-af69-4c8a-96d3-77104bec4658",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "“Backend developer” is better than “Developer” or “Full-stack developer”"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
       "ca4bef1f-2bf8-4b7a-b524-53e28e3f2a03": {
         "role": "editor",
         "value": {
@@ -6455,6 +7235,39 @@ Response:+58433
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
+          "version": 3
+        }
+      },
+      "d5a79cc2-1515-460f-9fea-4c1f482fbe28": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "8a9f2c3e-67c7-47ba-b1af-4fd3c148025d",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500768,
+          "format": {
+            "copied_from_pointer": {
+              "id": "8a9f2c3e-67c7-47ba-b1af-4fd3c148025d",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "d5a79cc2-1515-460f-9fea-4c1f482fbe28",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "When you’re looking for a programming contract it’s better to narrow down your pitch."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
           "version": 3
         }
       },
@@ -6520,51 +7333,22 @@ Response:+58433
           "version": 3
         }
       },
-      "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6": {
+      "e628929e-d77d-46ba-9301-fe4522630786": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "ce1666a5-6e2e-42a5-954a-0ae4edefdc85",
+          "copied_from": "5eb7deeb-1ed0-4dd0-ad8e-be776162bcff",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500764,
+          "created_time": 1656536500768,
           "format": {
             "copied_from_pointer": {
-              "id": "ce1666a5-6e2e-42a5-954a-0ae4edefdc85",
+              "id": "5eb7deeb-1ed0-4dd0-ad8e-be776162bcff",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Goto 1"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "sub_sub_header",
-          "version": 3
-        }
-      },
-      "e7e0228a-7f92-4f5d-a231-782a69e425af": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "b944fb2a-d80e-4e8d-b65e-0b29bb56630c",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500765,
-          "format": {
-            "copied_from_pointer": {
-              "id": "b944fb2a-d80e-4e8d-b65e-0b29bb56630c",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "e7e0228a-7f92-4f5d-a231-782a69e425af",
+          "id": "e628929e-d77d-46ba-9301-fe4522630786",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
@@ -6573,7 +7357,7 @@ Response:+58433
           "properties": {
             "title": [
               [
-                "Set aside a certain number of hours per week dedicated to marketing yourself."
+                "“Go backend developer” is better than “Backend Developer” or “Go developer”."
               ]
             ]
           },
@@ -6615,32 +7399,32 @@ Response:+58433
           "version": 3
         }
       },
-      "f81da6bc-072f-4469-bc33-bc5149a01d7a": {
+      "f0403007-8bf8-4e8e-ac11-ff2f8602a81d": {
         "role": "editor",
         "value": {
           "alive": true,
-          "copied_from": "b2abaa5f-5d62-4245-adf4-8a47a3fd8bd3",
+          "copied_from": "e37a27b4-261f-4fe9-adbb-e03cf1fee585",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656536500764,
+          "created_time": 1656536500768,
           "format": {
             "copied_from_pointer": {
-              "id": "b2abaa5f-5d62-4245-adf4-8a47a3fd8bd3",
+              "id": "e37a27b4-261f-4fe9-adbb-e03cf1fee585",
               "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
               "table": "block"
             }
           },
-          "id": "f81da6bc-072f-4469-bc33-bc5149a01d7a",
+          "id": "f0403007-8bf8-4e8e-ac11-ff2f8602a81d",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
           "last_edited_time": 1656536460000,
           "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
           "parent_table": "block",
           "properties": {
-            "title": [["Don’t do it just once. "]]
+            "title": [["Specialize"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
+          "type": "sub_header",
           "version": 3
         }
       },
@@ -6667,6 +7451,35 @@ Response:+58433
           "parent_table": "block",
           "properties": {
             "title": [["We encounter problems daily and we solve them."]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "fed007ee-8968-4f1a-a5cd-e1358e2c20da": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "ee4ccd51-112b-4d92-8ab8-e915638d0335",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500768,
+          "format": {
+            "copied_from_pointer": {
+              "id": "ee4ccd51-112b-4d92-8ab8-e915638d0335",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "fed007ee-8968-4f1a-a5cd-e1358e2c20da",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [["It’s counter-intuitive but you should specialize."]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
@@ -6725,7 +7538,7 @@ Response:+58433
     }
   }
 }
-58180 noahttpcache
+53718 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+456
@@ -6733,20 +7546,20 @@ Body:+456
   "page": {
     "id": "4682085a-f50b-41f8-8460-593d21db6182"
   },
-  "chunkNumber": 4,
+  "chunkNumber": 5,
   "limit": 30,
   "cursor": {
     "stack": [
       [
         {
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 118,
+          "index": 128,
           "table": "block"
         }
       ],
       [
         {
-          "id": "e13c8bd1-875f-4b91-ab38-8c78740d8abd",
+          "id": "e628929e-d77d-46ba-9301-fe4522630786",
           "index": 0,
           "table": "block"
         }
@@ -6755,25 +7568,10 @@ Body:+456
   },
   "verticalColumns": false
 }
-Response:+57630
+Response:+53168
 {
   "cursor": {
-    "stack": [
-      [
-        {
-          "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 148,
-          "table": "block"
-        }
-      ],
-      [
-        {
-          "id": "1a0ab418-aa90-4046-aba5-5607c8ecfddc",
-          "index": 0,
-          "table": "block"
-        }
-      ]
-    ]
+    "stack": []
   },
   "recordMap": {
     "block": {
@@ -6868,6 +7666,40 @@ Response:+57630
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 3
+        }
+      },
+      "1b756a85-b804-4aae-9939-342dfd9a0e67": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "7a6394dc-f71a-4a7d-8b2e-1405fc1b569a",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500771,
+          "format": {
+            "copied_from_pointer": {
+              "id": "7a6394dc-f71a-4a7d-8b2e-1405fc1b569a",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "1b756a85-b804-4aae-9939-342dfd9a0e67",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Follow along", [["a", "https://twitter.com/kjk"]]],
+              [
+                " if you want to know what does it take to build a software product. Technologies used, marketing activities and general musing related to programming and productivity."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 4
         }
       },
       "1ce77172-dd1b-4956-8fbe-8ccbc0360112": {
@@ -7106,12 +7938,57 @@ Response:+57630
           "version": 3
         }
       },
+      "3a4208de-ac28-4e94-be86-9c3426f87333": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "348a0531-5951-4b1b-9dcf-fc5cad1c7c9b",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656536500771,
+          "format": {
+            "copied_from_pointer": {
+              "id": "348a0531-5951-4b1b-9dcf-fc5cad1c7c9b",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "3a4208de-ac28-4e94-be86-9c3426f87333",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656536460000,
+          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["I’m working in the open and "],
+              [
+                "documenting the process of creating a software product from scratch",
+                [
+                  [
+                    "a",
+                    "https://blog.kowalczyk.info/article/30da6655040f47e693f8e66eacd308c1/diary-of-a-solo-dev-building-a-web-app.html"
+                  ]
+                ]
+              ],
+              [" on a day to day basis."]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
       "4682085a-f50b-41f8-8460-593d21db6182": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
+            "284b05ec-1f9b-4007-8ff4-4adcf94badf1",
+            "1aa04cca-10fb-4350-812f-c1233c26bbd2",
+            "00a1ba85-9d7b-4f0f-80d7-30f7b05966eb",
             "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
+            "c55f778b-bd42-461b-b0ae-63f4f65b15e9",
             "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
             "7118e4a0-4689-4435-811e-c74f1ec01dad",
             "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
@@ -7273,7 +8150,7 @@ Response:+57630
           "id": "4682085a-f50b-41f8-8460-593d21db6182",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
+          "last_edited_time": 1656537120000,
           "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
           "parent_table": "block",
           "properties": {
@@ -7283,7 +8160,7 @@ Response:+57630
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 168
+          "version": 174
         }
       },
       "4c461c05-085e-4fcf-88d1-924cafe3896c": {
@@ -7655,39 +8532,6 @@ Response:+57630
           "version": 3
         }
       },
-      "aae25774-a8df-43fe-ba99-6b82b107a027": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "c52df90c-1558-4e31-9e9d-c87533987e6d",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "c52df90c-1558-4e31-9e9d-c87533987e6d",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "aae25774-a8df-43fe-ba99-6b82b107a027",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "This is just a sampling of possible questions related to getting a job as a freelancer / contractor / consultant."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "c3260b77-6be3-4fd2-bc70-72368d21f34d": {
         "role": "editor",
         "value": {
@@ -7721,39 +8565,6 @@ Response:+57630
           "version": 3
         }
       },
-      "c3e712f2-af69-4c8a-96d3-77104bec4658": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "7c615891-3e16-4291-9814-cd71665289c9",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "7c615891-3e16-4291-9814-cd71665289c9",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "c3e712f2-af69-4c8a-96d3-77104bec4658",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "“Backend developer” is better than “Developer” or “Full-stack developer”"
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "cb85e92f-67d6-4d93-ac1f-8b3159ff08c3": {
         "role": "editor",
         "value": {
@@ -7779,39 +8590,6 @@ Response:+57630
             "title": [
               [
                 "Someone looking for a Java developer will likely pick someone who pitches themselves as expert in Java, not a Java / JavaScript expert."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "d5a79cc2-1515-460f-9fea-4c1f482fbe28": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "8a9f2c3e-67c7-47ba-b1af-4fd3c148025d",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "8a9f2c3e-67c7-47ba-b1af-4fd3c148025d",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "d5a79cc2-1515-460f-9fea-4c1f482fbe28",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "When you’re looking for a programming contract it’s better to narrow down your pitch."
               ]
             ]
           },
@@ -7886,39 +8664,6 @@ Response:+57630
           "version": 3
         }
       },
-      "e13c8bd1-875f-4b91-ab38-8c78740d8abd": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "76068947-6c66-4fb6-b7ee-abe07ee44c99",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "76068947-6c66-4fb6-b7ee-abe07ee44c99",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "e13c8bd1-875f-4b91-ab38-8c78740d8abd",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "“How to get a freelance job”. “successful freelancer”. “successful contracting”. “increase contracting rates”. “successful upwork freelancing”."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
       "e628929e-d77d-46ba-9301-fe4522630786": {
         "role": "editor",
         "value": {
@@ -7949,35 +8694,6 @@ Response:+57630
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
-          "version": 3
-        }
-      },
-      "f0403007-8bf8-4e8e-ac11-ff2f8602a81d": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "e37a27b4-261f-4fe9-adbb-e03cf1fee585",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "e37a27b4-261f-4fe9-adbb-e03cf1fee585",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "f0403007-8bf8-4e8e-ac11-ff2f8602a81d",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Specialize"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "sub_header",
           "version": 3
         }
       },
@@ -8111,606 +8827,6 @@ Response:+57630
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 3
-        }
-      },
-      "fed007ee-8968-4f1a-a5cd-e1358e2c20da": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "ee4ccd51-112b-4d92-8ab8-e915638d0335",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500768,
-          "format": {
-            "copied_from_pointer": {
-              "id": "ee4ccd51-112b-4d92-8ab8-e915638d0335",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "fed007ee-8968-4f1a-a5cd-e1358e2c20da",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [["It’s counter-intuitive but you should specialize."]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1652978220000,
-          "name": "Main",
-          "pages": [
-            "381f674e-a6ce-4131-9d98-90967b1d3c14",
-            "581f70b2-4002-4e31-a140-46f50934535d",
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
-            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
-            "bd92f136-bc09-4316-97b0-ac8f7a674961",
-            "55542511-1762-4f73-b4a5-790fd0c1daec",
-            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 346
-        }
-      }
-    }
-  }
-}
-24146 noahttpcache
-Method: POST
-URL: https://www.notion.so/api/v3/loadCachedPageChunk
-Body:+456
-{
-  "page": {
-    "id": "4682085a-f50b-41f8-8460-593d21db6182"
-  },
-  "chunkNumber": 5,
-  "limit": 30,
-  "cursor": {
-    "stack": [
-      [
-        {
-          "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "index": 148,
-          "table": "block"
-        }
-      ],
-      [
-        {
-          "id": "1a0ab418-aa90-4046-aba5-5607c8ecfddc",
-          "index": 0,
-          "table": "block"
-        }
-      ]
-    ]
-  },
-  "verticalColumns": false
-}
-Response:+23596
-{
-  "cursor": {
-    "stack": []
-  },
-  "recordMap": {
-    "block": {
-      "1a0ab418-aa90-4046-aba5-5607c8ecfddc": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "e6126ee3-75ea-494b-bf71-c0b4722f7734",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500771,
-          "format": {
-            "copied_from_pointer": {
-              "id": "e6126ee3-75ea-494b-bf71-c0b4722f7734",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "1a0ab418-aa90-4046-aba5-5607c8ecfddc",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["I’m working on "],
-              ["Filerion", [["a", "https://filerion.com/"]]],
-              [
-                ", a web-based file manager for online storage services like Dropbox and S3."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "1b756a85-b804-4aae-9939-342dfd9a0e67": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "7a6394dc-f71a-4a7d-8b2e-1405fc1b569a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500771,
-          "format": {
-            "copied_from_pointer": {
-              "id": "7a6394dc-f71a-4a7d-8b2e-1405fc1b569a",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "1b756a85-b804-4aae-9939-342dfd9a0e67",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Follow along", [["a", "https://twitter.com/kjk"]]],
-              [
-                " if you want to know what does it take to build a software product. Technologies used, marketing activities and general musing related to programming and productivity."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 4
-        }
-      },
-      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
-            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-            "7495260a-1daa-4611-8858-ad2e049e77e6",
-            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
-            "8dd9c2c0-4130-47c5-89a3-21b1ccba7129",
-            "4b1f9201-1813-4009-9b69-8246857ea98d",
-            "3a6ae619-0bdf-49be-88ef-4e73b3445a0d",
-            "e00e89c3-841e-4f8c-8c76-9a78b8a90b47",
-            "71571247-8e8d-4dba-b6b7-c140c8f5e76e",
-            "123e3429-1243-49e7-ba60-df0912cfa1b7",
-            "de13a71a-392f-488b-9352-b300b3ed722d",
-            "a62973da-ec67-4e31-b827-908636f1e522",
-            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
-            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
-            "4d625835-41be-43c9-b94b-a87da9feeee7",
-            "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c",
-            "67ae62b1-8760-4e3f-bd20-846303f84dc5",
-            "3a1779d4-86b4-4747-aa92-a0f20f099953",
-            "8ff5980e-e9b4-4a8f-b513-1268e7c47303",
-            "99982171-8c60-4eb5-93cb-eba9ad0920bc",
-            "ab5c864a-8ccd-4d8a-a10a-b30f5d89c0e9"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530921610129,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1629099420000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Words written by me"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 297
-        }
-      },
-      "27a53e51-ea78-44c4-bf4c-48099c8e1151": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "4682085a-f50b-41f8-8460-593d21db6182",
-            "96a4706e-c8e4-4bc4-b0ba-fda2d9ba502f"
-          ],
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1649810460000,
-          "id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "parent_table": "block",
-          "properties": {
-            "title": [["2022 (2)"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 30
-        }
-      },
-      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "27a53e51-ea78-44c4-bf4c-48099c8e1151",
-            "50845d2e-2137-4f69-8c95-5391326a7f92",
-            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
-            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
-            "56757391-fba8-45bc-8551-262f3c9f81f2",
-            "20614047-3601-4b54-bd82-edd8b58e6b43",
-            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
-            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
-            "981d650d-2df1-4162-a739-d788c628cdcf",
-            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
-            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
-            "b059308f-5cc3-43fb-af19-9c71ae359418",
-            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
-            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
-            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
-            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
-            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
-            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
-            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-            "7e948259-8dd7-4bf7-8f03-a7833279f444",
-            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530157233456,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["blog posts"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 1987
-        }
-      },
-      "3a4208de-ac28-4e94-be86-9c3426f87333": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "copied_from": "348a0531-5951-4b1b-9dcf-fc5cad1c7c9b",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536500771,
-          "format": {
-            "copied_from_pointer": {
-              "id": "348a0531-5951-4b1b-9dcf-fc5cad1c7c9b",
-              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-              "table": "block"
-            }
-          },
-          "id": "3a4208de-ac28-4e94-be86-9c3426f87333",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536460000,
-          "parent_id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["I’m working in the open and "],
-              [
-                "documenting the process of creating a software product from scratch",
-                [
-                  [
-                    "a",
-                    "https://blog.kowalczyk.info/article/30da6655040f47e693f8e66eacd308c1/diary-of-a-solo-dev-building-a-web-app.html"
-                  ]
-                ]
-              ],
-              [" on a day to day basis."]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 3
-        }
-      },
-      "4682085a-f50b-41f8-8460-593d21db6182": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "6b400f60-de73-4fb4-bd57-2a26c2bd1c86",
-            "7a247913-afbf-49d4-bfcf-bc6f9177cd72",
-            "7118e4a0-4689-4435-811e-c74f1ec01dad",
-            "d78374fe-10ca-4f6a-9ca2-7569d61d5f43",
-            "4967d524-d0ae-4493-badd-2e537c08b966",
-            "eb27d38e-8266-4fa4-b954-0f37168c5f4f",
-            "6c0579bc-ded4-4110-a398-78f9ba1a5e7a",
-            "fbe49bd0-f7bd-456b-a988-7eaa0dd12f23",
-            "4f0271f4-44aa-4d32-ac2c-eb3920b3da46",
-            "dec938c8-d018-482f-aa56-d6cf753dc0c0",
-            "50dade00-eb69-41f7-a693-cef58c406c2c",
-            "139889bb-9808-43f4-a7fc-5aee25e247b7",
-            "f9ee2d13-bc23-4046-8aba-92f4d8f8d7a1",
-            "3818afff-8e83-418c-a101-e40a66218248",
-            "3a303f74-bed9-40a9-a91a-58bef485df18",
-            "743ef725-af8e-4f25-84c1-654ec24307db",
-            "d6ebc350-2f8b-4b53-b05e-2e64224f52cd",
-            "035c4c07-3180-4ec5-8f78-70f67dbcc36d",
-            "65b2461f-df0b-4cee-bdfe-01be68cff1a2",
-            "b358ca0d-2a33-4cec-b24e-494b21ea76d0",
-            "1264b193-65cd-4447-911b-6262a064a45a",
-            "7f0f3dca-597f-47ab-99f3-ed0d04f724e9",
-            "a668eb30-161e-4337-8753-634c84b4951b",
-            "748ac5fd-aa03-45f5-a1e7-96d0a283a01d",
-            "62dff1a2-9771-4639-b379-c56a92cfd89f",
-            "0f31efd5-35ec-4ea3-9284-1fff16a7037c",
-            "21efd5ad-ea38-4dc4-bbb0-4f0728206035",
-            "971d1bf4-7d9f-4089-9460-20e6f9523193",
-            "afc4042a-f79b-472e-ace7-792080325a03",
-            "bdfe56bd-6230-434c-8147-16a52796125d",
-            "66a8ef9e-db10-4b3a-845c-7b302f6cc1b8",
-            "0cb3815a-ec11-40df-bcbb-74b02ae947b5",
-            "24a8c516-e886-47c5-ae9c-dbc1bc889e06",
-            "b2cee2d4-c404-4573-961a-b648e5bed7fb",
-            "e031a358-8909-4af5-89d7-c3b8fa546ac8",
-            "16cca7d6-ee7b-47c8-a5dc-fb77a9b74c6c",
-            "a1d34439-dc0c-403d-857b-427b6bb46880",
-            "9b0cb374-2188-4436-9e12-b1fa379086b9",
-            "435c2318-b8d6-4df7-a018-91d858f0512f",
-            "d1945b93-1655-4041-abcb-e22160b2bd0f",
-            "1032e839-0492-419d-87cf-0d77d8563544",
-            "d1247156-90ae-4649-bd97-0bca3f0b9e7b",
-            "5951db13-3450-4f19-aaaa-0ec0c56494f8",
-            "74890996-7ea2-4c80-be0c-28aa17208e58",
-            "644b9a95-e309-449b-a8e4-dc18a6ce231e",
-            "82ceaba0-7932-4907-a3b2-5510e1154865",
-            "a00f87a0-4b0e-4f08-8bf7-35eef319fd6b",
-            "568a0cc6-50e4-471c-aa0c-3da7e1140f4a",
-            "6f358c9f-3c32-4201-b55d-6c2ff1b1c4ac",
-            "33e24613-6d8c-4bfd-8408-501d21730675",
-            "da2be9a0-42f4-471b-af3a-2b3271cc9292",
-            "74220611-cd9f-439d-86d4-aea8955e4df7",
-            "40cec0ae-2aba-4c9f-9dd1-bd0d0a59c824",
-            "6b8b95a5-c40c-4d08-903a-0ff43526a89e",
-            "9c4f8cfd-8e6d-4ff4-8a35-6eea078a1697",
-            "e502f34c-9df0-469d-be93-139356c8a146",
-            "0590d1fe-128d-4078-9407-0bb2fba1f95e",
-            "af9d7d7c-2d59-4bd2-9cba-c805f5200c86",
-            "e477df68-5b8f-4a80-9549-02e5db630085",
-            "cea8a320-2d8a-45c2-8bfb-7438310c474d",
-            "19dbb979-1399-4710-b763-fcb684b4ea1f",
-            "b78008d3-c28f-4207-a2d5-ec65ac3de4ac",
-            "43ffe9b5-ed56-443a-8813-e778fa7d7fe9",
-            "e3b870f6-4ea7-4725-bf41-41bb2428fc0c",
-            "9d64481a-1a00-4935-bafb-2b6b2cf02e73",
-            "284f90d9-69fc-4b24-a402-aeac3535a025",
-            "53835599-0a55-4c09-8047-d00c21520951",
-            "46baf00f-c02c-46e3-a53b-aedc90da56ca",
-            "29b8ad2f-f96d-41fd-95c3-6016cba1c492",
-            "d3a01d25-f26f-491e-873f-a6611e008501",
-            "7cb98fc3-9b03-4e37-92dc-19f6f55e0648",
-            "7ee9abc0-2652-4e3a-abcc-9ed41067e583",
-            "d016dc58-b9be-4fc4-ab04-78d6c75a23f3",
-            "9cb365af-62de-4204-9261-e508d7998901",
-            "2971c325-f6cc-4dfd-a1e6-86e70d87ce36",
-            "c84a0b86-d01d-4aab-a5ca-c8119c2560a3",
-            "d558e950-067e-4f6a-bd4e-1ef49e526408",
-            "79811dc2-dc14-4be6-8e14-6f2cb5256475",
-            "08d6e618-df4a-45fa-a6fd-483be50b6190",
-            "7bcbe1e0-d87d-4c35-89f5-cae90e59eb9f",
-            "bcd86855-59d1-47d3-b12b-86134929f9f8",
-            "f4804eff-13d2-430b-98c9-d529326d5492",
-            "0d3c8f96-4ee4-432c-b4c2-ca298ed201a1",
-            "b29e921b-b9c6-4cb4-8418-6f2572c1f0f2",
-            "8f77627b-b32e-464a-877f-e2a4b4033cf5",
-            "d367d11d-271a-449d-b6f5-af0da002d25a",
-            "603797d6-af0f-4586-a0df-f4c660c1db4e",
-            "e5c6d5f2-d749-47ab-b1a4-cc41cb8b7ac6",
-            "a4744c77-02a1-49e7-8adc-e7f6eb463f87",
-            "0ff913ac-55ef-4882-8f9d-1afd2a79727a",
-            "8bcfa2c6-dcc1-4063-a3be-7af66923c057",
-            "f81da6bc-072f-4469-bc33-bc5149a01d7a",
-            "e7e0228a-7f92-4f5d-a231-782a69e425af",
-            "1c7b075a-607d-4e4e-b33e-d62d4468a95e",
-            "2bebe7ee-48a4-438a-b1cc-0cf088d310b2",
-            "1bacc86c-4a12-4587-8af9-b4b0159b4af3",
-            "93012a30-08ba-40ce-8f92-cab3bcaa0559",
-            "46f0dbe4-1395-4492-a0a0-2bff8b66930e",
-            "327d0746-545e-4dbb-b8a2-64e3d0db7300",
-            "2ed67dd8-ef29-4fa6-afe5-4aaad9851fe2",
-            "acef3c82-de61-4c86-ab3b-51416c5e57f5",
-            "8e4e4c64-d01c-4753-8814-899410651f8e",
-            "749380d0-1571-4fe0-ba4a-710ae7009162",
-            "446b0406-7efa-4775-b75b-0b854ff4a074",
-            "fe42e63b-4809-4f57-87bb-20acdd89d195",
-            "0c731ecc-d816-474d-8042-6f6cbf329308",
-            "2d4c26a9-e63d-41d7-8616-a28c6edd00ba",
-            "ef280263-20bd-4217-93e3-fe9c83a51b5f",
-            "630a9068-b9f0-41ab-a228-045a5882014f",
-            "b1796aa3-8647-4541-a6b5-4a4e04c907cf",
-            "e09b1679-444a-4abe-8e77-8e6d38eb4a20",
-            "4771c8de-2228-4711-bec3-e910f420e9fa",
-            "1c8b6994-e543-4e94-bfc6-5771b7cd7d7c",
-            "ca4bef1f-2bf8-4b7a-b524-53e28e3f2a03",
-            "57f84134-5dbb-4c65-9152-e3e32aa30df1",
-            "a2001433-f778-4c16-b1cc-4e6d7bfe8710",
-            "7685a339-3b9f-4900-91a9-e66cdf37619f",
-            "e13c8bd1-875f-4b91-ab38-8c78740d8abd",
-            "aae25774-a8df-43fe-ba99-6b82b107a027",
-            "f0403007-8bf8-4e8e-ac11-ff2f8602a81d",
-            "fed007ee-8968-4f1a-a5cd-e1358e2c20da",
-            "d5a79cc2-1515-460f-9fea-4c1f482fbe28",
-            "c3e712f2-af69-4c8a-96d3-77104bec4658",
-            "e628929e-d77d-46ba-9301-fe4522630786",
-            "fbcc3d22-368f-45ff-bf3c-6c834753a6cc",
-            "9afacfcb-d4f7-417c-b8b1-2635601ef7a9",
-            "e0125b39-ede0-44b5-8f80-aa9f68f465ff",
-            "0cadeb6c-fb57-46b3-9d10-c541a1c5fb78",
-            "66d4ec39-0d2e-481c-9b99-fb7a32a4bf46",
-            "cb85e92f-67d6-4d93-ac1f-8b3159ff08c3",
-            "307a882c-484c-4e40-98dc-943cff3f7dd8",
-            "c3260b77-6be3-4fd2-bc70-72368d21f34d",
-            "f56bf111-ff5c-4584-a832-b26d91cb4529",
-            "5c9215f0-4f31-4b48-af77-326a5fca3eb0",
-            "f70a263a-5e6f-4c91-8ab6-f91003ed9f03",
-            "987fd825-f275-4beb-b34d-e0cd4ead32be",
-            "32faaa46-424e-4889-bc73-4d3b916d63df",
-            "dc0012f4-38d6-4cdb-8e17-f6aff19e2ddf",
-            "63adef13-f8d5-48eb-bd0e-5401fc6b65b6",
-            "528a1873-8af2-4e7a-8291-b424431c319c",
-            "f68be883-fa35-4cdd-b827-d6014e2eb93f",
-            "6ead407d-7a23-4c2c-800c-37dc9d56ae03",
-            "1ce77172-dd1b-4956-8fbe-8ccbc0360112",
-            "81ccc666-4e8b-4b5e-b4cf-0b8cc2ed1b0c",
-            "4faabb9a-37ab-4c99-adfc-66f9c22e854e",
-            "0ce02e8d-2dd2-478a-997a-44b4f7c82c1f",
-            "4c461c05-085e-4fcf-88d1-924cafe3896c",
-            "1a0ab418-aa90-4046-aba5-5607c8ecfddc",
-            "3a4208de-ac28-4e94-be86-9c3426f87333",
-            "1b756a85-b804-4aae-9939-342dfd9a0e67"
-          ],
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656536463281,
-          "file_ids": ["c3919dd1-770d-4c58-9da7-b44723c39a9a"],
-          "format": {
-            "page_cover": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3919dd1-770d-4c58-9da7-b44723c39a9a/header-40.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220629%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220629T210332Z&X-Amz-Expires=86400&X-Amz-Signature=a866acece34b3a22b6a21dcfdfaf7170cd1d0f5988e19646a20b25a7d46bf0ef&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22header-40.jpg%22&x-id=GetObject",
-            "page_cover_position": 0.5
-          },
-          "id": "4682085a-f50b-41f8-8460-593d21db6182",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656536580000,
-          "parent_id": "27a53e51-ea78-44c4-bf4c-48099c8e1151",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Find programming work by increasing luck surface area"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 168
-        }
-      },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "f5144c42-a3e5-4e47-9466-2c8ecdc0bcb6",
-            "30da6655-040f-47e6-93f8-e66eacd308c1"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141640000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": {
-                "read_content": true
-              },
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 423
         }
       }
     },
