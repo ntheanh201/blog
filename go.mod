@@ -10,8 +10,7 @@ require (
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/kjk/common v0.0.0-20220527023605-fc29aaae0bfa
 	github.com/kjk/minio v0.0.0-20220205175144-180d86d81916
-	github.com/kjk/notionapi v0.0.0-20220408053334-787bafec9deb
-	github.com/kjk/siser v0.0.0-20220410204903-1b1e84ea1397 // indirect
+	github.com/kjk/notionapi v0.0.0-20220629201358-1cb4a8688df5
 	github.com/klauspost/compress v1.15.5 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.12 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
