@@ -1,264 +1,22 @@
-16559 noahttpcache
+2219 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+162
 {
   "requests": [
     {
-      "table": "block",
-      "id": "95b8c139-15bb-4502-a471-63ff5a3c292e"
+      "pointer": {
+        "table": "block",
+        "id": "95b8c139-15bb-4502-a471-63ff5a3c292e"
+      },
+      "version": -1
     }
   ]
 }
-Response:+16359
+Response:+1967
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
-      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
-            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-            "7495260a-1daa-4611-8858-ad2e049e77e6",
-            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
-            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
-            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
-            "4d625835-41be-43c9-b94b-a87da9feeee7",
-            "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530921610129,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1624844400000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Words written by me"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 257
-        }
-      },
-      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "50845d2e-2137-4f69-8c95-5391326a7f92",
-            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
-            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
-            "56757391-fba8-45bc-8551-262f3c9f81f2",
-            "20614047-3601-4b54-bd82-edd8b58e6b43",
-            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
-            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
-            "981d650d-2df1-4162-a739-d788c628cdcf",
-            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
-            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
-            "b059308f-5cc3-43fb-af19-9c71ae359418",
-            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
-            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
-            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
-            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
-            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
-            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
-            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-            "7e948259-8dd7-4bf7-8f03-a7833279f444",
-            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530157233456,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
-          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["blog posts"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 1981
-        }
-      },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 384
-        }
-      },
-      "7e948259-8dd7-4bf7-8f03-a7833279f444": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "2131b10c-ebf6-4938-a127-7089ff02dbe4",
-            "1e33182a-b0f5-4ed2-bb06-5032d430c5f9",
-            "d0e60959-709e-4032-b314-0e24c51c5ad2",
-            "e599e77a-5a51-4169-8af5-95272cc23fd2",
-            "2ed70f46-d810-440e-b423-6315dfec47c6",
-            "1f952bfd-3a74-4af8-8e4f-1c3b5f2f1e7d",
-            "9ec61c28-83b6-4af7-9a46-d05652abf86b",
-            "c7192353-11d6-446c-b656-e1b0d996e25d",
-            "69a6ecec-622a-4a4d-8f07-9cf9ddef19f1",
-            "b0bc5bfa-80da-41d2-a3db-03f816fcab4d",
-            "e21cb260-6f73-4f78-8bab-07f84e3b87e9",
-            "4002cbc6-1560-41a4-946c-0825b32ccb2d",
-            "a5bd825a-8e3d-467d-bf70-6a9456ecbea3",
-            "1fd987e3-064c-4d94-9c7b-736f07d9fd07",
-            "d4ca5a99-fb1f-4ade-add7-b31fe1c40084",
-            "11a3526b-89fa-41f5-876c-05e03a039f16",
-            "57c31cb9-6f98-431e-bf07-18c41c35aacb",
-            "4787e4a9-cdd4-4176-8c98-8db8eb6fc213",
-            "961394de-ddad-4635-b239-f0a921b0cbb0",
-            "0856dc2d-b0c4-4251-a7c8-534fec8c2099",
-            "e66f391f-4a4d-4467-9e23-c26672967ddd",
-            "cb9dbf89-5be2-4b54-87d3-84731db07b66",
-            "301e5df1-492c-4443-ba23-cededc933ce1",
-            "7895df89-cef4-4453-a7cf-a1253fcd9bd5",
-            "184ec50a-f696-49a5-9a4e-e0e55d8965f4",
-            "3564ec91-8934-4586-94a2-93eea413f01a",
-            "3f7401a9-7da8-4112-80fe-d29a344aa54b",
-            "95b8c139-15bb-4502-a471-63ff5a3c292e",
-            "f0457ea8-4f73-4ecb-8639-e8aa4104435b",
-            "a73063bc-db6f-4dff-b791-b8529a6b1dd8",
-            "bee99cd6-acaf-4820-8ed2-6bf0d3c20284",
-            "d5466dd9-73f9-426f-83f3-f6d2bebfd1b9",
-            "78202ec2-40d5-40fb-9eae-1739753a9221",
-            "9716642e-6502-4d21-aefa-ab3d27a7bff8",
-            "7462f37a-1a73-4b74-a216-b6abfd7ef858",
-            "e35e7996-54c9-4b81-8dba-6df169a2dab8",
-            "7f4d5f16-9d92-443a-89c2-903ae4d17b3c",
-            "6ce3494a-710e-4c6c-8860-fdcaf8f6fbae",
-            "cb856a96-c486-4b59-b666-48608f8dad2b",
-            "1dadfa12-6bf2-4ce5-9f83-7fe2a61afd44",
-            "ad6518e5-87d5-4507-8442-ef0160061f08",
-            "9f87b32c-b8a8-4272-b077-8f446a20b2ef",
-            "9247cf31-5ba2-4d99-866a-f9234d8cda5c",
-            "7e2191f1-54fe-4a23-93bd-49fefbbe7d53",
-            "0d386bf2-6016-4b54-a456-e86e4fe79fad",
-            "ee31fb77-48d8-44e1-a0b0-9b130ad1d50e",
-            "20af8ee1-06ae-4ce4-9b55-1d817b63c767",
-            "24780da2-5fa7-4180-a3e0-f509d9b60eda",
-            "8a0571a6-c86c-41ce-b154-5415158216f9",
-            "17f2bb79-7a63-483d-9045-8d4787547fde",
-            "d2061080-04d4-4583-ac50-744749666286",
-            "eadac88a-1b34-4697-b3a4-f3156cd315d3",
-            "4248ede9-3abb-4e10-b11f-408de05cce95",
-            "b985dde4-9ea5-4582-b116-1747fea47a5a",
-            "9f220a2f-b83d-4655-b465-c543261324da",
-            "99fbd1fb-39d6-48f6-9364-aeb5666148cd",
-            "8a984cca-17d3-43fb-89c0-c004fbba2ba4",
-            "c2663e2f-837f-4a68-98c4-1e48fff94deb",
-            "8e11eb02-afc4-4f54-b2e2-8cec52664dd8",
-            "9f5c87bb-bc1c-409b-a286-f43c13e2a19e",
-            "737a74ef-b014-4e41-b9ce-6128bee14e17",
-            "1d20d3ec-fbfe-4724-b755-aab576d5c2b8",
-            "5710968c-9edb-4a7d-ba77-15f379d4c4c4",
-            "3171b883-8b61-49ed-978e-b2c26b7a7a4c",
-            "0992260b-6f9a-4130-b500-d2be85cd56b0",
-            "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819",
-            "17e0c028-b6ba-4d62-8078-34adf6fb3459",
-            "1a8ae7d9-652f-40e6-89c2-edac7bf53f61",
-            "4b2b3625-1643-4550-a06e-f5ad5056145d",
-            "015a7bdc-38b5-4845-b42c-047b49343188"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1531195689778,
-          "id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1532996425387,
-          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "parent_table": "block",
-          "properties": {
-            "title": [["2002"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 215
-        }
-      },
       "95b8c139-15bb-4502-a471-63ff5a3c292e": {
         "role": "editor",
         "value": {
@@ -304,108 +62,17 @@ Response:+16359
           "version": 67
         }
       }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
-          "name": "Main",
-          "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 271
-        }
-      }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "f3a2e267-b49e-495b-9fb0-1bc8b6555c1f",
-          "5a8442a3-4d72-41c7-99af-3443c6ea811e",
-          "77b6beda-0128-44f8-b418-e32b6cee5803",
-          "84fdefd0-392e-4335-94f9-da506abdba70",
-          "ddc640c6-1f51-4e91-8af0-68b8d10a8176",
-          "6d7e48f5-4ab0-49c9-a36d-2b38c333e315",
-          "206dccb6-9e6a-4df8-b647-d466d2dc725e",
-          "85e47a07-7256-4501-aec7-c9ee9d2c258a",
-          "dfdfe8e1-2512-45ca-a55f-bdbceb1615e3",
-          "190d60c6-a164-4bc7-9598-ebc37c875e30",
-          "0d0bf380-8af0-4ee1-bc34-9dc8c6b78420",
-          "8667b115-d834-478d-a440-bb75aa8e2af2",
-          "0c6ea10c-6de6-4d79-968c-91465c1821c3",
-          "099fe64b-d2ba-4e26-8873-456b1d0c946e",
-          "4ccaa368-6d99-4440-8fab-7dd2701343ea"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157262241,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "95b8c139-15bb-4502-a471-63ff5a3c292e",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Principle of good design: discoverability"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    }
-  ]
+  }
 }
-31258 noahttpcache
+32252 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+URL: https://www.notion.so/api/v3/loadCachedPageChunk
+Body:+166
 {
-  "pageId": "95b8c139-15bb-4502-a471-63ff5a3c292e",
+  "page": {
+    "id": "95b8c139-15bb-4502-a471-63ff5a3c292e"
+  },
   "chunkNumber": 0,
   "limit": 50,
   "cursor": {
@@ -413,7 +80,7 @@ Body:+152
   },
   "verticalColumns": false
 }
-Response:+31018
+Response:+31992
 {
   "cursor": {
     "stack": []
@@ -565,11 +232,24 @@ Response:+31018
             "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
             "7495260a-1daa-4611-8858-ad2e049e77e6",
             "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
+            "8dd9c2c0-4130-47c5-89a3-21b1ccba7129",
+            "4b1f9201-1813-4009-9b69-8246857ea98d",
+            "3a6ae619-0bdf-49be-88ef-4e73b3445a0d",
+            "e00e89c3-841e-4f8c-8c76-9a78b8a90b47",
+            "71571247-8e8d-4dba-b6b7-c140c8f5e76e",
+            "123e3429-1243-49e7-ba60-df0912cfa1b7",
+            "de13a71a-392f-488b-9352-b300b3ed722d",
+            "a62973da-ec67-4e31-b827-908636f1e522",
             "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
             "e79db1cb-2fcf-4329-ac37-591bfbb00782",
             "4d625835-41be-43c9-b94b-a87da9feeee7",
             "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c"
+            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c",
+            "67ae62b1-8760-4e3f-bd20-846303f84dc5",
+            "3a1779d4-86b4-4747-aa92-a0f20f099953",
+            "8ff5980e-e9b4-4a8f-b513-1268e7c47303",
+            "99982171-8c60-4eb5-93cb-eba9ad0920bc",
+            "ab5c864a-8ccd-4d8a-a10a-b30f5d89c0e9"
           ],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
@@ -583,7 +263,7 @@ Response:+31018
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1624844400000,
+          "last_edited_time": 1629099420000,
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
@@ -591,7 +271,7 @@ Response:+31018
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 257
+          "version": 297
         }
       },
       "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
@@ -599,6 +279,7 @@ Response:+31018
         "value": {
           "alive": true,
           "content": [
+            "27a53e51-ea78-44c4-bf4c-48099c8e1151",
             "50845d2e-2137-4f69-8c95-5391326a7f92",
             "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
             "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
@@ -632,7 +313,7 @@ Response:+31018
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
+          "last_edited_time": 1656462420000,
           "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
           "parent_table": "block",
           "permissions": [
@@ -647,7 +328,7 @@ Response:+31018
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 1981
+          "version": 1986
         }
       },
       "4ccaa368-6d99-4440-8fab-7dd2701343ea": {
@@ -697,7 +378,8 @@ Response:+31018
             "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
             "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
             "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
+            "f5144c42-a3e5-4e47-9466-2c8ecdc0bcb6",
+            "30da6655-040f-47e6-93f8-e66eacd308c1"
           ],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
@@ -711,7 +393,7 @@ Response:+31018
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
+          "last_edited_time": 1655141640000,
           "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "parent_table": "space",
           "permissions": [
@@ -722,7 +404,9 @@ Response:+31018
             },
             {
               "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
+              "role": {
+                "read_content": true
+              },
               "type": "bot_permission"
             }
           ],
@@ -731,7 +415,7 @@ Response:+31018
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 384
+          "version": 423
         }
       },
       "5a8442a3-4d72-41c7-99af-3443c6ea811e": {
@@ -1117,10 +801,11 @@ Response:+31018
           "invite_link_enabled": false,
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
+          "last_edited_time": 1652978220000,
           "name": "Main",
           "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
+            "381f674e-a6ce-4131-9d98-90967b1d3c14",
+            "581f70b2-4002-4e31-a140-46f50934535d",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -1129,10 +814,12 @@ Response:+31018
             "f75e0224-3821-4f6d-b879-e54a79bef338",
             "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
             "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
             "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
+            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
+            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
+            "bd92f136-bc09-4316-97b0-ac8f7a674961",
+            "55542511-1762-4f73-b4a5-790fd0c1daec",
+            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
           ],
           "permissions": [
             {
@@ -1142,299 +829,506 @@ Response:+31018
             }
           ],
           "plan_type": "personal",
-          "version": 271
+          "version": 346
         }
       }
     }
   }
 }
-228761 noahttpcache
+118847 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+6094
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+9682
 {
   "requests": [
     {
-      "table": "block",
-      "id": "015a7bdc-38b5-4845-b42c-047b49343188"
+      "pointer": {
+        "table": "block",
+        "id": "015a7bdc-38b5-4845-b42c-047b49343188"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "0856dc2d-b0c4-4251-a7c8-534fec8c2099"
+      "pointer": {
+        "table": "block",
+        "id": "0856dc2d-b0c4-4251-a7c8-534fec8c2099"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "0992260b-6f9a-4130-b500-d2be85cd56b0"
+      "pointer": {
+        "table": "block",
+        "id": "0992260b-6f9a-4130-b500-d2be85cd56b0"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "0d386bf2-6016-4b54-a456-e86e4fe79fad"
+      "pointer": {
+        "table": "block",
+        "id": "0d386bf2-6016-4b54-a456-e86e4fe79fad"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "11a3526b-89fa-41f5-876c-05e03a039f16"
+      "pointer": {
+        "table": "block",
+        "id": "11a3526b-89fa-41f5-876c-05e03a039f16"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "17e0c028-b6ba-4d62-8078-34adf6fb3459"
+      "pointer": {
+        "table": "block",
+        "id": "17e0c028-b6ba-4d62-8078-34adf6fb3459"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "17f2bb79-7a63-483d-9045-8d4787547fde"
+      "pointer": {
+        "table": "block",
+        "id": "17f2bb79-7a63-483d-9045-8d4787547fde"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "184ec50a-f696-49a5-9a4e-e0e55d8965f4"
+      "pointer": {
+        "table": "block",
+        "id": "184ec50a-f696-49a5-9a4e-e0e55d8965f4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1a8ae7d9-652f-40e6-89c2-edac7bf53f61"
+      "pointer": {
+        "table": "block",
+        "id": "1a8ae7d9-652f-40e6-89c2-edac7bf53f61"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1d20d3ec-fbfe-4724-b755-aab576d5c2b8"
+      "pointer": {
+        "table": "block",
+        "id": "1d20d3ec-fbfe-4724-b755-aab576d5c2b8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1dadfa12-6bf2-4ce5-9f83-7fe2a61afd44"
+      "pointer": {
+        "table": "block",
+        "id": "1dadfa12-6bf2-4ce5-9f83-7fe2a61afd44"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1e33182a-b0f5-4ed2-bb06-5032d430c5f9"
+      "pointer": {
+        "table": "block",
+        "id": "1e33182a-b0f5-4ed2-bb06-5032d430c5f9"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1f952bfd-3a74-4af8-8e4f-1c3b5f2f1e7d"
+      "pointer": {
+        "table": "block",
+        "id": "1f952bfd-3a74-4af8-8e4f-1c3b5f2f1e7d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1fd987e3-064c-4d94-9c7b-736f07d9fd07"
+      "pointer": {
+        "table": "block",
+        "id": "1fd987e3-064c-4d94-9c7b-736f07d9fd07"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "20af8ee1-06ae-4ce4-9b55-1d817b63c767"
+      "pointer": {
+        "table": "block",
+        "id": "20af8ee1-06ae-4ce4-9b55-1d817b63c767"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "2131b10c-ebf6-4938-a127-7089ff02dbe4"
+      "pointer": {
+        "table": "block",
+        "id": "2131b10c-ebf6-4938-a127-7089ff02dbe4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "24780da2-5fa7-4180-a3e0-f509d9b60eda"
+      "pointer": {
+        "table": "block",
+        "id": "24780da2-5fa7-4180-a3e0-f509d9b60eda"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819"
+      "pointer": {
+        "table": "block",
+        "id": "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "2ed70f46-d810-440e-b423-6315dfec47c6"
+      "pointer": {
+        "table": "block",
+        "id": "2ed70f46-d810-440e-b423-6315dfec47c6"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "301e5df1-492c-4443-ba23-cededc933ce1"
+      "pointer": {
+        "table": "block",
+        "id": "301e5df1-492c-4443-ba23-cededc933ce1"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "3171b883-8b61-49ed-978e-b2c26b7a7a4c"
+      "pointer": {
+        "table": "block",
+        "id": "3171b883-8b61-49ed-978e-b2c26b7a7a4c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "3564ec91-8934-4586-94a2-93eea413f01a"
+      "pointer": {
+        "table": "block",
+        "id": "3564ec91-8934-4586-94a2-93eea413f01a"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "3f7401a9-7da8-4112-80fe-d29a344aa54b"
+      "pointer": {
+        "table": "block",
+        "id": "3f7401a9-7da8-4112-80fe-d29a344aa54b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "4002cbc6-1560-41a4-946c-0825b32ccb2d"
+      "pointer": {
+        "table": "block",
+        "id": "4002cbc6-1560-41a4-946c-0825b32ccb2d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "4248ede9-3abb-4e10-b11f-408de05cce95"
+      "pointer": {
+        "table": "block",
+        "id": "4248ede9-3abb-4e10-b11f-408de05cce95"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "4787e4a9-cdd4-4176-8c98-8db8eb6fc213"
+      "pointer": {
+        "table": "block",
+        "id": "4787e4a9-cdd4-4176-8c98-8db8eb6fc213"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "4b2b3625-1643-4550-a06e-f5ad5056145d"
+      "pointer": {
+        "table": "block",
+        "id": "4b2b3625-1643-4550-a06e-f5ad5056145d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "5710968c-9edb-4a7d-ba77-15f379d4c4c4"
+      "pointer": {
+        "table": "block",
+        "id": "5710968c-9edb-4a7d-ba77-15f379d4c4c4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "57c31cb9-6f98-431e-bf07-18c41c35aacb"
+      "pointer": {
+        "table": "block",
+        "id": "57c31cb9-6f98-431e-bf07-18c41c35aacb"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "69a6ecec-622a-4a4d-8f07-9cf9ddef19f1"
+      "pointer": {
+        "table": "block",
+        "id": "69a6ecec-622a-4a4d-8f07-9cf9ddef19f1"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "6ce3494a-710e-4c6c-8860-fdcaf8f6fbae"
+      "pointer": {
+        "table": "block",
+        "id": "6ce3494a-710e-4c6c-8860-fdcaf8f6fbae"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "737a74ef-b014-4e41-b9ce-6128bee14e17"
+      "pointer": {
+        "table": "block",
+        "id": "737a74ef-b014-4e41-b9ce-6128bee14e17"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "7462f37a-1a73-4b74-a216-b6abfd7ef858"
+      "pointer": {
+        "table": "block",
+        "id": "7462f37a-1a73-4b74-a216-b6abfd7ef858"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "78202ec2-40d5-40fb-9eae-1739753a9221"
+      "pointer": {
+        "table": "block",
+        "id": "78202ec2-40d5-40fb-9eae-1739753a9221"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "7895df89-cef4-4453-a7cf-a1253fcd9bd5"
+      "pointer": {
+        "table": "block",
+        "id": "7895df89-cef4-4453-a7cf-a1253fcd9bd5"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "7e2191f1-54fe-4a23-93bd-49fefbbe7d53"
+      "pointer": {
+        "table": "block",
+        "id": "7e2191f1-54fe-4a23-93bd-49fefbbe7d53"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "7f4d5f16-9d92-443a-89c2-903ae4d17b3c"
+      "pointer": {
+        "table": "block",
+        "id": "7f4d5f16-9d92-443a-89c2-903ae4d17b3c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "8a0571a6-c86c-41ce-b154-5415158216f9"
+      "pointer": {
+        "table": "block",
+        "id": "8a0571a6-c86c-41ce-b154-5415158216f9"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "8a984cca-17d3-43fb-89c0-c004fbba2ba4"
+      "pointer": {
+        "table": "block",
+        "id": "8a984cca-17d3-43fb-89c0-c004fbba2ba4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "8e11eb02-afc4-4f54-b2e2-8cec52664dd8"
+      "pointer": {
+        "table": "block",
+        "id": "8e11eb02-afc4-4f54-b2e2-8cec52664dd8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9247cf31-5ba2-4d99-866a-f9234d8cda5c"
+      "pointer": {
+        "table": "block",
+        "id": "9247cf31-5ba2-4d99-866a-f9234d8cda5c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "961394de-ddad-4635-b239-f0a921b0cbb0"
+      "pointer": {
+        "table": "block",
+        "id": "961394de-ddad-4635-b239-f0a921b0cbb0"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9716642e-6502-4d21-aefa-ab3d27a7bff8"
+      "pointer": {
+        "table": "block",
+        "id": "9716642e-6502-4d21-aefa-ab3d27a7bff8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "99fbd1fb-39d6-48f6-9364-aeb5666148cd"
+      "pointer": {
+        "table": "block",
+        "id": "99fbd1fb-39d6-48f6-9364-aeb5666148cd"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9ec61c28-83b6-4af7-9a46-d05652abf86b"
+      "pointer": {
+        "table": "block",
+        "id": "9ec61c28-83b6-4af7-9a46-d05652abf86b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9f220a2f-b83d-4655-b465-c543261324da"
+      "pointer": {
+        "table": "block",
+        "id": "9f220a2f-b83d-4655-b465-c543261324da"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9f5c87bb-bc1c-409b-a286-f43c13e2a19e"
+      "pointer": {
+        "table": "block",
+        "id": "9f5c87bb-bc1c-409b-a286-f43c13e2a19e"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9f87b32c-b8a8-4272-b077-8f446a20b2ef"
+      "pointer": {
+        "table": "block",
+        "id": "9f87b32c-b8a8-4272-b077-8f446a20b2ef"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "a5bd825a-8e3d-467d-bf70-6a9456ecbea3"
+      "pointer": {
+        "table": "block",
+        "id": "a5bd825a-8e3d-467d-bf70-6a9456ecbea3"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "a73063bc-db6f-4dff-b791-b8529a6b1dd8"
+      "pointer": {
+        "table": "block",
+        "id": "a73063bc-db6f-4dff-b791-b8529a6b1dd8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "ad6518e5-87d5-4507-8442-ef0160061f08"
+      "pointer": {
+        "table": "block",
+        "id": "ad6518e5-87d5-4507-8442-ef0160061f08"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "b0bc5bfa-80da-41d2-a3db-03f816fcab4d"
+      "pointer": {
+        "table": "block",
+        "id": "b0bc5bfa-80da-41d2-a3db-03f816fcab4d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "b985dde4-9ea5-4582-b116-1747fea47a5a"
+      "pointer": {
+        "table": "block",
+        "id": "b985dde4-9ea5-4582-b116-1747fea47a5a"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "bee99cd6-acaf-4820-8ed2-6bf0d3c20284"
+      "pointer": {
+        "table": "block",
+        "id": "bee99cd6-acaf-4820-8ed2-6bf0d3c20284"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "c2663e2f-837f-4a68-98c4-1e48fff94deb"
+      "pointer": {
+        "table": "block",
+        "id": "c2663e2f-837f-4a68-98c4-1e48fff94deb"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "c7192353-11d6-446c-b656-e1b0d996e25d"
+      "pointer": {
+        "table": "block",
+        "id": "c7192353-11d6-446c-b656-e1b0d996e25d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "cb856a96-c486-4b59-b666-48608f8dad2b"
+      "pointer": {
+        "table": "block",
+        "id": "cb856a96-c486-4b59-b666-48608f8dad2b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "cb9dbf89-5be2-4b54-87d3-84731db07b66"
+      "pointer": {
+        "table": "block",
+        "id": "cb9dbf89-5be2-4b54-87d3-84731db07b66"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d0e60959-709e-4032-b314-0e24c51c5ad2"
+      "pointer": {
+        "table": "block",
+        "id": "d0e60959-709e-4032-b314-0e24c51c5ad2"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d2061080-04d4-4583-ac50-744749666286"
+      "pointer": {
+        "table": "block",
+        "id": "d2061080-04d4-4583-ac50-744749666286"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d4ca5a99-fb1f-4ade-add7-b31fe1c40084"
+      "pointer": {
+        "table": "block",
+        "id": "d4ca5a99-fb1f-4ade-add7-b31fe1c40084"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d5466dd9-73f9-426f-83f3-f6d2bebfd1b9"
+      "pointer": {
+        "table": "block",
+        "id": "d5466dd9-73f9-426f-83f3-f6d2bebfd1b9"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e21cb260-6f73-4f78-8bab-07f84e3b87e9"
+      "pointer": {
+        "table": "block",
+        "id": "e21cb260-6f73-4f78-8bab-07f84e3b87e9"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e35e7996-54c9-4b81-8dba-6df169a2dab8"
+      "pointer": {
+        "table": "block",
+        "id": "e35e7996-54c9-4b81-8dba-6df169a2dab8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e599e77a-5a51-4169-8af5-95272cc23fd2"
+      "pointer": {
+        "table": "block",
+        "id": "e599e77a-5a51-4169-8af5-95272cc23fd2"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e66f391f-4a4d-4467-9e23-c26672967ddd"
+      "pointer": {
+        "table": "block",
+        "id": "e66f391f-4a4d-4467-9e23-c26672967ddd"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "eadac88a-1b34-4697-b3a4-f3156cd315d3"
+      "pointer": {
+        "table": "block",
+        "id": "eadac88a-1b34-4697-b3a4-f3156cd315d3"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "ee31fb77-48d8-44e1-a0b0-9b130ad1d50e"
+      "pointer": {
+        "table": "block",
+        "id": "ee31fb77-48d8-44e1-a0b0-9b130ad1d50e"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "f0457ea8-4f73-4ecb-8639-e8aa4104435b"
+      "pointer": {
+        "table": "block",
+        "id": "f0457ea8-4f73-4ecb-8639-e8aa4104435b"
+      },
+      "version": -1
     }
   ]
 }
-Response:+222575
+Response:+109072
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
       "015a7bdc-38b5-4845-b42c-047b49343188": {
         "role": "editor",
@@ -2088,44 +1982,6 @@ Response:+222575
           "version": 62
         }
       },
-      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
-            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-            "7495260a-1daa-4611-8858-ad2e049e77e6",
-            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
-            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
-            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
-            "4d625835-41be-43c9-b94b-a87da9feeee7",
-            "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530921610129,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1624844400000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Words written by me"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 257
-        }
-      },
       "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819": {
         "role": "editor",
         "value": {
@@ -2201,62 +2057,6 @@ Response:+222575
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
           "version": 64
-        }
-      },
-      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "50845d2e-2137-4f69-8c95-5391326a7f92",
-            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
-            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
-            "56757391-fba8-45bc-8551-262f3c9f81f2",
-            "20614047-3601-4b54-bd82-edd8b58e6b43",
-            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
-            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
-            "981d650d-2df1-4162-a739-d788c628cdcf",
-            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
-            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
-            "b059308f-5cc3-43fb-af19-9c71ae359418",
-            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
-            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
-            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
-            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
-            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
-            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
-            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-            "7e948259-8dd7-4bf7-8f03-a7833279f444",
-            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530157233456,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
-          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["blog posts"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 1981
         }
       },
       "301e5df1-492c-4443-ba23-cededc933ce1": {
@@ -2593,62 +2393,6 @@ Response:+222575
           "version": 60
         }
       },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 384
-        }
-      },
       "5710968c-9edb-4a7d-ba77-15f379d4c4c4": {
         "role": "editor",
         "value": {
@@ -2978,101 +2722,6 @@ Response:+222575
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
           "version": 67
-        }
-      },
-      "7e948259-8dd7-4bf7-8f03-a7833279f444": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "2131b10c-ebf6-4938-a127-7089ff02dbe4",
-            "1e33182a-b0f5-4ed2-bb06-5032d430c5f9",
-            "d0e60959-709e-4032-b314-0e24c51c5ad2",
-            "e599e77a-5a51-4169-8af5-95272cc23fd2",
-            "2ed70f46-d810-440e-b423-6315dfec47c6",
-            "1f952bfd-3a74-4af8-8e4f-1c3b5f2f1e7d",
-            "9ec61c28-83b6-4af7-9a46-d05652abf86b",
-            "c7192353-11d6-446c-b656-e1b0d996e25d",
-            "69a6ecec-622a-4a4d-8f07-9cf9ddef19f1",
-            "b0bc5bfa-80da-41d2-a3db-03f816fcab4d",
-            "e21cb260-6f73-4f78-8bab-07f84e3b87e9",
-            "4002cbc6-1560-41a4-946c-0825b32ccb2d",
-            "a5bd825a-8e3d-467d-bf70-6a9456ecbea3",
-            "1fd987e3-064c-4d94-9c7b-736f07d9fd07",
-            "d4ca5a99-fb1f-4ade-add7-b31fe1c40084",
-            "11a3526b-89fa-41f5-876c-05e03a039f16",
-            "57c31cb9-6f98-431e-bf07-18c41c35aacb",
-            "4787e4a9-cdd4-4176-8c98-8db8eb6fc213",
-            "961394de-ddad-4635-b239-f0a921b0cbb0",
-            "0856dc2d-b0c4-4251-a7c8-534fec8c2099",
-            "e66f391f-4a4d-4467-9e23-c26672967ddd",
-            "cb9dbf89-5be2-4b54-87d3-84731db07b66",
-            "301e5df1-492c-4443-ba23-cededc933ce1",
-            "7895df89-cef4-4453-a7cf-a1253fcd9bd5",
-            "184ec50a-f696-49a5-9a4e-e0e55d8965f4",
-            "3564ec91-8934-4586-94a2-93eea413f01a",
-            "3f7401a9-7da8-4112-80fe-d29a344aa54b",
-            "95b8c139-15bb-4502-a471-63ff5a3c292e",
-            "f0457ea8-4f73-4ecb-8639-e8aa4104435b",
-            "a73063bc-db6f-4dff-b791-b8529a6b1dd8",
-            "bee99cd6-acaf-4820-8ed2-6bf0d3c20284",
-            "d5466dd9-73f9-426f-83f3-f6d2bebfd1b9",
-            "78202ec2-40d5-40fb-9eae-1739753a9221",
-            "9716642e-6502-4d21-aefa-ab3d27a7bff8",
-            "7462f37a-1a73-4b74-a216-b6abfd7ef858",
-            "e35e7996-54c9-4b81-8dba-6df169a2dab8",
-            "7f4d5f16-9d92-443a-89c2-903ae4d17b3c",
-            "6ce3494a-710e-4c6c-8860-fdcaf8f6fbae",
-            "cb856a96-c486-4b59-b666-48608f8dad2b",
-            "1dadfa12-6bf2-4ce5-9f83-7fe2a61afd44",
-            "ad6518e5-87d5-4507-8442-ef0160061f08",
-            "9f87b32c-b8a8-4272-b077-8f446a20b2ef",
-            "9247cf31-5ba2-4d99-866a-f9234d8cda5c",
-            "7e2191f1-54fe-4a23-93bd-49fefbbe7d53",
-            "0d386bf2-6016-4b54-a456-e86e4fe79fad",
-            "ee31fb77-48d8-44e1-a0b0-9b130ad1d50e",
-            "20af8ee1-06ae-4ce4-9b55-1d817b63c767",
-            "24780da2-5fa7-4180-a3e0-f509d9b60eda",
-            "8a0571a6-c86c-41ce-b154-5415158216f9",
-            "17f2bb79-7a63-483d-9045-8d4787547fde",
-            "d2061080-04d4-4583-ac50-744749666286",
-            "eadac88a-1b34-4697-b3a4-f3156cd315d3",
-            "4248ede9-3abb-4e10-b11f-408de05cce95",
-            "b985dde4-9ea5-4582-b116-1747fea47a5a",
-            "9f220a2f-b83d-4655-b465-c543261324da",
-            "99fbd1fb-39d6-48f6-9364-aeb5666148cd",
-            "8a984cca-17d3-43fb-89c0-c004fbba2ba4",
-            "c2663e2f-837f-4a68-98c4-1e48fff94deb",
-            "8e11eb02-afc4-4f54-b2e2-8cec52664dd8",
-            "9f5c87bb-bc1c-409b-a286-f43c13e2a19e",
-            "737a74ef-b014-4e41-b9ce-6128bee14e17",
-            "1d20d3ec-fbfe-4724-b755-aab576d5c2b8",
-            "5710968c-9edb-4a7d-ba77-15f379d4c4c4",
-            "3171b883-8b61-49ed-978e-b2c26b7a7a4c",
-            "0992260b-6f9a-4130-b500-d2be85cd56b0",
-            "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819",
-            "17e0c028-b6ba-4d62-8078-34adf6fb3459",
-            "1a8ae7d9-652f-40e6-89c2-edac7bf53f61",
-            "4b2b3625-1643-4550-a06e-f5ad5056145d",
-            "015a7bdc-38b5-4845-b42c-047b49343188"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1531195689778,
-          "id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1532996425387,
-          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "parent_table": "block",
-          "properties": {
-            "title": [["2002"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 215
         }
       },
       "7f4d5f16-9d92-443a-89c2-903ae4d17b3c": {
@@ -4351,2722 +4000,6 @@ Response:+222575
           "version": 69
         }
       }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
-          "name": "Main",
-          "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 271
-        }
-      }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "e96f2068-a6be-4b68-a4b9-5319c4f0efc8",
-          "cf5628e0-28d9-4c17-a092-73e4a2d214a3",
-          "912804e6-1205-4b50-a411-d37f0c7b5476",
-          "70beee25-d1ab-46d8-a661-a6249708e830",
-          "c6dbe08f-7525-4661-9dfe-8c6bdb5281d2",
-          "7ea84cdf-825d-465c-bb49-d8140565f440",
-          "176c12c9-7d43-49e1-aa40-3b668506727c",
-          "a187cbd6-d339-4ead-8ff7-b7ae878b9d1e"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157298311,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "015a7bdc-38b5-4845-b42c-047b49343188",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996274078,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The ghost of ArsDigita"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 64
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "1c01518f-9b84-4309-b256-b4ab889dc3ce",
-          "b1f95096-ea8d-427e-8d8f-378f6f7f47db",
-          "e29eb777-8153-46fd-b2d3-0ec62ac7b9e1",
-          "4ec15729-e1ff-4202-8437-a98a8885204c",
-          "f209492d-623c-4ec0-a769-470ccd1c57f0",
-          "c471c4f6-e092-4b4c-b319-babb95ca6a37"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157251270,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "0856dc2d-b0c4-4251-a7c8-534fec8c2099",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #12 (line extension)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "e89fc118-a6e9-42b6-ac29-ffde87397d08",
-          "e9804239-e5f5-45e1-9c96-7573bc13adb9",
-          "8d413862-95c3-4785-bf14-6cced85f120d",
-          "942578ce-8b5d-4b2d-a16b-9d00373b3105",
-          "84428bd1-9a1f-4b12-9e2c-b36c7cc3356e",
-          "827f8f22-8061-4ca4-90ea-fec836df6c51",
-          "01b67730-3965-47f1-9493-7c758f94446d",
-          "b2c0f507-73cd-49df-ab29-2b2b4cec35d9",
-          "2aed879e-e9b2-47e5-bdb8-3a13a4a214b9",
-          "fa028685-fd2d-4632-8d44-cd6c5cb1cbc8",
-          "86ddd7dd-5a7d-4a91-945b-f2262832ba1e",
-          "8edc6cd3-bba8-4f7e-b667-5ced62b60d47"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157295292,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "0992260b-6f9a-4130-b500-d2be85cd56b0",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Blown to bits"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "b28f8d23-c16e-4fbe-b5c7-a32f5aac9175",
-          "185143b6-7e30-4a82-beb5-b8c7e86146b1",
-          "175d9814-d57d-44af-b0d7-de2e88306ee0",
-          "63215bc0-e748-432a-9160-370eb84a4b53",
-          "eb40ef6b-65c3-4ec1-bc5e-7b3652c2ea8b",
-          "673bbe29-8682-476a-8dd3-77a967964cb9",
-          "9af6e151-2fda-4280-a63c-54afeaaf14ce"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157275377,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "0d386bf2-6016-4b54-a456-e86e4fe79fad",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Great business without innovation"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "606b2bd3-db43-4fe9-8aab-cf6ba8af4a78",
-          "1d89f1b9-905d-48ed-abb3-45423c3a0fc9",
-          "1db0bbec-04ed-469b-87f7-010c136e482f",
-          "9e3a3f10-43e2-4720-bbbb-c880f3ada70f",
-          "2cd4124e-eba2-4d77-9f80-91e13c1067f8",
-          "3039820f-9794-4234-bd82-25cab42fb25f",
-          "4a088b2a-936d-416d-a69e-58b65f11ce5e",
-          "c0339b74-d08d-4dc4-926f-98853dcf27cc",
-          "0c0c45f2-d32e-4b76-9cb5-29c49be65b8f"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157251244,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "11a3526b-89fa-41f5-876c-05e03a039f16",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #13 (sacrifice)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 71
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "aa91310b-72fe-44a1-97ac-83a879bbaab6",
-          "a1f9476f-5686-4d59-8cb2-d19811470e69",
-          "5fa2ef4a-0043-4b8c-adb7-2fab6a6f0f77",
-          "1f36e2c5-b80c-43af-be29-81a6ceb6ebcc",
-          "67727209-3a1c-4b6e-bf4c-9529fb243630",
-          "50f19c69-e072-4875-86bb-a93e4b0e55d9",
-          "cb463cc0-9ead-4fd2-91d3-2008d0b523b2"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157295300,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "17e0c028-b6ba-4d62-8078-34adf6fb3459",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996274078,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["High Tech start up"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "1c58186b-4059-4695-ba4e-2ef3394d09f0",
-          "93c760e1-b360-4f0a-94a4-bfa4488cf728",
-          "5fe20aa8-aa45-489d-9e8e-32e7590f8db2",
-          "3ef020f3-541f-4b2a-9ef3-123fb08b8b0e",
-          "6b83adc0-c4f1-49eb-9d10-c036d09075da",
-          "4aac4bd4-51b5-4dce-bd59-ad834f51ad1c"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157280389,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "17f2bb79-7a63-483d-9045-8d4787547fde",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Those are the good times"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "d6120d03-363f-49ce-b78b-66777446f6f4",
-          "8bfb7faa-adbe-4fb1-af20-6890c0e99d65",
-          "0ad60b41-c37c-40a9-8743-7a5fdbc13924",
-          "22c6217e-683b-4b6e-85b9-ea8802690b92",
-          "945e463e-ca46-475a-82f5-17bcaf8c7485"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157258263,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "184ec50a-f696-49a5-9a4e-e0e55d8965f4",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #20 (hype)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 89
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "4818a231-58ae-4daa-ae03-38b0c5c5f9bd",
-          "76999e69-4c06-41dd-8f10-c85445b08114",
-          "f08a5eb4-a20b-4c61-8de9-58fc7831dbdb",
-          "60a1100a-6e55-4ec1-9aaa-c73c94f3f050",
-          "974a2140-7093-4d2e-9791-f47d864e76e4",
-          "79c3d240-dd8f-4e7a-bbc8-5fcb2e73c8e2",
-          "0776af26-b3b6-4900-9cc7-0ebfacd6d226",
-          "29ab3082-3989-45f0-ae24-8721a9256b05",
-          "fef41141-03f2-47e9-8514-33fd76160662"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157295383,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1a8ae7d9-652f-40e6-89c2-edac7bf53f61",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996274078,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Selling Microsoft"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a8445d50-0fca-4cc6-b780-97059b752b78",
-          "ad08a8b7-9544-474f-86df-2eed97cf962a",
-          "f63f1260-2a54-4aed-8311-f627cfd609e8",
-          "4f9254d4-924d-455d-9f62-d8d315e11b7a",
-          "559d54db-a407-4d08-b01d-d830d52c59eb",
-          "41dfcb6b-be7c-458d-87f3-ca55d8d9494d"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157294110,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1d20d3ec-fbfe-4724-b755-aab576d5c2b8",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["LL1 Videos"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "78e3de89-446a-40b4-91c1-720dbad72582",
-          "4da92bf6-7d47-4b9f-803b-55536e36c95e",
-          "b59cbe96-d5a1-434c-b95a-cf465ce58405",
-          "7d40105b-e8c7-4802-bb04-b9115a9cb7ea",
-          "5c85db39-4a2d-4747-94a7-0009b301ebde",
-          "c1531c34-634a-4dc1-8209-270d535bb314",
-          "76ee5fe5-526f-44e5-a3bb-c64a163da890",
-          "c76db458-7f58-4534-89ad-e91fac724735",
-          "53d709ed-7909-49eb-bea3-bd973a3034e9",
-          "7a5d86f4-f7b2-4f08-9667-26e8dffab7ea",
-          "8e31977c-bb4d-4295-9d48-3f32a2922a06",
-          "494e35e7-4167-4cc4-aa6a-1d36137be08e",
-          "1782ce8d-c2cf-4746-8ffa-489b551d8fd4",
-          "dead8340-f8d9-474b-99cc-ad86f1a430ef",
-          "da1a3117-0b9b-4268-bee8-65775f828b2a",
-          "eb2f3f10-4b46-44b6-8360-e7cc3962e39c"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157270401,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1dadfa12-6bf2-4ce5-9f83-7fe2a61afd44",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The future is here, it’s just not evenly distributed"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "82421ca5-9e66-4ed7-a213-38ac75a5e868",
-          "dea2423f-2dc8-4b84-bd77-cf6f560dbb4d",
-          "0c9d17cb-7b6b-42c7-8684-fb93246186e8",
-          "5364f580-ab9e-44fd-82b1-21f64b6d41dc",
-          "0fa5bc83-c3cc-46e5-8ac3-0f2892bd5a7d",
-          "570cde20-a885-4499-be0c-ad355e030632",
-          "5ae6ac99-3a47-41cd-8467-a2175640b213",
-          "d4f72932-db96-4d4c-978d-6288bda6a787",
-          "8c1e2930-3f6d-46ae-8c3e-30b95e5ebdb6",
-          "da213139-ab9c-4945-9b42-ea42a5835938",
-          "68da2d81-5b3a-4c01-8ef3-b2779605dbfa",
-          "1620e4e2-76b7-47c8-88d0-17ba6b77a130"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157235949,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1e33182a-b0f5-4ed2-bb06-5032d430c5f9",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Fine interview with Marcelo Tosatti"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 70
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "5a196c2e-96c1-46f3-b9ca-805c9ffac4c0",
-          "4fdcc8fb-1ec1-4b1f-863d-69665707c786",
-          "d2e4cd34-3962-41b2-bc38-dc01a0a72b39",
-          "e09cd180-47be-435d-a88f-ad8ead016d33",
-          "6dedd8ae-5d12-44ab-8f3b-144eb2e33e3f",
-          "aeff8bfd-a553-4dd5-81b6-16a350a067e7"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157239287,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1f952bfd-3a74-4af8-8e4f-1c3b5f2f1e7d",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #5 (focus)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 64
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "c54a3ce0-b3d7-42f7-aebd-0143c9fb5bc0",
-          "11794bca-3419-4427-9bea-82c839bfde56",
-          "072d2b2b-1af4-4776-bb44-a07546bfe1bf",
-          "15ec075d-bbb3-4f40-b953-a8fd053533e6",
-          "4cd5171c-d659-48b7-80f2-0ddcdb147ac0"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157246278,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1fd987e3-064c-4d94-9c7b-736f07d9fd07",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #10 (division)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "e0b44311-63da-4ae7-864e-c9925ec5ea28",
-          "984e7a60-6ebc-4bc2-8789-2d481744ef88",
-          "6caa10cd-0636-4aa0-9ed9-a3b42fc2346e",
-          "aae50d88-75f9-46a6-bb80-f02c80faf9dd",
-          "5feeae55-3cfc-4c0f-8792-e3df6d1980dd",
-          "0b207a4c-8abd-47cb-b616-b25484e38cb9",
-          "465b92ea-5c4a-47e5-b20a-355b4997756f",
-          "7d66531d-4318-408f-8e4c-3d55a7306909"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157278289,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "20af8ee1-06ae-4ce4-9b55-1d817b63c767",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Show me the code"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 90
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "df10c297-075c-4282-81f9-34ef52f68537",
-          "4fd608b6-d572-4841-9613-c3feab3140bc",
-          "9f46016e-f0ce-4f42-bc21-1f914ebe950a",
-          "af885bcb-f88e-45ee-bad4-b9dfa543ab3c",
-          "8529b976-2479-4655-bc19-8053b84101e1",
-          "cf82c8d6-9cb3-4c33-8c9b-ee61e49c60c9",
-          "3f3ac6b4-148a-4496-8f64-e15f6d2f2144",
-          "c36eea5b-2dd1-4791-8c05-35d55be7943d",
-          "0ed4e718-dd28-408e-851d-faafef05b140",
-          "9255a44f-d7c5-4c65-b0bf-c90fc88f631c",
-          "f4db537e-95b0-441b-b072-dc80650d82d1",
-          "523f40a6-509c-4218-a609-e406c784cb71"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157235889,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "2131b10c-ebf6-4938-a127-7089ff02dbe4",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["SMART Goals "]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 154
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a481120e-9cfd-4c14-aa88-45c513e6e2eb",
-          "ff4f11e2-81be-460b-a6e9-f47959da6dd3",
-          "e1d768a3-ee03-46b3-9b3c-3a91eb311777",
-          "0c210c1a-a3bd-40be-a23b-cc6c3c4c8971",
-          "63a9ff89-e1ca-4ed3-a40f-a57003d77931",
-          "61678f50-86f5-4665-a47c-45df7cebbb33"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157278700,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "24780da2-5fa7-4180-a3e0-f509d9b60eda",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The history of bookfinder"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "19253b67-e620-426d-8a9f-c260e0064267",
-          "5c4fde57-aae1-4713-b402-6c869a11886a",
-          "d94d2b9a-eae1-427b-872f-18e6bbfd7d03",
-          "cbacddaf-5afb-41f0-a482-99c92eeffc29",
-          "076f3106-25f0-464e-baa1-a69765c3296e"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157295290,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "2dddcefe-2d3a-47c3-a3c2-4dcfdd8f6819",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996274078,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["LL2 webcast"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "bd659fa2-8b6a-4188-ae88-6df4fc261847",
-          "96e48519-c1c1-4a61-b2ef-b3cc8473d412",
-          "2b3f4241-8534-408f-8fa1-b9bb9cb34169",
-          "4ab36c23-8782-41bb-89b4-31d26e98e396",
-          "aca193e6-7e80-4b7a-b693-277e0ec1dbcf",
-          "f72e4460-b759-49a4-9b37-f1743079dfcd",
-          "2dca02ae-55fa-43ca-909c-053f7e5ecbe0",
-          "58eefa59-0e67-47b0-b808-596d8dd646fb",
-          "37b8d280-1c6d-4f6c-80b1-83e831dba324",
-          "d55a67ef-cd95-4812-8f7c-4f0ea48c595b",
-          "5b910cfb-1186-4d34-9eea-bb71983f0424",
-          "93e3ffe6-ea59-4a51-a74e-1a4c6dc3e260"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157236004,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "2ed70f46-d810-440e-b423-6315dfec47c6",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["On “The 22 Immutable Laws Of Marketing”"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 64
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "77c939b5-154d-42d0-a29e-504b05cc748f",
-          "64d6135b-b05c-4ad9-9a5e-706a5f4b2848",
-          "e3334a03-709e-400b-bd77-2e6874b11228",
-          "8b22eaa6-bd4d-434f-9e50-f6ba34aec5cc",
-          "783a197d-5fcb-46ef-a46c-21c1dd13fe7e"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157258211,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "301e5df1-492c-4443-ba23-cededc933ce1",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #17 (unpredictability)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "529fedf2-4e34-408d-a0aa-dacb2c02494a",
-          "8802cc1a-cd81-4f80-9a7e-8c98ccd103f8",
-          "a67c8300-e645-49b2-a436-553c9452a8f3",
-          "26f9bda9-98bd-4027-b682-baabd33c5781",
-          "c6285fbe-efc1-4933-bebf-cd9df8df88be",
-          "ce1a9417-706d-4707-aec9-cd96dc9a2ad2",
-          "5b11e74d-fd76-47af-a4b4-2faf50520b96",
-          "065ba800-2007-4da9-8a1e-f8b9abdf8ba9",
-          "f154269d-dfac-4b16-89fe-edf53a58bdaf",
-          "2098d8e2-ae00-4ddd-85d8-e75e0f8ed787",
-          "a2967b12-771c-4855-80ac-66c5ae9f7a53",
-          "78025b2f-fa6c-448e-b41d-a46778448a60",
-          "a49ab202-47ac-446a-afb1-8db034148693",
-          "aa70adb5-2f85-42cc-9a5f-859bb1879fef",
-          "51d2b09b-dde4-4185-8e5c-264d860d5a56",
-          "3689f623-ff68-4820-9548-c50f5507b5c5",
-          "9ac02605-3807-4309-9117-4ccd2945b1ec",
-          "c9a0b1dd-17ab-40e3-a2b6-52adb558affd",
-          "19bd74aa-6f21-4809-b08a-c8e76fb887e5",
-          "0e617d5e-3c3f-4b4d-94a8-14fdb6661c17",
-          "12f7a2de-0118-4cd1-b0d9-53c05c98614a",
-          "aaf93577-329d-4495-92a0-60ac3d5bc2ba",
-          "13556fd6-0a7d-4d53-9d62-670236ea888d",
-          "bd99997f-caa0-466a-820c-713f19e6fab3",
-          "8c3343f9-9bd7-483b-8331-515232ef6897",
-          "03ffe219-54c2-450d-a2a1-da1c316ff9eb",
-          "c8018069-8dbc-4da4-a95e-ef5bb640ed6a",
-          "5965ed3b-c8c0-469d-bc49-9475e403cff2",
-          "683fc6ad-32a9-4eff-ad5f-2247ef933018",
-          "28355de6-acb9-47b8-85db-9a1a48d21b20",
-          "856651e8-3c67-4720-9549-7487388a9440",
-          "3c014a77-a87b-4709-9f72-3c0b1357ef83",
-          "d5f67dd9-8f09-46e6-a0c6-6d99d3fbd54a",
-          "bfa245cd-f668-4152-8f03-cb04bc708b17",
-          "b9525fa3-efe5-4ebf-983d-ad97735a9c50",
-          "65ad5e50-4abf-45fc-90a5-dd877ae19ad7",
-          "07774ac7-bc3a-4d77-bbf4-915bcc41c801",
-          "5b099586-4d13-450d-8b94-6346a4bedadb",
-          "4b9e6b33-8daf-4c0a-8aad-e8b25800c05d",
-          "0080df33-7798-44d5-9868-4e004e0c70f1",
-          "9f096542-5d8b-4d61-9d7c-2d6466da6ebe",
-          "11f05aad-59f2-47b3-9ad4-1cf0cbb3a5e4",
-          "f03de676-3561-4ae1-b84a-f10cda1a65a7",
-          "f3ebb739-0af6-49d9-bf59-2d09135d6874",
-          "ea5b44ad-9e56-4df9-9ffb-9da74be77ca3",
-          "7d1b2d7b-43d4-4de4-a18c-a145c1c5c516"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157292386,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "3171b883-8b61-49ed-978e-b2c26b7a7a4c",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Good programming practices"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 196
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "06cb6a47-b446-4282-b9d4-d4134f1aa1fb",
-          "3a8ed055-a65e-4ef8-8319-d3b5f958fbcf",
-          "c12a64f0-2af1-4806-97f6-a45218e03ac5",
-          "91120064-5b0f-4d30-9d55-61120c720563",
-          "fc9b4629-f710-43d1-8332-a569f974aafd",
-          "7ddff668-0fc4-4b64-8af1-b3d94ccd5a6b",
-          "75731cd6-aaf1-4adf-a7f4-4a37a9a005f6",
-          "6561beca-8ae7-4f46-a213-eaec0ed221fc"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157260320,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "3564ec91-8934-4586-94a2-93eea413f01a",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Redefining Professionalism for Software Engineers"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "4add7eb1-7be7-4f84-b44e-83af25492dd3",
-          "0a22c244-8b74-426e-a65a-c75b5170740d",
-          "8f8f401a-3693-43b8-8ce0-079951e654b5",
-          "c2910c84-3eed-4b0d-8474-776abae1b501",
-          "3308e5dc-c95a-42b4-85e9-153646c4e9ec",
-          "55ed6281-1ba7-48ab-8caf-3157c11f5a57",
-          "a3d9c5f1-6e10-4519-8052-02a4017b26f5",
-          "93550377-3500-49ed-a056-13a9e44cf01b",
-          "d18d416d-1764-4b53-8da5-5c94c86ed027"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157261463,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "3f7401a9-7da8-4112-80fe-d29a344aa54b",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["You and your research"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "0820ed8f-9b53-4da3-b89e-b6682dc17dba",
-          "82543d58-6820-46d9-a814-c1b3e69a11d6",
-          "c6da2585-c825-4477-8a67-6c5b0b386dbd",
-          "0238a677-1004-433e-a16e-eba6517f55f5",
-          "fd9a61d3-2c3e-475d-9582-49212ec0bf27",
-          "7cf8fdf7-263d-4bdc-8609-a4c85a9cd720",
-          "f0347769-f105-4bfc-b9a8-b9d0fbf939e4"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157246185,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "4002cbc6-1560-41a4-946c-0825b32ccb2d",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #6 (exclusivity)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 71
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "fc357f64-b6c9-4c5a-89c4-8395d62cea38",
-          "71966e32-faab-48a6-97b1-635e3dc61df2",
-          "6d61b635-d42a-47be-93cd-42b733d1dcbb",
-          "026e578b-b918-4200-b01c-75c3d84c6c74",
-          "afff3a6e-44f9-4a47-a030-c08cd4472067",
-          "46286398-8e8b-41a6-82cd-9a1fc7dfb89b",
-          "0db74da1-13c5-4a86-ab2b-e45edd5c1755",
-          "def6a0c7-1ce1-404a-8655-04eb7e70a641",
-          "bed78d72-4987-4aa7-b6f1-4e32c3ee5d8d"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157283307,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "4248ede9-3abb-4e10-b11f-408de05cce95",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["High-level languages not so great"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 114
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "3239f547-cf42-4d41-b3d6-067d95cf82a7",
-          "a4b196db-726d-4e40-8b79-2967f1427a7a",
-          "2ba5e497-94ef-4df9-9eb8-0bfce4029625",
-          "fbca03a2-cda0-4360-a4da-d7e313f339f4",
-          "399b4d17-7586-4fca-a4ae-c95bd20f2c58"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157251275,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "4787e4a9-cdd4-4176-8c98-8db8eb6fc213",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #14 (attributes)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7959f0f0-8fd8-4ad7-abca-83b315b6f794",
-          "182ece8b-feb2-4848-b440-b395548de7e1",
-          "be3516a0-b38d-4688-a622-55c5e7bebd4d",
-          "2699957f-d024-4b5a-8fda-78d795f6d73a",
-          "65c71590-931d-485e-8247-b95b28c61345"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157297098,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "4b2b3625-1643-4550-a06e-f5ad5056145d",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996274078,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The power of endorsement"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "31f45a9f-12af-4f7b-be8d-46cd58eb7a32",
-          "7adfe7c6-e826-4424-8024-392112da6f3f",
-          "4615f7da-8431-4ffd-9fbf-66ac5241eafc",
-          "4778059b-3ee1-4206-bc43-0d712900a4de",
-          "145962c4-c689-4209-a5fc-6e283b90dc32",
-          "4b19fd73-258e-4b4d-b685-09de88d0bac8",
-          "3224785f-6cef-4c1c-b57f-20eeec0bdf0c",
-          "e0239f6b-10cd-4ccd-ab38-a945b8016379"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157292335,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "5710968c-9edb-4a7d-ba77-15f379d4c4c4",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Slate knows why Amiga failed"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "b3e98391-038d-4f0b-865a-cbf23c95d214",
-          "150a719f-33bc-4002-8518-2ff9433ae562",
-          "1daef3b3-5b92-4884-97c0-1258dac87724",
-          "51e28c93-841a-4a28-8068-75bcfd68be97",
-          "c808838d-09fd-4359-b847-ce79a0fe5dfd"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157251233,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "57c31cb9-6f98-431e-bf07-18c41c35aacb",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #15 (candor)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 66
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "cd61632e-473b-457d-94b2-0cac67b9cfd5",
-          "fee130c4-e4ad-45ef-acac-c2614fb33712",
-          "1cd665c8-42ea-4f0d-b626-a4eb6a9b78eb",
-          "5a8930e1-192f-4790-983e-ae22a80e2e49",
-          "bb843230-7259-4346-ad5a-3f1542d2a03a"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157241445,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "69a6ecec-622a-4a4d-8f07-9cf9ddef19f1",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #3 (mind)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 73
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "deb1e205-70b8-42ec-8849-c9645349f542",
-          "8c3faef9-7b15-4b2f-85af-756eb5f606a5",
-          "be9febe3-735d-4347-9a6d-e3082c31989f",
-          "1e771e08-a78d-44c7-838a-e3937d5c49fe",
-          "31401b7d-4676-42de-89b2-7d9002570fc5",
-          "522f3888-67c7-4f3b-b5b3-a6258aadccbb",
-          "022b2917-f242-4c37-a185-8b4f86ed1467",
-          "47c61eb2-90c0-4ee6-92c5-04d589981262"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157270430,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "6ce3494a-710e-4c6c-8860-fdcaf8f6fbae",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["On writing well"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "3b521387-3b98-4875-a95d-8ba251686857",
-          "1627f183-9735-4316-a375-8aa9406de1a0",
-          "0fba899c-2dd2-4a0d-8330-0e13cea3541b",
-          "47599877-c077-470d-ae2a-8c2eacc208e8",
-          "efadd339-29c3-4222-8c80-312a65b630b6",
-          "f11695ba-fb3f-4b7b-83e7-e88cd72fe374",
-          "e5ec6646-8af5-499e-8924-ce29ca143bf9",
-          "eddf9c8b-5bc9-4ce5-80da-469eb8ba3102",
-          "4b449e6e-0e65-4209-84d6-30e31f17e768"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157292308,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "737a74ef-b014-4e41-b9ce-6128bee14e17",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["How to refuse features"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 68
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "99303191-5812-4053-aaef-62c33ce5e321",
-          "9aa3a28a-3a34-4a97-9d98-5a5a16783541",
-          "b84b20ab-5006-4fa8-94e2-dc664e042906",
-          "3335127a-fc27-4c51-9f73-156d3cef0f73",
-          "6a91230d-bae2-477a-a1f4-06d2de65a309",
-          "bd9ce29b-f054-4d0a-aedd-4079e25ca446"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157267288,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "7462f37a-1a73-4b74-a216-b6abfd7ef858",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Daemon tools for mounting iso images"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "0ed53890-4bc5-4a3e-aae9-47372717bcb5",
-          "9e95d279-9011-4a00-a2af-fb3c9e8700e7",
-          "a3ada612-a563-4ee1-9feb-5a53d3525003",
-          "4b8df6f4-02fa-4a66-8cf3-9731c6261413",
-          "4a78c9e9-b73a-4d18-8a2d-f3c39d6bda2f",
-          "4ad933dc-f167-40a1-85d3-8edfa00b9c46",
-          "be57c50d-ff2f-4c31-92a7-cf1d3f075e11"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157267260,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "78202ec2-40d5-40fb-9eae-1739753a9221",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["How to be a leader in your field"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 71
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "1c17ac7d-c62d-4190-97f1-37a4a5e565fb",
-          "b57fa7b2-e1b7-4145-b1e7-d4f97cfdc2fd",
-          "8bb10435-e87f-40c2-be09-08742c3c18c4",
-          "0a75833b-fbc7-4f1b-b666-40ec75e6adb0",
-          "dfd7261e-23f1-43fb-a2ce-aa17a711f55d"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157258463,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "7895df89-cef4-4453-a7cf-a1253fcd9bd5",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #18 (success)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 73
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "49722f04-0b00-4671-887c-78ea4d9db2c0",
-          "c6e67788-df66-48ac-a1d3-d515c59b68f4",
-          "c2a3546c-1588-47c6-a5fb-f0ac9016c02b",
-          "cc64928a-6a9a-4e42-8e09-e1b8e0643180",
-          "0889d7d4-c8d4-4589-b9a0-26ec7662ed5f",
-          "9437ccc5-ebc3-416f-a7cd-1b9de13c583d",
-          "c2d28e1a-fb9b-415a-9620-7fc802340c36",
-          "caa145b6-426c-4227-815a-d89e7085e63d"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157275336,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "7e2191f1-54fe-4a23-93bd-49fefbbe7d53",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["High tech martyr"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "fdbe58b8-a62e-402b-879b-b14bd41c1c13",
-          "01ea83b2-7314-4d45-9405-b4316fcef2d0",
-          "4e455f29-6f21-48f1-9bf4-5498a8b3db7a",
-          "191bbe79-c098-49cb-af5a-23ac375c6bd6",
-          "25270d65-021f-40f5-a056-3c826abdc7e8",
-          "66ac6742-5c76-4e68-bac1-f21637c60d96",
-          "1c51318c-32e2-420e-838d-7f525d6e1043"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157270350,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "7f4d5f16-9d92-443a-89c2-903ae4d17b3c",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The value of programming"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "14713e36-2825-4e8c-87aa-f109a0e48a84",
-          "ffbd8705-a81e-4ca1-b843-8d35e8481481",
-          "71445856-bb1c-47e6-9ddb-f0b00abe5282",
-          "e31b2860-71ff-4ef2-a3a7-72db654659d5",
-          "aa355237-7e74-4f63-a3a9-1db975878c5a",
-          "3a24a06d-f368-48a0-abf6-e4d3b49380bf",
-          "1433f38a-92c3-4145-9345-9fda7bca417a",
-          "93286198-6e2a-4c32-913c-53b019700b8c",
-          "19971000-8111-42dc-9860-0179af9eaa47",
-          "af4a38c1-0c63-4ba8-96c2-07069e722f9f",
-          "2183eb23-bc7e-49db-8a2e-af208d9d0a84",
-          "5bf66f54-4172-4f32-b50a-d421226e993b"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157280204,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "8a0571a6-c86c-41ce-b154-5415158216f9",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The stupidest thing a software company can do"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 64
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "2beeea75-7057-4257-9970-53aacac0abc7",
-          "4892112a-9c20-490e-81ca-435bbc79788b",
-          "a9d94c89-18d9-4e92-9bda-73543c3d1562",
-          "37c72a4e-16ea-4b7c-99a1-518ce96c651c",
-          "a9494b04-e58e-46f6-b218-ed8a89313293",
-          "c111f7ad-193f-4878-bb47-ad79322aa7a7",
-          "19c14c1a-3204-4cae-9bdd-aca63deca485",
-          "4092ad58-25c5-4fc4-afeb-40a423f9d969",
-          "e8ee6522-1572-45d8-9b63-d48a2019fa23"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157289094,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "8a984cca-17d3-43fb-89c0-c004fbba2ba4",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Profitable open-source business"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "c3122808-6679-4fa8-97e2-0836c00a7660",
-          "324f53e2-6fc6-4c53-aece-0b5a2ec2a147",
-          "8674958c-c563-449e-afe5-353256941df4",
-          "b7ff92a2-17fb-4016-8b44-8dda32336f0a",
-          "9bdfb136-52e3-4339-b852-af5825dad266",
-          "b5bdba15-6472-4e5b-9776-1a5fec9f5c4b",
-          "faa3d893-1515-43d8-b3ec-15f36fc37b18",
-          "747c3b31-218a-4c56-936f-0a2043ae9fc0"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157289262,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "8e11eb02-afc4-4f54-b2e2-8cec52664dd8",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Open-source lesson from a stripper"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "34039834-0caf-423a-9e0e-6f17ab910e4e",
-          "2fdcde2f-2445-48c8-8551-e8ab175368b1",
-          "5e7232b7-dc11-4644-94f8-0c1bd9194069",
-          "64590b0e-6152-4b5a-b9a0-75e3bb9a4b0e",
-          "72508359-35b3-4f45-8897-29cd080973ff",
-          "6aea1155-d9ff-4188-951d-1d16bd1fd4f0",
-          "0d0b4f6e-ded2-42ec-9d1e-a32ab78bd569",
-          "59beb2c0-71d3-4a38-9e69-140cfa45f9df",
-          "319d82cb-fb30-48bb-a9ab-8b0f29932d29",
-          "eec36289-d926-4fb1-941f-f408a858d18d",
-          "6dcff0e7-c559-4ac3-bd5c-94cca5ac7a3e",
-          "68551ac1-b272-434b-97e8-351a9157538c"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157275275,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9247cf31-5ba2-4d99-866a-f9234d8cda5c",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["A lesson in marketing needed"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 144
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "babe8622-77af-4c5d-9b11-a4b8558c90e6",
-          "52ed7953-924a-4052-9aac-350cc28ccd9f",
-          "8daf1a62-87ec-4700-bac7-497d8d67a968",
-          "18ff71e4-9868-4e34-82e8-52d861cd9fa9",
-          "69a3bc11-0443-433d-aae7-f7b546b79d5a"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157251263,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "961394de-ddad-4635-b239-f0a921b0cbb0",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #16 (singularity)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 70
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a5237247-78e5-480f-a118-07601504c79d",
-          "adf16ce1-2adc-49cf-9226-2e4f4a90ebbb",
-          "0f269664-fe00-4d67-b3fc-2384c6a8b465",
-          "ea73b2ba-e307-4dfd-a702-75135e9009b6",
-          "5a5130d3-8cc2-43f7-93c4-2dba08b52681",
-          "386e55b9-3119-4961-87e1-954ac50d9e44",
-          "0e49e54e-91f4-4fe0-866f-005db0ce7571",
-          "58115471-6b67-4e13-9137-394655915431",
-          "c3f6c059-28d9-45c0-966c-9d98c3503651",
-          "21cbdf7e-7082-4880-a3fb-d34221227310",
-          "2cd95fc4-aa2e-4137-b0cc-ea1f91918d4a",
-          "b30f2dd6-3563-41cf-b8f1-a1b9ffd4f61e",
-          "ba5807e2-be0d-4bb3-8bd1-c90f19736583"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157267502,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9716642e-6502-4d21-aefa-ab3d27a7bff8",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["C Interfaces and Implementations"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "f89fda46-59d5-4e10-9798-1b79e1aaf0ba",
-          "a7ba372c-2c08-48b2-a7e1-afe12f40fe01",
-          "982e92ea-a510-428c-9836-32c6db6174a9",
-          "f75b285c-3f8f-4b03-9830-7331edfa5332",
-          "29de4991-9fe0-434b-9449-1524d315514b",
-          "01723dc4-9658-4542-8a9c-bbb87405ee12",
-          "5b5abe78-3d7b-4ab8-95de-7b40c34abd38",
-          "3d724c04-8425-4a73-9299-e5350bd2cf3d",
-          "c125b829-0681-4823-ba32-82cfa1ae99a1"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157287437,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "99fbd1fb-39d6-48f6-9364-aeb5666148cd",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Platform Leadership"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "3d1f8497-a6b1-427d-a4c0-1b76e7168ed9",
-          "c6746791-ce13-4ef2-a885-bc587ad94cb3",
-          "137a6983-5b5e-42da-8507-68d9eb7fe96e",
-          "dcac825d-4e80-43a2-bdd2-c7bfb93a8660",
-          "ccb25b13-1527-495e-b36b-9024d2a02da9",
-          "8a8e165c-1bbc-44ec-abb8-81d6a800c7d0"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157241418,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9ec61c28-83b6-4af7-9a46-d05652abf86b",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #11 (perspective)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 68
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "0d8bab7e-1d9d-4d61-82aa-9bf530dd4d4e",
-          "8b238a54-ddb7-43ee-9f65-b016c8c5e4e4",
-          "567f2774-e4cd-4539-9ea2-7d275456712f",
-          "f70cf95f-167b-447a-96da-93522438aa70",
-          "f80d2ad5-9257-4739-8536-dafc60d1c0e4",
-          "61a99220-86d4-4101-85e6-4ab2f6d4370c",
-          "ba8751f8-fdec-45c4-8771-cc1c21615455",
-          "7a68735d-a591-4777-8e51-b1ca6a87ad99",
-          "e394a1cb-da60-459b-94b0-2acbb2b9ed26",
-          "cdb66574-a983-42b2-86d7-766dcc07d096",
-          "53781908-a16e-4299-8319-c64618147ef4",
-          "7266746b-288e-4c4d-a3c8-b06a23f46d2f",
-          "09ed0e51-8b75-442e-ab96-d0a7bfd6390c",
-          "8b0b44a9-7953-4840-a376-41926bffaecf",
-          "1c522d59-fcc6-4d45-95d1-6104f220f4df",
-          "8b03b2d7-d4b2-43ff-b6bf-cc8dc44df493",
-          "e578136b-b027-4a8d-a48a-a74e51df6b01",
-          "5cfaad50-8db3-4f1e-a958-13fbbdba0d4e",
-          "cf1ca210-598a-4a75-b6eb-fdd8ca6ae514",
-          "62b4eae8-b096-48d7-aa32-6534dc132e56",
-          "a2c8fb0d-0ed6-494c-ab03-21971edcb266",
-          "b7b0d45d-1957-4582-8aa6-49002f412f79",
-          "0999edc3-c619-4efa-97ab-6db860cd22cb",
-          "6908d5e5-0269-43b8-954c-6c7753a1b6f9",
-          "c2b06462-e7eb-4065-8d7c-e64ce258f08c",
-          "61fde1cb-dac7-482d-816b-4dfdafd22011"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157285224,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9f220a2f-b83d-4655-b465-c543261324da",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["WinAmp 3 and software business lessons"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "db6cfabc-c178-4683-a97c-08b82653463d",
-          "bc65f51f-ec0c-4790-999c-9d79b1a076a1",
-          "a852ecd8-73f2-41c3-9435-af0b04dfe1c8",
-          "9fc879d1-2e8a-4374-8266-b829888fdf62",
-          "2cf20d96-4bdc-4a1d-bf79-5b0b2bbe272d",
-          "6c099d10-d30e-4cb1-9b08-dc539733bc80",
-          "40017152-6fc5-4b44-8260-9c9886c8028f",
-          "cb1c1244-0c34-419b-9124-8599c12b3edd",
-          "f3d76f21-6ddc-48f3-890e-7bdc12fe4a71",
-          "6788658b-c8ed-4c6d-a321-c35f13877d62"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157292298,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9f5c87bb-bc1c-409b-a286-f43c13e2a19e",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["How to sell software"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a3c82ff8-9ab6-4c3c-9a33-4beac604c3e6",
-          "e5641638-0b2b-4bc0-bb54-aa49e69385b4",
-          "a6c0e0f9-56f6-44ca-9110-774ccc0b594c",
-          "c6a79b8f-530a-442a-888c-b948b9ffd3e8",
-          "be969adb-6d1f-4ee3-b1e3-5aa730b73ed4",
-          "54f87a27-2e82-40d7-91d4-30097edfdc6e",
-          "e8db7a20-127c-4e6d-ab09-a8b9001e71cd",
-          "03a639c5-4a87-4c09-9b04-4e1e464f0368",
-          "912c84ba-2971-4a40-83b8-ff48aa102c7c",
-          "816e101b-ff45-4beb-887b-ee40d9f4cc4b",
-          "1c5e47b8-039b-4739-83a6-213fe00dc3e5",
-          "3ef45f11-0fc7-40fa-9c23-c4def850ef13",
-          "a7112ce8-b548-44a5-8cde-c73d3393fe52"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157275148,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9f87b32c-b8a8-4272-b077-8f446a20b2ef",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Blog your resume"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 72
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "ce670e93-ae90-45cb-805a-496ce2149154",
-          "4e7a1d28-361f-44d1-975e-9e160ec502e7",
-          "86dc85c1-ca81-497e-9069-6a36bbd52d40",
-          "1936f0c1-aa89-4f8d-a245-22e2d897242b",
-          "85a9a78d-db66-44c3-943c-383a08614e72",
-          "c3ba2be2-597c-45c4-a60e-08b74e4eb3fc"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157246219,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "a5bd825a-8e3d-467d-bf70-6a9456ecbea3",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #9 (opposite)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "58d4fb6f-f75f-40e8-9f29-1a1a72fd5e48",
-          "c0e24c7a-b21a-4aa6-825d-2a49f7a39988",
-          "c73432a4-2e78-44e1-b33c-111a4b838733",
-          "107074bd-a32b-46d6-a4b6-89b493b7d081",
-          "869ff815-a8e9-4513-868b-86557e99113d",
-          "7aa8b3b9-e4e5-41b6-9bce-fd327e2d2667"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157262293,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "a73063bc-db6f-4dff-b791-b8529a6b1dd8",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #22 (resources)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "f556c5a7-d9c2-4c2e-8ac9-f42eec55af42",
-          "5ca0ee9b-a5bf-4f9b-b546-cdc07dfd0e19",
-          "52b62e1a-514c-45ac-b344-76865702d3c4",
-          "63bc6dea-60ee-4e46-91aa-8af14067d4a0",
-          "12add372-1f5f-415d-9469-08a1500cb3ac",
-          "40040f25-44cd-431b-9cf8-a9354847ebe0",
-          "0658ae9f-e388-4c73-b5e4-68049c59009c"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157273347,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "ad6518e5-87d5-4507-8442-ef0160061f08",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Interview with MicroStrategy CEO"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 72
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "9af01446-e9fc-4bfb-99c2-9bba0c4fbaee",
-          "e2b3ebe2-13f5-4786-9f6e-09b3c888048b",
-          "c6303252-7fdc-4191-96dc-11c9c55fde74",
-          "444c79ad-887e-44cd-a332-56b1b6c98b68",
-          "e9644600-add7-4f9d-adbb-beead718b49a",
-          "77c86320-f099-4119-85a9-e7f9f80dfb48"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157241424,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "b0bc5bfa-80da-41d2-a3db-03f816fcab4d",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #2 (category)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6b52db80-cd42-4481-b7b5-b59b59245623",
-          "ddb18cb6-0533-4853-949c-f0252e1851db",
-          "b65b8b2d-e7ce-4572-bf04-d58cd12ef910",
-          "a67c7dd0-7e37-4d93-aa88-1e4cb003a942",
-          "4c5273d0-45e7-4a73-86ba-4707a8d55578",
-          "7a887791-52f0-44ae-a5c0-d15e319c9e56"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157283293,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "b985dde4-9ea5-4582-b116-1747fea47a5a",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["You won’t make money blogging"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "fd035cb5-ab7b-4220-a606-94162c956519",
-          "17ddbdf8-7eda-4857-8049-d2f3766dd234",
-          "67c0ef5f-ef6c-4a84-9dfc-3d285f2b9e2f",
-          "95f7469e-d115-4a3a-9910-f8d14eff9493",
-          "a843fbfb-36e7-4044-bf52-bf0840ef93b5"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157267210,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "bee99cd6-acaf-4820-8ed2-6bf0d3c20284",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Life of Hellen Keller"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7b74c08c-8e97-46ab-a60c-0a9e7e8a6a34",
-          "e0e64058-670c-4ce4-bba1-e07a2409865a",
-          "dc1eb458-2dcb-4a5f-b14c-2e7054c1e1b9",
-          "3b08e420-d8dc-4dfe-a9b7-e557a03db2b1",
-          "ea2ab711-ca43-4998-9d3d-46b7772fd328"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157289194,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "c2663e2f-837f-4a68-98c4-1e48fff94deb",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Joel, man of his word"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "e26235f2-6097-43f8-86ce-29a6137550d1",
-          "4e0aaa73-687c-427e-ae1c-9fd652c21ff2",
-          "06e7d156-dfe1-4231-bdfe-78fc00828195",
-          "d9ba8040-95ab-4222-adb2-451c174d2541",
-          "cc7b169a-8a6a-4bfa-a346-59aa468fca17",
-          "1c173c49-ee4c-439b-96ec-230e843f13d7",
-          "38cbf1c8-1897-4281-809e-15040bce3046"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157241457,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "c7192353-11d6-446c-b656-e1b0d996e25d",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #4 (perception)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "ea5a83ce-db2c-4b49-8dec-be5ad74d59ed",
-          "28e32c09-c05e-4e89-a9c8-809793371333",
-          "0cf4b942-1f0f-47d5-987d-191fc859fad9",
-          "ac5143e0-d3fe-4ab3-a3a4-b9b9932b4d86",
-          "3bb4f8a9-d899-482b-a4cc-35e8a8d953f3",
-          "7d3645b6-c3f3-4776-ab5a-8fe743b8f128"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157270383,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "cb856a96-c486-4b59-b666-48608f8dad2b",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Wozniak’s speech"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "714441e6-b5a5-48a2-8eb7-6fe305fcf543",
-          "7101440e-245b-49bc-8214-3cd0b973a35d",
-          "3088054e-2222-4053-9ec7-7b02f78f722e",
-          "3e4a8db0-9b9f-4c8b-bb9a-b6c5a6ed32a0",
-          "77820ba1-65ca-42de-acfa-dcafe10d813a"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157258248,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "cb9dbf89-5be2-4b54-87d3-84731db07b66",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #19 (failure)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "5eaa1bee-bff9-4831-8512-bda6e9a89579",
-          "2036be5a-aac6-4995-9418-b64ed1477232",
-          "9058007e-849f-4107-a352-ebe45a757cda",
-          "7f765b64-d40a-4c14-b85b-5c28c2afac70",
-          "505e6150-c300-4c86-8621-460ff621f2e8",
-          "e8923115-967e-4c18-8010-9a04e878a521",
-          "816b141d-bae7-447d-a5f6-1b8739dfbe8e",
-          "ad4162c2-6adc-4b61-b5d8-04979dcb8420",
-          "315c0117-7c90-40bf-ba8e-6c09e07f994e",
-          "64af524f-87c4-4d17-8462-bb8aba45cfd6",
-          "41d6afb9-0bb3-4b55-98fa-a02eae11c3d6",
-          "0257cdad-4fe4-4dfa-a167-f33f156882c2",
-          "458be931-9157-4147-a73d-e7b589156f3d",
-          "43ef717e-ceda-4422-a7e7-397b9f9c5e78",
-          "fdcf2c8e-f121-4dcc-8c76-f3d74418e66a"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157235909,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d0e60959-709e-4032-b314-0e24c51c5ad2",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #1 (leadership)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 91
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "edf18621-33d5-4f0e-906b-82d1db026058",
-          "aba9724c-0930-41d0-aaa1-7137049bb57e",
-          "3ec5d393-4233-4715-b5cf-024a1a9f57eb",
-          "fb0558af-df41-4504-a90c-b2a9ae5f0cc3",
-          "1ba74d17-c630-4b0a-b118-f895dbbab51f",
-          "79148cf0-170a-48ac-8f53-c02283469d46",
-          "84525f3e-6981-447c-a93d-a090d2d6559e",
-          "faabdf3c-019b-42cc-b4cf-8d81c75da28d",
-          "017cec8d-97aa-4175-9644-ff24ec8d54b6"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157283279,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d2061080-04d4-4583-ac50-744749666286",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["You’ll have a job"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "301313d7-0331-4d6f-9f0e-958d2b0d45d8",
-          "68ed1879-e6a4-444e-a4c0-716cb93210e0",
-          "209ad4a4-e64a-4a52-942c-6f316fabf31a",
-          "1cbb4887-8383-4ca9-8970-a3d32bf14c56",
-          "d029c258-c756-4a11-8abb-3951dec444f0",
-          "4dfb0cdf-6646-49a4-8430-a6ac7528729e",
-          "f5b97a15-1c6f-470d-8a09-8264eea92c97"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157246300,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d4ca5a99-fb1f-4ade-add7-b31fe1c40084",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #8 (duality)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 65
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "0d1f4dae-2edb-41af-b36e-b0c6ab122356",
-          "7f749277-42e4-42b6-bbcb-78f435a53276",
-          "1a4fcbe6-860b-432c-b9a8-9d22cda839df",
-          "4bba7cb2-423e-486e-ac71-cf16164e0c0a",
-          "805578c0-67be-45f9-99df-ae69d4bd58f5"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157267286,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d5466dd9-73f9-426f-83f3-f6d2bebfd1b9",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Information business as a relationship"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "02f0d414-1dcd-44b6-bfb9-4eb6f2049d32",
-          "e0403617-946c-43f1-b731-9a8ec4163a8d",
-          "1dbd3f7b-abe4-4887-985e-73d16de0c1e8",
-          "1038b70a-5759-42ae-a669-6adab5d7b2dd",
-          "5c83451f-33c7-4614-b372-958243bec27a",
-          "a5074692-091e-4584-8aee-7a55143f400f",
-          "4a182403-4253-448b-af75-7d678b84a6ec",
-          "e9171557-f629-4a09-a70d-77c3147488a8",
-          "f8dbe97a-a7c2-434d-b40f-1c89f35afd41"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157246150,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "e21cb260-6f73-4f78-8bab-07f84e3b87e9",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #7 (ladder)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "58eb0513-cf6d-4498-ba11-1ea9bcb1e6cc",
-          "1ca6c6a0-1717-4a1e-b682-66577b904ba3",
-          "509c1ba9-9bcf-4058-9efb-cbb0ea061154",
-          "20ab4f82-d9cb-4741-90ee-2dad3c9200a7",
-          "973e9d07-ff26-41bc-bb65-8da45497b3d9",
-          "109bbcd0-cdc8-4de2-83ce-6cac5cef3a09",
-          "a582c9e5-008c-4b69-aad8-3d2c26cd6d42",
-          "c90f3cce-d481-4e9b-9fa4-7727352c1d6b",
-          "c993b87b-ef4f-4cd1-8dc8-32b69047dd8c"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157270290,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "e35e7996-54c9-4b81-8dba-6df169a2dab8",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Stuff costs more than you think"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 67
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7e33ad22-e1f7-4f7a-bcf3-d87de914e9f7",
-          "e96fcda6-0c67-42a7-a192-5a304af84167",
-          "21a33fb7-595e-485f-ab73-ef6b62866d76",
-          "4dc12f9a-9c2a-4ebe-aefd-96de95cbf827",
-          "5ab8e94b-a203-4392-b9f3-d6e36eb9b96e",
-          "7233e6aa-14bb-4661-b830-74a85def0540",
-          "3ea80570-7068-45da-929b-d03f5a5c9e0c",
-          "82087a27-1110-4386-b121-4e6ad349db46",
-          "f3d71a9c-879d-4907-b954-72e0564f59be",
-          "2b583337-592d-4a80-b479-59b30758bfca",
-          "9f3c9ff9-d228-4c39-9115-45ec2a309e80",
-          "9b9709c5-1d5f-4fe8-bd56-893817660fbc",
-          "350c1144-7a02-4b97-aa9b-9e5a5215312c",
-          "00d71e77-9409-472c-ba82-c45658c97da8",
-          "53f48de6-c267-4ee6-9019-9c403e887886",
-          "8bb14a30-1f4b-44a0-8a8f-214f32440153",
-          "78651cdd-bd7b-4abf-8ea1-3f24a6b1f77a",
-          "92eb6975-6711-4ca3-882e-529267db4d4e"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157236118,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "e599e77a-5a51-4169-8af5-95272cc23fd2",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1533279874708,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Bugs and eyeballs"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 85
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7213c66c-209b-41bb-b51b-d91d78547f69",
-          "9f22e1e3-38f3-44b8-bdb0-7fbd1eb7bac8",
-          "8eb23de0-8b23-4a27-8f6b-35b3f4a748e9",
-          "465c0420-90e6-47c1-865b-98ae37504048",
-          "89f23fb4-43c8-4897-a854-b3bcb381db4c",
-          "52872a1e-a770-4845-8e20-df1b19e77d13"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157258200,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "e66f391f-4a4d-4467-9e23-c26672967ddd",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996254072,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Laws of marketing #21 (acceleration)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 76
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "d9156d59-1856-426e-bb50-aecc315ea636",
-          "6c9c8021-c17e-416a-86b0-95fa2cf4e99c",
-          "81e77f6b-e1aa-4a16-9189-5e60e69e958e",
-          "968ef07a-1c6c-4821-b285-3052f8eaf9e0",
-          "4b887696-7ca9-4d7c-84e0-25a5bf5234f6"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157283276,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "eadac88a-1b34-4697-b3a4-f3156cd315d3",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Three-way merge"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 60
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "2232e79b-2fd9-4dd8-a31b-e3876e01476c",
-          "d56277d5-83cc-4712-9207-0a123dafd857",
-          "37810c7d-8213-4b32-a0b3-74f36a9dab4d",
-          "47d5fd2c-c47e-4abc-ae80-f7385abe678a",
-          "93571108-6c71-4b62-baa3-11663fb76815",
-          "1972bd4a-04c7-475e-a576-96379cc9b88a",
-          "9170dfe3-6570-473f-831d-14ad1636795e"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157278266,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "ee31fb77-48d8-44e1-a0b0-9b130ad1d50e",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996268760,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Quote from “Net Words”"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 62
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "ab4b8d11-1dba-4410-815d-a174b4b92558",
-          "ba79e371-7d26-482b-98fa-241d0c499373",
-          "247b0f91-7386-485a-a4a0-de6aa67350af",
-          "1cef416c-fcb0-4995-a037-5e356cfbb19e",
-          "4f930577-7f65-4957-9fed-13ce5aba57f0",
-          "d99b8ad6-e110-4395-aee9-0b2a6c6b2d21",
-          "b4b687e1-2b43-4b29-835b-ed52bc415100"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1530157262340,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "f0457ea8-4f73-4ecb-8639-e8aa4104435b",
-        "ignore_block_count": true,
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996261999,
-        "parent_id": "7e948259-8dd7-4bf7-8f03-a7833279f444",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Open Source is Philanthropy"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 69
-      }
-    }
-  ]
+  }
 }

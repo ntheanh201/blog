@@ -1,18 +1,21 @@
-12316 noahttpcache
+2430 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+162
 {
   "requests": [
     {
-      "table": "block",
-      "id": "051a801b-35c0-4b04-8566-09b4687b4c94"
+      "pointer": {
+        "table": "block",
+        "id": "051a801b-35c0-4b04-8566-09b4687b4c94"
+      },
+      "version": -1
     }
   ]
 }
-Response:+12116
+Response:+2178
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
       "051a801b-35c0-4b04-8566-09b4687b4c94": {
         "role": "editor",
@@ -64,262 +67,18 @@ Response:+12116
           "type": "page",
           "version": 39
         }
-      },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 384
-        }
-      },
-      "9a07ca64-c0c1-4dc0-9e8b-d134b348678d": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "a62674a8-9b22-46e0-8ca6-2fdb721fd893",
-            "813b68ac-e556-401f-b437-67d5ecdf0a1b",
-            "c178e777-fe48-4711-961a-607dbe4b5a9b",
-            "82b644c3-535e-4ce8-86cc-5b586242bbee",
-            "db692f2c-0d5e-4379-9e80-98482910010d",
-            "70eacde9-d15f-4be5-ba46-c17130fa2fac",
-            "66e4e957-529b-4ede-83f6-9c7e6b342f8f",
-            "70fd4562-34a7-4164-bfcd-464c6ea5886d",
-            "a98dd27a-87ef-432f-b2f5-113e1a0584fe",
-            "21569f94-24a7-4763-86fc-02e698612653",
-            "8438605b-0946-44e8-85e9-9f8b8029c3b5",
-            "11ee59ba-4a3b-405e-bde6-347286c0a9ca",
-            "b725097a-bd79-48df-b36e-ad5f89e18654",
-            "0a19229c-2a40-49c7-a3e7-99641e90cd30",
-            "f79996b1-a1a4-4467-8db0-1704748c3d8c",
-            "81714acf-995e-4968-bb22-0684d95c9495",
-            "1e4d6af9-2729-45a8-87f3-740805b8c583",
-            "b97b3f74-e68d-410b-ac90-e965f6a524cd",
-            "1af9f9c6-656f-4d8d-bc49-f4d9fb8f7c89",
-            "d16023a9-b711-42af-84f9-297c523d57d2",
-            "0251008d-b4dd-43e3-85ab-4839a7bd6f3b"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1492419698870,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1564296540000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["Business (of software and other)"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 90
-        }
-      },
-      "b725097a-bd79-48df-b36e-ad5f89e18654": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "051a801b-35c0-4b04-8566-09b4687b4c94",
-            "830df507-5ca8-4cdb-ab33-8d495fb7a6f2",
-            "3e2dae73-4f84-41a4-b0ab-be674af1c3e0",
-            "550a8263-5952-4d9f-b828-5a8182ab5dbc",
-            "e81eae50-797e-4ee3-915a-7a147f42eaef",
-            "d1eeacca-5b64-4a47-8f1f-97f1606b8741",
-            "fe855cbe-29a5-4e52-bb98-623883f33936",
-            "20566b7c-36af-4633-a9a4-3bdb6074f425",
-            "74a556f4-242b-4752-afb0-8a3c37aeaa8c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1518848865846,
-          "id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1554166140000,
-          "parent_id": "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["SEO"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 40
-        }
-      }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
-          "name": "Main",
-          "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 271
-        }
       }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "8146deb1-bc30-41df-8b8e-086ac41ec3b1",
-          "e6ea420d-82a7-49bc-93c3-8e080543ca50",
-          "62c3033e-d67c-421d-90f0-6ecea98a72b5",
-          "64945fcf-250d-42b4-9f73-c4700626bfdd",
-          "d00c7685-d891-4381-b3b2-a2dc11a3a838",
-          "3d1805f1-b654-4caf-a980-1948f23900c4",
-          "f696adda-a22a-4cc6-b5c1-616fb34b6f50",
-          "4ed79f83-6a91-4597-9280-72391487c3f4",
-          "4646fb16-acec-4396-b92b-8348fbb986f8",
-          "37e24db4-caa8-42f5-a5d0-f1a3fd06699f",
-          "47b6dccc-18f5-4199-8f7e-e6767ec2153f",
-          "5ab7b468-ea68-456b-9c3f-2dd730c4f8d9",
-          "7cd750d5-dda4-4de9-82a9-2ead6c5eaabe",
-          "06ab6cae-0b00-47b9-9b42-b2b22369c5d1",
-          "f2e2c968-cc53-4eba-98b4-6194b3496fc3",
-          "f272d0df-0681-44e6-b5ea-d1e46c3963b6",
-          "ced20987-83b8-40aa-bff3-2f856faae0a9",
-          "cc651a86-ab4f-422e-8f1a-5ce6949a40e2"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532921971695,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "051a801b-35c0-4b04-8566-09b4687b4c94",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532922033607,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "Summary of Founders Battle Virtual Talks #7 about SEO with Michael Schwarz"
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 39
-      }
-    }
-  ]
+  }
 }
-39948 noahttpcache
+40162 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+URL: https://www.notion.so/api/v3/loadCachedPageChunk
+Body:+166
 {
-  "pageId": "051a801b-35c0-4b04-8566-09b4687b4c94",
+  "page": {
+    "id": "051a801b-35c0-4b04-8566-09b4687b4c94"
+  },
   "chunkNumber": 0,
   "limit": 50,
   "cursor": {
@@ -327,7 +86,7 @@ Body:+152
   },
   "verticalColumns": false
 }
-Response:+39708
+Response:+39902
 {
   "cursor": {
     "stack": []
@@ -663,7 +422,8 @@ Response:+39708
             "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
             "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
             "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
+            "f5144c42-a3e5-4e47-9466-2c8ecdc0bcb6",
+            "30da6655-040f-47e6-93f8-e66eacd308c1"
           ],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
@@ -677,7 +437,7 @@ Response:+39708
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
+          "last_edited_time": 1655141640000,
           "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "parent_table": "space",
           "permissions": [
@@ -688,7 +448,9 @@ Response:+39708
             },
             {
               "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
+              "role": {
+                "read_content": true
+              },
               "type": "bot_permission"
             }
           ],
@@ -697,7 +459,7 @@ Response:+39708
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 384
+          "version": 423
         }
       },
       "5ab7b468-ea68-456b-9c3f-2dd730c4f8d9": {
@@ -920,7 +682,6 @@ Response:+39708
             "0a19229c-2a40-49c7-a3e7-99641e90cd30",
             "f79996b1-a1a4-4467-8db0-1704748c3d8c",
             "81714acf-995e-4968-bb22-0684d95c9495",
-            "1e4d6af9-2729-45a8-87f3-740805b8c583",
             "b97b3f74-e68d-410b-ac90-e965f6a524cd",
             "1af9f9c6-656f-4d8d-bc49-f4d9fb8f7c89",
             "d16023a9-b711-42af-84f9-297c523d57d2",
@@ -938,7 +699,7 @@ Response:+39708
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1564296540000,
+          "last_edited_time": 1629746280000,
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "permissions": [
@@ -953,7 +714,7 @@ Response:+39708
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 90
+          "version": 92
         }
       },
       "9f793365-34df-4360-b355-ebd82a7b1fae": {
@@ -1273,10 +1034,11 @@ Response:+39708
           "invite_link_enabled": false,
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
+          "last_edited_time": 1652978220000,
           "name": "Main",
           "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
+            "381f674e-a6ce-4131-9d98-90967b1d3c14",
+            "581f70b2-4002-4e31-a140-46f50934535d",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -1285,10 +1047,12 @@ Response:+39708
             "f75e0224-3821-4f6d-b879-e54a79bef338",
             "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
             "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
             "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
+            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
+            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
+            "bd92f136-bc09-4316-97b0-ac8f7a674961",
+            "55542511-1762-4f73-b4a5-790fd0c1daec",
+            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
           ],
           "permissions": [
             {
@@ -1298,55 +1062,79 @@ Response:+39708
             }
           ],
           "plan_type": "personal",
-          "version": 271
+          "version": 346
         }
       }
     }
   }
 }
-31278 noahttpcache
+12960 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+726
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+1142
 {
   "requests": [
     {
-      "table": "block",
-      "id": "20566b7c-36af-4633-a9a4-3bdb6074f425"
+      "pointer": {
+        "table": "block",
+        "id": "20566b7c-36af-4633-a9a4-3bdb6074f425"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "3e2dae73-4f84-41a4-b0ab-be674af1c3e0"
+      "pointer": {
+        "table": "block",
+        "id": "3e2dae73-4f84-41a4-b0ab-be674af1c3e0"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "550a8263-5952-4d9f-b828-5a8182ab5dbc"
+      "pointer": {
+        "table": "block",
+        "id": "550a8263-5952-4d9f-b828-5a8182ab5dbc"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "74a556f4-242b-4752-afb0-8a3c37aeaa8c"
+      "pointer": {
+        "table": "block",
+        "id": "74a556f4-242b-4752-afb0-8a3c37aeaa8c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "830df507-5ca8-4cdb-ab33-8d495fb7a6f2"
+      "pointer": {
+        "table": "block",
+        "id": "830df507-5ca8-4cdb-ab33-8d495fb7a6f2"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d1eeacca-5b64-4a47-8f1f-97f1606b8741"
+      "pointer": {
+        "table": "block",
+        "id": "d1eeacca-5b64-4a47-8f1f-97f1606b8741"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e81eae50-797e-4ee3-915a-7a147f42eaef"
+      "pointer": {
+        "table": "block",
+        "id": "e81eae50-797e-4ee3-915a-7a147f42eaef"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "fe855cbe-29a5-4e52-bb98-623883f33936"
+      "pointer": {
+        "table": "block",
+        "id": "fe855cbe-29a5-4e52-bb98-623883f33936"
+      },
+      "version": -1
     }
   ]
 }
-Response:+30462
+Response:+11726
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
       "20566b7c-36af-4633-a9a4-3bdb6074f425": {
         "role": "editor",
@@ -1448,62 +1236,6 @@ Response:+30462
           "version": 13
         }
       },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248420000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 384
-        }
-      },
       "74a556f4-242b-4752-afb0-8a3c37aeaa8c": {
         "role": "editor",
         "value": {
@@ -1591,97 +1323,6 @@ Response:+30462
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
           "version": 44
-        }
-      },
-      "9a07ca64-c0c1-4dc0-9e8b-d134b348678d": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "a62674a8-9b22-46e0-8ca6-2fdb721fd893",
-            "813b68ac-e556-401f-b437-67d5ecdf0a1b",
-            "c178e777-fe48-4711-961a-607dbe4b5a9b",
-            "82b644c3-535e-4ce8-86cc-5b586242bbee",
-            "db692f2c-0d5e-4379-9e80-98482910010d",
-            "70eacde9-d15f-4be5-ba46-c17130fa2fac",
-            "66e4e957-529b-4ede-83f6-9c7e6b342f8f",
-            "70fd4562-34a7-4164-bfcd-464c6ea5886d",
-            "a98dd27a-87ef-432f-b2f5-113e1a0584fe",
-            "21569f94-24a7-4763-86fc-02e698612653",
-            "8438605b-0946-44e8-85e9-9f8b8029c3b5",
-            "11ee59ba-4a3b-405e-bde6-347286c0a9ca",
-            "b725097a-bd79-48df-b36e-ad5f89e18654",
-            "0a19229c-2a40-49c7-a3e7-99641e90cd30",
-            "f79996b1-a1a4-4467-8db0-1704748c3d8c",
-            "81714acf-995e-4968-bb22-0684d95c9495",
-            "1e4d6af9-2729-45a8-87f3-740805b8c583",
-            "b97b3f74-e68d-410b-ac90-e965f6a524cd",
-            "1af9f9c6-656f-4d8d-bc49-f4d9fb8f7c89",
-            "d16023a9-b711-42af-84f9-297c523d57d2",
-            "0251008d-b4dd-43e3-85ab-4839a7bd6f3b"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1492419698870,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1564296540000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["Business (of software and other)"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 90
-        }
-      },
-      "b725097a-bd79-48df-b36e-ad5f89e18654": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "051a801b-35c0-4b04-8566-09b4687b4c94",
-            "830df507-5ca8-4cdb-ab33-8d495fb7a6f2",
-            "3e2dae73-4f84-41a4-b0ab-be674af1c3e0",
-            "550a8263-5952-4d9f-b828-5a8182ab5dbc",
-            "e81eae50-797e-4ee3-915a-7a147f42eaef",
-            "d1eeacca-5b64-4a47-8f1f-97f1606b8741",
-            "fe855cbe-29a5-4e52-bb98-623883f33936",
-            "20566b7c-36af-4633-a9a4-3bdb6074f425",
-            "74a556f4-242b-4752-afb0-8a3c37aeaa8c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1518848865846,
-          "id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1554166140000,
-          "parent_id": "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["SEO"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 40
         }
       },
       "d1eeacca-5b64-4a47-8f1f-97f1606b8741": {
@@ -1781,340 +1422,6 @@ Response:+30462
           "version": 10
         }
       }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1620930540000,
-          "name": "Main",
-          "pages": [
-            "3aba8411-d511-4e20-8c2d-7c6571c5c08c",
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fb641f80-cf53-42a2-8d8d-71b270c16569",
-            "1077c159-5493-41df-b4d4-75571b1f99d3",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 271
-        }
-      }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532924015337,
-        "id": "20566b7c-36af-4633-a9a4-3bdb6074f425",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532924028058,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://www.reddit.com/r/Entrepreneur/comments/6gveyw/ive_seen_a_lot_of_google_adwords_posts_that_lack/",
-              [
-                [
-                  "a",
-                  "https://www.reddit.com/r/Entrepreneur/comments/6gveyw/ive_seen_a_lot_of_google_adwords_posts_that_lack/"
-                ]
-              ]
-            ],
-            [" : notes on using adsense well; has links to online seo tools."]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 84
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532315868372,
-        "id": "3e2dae73-4f84-41a4-b0ab-be674af1c3e0",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532315870448,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://medium.com/startup-grind/seo-is-not-hard-a-step-by-step-seo-tutorial-for-beginners-that-will-get-you-ranked-every-single-1b903b3ab6bb",
-              [
-                [
-                  "a",
-                  "https://medium.com/startup-grind/seo-is-not-hard-a-step-by-step-seo-tutorial-for-beginners-that-will-get-you-ranked-every-single-1b903b3ab6bb"
-                ]
-              ]
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1518848868876,
-        "id": "550a8263-5952-4d9f-b828-5a8182ab5dbc",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1518848870133,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://www.reddit.com/r/startups/comments/7x9gr0/quick_and_easy_guide_to_seo_for_startups/",
-              [
-                [
-                  "a",
-                  "https://www.reddit.com/r/startups/comments/7x9gr0/quick_and_easy_guide_to_seo_for_startups/"
-                ]
-              ]
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 13
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1554166140000,
-        "id": "74a556f4-242b-4752-afb0-8a3c37aeaa8c",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1554166140000,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://backlinko.com/on-page-seo",
-              [["a", "https://backlinko.com/on-page-seo"]]
-            ],
-            [" : a good list for basics of seo"]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 39
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6be27a37-223b-4bf8-8203-1783f9a7f1c0",
-          "fb4067b4-f01b-4a2a-92c9-5a6e6136472f",
-          "88b6eecb-6d55-4781-99f5-07815de9d4d9",
-          "f74e658a-8d9f-4c42-8777-587acd87a52f",
-          "ddec4207-c315-458e-aec6-86fc897d7e1e",
-          "4ecf8338-e2b2-4df7-9a52-963d0f65e1ff",
-          "1bc4e04e-9be7-4eed-a7e3-d4fdef98a1fd",
-          "f15de051-d936-4651-bef8-bf8aac959efe",
-          "a2a193af-e1c0-4317-9884-8c8ef09dbcaa",
-          "6607d939-0a70-4803-b2a2-7bc19f905073",
-          "1ff24a47-6dae-45d8-8d45-951757a7508a",
-          "482a7728-e0bc-410e-9c4b-4cba5ae639ba",
-          "e8302967-2afa-42ea-aa6d-4e69b68ef318",
-          "ce2fd203-f547-4848-8e68-0d1f2df5ed2b",
-          "f8796154-d42e-4e85-ab34-23bebe072fdd",
-          "1b7f1837-5a30-43db-af52-7660f8a72b69",
-          "7670c4e6-6bc5-43f3-b0da-068d669d89f1",
-          "cfa41364-2e43-4af9-bb23-f14fad514d91",
-          "bf3ba87d-7a59-42c6-8aee-5c9bf587860f",
-          "eb03cdf4-bb5b-4781-8b31-f04da52f46d1",
-          "5b1556f9-64ec-4260-9a71-2ee95e2f4778",
-          "afa76c55-f065-47f4-92cc-e0efa32df0a6",
-          "cb1a1033-5cc2-4dff-890c-034d99d6f7ec",
-          "b0d91e10-da6b-404a-b2c0-cb780c8044f3",
-          "c6786236-0cac-4c29-802c-63b28050162f",
-          "a5856744-9f33-4c8d-a538-e9948ccecb25",
-          "da6a1ed5-1666-4214-aabd-5d21b93ac9ef"
-        ],
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532922984913,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "830df507-5ca8-4cdb-ab33-8d495fb7a6f2",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532923059394,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "Summary of “Sell to Strangers” video about content marketing"
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 44
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532922560403,
-        "id": "d1eeacca-5b64-4a47-8f1f-97f1606b8741",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532922562418,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "http://www.kalzumeus.com/2008/01/28/why-you-shouldnt-pay-any-seo-you-can-afford/",
-              [
-                [
-                  "a",
-                  "http://www.kalzumeus.com/2008/01/28/why-you-shouldnt-pay-any-seo-you-can-afford/"
-                ]
-              ]
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 14
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1520984416705,
-        "id": "e81eae50-797e-4ee3-915a-7a147f42eaef",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1520984417103,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://medium.com/edulift/competitive-analysis-with-ahrefs-how-we-scaled-the-lingualift-blog-to-80-000-readers-b5267df0b8e7",
-              [
-                [
-                  "a",
-                  "https://medium.com/edulift/competitive-analysis-with-ahrefs-how-we-scaled-the-lingualift-blog-to-80-000-readers-b5267df0b8e7"
-                ]
-              ]
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 12
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1532923994454,
-        "id": "fe855cbe-29a5-4e52-bb98-623883f33936",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532924015069,
-        "parent_id": "b725097a-bd79-48df-b36e-ad5f89e18654",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            [
-              "https://inside.6q.io/blogging-for-startups/",
-              [["a", "https://inside.6q.io/blogging-for-startups/"]]
-            ],
-            [
-              " is a case study of attracting website traffic by writing blog posts"
-            ]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "bulleted_list",
-        "version": 10
-      }
-    }
-  ]
+  }
 }

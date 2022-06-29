@@ -1,182 +1,22 @@
-15698 noahttpcache
+1914 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+110
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+162
 {
   "requests": [
     {
-      "table": "block",
-      "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab"
+      "pointer": {
+        "table": "block",
+        "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab"
+      },
+      "version": -1
     }
   ]
 }
-Response:+15498
+Response:+1662
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
-      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
-            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-            "7495260a-1daa-4611-8858-ad2e049e77e6",
-            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
-            "8dd9c2c0-4130-47c5-89a3-21b1ccba7129",
-            "4b1f9201-1813-4009-9b69-8246857ea98d",
-            "3a6ae619-0bdf-49be-88ef-4e73b3445a0d",
-            "e00e89c3-841e-4f8c-8c76-9a78b8a90b47",
-            "71571247-8e8d-4dba-b6b7-c140c8f5e76e",
-            "123e3429-1243-49e7-ba60-df0912cfa1b7",
-            "de13a71a-392f-488b-9352-b300b3ed722d",
-            "a62973da-ec67-4e31-b827-908636f1e522",
-            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
-            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
-            "4d625835-41be-43c9-b94b-a87da9feeee7",
-            "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c",
-            "67ae62b1-8760-4e3f-bd20-846303f84dc5",
-            "3a1779d4-86b4-4747-aa92-a0f20f099953",
-            "8ff5980e-e9b4-4a8f-b513-1268e7c47303",
-            "99982171-8c60-4eb5-93cb-eba9ad0920bc",
-            "ab5c864a-8ccd-4d8a-a10a-b30f5d89c0e9"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530921610129,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1629099420000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Words written by me"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 297
-        }
-      },
-      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "50845d2e-2137-4f69-8c95-5391326a7f92",
-            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
-            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
-            "56757391-fba8-45bc-8551-262f3c9f81f2",
-            "20614047-3601-4b54-bd82-edd8b58e6b43",
-            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
-            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
-            "981d650d-2df1-4162-a739-d788c628cdcf",
-            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
-            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
-            "b059308f-5cc3-43fb-af19-9c71ae359418",
-            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
-            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
-            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
-            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
-            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
-            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
-            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-            "7e948259-8dd7-4bf7-8f03-a7833279f444",
-            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530157233456,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
-          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["blog posts"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 1981
-        }
-      },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095000000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 416
-        }
-      },
       "866dbdd5-b5e0-4900-9e18-6f204af2ffab": {
         "role": "editor",
         "value": {
@@ -216,181 +56,18 @@ Response:+15498
           "type": "page",
           "version": 17
         }
-      },
-      "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "20b34bf6-02e0-49f0-8aed-2309a097873c",
-            "1363796b-7441-4e15-9470-ed2efd2bc585",
-            "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9",
-            "98494e10-661d-4bfb-a379-0aec1ac313dd",
-            "866dbdd5-b5e0-4900-9e18-6f204af2ffab",
-            "31a8bf9c-23fa-49e6-8061-22c4913048d3",
-            "52979d4b-5163-4a03-9077-7890670a9753",
-            "0e6cf17c-3de1-4806-922f-8d0402843b8f",
-            "a80c396b-b324-41bb-990a-980ea3ddc25a",
-            "2c8def1e-b066-4453-b0b1-f163840ca646",
-            "adcd152c-ba2a-48dd-ba7e-2de4d07d448b",
-            "e87a3fdb-32c1-4d46-83d7-693a654485f3",
-            "9215e7c9-6695-40eb-9ab0-dabe4afe2672",
-            "8478a4c2-8702-4837-8997-18a1d8137f96",
-            "03c5dea0-1e8e-4ef4-a041-904d6a5de46a",
-            "f79ab418-940d-4ebb-9f68-3900252f75ed",
-            "4194c048-3ff5-46d2-88c4-51818da3725e",
-            "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8",
-            "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba",
-            "8aada009-b073-4777-9ce3-decfc633756d",
-            "97cc2daf-fe57-444c-b1e4-7b436b022fe4",
-            "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5",
-            "b13f1d68-28e2-4b8b-b1d1-47519b728b29",
-            "941a1f2c-5c20-4f27-aa51-b38f116c74f4",
-            "967972ad-be0b-494b-b772-e9f6489eb84b",
-            "36181bcd-8399-42c4-a1a3-1caad933721b",
-            "84366008-dcc2-42d6-9949-03817c8eaab8",
-            "63dd2935-607b-465e-a707-111d981d8710",
-            "c122ae48-097f-40b4-95bd-99005270369c",
-            "958402a6-8fe9-41f4-9626-2e7f83486a47",
-            "464c291c-d660-4f8c-9fbc-3f26069438ca",
-            "bc81e70c-d754-4700-baf4-56e41199ec72",
-            "c1a2e879-d8db-4810-ab18-db144948f668",
-            "dfa0ad7d-312f-45f7-8f3c-92561f748ac7",
-            "a726fefe-0c1b-4829-b53c-361bdb347359",
-            "5db03935-3cbb-4606-b8ab-614471617263",
-            "7edf7239-89d6-41c7-870f-7ee40b01c19e",
-            "22ee7837-6409-4e15-86de-7d7be59ce2ef",
-            "678979c4-7969-4122-b9ed-65528647e01e",
-            "68a7a4e3-7168-4e57-8b43-df4480fc2db8",
-            "76e0c432-f234-4045-8ec2-495ab17b4597",
-            "2557e059-05d9-45d3-b89e-d2a6000eda11",
-            "ac3fc93e-21a7-474e-8a9a-9267f63d2893",
-            "c5e8489d-ebb9-4ece-95ff-97b19ede3e49",
-            "d08ad186-b982-4fd4-a3c3-42088422bc68",
-            "529d5b82-5b8c-4e3a-89b6-2f5c044bf473",
-            "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c",
-            "5d488681-25c1-4fbc-bde7-cbb1ce917077",
-            "6058622a-cf4c-41d6-977b-347f07e14fa1",
-            "900168f6-c3eb-4b13-bd39-bb0148d9d421",
-            "cbbdbe2d-3848-415f-9f8f-63017e7ec398"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1531195702218,
-          "id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1532996452327,
-          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "parent_table": "block",
-          "properties": {
-            "title": [["2003"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 92
-        }
-      }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631261940000,
-          "name": "Main",
-          "pages": [
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
-            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
-            "bd92f136-bc09-4316-97b0-ac8f7a674961",
-            "55542511-1762-4f73-b4a5-790fd0c1daec",
-            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 336
-        }
       }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "5dbc8fc1-da5a-4dc5-83f6-9529be68f616",
-          "996c5553-b42f-474f-8342-045a8cab7b3f",
-          "66ca1d70-4e47-4057-9433-53416d28ab01",
-          "2027d108-2612-48e7-a5ad-923b22c5ac95",
-          "31f53e82-f0f4-4219-9ed9-a97aaa3ef573"
-        ],
-        "copied_from": "f2b71ec7-e5a8-47ea-947e-c5db16b0ff27",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781639,
-        "format": {
-          "copied_from_pointer": {
-            "id": "f2b71ec7-e5a8-47ea-947e-c5db16b0ff27",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Old ArsDigita content"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    }
-  ]
+  }
 }
-19315 noahttpcache
+19581 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/loadPageChunk
-Body:+152
+URL: https://www.notion.so/api/v3/loadCachedPageChunk
+Body:+166
 {
-  "pageId": "866dbdd5-b5e0-4900-9e18-6f204af2ffab",
+  "page": {
+    "id": "866dbdd5-b5e0-4900-9e18-6f204af2ffab"
+  },
   "chunkNumber": 0,
   "limit": 50,
   "cursor": {
@@ -398,7 +75,7 @@ Body:+152
   },
   "verticalColumns": false
 }
-Response:+19075
+Response:+19321
 {
   "cursor": {
     "stack": []
@@ -481,6 +158,7 @@ Response:+19075
         "value": {
           "alive": true,
           "content": [
+            "27a53e51-ea78-44c4-bf4c-48099c8e1151",
             "50845d2e-2137-4f69-8c95-5391326a7f92",
             "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
             "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
@@ -514,7 +192,7 @@ Response:+19075
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
+          "last_edited_time": 1656462420000,
           "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
           "parent_table": "block",
           "permissions": [
@@ -529,7 +207,7 @@ Response:+19075
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 1981
+          "version": 1986
         }
       },
       "31f53e82-f0f4-4219-9ed9-a97aaa3ef573": {
@@ -585,7 +263,8 @@ Response:+19075
             "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
             "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
             "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
+            "f5144c42-a3e5-4e47-9466-2c8ecdc0bcb6",
+            "30da6655-040f-47e6-93f8-e66eacd308c1"
           ],
           "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
@@ -599,7 +278,7 @@ Response:+19075
           "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095000000,
+          "last_edited_time": 1655141640000,
           "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "parent_table": "space",
           "permissions": [
@@ -610,7 +289,9 @@ Response:+19075
             },
             {
               "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
+              "role": {
+                "read_content": true
+              },
               "type": "bot_permission"
             }
           ],
@@ -619,7 +300,7 @@ Response:+19075
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 416
+          "version": 423
         }
       },
       "5dbc8fc1-da5a-4dc5-83f6-9529be68f616": {
@@ -825,9 +506,11 @@ Response:+19075
           "invite_link_enabled": false,
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631261940000,
+          "last_edited_time": 1652978220000,
           "name": "Main",
           "pages": [
+            "381f674e-a6ce-4131-9d98-90967b1d3c14",
+            "581f70b2-4002-4e31-a140-46f50934535d",
             "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
             "2626be45-2146-4d37-93e3-c3b38bcbf61e",
             "525cd68a-31f3-4e98-a8c1-cb9c39849399",
@@ -851,223 +534,373 @@ Response:+19075
             }
           ],
           "plan_type": "personal",
-          "version": 336
+          "version": 346
         }
       }
     }
   }
 }
-187114 noahttpcache
+95811 noahttpcache
 Method: POST
-URL: https://www.notion.so/api/v3/getRecordValues
-Body:+4422
+URL: https://www.notion.so/api/v3/syncRecordValues
+Body:+7022
 {
   "requests": [
     {
-      "table": "block",
-      "id": "03c5dea0-1e8e-4ef4-a041-904d6a5de46a"
+      "pointer": {
+        "table": "block",
+        "id": "03c5dea0-1e8e-4ef4-a041-904d6a5de46a"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8"
+      "pointer": {
+        "table": "block",
+        "id": "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "0e6cf17c-3de1-4806-922f-8d0402843b8f"
+      "pointer": {
+        "table": "block",
+        "id": "0e6cf17c-3de1-4806-922f-8d0402843b8f"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "1363796b-7441-4e15-9470-ed2efd2bc585"
+      "pointer": {
+        "table": "block",
+        "id": "1363796b-7441-4e15-9470-ed2efd2bc585"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "20b34bf6-02e0-49f0-8aed-2309a097873c"
+      "pointer": {
+        "table": "block",
+        "id": "20b34bf6-02e0-49f0-8aed-2309a097873c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "22ee7837-6409-4e15-86de-7d7be59ce2ef"
+      "pointer": {
+        "table": "block",
+        "id": "22ee7837-6409-4e15-86de-7d7be59ce2ef"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "2557e059-05d9-45d3-b89e-d2a6000eda11"
+      "pointer": {
+        "table": "block",
+        "id": "2557e059-05d9-45d3-b89e-d2a6000eda11"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "2c8def1e-b066-4453-b0b1-f163840ca646"
+      "pointer": {
+        "table": "block",
+        "id": "2c8def1e-b066-4453-b0b1-f163840ca646"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "31a8bf9c-23fa-49e6-8061-22c4913048d3"
+      "pointer": {
+        "table": "block",
+        "id": "31a8bf9c-23fa-49e6-8061-22c4913048d3"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "36181bcd-8399-42c4-a1a3-1caad933721b"
+      "pointer": {
+        "table": "block",
+        "id": "36181bcd-8399-42c4-a1a3-1caad933721b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c"
+      "pointer": {
+        "table": "block",
+        "id": "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "4194c048-3ff5-46d2-88c4-51818da3725e"
+      "pointer": {
+        "table": "block",
+        "id": "4194c048-3ff5-46d2-88c4-51818da3725e"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "464c291c-d660-4f8c-9fbc-3f26069438ca"
+      "pointer": {
+        "table": "block",
+        "id": "464c291c-d660-4f8c-9fbc-3f26069438ca"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5"
+      "pointer": {
+        "table": "block",
+        "id": "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "52979d4b-5163-4a03-9077-7890670a9753"
+      "pointer": {
+        "table": "block",
+        "id": "52979d4b-5163-4a03-9077-7890670a9753"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "529d5b82-5b8c-4e3a-89b6-2f5c044bf473"
+      "pointer": {
+        "table": "block",
+        "id": "529d5b82-5b8c-4e3a-89b6-2f5c044bf473"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "5d488681-25c1-4fbc-bde7-cbb1ce917077"
+      "pointer": {
+        "table": "block",
+        "id": "5d488681-25c1-4fbc-bde7-cbb1ce917077"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "5db03935-3cbb-4606-b8ab-614471617263"
+      "pointer": {
+        "table": "block",
+        "id": "5db03935-3cbb-4606-b8ab-614471617263"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "6058622a-cf4c-41d6-977b-347f07e14fa1"
+      "pointer": {
+        "table": "block",
+        "id": "6058622a-cf4c-41d6-977b-347f07e14fa1"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "63dd2935-607b-465e-a707-111d981d8710"
+      "pointer": {
+        "table": "block",
+        "id": "63dd2935-607b-465e-a707-111d981d8710"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "678979c4-7969-4122-b9ed-65528647e01e"
+      "pointer": {
+        "table": "block",
+        "id": "678979c4-7969-4122-b9ed-65528647e01e"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "68a7a4e3-7168-4e57-8b43-df4480fc2db8"
+      "pointer": {
+        "table": "block",
+        "id": "68a7a4e3-7168-4e57-8b43-df4480fc2db8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "76e0c432-f234-4045-8ec2-495ab17b4597"
+      "pointer": {
+        "table": "block",
+        "id": "76e0c432-f234-4045-8ec2-495ab17b4597"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "7edf7239-89d6-41c7-870f-7ee40b01c19e"
+      "pointer": {
+        "table": "block",
+        "id": "7edf7239-89d6-41c7-870f-7ee40b01c19e"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "84366008-dcc2-42d6-9949-03817c8eaab8"
+      "pointer": {
+        "table": "block",
+        "id": "84366008-dcc2-42d6-9949-03817c8eaab8"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "8478a4c2-8702-4837-8997-18a1d8137f96"
+      "pointer": {
+        "table": "block",
+        "id": "8478a4c2-8702-4837-8997-18a1d8137f96"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "8aada009-b073-4777-9ce3-decfc633756d"
+      "pointer": {
+        "table": "block",
+        "id": "8aada009-b073-4777-9ce3-decfc633756d"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "900168f6-c3eb-4b13-bd39-bb0148d9d421"
+      "pointer": {
+        "table": "block",
+        "id": "900168f6-c3eb-4b13-bd39-bb0148d9d421"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "9215e7c9-6695-40eb-9ab0-dabe4afe2672"
+      "pointer": {
+        "table": "block",
+        "id": "9215e7c9-6695-40eb-9ab0-dabe4afe2672"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "941a1f2c-5c20-4f27-aa51-b38f116c74f4"
+      "pointer": {
+        "table": "block",
+        "id": "941a1f2c-5c20-4f27-aa51-b38f116c74f4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "958402a6-8fe9-41f4-9626-2e7f83486a47"
+      "pointer": {
+        "table": "block",
+        "id": "958402a6-8fe9-41f4-9626-2e7f83486a47"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "967972ad-be0b-494b-b772-e9f6489eb84b"
+      "pointer": {
+        "table": "block",
+        "id": "967972ad-be0b-494b-b772-e9f6489eb84b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "97cc2daf-fe57-444c-b1e4-7b436b022fe4"
+      "pointer": {
+        "table": "block",
+        "id": "97cc2daf-fe57-444c-b1e4-7b436b022fe4"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "98494e10-661d-4bfb-a379-0aec1ac313dd"
+      "pointer": {
+        "table": "block",
+        "id": "98494e10-661d-4bfb-a379-0aec1ac313dd"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "a726fefe-0c1b-4829-b53c-361bdb347359"
+      "pointer": {
+        "table": "block",
+        "id": "a726fefe-0c1b-4829-b53c-361bdb347359"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "a80c396b-b324-41bb-990a-980ea3ddc25a"
+      "pointer": {
+        "table": "block",
+        "id": "a80c396b-b324-41bb-990a-980ea3ddc25a"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "ac3fc93e-21a7-474e-8a9a-9267f63d2893"
+      "pointer": {
+        "table": "block",
+        "id": "ac3fc93e-21a7-474e-8a9a-9267f63d2893"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "adcd152c-ba2a-48dd-ba7e-2de4d07d448b"
+      "pointer": {
+        "table": "block",
+        "id": "adcd152c-ba2a-48dd-ba7e-2de4d07d448b"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "b13f1d68-28e2-4b8b-b1d1-47519b728b29"
+      "pointer": {
+        "table": "block",
+        "id": "b13f1d68-28e2-4b8b-b1d1-47519b728b29"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "bc81e70c-d754-4700-baf4-56e41199ec72"
+      "pointer": {
+        "table": "block",
+        "id": "bc81e70c-d754-4700-baf4-56e41199ec72"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "c122ae48-097f-40b4-95bd-99005270369c"
+      "pointer": {
+        "table": "block",
+        "id": "c122ae48-097f-40b4-95bd-99005270369c"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "c1a2e879-d8db-4810-ab18-db144948f668"
+      "pointer": {
+        "table": "block",
+        "id": "c1a2e879-d8db-4810-ab18-db144948f668"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "c5e8489d-ebb9-4ece-95ff-97b19ede3e49"
+      "pointer": {
+        "table": "block",
+        "id": "c5e8489d-ebb9-4ece-95ff-97b19ede3e49"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "cbbdbe2d-3848-415f-9f8f-63017e7ec398"
+      "pointer": {
+        "table": "block",
+        "id": "cbbdbe2d-3848-415f-9f8f-63017e7ec398"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d08ad186-b982-4fd4-a3c3-42088422bc68"
+      "pointer": {
+        "table": "block",
+        "id": "d08ad186-b982-4fd4-a3c3-42088422bc68"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9"
+      "pointer": {
+        "table": "block",
+        "id": "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "dfa0ad7d-312f-45f7-8f3c-92561f748ac7"
+      "pointer": {
+        "table": "block",
+        "id": "dfa0ad7d-312f-45f7-8f3c-92561f748ac7"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "e87a3fdb-32c1-4d46-83d7-693a654485f3"
+      "pointer": {
+        "table": "block",
+        "id": "e87a3fdb-32c1-4d46-83d7-693a654485f3"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "f79ab418-940d-4ebb-9f68-3900252f75ed"
+      "pointer": {
+        "table": "block",
+        "id": "f79ab418-940d-4ebb-9f68-3900252f75ed"
+      },
+      "version": -1
     },
     {
-      "table": "block",
-      "id": "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba"
+      "pointer": {
+        "table": "block",
+        "id": "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba"
+      },
+      "version": -1
     }
   ]
 }
-Response:+182600
+Response:+88697
 {
-  "recordMapWithRoles": {
+  "recordMap": {
     "block": {
       "03c5dea0-1e8e-4ef4-a041-904d6a5de46a": {
         "role": "editor",
@@ -1304,6 +1137,11 @@ Response:+182600
           "created_by_table": "notion_user",
           "created_time": 1531195786427,
           "format": {
+            "copied_from_pointer": {
+              "id": "e41d0262-d861-4669-bc0f-84d98016bc54",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            },
             "page_full_width": true,
             "page_small_text": true
           },
@@ -1319,7 +1157,7 @@ Response:+182600
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 18
+          "version": 19
         }
       },
       "2557e059-05d9-45d3-b89e-d2a6000eda11": {
@@ -1357,57 +1195,6 @@ Response:+182600
           "version": 14
         }
       },
-      "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "3daeddb7-7fa9-4271-ba58-6116b66c2490",
-            "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-            "7495260a-1daa-4611-8858-ad2e049e77e6",
-            "8d2ca772-ff28-4b99-b60c-42d84b7a2997",
-            "8dd9c2c0-4130-47c5-89a3-21b1ccba7129",
-            "4b1f9201-1813-4009-9b69-8246857ea98d",
-            "3a6ae619-0bdf-49be-88ef-4e73b3445a0d",
-            "e00e89c3-841e-4f8c-8c76-9a78b8a90b47",
-            "71571247-8e8d-4dba-b6b7-c140c8f5e76e",
-            "123e3429-1243-49e7-ba60-df0912cfa1b7",
-            "de13a71a-392f-488b-9352-b300b3ed722d",
-            "a62973da-ec67-4e31-b827-908636f1e522",
-            "ac23f6cd-d3b5-43b3-b89d-9f68e00435b8",
-            "e79db1cb-2fcf-4329-ac37-591bfbb00782",
-            "4d625835-41be-43c9-b94b-a87da9feeee7",
-            "ed25f870-79cc-4b0b-9080-460e062053e4",
-            "d18cd62f-7c3c-4bda-a4bb-b4fed138034c",
-            "67ae62b1-8760-4e3f-bd20-846303f84dc5",
-            "3a1779d4-86b4-4747-aa92-a0f20f099953",
-            "8ff5980e-e9b4-4a8f-b513-1268e7c47303",
-            "99982171-8c60-4eb5-93cb-eba9ad0920bc",
-            "ab5c864a-8ccd-4d8a-a10a-b30f5d89c0e9"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530921610129,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1629099420000,
-          "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "parent_table": "block",
-          "properties": {
-            "title": [["Words written by me"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 297
-        }
-      },
       "2c8def1e-b066-4453-b0b1-f163840ca646": {
         "role": "editor",
         "value": {
@@ -1442,62 +1229,6 @@ Response:+182600
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
           "version": 16
-        }
-      },
-      "300db9dc-27c8-4958-a08b-8d0c37f4cfe5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "50845d2e-2137-4f69-8c95-5391326a7f92",
-            "8999d1d7-32c7-4061-b439-ff9efd8f8a70",
-            "f2b5a87e-5547-401f-9c18-62b0ca1986ab",
-            "56757391-fba8-45bc-8551-262f3c9f81f2",
-            "20614047-3601-4b54-bd82-edd8b58e6b43",
-            "1e4d284d-ffef-4b22-8dc7-3b1d63ac893e",
-            "4c862145-0d29-4c9f-9c1c-cc1568f9169c",
-            "981d650d-2df1-4162-a739-d788c628cdcf",
-            "019c7ce2-9fe3-4bd7-ae10-acb0833b9d17",
-            "dfeb5b7b-d784-4cc4-9e74-19e6c5eab4e3",
-            "b059308f-5cc3-43fb-af19-9c71ae359418",
-            "11703b89-1c9f-48ad-ae04-7eb3f6a2f004",
-            "ba2e39ae-fb47-4fc7-9d89-54d8f734476f",
-            "7a545f91-66c3-48a9-a0b7-00e83dffeafa",
-            "829c38ff-a5e8-4ed5-97a4-d1cd2f07c60c",
-            "776c926a-0b10-44b0-9fdd-c95c6ec06a7d",
-            "3f75d60c-97da-4648-a30a-55d7d47ec6a6",
-            "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-            "7e948259-8dd7-4bf7-8f03-a7833279f444",
-            "05edcfe1-f986-4c8e-bc27-dd49d25e079c"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1530157233456,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1627248780000,
-          "parent_id": "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-          "parent_table": "block",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "properties": {
-            "title": [["blog posts"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 1981
         }
       },
       "31a8bf9c-23fa-49e6-8061-22c4913048d3": {
@@ -1849,62 +1580,6 @@ Response:+182600
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
           "version": 17
-        }
-      },
-      "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "08e19004-306b-413a-ba6e-0e86a10fec7a",
-            "623523b6-7e15-48a0-b525-749d6921465c",
-            "25a256f9-0ce4-4eb7-8839-0ecc3cf9cd65",
-            "d61b4f94-b10d-4d80-8d3d-238a4e7c4d10",
-            "4da97980-9fb6-45cb-886a-51c656751d35",
-            "aea20e01-890c-4874-ae08-4557d7789195",
-            "c9bef0f1-c8fe-40a2-bc8b-06ace2bd7d8f",
-            "ee0eee35-e706-4e75-9b2f-69d1d03125b2",
-            "9a07ca64-c0c1-4dc0-9e8b-d134b348678d",
-            "db9e9c03-e3e8-4287-a51d-4da5d507138b",
-            "c5210d90-4251-437b-95d8-87da49bd8706",
-            "ec1723d0-39f3-4a5c-a305-68a0deb2ad76",
-            "e4132d5a-4401-4b2a-ad81-d8158c803ad1",
-            "03ece883-f7df-4ce7-8596-73d04811479e",
-            "4389fec3-114a-4b28-8814-4a88ecdf90ff"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1528059171080,
-          "format": {
-            "page_full_width": true,
-            "page_small_text": true
-          },
-          "id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1630095000000,
-          "parent_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "parent_table": "space",
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            },
-            {
-              "bot_id": "161740aa-8f29-495f-8507-66cb8bb9c365",
-              "role": "read_and_write",
-              "type": "bot_permission"
-            }
-          ],
-          "properties": {
-            "title": [["Website"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 416
         }
       },
       "5d488681-25c1-4fbc-bde7-cbb1ce917077": {
@@ -2431,6 +2106,11 @@ Response:+182600
           "created_by_table": "notion_user",
           "created_time": 1531195786395,
           "format": {
+            "copied_from_pointer": {
+              "id": "35b036ad-9168-4fc2-92fb-168bf7606f50",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            },
             "page_full_width": true,
             "page_small_text": true
           },
@@ -2446,7 +2126,7 @@ Response:+182600
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 20
+          "version": 21
         }
       },
       "941a1f2c-5c20-4f27-aa51-b38f116c74f4": {
@@ -3228,82 +2908,6 @@ Response:+182600
           "version": 15
         }
       },
-      "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "20b34bf6-02e0-49f0-8aed-2309a097873c",
-            "1363796b-7441-4e15-9470-ed2efd2bc585",
-            "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9",
-            "98494e10-661d-4bfb-a379-0aec1ac313dd",
-            "866dbdd5-b5e0-4900-9e18-6f204af2ffab",
-            "31a8bf9c-23fa-49e6-8061-22c4913048d3",
-            "52979d4b-5163-4a03-9077-7890670a9753",
-            "0e6cf17c-3de1-4806-922f-8d0402843b8f",
-            "a80c396b-b324-41bb-990a-980ea3ddc25a",
-            "2c8def1e-b066-4453-b0b1-f163840ca646",
-            "adcd152c-ba2a-48dd-ba7e-2de4d07d448b",
-            "e87a3fdb-32c1-4d46-83d7-693a654485f3",
-            "9215e7c9-6695-40eb-9ab0-dabe4afe2672",
-            "8478a4c2-8702-4837-8997-18a1d8137f96",
-            "03c5dea0-1e8e-4ef4-a041-904d6a5de46a",
-            "f79ab418-940d-4ebb-9f68-3900252f75ed",
-            "4194c048-3ff5-46d2-88c4-51818da3725e",
-            "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8",
-            "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba",
-            "8aada009-b073-4777-9ce3-decfc633756d",
-            "97cc2daf-fe57-444c-b1e4-7b436b022fe4",
-            "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5",
-            "b13f1d68-28e2-4b8b-b1d1-47519b728b29",
-            "941a1f2c-5c20-4f27-aa51-b38f116c74f4",
-            "967972ad-be0b-494b-b772-e9f6489eb84b",
-            "36181bcd-8399-42c4-a1a3-1caad933721b",
-            "84366008-dcc2-42d6-9949-03817c8eaab8",
-            "63dd2935-607b-465e-a707-111d981d8710",
-            "c122ae48-097f-40b4-95bd-99005270369c",
-            "958402a6-8fe9-41f4-9626-2e7f83486a47",
-            "464c291c-d660-4f8c-9fbc-3f26069438ca",
-            "bc81e70c-d754-4700-baf4-56e41199ec72",
-            "c1a2e879-d8db-4810-ab18-db144948f668",
-            "dfa0ad7d-312f-45f7-8f3c-92561f748ac7",
-            "a726fefe-0c1b-4829-b53c-361bdb347359",
-            "5db03935-3cbb-4606-b8ab-614471617263",
-            "7edf7239-89d6-41c7-870f-7ee40b01c19e",
-            "22ee7837-6409-4e15-86de-7d7be59ce2ef",
-            "678979c4-7969-4122-b9ed-65528647e01e",
-            "68a7a4e3-7168-4e57-8b43-df4480fc2db8",
-            "76e0c432-f234-4045-8ec2-495ab17b4597",
-            "2557e059-05d9-45d3-b89e-d2a6000eda11",
-            "ac3fc93e-21a7-474e-8a9a-9267f63d2893",
-            "c5e8489d-ebb9-4ece-95ff-97b19ede3e49",
-            "d08ad186-b982-4fd4-a3c3-42088422bc68",
-            "529d5b82-5b8c-4e3a-89b6-2f5c044bf473",
-            "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c",
-            "5d488681-25c1-4fbc-bde7-cbb1ce917077",
-            "6058622a-cf4c-41d6-977b-347f07e14fa1",
-            "900168f6-c3eb-4b13-bd39-bb0148d9d421",
-            "cbbdbe2d-3848-415f-9f8f-63017e7ec398"
-          ],
-          "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1531195702218,
-          "id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-          "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1532996452327,
-          "parent_id": "300db9dc-27c8-4958-a08b-8d0c37f4cfe5",
-          "parent_table": "block",
-          "properties": {
-            "title": [["2003"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "toggle",
-          "version": 92
-        }
-      },
       "e87a3fdb-32c1-4d46-83d7-693a654485f3": {
         "role": "editor",
         "value": {
@@ -3436,2183 +3040,6 @@ Response:+182600
           "version": 15
         }
       }
-    },
-    "space": {
-      "bc202e06-6caa-4e3f-81eb-f226ab5deef7": {
-        "role": "editor",
-        "value": {
-          "beta_enabled": false,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1537253154666,
-          "disable_export": false,
-          "disable_guests": false,
-          "disable_move_to_space": false,
-          "disable_public_access": false,
-          "icon": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/23900417-cede-4b11-8a9d-4dfa679dfcbd/head-bw-sq-120.png",
-          "id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "invite_link_enabled": false,
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1631261940000,
-          "name": "Main",
-          "pages": [
-            "1271e9f9-b55f-440d-9d01-f7b9122e2c9b",
-            "2626be45-2146-4d37-93e3-c3b38bcbf61e",
-            "525cd68a-31f3-4e98-a8c1-cb9c39849399",
-            "9e5a3da0-be45-4b9d-88a6-883188c25cf2",
-            "5729efeb-36cf-4f40-97fa-6549ff998d6e",
-            "f75e0224-3821-4f6d-b879-e54a79bef338",
-            "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
-            "6eec7fa8-9de1-473d-9dad-59fdd73e380e",
-            "fed36a56-24d4-43fe-9f7b-e0e410ecd715",
-            "0d74769c-873f-4ba3-9f2b-962c0fab6622",
-            "3a79d4fb-bdee-47f1-933f-a389bf9059a8",
-            "bd92f136-bc09-4316-97b0-ac8f7a674961",
-            "55542511-1762-4f73-b4a5-790fd0c1daec",
-            "6667f3d0-4141-41ae-9ea2-c2f922acab18"
-          ],
-          "permissions": [
-            {
-              "role": "editor",
-              "type": "user_permission",
-              "user_id": "bb760e2d-d679-4b64-b2a9-03005b21870a"
-            }
-          ],
-          "plan_type": "personal",
-          "version": 336
-        }
-      }
     }
-  },
-  "results": [
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "8d86a43d-c648-4d85-85df-bcae3374a60f",
-          "af2ed3c3-e87c-4e42-a582-32d84c9fc7a4",
-          "cf89eecc-4911-43b2-8721-49c5d9c2d984",
-          "7ccdf1a8-9b41-4e97-a6b9-6e696e237837",
-          "36cdca0c-0aaa-467d-ba1f-4a8e538cb0a3",
-          "e9ecbfd9-6187-45ca-b1b4-2afd514e7461"
-        ],
-        "copied_from": "d52b0d6e-6441-4761-88ec-59a29423ce83",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786457,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d52b0d6e-6441-4761-88ec-59a29423ce83",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "03c5dea0-1e8e-4ef4-a041-904d6a5de46a",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Outsourcing"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "9897eebf-f72d-4f12-9c19-317d67c05880",
-          "4b8951fc-38e2-48d2-ad2b-579610663351",
-          "7af76066-d1b8-4d1a-bfb2-0cbfdfeb2c78",
-          "9d0083e9-23fb-48b2-bdae-af63b3c54623",
-          "3e22fcce-b954-4ec1-9458-70b8bc9f9c95",
-          "e1ce4c00-0457-4ddb-a99d-f1ee08203c73",
-          "7990cf55-e655-4cc1-bd26-e143f912a392",
-          "e5f4a6f1-1579-4757-911b-50f57661e390",
-          "9e555f6d-8dce-4539-9d06-482f608a3730"
-        ],
-        "copied_from": "75a355b8-14be-4519-887c-5b0a219f9c04",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786207,
-        "format": {
-          "copied_from_pointer": {
-            "id": "75a355b8-14be-4519-887c-5b0a219f9c04",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "0a4da7d6-e93c-4ba8-a87c-c505e8bc81c8",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Abut Face - second edition"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "aac97594-4774-47e8-86fe-ff42a0db60d7",
-          "874601ca-cfc2-4f5d-a83d-cf8aaf9f85f4",
-          "0e0bc9fa-0820-481e-8c35-6ed02ab019ec",
-          "ef17ac44-e49d-43c3-8f80-bcb6a2ef45df",
-          "b2dbe187-1a9e-4281-b237-767c8d054dba"
-        ],
-        "copied_from": "d4732597-1f0b-43e6-9c73-0367e880837b",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781691,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d4732597-1f0b-43e6-9c73-0367e880837b",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "0e6cf17c-3de1-4806-922f-8d0402843b8f",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Successful telecommuting"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "125beb24-76cf-4885-99a1-bb1690f6392f",
-          "fb8e9dce-1c3d-4fbc-a11d-2a7b1b3cdbcd",
-          "ad21ae96-6d00-4874-a0cf-bbbdfc0558eb",
-          "082daf1e-e288-457b-98bd-fae863c43002",
-          "0dc857b0-5270-4455-a119-d3f52e246f4a",
-          "8dd3ae70-2b47-4efd-a860-c51426ed7a12"
-        ],
-        "copied_from": "d8c7eb6e-46a0-482b-945e-779d024a30b8",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195785635,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d8c7eb6e-46a0-482b-945e-779d024a30b8",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "1363796b-7441-4e15-9470-ed2efd2bc585",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["SICP lectures available on-line"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "77dc998f-f769-4739-aef2-3d9097678595",
-          "1f8de199-b11f-4e4a-8685-177d6de18b1c",
-          "65e3a89c-ee73-4832-9a60-1a1d71e2533b",
-          "612947ac-cc3b-4bad-b6ae-413ecf87580f",
-          "b200a537-d7de-402b-970e-890d0db35cca",
-          "1247b28a-9f6d-4cea-b515-47d7772cef58",
-          "83ba1be2-ee48-4791-8983-0dd5ddd37c67",
-          "fb073bf3-df42-47e4-9f98-befc50440371",
-          "f12e2513-b1b9-493d-ba82-afe9e7d2bd13",
-          "fc7c8915-f026-4398-b6ce-4c94d616c99e",
-          "a8b28ac1-51d9-415e-981f-e3f2ecb3bb19",
-          "1296d139-65bb-447b-8779-785bd2b66c4f",
-          "e978fa08-d504-47d9-81a1-fbf345e9d939",
-          "a6bfced2-0138-4f2a-a6a2-06656226e300",
-          "f1bae55c-68ef-4bf1-9396-a8e828394ad7",
-          "150a08e2-59de-4b9f-ad61-e359180cd535",
-          "e2a845a1-fdae-4d3f-aa9f-cf37c60021af"
-        ],
-        "copied_from": "6d84347e-1561-4a8c-b5f8-3eeca984bd50",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786443,
-        "format": {
-          "copied_from_pointer": {
-            "id": "6d84347e-1561-4a8c-b5f8-3eeca984bd50",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "20b34bf6-02e0-49f0-8aed-2309a097873c",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Catch me if you can"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "3a19edd9-6f87-4a33-9719-88869306cd26",
-          "d7530fbd-74d6-4724-ba43-91d2c44618fb",
-          "21011046-d936-4868-9683-3c8eab2df468",
-          "84b67c75-5a9f-4f3a-bae9-3a629eef573e",
-          "6d312580-2bfa-4c66-beb1-ff8dff112165"
-        ],
-        "copied_from": "e41d0262-d861-4669-bc0f-84d98016bc54",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786427,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "22ee7837-6409-4e15-86de-7d7be59ce2ef",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Popular fallacies"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 18
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "4b090cd5-c506-46da-adc0-246852ce0b3c",
-          "21e7fb6b-8571-4a9d-9105-c55b94a94d0c",
-          "82c372bd-bbaf-4406-bee8-257a6b773766",
-          "677dd6b0-3e02-4018-94b0-b535e24ab981",
-          "a1f115e7-0cbb-4b0c-b7e7-5ba737c6f111"
-        ],
-        "copied_from": "ca6887e9-fe85-4d4b-860a-e1f82f98beb4",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786495,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "2557e059-05d9-45d3-b89e-d2a6000eda11",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Not as happy as you thought you will be"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 14
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6f59cfc0-d670-4e64-923e-28e20a0ece5b",
-          "30120517-b289-4f55-8c1b-ac7ef7ea9cd9",
-          "b2694bff-a618-4fc9-9577-368cc3dc535f",
-          "3e597e85-9bd5-4456-92b2-5c522325cfbb",
-          "bc1b8e32-8543-473a-bab5-c19285828404",
-          "c90712c5-7a19-4204-8040-28c8f979c16c"
-        ],
-        "copied_from": "ff4a9bed-fb41-43c2-8ac5-1c23cc36b979",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786321,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "2c8def1e-b066-4453-b0b1-f163840ca646",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Your life"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 16
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6d8d925b-6036-4fbd-a84d-2b83df237354",
-          "cda4662e-b7f6-4ccb-907a-2787dad5abf3",
-          "02dbc3ff-630e-46fa-b3e1-d148231566b8",
-          "4b0f0f75-8670-46a3-be15-40203a47f942",
-          "8b51ccbb-91df-40c2-8501-d5e372bce7ef",
-          "49a53516-cdd2-4787-894e-01f0ae31e893",
-          "8737830a-d355-44be-9fc5-a3da3c1694a3"
-        ],
-        "copied_from": "a1036812-6e97-472c-93a8-30f329dcc612",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195785651,
-        "format": {
-          "copied_from_pointer": {
-            "id": "a1036812-6e97-472c-93a8-30f329dcc612",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "31a8bf9c-23fa-49e6-8061-22c4913048d3",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Seth Godin on Purple Cows"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "051f7f3a-6171-44f3-9f64-029c4af73bab",
-          "0708d850-630c-4013-8348-01ff4af3738b",
-          "62627709-d326-4d35-bc27-2efa4365c9ab",
-          "48af0ccb-2fa4-4b60-ac06-8e9459fec09f",
-          "c3ff9bff-5efb-4c9a-b75d-7f0948e957d4",
-          "a2817cbb-ca10-4328-858b-8153b6639453",
-          "3bb7475f-b9e6-4bfd-9a75-de2eb612b4da",
-          "5052b84e-929e-4369-ab4a-4709d70e910e",
-          "e5367537-0e2a-4ac7-b8cb-5500919277ed",
-          "782fe2ee-d47a-465a-83bb-22889462d3c0",
-          "747455b2-a22e-457e-84b6-950bc23f6db2",
-          "e254812b-2419-49a1-911b-b0876a495458",
-          "0cbeb5c8-8c6e-4073-a3c0-de17671c7c16",
-          "792794c0-4d29-4122-8a92-a3773216a634",
-          "f90c6f7f-2207-4049-aa22-358fa5a8985d",
-          "fd19093f-fc6f-4208-b883-4ad4529c223e",
-          "325a680b-3f94-43c8-969f-e56e5ac96fe9",
-          "b82f6c72-6073-4c6c-8b35-5625525ed7c2",
-          "b6ca4a05-c0e0-47f1-bceb-fad63a5a4b71",
-          "a161fa87-447e-49e6-9648-730d88ed1f5d",
-          "b869de7c-6eda-4934-abb7-2405fcaea44f"
-        ],
-        "copied_from": "4239c4e5-8bab-4b3b-8829-8de661d570c2",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786489,
-        "format": {
-          "copied_from_pointer": {
-            "id": "4239c4e5-8bab-4b3b-8829-8de661d570c2",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "36181bcd-8399-42c4-a1a3-1caad933721b",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Programmers don’t steal enough"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 25
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "1bc21cc3-24d5-4e7d-bccd-9f21aefcff82",
-          "ec46d683-4f0b-44cb-9ef4-177b82f3c4cf",
-          "d8fd7e58-979f-42a0-8539-71c79311e088",
-          "8a3d06cd-9aa6-4105-a1f7-572175d87d40",
-          "3bed0e1c-7131-4f39-bd2d-11fc4c40271d",
-          "a524447a-c09c-46ad-bca7-daf559adc076"
-        ],
-        "copied_from": "46da2c16-ea8c-4b0b-95d8-7b4e88aad887",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786504,
-        "format": {
-          "copied_from_pointer": {
-            "id": "46da2c16-ea8c-4b0b-95d8-7b4e88aad887",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "3b720874-e7b6-4ec7-ac1e-2cc94cb0b96c",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            ["Skype as an example of changing nature of social interactions"]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7d67bacb-f04a-4adf-b58b-bc9ac7c993c4",
-          "2660fe6f-36b2-4d93-bbf6-217d1d47822d",
-          "64d4e4d0-c2e0-4d5b-9065-5ac202734a27",
-          "6905970a-3af3-435f-9764-64a948f2efe0",
-          "9eb11447-0bb2-4ca5-9858-ddb3e04cf1d4"
-        ],
-        "copied_from": "c22329fa-2324-4d5a-ac6a-6ee5fc1267a8",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786467,
-        "format": {
-          "copied_from_pointer": {
-            "id": "c22329fa-2324-4d5a-ac6a-6ee5fc1267a8",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "4194c048-3ff5-46d2-88c4-51818da3725e",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Disabling WFP (Windows File Protection)"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "75e03c9e-30f4-4792-85fd-6a6e7967afa4",
-          "ae59b738-0bd4-42fa-8173-4617eabaf064",
-          "e175b5cc-7fcf-4149-9def-b257b357a4e8",
-          "bb460381-785c-4b90-b667-a51deb571b4c",
-          "e635372d-1746-4ec8-9229-df8828c3957c",
-          "e8a535b3-eecb-4edd-96e4-8199c92bcf61",
-          "65e8b222-468d-4f5d-ac07-abedee9eaa6a",
-          "f9c28810-8b22-4dac-a3b5-d76a0178830b"
-        ],
-        "copied_from": "28e1d3f6-a0b8-4028-b821-fe7ca782aed4",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781624,
-        "format": {
-          "copied_from_pointer": {
-            "id": "28e1d3f6-a0b8-4028-b821-fe7ca782aed4",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "464c291c-d660-4f8c-9fbc-3f26069438ca",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Writing to sell"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6f4bcdad-cc21-4b9d-87e3-46417d0c3c8a",
-          "70409a26-8bdb-4320-ac69-807d30e9f7bb",
-          "57a5337e-d2ec-4607-a95d-c8f611c0e9ca",
-          "b1321933-4904-4e69-9170-7134e6ff420d",
-          "f8994e91-a185-4213-a13a-bf4a716161f6",
-          "18576198-609e-4ea7-81dd-640d070e6877",
-          "4f37962a-acfd-4f49-9475-89ecc7f853f0",
-          "2ecca352-e68d-45ea-9cfb-c02c85d7193e",
-          "4c50f19b-da28-47fe-9350-7bb05419f19b",
-          "64bd87c8-3ec8-474e-adf3-4f433a338643",
-          "419ba0d3-cf14-41e0-8265-62ae68eb9517",
-          "59f0d6ae-d475-4855-b3d3-680bfe289ab1"
-        ],
-        "copied_from": "c236adcb-9fc8-4b15-976e-9b7396223c27",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786486,
-        "format": {
-          "copied_from_pointer": {
-            "id": "c236adcb-9fc8-4b15-976e-9b7396223c27",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "477ec7bd-f5ae-41bf-bd51-5c1b7d68dca5",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Good software, bad buying experience"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "9fca5339-b258-4c82-9c4d-440463b93c12",
-          "1da11a99-1d81-458d-a146-fb623ce7b7d4",
-          "82876851-5497-49b3-84a2-e2ccadb69e03",
-          "a96f3021-9f48-4eac-964a-32063ed25a52",
-          "de491d6f-c016-49e4-9f64-888275a1cbcb"
-        ],
-        "copied_from": "1619114b-b668-41fd-83d7-09e954b3033d",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781645,
-        "format": {
-          "copied_from_pointer": {
-            "id": "1619114b-b668-41fd-83d7-09e954b3033d",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "52979d4b-5163-4a03-9077-7890670a9753",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Source Insight 3.5"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 22
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "57930248-78d0-4ab5-8b34-4ee5d0e6d21a",
-          "45a5d871-7f37-4e0e-8581-8aaa53e29fde",
-          "5d3181a9-d5e8-4fd2-bdcc-6a9bd2b1e6fb",
-          "5f73e0d3-2d1f-4cc2-ab58-effc7e1becda",
-          "901b9547-6570-4691-996e-361c8ec4259e"
-        ],
-        "copied_from": "7173ebd5-2086-4d37-8a7d-f0c304dbff4e",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786486,
-        "format": {
-          "copied_from_pointer": {
-            "id": "7173ebd5-2086-4d37-8a7d-f0c304dbff4e",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "529d5b82-5b8c-4e3a-89b6-2f5c044bf473",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Myths Open Source Developers Tell Ourselves"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "ede47705-3586-4c3c-ad6d-091b2d953037",
-          "461cb14d-2065-4f70-8abe-0ec9e6a0c141",
-          "f6d56ecf-dae3-488d-9045-1dc2a4a15b62",
-          "92daba4b-ca3d-4521-8fe1-c80cb50113b6",
-          "d953e603-6bdc-4811-85d2-15a1a7ad2004",
-          "af9246dd-a8d3-466e-acf7-eff1fa39f066"
-        ],
-        "copied_from": "2fd2c44e-4919-4b9f-a858-56a489d7968f",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786429,
-        "format": {
-          "copied_from_pointer": {
-            "id": "2fd2c44e-4919-4b9f-a858-56a489d7968f",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "5d488681-25c1-4fbc-bde7-cbb1ce917077",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Royalties in game business"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "d35b2629-b23e-4bbb-a652-f24498ca37cf",
-          "b94210df-b84a-456d-bf6c-7920226299a7",
-          "ae4f5891-b717-410b-8b39-d7be90d4782a",
-          "2995c67f-fd94-4e34-9e3f-6b755728ff33",
-          "7aa2b86d-3324-445f-89cc-030baab0f28e",
-          "22634c00-04fe-4f24-9718-5e14e65e4587",
-          "3b6cec75-3cee-47a6-9e3a-52bf9b923085"
-        ],
-        "copied_from": "83fbe46e-228c-42f3-9939-1516c855009a",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786468,
-        "format": {
-          "copied_from_pointer": {
-            "id": "83fbe46e-228c-42f3-9939-1516c855009a",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "5db03935-3cbb-4606-b8ab-614471617263",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Shirky on Wikis"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "11c739dc-f21d-4526-b507-ebe0329d5b68",
-          "d7c437b4-905b-4999-b691-9d75bb3ba226",
-          "c71fbf8b-3cf5-4464-85b3-103c18a7e576",
-          "5d3c3d95-6a52-47f2-bf35-7ba74c01c46d",
-          "9104055b-4071-44f8-b0ce-5a28b35d2a45",
-          "aadcfc09-4ea7-47cf-9d80-a403c9a8e4ee",
-          "5fed912e-46b6-4964-8868-c9d9f47d8d2f"
-        ],
-        "copied_from": "5af10188-2d09-4233-ac8e-0d6ca9eb41c9",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786515,
-        "format": {
-          "copied_from_pointer": {
-            "id": "5af10188-2d09-4233-ac8e-0d6ca9eb41c9",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "6058622a-cf4c-41d6-977b-347f07e14fa1",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Making money with shareware software"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 23
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "8b953e8d-b9e1-445a-951e-9f64b28d09d9",
-          "0127aec4-027f-44d4-b898-da2a4b4e0aa6",
-          "8aef79d9-f21d-498a-954c-a690ff976847",
-          "6943656f-243b-4a46-8768-76861924524a",
-          "ffe92d63-2a00-42f6-85a7-e0f3205e9ff3"
-        ],
-        "copied_from": "4ec2c25c-085b-4ee6-bc80-fb0823d077be",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786448,
-        "format": {
-          "copied_from_pointer": {
-            "id": "4ec2c25c-085b-4ee6-bc80-fb0823d077be",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "63dd2935-607b-465e-a707-111d981d8710",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            ["On difference between amateur and professional shareware"]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "bfbf9be8-9c46-46a4-9893-40b9326542e2",
-          "f425460e-57a2-4c1c-8c4d-d907a558f0ce",
-          "d413f46a-696d-40e8-874a-e35a4d9720c9",
-          "a82bad6e-c836-4012-9807-0704a1adb47c"
-        ],
-        "copied_from": "471bfe40-b0bc-4242-9343-3f1fd33390c5",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195787106,
-        "format": {
-          "copied_from_pointer": {
-            "id": "471bfe40-b0bc-4242-9343-3f1fd33390c5",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "678979c4-7969-4122-b9ed-65528647e01e",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["O’Reilly on software"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "503e3a85-0f08-472e-bb2c-4b369e0cb411",
-          "baf7773c-5376-4861-b569-2f8508338962",
-          "359deb5f-538d-4187-adb8-17421f482373",
-          "180b3fc6-13c1-4027-b498-eb7be9db88f4",
-          "d416fdad-c883-4577-9a9d-185fa0df4525"
-        ],
-        "copied_from": "a063d2d4-cf40-4389-af46-5f576a937716",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786506,
-        "format": {
-          "copied_from_pointer": {
-            "id": "a063d2d4-cf40-4389-af46-5f576a937716",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "68a7a4e3-7168-4e57-8b43-df4480fc2db8",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Usability Heuristics for Rich Internet Applications"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 23
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "af710ea2-6822-4e2b-93d1-0ed316a793e5",
-          "bf224a3f-c12c-422d-85cd-37d62604a972",
-          "2252f95e-d588-4256-9063-d2c7890e871a",
-          "d9cecdbe-dee3-4b1c-8ecb-0d500168e542",
-          "bd2375f0-26f8-414a-a4d3-dd619873af5c",
-          "31450f1c-121d-4587-916c-a8858124e416",
-          "1dd648e7-f66f-4657-9517-e01fd34e5e36",
-          "cbb5ce89-11c1-4c78-a7a0-99c4f4146344",
-          "84c6f6bc-8568-4f06-abb2-aa6a149be999"
-        ],
-        "copied_from": "aa6541aa-74e7-485f-88fc-bc66a4782dd1",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786860,
-        "format": {
-          "copied_from_pointer": {
-            "id": "aa6541aa-74e7-485f-88fc-bc66a4782dd1",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "76e0c432-f234-4045-8ec2-495ab17b4597",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Marketing and shareware articles"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "ba0e2ff7-006f-411b-98b7-3ce0d1530c60",
-          "d77db60d-aa9e-4cc8-b8dc-102997e82650",
-          "258e6bc0-7276-4d27-b5bb-a83b80a88e89",
-          "b600ed20-28cd-4c6b-a704-ac1a16e8ba5e",
-          "1d23e845-3344-419e-b74b-81b591c521de",
-          "fd8175ab-9ee8-4275-b736-b033aabb8ea1"
-        ],
-        "copied_from": "e0d6e635-c9f2-4e47-a1ff-bbcf2b7c3fe9",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786513,
-        "format": {
-          "copied_from_pointer": {
-            "id": "e0d6e635-c9f2-4e47-a1ff-bbcf2b7c3fe9",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "7edf7239-89d6-41c7-870f-7ee40b01c19e",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Better selling through a web-site"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "f09ad7e4-a0c8-46c8-b5c6-1bb111a3ed15",
-          "4a2b0936-e439-471a-9c41-a1e554e7fb00",
-          "a8578ac9-8525-4f07-a067-ac0009c94aad",
-          "b7ba329e-bac8-44a6-a13f-8a13d01a69dc",
-          "512ef369-a4b8-46f2-9a67-164ccbb49abe",
-          "2c273448-8e73-4817-b371-40d20d8e01fd",
-          "594ebd55-4470-403e-9dc5-fe975dece9fe",
-          "804ac129-1e4a-4e41-9321-42a166d3e42b",
-          "dde6ceb5-bc15-46e5-9450-5cec9283cf27",
-          "85ad3feb-24ca-4a5e-a582-5b51f2ced7e8",
-          "9f25045f-4172-4de3-af42-4919bb1d78ed",
-          "e7af90a2-dc39-4d59-85bc-163214d4b200",
-          "f439a4ec-fb50-4de6-adbf-5364a32512c4",
-          "74c50e1a-29b0-4397-93ed-73faf3f2a328",
-          "b61eea6f-3e72-4b78-9091-3ac318a00721"
-        ],
-        "copied_from": "dc27ee5f-efb7-4bd9-886f-3b40e13dbe5a",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786235,
-        "format": {
-          "copied_from_pointer": {
-            "id": "dc27ee5f-efb7-4bd9-886f-3b40e13dbe5a",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "84366008-dcc2-42d6-9949-03817c8eaab8",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Why consistency is important in software design"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "4dce4f72-6043-41cb-9073-72290a834d90",
-          "d8b42361-b670-463c-b01f-7a9b2bb65e1d",
-          "9e44f76a-2913-40f4-97de-0a02b119ff96",
-          "b215a0c3-2f2d-47b9-90dc-353a44fff841",
-          "d41d1906-4e2b-4cc8-b5c6-8d169f7074ef",
-          "a0be39e6-280a-403e-9b91-4c5970965530",
-          "3026570b-9ea3-40a3-b9d6-cfc065003f21",
-          "22e9b63e-fdc0-4819-8d65-da020a6c8630",
-          "056375bc-8e71-4c7d-b1c3-0493dcf3e8ae"
-        ],
-        "copied_from": "d538ca6f-9e34-4d2b-ac2e-6c9d10f32be1",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781673,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d538ca6f-9e34-4d2b-ac2e-6c9d10f32be1",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "8478a4c2-8702-4837-8997-18a1d8137f96",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["An old ad for a job at Microsoft"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "78b0376f-0065-4dc2-acb2-83c81227181e",
-          "8f83ac37-4b62-4482-ac27-bd43d33a7c86",
-          "87827106-fb20-4f4c-a1d4-a958d41acd12",
-          "a8fc8ae6-bc9b-4181-9e8d-210e30c90ad9",
-          "2fb9768b-47d4-4bb2-aeef-4c4f2609b0ea",
-          "d8eb3d42-bebc-4bb6-807e-d675417acca5",
-          "a4f7d44d-5c6d-4c05-923d-c9622872448e",
-          "20ff94c8-a179-496a-9e3c-07b32e165cf3",
-          "28b7a9ce-2622-40d7-ae9f-2d612e2c5f69",
-          "155fef28-afd3-417d-a86f-1eeae8885342",
-          "93bc668b-65c3-4c92-96e1-856191c6c5f1",
-          "967fe47d-4610-4c6a-a468-d41aee18da7f"
-        ],
-        "copied_from": "5e040d17-4187-4b4e-a07f-993926385baf",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786381,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "8aada009-b073-4777-9ce3-decfc633756d",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Do you read the old papers?"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 18
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "86977aab-d753-49d7-b541-448c512f28b3",
-          "750e0db7-1eaf-48a9-a487-14a9760d1d53",
-          "84a5963b-02d6-4d23-8e8d-5fa18bf2eed2",
-          "f9f1572a-54de-4413-872c-fd6e5856ffb9",
-          "fc2b63cd-5323-46c9-999b-c284fe57e20d"
-        ],
-        "copied_from": "7885e1b7-c08c-4b18-a19e-ffdeef53cdd8",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786462,
-        "format": {
-          "copied_from_pointer": {
-            "id": "7885e1b7-c08c-4b18-a19e-ffdeef53cdd8",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "900168f6-c3eb-4b13-bd39-bb0148d9d421",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Watch TV on the internet"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "0291911a-561c-4509-a351-1e23f0a248d0",
-          "a9bf7495-c989-4da9-aedc-9ddf78a9f299",
-          "9600d0e4-8cf9-4211-a183-ef6f2f8271a7",
-          "5b121cf7-713f-4d60-8537-c3fd0a703057",
-          "b1d9fe49-3d26-41d5-b32b-9617cf88f74b"
-        ],
-        "copied_from": "35b036ad-9168-4fc2-92fb-168bf7606f50",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786395,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "9215e7c9-6695-40eb-9ab0-dabe4afe2672",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Don’t change URIs"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 20
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "59773883-be0f-4760-bfe9-48aed6440420",
-          "aaff729b-059c-48da-b791-4cb1518f9747",
-          "2f8a15a2-1900-4cea-bdc2-7d89bc7a6baf",
-          "63b9a26c-d1e6-4b64-9042-15b7a534d72a",
-          "876ebdd6-e409-44d3-9e4e-272f67659508",
-          "dc53bea1-42f9-4a66-83f4-4136f8972ab0",
-          "068717ea-b9a7-4354-87e0-5bebd7ae92a0",
-          "82471899-a649-4d26-8fd9-040ddcf4c042",
-          "ba9b9057-222a-4189-b155-ddcf97a86b18",
-          "cd65c085-413b-4f10-b19f-e05e537915c6",
-          "6d914940-d17c-4c80-9cbe-6345da00f515",
-          "e5888823-bd95-4977-8682-b04137f3cf74",
-          "a13996ea-4e3a-4b9d-aefe-52308b7add1c"
-        ],
-        "copied_from": "66730e5b-1544-4344-bb03-5f605bd78c67",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786387,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "941a1f2c-5c20-4f27-aa51-b38f116c74f4",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Given enough eyeballs make all bugs shallow"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 18
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "12104e88-b9b9-4a81-bae2-e31ac6d70b5c",
-          "c63f272c-1b51-44ec-b5c0-d11c42e929c6",
-          "74222980-a2ad-4428-a054-bfb2da1ddc6d",
-          "0906859d-ef52-4ac2-afd5-9d5504d2cfa6",
-          "ac74db44-bf10-4020-904b-63c5d5bf3317",
-          "d6820089-23ba-4724-ab19-7232e9e7962e",
-          "6cf23968-4171-4b1a-a21c-d8eb11049f6a",
-          "71429a7f-50e6-47c9-b912-56b10ffbda65",
-          "de961c93-a003-42cd-938b-e30afce63429",
-          "3b3f8e6b-3111-4ca4-8f16-d2fbfe00cabf",
-          "4ad1af5e-c94c-4209-aadb-edd34d690ba0",
-          "abdbd28c-4b88-4a5e-b189-cdcc6e68135c",
-          "cb5e4bd8-7aa1-405f-9dd9-65b2ccb40186",
-          "b2de7dd2-e45a-4574-b247-f371aae76456",
-          "df2a4e17-e356-4648-bb73-780880015d7d",
-          "749cc112-e248-4523-b87d-a1b50c13fb59"
-        ],
-        "copied_from": "a3490de6-cdd7-40eb-8d4f-148f3b0fa4ca",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786474,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "958402a6-8fe9-41f4-9626-2e7f83486a47",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Software can always be better"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 16
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6a5709c3-31e3-4ff3-9aa0-c0b1d971ee60",
-          "a38c273e-ea97-4fa6-b9b2-4e3df9526d12",
-          "9a01cbcf-a595-4e74-9016-514a6db504dc",
-          "59d4c652-8f50-4abd-bfb1-057700fa4223",
-          "fe3dca47-2164-4142-a4a9-4016a9b6c546",
-          "0fa2fcc5-a5bd-4a21-a1c1-b89493b54da2"
-        ],
-        "copied_from": "50987d60-4984-4e5a-b7b1-9f318d11f156",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781627,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "967972ad-be0b-494b-b772-e9f6489eb84b",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            ["Is software industry a place to be - Greenspun perspective"]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 14
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "7b00f430-6bfb-4ef9-a8db-0250e2e6c681",
-          "0e135b56-3c9e-497f-95bd-4b2f39ac3dac",
-          "ac6ce105-1731-4ae9-80fd-1a87fdd87d59",
-          "b8950c2e-00b6-4fb7-8c2b-b72157fbf158",
-          "aaf42d22-fc82-4f1e-b4c9-f0e298d5a104",
-          "d83a3891-9240-407a-8dc6-a6cdc0951cd0",
-          "6055b5e8-5cf6-4aed-84dd-a678ad6482d8"
-        ],
-        "copied_from": "b0920f9c-d69a-44ac-a523-f78cc9e63db8",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781641,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "97cc2daf-fe57-444c-b1e4-7b436b022fe4",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Carmack on creativity"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 16
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "26f76245-dfa0-4cd2-8269-6c7491cab62d",
-          "9b16dc3c-8d2d-4829-ae4a-e5e2a3016c32",
-          "08b10563-d5c3-47be-96ef-c7077653a742",
-          "926ff78c-ab8b-472a-ba57-eb95328a7a79",
-          "2ae88d20-54a2-422d-83fe-55cb6c63affe"
-        ],
-        "copied_from": "6efa3f04-e0f8-4e93-bdca-5ceede8df6da",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781663,
-        "format": {
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "98494e10-661d-4bfb-a379-0aec1ac313dd",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Lying with a straight face"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 20
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "24794cce-b34d-45ba-bc93-951a2208d8ba",
-          "7f6ae1b7-70c4-4fcd-bc05-c390bac3ea02",
-          "281ff9b0-5218-4424-8646-7d867a061105",
-          "afb0beb5-e73e-4422-b55b-59514405dc3c",
-          "4aa7a7af-c22c-4acc-bdb1-0129e64b6857"
-        ],
-        "copied_from": "c1d93b27-5989-44c7-93de-165f32fab8dd",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195785677,
-        "format": {
-          "copied_from_pointer": {
-            "id": "c1d93b27-5989-44c7-93de-165f32fab8dd",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "a726fefe-0c1b-4829-b53c-361bdb347359",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Lucene for searching source code"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "04c2a243-bd86-4064-aa7d-feb307ce21bc",
-          "2fa5e658-4832-451f-aff7-aaf8d7b5d9ba",
-          "3e0e3297-f765-48ae-9bc2-5a87563d1a0c",
-          "a9446202-5d82-4532-ba5b-a2da8e93600e",
-          "897de3a9-521e-418c-808c-e3e4ceeaaf43"
-        ],
-        "copied_from": "4d846051-3ae4-4f93-b404-d203cb6a5551",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786485,
-        "format": {
-          "copied_from_pointer": {
-            "id": "4d846051-3ae4-4f93-b404-d203cb6a5551",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "a80c396b-b324-41bb-990a-980ea3ddc25a",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Creative commons presentation"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 26
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "b552060b-9264-4324-9eab-df9f76ea8097",
-          "5d146919-1283-48af-b483-27185a3d52cd",
-          "b371d68d-ec6f-4cb0-aa56-6284892bc982",
-          "35b62365-e135-4abd-a42a-0e0ae10165f8",
-          "755c30c1-3229-4252-98fd-a3bb6ba2d161",
-          "03126089-4a58-4fd6-a01f-e1bfbe445dea",
-          "b6dfaca4-78d0-41f4-95bb-8614af220f3e",
-          "8bcd4be5-2a0b-4d9a-9bab-4d0bb4a01a48",
-          "145e13a5-947f-43ab-9cf3-756de5800c31"
-        ],
-        "copied_from": "e370711b-8d8a-496c-9307-fce6a7a18cbe",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786407,
-        "format": {
-          "copied_from_pointer": {
-            "id": "e370711b-8d8a-496c-9307-fce6a7a18cbe",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "ac3fc93e-21a7-474e-8a9a-9267f63d2893",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["A shameless rip-off, or what did you expect?"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "e5f12058-b779-48b3-9ee4-2da187803275",
-          "4114bbe5-a44c-4365-82cb-7cf86c41e413",
-          "2c392746-8993-4cc9-bc16-fb8295b85954",
-          "ff77f133-7a8f-4791-8b4c-15b47a7a3e55",
-          "c4bfc1a0-f691-4d03-901c-3b83ef4e64cf"
-        ],
-        "copied_from": "1a5db821-3dec-44a6-a040-4d8fe6e5c40b",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786211,
-        "format": {
-          "copied_from_pointer": {
-            "id": "1a5db821-3dec-44a6-a040-4d8fe6e5c40b",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "adcd152c-ba2a-48dd-ba7e-2de4d07d448b",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Asking the right question about language design"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "f52a22e2-ce38-4f85-bd2a-e9202e1aea65",
-          "03291997-b2b8-46b2-94dc-e96e3e888c3d",
-          "eb101ae0-e247-4227-97d2-da21a3d1d86b",
-          "e43985a1-109b-4ab1-af9e-24cebd367e72",
-          "0c920885-fd29-49ab-b5f9-5983cdc49fa3",
-          "3b4845b8-2962-407c-b0ba-1fb423c7dd65"
-        ],
-        "copied_from": "03f75340-1fc8-4e6a-86d1-10514595dbc9",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786653,
-        "format": {
-          "copied_from_pointer": {
-            "id": "03f75340-1fc8-4e6a-86d1-10514595dbc9",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "b13f1d68-28e2-4b8b-b1d1-47519b728b29",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Perl to Python compiler"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "16f3481b-57b6-48aa-8381-32f0ec095f82",
-          "c5f243d6-4835-4ad7-a2b1-b3264f332d1e",
-          "c66bc70e-7a1d-4bc1-948c-6c2448744884",
-          "a2893a27-f244-4c2c-9f2b-f3a9b7dbb518",
-          "c10fb878-9d97-4f0a-beca-31c7b185807e",
-          "38339d32-cb1c-4f74-bb22-52820f028bc9"
-        ],
-        "copied_from": "c26f8f43-61e5-4878-9acd-ad5c4e26d430",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786410,
-        "format": {
-          "copied_from_pointer": {
-            "id": "c26f8f43-61e5-4878-9acd-ad5c4e26d430",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "bc81e70c-d754-4700-baf4-56e41199ec72",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["As we may think"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a7b10abd-3ede-4e69-a961-dd36e17aeec4",
-          "f1aba1fa-a6f5-4528-9145-02da798acdfe",
-          "8edda2ad-4e84-44b3-a72f-4a830f7fa1f2",
-          "34b9d7ac-a705-4fd8-bd8d-51ab1f608751",
-          "b831f534-3274-4296-8939-ac9668cf5aef",
-          "eada1abd-1ca0-4e57-9248-2896c7d0878a",
-          "893199a7-bef5-48a8-972c-732141a0c741",
-          "b2c38b40-6b87-4c59-ad78-c1a028c84baf",
-          "34fe34a5-468d-4c6a-ae1e-4c4e5b7fa861",
-          "77d75e59-7498-458d-ad29-da446f2f7f89",
-          "17ecca25-bb94-4ea6-8821-697717d2918f",
-          "cbdf7ade-7a33-4ded-8f9b-cfe4955584e7",
-          "f9c65a40-aefc-468c-8875-f2eede801942",
-          "156533df-555a-474b-aeed-18a812a45847",
-          "7a7a3e31-4cce-4826-9f27-c85066c7c598",
-          "92f4afd2-d3af-4d83-8b60-558e3243d000",
-          "f038b858-f70d-43c6-93e6-6cc85bd117ca",
-          "a3763e5c-d752-4dae-8011-d89f0eb459cd",
-          "fc402ba3-83a8-4a0d-8d90-f75f6df4acb5",
-          "b6a24f38-785b-42be-9ea1-7b9516bdfadf",
-          "087f2a6c-165b-4f00-8c7a-83c2c02e1c60",
-          "84dd200c-e4c5-46f3-93a6-22a68cceab5c",
-          "5f841fca-4bec-436e-9af3-a44ebcec7af1",
-          "865ea67c-696e-4198-8c9d-a11ae9c145ee",
-          "8e4b618c-ae0e-4167-a454-ac1c579f40c8",
-          "4117914f-c49e-4e1a-8751-c73a0f973bbe",
-          "9fbae4ca-8dcf-4a1d-acf1-2c4fefbd67ed",
-          "77bebcca-cfa8-4b30-98de-7714432e6d2d",
-          "a2282e24-25e3-4a98-974d-51d27b18f677",
-          "7bee3738-c2aa-4200-9496-e80f80a4d488",
-          "eacb2a2b-7541-428d-b97f-e704e04a65be",
-          "22cb5d19-d653-4e24-9bf1-197a6226cf03",
-          "4ce47bb8-9c77-431f-a071-53067722a957",
-          "d8083ee9-48ec-4713-823c-3e2fa59bee37",
-          "37abc6fb-2004-437d-8bff-42352c75bbe2",
-          "495d9231-dbb9-4279-8bf0-f526e73e1f1f",
-          "1f34fa7c-fa31-47af-9f4d-fbfb6d41b0ba"
-        ],
-        "copied_from": "9bdda999-1fbe-407c-8746-634eed42f4cf",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786970,
-        "format": {
-          "copied_from_pointer": {
-            "id": "9bdda999-1fbe-407c-8746-634eed42f4cf",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "c122ae48-097f-40b4-95bd-99005270369c",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [
-            ["My future is so bright that I’ll need to wear sunglasses"]
-          ]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 19
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "545bd5a3-6fba-4542-b888-19422dfa715b",
-          "451683df-1b7c-49ce-a6ce-fcdc62a5f844",
-          "94a7a235-8d91-45b2-92d5-ac6b5ed069f0",
-          "f08caa1c-05a1-47c2-90ef-de3a45838937",
-          "abe01a10-4478-4472-a756-7088e68981f4",
-          "147feb6e-b82c-4020-befa-77047523a2ab",
-          "838cba03-77c0-4628-849c-110e31cdea07",
-          "f3f47c95-dca7-43ab-9df6-c409a1a51352",
-          "d45fe1ba-098a-4f49-94bb-5a97f690e958",
-          "d7f8b137-1634-4c57-9a1e-0b921aedfbea",
-          "0041e1df-6d1a-4c33-b075-95de58dc6427",
-          "c6d49694-a79a-43e7-b59a-8bc4e3a2e003",
-          "e3c964d3-fe9d-466f-a8bc-fc1968b1767f",
-          "47f09115-311b-46b7-a48a-552d4a0cd5c1",
-          "ff1fc31c-34a4-45e2-aade-090b644f54c1",
-          "4925d796-ccdb-4a8b-bd39-414b198654c4",
-          "459f89ac-327e-43b8-9467-df9aa521706f",
-          "6af353b7-81a1-4553-bc24-fe0421ccc546"
-        ],
-        "copied_from": "44ecab21-ea26-4c55-95f7-322aadc935a5",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195781666,
-        "format": {
-          "copied_from_pointer": {
-            "id": "44ecab21-ea26-4c55-95f7-322aadc935a5",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "c1a2e879-d8db-4810-ab18-db144948f668",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["How much can you make writing computer books"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "d67ca693-399e-40d4-a513-32edd0ba0688",
-          "156466ce-450b-4a9f-86e8-aea6ca39dc8c",
-          "bbf60116-5861-4bfb-a2d5-1568956ae092",
-          "27c67d9e-25c4-4686-bf78-4fbcde4c892b",
-          "34689bfe-ed78-47cf-aa94-fd7876ea51ee",
-          "1fd20c47-d5eb-42b5-b172-c88948cc6683",
-          "cde2689a-2632-4f79-a335-c25783a5f778",
-          "20e02f86-6b6b-40af-be21-46176ac99e5c"
-        ],
-        "copied_from": "a7af8d92-d9df-441e-ad95-f3dbb5ece398",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786520,
-        "format": {
-          "copied_from_pointer": {
-            "id": "a7af8d92-d9df-441e-ad95-f3dbb5ece398",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "c5e8489d-ebb9-4ece-95ff-97b19ede3e49",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Critical reading skills"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "616ed5da-51d3-4c26-8e7e-0703dbbe3e96",
-          "b10b4a21-55d6-436f-a833-050b551da6cc",
-          "a1afd889-4f51-4274-8c57-60789fa88c98",
-          "fc447351-0cc7-4b07-82a4-4cd1116df0f0",
-          "4030ee52-3a98-4b4a-bf87-6ebd16c9c9fc",
-          "12ccf50a-1b50-4e91-b3d1-9a6078127d97"
-        ],
-        "copied_from": "feabdeca-16be-4c65-98ea-1e463e105104",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195787071,
-        "format": {
-          "copied_from_pointer": {
-            "id": "feabdeca-16be-4c65-98ea-1e463e105104",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true
-        },
-        "id": "cbbdbe2d-3848-415f-9f8f-63017e7ec398",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["The story of Photoshop"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "a601e03a-79b7-4ad1-ab4a-a4be8dd9fa39",
-          "e232de00-e725-4af9-811c-930a69c4d3fd",
-          "6e67ffc2-3b50-416d-bec7-45ae77945647",
-          "a96730a1-eeb9-43e6-be2b-4bb04b7c656e",
-          "c8ad5355-f6aa-4647-934e-31df22671141",
-          "cb48282a-3444-4a33-9a9c-4cd0748eb022"
-        ],
-        "copied_from": "e5c1fb5d-dc05-41eb-802f-5333394dd0d8",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786327,
-        "format": {
-          "copied_from_pointer": {
-            "id": "e5c1fb5d-dc05-41eb-802f-5333394dd0d8",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d08ad186-b982-4fd4-a3c3-42088422bc68",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996294384,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["How to make money developing Mac apps"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 25
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "170636ba-e7a9-4be5-a056-701eb7fc5e31",
-          "c84c0efb-4d92-4990-b5f0-b2c0b59a648d",
-          "b9fb69ae-5140-4fbe-844a-3a3485c9c797",
-          "01084c6c-2660-45d5-97d1-007c5ac052e8",
-          "0271d37f-3fd1-475a-abaf-20781607d838"
-        ],
-        "copied_from": "c1e5af4b-f646-4588-9f21-c2bf0c98c3ce",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195785697,
-        "format": {
-          "copied_from_pointer": {
-            "id": "c1e5af4b-f646-4588-9f21-c2bf0c98c3ce",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "d23f2e68-4d9f-45b4-9a8b-2981ff8d05c9",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Publicity 101"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "072df774-1769-4952-8fd4-8a10c4b6ae8a",
-          "bb1214f3-04a7-4157-afd6-b3c79196e76d",
-          "67a8bb19-c9bd-4b69-bdf9-2958e917cc11",
-          "a8403279-c516-4748-982d-bd6303e0ac36",
-          "37d758a9-e2a8-4027-8ec8-04aa9a2a9ed6",
-          "953c9f61-6587-45f1-9f18-2b2053519992",
-          "405dbf7c-2339-40e6-b4e1-d3cc332befaa",
-          "3fce0c71-ee09-4d4e-8e31-6553666f73d1"
-        ],
-        "copied_from": "f1eae95e-2668-4e1a-a7ce-9c110762a4d1",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786441,
-        "format": {
-          "copied_from_pointer": {
-            "id": "f1eae95e-2668-4e1a-a7ce-9c110762a4d1",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "dfa0ad7d-312f-45f7-8f3c-92561f748ac7",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Memex - “sue me please” device"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "dfe23bcb-5eb8-48f3-bd27-cc28d872b8d5",
-          "1a0ee2ac-0e3f-4b6e-afab-3425573fc474",
-          "8f975adc-f7c6-4113-b55b-d7792a6fdd1e",
-          "717f5503-5250-422f-93dc-b6a4837fd539",
-          "bb2068b9-2bb4-4d79-926e-5cccd62e4d29",
-          "80be3fd4-3283-4e1f-be8a-bd0fa44f3b0e"
-        ],
-        "copied_from": "d1fa197b-5939-4537-bba6-41c1f1991994",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786967,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d1fa197b-5939-4537-bba6-41c1f1991994",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "e87a3fdb-32c1-4d46-83d7-693a654485f3",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Python idioms"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 21
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "de1f0926-01c8-4554-bf36-716eb3404384",
-          "44dbd9a0-c72e-4b55-aac9-1594d3c5754f",
-          "8a93a999-89fd-4648-9281-53823c9548d8",
-          "7e402860-79ac-458a-a1e8-2be3bb1aef67",
-          "971f9471-e6dd-47ea-b9a2-a1827a60a9a8",
-          "e7b114b0-fe6b-443e-9f25-6fea6119c3d1",
-          "19ada525-b602-4bf9-8a15-b3eb15b40873",
-          "1c49b633-4c5f-4c92-bb31-7b679cd9b5a2",
-          "08fc470f-84a8-43bc-b379-ec402cb66b8a",
-          "614b5cdf-8a84-4263-98e0-2c9011b39dff",
-          "26922835-9660-4afc-810e-ece1036b2d5b",
-          "23e8ec86-b1d6-4cb4-952b-a5fe7b8c63c1",
-          "34b32498-b665-41be-8a1b-dd280e93f1bb",
-          "d5d9cbcf-5563-4901-8853-72d8725f012c",
-          "3ecec7d8-ed88-4280-aad9-22fdb7704804",
-          "6fd02dfb-6b80-45b4-8f45-8539a392c53a"
-        ],
-        "copied_from": "d2c53e33-00f5-4f32-a0a7-9f0c1c48f6e1",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786197,
-        "format": {
-          "copied_from_pointer": {
-            "id": "d2c53e33-00f5-4f32-a0a7-9f0c1c48f6e1",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "f79ab418-940d-4ebb-9f68-3900252f75ed",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996281816,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Remote desktop - from Windows to Mac OS X"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 17
-      }
-    },
-    {
-      "role": "editor",
-      "value": {
-        "alive": true,
-        "content": [
-          "6504b534-e763-4b84-95d2-51180c2632e7",
-          "e9df76ab-13ec-4e2a-9688-205448ddb9a4",
-          "141bfb8e-e9d2-4aa5-a5ba-95183f244a97",
-          "bd2ed370-c154-4db3-8fac-459e34bdf0a9",
-          "f5e91812-4198-4dd3-b61e-5eaffb4ffb68"
-        ],
-        "copied_from": "236873f4-b146-4da7-85f1-22e1b751b376",
-        "created_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "created_by_table": "notion_user",
-        "created_time": 1531195786447,
-        "format": {
-          "copied_from_pointer": {
-            "id": "236873f4-b146-4da7-85f1-22e1b751b376",
-            "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-            "table": "block"
-          },
-          "page_full_width": true,
-          "page_small_text": true
-        },
-        "id": "fe5b16a8-15d4-4c15-ba2a-94ad67f482ba",
-        "last_edited_by": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-        "last_edited_by_table": "notion_user",
-        "last_edited_time": 1532996287576,
-        "parent_id": "e7fe71cf-ab3b-4daa-a0d5-54ec953c9d08",
-        "parent_table": "block",
-        "properties": {
-          "title": [["Are Microsoft products any good?"]]
-        },
-        "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-        "type": "page",
-        "version": 15
-      }
-    }
-  ]
+  }
 }
