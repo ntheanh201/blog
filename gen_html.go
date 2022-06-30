@@ -277,7 +277,7 @@ func genArticle(article *Article, w io.Writer) error {
 	}{
 		Article:          article,
 		CanonicalURL:     canonicalURL,
-		CoverImage:       article.HeaderImageURL,
+		CoverImage:       "https://blog.kowalczyk.info" + article.HeaderImageURL,
 		PageTitle:        article.Title,
 		Description:      article.Description,
 		TwitterShareURL:  makeTwitterShareURL(article),
