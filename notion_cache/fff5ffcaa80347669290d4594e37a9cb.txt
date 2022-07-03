@@ -1,4 +1,4 @@
-1821 noahttpcache
+1737 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/syncRecordValues
 Body:+162
@@ -7,62 +7,62 @@ Body:+162
     {
       "pointer": {
         "table": "block",
-        "id": "feafd971-7d55-44ac-99cf-fc84079df7cb"
+        "id": "fff5ffca-a803-4766-9290-d4594e37a9cb"
       },
       "version": -1
     }
   ]
 }
-Response:+1569
+Response:+1485
 {
   "recordMap": {
     "block": {
-      "feafd971-7d55-44ac-99cf-fc84079df7cb": {
+      "fff5ffca-a803-4766-9290-d4594e37a9cb": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
-            "da6d8b28-dbec-49f8-8418-a37040cf1897",
-            "56c0018e-db32-4ca3-850b-544b55900eb7",
-            "ac08ee9c-d357-4557-a0eb-87e7f6b7ef39",
-            "b5fe6923-a4a7-4c7b-baa9-e65a2c9f0f51",
-            "98598ce9-7f30-4e35-b099-6db6dd787f2f",
-            "d93b0fbe-e7dc-4f57-8866-8bedbd32befb",
-            "0af03e3b-0a9a-4b96-a20a-c56952f29dfa"
+            "47b57d60-4f54-4ed8-8b8a-7df1906ae393",
+            "a7edf2d1-f0ff-42b3-a0cc-9eb0d39709d2",
+            "82a73140-a298-4b61-bf06-63ad98e0ea3b",
+            "6be9beb3-9c29-4aa2-acbb-9d96c09a64ea",
+            "af185877-facd-4f9a-9f69-69133238e4d8",
+            "334d9b97-dfb8-475d-97ca-0714b7f974ac",
+            "31e2bbdd-98c3-40d9-a6f6-1dc775124b06",
+            "b8733b17-6a28-4459-bf47-9a38cec23573",
+            "e67340b4-3e90-45d1-972a-373c6c34cf52",
+            "737ad6d0-3b58-45c2-812e-d6e50b373eed"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656563286753,
-          "file_ids": ["aff0e573-0a6f-4629-8077-a9a082b4dc5b"],
+          "created_time": 1656817110715,
           "format": {
-            "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aff0e573-0a6f-4629-8077-a9a082b4dc5b/cover-38.jpg",
-            "page_cover_position": 0.5,
             "page_full_width": true
           },
-          "id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656807840000,
+          "last_edited_time": 1656817620000,
           "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
-            "title": [["Day 22: file properties"]]
+            "title": [["Day 24: dialog refactoring"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 54
+          "version": 56
         }
       }
     }
   }
 }
-16538 noahttpcache
+19304 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+166
 {
   "page": {
-    "id": "feafd971-7d55-44ac-99cf-fc84079df7cb"
+    "id": "fff5ffca-a803-4766-9290-d4594e37a9cb"
   },
   "chunkNumber": 0,
   "limit": 50,
@@ -71,38 +71,13 @@ Body:+166
   },
   "verticalColumns": false
 }
-Response:+16278
+Response:+19044
 {
   "cursor": {
     "stack": []
   },
   "recordMap": {
     "block": {
-      "0af03e3b-0a9a-4b96-a20a-c56952f29dfa": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656563460000,
-          "id": "0af03e3b-0a9a-4b96-a20a-c56952f29dfa",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656655140000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "When downloading a file for text preview, I added showing progress. Will be useful for slow connections."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 119
-        }
-      },
       "30da6655-040f-47e6-93f8-e66eacd308c1": {
         "role": "editor",
         "value": {
@@ -148,7 +123,7 @@ Response:+16278
             "dabd3815-292a-4dcc-bc94-4a97d69c6181",
             "feafd971-7d55-44ac-99cf-fc84079df7cb",
             "bb67678b-7246-4d0d-ae8e-7ec4e16c4d40",
-            "c828e13e-00da-4391-8b1a-b13d7bac9299"
+            "fff5ffca-a803-4766-9290-d4594e37a9cb"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -166,7 +141,7 @@ Response:+16278
           "id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656747660000,
+          "last_edited_time": 1656817080000,
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
@@ -174,7 +149,75 @@ Response:+16278
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 947
+          "version": 950
+        }
+      },
+      "31e2bbdd-98c3-40d9-a6f6-1dc775124b06": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817440000,
+          "id": "31e2bbdd-98c3-40d9-a6f6-1dc775124b06",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817560000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "I’ve changed the style of the dialogs a bit by adding gray background to the bottom area and adding close button."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 228
+        }
+      },
+      "334d9b97-dfb8-475d-97ca-0714b7f974ac": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817320000,
+          "id": "334d9b97-dfb8-475d-97ca-0714b7f974ac",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817440000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "The amount of code reused is not big but it makes it easier to change the style of dialogs."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 257
+        }
+      },
+      "47b57d60-4f54-4ed8-8b8a-7df1906ae393": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817121756,
+          "id": "47b57d60-4f54-4ed8-8b8a-7df1906ae393",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817080000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "breadcrumb",
+          "version": 3
         }
       },
       "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
@@ -236,79 +279,61 @@ Response:+16278
           "version": 423
         }
       },
-      "56c0018e-db32-4ca3-850b-544b55900eb7": {
+      "6be9beb3-9c29-4aa2-acbb-9d96c09a64ea": {
         "role": "editor",
         "value": {
           "alive": true,
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656563280000,
-          "id": "56c0018e-db32-4ca3-850b-544b55900eb7",
+          "created_time": 1656817080000,
+          "id": "6be9beb3-9c29-4aa2-acbb-9d96c09a64ea",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656563280000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "last_edited_time": 1656817200000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "parent_table": "block",
           "properties": {
             "title": [
               [
-                "‣",
-                [
-                  [
-                    "d",
-                    {
-                      "date_format": "relative",
-                      "start_date": "2022-06-30",
-                      "type": "date"
-                    }
-                  ]
-                ]
-              ],
-              [" "]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 9
-        }
-      },
-      "98598ce9-7f30-4e35-b099-6db6dd787f2f": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656563280000,
-          "id": "98598ce9-7f30-4e35-b099-6db6dd787f2f",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656563460000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Improved the look of dialogs with a very simple change: added a touch of color at the top:"
+                "So far I’ve created 8 dialogs. They are very similar so I was making new ones by copy & paste an existing dialog."
               ]
             ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
-          "version": 169
+          "version": 187
         }
       },
-      "ac08ee9c-d357-4557-a0eb-87e7f6b7ef39": {
+      "737ad6d0-3b58-45c2-812e-d6e50b373eed": {
         "role": "editor",
         "value": {
           "alive": true,
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656647100000,
-          "id": "ac08ee9c-d357-4557-a0eb-87e7f6b7ef39",
+          "created_time": 1656817380000,
+          "id": "737ad6d0-3b58-45c2-812e-d6e50b373eed",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656647100000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "last_edited_time": 1656817380000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
+        }
+      },
+      "82a73140-a298-4b61-bf06-63ad98e0ea3b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817080000,
+          "id": "82a73140-a298-4b61-bf06-63ad98e0ea3b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817080000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "parent_table": "block",
           "properties": {
             "title": [
@@ -324,55 +349,116 @@ Response:+16278
           "version": 5
         }
       },
-      "b5fe6923-a4a7-4c7b-baa9-e65a2c9f0f51": {
+      "a7edf2d1-f0ff-42b3-a0cc-9eb0d39709d2": {
         "role": "editor",
         "value": {
           "alive": true,
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656563280000,
-          "id": "b5fe6923-a4a7-4c7b-baa9-e65a2c9f0f51",
+          "created_time": 1656817080000,
+          "id": "a7edf2d1-f0ff-42b3-a0cc-9eb0d39709d2",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656563280000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "last_edited_time": 1656817080000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "parent_table": "block",
           "properties": {
-            "title": [["Today implemented basic of file properties dialog."]]
+            "title": [
+              [
+                "‣",
+                [
+                  [
+                    "d",
+                    {
+                      "date_format": "relative",
+                      "start_date": "2022-07-02",
+                      "type": "date"
+                    }
+                  ]
+                ]
+              ],
+              [" "]
+            ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
-          "version": 56
+          "version": 9
         }
       },
-      "d93b0fbe-e7dc-4f57-8866-8bedbd32befb": {
+      "af185877-facd-4f9a-9f69-69133238e4d8": {
         "role": "editor",
         "value": {
           "alive": true,
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656563460000,
-          "file_ids": ["f8384cea-9321-4b47-86b0-05b9d45f3b55"],
-          "format": {
-            "block_aspect_ratio": 0.7493261455525606,
-            "block_full_width": false,
-            "block_height": 278,
-            "block_page_width": false,
-            "block_preserve_scale": true,
-            "block_width": 371,
-            "display_source": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8384cea-9321-4b47-86b0-05b9d45f3b55/Untitled.png"
-          },
-          "id": "d93b0fbe-e7dc-4f57-8866-8bedbd32befb",
+          "created_time": 1656817200000,
+          "id": "af185877-facd-4f9a-9f69-69133238e4d8",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656563460000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "last_edited_time": 1656817320000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "parent_table": "block",
           "properties": {
-            "size": [["12.1KB"]],
+            "title": [
+              [
+                "Today I’ve refactored them by creating a base dialog class and converted all the dialogs to use it."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 136
+        }
+      },
+      "b8733b17-6a28-4459-bf47-9a38cec23573": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817560000,
+          "id": "b8733b17-6a28-4459-bf47-9a38cec23573",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817560000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "properties": {
+            "title": [["The new look:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 19
+        }
+      },
+      "e67340b4-3e90-45d1-972a-373c6c34cf52": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1656817620000,
+          "file_ids": ["84285ed0-5255-4123-9228-c2642468baed"],
+          "format": {
+            "block_aspect_ratio": 0.572463768115942,
+            "block_full_width": false,
+            "block_height": 237,
+            "block_page_width": false,
+            "block_preserve_scale": true,
+            "block_width": 414,
+            "display_source": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/84285ed0-5255-4123-9228-c2642468baed/Untitled.png"
+          },
+          "id": "e67340b4-3e90-45d1-972a-373c6c34cf52",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1656817620000,
+          "parent_id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
+          "parent_table": "block",
+          "properties": {
+            "size": [["6.4KB"]],
             "source": [
               [
-                "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8384cea-9321-4b47-86b0-05b9d45f3b55/Untitled.png"
+                "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/84285ed0-5255-4123-9228-c2642468baed/Untitled.png"
               ]
             ],
             "title": [["Untitled"]]
@@ -382,55 +468,40 @@ Response:+16278
           "version": 9
         }
       },
-      "da6d8b28-dbec-49f8-8418-a37040cf1897": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656563299378,
-          "id": "da6d8b28-dbec-49f8-8418-a37040cf1897",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656563280000,
-          "parent_id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
-          "parent_table": "block",
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "breadcrumb",
-          "version": 3
-        }
-      },
-      "feafd971-7d55-44ac-99cf-fc84079df7cb": {
+      "fff5ffca-a803-4766-9290-d4594e37a9cb": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
-            "da6d8b28-dbec-49f8-8418-a37040cf1897",
-            "56c0018e-db32-4ca3-850b-544b55900eb7",
-            "ac08ee9c-d357-4557-a0eb-87e7f6b7ef39",
-            "b5fe6923-a4a7-4c7b-baa9-e65a2c9f0f51",
-            "98598ce9-7f30-4e35-b099-6db6dd787f2f",
-            "d93b0fbe-e7dc-4f57-8866-8bedbd32befb",
-            "0af03e3b-0a9a-4b96-a20a-c56952f29dfa"
+            "47b57d60-4f54-4ed8-8b8a-7df1906ae393",
+            "a7edf2d1-f0ff-42b3-a0cc-9eb0d39709d2",
+            "82a73140-a298-4b61-bf06-63ad98e0ea3b",
+            "6be9beb3-9c29-4aa2-acbb-9d96c09a64ea",
+            "af185877-facd-4f9a-9f69-69133238e4d8",
+            "334d9b97-dfb8-475d-97ca-0714b7f974ac",
+            "31e2bbdd-98c3-40d9-a6f6-1dc775124b06",
+            "b8733b17-6a28-4459-bf47-9a38cec23573",
+            "e67340b4-3e90-45d1-972a-373c6c34cf52",
+            "737ad6d0-3b58-45c2-812e-d6e50b373eed"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656563286753,
+          "created_time": 1656817110715,
           "format": {
             "page_full_width": true
           },
-          "id": "feafd971-7d55-44ac-99cf-fc84079df7cb",
+          "id": "fff5ffca-a803-4766-9290-d4594e37a9cb",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656655140000,
+          "last_edited_time": 1656817620000,
           "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
-            "title": [["Day 22: file properties"]]
+            "title": [["Day 24: dialog refactoring"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 48
+          "version": 56
         }
       }
     },
