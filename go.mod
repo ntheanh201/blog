@@ -6,13 +6,13 @@ require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/felixge/httpsnoop v1.0.3
-	github.com/gomarkdown/markdown v0.0.0-20220510115730-2372b9aa33e5
+	github.com/gomarkdown/markdown v0.0.0-20220627144906-e9a81102ebeb
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/kjk/common v0.0.0-20220705191345-4e210bd3860d
 	github.com/kjk/minioutil v0.0.0-20220709072721-3afa88d5f27b
-	github.com/kjk/notionapi v0.0.0-20220629203324-79f96582c829
+	github.com/kjk/notionapi v0.0.0-20220710025316-0b93466e11f8
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/microcosm-cc/bluemonday v1.0.18
+	github.com/microcosm-cc/bluemonday v1.0.19
 	github.com/miku/zek v0.1.16
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/xid v1.4.0
