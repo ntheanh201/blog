@@ -94,7 +94,7 @@ Response:+4240
           "id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656478680000,
+          "last_edited_time": 1657400760000,
           "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
@@ -104,13 +104,13 @@ Response:+4240
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 222
+          "version": 223
         }
       }
     }
   }
 }
-61226 noahttpcache
+42872 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+166
@@ -125,20 +125,20 @@ Body:+166
   },
   "verticalColumns": false
 }
-Response:+60966
+Response:+42612
 {
   "cursor": {
     "stack": [
       [
         {
           "id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "index": 47,
+          "index": 30,
           "table": "block"
         }
       ],
       [
         {
-          "id": "aa38c843-be41-45b4-aa54-24be49aa3534",
+          "id": "cd882896-1a92-4929-b62f-421f9df116c7",
           "index": 0,
           "table": "block"
         }
@@ -256,31 +256,6 @@ Response:+60966
           "version": 8
         }
       },
-      "161930b8-99df-4d51-9bd0-fbf3c46193b2": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654798080000,
-          "id": "161930b8-99df-4d51-9bd0-fbf3c46193b2",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Also helps me keep things minimalistic. Some people don’t think twice about creating a monster webpack build pipeline with lots of plugins."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 176
-        }
-      },
       "1a355cab-11db-4ae0-9b81-66d15bc337c9": {
         "role": "editor",
         "value": {
@@ -326,31 +301,6 @@ Response:+60966
           "version": 81
         }
       },
-      "1cf9ace3-957d-48cc-bccd-a304eafc6df1": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654797720000,
-          "id": "1cf9ace3-957d-48cc-bccd-a304eafc6df1",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "I’ve been frustrated by getting stuck for undetermined period of time because I couldn’t comprehend and fix a complicated build pipeline I didn’t setup and therefore didn’t understand."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 142
-        }
-      },
       "27ec7f2e-6e67-499a-bf19-8a3cd9582892": {
         "role": "editor",
         "value": {
@@ -375,36 +325,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 148
-        }
-      },
-      "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800840000,
-          "id": "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1654801680000,
-          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["build command to run. In my case it’s "],
-              [
-                "go build -tags netgo -ldflags '-s -w' -o app && npm i && npx vite build",
-                [["c"]]
-              ],
-              [
-                " which builds Go server, installs npm packages and runs vite to build Svelte app"
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 180
         }
       },
       "30da6655-040f-47e6-93f8-e66eacd308c1": {
@@ -449,7 +369,16 @@ Response:+60966
             "139db749-ab08-4e27-84e4-7550b493410b",
             "086a6af0-78af-4b03-8840-8fa247406952",
             "fbd12306-1a4e-40ea-b5cd-350b00acfde0",
-            "dabd3815-292a-4dcc-bc94-4a97d69c6181"
+            "dabd3815-292a-4dcc-bc94-4a97d69c6181",
+            "feafd971-7d55-44ac-99cf-fc84079df7cb",
+            "bb67678b-7246-4d0d-ae8e-7ec4e16c4d40",
+            "fff5ffca-a803-4766-9290-d4594e37a9cb",
+            "f1815838-20f5-43ca-ae8a-dc7b3be8f466",
+            "268322f7-3220-4b75-bd54-9d86e073117a",
+            "80836e7c-efb3-47c4-8334-c9aa28a06cec",
+            "f81da071-6c5d-480e-bfeb-a1597d55f20f",
+            "fbf20976-e5dc-49e1-a182-bb15e9e7fb10",
+            "3601fadb-ff21-455a-826f-bf1c52aecace"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -467,7 +396,7 @@ Response:+60966
           "id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656481440000,
+          "last_edited_time": 1657400520000,
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
@@ -475,7 +404,7 @@ Response:+60966
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 937
+          "version": 975
         }
       },
       "339ea239-dd5d-463f-a719-bde1c2aab2e2": {
@@ -501,31 +430,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 121
-        }
-      },
-      "3b2c7312-e297-431d-bf65-ca9ebed98c7a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654802220000,
-          "id": "3b2c7312-e297-431d-bf65-ca9ebed98c7a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Thinking about how much work needs to be done is overwhelming."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 141
         }
       },
       "43739eaf-68b3-499e-abb3-1be27ac5fa49": {
@@ -554,90 +458,6 @@ Response:+60966
           "version": 127
         }
       },
-      "468cc224-0f1c-4f67-8187-c8938fee52b5": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654801860000,
-          "id": "468cc224-0f1c-4f67-8187-c8938fee52b5",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "After about 2 hours I had a “hello world” Svelte app with Go backend running on "
-              ],
-              ["render.com", [["a", "http://render.com"]]],
-              [": "],
-              [
-                "https://filemanager-x0mq.onrender.com/",
-                [["a", "https://filemanager-x0mq.onrender.com/"]]
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 180
-        }
-      },
-      "47ff84eb-7461-4b49-a542-63f2303efb3d": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": [
-            "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d",
-            "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b",
-            "77cc4001-1573-4b40-b6d2-db65f7845760"
-          ],
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800840000,
-          "id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["configure with:"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 74
-        }
-      },
-      "4a5c356c-f367-40fe-9b09-ca769cd651b7": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800660000,
-          "id": "4a5c356c-f367-40fe-9b09-ca769cd651b7",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Go server is the simplest thing possible: for now it just serves static files from "
-              ],
-              ["fe/dist", [["c"]]],
-              [" directory (in production build)"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 183
-        }
-      },
       "4b11b08b-1859-4e1d-b8d2-34c92697d462": {
         "role": "editor",
         "value": {
@@ -660,27 +480,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 71
-        }
-      },
-      "4ba761ac-2216-4bbe-b5b6-37630b6ca1e3": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654798080000,
-          "id": "4ba761ac-2216-4bbe-b5b6-37630b6ca1e3",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["I prefer things that I fully understand."]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 64
         }
       },
       "4fa0b9ce-1c2d-47f0-a81c-5543bf7d3aba": {
@@ -793,31 +592,6 @@ Response:+60966
           "version": 423
         }
       },
-      "5af309c6-96d6-42c2-82b4-28ef811bba8c": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654802340000,
-          "id": "5af309c6-96d6-42c2-82b4-28ef811bba8c",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "It’s important to make progress and figure out how to get from here to final product via a sequence of small steps."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 137
-        }
-      },
       "67623982-01d3-4b2a-9e0b-02af50d421a2": {
         "role": "editor",
         "value": {
@@ -866,75 +640,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 106
-        }
-      },
-      "6bd5f2e3-d518-4024-a945-5e33d372a94a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654802220000,
-          "id": "6bd5f2e3-d518-4024-a945-5e33d372a94a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Now that I have a “hello world” running, what next?"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 64
-        }
-      },
-      "7459185f-274d-4c26-944b-c7fa93baa400": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800720000,
-          "id": "7459185f-274d-4c26-944b-c7fa93baa400",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["I like setting things up from scratch."]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 60
-        }
-      },
-      "77cc4001-1573-4b40-b6d2-db65f7845760": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800840000,
-          "id": "77cc4001-1573-4b40-b6d2-db65f7845760",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1654801740000,
-          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["what command to run. In my case it’s "],
-              ["./app -run-prod", [["c"]]],
-              [", which is the name of the Go server executable built above"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 138
         }
       },
       "792fcb73-fcfd-4064-9e05-6860a0ad34ce": {
@@ -996,27 +701,6 @@ Response:+60966
           "version": 213
         }
       },
-      "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800840000,
-          "id": "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1654800840000,
-          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["the output directory of the build step"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 42
-        }
-      },
       "83075af7-cf77-4d6e-a7bb-54213d9a8295": {
         "role": "editor",
         "value": {
@@ -1036,55 +720,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 58
-        }
-      },
-      "8918939e-885d-4ad5-a770-44bafbe6057f": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654798140000,
-          "id": "8918939e-885d-4ad5-a770-44bafbe6057f",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Deploying to "],
-              ["render.com", [["a", "http://render.com"]]],
-              [" is also simple:"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 231
-        }
-      },
-      "9073d8b0-ff4a-4835-aaa6-0560c438f39b": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654804140000,
-          "id": "9073d8b0-ff4a-4835-aaa6-0560c438f39b",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["postcss.config.cjs", [["c"]]],
-              [" with tailwind css pluging"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 107
         }
       },
       "9140026a-8715-4ebc-94a7-438da57ef47c": {
@@ -1162,48 +797,6 @@ Response:+60966
           "version": 34
         }
       },
-      "a828dc06-bb7f-4162-87c6-784b4afbdb3a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654800840000,
-          "id": "a828dc06-bb7f-4162-87c6-784b4afbdb3a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["connect GitHub repository"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 48
-        }
-      },
-      "aa38c843-be41-45b4-aa54-24be49aa3534": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654802400000,
-          "id": "aa38c843-be41-45b4-aa54-24be49aa3534",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["The crucial parts of file manager for the web are:"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 99
-        }
-      },
       "b16b8f76-30be-4b24-8b39-709be052aaca": {
         "role": "editor",
         "value": {
@@ -1255,31 +848,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 118
-        }
-      },
-      "bb4333bc-5a5d-499a-a598-8aeabb5c3f98": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654801860000,
-          "id": "bb4333bc-5a5d-499a-a598-8aeabb5c3f98",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "For now it runs on free tier, on a shared 512 MB server, because Go servers are really efficient and the app doesn’t do anything yet."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 182
         }
       },
       "cd882896-1a92-4929-b62f-421f9df116c7": {
@@ -1488,27 +1056,6 @@ Response:+60966
           "version": 222
         }
       },
-      "e51970f7-353f-4ccd-bd4e-3a93d6e70a0b": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654801920000,
-          "id": "e51970f7-353f-4ccd-bd4e-3a93d6e70a0b",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [["The first step: displaying files", [["b"]]]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 79
-        }
-      },
       "e6c2f59e-9ee3-4579-a1fe-ac4fdb37a3bc": {
         "role": "editor",
         "value": {
@@ -1564,31 +1111,6 @@ Response:+60966
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 11
-        }
-      },
-      "f562e3c9-9375-4229-817c-10d8cb98bd06": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1654798020000,
-          "id": "f562e3c9-9375-4229-817c-10d8cb98bd06",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1655141880000,
-          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "Creating things from scratch might be slower at the beginning but it makes it less likely I’ll get stuck in the future."
-              ]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 175
         }
       },
       "f8b928ac-0819-4f36-9dce-351a6b6ddbc5": {
@@ -1687,13 +1209,14 @@ Response:+60966
             }
           ],
           "plan_type": "personal",
+          "subscription_tier": "personal",
           "version": 346
         }
       }
     }
   }
 }
-20889 noahttpcache
+40691 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+455
@@ -1708,13 +1231,13 @@ Body:+455
       [
         {
           "id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
-          "index": 47,
+          "index": 30,
           "table": "block"
         }
       ],
       [
         {
-          "id": "aa38c843-be41-45b4-aa54-24be49aa3534",
+          "id": "cd882896-1a92-4929-b62f-421f9df116c7",
           "index": 0,
           "table": "block"
         }
@@ -1723,7 +1246,7 @@ Body:+455
   },
   "verticalColumns": false
 }
-Response:+20340
+Response:+40142
 {
   "cursor": {
     "stack": []
@@ -1749,6 +1272,86 @@ Response:+20340
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "bulleted_list",
           "version": 48
+        }
+      },
+      "161930b8-99df-4d51-9bd0-fbf3c46193b2": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654798080000,
+          "id": "161930b8-99df-4d51-9bd0-fbf3c46193b2",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Also helps me keep things minimalistic. Some people don’t think twice about creating a monster webpack build pipeline with lots of plugins."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 176
+        }
+      },
+      "1cf9ace3-957d-48cc-bccd-a304eafc6df1": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654797720000,
+          "id": "1cf9ace3-957d-48cc-bccd-a304eafc6df1",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "I’ve been frustrated by getting stuck for undetermined period of time because I couldn’t comprehend and fix a complicated build pipeline I didn’t setup and therefore didn’t understand."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 142
+        }
+      },
+      "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800840000,
+          "id": "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1654801680000,
+          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["build command to run. In my case it’s "],
+              [
+                "go build -tags netgo -ldflags '-s -w' -o app && npm i && npx vite build",
+                [["c"]]
+              ],
+              [
+                " which builds Go server, installs npm packages and runs vite to build Svelte app"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 180
         }
       },
       "30da6655-040f-47e6-93f8-e66eacd308c1": {
@@ -1793,7 +1396,18 @@ Response:+20340
             "139db749-ab08-4e27-84e4-7550b493410b",
             "086a6af0-78af-4b03-8840-8fa247406952",
             "fbd12306-1a4e-40ea-b5cd-350b00acfde0",
-            "dabd3815-292a-4dcc-bc94-4a97d69c6181"
+            "dabd3815-292a-4dcc-bc94-4a97d69c6181",
+            "feafd971-7d55-44ac-99cf-fc84079df7cb",
+            "bb67678b-7246-4d0d-ae8e-7ec4e16c4d40",
+            "fff5ffca-a803-4766-9290-d4594e37a9cb",
+            "f1815838-20f5-43ca-ae8a-dc7b3be8f466",
+            "268322f7-3220-4b75-bd54-9d86e073117a",
+            "80836e7c-efb3-47c4-8334-c9aa28a06cec",
+            "f81da071-6c5d-480e-bfeb-a1597d55f20f",
+            "fbf20976-e5dc-49e1-a182-bb15e9e7fb10",
+            "3601fadb-ff21-455a-826f-bf1c52aecace",
+            "f9b683ef-4c03-40f0-a66d-ede79c6544d7",
+            "f2931523-a242-420f-922a-17508e213104"
           ],
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
@@ -1811,7 +1425,7 @@ Response:+20340
           "id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656481440000,
+          "last_edited_time": 1657404960000,
           "parent_id": "568ac4c0-64c3-4ef6-a6ad-0b8d77230681",
           "parent_table": "block",
           "properties": {
@@ -1819,7 +1433,137 @@ Response:+20340
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 937
+          "version": 988
+        }
+      },
+      "3b2c7312-e297-431d-bf65-ca9ebed98c7a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654802220000,
+          "id": "3b2c7312-e297-431d-bf65-ca9ebed98c7a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Thinking about how much work needs to be done is overwhelming."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 141
+        }
+      },
+      "468cc224-0f1c-4f67-8187-c8938fee52b5": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654801860000,
+          "id": "468cc224-0f1c-4f67-8187-c8938fee52b5",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "After about 2 hours I had a “hello world” Svelte app with Go backend running on "
+              ],
+              ["render.com", [["a", "http://render.com"]]],
+              [": "],
+              [
+                "https://filemanager-x0mq.onrender.com/",
+                [["a", "https://filemanager-x0mq.onrender.com/"]]
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 180
+        }
+      },
+      "47ff84eb-7461-4b49-a542-63f2303efb3d": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "2c12df87-cc74-4466-a1cf-bfc6d5e9e73d",
+            "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b",
+            "77cc4001-1573-4b40-b6d2-db65f7845760"
+          ],
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800840000,
+          "id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["configure with:"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 74
+        }
+      },
+      "4a5c356c-f367-40fe-9b09-ca769cd651b7": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800660000,
+          "id": "4a5c356c-f367-40fe-9b09-ca769cd651b7",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Go server is the simplest thing possible: for now it just serves static files from "
+              ],
+              ["fe/dist", [["c"]]],
+              [" directory (in production build)"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 183
+        }
+      },
+      "4ba761ac-2216-4bbe-b5b6-37630b6ca1e3": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654798080000,
+          "id": "4ba761ac-2216-4bbe-b5b6-37630b6ca1e3",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["I prefer things that I fully understand."]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 64
         }
       },
       "4bcdd760-1c88-4c70-94a0-0c7e703f39f1": {
@@ -1938,6 +1682,31 @@ Response:+20340
           "version": 13
         }
       },
+      "5af309c6-96d6-42c2-82b4-28ef811bba8c": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654802340000,
+          "id": "5af309c6-96d6-42c2-82b4-28ef811bba8c",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "It’s important to make progress and figure out how to get from here to final product via a sequence of small steps."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 137
+        }
+      },
       "5f1cea96-a513-4039-8f81-cbdf070b6852": {
         "role": "editor",
         "value": {
@@ -1988,6 +1757,145 @@ Response:+20340
           "version": 130
         }
       },
+      "6bd5f2e3-d518-4024-a945-5e33d372a94a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654802220000,
+          "id": "6bd5f2e3-d518-4024-a945-5e33d372a94a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Now that I have a “hello world” running, what next?"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 64
+        }
+      },
+      "7459185f-274d-4c26-944b-c7fa93baa400": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800720000,
+          "id": "7459185f-274d-4c26-944b-c7fa93baa400",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["I like setting things up from scratch."]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 60
+        }
+      },
+      "77cc4001-1573-4b40-b6d2-db65f7845760": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800840000,
+          "id": "77cc4001-1573-4b40-b6d2-db65f7845760",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1654801740000,
+          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["what command to run. In my case it’s "],
+              ["./app -run-prod", [["c"]]],
+              [", which is the name of the Go server executable built above"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 138
+        }
+      },
+      "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800840000,
+          "id": "81ea4da1-a9ea-46d3-a12a-4cc0a825dc3b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1654800840000,
+          "parent_id": "47ff84eb-7461-4b49-a542-63f2303efb3d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["the output directory of the build step"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 42
+        }
+      },
+      "8918939e-885d-4ad5-a770-44bafbe6057f": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654798140000,
+          "id": "8918939e-885d-4ad5-a770-44bafbe6057f",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["Deploying to "],
+              ["render.com", [["a", "http://render.com"]]],
+              [" is also simple:"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 231
+        }
+      },
+      "9073d8b0-ff4a-4835-aaa6-0560c438f39b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654804140000,
+          "id": "9073d8b0-ff4a-4835-aaa6-0560c438f39b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["postcss.config.cjs", [["c"]]],
+              [" with tailwind css pluging"]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 107
+        }
+      },
       "96431024-d5a8-4852-86a9-029fbfe7f63d": {
         "role": "editor",
         "value": {
@@ -2009,6 +1917,27 @@ Response:+20340
           "version": 205
         }
       },
+      "a828dc06-bb7f-4162-87c6-784b4afbdb3a": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800840000,
+          "id": "a828dc06-bb7f-4162-87c6-784b4afbdb3a",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["connect GitHub repository"]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 48
+        }
+      },
       "aa38c843-be41-45b4-aa54-24be49aa3534": {
         "role": "editor",
         "value": {
@@ -2028,6 +1957,63 @@ Response:+20340
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 99
+        }
+      },
+      "bb4333bc-5a5d-499a-a598-8aeabb5c3f98": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654801860000,
+          "id": "bb4333bc-5a5d-499a-a598-8aeabb5c3f98",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "For now it runs on free tier, on a shared 512 MB server, because Go servers are really efficient and the app doesn’t do anything yet."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 182
+        }
+      },
+      "cd882896-1a92-4929-b62f-421f9df116c7": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654800540000,
+          "id": "cd882896-1a92-4929-b62f-421f9df116c7",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["tailwind.config.cjs", [["c"]]],
+              [" which files ("],
+              [".html", [["c"]]],
+              [", "],
+              [".js", [["c"]]],
+              [" and "],
+              [".svelte", [["c"]]],
+              [
+                " to process to look for tailwind css classes and generate the right css"
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "bulleted_list",
+          "version": 186
         }
       },
       "d9ad53ea-4283-4de6-9817-5d9649783f2d": {
@@ -2107,7 +2093,7 @@ Response:+20340
           "id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656478680000,
+          "last_edited_time": 1657400760000,
           "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
@@ -2117,7 +2103,28 @@ Response:+20340
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 222
+          "version": 223
+        }
+      },
+      "e51970f7-353f-4ccd-bd4e-3a93d6e70a0b": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654801920000,
+          "id": "e51970f7-353f-4ccd-bd4e-3a93d6e70a0b",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [["The first step: displaying files", [["b"]]]]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 79
         }
       },
       "e6cb061e-994c-4a18-9c71-6719a16eded1": {
@@ -2164,6 +2171,31 @@ Response:+20340
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "text",
           "version": 35
+        }
+      },
+      "f562e3c9-9375-4229-817c-10d8cb98bd06": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1654798020000,
+          "id": "f562e3c9-9375-4229-817c-10d8cb98bd06",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1655141880000,
+          "parent_id": "d9ad53ea-4283-4de6-9817-5d9649783f2d",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "Creating things from scratch might be slower at the beginning but it makes it less likely I’ll get stuck in the future."
+              ]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 175
         }
       }
     },
@@ -2212,6 +2244,7 @@ Response:+20340
             }
           ],
           "plan_type": "personal",
+          "subscription_tier": "personal",
           "version": 346
         }
       }
