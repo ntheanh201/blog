@@ -40,7 +40,7 @@ type Cache struct {
 
 func main() {
 	var (
-		flgRun             bool
+		flgRunDev          bool
 		flgRunProd         bool
 		flgImportNotion    bool
 		flgGen             bool
@@ -54,7 +54,7 @@ func main() {
 		// flag.BoolVar(&flgWc, "wc", false, "wc -l i.e. line count")
 		flag.BoolVar(&flgVerbose, "verbose", false, "if true, verbose logging")
 		flag.BoolVar(&flgNoCache, "no-cache", false, "if true, disables cache for downloading notion pages")
-		flag.BoolVar(&flgRun, "run", false, "run server locally")
+		flag.BoolVar(&flgRunDev, "run-dev", false, "run server locally")
 		flag.BoolVar(&flgRunProd, "run-prod", false, "run server in production")
 		flag.BoolVar(&flgImportNotion, "import-notion", false, "re-download the content from Notion. use -no-cache to disable cache")
 		flag.BoolVar(&flgGen, "gen", false, "gen html in www_generated/ directory")
@@ -86,12 +86,12 @@ func main() {
 	}
 
 	// for those commands we only want to use cache
-	if flgGen || flgRun {
+	if flgGen || flgRunDev {
 		cachingPolicy = notionapi.PolicyCacheOnly
 	}
 
-	if flgRun {
-		runServer()
+	if flgRunDev {
+		runServerDev()
 		return
 	}
 

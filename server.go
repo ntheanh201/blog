@@ -227,8 +227,8 @@ func genHTMLServer(dir string) {
 	server.WriteServerFilesToDir(dirWwwGenerated, srv.Handlers, onWritten)
 }
 
-func runServer() {
-	logf(ctx(), "runServer\n")
+func runServerDev() {
+	logf(ctx(), "runServerDev\n")
 
 	srv := makeDynamicServer()
 

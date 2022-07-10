@@ -33,7 +33,9 @@
           </div>
 
           <div class="headline">
-            Cheatsheets: <a href="https://www.referenceguide.dev/cheatsheet/go.html">Go</a>, <a href="https://www.referenceguide.dev/cheatsheet/python3.html">Python 3</a>, <a href="https://www.referenceguide.dev/">all</a>
+            Cheatsheets: <a href="https://www.referenceguide.dev/cheatsheet/go.html">Go</a>, <a
+              href="https://www.referenceguide.dev/cheatsheet/python3.html">Python 3</a>, <a
+              href="https://www.referenceguide.dev/">all</a>
           </div>
         </div>
       </div>
@@ -230,12 +232,14 @@
       return s;
     }
     function onLoaded() {
-      var books = groupBooks(allBooks);
-      books = shuffle(books);
-      console.log("books:", books);
       var el = document.getElementById("books-list");
-      var html = genBooksHTML(books);
-      el.innerHTML = html;
+      if (el) {
+        var books = groupBooks(allBooks);
+        books = shuffle(books);
+        console.log("books:", books);
+        var html = genBooksHTML(books);
+        el.innerHTML = html;
+      }
     }
     document.addEventListener("DOMContentLoaded", onLoaded);
   </script>
