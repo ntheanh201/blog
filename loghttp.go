@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/kjk/common/httplogger"
-	"github.com/kjk/minio"
+	"github.com/kjk/minioutil"
 )
 
 var (
@@ -82,14 +82,14 @@ func hasSpacesCreds() bool {
 	return os.Getenv("SPACES_KEY") != "" && os.Getenv("SPACES_SECRET") != ""
 }
 
-func newMinioSpacesClient() *minio.Client {
-	config := &minio.Config{
+func newMinioSpacesClient() *minioutil.Client {
+	config := &minioutil.Config{
 		Bucket:   "kjklogs",
 		Access:   os.Getenv("SPACES_KEY"),
 		Secret:   os.Getenv("SPACES_SECRET"),
 		Endpoint: "nyc3.digitaloceanspaces.com",
 	}
-	mc, err := minio.New(config)
+	mc, err := minioutil.New(config)
 	must(err)
 	return mc
 }
