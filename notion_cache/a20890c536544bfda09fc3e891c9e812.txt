@@ -1,4 +1,4 @@
-1935 noahttpcache
+1964 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/syncRecordValues
 Body:+162
@@ -7,64 +7,67 @@ Body:+162
     {
       "pointer": {
         "table": "block",
-        "id": "268322f7-3220-4b75-bd54-9d86e073117a"
+        "id": "a20890c5-3654-4bfd-a09f-c3e891c9e812"
       },
       "version": -1
     }
   ]
 }
-Response:+1683
+Response:+1712
 {
   "recordMap": {
     "block": {
-      "268322f7-3220-4b75-bd54-9d86e073117a": {
+      "a20890c5-3654-4bfd-a09f-c3e891c9e812": {
         "role": "editor",
         "value": {
           "alive": true,
           "content": [
-            "cb318758-71e8-4cf1-8b9c-bd785d73bb6e",
-            "b97f4afc-10d1-4e16-b3df-b2ac3fcb817a",
-            "f804c076-6ab2-41ff-8692-3c1c05eb261a",
-            "91576cc7-19e5-4dad-b9e1-a8222ac49be1",
-            "f6875c45-5544-4180-87f3-36cdaf59872e",
-            "c8302aab-f701-4377-8dd3-30c2cbb6799a",
-            "456803e1-1ef8-402a-83f1-e125f4f55100",
-            "4b5c9928-e818-46ae-8dfe-577d1968621e",
-            "b9539512-dc41-4732-b37a-43d8c15d2b2c"
+            "68a09472-c616-4bed-b758-70ca9b180067",
+            "15f09a6d-c654-4db9-88f8-ccab2750a246",
+            "d258c379-0892-4c7a-b2ef-d53329f8bc36",
+            "15d55be7-976a-4c8a-b420-53a0799d1526",
+            "832ba451-77eb-49ea-a47e-1c4078c8b8c1",
+            "bac067e7-14fd-4877-a93f-27339836c08c",
+            "fb3efa4a-7573-454a-abe5-a9c3e2226070"
           ],
+          "copied_from": "f9b683ef-4c03-40f0-a66d-ede79c6544d7",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656910955594,
-          "file_ids": ["81d4b722-8831-41de-81d0-6b482328496c"],
+          "created_time": 1657491346659,
+          "file_ids": ["a9683b81-bad6-4ff6-8059-26bba6d6e6c2"],
           "format": {
-            "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/81d4b722-8831-41de-81d0-6b482328496c/cover-74.jpg",
+            "copied_from_pointer": {
+              "id": "f9b683ef-4c03-40f0-a66d-ede79c6544d7",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            },
             "page_cover_position": 0.5,
             "page_full_width": true
           },
-          "id": "268322f7-3220-4b75-bd54-9d86e073117a",
+          "id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657502880000,
+          "last_edited_time": 1657502760000,
           "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
-            "title": [["Day 26: more google drive support"]]
+            "title": [["Day 32: optimizations, backblaze"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "page",
-          "version": 83
+          "version": 49
         }
       }
     }
   }
 }
-19133 noahttpcache
+16879 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+166
 {
   "page": {
-    "id": "268322f7-3220-4b75-bd54-9d86e073117a"
+    "id": "a20890c5-3654-4bfd-a09f-c3e891c9e812"
   },
   "chunkNumber": 0,
   "limit": 50,
@@ -73,49 +76,88 @@ Body:+166
   },
   "verticalColumns": false
 }
-Response:+18873
+Response:+16619
 {
   "cursor": {
     "stack": []
   },
   "recordMap": {
     "block": {
-      "268322f7-3220-4b75-bd54-9d86e073117a": {
+      "15d55be7-976a-4c8a-b420-53a0799d1526": {
         "role": "editor",
         "value": {
           "alive": true,
-          "content": [
-            "cb318758-71e8-4cf1-8b9c-bd785d73bb6e",
-            "b97f4afc-10d1-4e16-b3df-b2ac3fcb817a",
-            "f804c076-6ab2-41ff-8692-3c1c05eb261a",
-            "91576cc7-19e5-4dad-b9e1-a8222ac49be1",
-            "f6875c45-5544-4180-87f3-36cdaf59872e",
-            "c8302aab-f701-4377-8dd3-30c2cbb6799a",
-            "456803e1-1ef8-402a-83f1-e125f4f55100",
-            "4b5c9928-e818-46ae-8dfe-577d1968621e",
-            "b9539512-dc41-4732-b37a-43d8c15d2b2c"
-          ],
+          "copied_from": "b67f6070-d39a-4d8a-bb9a-5494109c0886",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1656910955594,
-          "file_ids": ["81d4b722-8831-41de-81d0-6b482328496c"],
+          "created_time": 1657491346661,
           "format": {
-            "page_cover": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/81d4b722-8831-41de-81d0-6b482328496c/cover-74.jpg",
-            "page_cover_position": 0.5,
-            "page_full_width": true
+            "copied_from_pointer": {
+              "id": "b67f6070-d39a-4d8a-bb9a-5494109c0886",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
           },
-          "id": "268322f7-3220-4b75-bd54-9d86e073117a",
+          "id": "15d55be7-976a-4c8a-b420-53a0799d1526",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657502880000,
-          "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
+          "last_edited_time": 1657491480000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
           "parent_table": "block",
           "properties": {
-            "title": [["Day 26: more google drive support"]]
+            "title": [
+              ["Optimized "],
+              ["FSEntry", [["c"]]],
+              [" to make program as fast as possible."]
+            ]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "page",
-          "version": 83
+          "type": "text",
+          "version": 75
+        }
+      },
+      "15f09a6d-c654-4db9-88f8-ccab2750a246": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "copied_from": "e8425c1e-0b00-4c2e-a191-4d42305b6eb8",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1657491346660,
+          "format": {
+            "copied_from_pointer": {
+              "id": "e8425c1e-0b00-4c2e-a191-4d42305b6eb8",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
+          },
+          "id": "15f09a6d-c654-4db9-88f8-ccab2750a246",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1657491360000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              [
+                "‣",
+                [
+                  [
+                    "d",
+                    {
+                      "date_format": "relative",
+                      "start_date": "2022-07-10",
+                      "type": "date"
+                    }
+                  ]
+                ]
+              ],
+              [" "]
+            ]
+          },
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 11
         }
       },
       "30da6655-040f-47e6-93f8-e66eacd308c1": {
@@ -202,49 +244,6 @@ Response:+18873
           "version": 997
         }
       },
-      "456803e1-1ef8-402a-83f1-e125f4f55100": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "content": ["653648fc-711e-411d-b1a4-2901ee047e65"],
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "456803e1-1ef8-402a-83f1-e125f4f55100",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "properties": {
-            "title": [["renaming of files and directories"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 43
-        }
-      },
-      "4b5c9928-e818-46ae-8dfe-577d1968621e": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "4b5c9928-e818-46ae-8dfe-577d1968621e",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "properties": {
-            "title": [["delete files"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 18
-        }
-      },
       "568ac4c0-64c3-4ef6-a6ad-0b8d77230681": {
         "role": "editor",
         "value": {
@@ -304,180 +303,112 @@ Response:+18873
           "version": 423
         }
       },
-      "653648fc-711e-411d-b1a4-2901ee047e65": {
+      "68a09472-c616-4bed-b758-70ca9b180067": {
         "role": "editor",
         "value": {
           "alive": true,
+          "copied_from": "52de9257-e894-4505-8f33-1df6cecf7303",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "653648fc-711e-411d-b1a4-2901ee047e65",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "456803e1-1ef8-402a-83f1-e125f4f55100",
-          "parent_table": "block",
-          "properties": {
-            "title": [["and slightly improved generic rename dialog"]]
+          "created_time": 1657491346659,
+          "format": {
+            "copied_from_pointer": {
+              "id": "52de9257-e894-4505-8f33-1df6cecf7303",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            }
           },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 49
-        }
-      },
-      "91576cc7-19e5-4dad-b9e1-a8222ac49be1": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1657005120000,
-          "id": "91576cc7-19e5-4dad-b9e1-a8222ac49be1",
+          "id": "68a09472-c616-4bed-b758-70ca9b180067",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              ["Finished all the major functionality for Google Drive:"]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 198
-        }
-      },
-      "b9539512-dc41-4732-b37a-43d8c15d2b2c": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "b9539512-dc41-4732-b37a-43d8c15d2b2c",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 5
-        }
-      },
-      "b97f4afc-10d1-4e16-b3df-b2ac3fcb817a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656910920000,
-          "id": "b97f4afc-10d1-4e16-b3df-b2ac3fcb817a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656910920000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "properties": {
-            "title": [
-              [
-                "‣",
-                [
-                  [
-                    "d",
-                    {
-                      "date_format": "relative",
-                      "start_date": "2022-07-04",
-                      "type": "date"
-                    }
-                  ]
-                ]
-              ],
-              [" "]
-            ]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "text",
-          "version": 11
-        }
-      },
-      "c8302aab-f701-4377-8dd3-30c2cbb6799a": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "c8302aab-f701-4377-8dd3-30c2cbb6799a",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
-          "parent_table": "block",
-          "properties": {
-            "title": [["get public URL (for previewing files)"]]
-          },
-          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 41
-        }
-      },
-      "cb318758-71e8-4cf1-8b9c-bd785d73bb6e": {
-        "role": "editor",
-        "value": {
-          "alive": true,
-          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "created_by_table": "notion_user",
-          "created_time": 1656910965313,
-          "id": "cb318758-71e8-4cf1-8b9c-bd785d73bb6e",
-          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
-          "last_edited_by_table": "notion_user",
-          "last_edited_time": 1656910920000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
+          "last_edited_time": 1657491300000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
           "parent_table": "block",
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "breadcrumb",
-          "version": 3
+          "version": 2
         }
       },
-      "f6875c45-5544-4180-87f3-36cdaf59872e": {
+      "832ba451-77eb-49ea-a47e-1c4078c8b8c1": {
         "role": "editor",
         "value": {
           "alive": true,
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1657005240000,
-          "id": "f6875c45-5544-4180-87f3-36cdaf59872e",
+          "created_time": 1657491480000,
+          "id": "832ba451-77eb-49ea-a47e-1c4078c8b8c1",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657005240000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
+          "last_edited_time": 1657491480000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 4
+        }
+      },
+      "a20890c5-3654-4bfd-a09f-c3e891c9e812": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "content": [
+            "68a09472-c616-4bed-b758-70ca9b180067",
+            "15f09a6d-c654-4db9-88f8-ccab2750a246",
+            "d258c379-0892-4c7a-b2ef-d53329f8bc36",
+            "15d55be7-976a-4c8a-b420-53a0799d1526",
+            "832ba451-77eb-49ea-a47e-1c4078c8b8c1",
+            "fb3efa4a-7573-454a-abe5-a9c3e2226070"
+          ],
+          "copied_from": "f9b683ef-4c03-40f0-a66d-ede79c6544d7",
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1657491346659,
+          "file_ids": ["a9683b81-bad6-4ff6-8059-26bba6d6e6c2"],
+          "format": {
+            "copied_from_pointer": {
+              "id": "f9b683ef-4c03-40f0-a66d-ede79c6544d7",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            },
+            "page_cover_position": 0.5,
+            "page_full_width": true
+          },
+          "id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1657491480000,
+          "parent_id": "30da6655-040f-47e6-93f8-e66eacd308c1",
           "parent_table": "block",
           "properties": {
-            "title": [["download"]]
+            "title": [["Day 32: optimizations"]]
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
-          "type": "bulleted_list",
-          "version": 16
+          "type": "page",
+          "version": 36
         }
       },
-      "f804c076-6ab2-41ff-8692-3c1c05eb261a": {
+      "d258c379-0892-4c7a-b2ef-d53329f8bc36": {
         "role": "editor",
         "value": {
           "alive": true,
+          "copied_from": "93a0d2e5-c28c-4d7c-b295-140859197c52",
           "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "created_by_table": "notion_user",
-          "created_time": 1657399740000,
+          "created_time": 1657491346661,
           "format": {
             "block_color": "gray_background",
+            "copied_from_pointer": {
+              "id": "93a0d2e5-c28c-4d7c-b295-140859197c52",
+              "spaceId": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+              "table": "block"
+            },
             "page_icon": "💡"
           },
-          "id": "f804c076-6ab2-41ff-8692-3c1c05eb261a",
+          "id": "d258c379-0892-4c7a-b2ef-d53329f8bc36",
           "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1657439580000,
-          "parent_id": "268322f7-3220-4b75-bd54-9d86e073117a",
+          "last_edited_time": 1657491300000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
           "parent_table": "block",
           "properties": {
             "title": [
@@ -490,7 +421,25 @@ Response:+18873
           },
           "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
           "type": "callout",
-          "version": 12
+          "version": 2
+        }
+      },
+      "fb3efa4a-7573-454a-abe5-a9c3e2226070": {
+        "role": "editor",
+        "value": {
+          "alive": true,
+          "created_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "created_by_table": "notion_user",
+          "created_time": 1657491360000,
+          "id": "fb3efa4a-7573-454a-abe5-a9c3e2226070",
+          "last_edited_by_id": "bb760e2d-d679-4b64-b2a9-03005b21870a",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1657491360000,
+          "parent_id": "a20890c5-3654-4bfd-a09f-c3e891c9e812",
+          "parent_table": "block",
+          "space_id": "bc202e06-6caa-4e3f-81eb-f226ab5deef7",
+          "type": "text",
+          "version": 3
         }
       }
     },
