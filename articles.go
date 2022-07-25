@@ -159,9 +159,9 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 		return nil
 	}
 
-	//page := CollectionViewToPages(d)
+	page := CollectionViewToPages(d)
 	// TODO-ntheanh201
-	page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac"}
+	//page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac"}
 
 	_, err := downloadPagesRecursively(d, page, afterDl)
 	must(err)
@@ -169,6 +169,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	res.idToPage = map[string]*notionapi.Page{}
 	for id, cp := range d.IdToCachedPage {
 		page := cp.PageFromServer
+
 		if page == nil {
 			page = cp.PageFromCache
 		}
@@ -291,6 +292,12 @@ func downloadPagesRecursively(c *notionapi.CachingClient, toVisit []string, afte
 	downloaded := map[string]*notionapi.Page{}
 	for len(toVisit) > 0 {
 		pageID := notionapi.ToDashID(toVisit[0])
+
+		if pageID == notionapi.ToDashID("68f077a6dfb346358f219875e80ea72c") {
+			toVisit = toVisit[1:]
+			continue
+		}
+
 		toVisit = toVisit[1:]
 		if downloaded[pageID] != nil {
 			continue

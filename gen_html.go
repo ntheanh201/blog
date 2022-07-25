@@ -197,11 +197,19 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 }
 
 func genIndex(store *Articles, w io.Writer) error {
-	articles := store.articles
+	//articles := store.articles
 	//articles := store.getBlogNotHidden()
 	//if len(articles) > 5 {
 	//	articles = articles[:5]
 	//}
+
+	articles := append([]*Article{}, store.articles...)
+	sort.Slice(articles, func(i, j int) bool {
+		a1 := articles[i]
+		a2 := articles[j]
+		return a1.UpdatedOn.After(a2.UpdatedOn)
+	})
+
 	articleCount := len(articles)
 	//websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
