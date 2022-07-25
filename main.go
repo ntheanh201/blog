@@ -82,7 +82,7 @@ func main() {
 	}
 
 	if false {
-		flgImportNotionOne = "08e19004306b413aba6e0e86a10fec7a"
+		flgImportNotionOne = "68f077a6dfb346358f219875e80ea72c"
 	}
 
 	// for those commands we only want to use cache
@@ -203,14 +203,14 @@ func getNotionCachingClient() *notionapi.CachingClient {
 	if flgNoCache {
 		cachingPolicy = notionapi.PolicyDownloadAlways
 	}
-	token := os.Getenv("NOTION_TOKEN")
-	if token == "" && cachingPolicy != notionapi.PolicyCacheOnly {
-		logf(ctx(), "must set NOTION_TOKEN env variable\n")
-		os.Exit(1)
-	}
+	//token := os.Getenv("NOTION_TOKEN")
+	//if token == "" && cachingPolicy != notionapi.PolicyCacheOnly {
+	//	logf(ctx(), "must set NOTION_TOKEN env variable\n")
+	//	os.Exit(1)
+	//}
 	// TODO: verify token still valid, somehow
 	client := &notionapi.Client{
-		AuthToken: token,
+		//AuthToken: token,
 	}
 	if flgVerbose {
 		client.Logger = os.Stdout

@@ -9,9 +9,8 @@ import (
 )
 
 var (
-	notionBlogsStartPage      = "300db9dc27c84958a08b8d0c37f4cfe5"
-	notionWebsiteStartPage    = "568ac4c064c34ef6a6ad0b8d77230681"
-	notionGoCookbookStartPage = "7495260a1daa46118858ad2e049e77e6"
+	notionBlogsStartPage   = "cbbc16640fc24a7a9fb24660356a4409"
+	notionWebsiteStartPage = "68f077a6dfb346358f219875e80ea72c"
 )
 
 // Articles has info about all articles downloaded from notion
@@ -121,7 +120,7 @@ func buildArticlesNavigation(articles *Articles) {
 	isRoot := func(id string) bool {
 		id = notionapi.ToNoDashID(id)
 		switch id {
-		case notionBlogsStartPage, notionWebsiteStartPage, notionGoCookbookStartPage:
+		case notionBlogsStartPage, notionWebsiteStartPage:
 			return true
 		}
 		return false
@@ -135,7 +134,7 @@ func buildArticlesNavigation(articles *Articles) {
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	{
 		timeStart := time.Now()
-		d.PreLoadCache()
+		//TODO: d.PreLoadCache()
 		logf(ctx(), "d.PreLoadCache() finished in %s\n", time.Since(timeStart))
 	}
 
@@ -159,23 +158,28 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 		}
 		return nil
 	}
-	_, err := d.DownloadPagesRecursively(notionWebsiteStartPage, afterDl)
+
+	//page := CollectionViewToPages(d)
+	page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac", "68f077a6dfb346358f219875e80ea72c"}
+
+	pages, err := downloadPagesRecursively(d, page, afterDl)
 	must(err)
-	res.idToPage = map[string]*notionapi.Page{}
-	for id, cp := range d.IdToCachedPage {
-		page := cp.PageFromServer
-		if page == nil {
-			page = cp.PageFromCache
-		}
-		if page == nil {
-			continue
-		}
-		res.idToPage[id] = page
-	}
+	res.idToPage = pages
+	//res.idToPage = map[string]*notionapi.Page{}
+	//for id, cp := range d.IdToCachedPage {
+	//	page := cp.PageFromServer
+	//	if page == nil {
+	//		page = cp.PageFromCache
+	//	}
+	//	if page == nil {
+	//		continue
+	//	}
+	//	res.idToPage[id] = page
+	//}
 
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
-		panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
+		//panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
 		article := notionPageToArticle(d, page)
 		if article.urlOverride != "" {
 			logvf("url override: %s => %s\n", article.urlOverride, article.ID)
@@ -278,5 +282,100 @@ func filterArticlesByTag(articles []*Article, tag string, include bool) []*Artic
 			res = append(res, a)
 		}
 	}
+	return res
+}
+
+func downloadPagesRecursively(c *notionapi.CachingClient, toVisit []string, afterDownload func(info *notionapi.DownloadInfo) error) (map[string]*notionapi.Page, error) {
+	//toVisit := []*notionapi.NotionID{notionapi.NewNotionID(startPageID)}
+	downloaded := map[string]*notionapi.Page{}
+	for len(toVisit) > 0 {
+		pageID := notionapi.ToDashID(toVisit[0])
+		toVisit = toVisit[1:]
+		if downloaded[pageID] != nil {
+			continue
+		}
+		nFromCache := c.RequestsFromCache
+		nFromServer := c.RequestsFromServer
+		timeStart := time.Now()
+		page, err := c.DownloadPage(pageID)
+		if err != nil {
+			return nil, err
+		}
+		downloaded[pageID] = page
+		if afterDownload != nil {
+			di := &notionapi.DownloadInfo{
+				Page:               page,
+				RequestsFromCache:  c.RequestsFromCache - nFromCache,
+				ReqeustsFromServer: c.RequestsFromServer - nFromServer,
+				Duration:           time.Since(timeStart),
+				FromCache:          c.RequestsFromServer == 0,
+			}
+			err = afterDownload(di)
+			if err != nil {
+				return nil, err
+			}
+		}
+
+		//subPages := page.GetSubPages()
+		subPages := getSubPages(page)
+		toVisit = append(toVisit, subPages...)
+	}
+	n := len(downloaded)
+	if n == 0 {
+		return nil, nil
+	}
+	var ids []string
+	for id := range downloaded {
+		ids = append(ids, id)
+	}
+	sort.Strings(ids)
+	pages := make(map[string]*notionapi.Page, n)
+	for i, id := range ids {
+		pages[string(rune(i))] = downloaded[id]
+	}
+	return pages, nil
+}
+
+// GetSubPages return list of ids for direct sub-pages of this page
+func getSubPages(p *notionapi.Page) []string {
+	//if len(p.subPages) > 0 {
+	//	return p.subPages
+	//}
+	root := p.Root()
+	//panicIf(!isPageBlock(root))
+	subPages := map[*notionapi.NotionID]struct{}{}
+	seenBlocks := map[string]struct{}{}
+	var blocksToVisit []*notionapi.NotionID
+	for _, id := range root.ContentIDs {
+		nid := notionapi.NewNotionID(id)
+		blocksToVisit = append(blocksToVisit, nid)
+	}
+	for len(blocksToVisit) > 0 {
+		nid := blocksToVisit[0]
+		id := nid.DashID
+		blocksToVisit = blocksToVisit[1:]
+		if _, ok := seenBlocks[id]; ok {
+			continue
+		}
+		seenBlocks[id] = struct{}{}
+		block := p.BlockByID(nid)
+		if p.IsSubPage(block) {
+			subPages[nid] = struct{}{}
+		}
+		// need to recursively scan blocks with children
+		for _, id := range block.ContentIDs {
+			nid := notionapi.NewNotionID(id)
+			blocksToVisit = append(blocksToVisit, nid)
+		}
+	}
+	var res []string
+	for id := range subPages {
+		res = append(res, id.DashID)
+	}
+	sort.Strings(res)
+	//sort.Slice(res, func(i, j int) bool {
+	//	return res[i].DashID < res[j].DashID
+	//})
+	//p.subPages = res
 	return res
 }

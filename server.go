@@ -160,7 +160,7 @@ func serverURLS() []string {
 		"/atom.xml",
 		"/atom-all.xml",
 		"/404.html",
-		"/software/index.html",
+		//"/software/index.html",
 		"/tools/generate-unique-id.html",
 	}
 	files = append(files, articleURLS...)
