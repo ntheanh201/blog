@@ -134,7 +134,7 @@ func buildArticlesNavigation(articles *Articles) {
 func loadArticles(d *notionapi.CachingClient) *Articles {
 	{
 		timeStart := time.Now()
-		//TODO: d.PreLoadCache()
+		//TODO-ntheanh201: d.PreLoadCache()
 		logf(ctx(), "d.PreLoadCache() finished in %s\n", time.Since(timeStart))
 	}
 
@@ -160,26 +160,27 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	}
 
 	//page := CollectionViewToPages(d)
-	page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac", "68f077a6dfb346358f219875e80ea72c"}
+	// TODO-ntheanh201
+	page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac"}
 
-	pages, err := downloadPagesRecursively(d, page, afterDl)
+	_, err := downloadPagesRecursively(d, page, afterDl)
 	must(err)
-	res.idToPage = pages
-	//res.idToPage = map[string]*notionapi.Page{}
-	//for id, cp := range d.IdToCachedPage {
-	//	page := cp.PageFromServer
-	//	if page == nil {
-	//		page = cp.PageFromCache
-	//	}
-	//	if page == nil {
-	//		continue
-	//	}
-	//	res.idToPage[id] = page
-	//}
+	//res.idToPage = pages
+	res.idToPage = map[string]*notionapi.Page{}
+	for id, cp := range d.IdToCachedPage {
+		page := cp.PageFromServer
+		if page == nil {
+			page = cp.PageFromCache
+		}
+		if page == nil {
+			continue
+		}
+		res.idToPage[id] = page
+	}
 
 	res.idToArticle = map[string]*Article{}
 	for id, page := range res.idToPage {
-		//panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
+		panicIf(id != notionapi.ToNoDashID(id), "bad id '%s' sneaked in", id)
 		article := notionPageToArticle(d, page)
 		if article.urlOverride != "" {
 			logvf("url override: %s => %s\n", article.urlOverride, article.ID)

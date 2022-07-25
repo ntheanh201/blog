@@ -90,7 +90,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
 			serveStart(w, r, uri)
-			d, err := genSiteMap(store, "https://blog.kowalczyk.info")
+			d, err := genSiteMap(store, "https://kinn.dev")
 			writeData(w, d, err)
 		}
 	case "/atom.xml":
@@ -189,7 +189,7 @@ func makeDynamicServer() *server.Server {
 
 	cc := getNotionCachingClient()
 	allArticles = loadArticles(cc)
-	logf(ctx(), "got %d articless\n", len(allArticles.articles))
+	logf(ctx(), "got %d articles\n", len(allArticles.articles))
 
 	store := allArticles
 	tags := map[string]struct{}{}
@@ -298,8 +298,8 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			}
 
 			// noticed those urls in logs
-			if strings.HasPrefix(uri, "/blog.kowalczyk.info/") {
-				newURI := strings.TrimPrefix(uri, "/blog.kowalczyk.info")
+			if strings.HasPrefix(uri, "/kinn.dev/") {
+				newURI := strings.TrimPrefix(uri, "/kinn.dev")
 				ref := r.Header.Get("Referer")
 				logf(ctx(), "redirecting '%s' => '%s', referer: '%s'\n", uri, newURI, ref)
 				http.Redirect(w, r, newURI, http.StatusTemporaryRedirect)

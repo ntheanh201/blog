@@ -55,8 +55,8 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 	}
 
 	feed := &atom.Feed{
-		Title:   "Krzysztof Kowalczyk blog",
-		Link:    "https://blog.kowalczyk.info/atom.xml",
+		Title:   "The Anh Nguyen blog",
+		Link:    "https://kinn.dev/atom.xml",
 		PubDate: pubTime,
 	}
 
@@ -64,7 +64,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 		//id := fmt.Sprintf("tag:blog.kowalczyk.info,1999:%d", a.Id)
 		e := &atom.Entry{
 			Title:   a.Title,
-			Link:    "https://blog.kowalczyk.info" + a.URL(),
+			Link:    "https://kinn.dev" + a.URL(),
 			Content: a.BodyHTML,
 			PubDate: a.PublishedOn,
 		}
@@ -89,7 +89,7 @@ func wwwWriteFile(fileName string, d []byte) {
 
 // TODO: should be https://blog.kjk.workers.dev for dev deployment
 func getHostURL() string {
-	return "https://blog.kowalczyk.info"
+	return "https://kinn.dev"
 }
 
 // https://www.linkedin.com/shareArticle?mini=true&;url=https://nodesource.com/blog/why-the-new-v8-is-so-damn-fast"
@@ -197,13 +197,13 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 }
 
 func genIndex(store *Articles, w io.Writer) error {
-	// /
-	articles := store.getBlogNotHidden()
-	if len(articles) > 5 {
-		articles = articles[:5]
-	}
+	articles := store.articles
+	//articles := store.getBlogNotHidden()
+	//if len(articles) > 5 {
+	//	articles = articles[:5]
+	//}
 	articleCount := len(articles)
-	websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
+	//websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
 		Article      *Article
 		Articles     []*Article
@@ -213,7 +213,8 @@ func genIndex(store *Articles, w io.Writer) error {
 		Article:      nil, // always nil
 		ArticleCount: articleCount,
 		Articles:     articles,
-		WebsiteHTML:  websiteIndexPage.HTMLBody,
+		//WebsiteHTML:  websiteIndexPage.HTMLBody,
+		WebsiteHTML: "<></>",
 	}
 	return execTemplate("/index.html", "mainpage.tmpl.html", model, w)
 }
@@ -277,7 +278,7 @@ func genArticle(article *Article, w io.Writer) error {
 	}{
 		Article:          article,
 		CanonicalURL:     canonicalURL,
-		CoverImage:       "https://blog.kowalczyk.info" + article.HeaderImageURL,
+		CoverImage:       "https://kinn.dev" + article.HeaderImageURL,
 		PageTitle:        article.Title,
 		Description:      article.Description,
 		TwitterShareURL:  makeTwitterShareURL(article),
