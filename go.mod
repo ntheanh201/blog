@@ -14,6 +14,7 @@ require (
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.19
 	github.com/miku/zek v0.1.16
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/xid v1.4.0
 	github.com/satori/go.uuid v1.2.0

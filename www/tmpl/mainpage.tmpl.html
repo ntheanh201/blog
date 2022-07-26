@@ -50,7 +50,16 @@
     <ul class='index'>
         {{ range.Articles }}
         <li>
-            <span class='index-date'>{{.PublishedOn.Format "2006-01-02"}}
+            <span class='index-date'>
+                {{.UpdatedOn.Format "2006-01-02"}}
+            </span>
+            <a href="{{.URL}}">{{.Title}}</a>
+        </li>
+        {{ end }}
+        {{ range.PagesSite }}
+        <li>
+            <span class='index-date'>
+                ∞
             </span>
             <a href="{{.URL}}">{{.Title}}</a>
         </li>

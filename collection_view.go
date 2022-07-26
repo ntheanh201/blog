@@ -81,6 +81,9 @@ func CollectionViewToPages(d *notionapi.CachingClient) []string {
 				pagesTmp = append(pagesTmp, PageSort{ID: g.ID, Type: "page"})
 			}
 
+			for _, val := range pagesTmp {
+				pages = append(pages, val.ID)
+			}
 		}
 	}
 	//log.Println("pages", pages)

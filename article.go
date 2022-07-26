@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/kjk/blog/do/entity"
+	"github.com/mitchellh/mapstructure"
 	"html/template"
 	"path/filepath"
 	"strconv"
@@ -64,6 +66,7 @@ type Article struct {
 	PublishedOn          time.Time
 	UpdatedOn            time.Time
 	Title                string
+	Type                 string
 	Tags                 []string
 	BodyHTML             string
 	HTMLBody             template.HTML
@@ -538,11 +541,93 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 	root := page.Root()
 	title := root.Title
 	id := normalizeID(root.ID)
+
+	properties := page.Root().Properties
+	var blockExtend map[string]interface{}
+	err := mapstructure.Decode(properties, &blockExtend)
+	if err != nil {
+		fmt.Println("error unmarshal block extend with properties")
+	}
+
+	//itemsMap := blockExtend.(map[string]interface{})
+	itemsMap := blockExtend
+	var item entity.BlockExtend
+	// Loop through the Items; we're not interested in the key, just the values
+	for key, v := range itemsMap {
+		// Use type assertions to ensure that the value's a JSON object
+		fmt.Println("key: ", key)
+		switch v.(type) {
+		// The value is an Item, represented as a generic interface
+		case interface{}:
+
+			switch key {
+			case "NX\\Q":
+				item.StartDate = v.([]interface{})
+			case "`gQ~":
+				item.Type = v.([]interface{})
+			case "title":
+				item.Title = v.([]interface{})
+			case "d]hq":
+				item.Slug = v.([]interface{})
+			case "sD^m":
+				item.Tags = v.([]interface{})
+			}
+
+			// Access the values in the JSON object and place them in an Item
+			//for itemKey, itemValue := range jsonObj.([]interface{}) {
+			//	switch itemKey {
+			//	//case "`gQ~":
+			//	//	// Make sure that Item1 is a string
+			//	//	switch itemValue := itemValue.(type) {
+			//	//	//case string:
+			//	//	//	item.Tag = itemValue
+			//	//	default:
+			//	//		fmt.Println(itemValue)
+			//	//		fmt.Println("Incorrect type for", itemKey)
+			//	//	}
+			//	//case "Item2":
+			//	//	// Make sure that Item2 is a number; all numbers are transformed to float64
+			//	//	switch itemValue := itemValue.(type) {
+			//	//	case float64:
+			//	//	//	item.Item2 = int(itemValue)
+			//	//	default:
+			//	//		fmt.Println(itemValue)
+			//	//		fmt.Println("Incorrect type for", itemKey)
+			//	//	}
+			//	default:
+			//		fmt.Println("key: ", itemKey, "- ", itemValue)
+			//		fmt.Println("Unknown key for Item found in JSON")
+			//	}
+			//}
+
+		// Not a JSON object; handle the error
+		default:
+			fmt.Println("Expecting a JSON object; got something else")
+		}
+		fmt.Println("item: ", item)
+	}
+
+	articleTypeS := make([]string, len(item.Type))
+	for i, v := range item.Type {
+		for _, y := range v.([]interface{}) {
+			articleTypeS[i] = y.(string)
+		}
+	}
+
+	var articleTags []string
+	for _, v := range item.Tags {
+		for _, y := range v.([]interface{}) {
+			articleTags = append(articleTags, y.(string))
+		}
+	}
+
 	a := &Article{
 		page:         page,
 		Title:        title,
 		blockInfos:   map[*notionapi.Block]*BlockInfo{},
 		notionClient: c,
+		Type:         articleTypeS[0],
+		Tags:         articleTags,
 	}
 
 	// allow debugging for specific pages

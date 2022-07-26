@@ -196,6 +196,16 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 	return execTemplate(path, "archive.tmpl.html", model, w)
 }
 
+type ByType []*Article
+
+func (a ByType) Len() int           { return len(a) }
+func (a ByType) Less(i, j int) bool { return a[i].Type > a[j].Type }
+func (a ByType) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+
+func RemoveIndex(s []*Article, index int) []*Article {
+	return append(s[:index], s[index+1:]...)
+}
+
 func genIndex(store *Articles, w io.Writer) error {
 	//articles := store.articles
 	//articles := store.getBlogNotHidden()
@@ -210,17 +220,29 @@ func genIndex(store *Articles, w io.Writer) error {
 		return a1.UpdatedOn.After(a2.UpdatedOn)
 	})
 
+	sort.Sort(ByType(articles))
+
+	var pagesSite []*Article
+	for i, article := range articles {
+		if article.Type == "Page" {
+			pagesSite = append(pagesSite, article)
+			articles = RemoveIndex(articles, i)
+		}
+	}
+
 	articleCount := len(articles)
 	//websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
 	model := struct {
 		Article      *Article
 		Articles     []*Article
+		PagesSite    []*Article
 		ArticleCount int
 		WebsiteHTML  template.HTML
 	}{
 		Article:      nil, // always nil
 		ArticleCount: articleCount,
 		Articles:     articles,
+		PagesSite:    pagesSite,
 		//WebsiteHTML:  websiteIndexPage.HTMLBody,
 		WebsiteHTML: "<></>",
 	}
