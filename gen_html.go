@@ -292,6 +292,7 @@ func genArticle(article *Article, w io.Writer) error {
 		TwitterShareURL  string
 		FacebookShareURL string
 		LinkedInShareURL string
+		ShowSocialFooter bool
 	}{
 		Article:          article,
 		CanonicalURL:     canonicalURL,
@@ -301,6 +302,7 @@ func genArticle(article *Article, w io.Writer) error {
 		TwitterShareURL:  makeTwitterShareURL(article),
 		FacebookShareURL: makeFacebookShareURL(article),
 		LinkedInShareURL: makeLinkedinShareURL(article),
+		ShowSocialFooter: article.Type == "Post",
 	}
 	if article.page != nil {
 		id := normalizeID(article.page.ID)

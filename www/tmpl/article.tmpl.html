@@ -161,9 +161,11 @@
     <div>
         {{.Article.HTMLBody}}
     </div>
-    <p class='twitter-footer'>—
+    {{ if .ShowSocialFooter }}
+    <p class='social-footer'>—
         <a href='https://facebook.com/ntheanh201'>
             @ntheanh201</a></p>
+    {{ end }}
 </div>
 
 {{ template "analytics.tmpl.html" . }}
