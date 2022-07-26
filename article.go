@@ -95,7 +95,8 @@ func (a *Article) URL() string {
 	if a.urlOverride != "" {
 		return a.urlOverride
 	}
-	return "/articles/" + a.ID + "/" + urlify(a.Title) + ".html"
+	// TODO-ntheanh201: this is where handle article's url
+	return "/articles/" + urlify(a.Title) + ".html"
 }
 
 // PathAsText returns navigation path as text
