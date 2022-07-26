@@ -160,8 +160,7 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 	}
 
 	page := CollectionViewToPages(d)
-	// TODO-ntheanh201
-	//page := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac"}
+	//example pages := []string{"cbbc16640fc24a7a9fb24660356a4409", "c484c3aea91a4e578cb783638b8fd6ac"}
 
 	_, err := downloadPagesRecursively(d, page, afterDl)
 	must(err)

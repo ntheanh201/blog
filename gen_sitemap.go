@@ -27,16 +27,7 @@ type SiteMapURL struct {
 }
 
 // There are more static pages, but those are the important ones
-var staticURLS = []string{
-	"/book/go-cookbook.html",
-	"/articles/cbz-cbr-comic-book-reader-viewer-for-windows.html",
-	"/articles/chm-reader-viewer-for-windows.html",
-	"/articles/mobi-ebook-reader-viewer-for-windows.html",
-	"/articles/epub-ebook-reader-viewer-for-windows.html",
-	"/articles/where-to-get-free-ebooks-epub-mobi.html",
-	"/software/",
-	"/documents.html",
-}
+var staticURLS = []string{}
 
 func genSiteMap(store *Articles, host string) ([]byte, error) {
 	articles := store.getNotHidden()

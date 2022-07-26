@@ -22,7 +22,7 @@ type Converter struct {
 
 // change https://www.notion.so/Advanced-web-spidering-with-Puppeteer-ea07db1b9bff415ab180b0525f3898f6
 // =>
-// /article/${id}
+// /articles/${id}
 func (c *Converter) rewriteURL(uri string) string {
 	id := notionapi.ExtractNoDashIDFromNotionURL(uri)
 	if id == "" {
@@ -44,7 +44,7 @@ func (c *Converter) getURLAndTitleForBlock(block *notionapi.Block) (string, stri
 		logf(ctx(), "No article for id %s %s\n", id, title)
 		pageURL := "https://notion.so/" + notionapi.ToNoDashID(c.page.ID)
 		logf(ctx(), "Link from page: %s\n", pageURL)
-		url := "/article/" + id + "/" + urlify(title)
+		url := "/articles/" + id + "/" + urlify(title)
 		return url, title
 	}
 

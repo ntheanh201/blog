@@ -5,20 +5,12 @@ import (
 	"html/template"
 	"io"
 	"io/ioutil"
-	"math/rand"
 	"net/url"
 	"path/filepath"
 	"sort"
 	"strings"
 	"time"
 
-	"github.com/chilts/sid"
-	"github.com/kjk/betterguid"
-	"github.com/oklog/ulid"
-	"github.com/rs/xid"
-	uuid "github.com/satori/go.uuid"
-	"github.com/segmentio/ksuid"
-	"github.com/sony/sonyflake"
 	atom "github.com/thomas11/atomgenerator"
 )
 
@@ -169,13 +161,8 @@ func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error 
 		articles = filterArticlesByTag(articles, tag, true)
 		// must manually resolve conflict due to urlify
 		tagInPath := tag
-		if tag == "c#" {
-			tagInPath = "csharp"
-		} else if tag == "c++" {
-			tagInPath = "cplusplus"
-		}
 		tagInPath = urlify(tagInPath)
-		path = fmt.Sprintf("/article/archives-by-tag-%s.html", tagInPath)
+		path = fmt.Sprintf("/articles/archives-by-tag-%s.html", tagInPath)
 		from := "/tag/" + tag
 		addRewrite(from, path)
 	}
@@ -319,16 +306,9 @@ func genArticle(article *Article, w io.Writer) error {
 		id := normalizeID(article.page.ID)
 		model.NotionEditURL = "https://notion.so/" + id
 	}
-	path := fmt.Sprintf("/article/%s.html", article.ID)
+	path := fmt.Sprintf("/articles/%s.html", article.ID)
 	logvf("%s => %s, %s, %s\n", article.ID, path, article.URL(), article.Title)
 	return execTemplate(path, "article.tmpl.html", model, w)
-}
-
-func genGoCookbook(store *Articles, w io.Writer) error {
-	// url: /book/go-cookbook.html
-	model := struct {
-	}{}
-	return execTemplate("/book/go-cookbook.html", "go-cookbook.tmpl.html", model, w)
 }
 
 /*
@@ -339,45 +319,3 @@ func genWindowsProgramming(store *Articles, w io.Writer) error {
 	return execTemplate("/book/go-cookbook.html", tmplGoC"go-cookbook.tmpl.html"ookBook, model, w)
 }
 */
-
-func genToolGenerateUniqueID(store *Articles, w io.Writer) error {
-	// /tools/generate-unique-id
-	idXid := xid.New()
-	idKsuid := ksuid.New()
-
-	t := time.Now().UTC()
-	entropy := rand.New(rand.NewSource(t.UnixNano()))
-	idUlid := ulid.MustNew(ulid.Timestamp(t), entropy)
-	betterGUID := betterguid.New()
-	uuid := uuid.NewV4()
-
-	flake := sonyflake.NewSonyflake(sonyflake.Settings{})
-	sfid, err := flake.NextID()
-	sfidstr := fmt.Sprintf("%x", sfid)
-	if err != nil {
-		sfidstr = err.Error()
-	}
-
-	model := struct {
-		Xid        string
-		Ksuid      string
-		Ulid       string
-		BetterGUID string
-		Sonyflake  string
-		Sid        string
-		UUIDv4     string
-	}{
-		Xid:        idXid.String(),
-		Ksuid:      idKsuid.String(),
-		Ulid:       idUlid.String(),
-		BetterGUID: betterGUID,
-		Sonyflake:  sfidstr,
-		Sid:        sid.Id(),
-		UUIDv4:     uuid.String(),
-	}
-
-	// make sure /tools/generate-unique-id is served as html
-	path := "/tools/generate-unique-id.html"
-	addRewrite("/tools/generate-unique-id", path)
-	return execTemplate(path, "generate-unique-id.tmpl.html", model, w)
-}

@@ -74,12 +74,6 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 			serveStart(w, r, uri)
 			writeArticlesArchiveForTag(store, "", w)
 		}
-	case "/book/go-cookbook.html", "/articles/go-cookbook.html":
-		return func(w http.ResponseWriter, r *http.Request) {
-			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genGoCookbook")
-			serveStart(w, r, uri)
-			genGoCookbook(store, w)
-		}
 	case "/changelog.html":
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genChangelog")
@@ -106,12 +100,6 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 			serveStart(w, r, uri)
 			d, err := genAtomXML(store, false)
 			writeData(w, d, err)
-		}
-	case "/tools/generate-unique-id.html":
-		return func(w http.ResponseWriter, r *http.Request) {
-			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genAtomXML")
-			serveStart(w, r, uri)
-			genToolGenerateUniqueID(store, w)
 		}
 	case "/404.html":
 		return func(w http.ResponseWriter, r *http.Request) {
@@ -153,15 +141,11 @@ func serverURLS() []string {
 	files := []string{
 		"/index.html",
 		"/archives.html",
-		"/book/go-cookbook.html",
-		"/articles/go-cookbook.html",
 		"/changelog.html",
 		"/sitemap.xml",
 		"/atom.xml",
 		"/atom-all.xml",
 		"/404.html",
-		//"/software/index.html",
-		"/tools/generate-unique-id.html",
 	}
 	files = append(files, articleURLS...)
 	n := len(allTagURLS)
@@ -267,13 +251,7 @@ func runServerProd() {
 }
 
 var (
-	prefixRedirects = []string{
-		"/software/sumatrapdf/free", "https://www.sumatrapdfreader.org/free-pdf-reader",
-		"/software/sumatrapdf/download", "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
-		"/software/sumatra", "https://www.sumatrapdfreader.org/free-pdf-reader",
-		"/software/sumatrapdf/settings", "https://www.sumatrapdfreader.org/settings/settings",
-		"/software/sumatrapdf/prerel", "https://www.sumatrapdfreader.org/prerelease",
-	}
+	prefixRedirects []string
 )
 
 func makeHTTPServer(srv *server.Server) *http.Server {
@@ -347,18 +325,6 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			return
 		}
 
-		if strings.HasPrefix(uri, "/xmltogo") {
-			if uri == "/xmltogo/dlxml" {
-				handleXMLToGoDownloadXML(w, r)
-			}
-			if uri == "/xmltogo/convert" {
-				handleXMLToGoConvert(w, r)
-				return
-			}
-			handleXMLToGoIndex(w, r)
-			return
-		}
-
 		serve, is404 := srv.FindHandler(uri)
 		if serve != nil {
 			if is404 {
@@ -400,15 +366,15 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 func tryServeArticleRedirect(srv *server.Server, w http.ResponseWriter, r *http.Request) bool {
 	uri := r.URL.Path
 	// logf(ctx(), "tryServeArticleRedirect: '%s'\n", uri)
-	if !strings.HasPrefix(uri, "/article/") {
+	if !strings.HasPrefix(uri, "/articles/") {
 		return false
 	}
-	rest := strings.TrimPrefix(uri, "/article/")
+	rest := strings.TrimPrefix(uri, "/articles/")
 	idx := strings.Index(rest, "/")
 	if idx == -1 {
 		return false
 	}
-	uriPrefix := "/article/" + rest[:idx+1]
+	uriPrefix := "/articles/" + rest[:idx+1]
 	// logf(ctx(), "tryServeArticleRedirect: uriPrefix: '%s'\n", uriPrefix)
 	for _, h := range srv.Handlers {
 		for _, uri := range h.URLS() {
