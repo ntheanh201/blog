@@ -2,7 +2,7 @@
 
 1. 404 not found page [✅]
 2. change article's url [✅]
-3. archives page
+3. archives page [✅]
 4. change time to date's property
 5. host image to s3
 6. lazy loading images

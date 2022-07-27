@@ -156,7 +156,20 @@ func buildTags(articles []*Article) []*TagInfo {
 
 func writeArticlesArchiveForTag(store *Articles, tag string, w io.Writer) error {
 	path := "/archives.html"
-	articles := store.getBlogNotHidden()
+	articles := append([]*Article{}, store.articles...)
+
+	var pagesSite []*Article
+	var posts []*Article
+	for _, article := range articles {
+		if article.Type == "Page" {
+			pagesSite = append(pagesSite, article)
+		} else {
+			posts = append(posts, article)
+		}
+	}
+
+	articles = posts
+
 	if tag != "" {
 		articles = filterArticlesByTag(articles, tag, true)
 		// must manually resolve conflict due to urlify
