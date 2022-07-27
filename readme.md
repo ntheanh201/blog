@@ -9,3 +9,4 @@
 7. fix code embed: add Copy button, scroll
 8. analytics: fathom/posthog/splitbee
 9. ci/cd update posts daily
+10. add discussion disqus/github
