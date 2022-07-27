@@ -189,10 +189,6 @@ func (a ByType) Len() int           { return len(a) }
 func (a ByType) Less(i, j int) bool { return a[i].Type > a[j].Type }
 func (a ByType) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 
-func RemoveIndex(s []*Article, index int) []*Article {
-	return append(s[:index], s[index+1:]...)
-}
-
 func genIndex(store *Articles, w io.Writer) error {
 	//articles := store.articles
 	//articles := store.getBlogNotHidden()
@@ -210,12 +206,16 @@ func genIndex(store *Articles, w io.Writer) error {
 	sort.Sort(ByType(articles))
 
 	var pagesSite []*Article
-	for i, article := range articles {
+	var posts []*Article
+	for _, article := range articles {
 		if article.Type == "Page" {
 			pagesSite = append(pagesSite, article)
-			articles = RemoveIndex(articles, i)
+		} else {
+			posts = append(posts, article)
 		}
 	}
+
+	articles = posts
 
 	articleCount := len(articles)
 	//websiteIndexPage := store.idToArticle[notionWebsiteStartPage]
