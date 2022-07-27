@@ -292,7 +292,7 @@ func downloadPagesRecursively(c *notionapi.CachingClient, toVisit []string, afte
 	for len(toVisit) > 0 {
 		pageID := notionapi.ToDashID(toVisit[0])
 
-		if pageID == notionapi.ToDashID("68f077a6dfb346358f219875e80ea72c") {
+		if pageID == notionapi.ToDashID(notionWebsiteStartPage) {
 			toVisit = toVisit[1:]
 			continue
 		}

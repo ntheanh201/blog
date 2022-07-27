@@ -10,3 +10,4 @@
 8. analytics: fathom/posthog/splitbee
 9. ci/cd update posts daily
 10. add discussion disqus/github
+11. only accept Published articles are shown in homepage
