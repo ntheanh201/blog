@@ -1,12 +1,13 @@
 package main
 
 import (
+	"github.com/ntheanh201/blog/tohtml"
 	"html"
 	"strconv"
 	"strings"
 
 	"github.com/kjk/notionapi"
-	"github.com/kjk/notionapi/tohtml"
+	//"github.com/kjk/notionapi/tohtml"
 )
 
 // Converter renders article as html

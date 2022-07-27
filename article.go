@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/kjk/blog/do/entity"
 	"github.com/mitchellh/mapstructure"
+	"github.com/ntheanh201/blog/entity"
 	"html/template"
 	"path/filepath"
 	"strconv"

@@ -1,4 +1,4 @@
-module github.com/kjk/blog/do
+module github.com/ntheanh201/blog
 
 go 1.16
 
