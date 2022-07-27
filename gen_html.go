@@ -197,11 +197,6 @@ func genIndex(store *Articles, w io.Writer) error {
 	//}
 
 	articles := append([]*Article{}, store.articles...)
-	sort.Slice(articles, func(i, j int) bool {
-		a1 := articles[i]
-		a2 := articles[j]
-		return a1.UpdatedOn.After(a2.UpdatedOn)
-	})
 
 	sort.Sort(ByType(articles))
 
@@ -216,6 +211,18 @@ func genIndex(store *Articles, w io.Writer) error {
 	}
 
 	articles = posts
+
+	sort.Slice(articles, func(i, j int) bool {
+		a1 := articles[i]
+		a2 := articles[j]
+		return a1.UpdatedOn.After(a2.UpdatedOn)
+	})
+
+	sort.Slice(pagesSite, func(i, j int) bool {
+		a1 := articles[i]
+		a2 := articles[j]
+		return a2.UpdatedOn.After(a1.UpdatedOn)
+	})
 
 	articleCount := len(articles)
 	//websiteIndexPage := store.idToArticle[notionWebsiteStartPage]

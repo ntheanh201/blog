@@ -1,6 +1,6 @@
 ### TODO
 
-1. 404 not found page
+1. 404 not found page [✅]
 2. change article's url [✅]
 3. archives page
 4. change time to date's property
@@ -8,3 +8,4 @@
 6. lazy loading images
 7. fix code embed: add Copy button, scroll
 8. analytics: fathom/posthog/splitbee
+9. ci/cd update posts daily
