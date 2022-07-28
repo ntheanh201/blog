@@ -158,7 +158,9 @@
         <a href="/">↫ The Anh Nguyen</a>
     </p>
     <h1>{{.Article.Title}}</h1>
+    {{ if .ShowSocialFooter }}
     <p class="date">{{.Article.PublishedOn.Format "2006-01-02"}}</p>
+    {{ end }}
     <div>
         {{.Article.HTMLBody}}
     </div>
