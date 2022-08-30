@@ -1,4 +1,4 @@
-1710 noahttpcache
+1654 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/syncRecordValues
 Body:+162
@@ -7,66 +7,61 @@ Body:+162
     {
       "pointer": {
         "table": "block",
-        "id": "71577081-5591-4a26-8770-641c28538ff3"
+        "id": "89a815c7-5bd3-480a-9d95-47699da770b1"
       },
       "version": -1
     }
   ]
 }
-Response:+1458
+Response:+1402
 {
   "recordMap": {
     "block": {
-      "71577081-5591-4a26-8770-641c28538ff3": {
+      "89a815c7-5bd3-480a-9d95-47699da770b1": {
         "role": "reader",
         "value": {
           "alive": true,
-          "content": ["738f07c5-537f-4105-a371-64da0bfe2115"],
+          "content": [
+            "cdd930de-39b4-4711-ac7f-79314ad9bb0b",
+            "6e9b1dad-e6af-4cb9-b360-9eea6975f97f",
+            "a7fb4183-2870-4c0c-b89b-d6a8dcb510ec",
+            "0118d0b8-5a73-4ab9-83d1-623451d5e97b",
+            "16be2102-ed1d-49d5-86a5-d15e77eb0a24"
+          ],
           "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "created_by_table": "notion_user",
-          "created_time": 1658974560000,
-          "id": "71577081-5591-4a26-8770-641c28538ff3",
+          "created_time": 1660883040000,
+          "id": "89a815c7-5bd3-480a-9d95-47699da770b1",
           "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1661825700000,
+          "last_edited_time": 1661843520000,
           "parent_id": "4a309763-9724-497c-971f-5aec9e9245da",
           "parent_table": "collection",
           "properties": {
-            "?oN}": [["how-i-start-this-blog"]],
-            "NX\\Q": [
-              [
-                "‣",
-                [
-                  [
-                    "d",
-                    {
-                      "start_date": "2022-07-28",
-                      "type": "date"
-                    }
-                  ]
-                ]
-              ]
-            ],
             "`gQ~": [["Post"]],
-            "f211bdc0-ee00-4186-9a7d-f68c055ec2ee": [["Published"]],
-            "sD^m": [["Website"]],
-            "title": [["Câu chuyện, sự hình thành blog cá nhân"]]
+            "f211bdc0-ee00-4186-9a7d-f68c055ec2ee": [["Idea"]],
+            "sD^m": [["Kubernetes"]],
+            "title": [
+              [
+                "Fix Warning: Kubernetes configuration file is group-readable/world-readable"
+              ]
+            ]
           },
           "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
           "type": "page",
-          "version": 88
+          "version": 57
         }
       }
     }
   }
 }
-19723 noahttpcache
+22924 noahttpcache
 Method: POST
 URL: https://www.notion.so/api/v3/loadCachedPageChunk
 Body:+166
 {
   "page": {
-    "id": "71577081-5591-4a26-8770-641c28538ff3"
+    "id": "89a815c7-5bd3-480a-9d95-47699da770b1"
   },
   "chunkNumber": 0,
   "limit": 50,
@@ -75,13 +70,52 @@ Body:+166
   },
   "verticalColumns": false
 }
-Response:+19463
+Response:+22664
 {
   "cursor": {
     "stack": []
   },
   "recordMap": {
     "block": {
+      "0118d0b8-5a73-4ab9-83d1-623451d5e97b": {
+        "role": "reader",
+        "value": {
+          "alive": true,
+          "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "created_by_table": "notion_user",
+          "created_time": 1660883100000,
+          "id": "0118d0b8-5a73-4ab9-83d1-623451d5e97b",
+          "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1660883100000,
+          "parent_id": "89a815c7-5bd3-480a-9d95-47699da770b1",
+          "parent_table": "block",
+          "properties": {
+            "title": [[""], ["chmod g-r ~/.kube/config", [["c"]]]]
+          },
+          "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
+          "type": "text",
+          "version": 5
+        }
+      },
+      "16be2102-ed1d-49d5-86a5-d15e77eb0a24": {
+        "role": "reader",
+        "value": {
+          "alive": true,
+          "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "created_by_table": "notion_user",
+          "created_time": 1660883100000,
+          "id": "16be2102-ed1d-49d5-86a5-d15e77eb0a24",
+          "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1660883100000,
+          "parent_id": "89a815c7-5bd3-480a-9d95-47699da770b1",
+          "parent_table": "block",
+          "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
+          "type": "text",
+          "version": 4
+        }
+      },
       "68f077a6-dfb3-4635-8f21-9875e80ea72c": {
         "role": "reader",
         "value": {
@@ -138,65 +172,101 @@ Response:+19463
           "view_ids": ["6c78cf03-0da3-4804-84ca-aa6d48c79cc4"]
         }
       },
-      "71577081-5591-4a26-8770-641c28538ff3": {
+      "6e9b1dad-e6af-4cb9-b360-9eea6975f97f": {
         "role": "reader",
         "value": {
           "alive": true,
-          "content": ["738f07c5-537f-4105-a371-64da0bfe2115"],
           "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "created_by_table": "notion_user",
-          "created_time": 1658974560000,
-          "id": "71577081-5591-4a26-8770-641c28538ff3",
+          "created_time": 1660883100000,
+          "id": "6e9b1dad-e6af-4cb9-b360-9eea6975f97f",
           "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1661825700000,
+          "last_edited_time": 1660883100000,
+          "parent_id": "89a815c7-5bd3-480a-9d95-47699da770b1",
+          "parent_table": "block",
+          "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
+          "type": "text",
+          "version": 6
+        }
+      },
+      "89a815c7-5bd3-480a-9d95-47699da770b1": {
+        "role": "reader",
+        "value": {
+          "alive": true,
+          "content": [
+            "cdd930de-39b4-4711-ac7f-79314ad9bb0b",
+            "6e9b1dad-e6af-4cb9-b360-9eea6975f97f",
+            "a7fb4183-2870-4c0c-b89b-d6a8dcb510ec",
+            "0118d0b8-5a73-4ab9-83d1-623451d5e97b",
+            "16be2102-ed1d-49d5-86a5-d15e77eb0a24"
+          ],
+          "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "created_by_table": "notion_user",
+          "created_time": 1660883040000,
+          "id": "89a815c7-5bd3-480a-9d95-47699da770b1",
+          "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1661822940000,
           "parent_id": "4a309763-9724-497c-971f-5aec9e9245da",
           "parent_table": "collection",
           "properties": {
-            "?oN}": [["how-i-start-this-blog"]],
-            "NX\\Q": [
+            "title": [
               [
-                "‣",
-                [
-                  [
-                    "d",
-                    {
-                      "start_date": "2022-07-28",
-                      "type": "date"
-                    }
-                  ]
-                ]
+                "Fix Warning: Kubernetes configuration file is group-readable/world-readable"
               ]
-            ],
-            "`gQ~": [["Post"]],
-            "f211bdc0-ee00-4186-9a7d-f68c055ec2ee": [["Published"]],
-            "sD^m": [["Website"]],
-            "title": [["Câu chuyện, sự hình thành blog cá nhân"]]
+            ]
           },
           "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
           "type": "page",
-          "version": 88
+          "version": 53
         }
       },
-      "738f07c5-537f-4105-a371-64da0bfe2115": {
+      "a7fb4183-2870-4c0c-b89b-d6a8dcb510ec": {
         "role": "reader",
         "value": {
           "alive": true,
           "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "created_by_table": "notion_user",
-          "created_time": 1658975700000,
-          "id": "738f07c5-537f-4105-a371-64da0bfe2115",
+          "created_time": 1660883100000,
+          "id": "a7fb4183-2870-4c0c-b89b-d6a8dcb510ec",
           "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
           "last_edited_by_table": "notion_user",
-          "last_edited_time": 1658975700000,
-          "parent_id": "71577081-5591-4a26-8770-641c28538ff3",
+          "last_edited_time": 1660883100000,
+          "parent_id": "89a815c7-5bd3-480a-9d95-47699da770b1",
           "parent_table": "block",
           "properties": {
-            "title": [["Câu chuyện"]]
+            "title": [[""], ["chmod o-r ~/.kube/config", [["c"]]]]
           },
           "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
           "type": "text",
-          "version": 21
+          "version": 3
+        }
+      },
+      "cdd930de-39b4-4711-ac7f-79314ad9bb0b": {
+        "role": "reader",
+        "value": {
+          "alive": true,
+          "created_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "created_by_table": "notion_user",
+          "created_time": 1660883113894,
+          "id": "cdd930de-39b4-4711-ac7f-79314ad9bb0b",
+          "last_edited_by_id": "75c7d4a8-3515-48ef-b5d1-e42071b3e04e",
+          "last_edited_by_table": "notion_user",
+          "last_edited_time": 1661822940000,
+          "parent_id": "89a815c7-5bd3-480a-9d95-47699da770b1",
+          "parent_table": "block",
+          "properties": {
+            "title": [
+              ["WARNING", [["b"]]],
+              [
+                ": Kubernetes configuration file is group-readable. This is insecure. Location: /home/ubuntu/.kube/config\nWARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/ubuntu/.kube/config"
+              ]
+            ]
+          },
+          "space_id": "d46017a1-5b71-4f77-8e80-9d3f96cbe746",
+          "type": "text",
+          "version": 4
         }
       }
     },

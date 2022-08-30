@@ -1,13 +1,10 @@
 package entity
 
 type BlockExtend struct {
-	Slug      []interface{} `json:"slug,omitempty"`
-	Title     []interface{} `json:"title,omitempty"`
-	StartDate []interface{} `json:"NX\\Q,omitempty"`
-	Tags      []interface{}
-	Type      []interface{}
-}
-
-type BlockConvert struct {
-	Type []string
+	Slug  string
+	Title string
+	//StartDate string
+	Tags   []string
+	Type   string
+	Status string
 }

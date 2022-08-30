@@ -15,10 +15,10 @@ import (
 
 // for Article.Status
 const (
-	statusNormal       = iota // show on main page
-	statusNotImportant        // linked from archive page, but not main page
-	statusHidden              // not linked from any page but accessible via url
-	statusDeleted             // not shown at all
+	statusPublished = iota // show on main page
+	statusIdea
+	statusDraft
+	statusRevise
 )
 
 // URLPath describes
@@ -138,7 +138,7 @@ func (a *Article) UpdatedAge() int {
 
 // IsHidden returns true if article should not be shown in the index
 func (a *Article) IsHidden() bool {
-	return a.Status == statusHidden || a.Status == statusDeleted || a.Status == statusNotImportant
+	return a.Status == statusIdea || a.Status == statusDraft || a.Status == statusRevise
 }
 
 func (a *Article) getBlockInfo(block *notionapi.Block) *BlockInfo {
@@ -229,16 +229,16 @@ func parseDate(s string) (time.Time, error) {
 
 func parseStatus(status string) (int, error) {
 	status = strings.TrimSpace(strings.ToLower(status))
-	if status == "" {
-		return statusNormal, nil
+	if status == "" || status == "Published" {
+		return statusPublished, nil
 	}
 	switch status {
-	case "hidden":
-		return statusHidden, nil
-	case "notimportant":
-		return statusNotImportant, nil
-	case "deleted":
-		return statusDeleted, nil
+	case "Idea":
+		return statusIdea, nil
+	case "Draft":
+		return statusDraft, nil
+	case "Revise":
+		return statusRevise, nil
 	default:
 		return 0, fmt.Errorf("'%s' is not a valid status", status)
 	}
@@ -342,7 +342,7 @@ func (a *Article) maybeParseGallery(block *notionapi.Block, nBlock int, blocks [
 	return true
 }
 
-// parse: `#url ${url}`` followed by an image block
+// parse: `#url ${url}“ followed by an image block
 // returns true if block was this kind of block
 func (a *Article) maybeParseImageURL(block *notionapi.Block, nBlock int, blocks []*notionapi.Block) bool {
 	if block.Type != notionapi.BlockText {
@@ -425,6 +425,7 @@ func (a *Article) maybeParseMeta(nBlock int, block *notionapi.Block) bool {
 		return false
 	}
 	key := strings.ToLower(strings.TrimSpace(parts[0]))
+	fmt.Println("Key: ", key)
 	val := strings.TrimSpace(parts[1])
 	switch key {
 	case "tags":
@@ -544,7 +545,7 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 	id := normalizeID(root.ID)
 
 	properties := page.Root().Properties
-	var blockExtend map[string]interface{}
+	var blockExtend map[string][][]string
 	err := mapstructure.Decode(properties, &blockExtend)
 	if err != nil {
 		fmt.Println("error unmarshal block extend with properties")
@@ -556,70 +557,22 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 	// Loop through the Items; we're not interested in the key, just the values
 	for key, v := range itemsMap {
 		// Use type assertions to ensure that the value's a JSON object
-		fmt.Println("key: ", key)
-		switch v.(type) {
-		// The value is an Item, represented as a generic interface
-		case interface{}:
-
-			switch key {
-			case "NX\\Q":
-				item.StartDate = v.([]interface{})
-			case "`gQ~":
-				item.Type = v.([]interface{})
-			case "title":
-				item.Title = v.([]interface{})
-			case "d]hq":
-				item.Slug = v.([]interface{})
-			case "sD^m":
-				item.Tags = v.([]interface{})
-			}
-
-			// Access the values in the JSON object and place them in an Item
-			//for itemKey, itemValue := range jsonObj.([]interface{}) {
-			//	switch itemKey {
-			//	//case "`gQ~":
-			//	//	// Make sure that Item1 is a string
-			//	//	switch itemValue := itemValue.(type) {
-			//	//	//case string:
-			//	//	//	item.Tag = itemValue
-			//	//	default:
-			//	//		fmt.Println(itemValue)
-			//	//		fmt.Println("Incorrect type for", itemKey)
-			//	//	}
-			//	//case "Item2":
-			//	//	// Make sure that Item2 is a number; all numbers are transformed to float64
-			//	//	switch itemValue := itemValue.(type) {
-			//	//	case float64:
-			//	//	//	item.Item2 = int(itemValue)
-			//	//	default:
-			//	//		fmt.Println(itemValue)
-			//	//		fmt.Println("Incorrect type for", itemKey)
-			//	//	}
-			//	default:
-			//		fmt.Println("key: ", itemKey, "- ", itemValue)
-			//		fmt.Println("Unknown key for Item found in JSON")
-			//	}
-			//}
-
-		// Not a JSON object; handle the error
-		default:
-			fmt.Println("Expecting a JSON object; got something else")
+		//fmt.Println("key: ", key, v)
+		switch key {
+		//case "NX\\Q":
+		//	item.StartDate = v[0][0]
+		case "`gQ~":
+			item.Type = v[0][0]
+		case "title":
+			item.Title = v[0][0]
+		case "d]hq":
+			item.Slug = v[0][0]
+		case "sD^m":
+			item.Tags = v[0]
+		case "f211bdc0-ee00-4186-9a7d-f68c055ec2ee":
+			item.Status = v[0][0]
 		}
-		fmt.Println("item: ", item)
-	}
-
-	articleTypeS := make([]string, len(item.Type))
-	for i, v := range item.Type {
-		for _, y := range v.([]interface{}) {
-			articleTypeS[i] = y.(string)
-		}
-	}
-
-	var articleTags []string
-	for _, v := range item.Tags {
-		for _, y := range v.([]interface{}) {
-			articleTags = append(articleTags, y.(string))
-		}
+		//fmt.Println("item: ", item)
 	}
 
 	a := &Article{
@@ -627,8 +580,19 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 		Title:        title,
 		blockInfos:   map[*notionapi.Block]*BlockInfo{},
 		notionClient: c,
-		Type:         articleTypeS[0],
-		Tags:         articleTags,
+		Tags:         item.Tags,
+		Type:         item.Type,
+	}
+
+	switch item.Status {
+	case "Published":
+		a.Status = statusPublished
+	case "Idea":
+		a.Status = statusIdea
+	case "Draft":
+		a.Status = statusDraft
+	case "Revise":
+		a.Status = statusRevise
 	}
 
 	// allow debugging for specific pages

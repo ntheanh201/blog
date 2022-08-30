@@ -1,11 +1,10 @@
 package main
 
 import (
+	"github.com/kjk/notionapi"
 	"html/template"
 	"sort"
 	"time"
-
-	"github.com/kjk/notionapi"
 )
 
 var (
@@ -192,7 +191,11 @@ func loadArticles(d *notionapi.CachingClient) *Articles {
 		if article.IsBlog() {
 			res.blog = append(res.blog, article)
 		}
-		res.articles = append(res.articles, article)
+
+		// filter only Published post to be posted
+		if !article.IsHidden() {
+			res.articles = append(res.articles, article)
+		}
 	}
 
 	for _, article := range res.articles {
