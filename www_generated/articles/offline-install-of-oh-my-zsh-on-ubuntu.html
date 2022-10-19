@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+
+<head>
+    <script async src="https://cdn.splitbee.io/sb.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="always">
+    <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml">
+    <link rel="canonical" href="https://kinn.dev/articles/offline-install-of-oh-my-zsh-on-ubuntu.html"/>
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@ntheanh201">
+    <meta name="twitter:title" content="Offline install of oh-my-zsh on Ubuntu">
+    
+    <meta name="twitter:creator" content="@ntheanh201">
+    
+    <meta name="twitter:image" content="https://kinn.dev">
+     
+
+    
+    <meta property="og:title" content="Offline install of oh-my-zsh on Ubuntu">
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://kinn.dev/articles/offline-install-of-oh-my-zsh-on-ubuntu.html"/>
+     
+    <meta property="og:image" content="https://kinn.dev">
+    
+
+    <title>Offline install of oh-my-zsh on Ubuntu</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script type="text/javascript">
+        function showcontact() {
+            var el = document.getElementById("contact-form");
+            el.style.display = "block";
+            el = document.getElementById("contact-page-url");
+            var uri = window.location.href;
+            uri = uri.replace("#", "");
+            el.value = uri;
+            el = document.getElementById("msg-for-chris");
+            el.focus();
+        }
+
+        function hidecontact() {
+            var el = document.getElementById("contact-form");
+            el.style.display = "none";
+        }
+
+        function isWindows() {
+            return window.navigator &&
+                window.navigator.platform &&
+                window.navigator.platform.indexOf('Win') >= 0
+        }
+
+        function maybeShowAd() {
+            
+            
+
+        }
+
+        function onLoaded() {
+            maybeShowAd();
+        }
+
+        document.addEventListener("DOMContentLoaded", onLoaded);
+    </script>
+    <script type="text/javascript">
+        var galleries = {}; 
+        function buildGalleriesInfo() {
+            var els = document.getElementsByTagName("img");
+            var n = els.length;
+            for (var i = 0; i < n; i++) {
+                var el = els[i];
+                var id = el.id;
+                if (!id.startsWith("id-thumb-img-")) {
+                    continue
+                }
+                id = id.replace("id-thumb-img-", "")
+                
+                var parts = id.split("-");
+                var galleryID = parseInt(parts[0]);
+                var imageNo = parseInt(parts[1]);
+                var galleryInfo = galleries[galleryID] || {};
+                galleryInfo[imageNo] = el.src;
+                galleries[galleryID] = galleryInfo;
+            }
+            var ids = Object.keys(galleries);
+            for (var gid of ids) {
+                var galleryInfo = galleries[gid];
+                galleryInfo.nImages = Object.keys(galleryInfo).length;
+                galleryInfo.currImageNo = 0;
+                changeShot(gid, 0);
+            }
+        }
+
+        function changeShot(galleryID, imgNo) {
+            var gi = galleries[galleryID];
+            gi.currImageNo = imgNo;
+            var url = gi[imgNo];
+            var id = "id-gallery-" + galleryID;
+            var el = document.getElementById(id);
+            el.src = url;
+            
+            for (var i = 0; i < gi.nImages; i++) {
+                id = "id-thumb-" + galleryID + "-" + i;
+                el = document.getElementById(id);
+                if (i == imgNo) {
+                    el.classList.add("selected-img");
+                } else {
+                    el.classList.remove("selected-img");
+                }
+            }
+            var els = document.getElementsByTagName("div");
+            var nEls = els.length;
+        }
+
+        function imgNext(galleryID) {
+            var gi = galleries[galleryID];
+            var nImages = gi.nImages;
+            var imgNo = gi.currImageNo;
+            imgNo = (imgNo + 1) % nImages;
+            changeShot(galleryID, imgNo);
+        }
+
+        function imgPrev(galleryID) {
+            var gi = galleries[galleryID];
+            var imgNo = gi.currImageNo - 1;
+            if (imgNo < 0) {
+                imgNo = gi.nImages - 1;
+            }
+            changeShot(galleryID, imgNo);
+        }
+
+        document.addEventListener("DOMContentLoaded", buildGalleriesInfo);
+    </script>
+
+</head>
+
+<body>
+<div id="content">
+    <p class='name-header'>
+        <a href="/">↫ The Anh Nguyen</a>
+    </p>
+    <h1>Offline install of oh-my-zsh on Ubuntu</h1>
+    
+    <p class="date">2022-08-18</p>
+    
+    <div>
+        <p></p>
+<div class="notion-page" id="b0a75a28-fdd6-491e-8c57-cd61259fd20a">
+  <ol id="8c252a79-eb98-4bdf-b870-50cb53dcedcc" class="numbered-list" start="1">
+    <li>Before starting, install git and zsh
+    </li>
+  </ol>
+  <p id="39ea9dc6-9cb1-471d-94f6-4f9ec6676ce1" class=" notion-text-block"><code>sudo apt-get install git-core zsh</code>
+  </p>
+  <ol id="6be6adf9-aa8d-483a-96bd-0d7eb89722eb" class="numbered-list" start="1">
+    <li>Go to the repository and download the zip file
+    </li>
+  </ol>
+  <p id="07fefc7b-7644-496d-a7d5-83ba591787c9" class=" notion-text-block"><a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</a>
+  </p>
+  <ol id="2eb03828-de54-47a8-88b0-db510bcbf256" class="numbered-list" start="1">
+    <li>Open the zip file and extract to your home folder, and rename to .oh-my-zsh
+    </li>
+  </ol>
+  <p id="356a004e-331d-408b-8913-d52b3e1e1c6b" class=" notion-text-block"><code>oh-my-zsh-master</code> -&gt; <code>~/.oh-my-zsh</code>
+  </p>
+  <ol id="014f134e-af59-4a74-9271-866aedcd7c44" class="numbered-list" start="1">
+    <li>Save the file <code>install-oh-my-zsh.sh</code> to your home folder, like <code>~/install-oh-my-zsh.sh</code>
+    </li>
+    <li>Give permission to execute
+    </li>
+  </ol><pre tabindex="0" class="chroma"><code><span class="line"><span class="cl">chmod +x install-oh-my-zsh.sh</span></span></code></pre>
+  <ol id="13e54a0c-f16b-4436-a484-57ce63e186c6" class="numbered-list" start="1">
+    <li>Run the script
+    </li>
+  </ol><pre tabindex="0" class="chroma"><code><span class="line"><span class="cl">./install-oh-my-zsh.sh</span></span></code></pre>
+  <ol id="1ac9119e-41b5-451b-93ea-def1d4a6ad49" class="numbered-list" start="1">
+    <li>Set default sh
+    </li>
+  </ol><pre tabindex="0" class="chroma"><code><span class="line"><span class="cl">chsh -s <span class="sb">`</span>which zsh<span class="sb">`</span></span></span></code></pre>
+  <ol id="91b85644-1405-4c10-b381-ca4b7246a03e" class="numbered-list" start="1">
+    <li>Restart!
+    </li>
+  </ol><pre tabindex="0" class="chroma"><code><span class="line"><span class="cl">sudo shutdown -r <span class="m">0</span></span></span></code></pre>
+  <p id="7d64075f-1111-4ef1-96bf-45b21103da2d" class=" notion-text-block">
+  </p>
+  <p id="43e74595-c6ac-4cfd-8226-c9abf91a396e" class=" notion-text-block">
+  </p><pre tabindex="0" class="chroma"><code><span class="line"><span class="cl">main<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Use colors, but only if connected to a terminal, and that terminal</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># supports them.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> which tput &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">ncolors</span><span class="o">=</span><span class="k">$(</span>tput colors<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> -t <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$ncolors</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$ncolors</span><span class="s2">&#34;</span> -ge <span class="m">8</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">RED</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput setaf 1<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput setaf 2<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput setaf 3<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput setaf 4<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput bold<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>tput sgr0<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">RED</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Only enable exit-on-error after the non-critical colorization stuff,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># which may fail on systems lacking tput or terminfo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">CHECK_ZSH_INSTALLED</span><span class="o">=</span><span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> ! <span class="nv">$CHECK_ZSH_INSTALLED</span> -ge <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Zsh is not installed!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> Please install zsh first!\n&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">unset</span> CHECK_ZSH_INSTALLED
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> ! -n <span class="s2">&#34;</span><span class="nv">$ZSH</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ZSH</span><span class="o">=</span>~/.oh-my-zsh
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Prevent the cloned repository from having insecure permissions. Failing to do</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># so causes compinit() calls to fail with &#34;command not found: compdef&#34; errors</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># for users with insecure umasks (e.g., &#34;002&#34;, allowing group writability). Note</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># that this will be ignored under Cygwin by default, as Windows ACLs take</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># precedence over umasks except for filesystems mounted with option &#34;noacl&#34;.</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">umask</span> g-w,o-w
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Cloning Oh My Zsh...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">hash</span> git &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Error: git is not installed&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># The Windows (MSYS) Git is not compatible with normal use on cygwin</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$OSTYPE</span><span class="s2">&#34;</span> <span class="o">=</span> cygwin <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> git --version <span class="p">|</span> grep msysgit &gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;Error: Windows/MSYS Git is not supported on Cygwin&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">&#34;Error: Make sure the Cygwin git package is installed and is first on the path&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Looking for an existing zsh config...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> -f ~/.zshrc <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -h ~/.zshrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Found ~/.zshrc.</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Backing up to ~/.zshrc.pre-oh-my-zsh</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">  cp <span class="nv">$ZSH</span>/templates/zshrc.zsh-template ~/.zshrc
+</span></span><span class="line"><span class="cl">  sed <span class="s2">&#34;/^export ZSH=/ c\\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  export ZSH=</span><span class="nv">$ZSH</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  &#34;</span> ~/.zshrc &gt; ~/.zshrc-omztemp
+</span></span><span class="line"><span class="cl">  mv -f ~/.zshrc-omztemp ~/.zshrc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># If this user&#39;s login shell is not already &#34;zsh&#34;, attempt to switch.</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">TEST_CURRENT_SHELL</span><span class="o">=</span><span class="k">$(</span>expr <span class="s2">&#34;</span><span class="nv">$SHELL</span><span class="s2">&#34;</span> : <span class="s1">&#39;.*/\(.*\)&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$TEST_CURRENT_SHELL</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;zsh&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># If this platform provides a &#34;chsh&#34; command (not Cygwin), do it, man!</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">hash</span> chsh &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Time to change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">      chsh -s <span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> tail -1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Else, suggest the user do so manually.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">&#34;I can&#39;t change your shell automatically because this system does not have chsh.\n&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Please manually change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;         __                                     __   &#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;  ____  / /_     ____ ___  __  __   ____  _____/ /_  &#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39; / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ &#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / &#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  &#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;                        /____/                       ....is now installed!&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;Please look over the ~/.zshrc file to select plugins, themes, and options.&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;p.s. Follow us at https://twitter.com/ohmyzsh.&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  env zsh
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">main</span></span></code></pre>
+  <p id="db01daf4-21ab-400f-a7d4-bb2b73ab89b1" class=" notion-text-block">
+  </p>
+  <p id="b6428e90-5d56-455a-9b85-d49ad523157c" class=" notion-text-block">Source: <a href="https://gist.github.com/hewerthomn/65bb351bf950470f6c9e6aba8c0c04f1">https://gist.github.com/hewerthomn/65bb351bf950470f6c9e6aba8c0c04f1</a>
+  </p>
+</div>
+    </div>
+    
+    <p class='social-footer'>—
+        <a href='https://facebook.com/ntheanh201'>
+            @ntheanh201</a></p>
+    
+</div>
+
+
+
+</body>
+
+</html>

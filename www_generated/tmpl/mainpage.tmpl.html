@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="referrer" content="always"/>
+    <meta name="description" content="The site of The Anh Nguyen, software/devops engineer"/>
+    <title>The Anh Nguyen</title>
+    <link href="/css/main.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <script async src="https://cdn.splitbee.io/sb.js"></script>
+</head>
+
+<body>
+<div id="content">
+    <p>
+        The site of <b>The Anh Nguyen</b>, software engineer, with a passion for devops/cloud
+
+    </p>
+
+    <p> You can also find me here:
+        <a
+                href='https://github.com/ntheanh201'
+                title='GitHub @ntheanh201'
+                target='_blank'
+                rel='noopener noreferrer'
+        >
+            GitHub</a>
+        /
+        <a
+                href='https://facebook.com/ntheanh201'
+                title='Facebook @${config.facebook}'
+                target='_blank'
+                rel='noopener noreferrer'
+        >
+            Facebook</a>
+        /
+        <a
+                href='https://linkedin.com/in/ntheanh201'
+                title='LinkedIn @${config.linkedin}'
+                target='_blank'
+                rel='noopener noreferrer'
+        >
+            LinkedIn
+        </a>
+    </p>
+
+    <ul class='index'>
+        {{ range.Articles }}
+        <li>
+            <span class='index-date'>
+                {{.UpdatedOn.Format "2006-01-02"}}
+            </span>
+            <a href="{{.URL}}">{{.Title}}</a>
+        </li>
+        {{ end }}
+        {{ range.PagesSite }}
+        <li>
+            <span class='index-date'>
+                ☸️
+            </span>
+            <a href="{{.URL}}">{{.Title}}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ template "analytics.tmpl.html" . }}
+</body>
+</html>
