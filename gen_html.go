@@ -228,7 +228,7 @@ func genIndex(store *Articles, w io.Writer) error {
 	sort.Slice(articles, func(i, j int) bool {
 		a1 := articles[i]
 		a2 := articles[j]
-		return a1.UpdatedOn.After(a2.UpdatedOn)
+		return a1.PublishedOn.After(a2.PublishedOn)
 	})
 
 	sort.Slice(pagesSite, func(i, j int) bool {
