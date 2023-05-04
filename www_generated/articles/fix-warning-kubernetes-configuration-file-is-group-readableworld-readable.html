@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="always">
     <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml">
-    <link rel="canonical" href="https://ntheanh201.vercel.app/articles/about.html"/>
+    <link rel="canonical" href="https://ntheanh201.vercel.app/articles/fix-warning-kubernetes-configuration-file-is-group-readableworld-readable.html"/>
     
 
     
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@ntheanh201">
-    <meta name="twitter:title" content="About">
+    <meta name="twitter:title" content="Fix Warning: Kubernetes configuration file is group-readable/world-readable">
     
     <meta name="twitter:creator" content="@ntheanh201">
     
@@ -21,14 +21,14 @@
      
 
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Fix Warning: Kubernetes configuration file is group-readable/world-readable">
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://ntheanh201.vercel.app/articles/about.html"/>
+    <meta property="og:url" content="https://ntheanh201.vercel.app/articles/fix-warning-kubernetes-configuration-file-is-group-readableworld-readable.html"/>
      
     <meta property="og:image" content="https://ntheanh201.vercel.app">
     
 
-    <title>About</title>
+    <title>Fix Warning: Kubernetes configuration file is group-readable/world-readable</title>
 
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -144,38 +144,28 @@
     <p class='name-header'>
         <a href="/">↫ The Anh Nguyen</a>
     </p>
-    <h1>About</h1>
+    <h1>Fix Warning: Kubernetes configuration file is group-readable/world-readable</h1>
+    
+    <p class="date">2022-08-19</p>
     
     <div>
         <p></p>
-<div class="notion-page" id="4c0533bd-0707-48e2-b2ae-f23c07bebb27">
-  <p id="af14bff0-ef3c-476f-8ee3-c34fac5e1481" class=" notion-text-block">Hi, folks! 👋
+<div class="notion-page" id="89a815c7-5bd3-480a-9d95-47699da770b1">
+  <p id="cdd930de-39b4-4711-ac7f-79314ad9bb0b" class=" notion-text-block"><strong>WARNING</strong>: Kubernetes configuration file is group-readable. This is insecure. Location: /home/ubuntu/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/ubuntu/.kube/config
   </p>
-  <p id="0a59c752-f858-4ec3-b5d9-6c81053f5779" class=" notion-text-block">My name is The Anh Nguyen, currently based in Hanoi, Vietnam.
+  <p id="6e9b1dad-e6af-4cb9-b360-9eea6975f97f" class=" notion-text-block">
   </p>
-  <p id="1987b4cb-e25a-449b-bd63-f3fcf5e0c9c8" class=" notion-text-block">🔭 I’m currently doing DevOps things
+  <p id="a7fb4183-2870-4c0c-b89b-d6a8dcb510ec" class=" notion-text-block"><code>chmod o-r ~/.kube/config</code>
   </p>
-  <p id="8d00eaf1-4c09-40b1-990d-d51baaa0b470" class=" notion-text-block">
-  </p>
-  <p id="e17358a1-85f1-4399-bfe6-2a905a9511c5" class=" notion-text-block">📝 Some projects I contribute:
-  <div class="indented">
-    <p id="93ff34dc-e608-48ea-816f-641341e9251d" class=" notion-text-block">🏄‍♀️ VCar, VCar for Business (<a href="https://viettel.vn/vcar">https://viettel.vn/vcar</a>)
-    </p>
-    <p id="a5d1930c-1795-491a-90cb-cddbe41868f0" class=" notion-text-block">🏄‍♀️ ConferenceDirect (<a href="https://register.conference-direct.com/dashboard">https://register.conference-direct.com</a>) 
-    </p>
-    <p id="d3010010-d6b3-4120-98b4-3851db5fb399" class=" notion-text-block">🏄‍♀️ Grindery (<a href="https://nexus.grindery.org/">https://nexus.grindery.org/</a>)
-    </p>
-    <p id="c0684080-3f04-4bc8-87c2-62e3d84d32ed" class=" notion-text-block">🏄‍♀️ Snapify
-    </p>
-    <p id="48894273-9900-4416-bd86-344ab5ae4dd2" class=" notion-text-block">🏄‍♀️ …
-
-    </p>
-  </div>
-  </p>
-  <p id="652855a9-df51-4062-babd-73eca101d203" class=" notion-text-block">🤹‍♂️ This blog’s source code is available at: <a href="https://github.com/ntheanh201/blog">https://github.com/ntheanh201/blog</a>
+  <p id="0118d0b8-5a73-4ab9-83d1-623451d5e97b" class=" notion-text-block"><code>chmod g-r ~/.kube/config</code>
   </p>
 </div>
     </div>
+    
+    <p class='social-footer'>—
+        <a href='https://facebook.com/ntheanh201'>
+            @ntheanh201</a></p>
     
 </div>
 
