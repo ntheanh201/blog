@@ -68,6 +68,8 @@ type Article struct {
 	Title                string
 	Type                 string
 	Tags                 []string
+	Summary              string
+	Slug                 string
 	BodyHTML             string
 	HTMLBody             template.HTML
 	HeaderImageURL       string
@@ -453,6 +455,8 @@ func (a *Article) maybeParseMeta(nBlock int, block *notionapi.Block) bool {
 	case "description":
 		a.Description = val
 		logTemp("Description: %s\n", a.Description)
+	case "summary":
+		a.Summary = val
 	case "headerimage":
 		a.setHeaderImageMust(val)
 	case "collection":

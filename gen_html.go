@@ -309,6 +309,7 @@ func genArticle(article *Article, w io.Writer) error {
 		HeaderImageURL   string
 		NotionEditURL    string
 		Description      string
+		Summary          string
 		TwitterShareURL  string
 		FacebookShareURL string
 		LinkedInShareURL string
@@ -319,6 +320,7 @@ func genArticle(article *Article, w io.Writer) error {
 		CoverImage:       "https://ntheanh201.vercel.app" + article.HeaderImageURL,
 		PageTitle:        article.Title,
 		Description:      article.Description,
+		Summary:          article.Summary,
 		TwitterShareURL:  makeTwitterShareURL(article),
 		FacebookShareURL: makeFacebookShareURL(article),
 		LinkedInShareURL: makeLinkedinShareURL(article),
