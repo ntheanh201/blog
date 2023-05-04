@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+
 	"github.com/kjk/notionapi"
 )
 
@@ -16,7 +17,8 @@ func CollectionViewToPages(d *notionapi.CachingClient) []string {
 					ID      string `json:"id"`
 					SpaceID string `json:"spaceId"`
 				}{
-					ID: b.CollectionID,
+					ID:      b.CollectionID,
+					SpaceID: b.SpaceID,
 				},
 				CollectionView: struct {
 					ID      string `json:"id"`

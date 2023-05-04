@@ -48,7 +48,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 
 	feed := &atom.Feed{
 		Title:   "The Anh Nguyen blog",
-		Link:    "https://kinn.dev/atom.xml",
+		Link:    "https://ntheanh201.vercel.app/atom.xml",
 		PubDate: pubTime,
 	}
 
@@ -56,7 +56,7 @@ func genAtomXML(store *Articles, excludeNotes bool) ([]byte, error) {
 		//id := fmt.Sprintf("tag:blog.kowalczyk.info,1999:%d", a.Id)
 		e := &atom.Entry{
 			Title:   a.Title,
-			Link:    "https://kinn.dev" + a.URL(),
+			Link:    "https://ntheanh201.vercel.app" + a.URL(),
 			Content: a.BodyHTML,
 			PubDate: a.PublishedOn,
 		}
@@ -81,7 +81,7 @@ func wwwWriteFile(fileName string, d []byte) {
 
 // TODO: should be https://blog.kjk.workers.dev for dev deployment
 func getHostURL() string {
-	return "https://kinn.dev"
+	return "https://ntheanh201.vercel.app"
 }
 
 // https://www.linkedin.com/shareArticle?mini=true&;url=https://nodesource.com/blog/why-the-new-v8-is-so-damn-fast"
@@ -316,7 +316,7 @@ func genArticle(article *Article, w io.Writer) error {
 	}{
 		Article:          article,
 		CanonicalURL:     canonicalURL,
-		CoverImage:       "https://kinn.dev" + article.HeaderImageURL,
+		CoverImage:       "https://ntheanh201.vercel.app" + article.HeaderImageURL,
 		PageTitle:        article.Title,
 		Description:      article.Description,
 		TwitterShareURL:  makeTwitterShareURL(article),
