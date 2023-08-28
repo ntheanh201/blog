@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/mitchellh/mapstructure"
-	"github.com/ntheanh201/blog/entity"
 	"html/template"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/mitchellh/mapstructure"
+
+	"github.com/ntheanh201/blog/entity"
 
 	"github.com/kjk/notionapi"
 )
@@ -550,6 +552,7 @@ func notionPageToArticle(c *notionapi.CachingClient, page *notionapi.Page) *Arti
 
 	properties := page.Root().Properties
 	var blockExtend map[string][][]string
+	fmt.Println("properties: ", properties)
 	err := mapstructure.Decode(properties, &blockExtend)
 	if err != nil {
 		fmt.Println("error unmarshal block extend with properties")

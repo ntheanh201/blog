@@ -84,7 +84,7 @@ func serverGet(uri string) func(w http.ResponseWriter, r *http.Request) {
 		return func(w http.ResponseWriter, r *http.Request) {
 			//logf(ctx(), "serverGet: will serve '%s' with '%s'\n", uri, "genSiteMap")
 			serveStart(w, r, uri)
-			d, err := genSiteMap(store, "https://ntheanh201.vercel.app")
+			d, err := genSiteMap(store, "https://ntheanh201.id.vn")
 			writeData(w, d, err)
 		}
 	case "/atom.xml":
@@ -276,8 +276,8 @@ func makeHTTPServer(srv *server.Server) *http.Server {
 			}
 
 			// noticed those urls in logs
-			if strings.HasPrefix(uri, "/ntheanh201.vercel.app/") {
-				newURI := strings.TrimPrefix(uri, "/ntheanh201.vercel.app")
+			if strings.HasPrefix(uri, "/ntheanh201.id.vn/") {
+				newURI := strings.TrimPrefix(uri, "/ntheanh201.id.vn")
 				ref := r.Header.Get("Referer")
 				logf(ctx(), "redirecting '%s' => '%s', referer: '%s'\n", uri, newURI, ref)
 				http.Redirect(w, r, newURI, http.StatusTemporaryRedirect)
